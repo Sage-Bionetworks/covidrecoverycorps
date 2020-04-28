@@ -6,6 +6,7 @@ import useForm from '../useForm'
 import { STUDY_ID, ENDPOINT, RegistrationData, LoginType } from '../types'
 import { callEndpoint, makePhone, sendSignInRequest } from '../utility'
 import Button from '@material-ui/core/Button/Button'
+import TextField from '@material-ui/core/TextField/TextField'
 
 type RegistrationProps = {
   onSuccessFn: Function
@@ -17,7 +18,7 @@ const PHONE_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/phone'
 
 export const Registration: React.FunctionComponent<RegistrationProps> = ({
   onSuccessFn,
-  onErrorFn
+  onErrorFn,
 }: RegistrationProps) => {
   const stateSchema = {
     firstName: { value: '', error: '' },
@@ -25,7 +26,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
     lastName: { value: '', error: '' },
     email: { value: '', error: '' },
     phone: { value: '', error: '' },
-    registrationType: { value: '', error: '' }
+    registrationType: { value: '', error: '' },
   }
 
   const validationStateSchema = {
@@ -34,17 +35,17 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
     phone: {
       validator: {
         regEx: /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
-        error: 'Invalid Phone'
-      }
+        error: 'Invalid Phone',
+      },
     },
     registrationType: {},
 
     firstName: {
-      required: true
+      required: true,
     },
     lastName: {
-      required: true
-    }
+      required: true,
+    },
   }
 
   const submitRegistration = async (registrationData: RegistrationData) => {
@@ -67,12 +68,12 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
       email: state.email.value,
       phone: state.phone.value ? makePhone(state.phone.value) : undefined,
       clientData: {},
-      study: STUDY_ID
+      study: STUDY_ID,
     }
     let loginType: LoginType = 'EMAIL'
     const endPoint = {
       PHONE: `${ENDPOINT}${PHONE_SIGN_IN_TRIGGER_ENDPOINT}`,
-      EMAIL: `${ENDPOINT}${EMAIL_SIGN_IN_TRIGGER_ENDPOINT}`
+      EMAIL: `${ENDPOINT}${EMAIL_SIGN_IN_TRIGGER_ENDPOINT}`,
     }
     if (state.registrationType == 'EMAIL') {
       delete data.phone
@@ -111,12 +112,12 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
   )
   const errorStyle = {
     color: 'red',
-    fontSize: '13px'
+    fontSize: '13px',
   }
 
   const handleSignupTypeChange = (val: any) => {
     handleOnChange({
-      target: { name: 'registrationType', value: val }
+      target: { name: 'registrationType', value: val },
     })
   }
   return (
@@ -131,9 +132,10 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
         <form className="demoForm" onSubmit={handleOnSubmit}>
           <div className="form-group">
             <label htmlFor="firstName">What is your first name</label>
-            <input
+            <TextField
+              variant="outlined"
               type="text"
-              className="form-control"
+              fullWidth
               value={state.firstName.value}
               onChange={handleOnChange}
               name="firstName"
@@ -141,9 +143,11 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
           </div>
           <div className="form-group">
             <label htmlFor="lastName">What is your last name</label>
-            <input
+            <TextField
+              variant="outlined"
               type="text"
-              className="form-control"
+              fullWidth
+    
               value={state.lastName.value}
               onChange={handleOnChange}
               name="lastName"
@@ -163,7 +167,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
               value={state.registrationType.value}
               onChange={(_event: any, val: string) =>
                 handleOnChange({
-                  target: { name: 'registrationType', value: val }
+                  target: { name: 'registrationType', value: val },
                 })
               }
             >
@@ -203,7 +207,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
               </div>
             )}
           </div>
-
+<div className="text-center">
           <Button
             color="primary"
             variant="contained"
@@ -213,9 +217,10 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
           >
             Submit
           </Button>
+          </div>
         </form>
         {Object.keys(state).map(
-          key =>
+          (key) =>
             state[key].error && <p style={errorStyle}>{state[key].error}</p>
         )}
       </div>

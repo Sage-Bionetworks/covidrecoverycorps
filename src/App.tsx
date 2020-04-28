@@ -23,9 +23,10 @@ const theme = createMuiTheme({
     htmlFontSize: 10
   },
   palette: {
+ 
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: '#202423' //'#ff4400',
+      main: '#000'///'#202423' //'#ff4400',
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
     },
@@ -42,14 +43,14 @@ const theme = createMuiTheme({
     // two indexes within its tonal palette.
     // E.g., shift from Red 500 to Red 300 or Red 700.
     tonalOffset: 0.2
-  }
-  /* props: {
+  },
+   props: {
     // Name of the component ⚛️
     MuiButtonBase: {
       // The properties to apply
       disableRipple: true, // No more ripple, on the whole application 💣!
     },
-  },*/
+  }
 })
 
 const useStyles = makeStyles(theme => ({

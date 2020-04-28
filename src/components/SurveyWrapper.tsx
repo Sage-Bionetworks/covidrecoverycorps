@@ -280,7 +280,7 @@ export default class SurveyWrapper extends React.Component<
       alignItems="center"
       spacing={2}
     >
-      <Grid item xs={10} md={8} lg={6}>
+      <Grid item xs={10} md={6} lg={4}>
       <div className={`theme-${this.props.formClass}`}>
         <div className="SRC-ReactJsonForm">
           {this.renderNotification(this.state.notification)}

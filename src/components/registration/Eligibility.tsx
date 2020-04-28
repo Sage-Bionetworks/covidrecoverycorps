@@ -10,6 +10,7 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 import moment from 'moment'
 import Button from '@material-ui/core/Button/Button'
 import { FormControl } from 'react-bootstrap';
+import { TextField } from '@material-ui/core';
 
 type EligibilityProps = {
   setEligibilityFn: Function
@@ -120,29 +121,32 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
             }
             aria-label="can consent"
           >
-            ><ToggleButton value="yes">Yes</ToggleButton>
-            <ToggleButton value="no">No</ToggleButton>
+            ><ToggleButton value="yes" color="primary">Yes</ToggleButton>
+            <ToggleButton value="no" color="primary">No</ToggleButton>
           </ToggleButtonGroup>
         </div>
         <div className="form-group">
           <label htmlFor="zipcode">Zip Code</label>
-          <FormControl
+          <TextField variant="outlined"
             name="zipcode"
             placeholder="zipcode"
             aria-label="zipcode"
+            fullWidth
             onChange={handleOnChange}
           />
         </div>
-
+<div className="text-center">
         <Button
           color="primary"
           variant="contained"
-          size="large"
+          size="medium"
+            
           type="submit"
           disabled={disable}
         >
           Submit
         </Button>
+        </div>
       </form>
       {Object.keys(state).map(
         key => state[key].error && <p style={errorStyle}>{state[key].error}</p>
