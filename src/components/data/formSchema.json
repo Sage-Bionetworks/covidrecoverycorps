@@ -121,6 +121,25 @@
       "type": "object",
       "required": ["firstName", "lastName"],
       "properties": {
+        "numberEnumRadio": {
+          "type": "number",
+          "title": "Number enum",
+          "enum": [
+            1,
+            2,
+            3
+          ]
+        },
+        "binding_affinity_constant": {
+          "type": "string",
+          "title": "Binding Affinity Constant",
+          "enum": [
+            "Ki",
+            "Kd",
+            "Km"
+          ],
+          "uniqueItems": true
+        },
         "firstName": {
      
           "title": "1. What was your biological sex assigned at birth?",

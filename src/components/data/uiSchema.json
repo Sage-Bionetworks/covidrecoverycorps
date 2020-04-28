@@ -1,5 +1,17 @@
 {
   "contact": {
+    "numberEnumRadio": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": true
+      }
+    },
+    "binding_affinity_constant": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
     "firstName": {
       "ui:help": "Please give us your name so that we can contact you",
       "ui:description": "This fields helps us to get in touch with you when needed",

@@ -1,61 +1,60 @@
-
 html {
   font-size: 62.5%; /* 62.5% of 16px = 10px */
 }
 
-
-
 .SRC-ReactJsonForm {
-   /* .json-forms-menu {
+  /* .json-forms-menu {
         display: none
     }
     .toggle-help-label, .right-top-actions  {
         display: none
     }*/
-    div.checkbox, div.radio {
-    padding: 10px 10px 10px 0;
+  div.checkbox,
+  div.radio {
+    padding: 0; //10px 10px 10px 0;
     border: 1px solid black;
     min-width: 27px;
-
-    >label span {
-        vertical-align:bottom;
+    > label span {
+      display: block;
     }
-  
 
- 
-}
+    > label span span {
+      //vertical-align:bottom;
+      min-height: 20px;
+      padding: 10px 20px;
+      margin-bottom: 0;
+      font-weight: 400;
+      cursor: pointer;
+    }
+  }
 
-.checkbox > label::before, .radio::before, .radio-inline::before {
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #888;
-    border-radius: 2px;
-    background: radial-gradient(white, #eee);
-    margin-right: 5px;
-}
 
-.checkbox label, .radio label {
-    min-height: 20px;
+
+  .checkbox label,
+  .radio label {
+    /*min-height: 20px;
     padding-left: 20px;
     margin-bottom: 0;
     font-weight: 400;
-    cursor: pointer;
-}
-.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+    cursor: pointer;*/
+    padding: 0;
+    display: block;
+  }
+  .checkbox input[type='checkbox'],
+  .checkbox-inline input[type='checkbox'],
+  .radio input[type='radio'],
+  .radio-inline input[type='radio'] {
     position: absolute;
     margin-top: 4px\9;
     margin-left: -20px;
-}
+  }
 
-
-input[type='checkbox'], input[type='radio'] {
+  input[type='checkbox'],
+  input[type='radio'] {
     display: none;
-}
+  }
 
-input[type='checkbox']:checked + span::before {
+  /*input[type='checkbox']:checked + span::before {
     content: '✓';
     color: #000;
     font-size: 14px;
@@ -64,7 +63,12 @@ input[type='checkbox']:checked + span::before {
     position: relative;
     margin-right: 8px;
     font-weight: bolder
-}
+}*/
+
+  input[type='checkbox']:checked + span,  input[type='radio']:checked + span {
+    background-color: #000000;
+    color: #fff;
+  }
 }
 
 .NavToggle {
@@ -202,7 +206,6 @@ div.Introcontent2:after {
     list-style-type: none;
     padding: 0;
     margin-left: 1.5rem;
-
   }
 
   ul.items li {
@@ -217,8 +220,7 @@ div.Introcontent2:after {
     display: inline-flex;
     border-left: 4px solid #000;
     padding-left: 32px;
-    margin-left:14px;
-   
+    margin-left: 14px;
 
     .time {
       //display: inline-flex;
@@ -232,13 +234,12 @@ div.Introcontent2:after {
     }
   }
 
-
-  ul.items  li:last-child  div.btn-container {
-    border-left: none
-}
+  ul.items li:last-child div.btn-container {
+    border-left: none;
+  }
 
   ul.items li div.item {
-      position: relative;
+    position: relative;
   }
 
   div.subMenu ul svg {
@@ -251,7 +252,7 @@ div.Introcontent2:after {
     color: #e5e5e5;
     width: 3.2rem;
     height: 3.2rem;
-    position:absolute;
+    position: absolute;
     vertical-align: top;
   }
   ul.items .btn-link {

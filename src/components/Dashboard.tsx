@@ -25,21 +25,25 @@ const surveys = [
     title: 'Survey 1',
     description: 'Tell us about yourself',
     time: 2,
+    link: '/survey1'
   },
   {
     title: 'Survey 2',
     description: 'Tell us about your recent COVID-19 Experience',
     time: 5,
+    link: '/survey2'
   },
   {
     title: 'Survey 3',
     description: 'Medical History',
     time: 15,
+    link: '/survey3'
   },
   {
     title: 'Survey 4',
     description: 'More COVID-19 Experience',
     time: 15,
+    link: '/survey4'
   },
 ]
 
@@ -55,12 +59,12 @@ DashboardProps) => {
         <div className="item">
           <FontAwesomeIcon icon={faCircle} />
           <div className="btn-container">
-          <button className="btn btn-link">
+          <a className="btn btn-link" href={survey.link}>
             {' '}
             <strong>{survey.title}</strong>
             <br />
             {survey.description}
-          </button>
+          </a>
           <div className="time">
           <FontAwesomeIcon icon={faClock} />
           <span>{survey.time}mins.</span>
