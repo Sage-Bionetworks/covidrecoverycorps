@@ -16,6 +16,8 @@ import jsonNavSchema from './data/navSchema.json'*/
 import {RegistrationData, ENDPOINT, STUDY_ID} from './types'
 import {SURVEYS, SurveyConfigData, SurveyType} from './data/surveys'
 import Grid from '@material-ui/core/Grid/Grid'
+import { now } from 'moment'
+import { callEndpoint } from './utility'
 
 
 
@@ -25,6 +27,7 @@ export type SurveyWrapperProps = {
   formTitle: string //for UI customization
   formClass?: string // to support potential theaming
   surveyName: SurveyType
+  token:string
 }
 
 type SurveyWrapperState = {
@@ -128,7 +131,7 @@ export default class SurveyWrapper extends React.Component<
 ///v4/users/self/reports/{identifier}
 //Save a participant report record
 
-submitSurvey = async (contact: any, otherInfo: any) => {
+/*submitSurvey = async (contact: any, otherInfo: any) => {
 
 
   const postData: RegistrationData = { ...contact, clientData: otherInfo, dataGroups: ['test_user'] }
@@ -142,7 +145,7 @@ submitSurvey = async (contact: any, otherInfo: any) => {
      // body data type must match "Content-Type" header
   });
   return response
-}
+}*/
 
 
 
@@ -150,34 +153,31 @@ submitSurvey = async (contact: any, otherInfo: any) => {
     this.setState({
       isLoading: true,
     })
-    const { contact, ...otherInfo } = data
-    contact.study = STUDY_ID
-    contact.phone = {
-      number: contact.phone,
-      regionCode: 'US',
+    const postData = {
+      appVersion: "v1",
+      createdOn:  new Date().toISOString(),
+      data,
+      metadata: {},
+      phoneInfo: navigator.userAgent
     }
 
-
-  if (!contact.phone.number) {
-    delete contact.phone
-  } else {
-    delete contact.email
-  }
     try {
-   // await(this.submitConsent(contact, otherInfo))
-     await(this.submitSurvey(contact, otherInfo))
+
+      const result = await callEndpoint<object>(
+        `${ENDPOINT}/v3/healthdata`,
+        'POST',
+        postData,
+        this.props.token,
+      )
+      alert(JSON.stringify(result, null, 2))
     }
+
+
+
     catch(error)  {
-        if (
-          error.response &&
-          error.response.data &&
-          error.response.data.message
-        ) {
-          this.onError({name: "registration error", message:  error.response.data.message})
-          console.log(error.response.data)
-        } else {
-          this.onError({name: "registration error", message:  error})
-        }
+       alert(error)
+          this.onError({name: "submission error", message:  error})
+       
       }
     
  
