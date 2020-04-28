@@ -80,8 +80,8 @@ DashboardProps) => {
    <Typography  variant="h2">Yay, the legal is done!</Typography>
 
 
-
-      <p>
+<p>
+      
         Our scientists could really use the information from Surveys 1 &amp; 2.
         &mdash; we need text about needing 1&amp;2 if they want to be invited. If you
         have the time, anything from 3 &amp; 4 would be phenomenal value to the

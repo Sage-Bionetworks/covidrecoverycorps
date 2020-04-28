@@ -4,7 +4,7 @@ import * as _ from 'lodash'
 
 import $RefParser from 'json-schema-ref-parser'
 import { includes, cloneDeep } from 'lodash-es'
-import './style.scss'
+
 
 import Alert from 'react-bootstrap/Alert'
 import { UiSchema } from 'react-jsonschema-form'

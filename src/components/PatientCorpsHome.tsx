@@ -193,7 +193,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
                   </>
                 )}
                 {token && isLoggedInAndConsented(token, userInfo) && (
-                  <div>
+                <>
                     <Dashboard></Dashboard>
                     <PatientCorpsInfo
                       endpoint={ENDPOINT}
@@ -202,7 +202,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
                         updateUserInfo(data)
                       }}
                     ></PatientCorpsInfo>
-                  </div>
+                  </>
                 )}
                 {token && page === 'SURVEY' && (
                   <Survey token={token} callbackFn={() => {}}></Survey>

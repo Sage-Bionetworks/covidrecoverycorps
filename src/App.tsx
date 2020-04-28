@@ -2,7 +2,7 @@ import React from 'react'
 import logo from './logo.svg'
 
 
-import './components/style.scss'
+import './styles/style.scss'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import Collaborators from './components/static/Collaborators'
 import PatientCorpsHome from './components/PatientCorpsHome'
@@ -71,7 +71,7 @@ function App() {
   }
   return (
     <ThemeProvider theme={theme}>
-      <Typography>
+      <Typography component={'div'}>
         <div className={classes.root}>
           <CssBaseline />
           <Router>

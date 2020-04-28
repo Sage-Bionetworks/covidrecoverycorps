@@ -202,7 +202,7 @@ div.Introcontent2:after {
     list-style-type: none;
     padding: 0;
     margin-left: 1.5rem;
-    border-left: 4px solid #000;
+
   }
 
   ul.items li {
@@ -215,6 +215,10 @@ div.Introcontent2:after {
 
   ul.items div.btn-container {
     display: inline-flex;
+    border-left: 4px solid #000;
+    padding-left: 32px;
+    margin-left:14px;
+   
 
     .time {
       //display: inline-flex;
@@ -228,7 +232,13 @@ div.Introcontent2:after {
     }
   }
 
+
+  ul.items  li:last-child  div.btn-container {
+    border-left: none
+}
+
   ul.items li div.item {
+      position: relative;
   }
 
   div.subMenu ul svg {
@@ -241,6 +251,7 @@ div.Introcontent2:after {
     color: #e5e5e5;
     width: 3.2rem;
     height: 3.2rem;
+    position:absolute;
     vertical-align: top;
   }
   ul.items .btn-link {
