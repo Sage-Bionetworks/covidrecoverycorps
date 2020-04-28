@@ -1,0 +1,249 @@
+{
+  "definitions": {
+    "contribution_field": {
+      "title": "",
+      "type": "string",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": ["blood"],
+          "title": "Blood Donation"
+        },
+        {
+          "type": "string",
+          "enum": ["shopping"],
+          "title": "Shopping for people at risk"
+        },
+        {
+          "type": "string",
+          "enum": ["other"],
+          "title": "Other"
+        }
+      ]
+    },
+    "data_origin_field": {
+      "title": "",
+      "type": "string",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": ["human"],
+          "title": "Human"
+        },
+        {
+          "type": "string",
+          "enum": ["model_system"],
+          "title": "Model System"
+        }
+      ]
+    },
+    "model_system_field": {
+      "title": "",
+      "type": "string",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": ["mouse"],
+          "title": "Mouse"
+        },
+        {
+          "type": "string",
+          "enum": ["rat"],
+          "title": "Rat"
+        },
+        {
+          "type": "string",
+          "enum": ["drosophila"],
+          "title": "Drosophila"
+        },
+        {
+          "type": "string",
+          "enum": ["cell_culture"],
+          "title": "Cell Culture"
+        },
+        {
+          "type": "string",
+          "enum": ["other"],
+          "title": "Other"
+        }
+      ]
+    },
+    "assays_field": {
+      "type": "object",
+      "title": "Assays",
+      "properties": {
+        "assays_list": {
+          "title": "List all assays specimens have been used for",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "SNP genotypes",
+              "WES or WGS",
+              "RNAseq",
+              "RNAseq single cell",
+              "ChIPseq",
+              "ATACseq",
+              "ATACseq single cell",
+              "Proteomics",
+              "Metabolomics",
+              "Other"
+            ]
+          }
+        },
+        "assays_list_other": {
+          "type": "string",
+          "title": "If other - describe"
+        }
+      }
+    },
+    "assesments_field": {
+      "type": "object",
+      "title": "Assessments",
+      "properties": {
+        "assesments_list": {
+          "type": "array",
+          "title": "List all assessments",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": ["Cognition", "Behavioral", "Imaging", "Other"]
+          }
+        },
+        "assesments_list_other": {
+          "type": "string",
+          "title": "If other - describe"
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "required": ["firstName", "lastName"],
+      "properties": {
+        "firstName": {
+          "title": "First Name",
+          "type": "string"
+        },
+        "lastName": {
+          "title": "Last Name",
+          "type": "string"
+        },
+        "email": {
+          "title": "E-mail",
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "title": "Phone Number",
+          "type": "string",
+          "format": "phone"
+        }
+      }
+    },
+    "eligibility": {
+      "type": "object",
+      "properties": {
+        "test": {
+          "title": "Test Name",
+          "type": "string"
+        }
+      }
+    },
+    "help": {
+      "type": "object",
+   
+      "properties": {
+        
+        "contribution_type": {
+          "title": "How would you like to help?",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/contribution_field"
+          }
+        }
+      }
+    },
+    "consent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "email": {
+          "title": "E-mail",
+          "type": "string",
+          "format": "email"
+        },
+        "institution": {
+          "type": "string"
+        }
+      }
+    },
+    "quiz": {
+      "type": "object",
+      "properties": {
+        "nih_grant_number": {
+          "title": "Some other info",
+          "type": "string"
+        }
+      }
+    },
+    "sign": {
+      "type": "object",
+
+      "properties": {
+        "name": {
+          "title": "Full name",
+          "type": "string"
+        }
+      }
+    },
+    "registration": {
+      "type": "object",
+      "properties": {
+        "data_origin": {
+          "title": "What is the data origin?",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/data_origin_field"
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "contact": {
+      "title": "Contact",
+      "$ref": "#/definitions/contact"
+    },
+    "help": {
+      "title": "Help",
+      "$ref": "#/definitions/help"
+    },
+    "eligibility": {
+      "title": "Eligibility",
+      "$ref": "#/definitions/eligibility"
+    },
+    "consent": {
+      "title": "Consent",
+      "$ref": "#/definitions/consent"
+    },
+    "quiz": {
+      "title": "Quiz",
+      "$ref": "#/definitions/quiz"
+    },
+    "sign": {
+      "title": "Sign",
+      "$ref": "#/definitions/sign"
+    },
+    "registration": {
+      "title": "Registration",
+      "$ref": "#/definitions/registration"
+    }
+  }
+}

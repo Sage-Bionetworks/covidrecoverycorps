@@ -1,0 +1,224 @@
+.theme-covid-corps {
+    .btn-action.save, .btn-action.validate {
+        //display: none
+        color: red;
+    }
+
+  
+}
+
+.PatientCorps {
+   
+    margin-top: -75px;
+
+}
+
+.reg {
+    padding: 20px;
+    margin-top: 10px;
+    border: 1px solid gray;
+}
+
+.buttonGroup .btn-block:first-child {
+    margin-bottom: 10px
+}
+
+
+div.Introcontent {
+    //width: 200px;
+   // height: 200px;
+    position:relative;
+    padding:20px;
+    box-sizing:border-box;
+padding: 0 50px;
+
+}
+
+div.Introcontent2 {
+    //width: 200px;
+   // height: 200px;
+    position:relative;
+    padding:20px;
+    box-sizing:border-box;
+padding: 0 50px;
+
+}
+
+div.Introcontent:before { 
+    content:"";
+    position:absolute;
+    background: #FF6D6D;
+    //border-radius: 15px;
+   // transform: skew(-5deg);
+    top:0;
+    //left:0;
+    right:0;
+   // bottom:0;
+    z-index:-1;
+    width: 134px;
+    height:40%;
+}
+
+div.Introcontent2:after { 
+    content:"";
+    position:absolute;
+    background: #FF6D6D;
+    //border-radius: 15px;
+   // transform: skew(-5deg);
+   // top:0;
+    left:0;
+   // right:0;
+    bottom:0;
+    z-index:-1;
+    width: 154px;
+    height:20%;
+}
+
+
+
+#toolbar {
+   
+    position: fixed; /* Make it stick/fixed */
+    top: 0; /* Stay on top */
+  
+    transition: top 0.3s; /* Transition effect when sliding down (and up) */
+
+    position: fixed;
+    text-align: center;
+    padding: 10px;
+
+    right: 0;
+    left: 0;
+    width: initial;
+    background-color: #fff;
+    height: 56px;
+    z-index: 10;
+    /* border: 1px solid; */
+    transition: top 0.3s;
+  }
+
+
+  .larger {
+    font-size: 32px;
+    line-height: 34px;
+  }
+
+  .buttonGroup  .btn {
+    background: #fff;
+    border: 1px solid black;
+    color: #000
+  }
+  
+
+  .buttonGroup  .btn.active {
+    background: #000;
+    border: 1px solid black;
+    color: #fff
+  }
+
+
+  .Consent {
+
+
+    padding-top: 84px;
+
+    button.x{
+        color: #fff;
+        background-color: #000;
+    }
+  }
+  .ConsentInfo {
+      .quizAnswer {
+      margin: 20px;
+
+   
+      }
+  }
+
+  .Dashboard {
+   
+
+      ul.items {
+        position: relative;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        background-color: #f9f9f9;
+      }
+      ul.items:before {
+        content: "";
+        width: 1px;
+        background-color: transparent;
+        border-left: 1px dashed #dcdcdc;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 2.3rem;
+    }
+
+    ul.items li {
+        margin-left: -2.3rem;
+    }
+
+    ul.items div.btn-container {
+        display: inline-block;
+
+        .time {
+       
+            display: inline-flex;
+            span {
+                font-size:10px;
+                font-style: italic;
+                padding-left:3px;
+            }
+        }
+    }
+
+    ul.items li div.item {
+        padding-left: 4rem;
+    }
+
+    div.subMenu ul svg {
+        margin: 0 1.2rem 0 0;
+    }
+
+    ul.items .fa-circle {
+        border-radius: 50%;
+        border: 1px solid #dcdcdc;
+        color: #f9f9f9;
+    }
+    ul.items .btn-link {
+        color: #000;
+        text-align:left;
+        width:150px;
+        white-space: pre-wrap;
+    }
+    .svg-inline--fa.fa-w-16 {
+        width: 1em;
+    }
+
+
+  
+    
+  }
+  
+
+  .MuiToggleButtonGroup-root.verticalToggle {
+    display:block;
+    .MuiToggleButtonGroup-grouped {
+        display:block;
+        width:100%;
+        margin-bottom: 8px
+    }
+    .MuiToggleButtonGroup-grouped:not(:last-child) {
+        border-top-right-radius: inherit;
+        border-bottom-right-radius: inherit;
+    }
+    .MuiToggleButtonGroup-grouped:not(:first-child) {
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+
+        border-left-style: solid;
+        border-left-color: rgba(0, 0, 0, 0.12)
+    }
+}
