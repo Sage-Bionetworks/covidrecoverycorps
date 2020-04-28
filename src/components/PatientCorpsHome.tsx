@@ -104,7 +104,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
   }
   const updateUserInfo = (data: LoggedInUserData, status?: number) => {
     setUserInfo(data)
-    alert(JSON.stringify(data, null, 2))
+    //alert(JSON.stringify(data, null, 2))
   }
 
   const renderLoginOut = (

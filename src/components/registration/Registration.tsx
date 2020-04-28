@@ -2,9 +2,9 @@ import React from 'react'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 import { FormControl } from 'react-bootstrap'
-import useForm from './useForm'
-import { STUDY_ID, ENDPOINT, RegistrationData, LoginType } from './types'
-import { callEndpoint, makePhone, sendSignInRequest } from './utility'
+import useForm from '../useForm'
+import { STUDY_ID, ENDPOINT, RegistrationData, LoginType } from '../types'
+import { callEndpoint, makePhone, sendSignInRequest } from '../utility'
 import Button from '@material-ui/core/Button/Button'
 
 type RegistrationProps = {

@@ -36,6 +36,7 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "react-sizeme": "^2.6.12",
     "synapse-react-client": "^1.14.8",
     "typescript": "~3.7.2"
   },

@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
+
 import MarkdownSynapse from 'synapse-react-client/dist/containers/MarkdownSynapse'
-import { ToggleButton, FormControl } from 'react-bootstrap'
+
 import useForm from '../useForm'
 import Nav from '../Nav'
 import Button from '@material-ui/core/Button/Button'
-import { faArrowRight, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Alert from '@material-ui/lab/Alert'
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
+import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
+import { SizeMe } from 'react-sizeme'
+import Switch from '@material-ui/core/Switch/Switch'
 
 type ConsentInfoProps = {
   name: string
@@ -19,11 +24,11 @@ const quizes = [
     title: ' What is the purpose of [Study name]? ',
     options: [
       'To receive medical treatment for COVID-19',
-      'To be able to better understand COVID-19',
+      'To be able to better understand COVID-19'
     ],
     explanation:
       'This study is a research study to understand COVID-19 better. The study does not provide medical treatment.',
-    correctAnser: 1,
+    correctAnser: 1
   },
   {
     screen: 4,
@@ -31,14 +36,14 @@ const quizes = [
     options: ['Privacy', 'There is no risk in participating in this study'],
     explanation:
       'We will do our best to protect your privacy. But we can’t guarantee your privacy. It is possible that public health authorities will ask to see the data.',
-    correctAnser: 0,
-  },
+    correctAnser: 0
+  }
 ]
 const totalSteps = 5
 
 export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   name,
-  onDone,
+  onDone
 }: ConsentInfoProps) => {
   const [isSummary, setIsSummary] = useState(true)
   const [currentStep, setCurrentStep] = useState(0)
@@ -48,7 +53,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     '',
     'Rearch study activities',
     '',
-    'What it means to share data with us',
+    'What it means to share data with us'
   ]
   const contentSummary = ['602368', '602367', '', '602368']
   const contentDetail = ['602368', '602366', '', '602368']
@@ -82,9 +87,10 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     )
   }
 
-  const getNavButtons = (step: number): JSX.Element => {
-    const isDisabled = (step: number): boolean => {
-      const quizIndex = quizes.findIndex(quiz => quiz.screen === step)
+  const getNavButtons = (step: number, width: number | null): JSX.Element => {
+    const quizIndex = quizes.findIndex(quiz => quiz.screen === step)
+
+    const isDisabled = (): boolean => {
       if (quizIndex === -1) {
         return false
       } else {
@@ -96,21 +102,32 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
       return true
     }
 
+    let style: { [key: string]: string } = {
+      display: 'flex',
+      justifyContent: 'space-between',
+      width: width ? `${width}px` : 'auto'
+    }
+
+    if (quizIndex > -1) {
+      style = { ...style, position: 'fixed', bottom: '16px' }
+    }
+
     return (
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div style={style}>
         {currentStep > 0 && (
-          
-          <button
-            className="btn "
+          <Button 
+          color="primary"
+          variant="contained"
             onClick={() => setCurrentStep(prev => prev - 1)}
           >
             <FontAwesomeIcon icon={faArrowLeft} />
-          </button>
+            </Button>
         )}
         {currentStep > 0 && currentStep <= totalSteps && (
-          <button
-            className="btn "
-            disabled={isDisabled(step)}
+          <Button
+          color="primary"
+          variant="contained"
+            disabled={isDisabled()}
             onClick={() => {
               if (currentStep < totalSteps) {
                 setCurrentStep(prev => prev + 1)
@@ -119,8 +136,8 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
               }
             }}
           >
-             <FontAwesomeIcon icon={faArrowRight} />
-          </button>
+            <FontAwesomeIcon icon={faArrowRight} />
+            </Button>
         )}
       </div>
     )
@@ -137,42 +154,34 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
         <h3>{quiz.title}</h3>
 
         <ToggleButtonGroup
-          vertical
-          size="lg"
-          aria-label="First group"
-          type="radio"
-          name="cons"
-          className="buttonGroup"
-          style={{ display: 'block' }}
-          onChange={(value: number) =>
+          value={quizAnswers[quizIndex]}
+          exclusive
+          className="verticalToggle"
+          onChange={(_event: any, value: number) =>
             setQuizAnswers(prev => {
               const newAnswers = [...prev]
-              const correct = value === quiz.correctAnser
-              newAnswers[quizIndex] = correct
+              // const correct = value === quiz.correctAnser
+              newAnswers[quizIndex] = value
               console.log(newAnswers)
               return newAnswers
             })
           }
+          aria-label="can consent"
         >
-          <ToggleButton variant="primary" value={0} block>
-            {quiz.options[0]}
-          </ToggleButton>
-          <ToggleButton variant="primary" value={1} block>
-            {quiz.options[1]}
-          </ToggleButton>
+          ><ToggleButton value={0}> {quiz.options[0]}</ToggleButton>
+          <ToggleButton value={1}> {quiz.options[1]}</ToggleButton>
         </ToggleButtonGroup>
-        <div
-          className={
-            quizAnswers[quizIndex] === true
-              ? ' quizAnswer quizAnswer alert alert-success'
-              : 'quizAnswer alert alert-danger'
-          }
-          style={{
-            display: quizAnswers[quizIndex] !== undefined ? 'block' : 'none',
-          }}
-        >
-          {quiz.explanation}
-        </div>
+
+        {quizAnswers[quizIndex] !== undefined && (
+          <Alert
+            severity={
+              quizAnswers[quizIndex] === quiz.correctAnser ? 'success' : 'error'
+            }
+          >
+            {' '}
+            {quiz.explanation}
+          </Alert>
+        )}
       </div>
     )
     return content
@@ -186,60 +195,65 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
       return 'Consent Question'
     }
     return (
-      <ToggleButtonGroup
-        size="sm"
-        aria-label="First group"
-        type="radio"
-        name="summary"
-        className="buttonGroup"
-        value={isSummary}
-        onChange={(val: boolean) => setIsSummary(val)}
-      >
-        <ToggleButton variant="primary" value={true}>
-          Summary
-        </ToggleButton>
-        <ToggleButton variant="primary" value={false}>
-          Full Text
-        </ToggleButton>
-      </ToggleButtonGroup>
+    
+        <div className="NavToggle">
+       
+          <span className="NavToggle__text">Summary</span>
+          <Switch
+            defaultChecked
+            color="default"
+            inputProps={{ 'aria-label': 'checkbox with default color' }}
+            checked={isSummary}
+            size = "small"
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+              setIsSummary(event.target.checked)
+            }
+          />
+          <span className="NavToggle__text">Full Text</span>
+        </div>
+     
     )
   }
 
   return (
-    <div className="ConsentInfo">
-      <Nav>{renderNavChildren(currentStep)}</Nav>
-      <div>
-        {currentStep > 0 && (
-          <div className="text-right">
-            {currentStep} of {totalSteps}
-          </div>
-        )}
-        <div>{currentStep === 0 && <h1>Welcome {name}</h1>}</div>
-        <div>
-          {getStatic(currentStep, isSummary)}
-
-          {getQuiz(currentStep)}
-          {getNavButtons(currentStep)}
-        </div>
-
-        {currentStep == 0 && (
+    <SizeMe monitorHeight>
+      {({ size }) => (
+        <div className="ConsentInfo">
+          <Nav>{renderNavChildren(currentStep)}</Nav>
           <div>
-            <Button
-              color="primary"
-              variant="contained"
-              size="large"
-              type="submit"
-              fullWidth
-              style={{ margin: '30px 0' }}
-              onClick={() => setCurrentStep(prev => prev + 1)}
-            >
-              {' '}
-              Start Consent
-            </Button>
+            {currentStep > 0 && (
+              <div className="text-right">
+                {currentStep} of {totalSteps}
+              </div>
+            )}
+            <div>{currentStep === 0 && <h1>Welcome {name}</h1>}</div>
+            <div>
+              {getStatic(currentStep, isSummary)}
+
+              {getQuiz(currentStep)}
+              {getNavButtons(currentStep, size.width)}
+            </div>
+
+            {currentStep == 0 && (
+              <div>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  size="large"
+                  type="submit"
+                  fullWidth
+                  style={{ margin: '30px 0' }}
+                  onClick={() => setCurrentStep(prev => prev + 1)}
+                >
+                  {' '}
+                  Start Consent
+                </Button>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      )}
+    </SizeMe>
   )
 }
 

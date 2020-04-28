@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import FormGroup from '@material-ui/core/FormGroup';
 
-import { FormControl } from 'react-bootstrap'
 import useForm from '../useForm'
 import { IneligibilityReason } from '../types'
 import { getMomentDate, getAge } from '../utility'
@@ -9,6 +9,7 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 
 import moment from 'moment'
 import Button from '@material-ui/core/Button/Button'
+import { FormControl } from 'react-bootstrap';
 
 type EligibilityProps = {
   setEligibilityFn: Function
@@ -18,43 +19,14 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
   setEligibilityFn
 }: EligibilityProps) => {
   const stateSchema = {
-    birthyear: { value: '', error: '' },
-    birthmonth: { value: '', error: '' },
-    birthday: { value: '', error: '' },
+    over18: { value: '', error: '' },
     cons: { value: '', error: '' },
     zipcode: { value: '', error: '' }
   }
 
   const validationStateSchema = {
-    birthyear: {
-      required: true,
-      validator: {
-        regEx: /^\d{4}$/,
-        fn: (value: string) => {
-          return Number(value) > 1900 && Number(value) < 2020
-        },
-        error: 'Invalid Birth Year'
-      }
-    },
-    birthday: {
-      required: true,
-      validator: {
-        regEx: /^\d{1,2}$/,
-        error: 'Invalid Birth Day',
-        fn: (value: string) => {
-          return Number(value) > 0 && Number(value) < 32
-        }
-      }
-    },
-    birthmonth: {
-      required: true,
-      validator: {
-        regEx: /^\d{1,2}$/,
-        error: 'Invalid Birth Month',
-        fn: (value: string) => {
-          return Number(value) > 0 && Number(value) < 13
-        }
-      }
+    over18: {
+      required: true
     },
 
     cons: {
@@ -78,13 +50,8 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
   function onSubmitForm(state: any) {
     let isValid = true
     let reason: IneligibilityReason = 'NONE'
-    const age = getAge(
-      state.birthyear?.value,
-      state.birthmonth?.value,
-      state.birthday?.value
-    )
-
-    if (age < 18) {
+   
+    if (state.over18.value !== 'yes') {
       isValid = false
       reason = 'AGE' as IneligibilityReason
     }
@@ -116,60 +83,28 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
       target: { name: 'cons', value: val }
     })
   }
-  const isValid = (state: any, disable: boolean) => {
-    if (disable) {
-      return false
-    }
-    let date = getMomentDate(
-      state.birthyear?.value,
-      state.birthmonth?.value,
-      state.birthday?.value
-    )
-
-    const dateValid = moment(date).isValid()
-    if (!dateValid) {
-      state.birthyear.error = 'Date is invalid'
-    } else {
-      state.birthyear.error = ''
-    }
-
-    return dateValid
-  }
+ 
   return (
     <div id="Questions">
       <h1>Am I eligible? </h1>
       <form className="demoForm" onSubmit={handleOnSubmit}>
-        <div className="form-group">
-          <label htmlFor="birthyear">What is your date of birth</label>
-
-          <div className="input-group">
-            <input
-              type="number"
-              className="form-control"
-              name="birthmonth"
-              onChange={handleOnChange}
-              value={state.birthmonth.value}
-              placeholder="Month"
-            />
-            <span className="input-group-addon">/</span>
-            <input
-              type="number"
-              className="form-control"
-              name="birthday"
-              onChange={handleOnChange}
-              value={state.birthday.value}
-              placeholder="Day"
-            />
-            <span className="input-group-addon">/</span>
-            <input
-              type="number"
-              className="form-control"
-              name="birthyear"
-              onChange={handleOnChange}
-              value={state.birthyear.value}
-              placeholder="Year"
-            />
-          </div>
+      
+      <div className="form-group">
+          <label htmlFor="over18">Are you over 18?</label>
+          <ToggleButtonGroup
+            value={state.over18.value}
+            exclusive
+            className="verticalToggle"
+            onChange={(_event: any, val: string) =>
+              handleOnChange({
+                target: { name: 'over18', value: val }
+              })
+            }
+            aria-label="are you over 18"
+          >
+            ><ToggleButton value="yes">Yes</ToggleButton>
+            <ToggleButton value="no">No</ToggleButton>
+          </ToggleButtonGroup>
         </div>
 
         <div className="form-group">
@@ -204,7 +139,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
           variant="contained"
           size="large"
           type="submit"
-          disabled={!isValid(state, disable)}
+          disabled={disable}
         >
           Submit
         </Button>

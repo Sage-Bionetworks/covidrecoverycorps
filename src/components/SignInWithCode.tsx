@@ -15,6 +15,7 @@ import {
   LoginType,
 } from './types'
 import { callEndpoint, makePhone } from './utility'
+import Alert from '@material-ui/lab/Alert/Alert'
 
 type SignInWithCodeProps = {
   loggedInByPhoneFn?: Function
@@ -114,10 +115,10 @@ export const SignInWithCode: React.FunctionComponent<SignInWithCodeProps> = ({
       )}
 
       {loginType === 'EMAIL' && (
-        <div className="alert alert-info">
+        <Alert severity="info">
            <p>We just sent a magic link to: {phoneOrEmail}</p>
           <p>Please check your email and click on the link provided</p>
-        </div>
+          </Alert>
       )}
     </>
   )

@@ -1,224 +1,278 @@
-.theme-covid-corps {
-    .btn-action.save, .btn-action.validate {
-        //display: none
-        color: red;
-    }
 
+html {
+  font-size: 62.5%; /* 62.5% of 16px = 10px */
+}
+
+
+
+.SRC-ReactJsonForm {
+    .json-forms-menu {
+        display: none
+    }
+    .toggle-help-label, .right-top-actions  {
+        display: none
+    }
+    div.checkbox, div.radio {
+    padding: 10px 10px 10px 0;
+    border: 1px solid black;
+    min-width: 27px;
+
+    >label span {
+        vertical-align:bottom;
+    }
   
+
+ 
+}
+
+.checkbox > label::before, .radio::before, .radio-inline::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #888;
+    border-radius: 2px;
+    background: radial-gradient(white, #eee);
+    margin-right: 5px;
+}
+
+.checkbox label, .radio label {
+    min-height: 20px;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+    position: absolute;
+    margin-top: 4px\9;
+    margin-left: -20px;
+}
+
+
+input[type='checkbox'], input[type='radio'] {
+    display: none;
+}
+
+input[type='checkbox']:checked + span::before {
+    content: '✓';
+    color: #000;
+    font-size: 14px;
+    margin-left: -19px;
+    top: 1px;
+    position: relative;
+    margin-right: 8px;
+    font-weight: bolder
+}
+}
+
+.NavToggle {
+  display: 'flex';
+  justify-content: 'center';
+  &__text {
+    align-self: center;
+    font-size: 0.75rem;
+  }
+}
+
+.theme-covid-corps {
+  .btn-action.save,
+  .btn-action.validate {
+    //display: none
+    color: red;
+  }
 }
 
 .PatientCorps {
-   
-    margin-top: -75px;
-
+  margin-top: -75px;
 }
 
 .reg {
-    padding: 20px;
-    margin-top: 10px;
-    border: 1px solid gray;
+  padding: 20px;
+  margin-top: 10px;
+  border: 1px solid gray;
 }
 
 .buttonGroup .btn-block:first-child {
-    margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
-
 div.Introcontent {
-    //width: 200px;
-   // height: 200px;
-    position:relative;
-    padding:20px;
-    box-sizing:border-box;
-padding: 0 50px;
-
+  //width: 200px;
+  // height: 200px;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  padding: 0 50px;
 }
 
 div.Introcontent2 {
-    //width: 200px;
-   // height: 200px;
-    position:relative;
-    padding:20px;
-    box-sizing:border-box;
-padding: 0 50px;
-
+  //width: 200px;
+  // height: 200px;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  padding: 0 50px;
 }
 
-div.Introcontent:before { 
-    content:"";
-    position:absolute;
-    background: #FF6D6D;
-    //border-radius: 15px;
-   // transform: skew(-5deg);
-    top:0;
-    //left:0;
-    right:0;
-   // bottom:0;
-    z-index:-1;
-    width: 134px;
-    height:40%;
+div.Introcontent:before {
+  content: '';
+  position: absolute;
+  background: #ff6d6d;
+  //border-radius: 15px;
+  // transform: skew(-5deg);
+  top: 0;
+  //left:0;
+  right: 0;
+  // bottom:0;
+  z-index: -1;
+  width: 134px;
+  height: 40%;
 }
 
-div.Introcontent2:after { 
-    content:"";
-    position:absolute;
-    background: #FF6D6D;
-    //border-radius: 15px;
-   // transform: skew(-5deg);
-   // top:0;
-    left:0;
-   // right:0;
-    bottom:0;
-    z-index:-1;
-    width: 154px;
-    height:20%;
+div.Introcontent2:after {
+  content: '';
+  position: absolute;
+  background: #ff6d6d;
+  //border-radius: 15px;
+  // transform: skew(-5deg);
+  // top:0;
+  left: 0;
+  // right:0;
+  bottom: 0;
+  z-index: -1;
+  width: 154px;
+  height: 20%;
 }
-
-
 
 #toolbar {
-   
-    position: fixed; /* Make it stick/fixed */
-    top: 0; /* Stay on top */
-  
-    transition: top 0.3s; /* Transition effect when sliding down (and up) */
+  position: fixed; /* Make it stick/fixed */
+  top: 0; /* Stay on top */
 
-    position: fixed;
-    text-align: center;
-    padding: 10px;
+  transition: top 0.3s; /* Transition effect when sliding down (and up) */
 
-    right: 0;
-    left: 0;
-    width: initial;
-    background-color: #fff;
-    height: 56px;
-    z-index: 10;
-    /* border: 1px solid; */
-    transition: top 0.3s;
+  position: fixed;
+  text-align: center;
+  padding: 10px;
+
+  right: 0;
+  left: 0;
+  width: initial;
+  background-color: #fff;
+  height: 56px;
+  z-index: 10;
+  /* border: 1px solid; */
+  transition: top 0.3s;
+}
+
+.larger {
+  font-size: 32px;
+  line-height: 34px;
+}
+
+.buttonGroup .btn {
+  background: #fff;
+  border: 1px solid black;
+  color: #000;
+}
+
+.buttonGroup .btn.active {
+  background: #000;
+  border: 1px solid black;
+  color: #fff;
+}
+
+.Consent {
+  padding-top: 84px;
+
+  button.x {
+    color: #fff;
+    background-color: #000;
+  }
+}
+.ConsentInfo {
+  .quizAnswer {
+    margin: 20px;
+  }
+}
+
+.Dashboard {
+  ul.items {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 1.5rem;
+    border-left: 4px solid #000;
   }
 
-
-  .larger {
-    font-size: 32px;
-    line-height: 34px;
+  ul.items li {
+    margin-left: -1.75rem;
   }
 
-  .buttonGroup  .btn {
-    background: #fff;
-    border: 1px solid black;
-    color: #000
-  }
-  
-
-  .buttonGroup  .btn.active {
-    background: #000;
-    border: 1px solid black;
-    color: #fff
+  ul.items li:first-child {
+    margin-top: -0.75rem;
   }
 
+  ul.items div.btn-container {
+    display: inline-flex;
 
-  .Consent {
-
-
-    padding-top: 84px;
-
-    button.x{
-        color: #fff;
-        background-color: #000;
-    }
-  }
-  .ConsentInfo {
-      .quizAnswer {
-      margin: 20px;
-
-   
+    .time {
+      //display: inline-flex;
+      text-align: right;
+      span {
+        font-size: 10px;
+        font-style: italic;
+        padding-left: 3px;
+        display: block;
       }
+    }
   }
 
-  .Dashboard {
-   
-
-      ul.items {
-        position: relative;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        background-color: #f9f9f9;
-      }
-      ul.items:before {
-        content: "";
-        width: 1px;
-        background-color: transparent;
-        border-left: 1px dashed #dcdcdc;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 2.3rem;
-    }
-
-    ul.items li {
-        margin-left: -2.3rem;
-    }
-
-    ul.items div.btn-container {
-        display: inline-block;
-
-        .time {
-       
-            display: inline-flex;
-            span {
-                font-size:10px;
-                font-style: italic;
-                padding-left:3px;
-            }
-        }
-    }
-
-    ul.items li div.item {
-        padding-left: 4rem;
-    }
-
-    div.subMenu ul svg {
-        margin: 0 1.2rem 0 0;
-    }
-
-    ul.items .fa-circle {
-        border-radius: 50%;
-        border: 1px solid #dcdcdc;
-        color: #f9f9f9;
-    }
-    ul.items .btn-link {
-        color: #000;
-        text-align:left;
-        width:150px;
-        white-space: pre-wrap;
-    }
-    .svg-inline--fa.fa-w-16 {
-        width: 1em;
-    }
-
-
-  
-    
+  ul.items li div.item {
   }
-  
 
-  .MuiToggleButtonGroup-root.verticalToggle {
-    display:block;
-    .MuiToggleButtonGroup-grouped {
-        display:block;
-        width:100%;
-        margin-bottom: 8px
-    }
-    .MuiToggleButtonGroup-grouped:not(:last-child) {
-        border-top-right-radius: inherit;
-        border-bottom-right-radius: inherit;
-    }
-    .MuiToggleButtonGroup-grouped:not(:first-child) {
-        border-top-left-radius: inherit;
-        border-bottom-left-radius: inherit;
+  div.subMenu ul svg {
+    margin: 0 1.2rem 0 0;
+  }
 
-        border-left-style: solid;
-        border-left-color: rgba(0, 0, 0, 0.12)
-    }
+  ul.items .fa-circle {
+    border-radius: 50%;
+    border: 4px solid #000;
+    color: #e5e5e5;
+    width: 3.2rem;
+    height: 3.2rem;
+    vertical-align: top;
+  }
+  ul.items .btn-link {
+    color: #000;
+    text-align: left;
+    width: 150px;
+    white-space: pre-wrap;
+    padding-top: 0;
+    margin-bottom: 3.6rem;
+  }
+  .svg-inline--fa.fa-w-16 {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+.MuiToggleButtonGroup-root.verticalToggle {
+  display: block;
+  .MuiToggleButtonGroup-grouped {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .MuiToggleButtonGroup-grouped:not(:last-child) {
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+  .MuiToggleButtonGroup-grouped:not(:first-child) {
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+
+    border-left-style: solid;
+    border-left-color: rgba(0, 0, 0, 0.12);
+  }
 }

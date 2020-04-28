@@ -6,8 +6,8 @@ import Eligiblity from './Eligibility'
 import Ineligible from './Ineligible'
 import SignInWithCode from '../SignInWithCode'
 import { IneligibilityReason, SESSION_NAME } from '../types'
-import Registration from '../Registration'
-import { callbackify } from 'util'
+import Registration from './Registration'
+
 import { Grid } from '@material-ui/core'
 
 

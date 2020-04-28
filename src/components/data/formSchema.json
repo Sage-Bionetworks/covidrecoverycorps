@@ -122,8 +122,13 @@
       "required": ["firstName", "lastName"],
       "properties": {
         "firstName": {
-          "title": "First Name",
-          "type": "string"
+     
+          "title": "1. What was your biological sex assigned at birth?",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/contribution_field"
+          }
         },
         "lastName": {
           "title": "Last Name",

@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from 'react'
-import { faCaretUp } from '@fortawesome/free-solid-svg-icons'
+import { faCaretUp, faFileExcel } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ConsentInfo from './ConsentInfo'
@@ -11,6 +11,7 @@ import moment from 'moment'
 import { ENDPOINT, SHARE_SCOPE, SUBPOP_GUID } from '../types'
 import { Redirect } from 'react-router'
 import MarkdownSynapse from 'synapse-react-client/dist/containers/MarkdownSynapse'
+import Button from '@material-ui/core/Button/Button'
 
 export type ConsentProps = {
   token: string
@@ -21,7 +22,7 @@ export type ConsentProps = {
 export const Consent: React.FunctionComponent<ConsentProps> = ({
   token,
   setConsentFn,
-  name,
+  name
 }: ConsentProps) => {
   const [isInfoDone, setIsInfoDone] = useState(false)
   const [isConsentDone, setIsConsentDone] = useState(false)
@@ -31,12 +32,12 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     birthyear: { value: '', error: '' },
     birthmonth: { value: '', error: '' },
     birthday: { value: '', error: '' },
-    fullName: { value: '', error: '' },
+    fullName: { value: '', error: '' }
   }
 
   const validationStateSchema = {
     agree: {
-      required: true,
+      required: true
     },
     birthyear: {
       required: true,
@@ -45,8 +46,8 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
         fn: (value: string) => {
           return Number(value) > 1900 && Number(value) < 2020
         },
-        error: 'Invalid Birth Year',
-      },
+        error: 'Invalid Birth Year'
+      }
     },
     birthday: {
       required: true,
@@ -55,8 +56,8 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
         error: 'Invalid Birth Day',
         fn: (value: string) => {
           return Number(value) > 0 && Number(value) < 32
-        },
-      },
+        }
+      }
     },
     birthmonth: {
       required: true,
@@ -65,13 +66,13 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
         error: 'Invalid Birth Month',
         fn: (value: string) => {
           return Number(value) > 0 && Number(value) < 13
-        },
-      },
+        }
+      }
     },
 
     fullName: {
-      required: true,
-    },
+      required: true
+    }
   }
 
   async function onSubmitForm(state: any) {
@@ -79,7 +80,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     const age = getAge(
       state.birthyear?.value,
       state.birthmonth?.value,
-      state.birthday?.value,
+      state.birthday?.value
     )
     if (age < 18) {
       isValid = false
@@ -88,23 +89,23 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     const birthday = getMomentDate(
       state.birthyear?.value,
       state.birthmonth?.value,
-      state.birthday?.value,
+      state.birthday?.value
     )!.format('YYYY-MM-DD')
     const data = {
       name: state.fullName.value,
       birthdate: birthday,
       scope: SHARE_SCOPE,
-      signedOn: moment().toLocaleString(),
+      signedOn: moment().toLocaleString()
     }
     console.log('about to call end point')
     const result = await callEndpoint(
       `${ENDPOINT}/v3/subpopulations/${SUBPOP_GUID}/consents/signature`,
       'POST',
       data,
-      token,
+      token
     )
-   // alert(JSON.stringify(result, null, 2))
-   setIsConsentDone(true)
+    // alert(JSON.stringify(result, null, 2))
+    setIsConsentDone(true)
     if (setConsentFn) {
       //setConsentFn(result.ok)
     }
@@ -114,7 +115,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   const { state, handleOnChange, handleOnSubmit, disable } = useForm(
     stateSchema,
     validationStateSchema,
-    onSubmitForm,
+    onSubmitForm
   )
 
   const isValid = (state: any, disable: boolean) => {
@@ -124,7 +125,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     let date = getMomentDate(
       state.birthyear?.value,
       state.birthmonth?.value,
-      state.birthday?.value,
+      state.birthday?.value
     )
 
     const dateValid = moment(date).isValid()
@@ -136,17 +137,14 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
 
     return dateValid
   }
-  
+
   const checkboxChange = () => {
- 
-  handleOnChange({
-    target: { name: 'agree', value: !state.agree.value },
-  })
- 
+    handleOnChange({
+      target: { name: 'agree', value: !state.agree.value }
+    })
   }
 
   return (
-   
     <div className="Consent">
       {!isInfoDone && (
         <div className="Consent__info">
@@ -156,7 +154,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           ></ConsentInfo>
         </div>
       )}
-      {(isInfoDone && !isConsentDone)&& (
+      {isInfoDone && !isConsentDone && (
         <div>
           <p>
             If you understand and agree to the benefits &amp; risk of
@@ -173,7 +171,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     <input
                       type="checkbox"
                       id="none"
-                      onChange={(val)=> checkboxChange()}
+                      onChange={val => checkboxChange()}
                       value={state.agree.value}
                     />
                     <span>
@@ -230,33 +228,31 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 value={state.fullName.value}
               />
             </div>
-
-            <button
-              type="submit"
-              className="btn btn-primary"
-              disabled={!isValid(state, disable)}
-            >
+            <div style={{display: 'flex', justifyContent: 'space-between',}}>
+            <Button onClick={()=> alert('todo')} variant="contained" color="default">
+              Disagree
+            </Button>
+            <Button type="submit" disabled={!isValid(state, disable)} variant="contained" color="primary">
               Agree
-            </button>
+            </Button>
+           </div>
           </form>
           {Object.keys(state).map(
             key =>
-              state[key].error && <p className="error">{state[key].error}</p>,
+              state[key].error && <p className="error">{state[key].error}</p>
           )}
         </div>
       )}
       {isConsentDone && (
         <>
-        <h1> Want a copy of your consent?</h1>
+          <h1> Want a copy of your consent?</h1>
 
-        <p>Good to keep for the records. </p>
-        
+          <p>Good to keep for the records. </p>
 
-        <button className="btn btn-primary">Donwload a .pdf copy</button>
+          <button className="btn btn-primary">Donwload a .pdf copy</button>
 
-        <button className="btn">Next</button>
+          <button className="btn">Next</button>
         </>
-
       )}
     </div>
   )

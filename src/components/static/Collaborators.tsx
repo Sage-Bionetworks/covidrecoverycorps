@@ -1,4 +1,5 @@
 import React from 'react'
+import Grid from '@material-ui/core/Grid/Grid'
 
 
 type CollaboratorsProps = {
@@ -7,6 +8,15 @@ type CollaboratorsProps = {
 
 export const Collaborators: React.FunctionComponent<CollaboratorsProps> = ({}: CollaboratorsProps) => {
   return (
+    <Grid
+    container
+    direction="row"
+    justify="center"
+    alignItems="center"
+    spacing={2}
+  >
+  <Grid item xs={10} md={8} lg={6} className="EligibilityRegistration">   
+      
     <div className="Collaborators">
       <h1>Collaborators</h1>
 
@@ -30,6 +40,8 @@ export const Collaborators: React.FunctionComponent<CollaboratorsProps> = ({}: C
         mollit anim id est laborum.
       </div>
     </div>
+    </Grid>
+    </Grid>
   )
 }
 
