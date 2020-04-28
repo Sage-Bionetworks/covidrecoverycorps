@@ -8,12 +8,13 @@ import { includes, cloneDeep } from 'lodash-es'
 
 import Alert from 'react-bootstrap/Alert'
 import { UiSchema } from 'react-jsonschema-form'
-import SynapseForm from 'synapse-react-client/dist/containers/synapse_form_wrapper/SynapseForm'
-import { StatusEnum } from 'synapse-react-client/dist/containers/synapse_form_wrapper/types'
-import jsonFormSchema from './data/formSchema.json'
+import SynapseForm, { ExtraUIProps } from './synapse_form_wrapper/SynapseForm'
+import { StatusEnum } from  './synapse_form_wrapper/types'
+/*mport jsonFormSchema from './data/formSchema.json'
 import jsonUiSchema from './data/uiSchema.json'
-import jsonNavSchema from './data/navSchema.json'
+import jsonNavSchema from './data/navSchema.json'*/
 import {RegistrationData, ENDPOINT, STUDY_ID} from './types'
+import {SURVEYS, SurveyConfigData, SurveyType} from './data/surveys'
 import Grid from '@material-ui/core/Grid/Grid'
 
 
@@ -23,6 +24,7 @@ import Grid from '@material-ui/core/Grid/Grid'
 export type SurveyWrapperProps = {
   formTitle: string //for UI customization
   formClass?: string // to support potential theaming
+  surveyName: SurveyType
 }
 
 type SurveyWrapperState = {
@@ -46,6 +48,16 @@ interface Notification extends Error {
   type: StatusEnum
 }
 
+
+const extraUIProps: ExtraUIProps = {
+  isLeftNavHidden: true,
+  isValidateHidden: true,
+  onNextCallback: () => {alert('hi')},
+  isHelpHidden: true,
+  isNoSaveButton: true
+
+}
+
 export default class SurveyWrapper extends React.Component<
   SurveyWrapperProps,
   SurveyWrapperState
@@ -66,7 +78,7 @@ export default class SurveyWrapper extends React.Component<
   getData = async (): Promise<void> => {
     try {
       const jsonFormSchemaDeref = (await $RefParser.dereference(
-        JSON.parse(JSON.stringify(jsonFormSchema)),
+        JSON.parse(JSON.stringify(SURVEYS.DEMOGRAPHIC.formSchema)),
       )) as JSON
 
       //if we are creating a new file - store the versions
@@ -74,8 +86,8 @@ export default class SurveyWrapper extends React.Component<
       this.setState({
         formData: {metadata: {}},
         formSchema: jsonFormSchemaDeref,
-        formUiSchema: jsonUiSchema,
-        formNavSchema: jsonNavSchema,
+        formUiSchema: SURVEYS.DEMOGRAPHIC.uiSchema,
+        formNavSchema: SURVEYS.DEMOGRAPHIC.navSchema,
         isLoading: false,
       })
     } catch (error) {
@@ -289,6 +301,7 @@ submitSurvey = async (contact: any, otherInfo: any) => {
                 onSave={() => null}
                 onSubmit={(data: any) => this.submitForm(this.cleanData(data))}
                 isSubmitted={false}
+                extraUIProps={extraUIProps}
               ></SynapseForm>
             </div>
           )}

@@ -105,10 +105,13 @@ export function getFlatData(
   const flatData = flatten(cloneDeep(formData), [], '')
   const flatFormData = keys(flatData)
     .map(key => {
+      // @ts-ignore
       let val = flatData[key]
+       // @ts-ignore
       if (flatData[key] === false) {
         val = 'false'
       }
+       // @ts-ignore
       if (flatData[key] === true) {
         val = 'true'
       }

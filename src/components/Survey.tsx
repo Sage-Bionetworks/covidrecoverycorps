@@ -18,7 +18,7 @@ type SurveyProps = {
 export const Survey: React.FunctionComponent<SurveyProps> = ({token, callbackFn}: SurveyProps) => {
 return (
     <div className="Survey">
-<SurveyWrapper formTitle="some title"></SurveyWrapper>
+<SurveyWrapper formTitle="Tell us about yourself" surveyName={'DEMOGRAPHIC'} formClass="contribution-request"></SurveyWrapper>
 
     </div>
 )

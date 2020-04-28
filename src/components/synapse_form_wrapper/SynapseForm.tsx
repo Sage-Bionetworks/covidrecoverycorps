@@ -34,6 +34,15 @@ export interface IFormData {
   }
 }
 
+export type ExtraUIProps = {
+  isLeftNavHidden?: boolean
+  isValidateHidden?: boolean
+  onNextCallback?: Function
+  isHelpHidden?: boolean
+  isNoSaveButton?: boolean //if no save button submit will be instead of next
+
+}
+
 export type SynapseFormProps = {
   schema: FormSchema
   uiSchema: UiSchema
@@ -48,6 +57,7 @@ export type SynapseFormProps = {
   isWizardMode?: boolean
   callbackStatus?: StatusEnum
   isSubmitted?: boolean
+  extraUIProps?: ExtraUIProps
 }
 
 type SynapseFormState = {
@@ -833,11 +843,11 @@ export default class SynapseForm extends React.Component<
         ></Header>
         <div>
           <div className="inner-wrap">
-            <StepsSideNav
+            {!this.props.extraUIProps?.isLeftNavHidden && <StepsSideNav
               stepList={this.state.steps}
               isWizardMode={this.props.isWizardMode}
               onStepChange={this.triggerStepChange}
-            ></StepsSideNav>
+            ></StepsSideNav> }
             {this.state.isLoadingSaved && (
               <div className="text-center">
                 <span className={'spinner'} />
@@ -851,7 +861,7 @@ export default class SynapseForm extends React.Component<
                   this.state.isSubmitted ? 'hide' : ''
                 }`}
               >
-                {!this.state.currentStep.static && (
+                {(!this.state.currentStep.static && !this.props.extraUIProps?.isHelpHidden)? (
                   <button
                     type="button"
                     className="btn btn-action save pull-right"
@@ -859,16 +869,17 @@ export default class SynapseForm extends React.Component<
                   >
                     VALIDATE
                   </button>
-                )}
-                {this.renderHelpToggle(
+                ): <></>}
+                {!this.props.extraUIProps?.isHelpHidden ? this.renderHelpToggle(
                   this.state.currentStep,
                   this.state.doShowHelp,
                   () =>
                     this.setState({
                       doShowHelp: !this.state.doShowHelp,
                     }),
-                )}
-                {this.isSubmitScreen() && (
+                ) :<></>
+                  }
+                {(this.isSubmitScreen() && !this.props.extraUIProps?.isNoSaveButton )&& (
                   <button
                     type="button"
                     className="btn btn-action save pull-right"
@@ -958,6 +969,7 @@ export default class SynapseForm extends React.Component<
                 steps={this.state.steps}
                 previousStepIds={this.state.previousStepIds}
                 isFormSubmitted={this.state.isSubmitted}
+                isNoSaveButton = {this.props.extraUIProps?.isNoSaveButton}
                 onNavAction={(e: NavActionEnum) => this.triggerAction(e)}
               ></NavButtons>
             </div>

@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline'
 import { createMuiTheme, ThemeProvider, Typography } from '@material-ui/core'
 
+
 const theme = createMuiTheme({
   typography: {
     // Tell Material-UI what's the font-size on the html element is.
@@ -130,7 +131,7 @@ function App() {
                   <Consent token="123" name="Alina" />
                 </Route>
                 <Route exact={true} path="/survey1">
-                 <SurveyWrapper formTitle="Tell us about yourself" formClass="contribution-request"></SurveyWrapper>
+                 <SurveyWrapper formTitle="Tell us about yourself" surveyName={'DEMOGRAPHIC'} formClass="contribution-request"></SurveyWrapper>
                 </Route>
 
                 <Route path="/">

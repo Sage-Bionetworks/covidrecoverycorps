@@ -13,6 +13,7 @@ export interface NavButtonsProps {
   steps: Step[]
   currentStep: Step
   isFormSubmitted?: boolean
+  isNoSaveButton?: boolean
 }
 
 export interface NextStepLinkProps {
@@ -53,10 +54,20 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
       <FontAwesomeIcon icon={faChevronRight} />
     </button>
   ) : (
+    props.isNoSaveButton? (
+      <button
+      type="button"
+      className="btn btn-action save"
+      disabled={props.isFormSubmitted}
+      onClick={e => props.onNavAction(NavActionEnum.SUBMIT)}
+    >
+      SUBMIT
+    </button>
+    ): 
     <></>
   )
 
-  const saveButton = (
+  const saveButton = (!props.currentStep.final && !props.isNoSaveButton) ?(
     <button
       type="button"
       className="btn btn-action save"
@@ -65,6 +76,8 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
     >
       SAVE
     </button>
+  ): (
+    <></>
   )
 
   return (
