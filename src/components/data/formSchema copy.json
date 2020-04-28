@@ -117,93 +117,157 @@
         }
       }
     },
-
-
-
-
-    "about": {
+    "contact": {
       "type": "object",
-      "required": ["biological_sex", "gender_identity", "enthnicity", "sexual_orientation"],
+      "required": ["firstName", "lastName"],
       "properties": {
-       
-
-        "biological_sex": {
-          "type": "string",
-          "title": "What  was your biological sex assigned at birth?",
-          "enum": ["Female",
-          "Male",
-          "Intersex",
-          "Other",
-          "Prefer not to answer"],
-          "uniqueItems": true
-       
+        "numberEnumRadio": {
+          "type": "number",
+          "title": "Number enum",
+          "enum": [
+            1,
+            2,
+            3
+          ]
         },
-        "gender_identity": {
+        "binding_affinity_constant": {
           "type": "string",
-          "title": "What term best describes your gender identity?",
-          "enum": ["Woman",
-            "Man",
-            "Non-binary",
-            "Transgender",
-            "Other",
+          "title": "Binding Affinity Constant",
+          "enum": [
+            "Ki",
+            "Kd",
+            "Km"
+          ],
+          "uniqueItems": true
+        },
+        "firstName": {
      
-          "Prefer not to answer"],
-          "uniqueItems": true
-       
+          "title": "1. What was your biological sex assigned at birth?",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/contribution_field"
+          }
         },
-        "enthnicity": {
-          "type": "string",
-          "title": "What is your ethnicity/ancestry?",
-          "enum": [
-            "Hispanic or Latino",
-            "White - European",
-            "Asian ",
-            "Black",
-            "Native American",
-            "Pacific Islander",
-            "Don't know",
-          "Prefer not to answer"],
-          "uniqueItems": true
+        "lastName": {
+          "title": "Last Name",
+          "type": "string"
         },
-        "sexual_orientation": {
+        "email": {
+          "title": "E-mail",
           "type": "string",
-          "title": "What would best describe  your sexual orientation? ",
-          "enum": [
-            "Asexual",
-            "Bisexual",
-            "Gay",
-            "Lesbian",
-            "Straight (Heterosexual)",
-            "Pan-sexual",
-            "Queer",
-            "Questioning or unsure",
-          "Prefer not to answer"],
-          "uniqueItems": true
+          "format": "email"
         },
-        "birthdate": {
+        "phone": {
+          "title": "Phone Number",
           "type": "string",
-          "format": "date"
-        },
-        "birthdate2": {
-          "type": "string",
-          "format": "date"
+          "format": "phone"
         }
-
-
-       
       }
     },
-    "registraion": {
+    "eligibility": {
+      "type": "object",
+      "properties": {
+        "test": {
+          "title": "Test Name",
+          "type": "string"
+        }
+      }
+    },
+    "help": {
+      "type": "object",
+   
+      "properties": {
+        
+        "contribution_type": {
+          "title": "How would you like to help?",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/contribution_field"
+          }
+        }
+      }
+    },
+    "consent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "email": {
+          "title": "E-mail",
+          "type": "string",
+          "format": "email"
+        },
+        "institution": {
+          "type": "string"
+        }
+      }
+    },
+    "quiz": {
+      "type": "object",
+      "properties": {
+        "nih_grant_number": {
+          "title": "Some other info",
+          "type": "string"
+        }
+      }
+    },
+    "sign": {
+      "type": "object",
 
+      "properties": {
+        "name": {
+          "title": "Full name",
+          "type": "string"
+        }
+      }
+    },
+    "registration": {
+      "type": "object",
+      "properties": {
+        "data_origin": {
+          "title": "What is the data origin?",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/data_origin_field"
+          }
+        }
+      }
     }
   },
   "type": "object",
   "properties": {
-    "about": {
-      "title": "Tell us about yourself",
-      "$ref": "#/definitions/about"
+    "contact": {
+      "title": "Contact",
+      "$ref": "#/definitions/contact"
+    },
+    "help": {
+      "title": "Help",
+      "$ref": "#/definitions/help"
+    },
+    "eligibility": {
+      "title": "Eligibility",
+      "$ref": "#/definitions/eligibility"
+    },
+    "consent": {
+      "title": "Consent",
+      "$ref": "#/definitions/consent"
+    },
+    "quiz": {
+      "title": "Quiz",
+      "$ref": "#/definitions/quiz"
+    },
+    "sign": {
+      "title": "Sign",
+      "$ref": "#/definitions/sign"
+    },
+    "registration": {
+      "title": "Registration",
+      "$ref": "#/definitions/registration"
     }
-  
-  
   }
 }
