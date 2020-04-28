@@ -15,7 +15,7 @@ export const Collaborators: React.FunctionComponent<CollaboratorsProps> = ({}: C
     alignItems="center"
     spacing={2}
   >
-  <Grid item xs={10} md={8} lg={6} className="EligibilityRegistration">   
+  <Grid item xs={10} md={6} lg={4} className="EligibilityRegistration">   
       
     <div className="Collaborators">
       <h1>Collaborators</h1>

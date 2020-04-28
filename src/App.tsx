@@ -14,6 +14,7 @@ import Container from '@material-ui/core/Container/Container'
 import { makeStyles } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline'
 import { createMuiTheme, ThemeProvider, Typography } from '@material-ui/core'
+import { SESSION_NAME } from './components/types'
 
 
 const theme = createMuiTheme({
@@ -22,9 +23,10 @@ const theme = createMuiTheme({
     htmlFontSize: 10
   },
   palette: {
+ 
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: '#202423' //'#ff4400',
+      main: '#000'///'#202423' //'#ff4400',
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
     },
@@ -41,14 +43,14 @@ const theme = createMuiTheme({
     // two indexes within its tonal palette.
     // E.g., shift from Red 500 to Red 300 or Red 700.
     tonalOffset: 0.2
-  }
-  /* props: {
+  },
+   props: {
     // Name of the component ⚛️
     MuiButtonBase: {
       // The properties to apply
       disableRipple: true, // No more ripple, on the whole application 💣!
     },
-  },*/
+  }
 })
 
 const useStyles = makeStyles(theme => ({
@@ -58,6 +60,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 function App() {
+  const token = sessionStorage.getItem(SESSION_NAME);
   const classes = useStyles()
 
   const getSearchParams = (search: string): { [key: string]: string } => {
@@ -77,8 +80,9 @@ function App() {
           <CssBaseline />
           <Router>
             <div>
-              <nav>
-                <ul>
+              <nav style={{border: "1px solid black", width:"200px", fontSize: '.5rem'}}>
+                <p> FOR DEV PURPOSES ONLY. </p>
+                <ul style={{display: 'inline'}}>
                   <li>
                     <Link to="/">Home</Link>
                   </li>
@@ -131,7 +135,7 @@ function App() {
                   <Consent token="123" name="Alina" />
                 </Route>
                 <Route exact={true} path="/survey1">
-                 <SurveyWrapper formTitle="Tell us about yourself" surveyName={'DEMOGRAPHIC'} formClass="contribution-request"></SurveyWrapper>
+                 <SurveyWrapper formTitle="Tell us about yourself" token={token|| ''} surveyName={'DEMOGRAPHIC'} formClass="contribution-request"></SurveyWrapper>
                 </Route>
 
                 <Route path="/">

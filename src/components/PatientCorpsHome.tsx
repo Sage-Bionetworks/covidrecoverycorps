@@ -143,7 +143,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
       alignItems="center"
       spacing={2}
     >
-      <Grid item xs={10} md={8} lg={6}>
+      <Grid item xs={10} md={6} lg={4}>
         <div className="PatientCorps theme-drug-upload-tool">
           {isLoading && (
             <div className="text-center">
