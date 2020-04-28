@@ -1,0 +1,61 @@
+{
+  "about": {
+    "numberEnumRadio": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": true
+      }
+    },
+    "binding_affinity_constant": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "firstName": {
+      "ui:help": "Please give us your name so that we can contact you",
+      "ui:description": "This fields helps us to get in touch with you when needed",
+      "ui:placeholder": "Please enter your name",
+      "ui:widget": "checkboxes"
+    },
+
+    "biological_sex": {
+      "ui:help": "This is an example of  help",
+      "ui:description": "This is an example of description",
+      "ui:placeholder": "Please placeholder",
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "gender_identity": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "enthnicity": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "sexual_orientation": {
+      
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "birthdate": {
+      "ui:widget": "alt-date",
+      "ui:options": {
+        "yearsRange": [
+          1900,
+          2020
+        ]
+      }
+    }
+  },
+  "registration": {}
+}
