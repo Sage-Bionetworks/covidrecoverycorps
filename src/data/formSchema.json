@@ -1,0 +1,87 @@
+{
+  "definitions": {
+
+    "about": {
+      "type": "object",
+      "required": ["biological_sex", "gender_identity", "enthnicity", "sexual_orientation"],
+      "properties": {
+       
+
+        "biological_sex": {
+          "type": "string",
+          "title": "What  was your biological sex assigned at birth?",
+          "enum": ["Female",
+          "Male",
+          "Intersex",
+          "Other",
+          "Prefer not to answer"],
+          "uniqueItems": true
+       
+        },
+        "gender_identity": {
+          "type": "string",
+          "title": "What term best describes your gender identity?",
+          "enum": ["Woman",
+            "Man",
+            "Non-binary",
+            "Transgender",
+            "Other",
+     
+          "Prefer not to answer"],
+          "uniqueItems": true
+       
+        },
+        "enthnicity": {
+          "type": "string",
+          "title": "What is your ethnicity/ancestry?",
+          "enum": [
+            "Hispanic or Latino",
+            "White - European",
+            "Asian ",
+            "Black",
+            "Native American",
+            "Pacific Islander",
+            "Don't know",
+          "Prefer not to answer"],
+          "uniqueItems": true
+        },
+        "sexual_orientation": {
+          "type": "string",
+          "title": "What would best describe  your sexual orientation? ",
+          "enum": [
+            "Asexual",
+            "Bisexual",
+            "Gay",
+            "Lesbian",
+            "Straight (Heterosexual)",
+            "Pan-sexual",
+            "Queer",
+            "Questioning or unsure",
+          "Prefer not to answer"],
+          "uniqueItems": true
+        },
+        "birthdate": {
+          "type": "string",
+          "title": "What is your date of birth?",
+          "format": "date"
+        }
+      
+
+
+       
+      }
+    },
+    "registraion": {
+
+    }
+  },
+  "type": "object",
+  "properties": {
+    "about": {
+      "title": "",
+      "$ref": "#/definitions/about"
+    }
+  
+  
+  }
+}

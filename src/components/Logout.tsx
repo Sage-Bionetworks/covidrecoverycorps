@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {Redirect} from 'react-router'
-import { SESSION_NAME } from './types'
+import { SESSION_NAME } from '../types/types'
 
 //import {SESSION_NAME} from './types'
 

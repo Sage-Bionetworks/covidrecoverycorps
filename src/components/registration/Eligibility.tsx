@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import FormGroup from '@material-ui/core/FormGroup';
 
 import useForm from '../useForm'
-import { IneligibilityReason } from '../types'
-import { getMomentDate, getAge } from '../utility'
+import { IneligibilityReason, ZIPCODES } from '../../types/types'
+import { getMomentDate, getAge } from '../../helpers/utility'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 
@@ -61,7 +61,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
       isValid = false
       reason = 'CONCENT' as IneligibilityReason
     }
-    if (!['78704', '98103'].includes(state.zipcode.value)) {
+    if (!ZIPCODES.includes(state.zipcode.value)) {
       isValid = false
       reason = 'LOCATION' as IneligibilityReason
     }

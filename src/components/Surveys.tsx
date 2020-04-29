@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { FormControl } from 'react-bootstrap'
 import useForm from './useForm'
-import { getAge, getMomentDate, callEndpoint } from './utility'
+import { getAge, getMomentDate, callEndpoint } from '../helpers/utility'
 import moment from 'moment'
 import {
   ENDPOINT,
@@ -14,7 +14,7 @@ import {
   STUDY_ID,
   SURVEY_TIME_CONSTANT,
   SURVEY_IDENTIFIER,
-} from './types'
+} from '../types/types'
 import SurveyWrapper from './SurveyWrapper'
 
 type SurveysProps = {

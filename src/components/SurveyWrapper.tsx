@@ -5,32 +5,29 @@ import * as _ from 'lodash'
 import $RefParser from 'json-schema-ref-parser'
 import { includes, cloneDeep } from 'lodash-es'
 
-
 import Alert from 'react-bootstrap/Alert'
 import { UiSchema } from 'react-jsonschema-form'
 import SynapseForm, { ExtraUIProps } from './synapse_form_wrapper/SynapseForm'
-import { StatusEnum } from  './synapse_form_wrapper/types'
+import { StatusEnum } from './synapse_form_wrapper/types'
 /*mport jsonFormSchema from './data/formSchema.json'
 import jsonUiSchema from './data/uiSchema.json'
 import jsonNavSchema from './data/navSchema.json'*/
-import {RegistrationData, ENDPOINT, STUDY_ID} from './types'
-import {SURVEYS, SurveyConfigData, SurveyType} from './data/surveys'
+import { SurveyType, SavedSurveysObject, SavedSurvey } from '../types/types'
+import { SURVEYS } from '../data/surveys'
 import Grid from '@material-ui/core/Grid/Grid'
 import { now } from 'moment'
-import { callEndpoint } from './utility'
-
-
-
-
+import { callEndpoint } from '../helpers/utility'
+import { SurveyService } from '../services/survey.service'
 
 export type SurveyWrapperProps = {
   formTitle: string //for UI customization
   formClass?: string // to support potential theaming
   surveyName: SurveyType
-  token:string
+  token: string
 }
 
 type SurveyWrapperState = {
+  savedSurveys?: SavedSurveysObject
   notification?: Notification
   isLoading?: boolean
   formDataId?: string // file holding user form data
@@ -51,14 +48,14 @@ interface Notification extends Error {
   type: StatusEnum
 }
 
-
 const extraUIProps: ExtraUIProps = {
   isLeftNavHidden: true,
   isValidateHidden: true,
-  onNextCallback: () => {alert('hi')},
+  onNextCallback: () => {
+    alert('hi')
+  },
   isHelpHidden: true,
-  isNoSaveButton: true
-
+  isNoSaveButton: true,
 }
 
 export default class SurveyWrapper extends React.Component<
@@ -69,7 +66,6 @@ export default class SurveyWrapper extends React.Component<
     super(props)
     this.state = {
       isLoading: true,
-  
     }
   }
 
@@ -77,17 +73,26 @@ export default class SurveyWrapper extends React.Component<
     await this.getData()
   }
 
-
   getData = async (): Promise<void> => {
     try {
       const jsonFormSchemaDeref = (await $RefParser.dereference(
-        JSON.parse(JSON.stringify(SURVEYS.DEMOGRAPHIC.formSchema)),
+        JSON.parse(JSON.stringify(SURVEYS.DEMOGRAPHIC.formSchema))
       )) as JSON
-
+      let formData = { metadata: {} }
+      const response = await SurveyService.getUserSurveys(this.props.token)
+      const savedData = _.first(response.data.items)
+      const surveyData = savedData?.data
+      this.setState({ savedSurveys: surveyData })
+      const currentSurvey = surveyData?.surveys?.find(
+        (survey) => survey.type === this.props.surveyName
+      )
+     /* if (currentSurvey) {
+        formData = currentSurvey.data
+      }*/
       //if we are creating a new file - store the versions
-  
+
       this.setState({
-        formData: {metadata: {}},
+        formData,
         formSchema: jsonFormSchemaDeref,
         formUiSchema: SURVEYS.DEMOGRAPHIC.uiSchema,
         formNavSchema: SURVEYS.DEMOGRAPHIC.navSchema,
@@ -126,62 +131,54 @@ export default class SurveyWrapper extends React.Component<
     })
   }
 
-
-
-///v4/users/self/reports/{identifier}
-//Save a participant report record
-
-/*submitSurvey = async (contact: any, otherInfo: any) => {
-
-
-  const postData: RegistrationData = { ...contact, clientData: otherInfo, dataGroups: ['test_user'] }
-
-  const response = await fetch(`${ENDPOINT}auth/signUp`, {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(postData)
-     // body data type must match "Content-Type" header
-  });
-  return response
-}*/
-
-
-
   submitForm = async (data: any): Promise<void> => {
     this.setState({
       isLoading: true,
     })
-    const postData = {
-      appVersion: "v1",
-      createdOn:  new Date().toISOString(),
+
+    const updatedSurvey: SavedSurvey = {
+      type: this.props.surveyName,
+      updatedDate: new Date(),
+      completedDate: new Date(),
       data,
-      metadata: {},
-      phoneInfo: navigator.userAgent
+    }
+
+    let savedSurveys = _.cloneDeep(this.state.savedSurveys)
+    if (!savedSurveys?.surveys) {
+      savedSurveys = {
+        surveys: [updatedSurvey],
+      }
+    } else {
+      const ourSurveyIndex: number | undefined = savedSurveys.surveys.findIndex(
+        (survey) => survey.type === updatedSurvey.type
+      )
+      if (ourSurveyIndex === -1) {
+        savedSurveys.surveys.push(updatedSurvey)
+      } else {
+        savedSurveys.surveys[ourSurveyIndex] = updatedSurvey
+      }
     }
 
     try {
-
-      const result = await callEndpoint<object>(
-        `${ENDPOINT}/v3/healthdata`,
-        'POST',
-        postData,
-        this.props.token,
+      const result = await SurveyService.postToHealthData(
+        data,
+        this.props.token
       )
-      alert(JSON.stringify(result, null, 2))
-    }
+      alert(result.data)
+      if (result.ok) {
+        const result2 = await SurveyService.postUserSurvey(
+          savedSurveys,
+          this.props.token
+        )
+        alert(result.data)
 
-
-
-    catch(error)  {
-       alert(error)
-          this.onError({name: "submission error", message:  error})
-       
+        return result2
       }
-    
- 
-}
+    } catch (error) {
+      alert(error)
+      this.onError({ name: 'submission error', message: error })
+    }
+  }
 
   isReadyToDisplayForm = (state: SurveyWrapperState): boolean => {
     return (
@@ -196,7 +193,7 @@ export default class SurveyWrapper extends React.Component<
 
   renderLoader = (
     state: SurveyWrapperState,
-    props: SurveyWrapperProps,
+    props: SurveyWrapperProps
   ): JSX.Element => {
     if (
       includes([StatusEnum.ERROR, StatusEnum.ERROR_CRITICAL], state.status) &&
@@ -233,8 +230,6 @@ export default class SurveyWrapper extends React.Component<
 
     return <></>
   }
-
-
 
   removeKeys = (obj: any, keys: string[]) => {
     for (var prop in obj) {
@@ -274,47 +269,48 @@ export default class SurveyWrapper extends React.Component<
   render() {
     return (
       <Grid
-      container
-      direction="row"
-      justify="center"
-      alignItems="center"
-      spacing={2}
-    >
-      <Grid item xs={10} md={6} lg={4}>
-      <div className={`theme-${this.props.formClass}`}>
-        <div className="SRC-ReactJsonForm">
-          {this.renderNotification(this.state.notification)}
-          {this.renderLoader(this.state, this.props)}
-         
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        spacing={2}
+      >
+        <Grid item xs={10} md={6} lg={4}>
+          <div className={`theme-${this.props.formClass}`}>
+            <div className="SRC-ReactJsonForm">
+              {this.renderNotification(this.state.notification)}
+              {this.renderLoader(this.state, this.props)}
 
-          {this.isReadyToDisplayForm(this.state) && (
-            <div>
-              <SynapseForm
-                schema={this.state.formSchema}
-                uiSchema={this.state.formUiSchema!}
-                formData={this.state.formData}
-                navSchema={this.state.formNavSchema}
-                isWizardMode={true}
-                formTitle={this.props.formTitle}
-                formClass={this.props.formClass}
-                callbackStatus={this.state.status}
-                onSave={() => null}
-                onSubmit={(data: any) => this.submitForm(this.cleanData(data))}
-                isSubmitted={false}
-                extraUIProps={extraUIProps}
-              ></SynapseForm>
+              {this.isReadyToDisplayForm(this.state) && (
+                <div>
+                  <SynapseForm
+                    schema={this.state.formSchema}
+                    uiSchema={this.state.formUiSchema!}
+                    formData={this.state.formData}
+                    navSchema={this.state.formNavSchema}
+                    isWizardMode={true}
+                    formTitle={this.props.formTitle}
+                    formClass={this.props.formClass}
+                    callbackStatus={this.state.status}
+                    onSave={() => null}
+                    onSubmit={(data: any) =>
+                      this.submitForm(this.cleanData(data))
+                    }
+                    isSubmitted={false}
+                    extraUIProps={extraUIProps}
+                  ></SynapseForm>
+                </div>
+              )}
+              {this.state.status === StatusEnum.SUBMIT_SUCCESS && (
+                <div>
+                  {' '}
+                  You have registered succesfully. You will need to verify your
+                  email before you can log in{' '}
+                </div>
+              )}
             </div>
-          )}
-          {this.state.status === StatusEnum.SUBMIT_SUCCESS && (
-            <div>
-              {' '}
-              You have registered succesfully. You will need to verify your
-              email before you can log in{' '}
-            </div>
-          )}
-        </div>
-      </div>
-      </Grid>
+          </div>
+        </Grid>
       </Grid>
     )
   }

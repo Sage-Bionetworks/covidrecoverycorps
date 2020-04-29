@@ -14,11 +14,11 @@ import {
   ENDPOINT,
   UserData,
   Response,
-} from './types'
+} from '../types/types'
 import _ from 'lodash'
 import Grid from '@material-ui/core/Grid'
 
-import { callEndpoint } from './utility'
+import { callEndpoint } from '../helpers/utility'
 import Dashboard from './Dashboard'
 
 type USER_STATE =
@@ -194,7 +194,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
                 )}
                 {token && isLoggedInAndConsented(token, userInfo) && (
                 <>
-                    <Dashboard></Dashboard>
+                    <Dashboard token={token}></Dashboard>
                     <PatientCorpsInfo
                       endpoint={ENDPOINT}
                       token={token}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import {EmailSigninParams, LoggedInUserData, Phone, SignInData, SignInDataPhone, SignInDataEmail} from './types'
-import {callEndpoint, makePhone} from './utility'
+import {EmailSigninParams, LoggedInUserData, Phone, SignInData, SignInDataPhone, SignInDataEmail} from '../types/types'
+import {callEndpoint, makePhone} from '../helpers/utility'
 
 
 type LoginProps = {

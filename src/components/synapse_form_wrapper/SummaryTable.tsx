@@ -188,12 +188,11 @@ export default function SummaryTable(props: SummaryTableProps): JSX.Element {
   return (
     <>
       <p className="step-exclude-directions">
-        Below is all of the data you have entered. Before submitting, click
-        'Validate' to ensure that all of the required data has been entered.
+        Below is all of the data you have entered.
       </p>
-      <button className="nav-link pull-right" onClick={() => window.print()}>
+     {/*<button className="nav-link pull-right" onClick={() => window.print()}>
         Print this data
-      </button>
+  </button> */}
       <div className="panel panel-default padding-full wrap">
         <div className="summary scroll-area">{table}</div>
       </div>

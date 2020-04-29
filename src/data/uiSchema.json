@@ -1,0 +1,29 @@
+{
+  "about": {
+    "biological_sex": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "gender_identity": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "enthnicity": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "sexual_orientation": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    }
+  },
+  "registration": {}
+}

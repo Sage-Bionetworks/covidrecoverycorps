@@ -8,7 +8,7 @@ import {
   STUDY_ID,
   LoginType,
   StringDictionary
-} from './types'
+} from '../types/types'
 
 import moment from 'moment'
 
