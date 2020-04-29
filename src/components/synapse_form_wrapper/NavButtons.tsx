@@ -5,6 +5,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Button from '@material-ui/core/Button/Button'
 
 export interface NavButtonsProps {
   isWizardMode?: boolean
@@ -34,48 +35,53 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
   }
 
   const previousButton = canGoBack(props) ? (
-    <button
-      type="button"
+    <Button 
       onClick={e => props.onNavAction(NavActionEnum.PREVIOUS)}
-      className="btn btn-link nav-link prev"
+     color = "primary"
+     variant="contained"
+     
     >
       <FontAwesomeIcon icon={faChevronLeft} />
-    </button>
+      </Button>
+   
   ) : (
     <></>
   )
 
   const nextButton = !props.currentStep.final ? (
-    <button
-      type="button"
+    <Button 
       onClick={e => props.onNavAction(NavActionEnum.NEXT)}
-      className="btn btn-link nav-link next"
+     color="primary"
+     variant="contained"
     >
       <FontAwesomeIcon icon={faChevronRight} />
-    </button>
+      </Button>
   ) : (
     props.isNoSaveButton? (
-      <button
-      type="button"
-      className="btn btn-action save"
+      <Button 
+      color="primary"
+      className="save"
+      variant="contained"
       disabled={props.isFormSubmitted}
       onClick={e => props.onNavAction(NavActionEnum.SUBMIT)}
     >
       SUBMIT
-    </button>
+    </Button>
     ): 
     <></>
   )
 
   const saveButton = (!props.currentStep.final && !props.isNoSaveButton) ?(
-    <button
-      type="button"
-      className="btn btn-action save"
+    <Button 
+    color="primary"
+    className="save"
+    variant="contained"
+    
       disabled={props.isFormSubmitted}
       onClick={e => props.onNavAction(NavActionEnum.SAVE)}
     >
       SAVE
-    </button>
+      </Button>
   ): (
     <></>
   )

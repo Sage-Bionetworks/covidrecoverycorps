@@ -137,7 +137,7 @@ function App() {
                   <Consent token="123" name="Alina" />
                 </Route>
                 <Route exact={true} path="/survey1">
-                 <SurveyWrapper formTitle="Tell us about yourself" token={token|| ''} surveyName={'DEMOGRAPHIC'} formClass="contribution-request"></SurveyWrapper>
+                 <SurveyWrapper formTitle="Tell us about yourself" token={token|| ''} surveyName={'DEMOGRAPHIC'} formClass="crc"></SurveyWrapper>
                 </Route>
 
                 <Route path="/">

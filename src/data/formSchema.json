@@ -1,125 +1,5 @@
 {
   "definitions": {
-    "contribution_field": {
-      "title": "",
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["blood"],
-          "title": "Blood Donation"
-        },
-        {
-          "type": "string",
-          "enum": ["shopping"],
-          "title": "Shopping for people at risk"
-        },
-        {
-          "type": "string",
-          "enum": ["other"],
-          "title": "Other"
-        }
-      ]
-    },
-    "data_origin_field": {
-      "title": "",
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["human"],
-          "title": "Human"
-        },
-        {
-          "type": "string",
-          "enum": ["model_system"],
-          "title": "Model System"
-        }
-      ]
-    },
-    "model_system_field": {
-      "title": "",
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["mouse"],
-          "title": "Mouse"
-        },
-        {
-          "type": "string",
-          "enum": ["rat"],
-          "title": "Rat"
-        },
-        {
-          "type": "string",
-          "enum": ["drosophila"],
-          "title": "Drosophila"
-        },
-        {
-          "type": "string",
-          "enum": ["cell_culture"],
-          "title": "Cell Culture"
-        },
-        {
-          "type": "string",
-          "enum": ["other"],
-          "title": "Other"
-        }
-      ]
-    },
-    "assays_field": {
-      "type": "object",
-      "title": "Assays",
-      "properties": {
-        "assays_list": {
-          "title": "List all assays specimens have been used for",
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": [
-              "SNP genotypes",
-              "WES or WGS",
-              "RNAseq",
-              "RNAseq single cell",
-              "ChIPseq",
-              "ATACseq",
-              "ATACseq single cell",
-              "Proteomics",
-              "Metabolomics",
-              "Other"
-            ]
-          }
-        },
-        "assays_list_other": {
-          "type": "string",
-          "title": "If other - describe"
-        }
-      }
-    },
-    "assesments_field": {
-      "type": "object",
-      "title": "Assessments",
-      "properties": {
-        "assesments_list": {
-          "type": "array",
-          "title": "List all assessments",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": ["Cognition", "Behavioral", "Imaging", "Other"]
-          }
-        },
-        "assesments_list_other": {
-          "type": "string",
-          "title": "If other - describe"
-        }
-      }
-    },
-
-
-
 
     "about": {
       "type": "object",
@@ -182,12 +62,10 @@
         },
         "birthdate": {
           "type": "string",
-          "format": "date"
-        },
-        "birthdate2": {
-          "type": "string",
+          "title": "What is your date of birth?",
           "format": "date"
         }
+      
 
 
        
@@ -200,7 +78,7 @@
   "type": "object",
   "properties": {
     "about": {
-      "title": "Tell us about yourself",
+      "title": "",
       "$ref": "#/definitions/about"
     }
   

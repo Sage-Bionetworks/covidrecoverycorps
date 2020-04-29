@@ -19,6 +19,7 @@ import Grid from '@material-ui/core/Grid'
 
 import { SurveyService } from '../services/survey.service'
 import { SavedSurveysObject, SurveyType, SavedSurvey } from '../types/types'
+import _ from 'lodash'
 
 type DashboardProps = {
   token: string
@@ -72,7 +73,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       try {
         const response = await SurveyService.getUserSurveys(token)
         alert(response.data)
-        setSavedSurveys(response.data)
+        setSavedSurveys(_.first(response.data.items)?.data)
       } catch (e) {
         alert(e)
       }
@@ -94,7 +95,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     }
     const isInProgress = (survey: UISurvey): boolean => {
       const savedSurvey = getSavedSurvey(survey)
-      return !!savedSurvey?.updatedDate
+      return !!savedSurvey?.updatedDate && !isDone(survey)
     }
 
     const getIcon = (survey: UISurvey): IconDefinition => {

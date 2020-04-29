@@ -37,7 +37,7 @@ async function postToHealthData(surveyData: any, token: string): Promise<any> {
   return result
 }
 
-async function postUserSurvey(data: any, token: string): Promise<any> {
+async function postUserSurvey(data: SavedSurveysObject, token: string): Promise<any> {
   const postData = {
     dateTime: SURVEY_TIME_CONSTANT,
     data: data,
@@ -52,12 +52,12 @@ async function postUserSurvey(data: any, token: string): Promise<any> {
   return result
 }
 
-async function getUserSurveys(token: string): Promise<Response<SavedSurveysObject>> {
+async function getUserSurveys(token: string): Promise<Response<{items: {data: SavedSurveysObject}[]}>> {
   const getData = {
     startTime: SURVEY_TIME_CONSTANT,
     endTime: SURVEY_TIME_CONSTANT,
   }
-  return await callEndpoint<SavedSurveysObject>(
+  return await callEndpoint<{items: {data: SavedSurveysObject}[]}>(
     `${ENDPOINT}${SURVEY_ENDPOINT}`,
     'GET',
     getData,
