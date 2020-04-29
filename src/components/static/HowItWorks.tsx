@@ -1,5 +1,6 @@
 import React from 'react'
 import Dashboard from '../Dashboard'
+import { SESSION_NAME } from '../../types/types'
 
 
 type HowItWorksProps = {
@@ -9,10 +10,11 @@ type HowItWorksProps = {
 export const HowItWorks: React.FunctionComponent<HowItWorksProps> = ({}: HowItWorksProps) => {
   return (
  <>
-   <Dashboard></Dashboard>
+   <Dashboard token = {sessionStorage.getItem(SESSION_NAME)||''}></Dashboard>
 </>
     
-    /*}  <div className="HowItWorks">
+
+    /*}  <div className="sdsHowItWorks">
       <h1>How it works</h1>
 
       <div className="HowItWorkscontent">

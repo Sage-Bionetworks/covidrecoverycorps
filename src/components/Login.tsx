@@ -10,8 +10,8 @@ import {
   Response,
   SESSION_NAME,
   ENDPOINT
-} from './types'
-import { callEndpoint, makePhone } from './utility'
+} from '../types/types'
+import { callEndpoint, makePhone } from '../helpers/utility'
 
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'

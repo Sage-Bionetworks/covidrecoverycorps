@@ -1,74 +1,137 @@
 import React, { useState, useEffect } from 'react'
 
-import { faCircle, faClock } from '@fortawesome/free-solid-svg-icons'
+import {
+  faCircle,
+  faClock,
+  faCheckCircle,
+  faDotCircle,
+  IconDefinition,
+  faIgloo,
+} from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import useForm from './useForm'
 import SurveyWrapper from './SurveyWrapper'
 
-import { FormControlLabel , Switch, Typography} from '@material-ui/core'
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import { FormControlLabel, Switch, Typography } from '@material-ui/core'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
 
+import { SurveyService } from '../services/survey.service'
+import { SavedSurveysObject, SurveyType, SavedSurvey } from '../types/types'
 
 type DashboardProps = {
-  // token: string | null
+  token: string
 }
-type Survey = {
+type UISurvey = {
+  type: SurveyType
   title: string
+  link: string
   description: string
   time: number
 }
 
-const surveys = [
+const surveys: UISurvey[] = [
   {
+    type: 'DEMOGRAPHIC',
     title: 'Survey 1',
     description: 'Tell us about yourself',
     time: 2,
-    link: '/survey1'
+    link: '/survey1',
   },
   {
+    type: 'COVID_EXPERIENCE',
     title: 'Survey 2',
     description: 'Tell us about your recent COVID-19 Experience',
     time: 5,
-    link: '/survey2'
+    link: '/survey2',
   },
   {
+    type: 'HISTORY',
     title: 'Survey 3',
     description: 'Medical History',
     time: 15,
-    link: '/survey3'
+    link: '/survey3',
   },
   {
+    type: 'MORE',
     title: 'Survey 4',
     description: 'More COVID-19 Experience',
     time: 15,
-    link: '/survey4'
+    link: '/survey4',
   },
 ]
 
+export const Dashboard: React.FunctionComponent<DashboardProps> = ({
+  token,
+}: DashboardProps) => {
+  const [savedSurveys, setSavedSurveys] = useState<SavedSurveysObject>()
 
+  useEffect(() => {
+    const getSurveys = async () => {
+      try {
+        const response = await SurveyService.getUserSurveys(token)
+        alert(response.data)
+        setSavedSurveys(response.data)
+      } catch (e) {
+        alert(e)
+      }
+    }
+    if (token) {
+      getSurveys()
+    }
+  }, [token])
 
-export const Dashboard: React.FunctionComponent<DashboardProps> = ({}: //token,
-DashboardProps) => {
+  const renderSurveyItems = (savedSurveys: SavedSurvey[]) => {
+    const getSavedSurvey = (survey: UISurvey): SavedSurvey | undefined => {
+      return savedSurveys.find(
+        (savedSurvey) => survey.type === savedSurvey.type
+      )
+    }
+    const isDone = (survey: UISurvey): boolean => {
+      const savedSurvey = getSavedSurvey(survey)
+      return !!savedSurvey?.completedDate
+    }
+    const isInProgress = (survey: UISurvey): boolean => {
+      const savedSurvey = getSavedSurvey(survey)
+      return !!savedSurvey?.updatedDate
+    }
 
- 
-  const renderSurveyItems = () => {
-    const items = surveys.map(survey => (
+    const getIcon = (survey: UISurvey): IconDefinition => {
+      const iconDef = isDone(survey) ? faCheckCircle : faCircle
+      return isInProgress(survey) ? faDotCircle : iconDef
+    }
+
+    const renderSurveyInfo = (survey: UISurvey): JSX.Element => {
+      const innerElement = (
+        <div>
+          <strong>{survey.title}</strong>
+          <br />
+          {survey.description}
+        </div>
+      )
+
+      if (isDone(survey)) {
+        return innerElement
+      } else {
+        return (
+          <a className="btn btn-link" href={survey.link}>
+            {innerElement}
+          </a>
+        )
+      }
+    }
+
+    const items = surveys.map((survey: UISurvey) => (
       <li className="item-wrap">
         <div className="item">
-          <FontAwesomeIcon icon={faCircle} />
+          <FontAwesomeIcon icon={getIcon(survey)} />
           <div className="btn-container">
-          <a className="btn btn-link" href={survey.link}>
-            {' '}
-            <strong>{survey.title}</strong>
-            <br />
-            {survey.description}
-          </a>
-          <div className="time">
-          <FontAwesomeIcon icon={faClock} />
-          <span>{survey.time}mins.</span>
-          </div>
+            {renderSurveyInfo(survey)}
+            <div className="time">
+              <FontAwesomeIcon icon={faClock} />
+              <span>{survey.time}mins.</span>
+            </div>
           </div>
         </div>
       </li>
@@ -76,23 +139,17 @@ DashboardProps) => {
     return <ul className="items">{items}</ul>
   }
 
-
- 
-
   return (
     <div className="Dashboard">
-   <Typography  variant="h2">Yay, the legal is done!</Typography>
+      <Typography variant="h2">Yay, the legal is done!</Typography>
 
-
-<p>
-      
+      <p>
         Our scientists could really use the information from Surveys 1 &amp; 2.
-        &mdash; we need text about needing 1&amp;2 if they want to be invited. If you
-        have the time, anything from 3 &amp; 4 would be phenomenal value to the
-        research.
-        </p>
-      <div>{renderSurveyItems()}</div>
-
+        &mdash; we need text about needing 1&amp;2 if they want to be invited.
+        If you have the time, anything from 3 &amp; 4 would be phenomenal value
+        to the research.
+      </p>
+      <div>{renderSurveyItems(savedSurveys?.surveys || [])}</div>
     </div>
   )
 }

@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import {  FormControl } from 'react-bootstrap'
 import useForm from './useForm'
-import { getAge, getMomentDate, callEndpoint } from './utility'
+import { getAge, getMomentDate, callEndpoint } from '../helpers/utility'
 import moment from 'moment'
-import { ENDPOINT, SHARE_SCOPE, SUBPOP_GUID } from './types'
+import { ENDPOINT, SHARE_SCOPE, SUBPOP_GUID } from '../types/types'
 import SurveyWrapper from './SurveyWrapper'
 
 type SurveyProps = {

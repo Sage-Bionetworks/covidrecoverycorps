@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import FormGroup from '@material-ui/core/FormGroup';
 
 import useForm from '../useForm'
-import { IneligibilityReason } from '../types'
-import { getMomentDate, getAge } from '../utility'
+import { IneligibilityReason } from '../../types/types'
+import { getMomentDate, getAge } from '../../helpers/utility'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 

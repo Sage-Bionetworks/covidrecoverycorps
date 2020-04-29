@@ -13,8 +13,8 @@ import {
   SignInDataPhone,
   SignInDataEmail,
   LoginType,
-} from './types'
-import { callEndpoint, makePhone } from './utility'
+} from '../types/types'
+import { callEndpoint, makePhone } from '../helpers/utility'
 import Alert from '@material-ui/lab/Alert/Alert'
 
 type SignInWithCodeProps = {

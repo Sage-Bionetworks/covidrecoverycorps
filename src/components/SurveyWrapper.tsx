@@ -13,11 +13,12 @@ import { StatusEnum } from  './synapse_form_wrapper/types'
 /*mport jsonFormSchema from './data/formSchema.json'
 import jsonUiSchema from './data/uiSchema.json'
 import jsonNavSchema from './data/navSchema.json'*/
-import {RegistrationData, ENDPOINT, STUDY_ID} from './types'
-import {SURVEYS, SurveyConfigData, SurveyType} from './data/surveys'
+import {SurveyType} from '../types/types'
+import {SURVEYS} from '../data/surveys'
 import Grid from '@material-ui/core/Grid/Grid'
 import { now } from 'moment'
-import { callEndpoint } from './utility'
+import { callEndpoint } from '../helpers/utility'
+import {SurveyService} from '../services/survey.service'
 
 
 
@@ -153,23 +154,24 @@ export default class SurveyWrapper extends React.Component<
     this.setState({
       isLoading: true,
     })
-    const postData = {
+  /*  const postData = {
       appVersion: "v1",
       createdOn:  new Date().toISOString(),
       data,
       metadata: {},
       phoneInfo: navigator.userAgent
-    }
+    }*/
 
     try {
+      SurveyService.postToHealthData(data, this.props.token)
 
-      const result = await callEndpoint<object>(
+    /*  const result = await callEndpoint<object>(
         `${ENDPOINT}/v3/healthdata`,
         'POST',
         postData,
         this.props.token,
       )
-      alert(JSON.stringify(result, null, 2))
+      alert(JSON.stringify(result, null, 2))*/
     }
 
 

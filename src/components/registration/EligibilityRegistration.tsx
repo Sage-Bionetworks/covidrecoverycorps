@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { Response, LoggedInUserData, LoginType } from '../types'
+import { Response, LoggedInUserData, LoginType } from '../../types/types'
 
 import { useState } from 'react'
 import Eligiblity from './Eligibility'
 import Ineligible from './Ineligible'
 import SignInWithCode from '../SignInWithCode'
-import { IneligibilityReason, SESSION_NAME } from '../types'
+import { IneligibilityReason, SESSION_NAME } from '../../types/types'
 import Registration from './Registration'
 
 import { Grid } from '@material-ui/core'
