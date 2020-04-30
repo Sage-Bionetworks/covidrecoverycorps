@@ -264,7 +264,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                 setSessionToken(result.data.sessionToken)
                 alert(JSON.stringify(result, null, 2))
                 if (callbackFn) {
-                  callbackFn(result)
+                  callbackFn(result.data.sessionToken, result.data.firstName)
                 }
               }}
               phoneOrEmail={loginType === 'PHONE' ? phone : email}
