@@ -115,7 +115,7 @@ function App() {
                   fontSize: '.5rem',
                 }}
               >
-                <p> FOR DEV NAV PURPOSES ONLY. (thur morn update) </p>
+                <p> FOR DEV NAV PURPOSES ONLY. (thur morn update2) </p>
                 <ul style={{ display: 'inline' }}>
                   <li>
                     <Link to="/">Home</Link>
