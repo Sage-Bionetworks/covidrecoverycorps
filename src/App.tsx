@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from './logo.svg'
 
 import './styles/style.scss'
@@ -24,6 +24,7 @@ import {getSession} from './helpers/utility'
 import PatientCorpsInfo from './components/PatientCorpsInfo'
 import Intro from './components/Intro'
 import Dashboard from './components/Dashboard'
+import { Logout } from './components/Logout'
 
 const theme = createMuiTheme({
   typography: {
@@ -67,12 +68,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
+
+
+type AppState = {
+  token: string
+}
+export const TokenContext = React.createContext('')
+
+
+
+
+function App() {
+
+const [token, setToken] = useState(getSession()?.token)
+const [name, setName] = useState(getSession()?.name)
+
 function PrivateRoute({ children, ...rest }: any) {
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        getSession()?.token ? (
+        token ? (
           children
         ) : (
           <Redirect
@@ -87,7 +103,21 @@ function PrivateRoute({ children, ...rest }: any) {
   )
 }
 
-function App() {
+const renderLoginOut = (
+
+
+): JSX.Element => {
+  let link = <></>
+  if (token) {
+    link = <><p>Hello {name}</p>
+    <Logout onLogout={() => setToken(undefined)}></Logout>
+</>
+  } else {
+   link = <a href="/login">Login</a>
+  }
+
+  return <div >{link}</div>
+}
 
   const classes = useStyles()
 
@@ -115,6 +145,7 @@ function App() {
                   fontSize: '.5rem',
                 }}
               >
+                     {renderLoginOut()}
                 <p> FOR DEV NAV PURPOSES ONLY. (thur morn update2) </p>
                 <ul style={{ display: 'inline' }}>
                   <li>
@@ -160,7 +191,7 @@ function App() {
                           props.location.search
                         )
                         // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
-                        return <Login {...props} searchParams={searchParamsProps as any} />
+                        return <Login {...props} searchParams={searchParamsProps as any}  callbackFn={(token: string, name: string)=> {setToken(token); setName(name)}} />
                       }}
                     ></Route>
                     <Route path="/eligibility">
@@ -168,24 +199,24 @@ function App() {
                     </Route>
 
                     <PrivateRoute exact={true} path="/dashboard">
-                      <Dashboard token={getSession()?.token || ''}  />
+                      <Dashboard token={token || ''}  />
                     </PrivateRoute>
 
                     <PrivateRoute exact={true} path="/consent">
-                      <Consent token={getSession()?.token || ''} name={getSession()?.name || ''} />
+                      <Consent token={token || ''} name={getSession()?.name || ''} />
                     </PrivateRoute>
 
                     <PrivateRoute exact={true} path="/survey1">
                       <SurveyWrapper
                         formTitle="Tell us about yourself"
-                        token={getSession()?.token || ''}
+                        token={token || ''}
                         surveyName={'DEMOGRAPHIC'}
                         formClass="crc"
                       ></SurveyWrapper>
                     </PrivateRoute>
 
                     <Route path="/">
-                      <Intro token={getSession()?.token || null}></Intro>
+                      <Intro token={token || null}></Intro>
                     </Route>
 
                    
