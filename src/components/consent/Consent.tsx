@@ -87,7 +87,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   }
 
   if (isConsentDone) {
+    return (
     <Redirect to='Dashboard'></Redirect>
+    )
   }
 
   return (
