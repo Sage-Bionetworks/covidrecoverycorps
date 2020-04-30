@@ -5,6 +5,7 @@ import useForm from './useForm'
 
 type NavProps = {
   staticText?: string
+  width: number | null
 }
 
 export const Nav: React.FunctionComponent<NavProps> = props  => {
@@ -32,7 +33,7 @@ export const Nav: React.FunctionComponent<NavProps> = props  => {
   }
 
   return (
-    <div id="toolbar" className="container" style={{ top: top }}>
+    <div id="toolbar" className="container" style={{ top: top , width: props.width? `${props.width}px`: '100%'}}>
       <div className="row">
         <div className="col-md-offset-1 col-md-10">
           <div className="row">

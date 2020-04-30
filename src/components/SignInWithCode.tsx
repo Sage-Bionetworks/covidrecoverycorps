@@ -16,6 +16,8 @@ import {
 } from '../types/types'
 import { callEndpoint, makePhone } from '../helpers/utility'
 import Alert from '@material-ui/lab/Alert/Alert'
+import Button from '@material-ui/core/Button/Button'
+import TextField from '@material-ui/core/TextField/TextField'
 
 type SignInWithCodeProps = {
   loggedInByPhoneFn?: Function
@@ -31,43 +33,18 @@ export const SignInWithCode: React.FunctionComponent<SignInWithCodeProps> = ({
   phoneOrEmail,
 }: SignInWithCodeProps) => {
   const [error, setError] = useState('')
-  // const [phone, setPhone] = useState('')
-  const stateSchema = {
-    token1: { value: '', error: '' },
+  const [code, setCode] = useState('')
 
-    token2: { value: '', error: '' },
-  }
-
-  const validationStateSchema = {
-    //https://www.w3resource.com/javascript/form/email-validation.php
-    token1: {
-      required: true,
-    },
-    token2: {
-      required: true,
-    },
-  }
-
-  const { state, handleOnChange, handleOnSubmit, disable } = useForm(
-    stateSchema,
-    validationStateSchema,
-    onSubmitForm,
-  )
-
-  async function onSubmitForm(state: any) {
-    alert(JSON.stringify(state, null, 2))
-
-    const phoneCode = state.token1.value + state.token2.value
-    // const signInWithPhoneCode = async (
-    //  clickEvent: React.FormEvent<HTMLElement>,
-    // ): Promise<any> => {
+  async function handleOnSubmit(clickEvent: React.FormEvent<HTMLElement>) {
+    clickEvent.preventDefault()
+    const _code = code.replace('-', '').trim()
     const postData = {
       study: STUDY_ID,
       phone: makePhone(phoneOrEmail),
-      token: phoneCode,
+      token: code,
     }
-    // clickEvent.preventDefault()
-    console.log(phoneCode)
+    // 
+    console.log(code)
     const endpoint = `${ENDPOINT}${PHONE_SIGN_IN_ENDPOINT}`
     try {
       setError('')
@@ -84,41 +61,38 @@ export const SignInWithCode: React.FunctionComponent<SignInWithCodeProps> = ({
       {error}
       {loginType === 'PHONE' && (
         <div>
-                <p>We just sent you an SMS.</p> 
+          <p>We just sent you an SMS.</p>
           <form onSubmit={handleOnSubmit}>
             <div className="form-group">
-              <label htmlFor="token1">Please enter your code</label>
-              <div className="input-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  value={state.token1.value}
-                  onChange={handleOnChange}
-                  name="token1"
-                />
-                <span className="input-group-addon">-</span>
-
-                <input
-                  type="text"
-                  className="form-control"
-                  value={state.token2.value}
-                  onChange={handleOnChange}
-                  name="token2"
-                />
-              </div>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                autoComplete="code"
+                placeholder="code"
+                label="Please enter your code"
+                fullWidth
+                value={code}
+                onChange={(e) => setCode(e.currentTarget.value)}
+              />
             </div>
-      
-      
-            <button type="submit"     className="btn btn-primary">Login</button>
+
+            <Button
+              type="submit"
+              disabled={!code || code.replace('-', '').length < 6}
+              variant="contained"
+              color="primary"
+            >
+              Login
+            </Button>
           </form>
         </div>
       )}
 
       {loginType === 'EMAIL' && (
         <Alert severity="info">
-           <p>We just sent a magic link to: {phoneOrEmail}</p>
+          <p>We just sent a magic link to: {phoneOrEmail}</p>
           <p>Please check your email and click on the link provided</p>
-          </Alert>
+        </Alert>
       )}
     </>
   )

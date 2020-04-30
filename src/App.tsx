@@ -142,21 +142,23 @@ const renderLoginOut = (
                 style={{
                   border: '1px solid black',
                   width: '200px',
+                  top: '10px',
+                  left: '10px',
                   fontSize: '.5rem',
+                  position: 'fixed'
                 }}
               >
-                     {renderLoginOut()}
-                <p> FOR DEV NAV PURPOSES ONLY. (thur morn update2) </p>
-                <ul style={{ display: 'inline' }}>
+                  
+                <p> FOR DEV NAV PURPOSES ONLY. (thur 9:15) </p>
+                {renderLoginOut()}
+                <ul >
                   <li>
                     <Link to="/">Home</Link>
                   </li>
                   <li>
                     <Link to="/collaborators">Collaborators</Link>
                   </li>
-                  <li>
-                    <Link to="/Login">Login</Link>
-                  </li>
+                
                   <li>
                     <Link to="/eligibility">Eligibility</Link>
                   </li>
