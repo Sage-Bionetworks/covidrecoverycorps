@@ -72,7 +72,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     const getSurveys = async () => {
       try {
         const response = await SurveyService.getUserSurveys(token)
-        alert(response.data)
         setSavedSurveys(_.first(response.data.items)?.data)
       } catch (e) {
         alert(e)

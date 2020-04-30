@@ -22,6 +22,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
   const stateSchema = {
     over18: { value: '', error: '' },
     cons: { value: '', error: '' },
+    hadCovid: { value: '', error: '' },
     zipcode: { value: '', error: '' }
   }
 
@@ -33,17 +34,15 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
     cons: {
       required: true
     },
+    hadCovid: {
+      required: true
+    },
     zipcode: {
       required: true,
       validator: {
         error: 'Invalid Zipcode',
         regEx: /^\d{5}$/
 
-        /*fn: (value: string) => {
-          const res = ['78704', '98103'].includes(value)
-          console.log(res)
-          return res
-        },*/
       }
     }
   }
@@ -60,6 +59,10 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
     if (state.cons.value !== 'yes') {
       isValid = false
       reason = 'CONCENT' as IneligibilityReason
+    }
+    if (state.hadCovid.value !== 'yes') {
+      isValid = false
+      reason = 'COVID' as IneligibilityReason
     }
     if (!ZIPCODES.includes(state.zipcode.value)) {
       isValid = false
@@ -79,16 +82,12 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
     fontSize: '13px'
   }
 
-  const handleConsentChange = (val: any) => {
-    handleOnChange({
-      target: { name: 'cons', value: val }
-    })
-  }
+
  
   return (
     <div id="Questions">
       <h1>Am I eligible? </h1>
-      <form className="demoForm" onSubmit={handleOnSubmit}>
+      <form  onSubmit={handleOnSubmit}>
       
       <div className="form-group">
           <label htmlFor="over18">Are you over 18?</label>
@@ -120,6 +119,24 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
               })
             }
             aria-label="can consent"
+          >
+            ><ToggleButton value="yes" color="primary">Yes</ToggleButton>
+            <ToggleButton value="no" color="primary">No</ToggleButton>
+          </ToggleButtonGroup>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="hadCovid"> Do you think you’ve had COVID? </label>
+          <ToggleButtonGroup
+            value={state.hadCovid.value}
+            exclusive
+            className="verticalToggle"
+            onChange={(_event: any, val: string) =>
+              handleOnChange({
+                target: { name: 'hadCovid', value: val }
+              })
+            }
+            aria-label="Do you think you've head covid"
           >
             ><ToggleButton value="yes" color="primary">Yes</ToggleButton>
             <ToggleButton value="no" color="primary">No</ToggleButton>

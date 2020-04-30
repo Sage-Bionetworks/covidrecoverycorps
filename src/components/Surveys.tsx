@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { faCaretUp } from '@fortawesome/free-solid-svg-icons'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { FormControl } from 'react-bootstrap'
 import useForm from './useForm'
-import { getAge, getMomentDate, callEndpoint } from '../helpers/utility'
+import {  callEndpoint } from '../helpers/utility'
 import moment from 'moment'
 import {
   ENDPOINT,
-  SHARE_SCOPE,
-  SUBPOP_GUID,
-  STUDY_ID,
+
   SURVEY_TIME_CONSTANT,
   SURVEY_IDENTIFIER,
 } from '../types/types'
@@ -34,6 +30,7 @@ POST
 Save a participant report record
 */
   const [error, setError] = useState('')
+
   useEffect(() => {
     const getSurveys = async (token: string) => {
       const postData = {

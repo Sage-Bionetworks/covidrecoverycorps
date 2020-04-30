@@ -55,8 +55,8 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     '',
     'What it means to share data with us'
   ]
-  const contentSummary = ['602368', '602367', '', '602368']
-  const contentDetail = ['602368', '602366', '', '602368']
+  const contentSummary = ['602368', '602367', '', '602368',  '', '602367']
+  const contentDetail = ['602368', '602366', '', '602368', '', '602366']
 
   const getTitle = (step: number): JSX.Element =>
     titles[step] ? <h1>{titles[step]}</h1> : <></>
@@ -120,7 +120,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
           variant="contained"
             onClick={() => setCurrentStep(prev => prev - 1)}
           >
-            <FontAwesomeIcon icon={faArrowLeft} />
+            <FontAwesomeIcon icon={faArrowLeft} />&nbsp;
             </Button>
         )}
         {currentStep > 0 && currentStep <= totalSteps && (
@@ -136,7 +136,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
               }
             }}
           >
-            <FontAwesomeIcon icon={faArrowRight} />
+            &nbsp;<FontAwesomeIcon icon={faArrowRight} />
             </Button>
         )}
       </div>

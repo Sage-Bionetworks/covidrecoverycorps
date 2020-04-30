@@ -9,21 +9,20 @@ import Alert from 'react-bootstrap/Alert'
 import { UiSchema } from 'react-jsonschema-form'
 import SynapseForm, { ExtraUIProps } from './synapse_form_wrapper/SynapseForm'
 import { StatusEnum } from './synapse_form_wrapper/types'
-/*mport jsonFormSchema from './data/formSchema.json'
-import jsonUiSchema from './data/uiSchema.json'
-import jsonNavSchema from './data/navSchema.json'*/
+
 import { SurveyType, SavedSurveysObject, SavedSurvey } from '../types/types'
 import { SURVEYS } from '../data/surveys'
 import Grid from '@material-ui/core/Grid/Grid'
-import { now } from 'moment'
-import { callEndpoint } from '../helpers/utility'
-import { SurveyService } from '../services/survey.service'
 
-export type SurveyWrapperProps = {
+import { SurveyService } from '../services/survey.service'
+import { Redirect } from 'react-router-dom'
+
+export interface SurveyWrapperProps {
   formTitle: string //for UI customization
   formClass?: string // to support potential theaming
   surveyName: SurveyType
   token: string
+
 }
 
 type SurveyWrapperState = {
@@ -35,6 +34,7 @@ type SurveyWrapperState = {
   formSchema?: any // schema that drives the form
   formUiSchema?: UiSchema // ui schema that directs how to render the form elements
   formNavSchema?: any // drives the steps left panel
+  isFormSubmitted: boolean
 
   status?: StatusEnum
 }
@@ -66,6 +66,7 @@ export default class SurveyWrapper extends React.Component<
     super(props)
     this.state = {
       isLoading: true,
+      isFormSubmitted: false,
     }
   }
 
@@ -86,9 +87,9 @@ export default class SurveyWrapper extends React.Component<
       const currentSurvey = surveyData?.surveys?.find(
         (survey) => survey.type === this.props.surveyName
       )
-     /* if (currentSurvey) {
-        formData = currentSurvey.data
-      }*/
+    if (currentSurvey) {
+        formData = {...currentSurvey.data, metadata: {}}
+      }
       //if we are creating a new file - store the versions
 
       this.setState({
@@ -131,7 +132,7 @@ export default class SurveyWrapper extends React.Component<
     })
   }
 
-  submitForm = async (data: any): Promise<void> => {
+  submitForm = async (rawData: any, data: any) => {
     this.setState({
       isLoading: true,
     })
@@ -140,7 +141,7 @@ export default class SurveyWrapper extends React.Component<
       type: this.props.surveyName,
       updatedDate: new Date(),
       completedDate: new Date(),
-      data,
+      data: rawData,
     }
 
     let savedSurveys = _.cloneDeep(this.state.savedSurveys)
@@ -164,18 +165,17 @@ export default class SurveyWrapper extends React.Component<
         data,
         this.props.token
       )
-      alert(result.data)
+     // alert(result.data)
       if (result.ok) {
         const result2 = await SurveyService.postUserSurvey(
           savedSurveys,
           this.props.token
         )
-        alert(result.data)
-
-        return result2
+    
+        this.setState({isFormSubmitted: true})
       }
     } catch (error) {
-      alert(error)
+      alert('err'+error)
       this.onError({ name: 'submission error', message: error })
     }
   }
@@ -267,6 +267,11 @@ export default class SurveyWrapper extends React.Component<
   }
 
   render() {
+    if(this.state.isFormSubmitted) {
+ 
+        return <Redirect to='/Dashboard' />
+   
+    }
     return (
       <Grid
         container
@@ -293,8 +298,10 @@ export default class SurveyWrapper extends React.Component<
                     formClass={this.props.formClass}
                     callbackStatus={this.state.status}
                     onSave={() => null}
-                    onSubmit={(data: any) =>
-                      this.submitForm(this.cleanData(data))
+                    onSubmit={async (data: any) =>{
+                     this.submitForm(data, this.cleanData(data))
+                     // return   
+                    }
                     }
                     isSubmitted={false}
                     extraUIProps={extraUIProps}
