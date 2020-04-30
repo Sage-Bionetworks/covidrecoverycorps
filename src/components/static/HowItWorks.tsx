@@ -9,12 +9,7 @@ type HowItWorksProps = {
 
 export const HowItWorks: React.FunctionComponent<HowItWorksProps> = ({}: HowItWorksProps) => {
   return (
- <>
-   <Dashboard token = {sessionStorage.getItem(SESSION_NAME)||''}></Dashboard>
-</>
-    
-
-    /*}  <div className="sdsHowItWorks">
+ <div className="sdsHowItWorks">
       <h1>How it works</h1>
 
       <div className="HowItWorkscontent">
@@ -36,7 +31,7 @@ export const HowItWorks: React.FunctionComponent<HowItWorksProps> = ({}: HowItWo
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
       </div>
-    </div>*/
+    </div>
   )
 }
 

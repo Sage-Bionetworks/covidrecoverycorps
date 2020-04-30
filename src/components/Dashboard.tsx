@@ -20,6 +20,7 @@ import Grid from '@material-ui/core/Grid'
 import { SurveyService } from '../services/survey.service'
 import { SavedSurveysObject, SurveyType, SavedSurvey } from '../types/types'
 import _ from 'lodash'
+import PatientCorpsInfo from './PatientCorpsInfo'
 
 type DashboardProps = {
   token: string
@@ -150,6 +151,12 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         to the research.
       </p>
       <div>{renderSurveyItems(savedSurveys?.surveys || [])}</div>
+      <hr/>
+      <PatientCorpsInfo
+                    
+                      token={token}
+                  
+                    ></PatientCorpsInfo>
     </div>
   )
 }
