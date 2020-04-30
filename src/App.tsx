@@ -97,9 +97,7 @@ function App() {
                   <li>
                     <Link to="/eligibility">Eligibility</Link>
                   </li>
-                  <li>
-                    <Link to="/consent">Consent</Link>
-                  </li>
+                  
                   <li>
                     <Link to="/survey1">Survey1</Link>
                   </li>

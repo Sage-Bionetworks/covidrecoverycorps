@@ -120,7 +120,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
           variant="contained"
             onClick={() => setCurrentStep(prev => prev - 1)}
           >
-            <FontAwesomeIcon icon={faArrowLeft} />
+            <FontAwesomeIcon icon={faArrowLeft} />&nbsp;
             </Button>
         )}
         {currentStep > 0 && currentStep <= totalSteps && (
@@ -136,7 +136,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
               }
             }}
           >
-            <FontAwesomeIcon icon={faArrowRight} />
+            &nbsp;<FontAwesomeIcon icon={faArrowRight} />
             </Button>
         )}
       </div>

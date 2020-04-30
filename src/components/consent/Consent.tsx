@@ -96,7 +96,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           ></ConsentInfo>
         </div>
       )}
-      {!isInfoDone && !isConsentDone && (
+      {isInfoDone && !isConsentDone && (
         <div>
           <p>
             If you understand and agree to the benefits &amp; risk of
