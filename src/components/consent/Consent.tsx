@@ -183,11 +183,15 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           )}
         </div>
       )}
-      {/*isConsentDone && (
+      {isConsentDone && (
+       
         <>
-          <button className="btn">Next</button>
-        </>
-      )*/}
+         <h1>Thank you</h1>
+         <Button color="primary"  variant="contained" fullWidth onClick={()=>window.history.pushState('', 'Dashboard','/dashboard') }>
+        Continue
+       </Button>
+       </>
+      )}
     </div>
   )
 }
