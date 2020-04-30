@@ -15,13 +15,13 @@ import {
   SHARE_SCOPE_ALL,
   SUBPOP_GUID,
 } from '../../types/types'
-import { Redirect } from 'react-router'
-import MarkdownSynapse from 'synapse-react-client/dist/containers/MarkdownSynapse'
+
 import Button from '@material-ui/core/Button/Button'
 import TextField from '@material-ui/core/TextField/TextField'
 import { Checkbox, FormControlLabel } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert/Alert'
 import ConsentEHR from './ConsentEHR'
+import ConsentCopy from './ConsentCopy'
 
 export type ConsentProps = {
   token: string
@@ -121,7 +121,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
             participating in this study. Please sign below.
           </p>
           <p>I know and agree that:</p>
-          <MarkdownSynapse ownerId="syn21985841" wikiId="602371" />
+         <ConsentCopy  screen="INTRO" ></ConsentCopy>
           Please check the box below if you agree to take part:
           <form className="Consent__form" onSubmit={handleOnSubmit}>
             <div
@@ -243,7 +243,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           )}
         </div>
       )}
-      {isConsentDone && (
+      {/*isConsentDone && (
         <>
           <h1>Thank you</h1>
           <Button
@@ -251,13 +251,13 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
             variant="contained"
             fullWidth
             onClick={() =>
-              window.history.pushState('', 'Dashboard', '/dashboard')
+             // window.history.pushState('', 'Dashboard', '/dashboard')
             }
           >
             Continue
           </Button>
         </>
-      )}
+      )*/}
       {isConsentDone && <ConsentEHR></ConsentEHR>}
     </div>
   )
