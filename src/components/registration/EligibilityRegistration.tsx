@@ -45,14 +45,7 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
   
 
   return (
-    <Grid
-    container
-    direction="row"
-    justify="center"
-    alignItems="center"
-    spacing={2}
-  >
-  <Grid item xs={10} md={6} lg={4} className="EligibilityRegistration">   
+<div>
       {eligible === undefined && (
         <Eligiblity
           setEligibilityFn={(
@@ -96,8 +89,7 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
           }}
         ></SignInWithCode>
       )}
-     </Grid>
-     </Grid>
+   </div>  
   )
 }
 

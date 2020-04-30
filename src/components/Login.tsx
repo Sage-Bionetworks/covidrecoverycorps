@@ -9,16 +9,19 @@ import {
   LoginType,
   Response,
   SESSION_NAME,
-  ENDPOINT
+  ENDPOINT,
 } from '../types/types'
-import { callEndpoint, makePhone } from '../helpers/utility'
+import { callEndpoint, makePhone, setSession } from '../helpers/utility'
 
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 import Button from '@material-ui/core/Button'
 import SignInWithCode from './SignInWithCode'
+import TextField from '@material-ui/core/TextField/TextField'
+import { Redirect } from 'react-router-dom'
+import { RouteComponentProps } from "react-router-dom";
 
-export type LoginProps = {
+export interface  OwnLoginProps  {
   redirectUrl?: string // will redirect here after a successful login. if unset, reload the current page url.
   callbackFn?: Function // Callback is invoked after login
   //sessionName: string
@@ -27,6 +30,8 @@ export type LoginProps = {
   token?: string
   searchParams?: EmailSigninParams
 }
+
+export type LoginProps =  OwnLoginProps & RouteComponentProps;
 
 const SESSION_TIMEOUT = 'sessionTimeout'
 const STUDY_ID = 'czi-coronavirus'
@@ -42,7 +47,8 @@ function setSessionToken(sessionToken: string) {
 
 export const Login: React.FunctionComponent<LoginProps> = ({
   searchParams,
-  callbackFn
+  callbackFn,
+  history
 }: LoginProps) => {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -51,14 +57,17 @@ export const Login: React.FunctionComponent<LoginProps> = ({
   const [isLinkSent, setIsLinkSent] = useState(false)
   const [loginType, setLoginType] = useState<LoginType>()
   const [isLoading, setIsLoading] = useState(true)
+  const [isConsented, setIsConsented] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   //detect if they are bck on the page
   React.useEffect(() => {
+    let isSubscribed = true
     const signInWithEmail = async (email: string, token: string) => {
       const postData = {
         study: STUDY_ID,
         email: email,
-        token: token
+        token: token,
       }
       try {
         setError('')
@@ -67,15 +76,26 @@ export const Login: React.FunctionComponent<LoginProps> = ({
           'POST',
           postData
         )
-        if (loggedIn.ok || loggedIn.status === 412) {
-          if (callbackFn) {
-            callbackFn(loggedIn)
+        if (isSubscribed) {
+          const consented = (loggedIn.status !== 412)
+          if (loggedIn.ok || !consented) {
+          
+            setSession(
+              loggedIn.data.sessionToken,
+              loggedIn.data.firstName,
+              consented
+            )
+            if(consented) {
+            history.push("/dashboard");
+            } else {
+              history.push("/consent")
+            }
+          } else {
+            setError('Error ' + loggedIn.status)
           }
-        } else {
-          setError('Error ' + loggedIn.status)
         }
       } catch (e) {
-        console.log(e)
+        alert(JSON.stringify(e, null, 2))
       } finally {
         setIsLoading(false)
       }
@@ -88,7 +108,10 @@ export const Login: React.FunctionComponent<LoginProps> = ({
     } else {
       setIsLoading(false)
     }
-  }, [])
+    return () => {
+      isSubscribed = false
+    }
+  }, [searchParams])
 
   /**
    * Handle user login on click
@@ -106,12 +129,12 @@ export const Login: React.FunctionComponent<LoginProps> = ({
     if (_loginType === 'PHONE') {
       postData = {
         study: STUDY_ID,
-        phone: makePhone(phoneOrEmail)
+        phone: makePhone(phoneOrEmail),
       } as SignInDataPhone
     } else {
       postData = {
         study: STUDY_ID,
-        email: email
+        email: email,
       } as SignInDataEmail
     }
 
@@ -150,6 +173,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
     }
   }
 
+
   return (
     <>
       {isLoading && (
@@ -163,72 +187,59 @@ export const Login: React.FunctionComponent<LoginProps> = ({
 
           {(!isLinkSent || error) && (
             <div>
-        
               <form onSubmit={handleLogin} className="form-group">
                 <div className="form-group">
                   <label htmlFor="registrationType">
                     How do you want to log in?
                   </label>
-               
+
                   <ToggleButtonGroup
                     value={loginType}
                     exclusive
                     className="verticalToggle"
-         
                     onChange={(_event: any, val: LoginType) =>
                       setLoginType(val)
                     }
                     aria-label="login"
                   >
                     {loginType !== 'PHONE' && (
-                      <ToggleButton
-                  
-                        value={'PHONE'}
-                       
-                        // onChange={handleOnChange}
-                      >
-                        Phone
-                      </ToggleButton>
+                      <ToggleButton value={'PHONE'}>Phone</ToggleButton>
                     )}
                     {loginType !== 'EMAIL' && (
-                      <ToggleButton
-                     
-                        value={'EMAIL'}
-                       
-                      >
-                        Email
-                      </ToggleButton>
+                      <ToggleButton value={'EMAIL'}>Email</ToggleButton>
                     )}
                   </ToggleButtonGroup>
 
-                
-
                   {loginType === 'EMAIL' && (
                     <div className="reg">
-                      <label htmlFor="email">Email</label>
-                      <input
+                      <TextField
+                        id="outlined-basic"
+                        variant="outlined"
+                        label="Email"
+                        fullWidth
                         autoComplete="email address"
                         placeholder="email address"
-                        className="form-control"
                         name="email"
                         type="email"
                         value={email}
-                        onChange={e => setEmail(e.currentTarget.value)}
+                        onChange={(e) => setEmail(e.currentTarget.value)}
                       />
                     </div>
                   )}
 
                   {loginType === 'PHONE' && (
                     <div className="reg">
-                      <label htmlFor="phone">Phone</label>
-                      <input
+                      <TextField
+                        id="outlined-basic"
+                        variant="outlined"
                         autoComplete="phone"
                         placeholder="phone"
-                        className="form-control"
+                        label="Phone"
+                        fullWidth
                         name="phone"
                         type="phone"
                         value={phone}
-                        onChange={e => setPhone(e.currentTarget.value)}
+                        onChange={(e) => setPhone(e.currentTarget.value)}
                       />
                     </div>
                   )}

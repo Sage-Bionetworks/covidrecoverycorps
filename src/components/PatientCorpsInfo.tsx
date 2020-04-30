@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import { ENDPOINT } from '../types/types'
 
 type PatientCorpsInfoProps = {
   token: string
-  endpoint: string
-  callback: Function
+
+  callback?: Function
 }
 
 export const PatientCorpsInfo: React.FunctionComponent<PatientCorpsInfoProps> = ({
-  endpoint,
+
   token,
   callback,
 }: PatientCorpsInfoProps) => {
@@ -18,7 +19,7 @@ export const PatientCorpsInfo: React.FunctionComponent<PatientCorpsInfoProps> = 
     let isSubscribed = true
     async function getInfo(token: string) {
       try {
-        const response = await fetch(`${endpoint}/v3/participants/self`, {
+        const response = await fetch(`${ENDPOINT}/v3/participants/self`, {
           method: 'GET', // *GET, POST, PUT, DELETE, etc.
           headers: {
             'Content-Type': 'application/json',
@@ -29,7 +30,9 @@ export const PatientCorpsInfo: React.FunctionComponent<PatientCorpsInfoProps> = 
           const result = await response.json()
           console.log(result)
           setData(result)
-          callback(result)
+          if (callback){
+            callback(result)
+          }
         }
       } catch (error) {
         setErrorMessage(error)

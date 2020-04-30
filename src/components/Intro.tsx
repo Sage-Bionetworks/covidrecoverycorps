@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import { ToggleButton, FormControl } from 'react-bootstrap'
 import useForm from './useForm'
+import { Logout } from './Logout'
 
 type IntroProps = {
   token: string | null
@@ -10,6 +11,7 @@ type IntroProps = {
 export const Intro: React.FunctionComponent<IntroProps> = ({
   token,
 }: IntroProps) => {
+  const [_token, setToken] = useState(token)
   return (
     <>
       <div>
@@ -17,7 +19,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
           <li>
             <a href="/How It Works">How it works</a>
           </li>
-          {!token && (
+          {!_token && (
             <li>
               <a href="/Eligibility">Am I elgible? </a>
             </li>
@@ -28,6 +30,10 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
           <li>
             <a href="/Collaborators">Project Collaborators</a>
           </li>
+          {_token && (
+            <li>
+          <Logout onLogout={() => setToken(null)}></Logout>
+          </li>)}
         </ul>
       </div>
       <h1> We need your help</h1>

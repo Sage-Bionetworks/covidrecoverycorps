@@ -18,7 +18,7 @@ import {
 import _ from 'lodash'
 import Grid from '@material-ui/core/Grid'
 
-import { callEndpoint } from '../helpers/utility'
+import { callEndpoint, getSession } from '../helpers/utility'
 import Dashboard from './Dashboard'
 
 type USER_STATE =
@@ -44,8 +44,8 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
   page,
   ...rest
 }: PatientCorpsHomeProps) => {
-  const [token, setToken] = useState<string | null>(
-    sessionStorage.getItem(SESSION_NAME),
+  const [token, setToken] = useState<string | undefined>(
+    getSession()?.token
   )
   // const [consented, setConsented] = useState(false)
 
@@ -68,7 +68,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
           console.log(response.data)
           if (response.status === 401) {
             sessionStorage.clear()
-            setToken(null)
+            setToken(undefined)
             setUserInfo(undefined)
           } else {
             setUserInfo(response.data)
@@ -92,10 +92,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
     }
   }, [token])
 
-  const setSessionToken = (sessionToken: string) => {
-    sessionStorage.setItem(SESSION_NAME, sessionToken)
-    setToken(sessionToken)
-  }
+ 
   const updateUserInfo = (data: LoggedInUserData, status?: number) => {
     setUserInfo(data)
     //alert(JSON.stringify(data, null, 2))
@@ -107,7 +104,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
   ): JSX.Element => {
     let link = <></>
     if (token) {
-      link = <Logout onLogout={() => setToken(null)}></Logout>
+      link = <Logout onLogout={() => setToken(undefined)}></Logout>
     } else {
       link = page === 'LOGIN' ? <></> : <a href="/Login">Login</a>
     }
@@ -130,14 +127,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
   }
 
   return (
-    <Grid
-      container
-      direction="row"
-      justify="center"
-      alignItems="center"
-      spacing={2}
-    >
-      <Grid item xs={10} md={6} lg={4}>
+
         <div className="PatientCorps theme-drug-upload-tool">
           {isLoading && (
             <div className="text-center">
@@ -148,7 +138,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
          
               <div>
                 {renderLoginOut(token, page)}
-                {page === 'HOME' && !token && <Intro token={token}></Intro>}
+                {page === 'HOME' && !token && <Intro token={token|| null}></Intro>}
                 {(page === 'CONSENT' ||
                   isLoggedInAndNotConsented(token, userInfo)) && (
                   <Consent
@@ -161,43 +151,8 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
                     token={token!}
                   ></Consent>
                 )}
-                {!token && (
-                  <>
-                    <div></div>
-                    {page === 'LOGIN' && (
-                      <div className="text-center SRC-ReactJsonForm">
-                        <div className="file-grid">
-                          <Login
-                           
-                            searchParams={searchParams}
-                            callbackFn={(
-                              loginResponse: Response<LoggedInUserData>,
-                            ) => {
-                              updateUserInfo(
-                                loginResponse.data,
-                                loginResponse.status,
-                              )
-                              setSessionToken(loginResponse.data.sessionToken)
-                              window.history.pushState({}, 'home', '/')
-                            }}
-                          ></Login>
-                        </div>
-                      </div>
-                    )}
-                  </>
-                )}
-                {token && isLoggedInAndConsented(token, userInfo) && (
-                <>
-                    <Dashboard token={token}></Dashboard>
-                    <PatientCorpsInfo
-                      endpoint={ENDPOINT}
-                      token={token}
-                      callback={(data: LoggedInUserData) => {
-                        updateUserInfo(data)
-                      }}
-                    ></PatientCorpsInfo>
-                  </>
-                )}
+             
+            
                 {token && page === 'SURVEY' && (
                   <Survey token={token} callbackFn={() => {}}></Survey>
                 )}
@@ -208,8 +163,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
           
           )}
         </div>
-      </Grid>
-    </Grid>
+     
   )
 }
 

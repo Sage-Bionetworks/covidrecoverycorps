@@ -18,11 +18,10 @@ export const Logout: React.FunctionComponent<LogoutProps> = ({
     const logout = () => {
         sessionStorage.removeItem(SESSION_NAME)
         sessionStorage.clear()
-        onLogout()
         setNavigate(true)
     }
     if(navigate) {
-  return (<Redirect to={redirectUrl || "/" } push={true}/>)
+  return (<Redirect to={redirectUrl || "/login" } push={true}/>)
     }
     else {
         return (
