@@ -13,6 +13,7 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGr
 import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
 import { SizeMe } from 'react-sizeme'
 import Switch from '@material-ui/core/Switch/Switch'
+import ConsentCopy, { StepInfo } from './ConsentCopy'
 
 type ConsentInfoProps = {
   name: string
@@ -49,20 +50,25 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   const [currentStep, setCurrentStep] = useState(0)
   const [quizAnswers, setQuizAnswers] = useState(new Array(2))
 
-  const titles = [
+ /* const titles = [
     '',
     'Rearch study activities',
     '',
     'What it means to share data with us'
   ]
   const contentSummary = ['602368', '602367', '', '602368',  '', '602367']
-  const contentDetail = ['602368', '602366', '', '602368', '', '602366']
+  const contentDetail = ['602368', '602366', '', '602368', '', '602366']*/
 
-  const getTitle = (step: number): JSX.Element =>
-    titles[step] ? <h1>{titles[step]}</h1> : <></>
+ /* const getTitle = (step: number): JSX.Element =>
+    titles[step] ? <h1>{titles[step]}</h1> : <></>*/
 
   const getText = (step: number, fullText: boolean): JSX.Element => {
-    let wikiId
+    const stepInfo: StepInfo = {
+      step, 
+      isSummary: !fullText
+    }
+    return <ConsentCopy stepInfo={stepInfo}></ConsentCopy>
+   /* let wikiId
     if (!fullText) {
       console.log('summarytrue', fullText)
       wikiId = contentSummary[step]
@@ -70,7 +76,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
       console.log('summaryfalse', fullText)
       wikiId = contentDetail[step]
     }
-    return <MarkdownSynapse ownerId="syn21985841" wikiId={wikiId} />
+    return <MarkdownSynapse ownerId="syn21985841" wikiId={wikiId} />*/
   }
 
   const getStatic = (step: number, fullText: boolean): JSX.Element => {
@@ -81,7 +87,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     return (
       <>
         {' '}
-        {getTitle(step)}
+
         {getText(step, fullText)}
       </>
     )
@@ -105,6 +111,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     let style: { [key: string]: string } = {
       display: 'flex',
       justifyContent: 'space-between',
+      marginTop: '20px',
       width: width ? `${width}px` : 'auto'
     }
 
