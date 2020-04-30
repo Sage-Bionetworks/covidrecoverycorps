@@ -11,6 +11,7 @@ import moment from 'moment'
 import Button from '@material-ui/core/Button/Button'
 import { FormControl } from 'react-bootstrap';
 import { TextField } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert/Alert';
 
 type EligibilityProps = {
   setEligibilityFn: Function
@@ -166,7 +167,8 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
         </div>
       </form>
       {Object.keys(state).map(
-        key => state[key].error && <p style={errorStyle}>{state[key].error}</p>
+        key => state[key].error &&
+       <Alert severity="error">{state[key].error}</Alert>
       )}
     </div>
   )

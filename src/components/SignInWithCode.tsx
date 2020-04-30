@@ -52,7 +52,7 @@ export const SignInWithCode: React.FunctionComponent<SignInWithCodeProps> = ({
 
       loggedInByPhoneFn!(loggedIn)
     } catch (e) {
-      setError(e)
+      setError(e.error.message)
     }
   }
 

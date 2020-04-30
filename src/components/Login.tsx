@@ -20,6 +20,7 @@ import SignInWithCode from './SignInWithCode'
 import TextField from '@material-ui/core/TextField/TextField'
 import { Redirect } from 'react-router-dom'
 import { RouteComponentProps } from 'react-router-dom'
+import Alert from '@material-ui/lab/Alert/Alert'
 
 export interface OwnLoginProps {
   redirectUrl?: string // will redirect here after a successful login. if unset, reload the current page url.
@@ -173,6 +174,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
     clickEvent.preventDefault() // avoid page refresh
 
     try {
+      setError('')
       if (phone) {
         result = await sendSignInRequest(
           'PHONE',
@@ -188,7 +190,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
       }
       setIsLinkSent(true)
     } catch (e) {
-      setError(e)
+      setError(e.error.message)
       console.log('error ', result)
     }
   }
@@ -202,7 +204,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
       )}
       {!isLoading && (
         <div>
-          {error}
+         
 
           {(!isLinkSent || error) && (
             <div>
@@ -263,6 +265,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                     </div>
                   )}
                 </div>
+                {error && <Alert severity="error">{error}</Alert>}
                 <Button
                   color="primary"
                   variant="contained"
