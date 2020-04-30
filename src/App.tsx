@@ -83,7 +83,7 @@ function App() {
           <Router>
             <div>
               <nav style={{border: "1px solid black", width:"200px", fontSize: '.5rem'}}>
-                <p> FOR DEV PURPOSES ONLY. (wed night update2) </p>
+                <p> FOR DEV NAV PURPOSES ONLY. (wed night update3) </p>
                 <ul style={{display: 'inline'}}>
                   <li>
                     <Link to="/">Home</Link>
