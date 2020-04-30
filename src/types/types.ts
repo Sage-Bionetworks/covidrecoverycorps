@@ -16,7 +16,7 @@ export type EmailSigninParams = {
   token: string
 }
 
-export type IneligibilityReason = 'AGE' | 'CONSENT' | 'LOCATION' | 'NONE'
+export type IneligibilityReason = 'AGE' | 'CONSENT' | 'LOCATION' | 'COVID'|'NONE'
 
 export interface StringDictionary {
   [key: string]: any

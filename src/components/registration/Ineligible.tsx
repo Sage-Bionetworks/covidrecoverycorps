@@ -32,6 +32,12 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
          Can't consent
         </div>
       )}
+       {reason === 'COVID' && (
+        <div>
+          <h1>Thank you for your interest</h1>
+         Didn't have covid
+        </div>
+      )}
     </>
   )
 }
