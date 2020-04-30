@@ -62,13 +62,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
           {},
           token,
         )
-        /* const response = await fetch(`${ENDPOINT}/v3/participants/self`, {
-          method: 'GET', // *GET, POST, PUT, DELETE, etc.
-          headers: {
-            'Content-Type': 'application/json',
-            'Bridge-Session': token,
-          },
-        })*/
+  
         if (isSubscribed) {
           //const result = await response.json()
           console.log(response.data)

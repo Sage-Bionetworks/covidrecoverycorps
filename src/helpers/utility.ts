@@ -51,6 +51,9 @@ export const callEndpoint = async <T>(
 
 
   const result = await response.json()
+  if(!response.ok && response.status !== 412) {
+alert(JSON.stringify(result, null, 2))
+  }
   return { status: response.status, data: result, ok: response.ok }
 }
 
