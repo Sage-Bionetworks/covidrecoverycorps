@@ -16,8 +16,10 @@ import Button from '@material-ui/core/Button/Button'
 import { Typography } from '@material-ui/core'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
 import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
+import ConsentCopy from './ConsentCopy'
 import { Nav } from '../Nav'
 import { SizeMe } from 'react-sizeme'
+import ConsentInfo from './ConsentInfo'
 
 export type ConsentEHRProps = {
   setConsentEHRFn?: Function
@@ -40,17 +42,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   const renderStep1 = () => {
     const element = (
       <>
-        <h2>
-          Please understand the benefits &amp; risks of sharing your electronic
-          health records{' '}
-        </h2>
-        <p>
-          HIPAA stands for Health Insurance Portability and Accountablity Act of
-          1996, a federal law to protect your health information from being
-          disclosed without your consent or knowledge. The following sections
-          will outline the benefits and risks. Please take your time to go over
-          it.{' '}
-        </p>
+       <ConsentCopy stepInfo={{step: 1, isSummary: false}} isEHR={true}/>
         <Button
           type="button"
           disabled={isHIPAConsented === undefined}
@@ -69,18 +61,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   const renderStep2 = () => {
     const element = (
       <>
-        <h2> HIPAA Authorization</h2>
-        <p>
-          This form tells about giving NY Strong access to your EHR (electronic
-          health records). We will only be able to access your EHR if you sign
-          this form. Health records are the data collected when you get
-          healthcare. Electronic health records, or EHR, are when these data are
-          kept in secure electronic systems. Please read this form carefully.
-          Take all the time you need to decide if you would like to give us
-          access to your EHR. Ask any questions you have. You can say yes or no
-          to signing this form. Your choice will not affect your medical care.
-          You can still be part of <p>NY Strong</p> study if you say no.{' '}
-        </p>
+            <ConsentCopy stepInfo={{step: 2, isSummary: false}} isEHR={true}/>
         <Button
           color="primary"
           variant="contained"
@@ -101,11 +82,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
         <div className="ConsentEHR">
           {currentStep === 0 && (
             <>
-              <Typography variant="h2">
-                Do you want to share your electronic health records with us?{' '}
-              </Typography>
-              <p>Sharing your EHR (electronic health records) is optional </p>
-              <div
+                  <ConsentCopy stepInfo={{step: 3, isSummary: false}} isEHR={true}/> <div
                 style={{
                   display: isLearnMore ? 'flex' : 'none',
                   borderBottom: '1px solid #ddd',
