@@ -86,6 +86,10 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     })
   }
 
+  if (isConsentDone) {
+    <Redirect to='Dashboard'></Redirect>
+  }
+
   return (
     <div className="Consent">
       {!isInfoDone && (
@@ -177,11 +181,11 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           )}
         </div>
       )}
-      {isConsentDone && (
+      {/*isConsentDone && (
         <>
           <button className="btn">Next</button>
         </>
-      )}
+      )*/}
     </div>
   )
 }
