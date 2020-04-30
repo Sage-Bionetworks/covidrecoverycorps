@@ -45,7 +45,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   name,
   onDone
 }: ConsentInfoProps) => {
-  const [isSummary, setIsSummary] = useState(true)
+  const [isFullText, setIsFullText] = useState(true)
   const [currentStep, setCurrentStep] = useState(0)
   const [quizAnswers, setQuizAnswers] = useState(new Array(2))
 
@@ -61,19 +61,19 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   const getTitle = (step: number): JSX.Element =>
     titles[step] ? <h1>{titles[step]}</h1> : <></>
 
-  const getText = (step: number, summary: boolean): JSX.Element => {
+  const getText = (step: number, fullText: boolean): JSX.Element => {
     let wikiId
-    if (summary) {
-      console.log('summarytrue', summary)
+    if (!fullText) {
+      console.log('summarytrue', fullText)
       wikiId = contentSummary[step]
     } else {
-      console.log('summaryfalse', summary)
+      console.log('summaryfalse', fullText)
       wikiId = contentDetail[step]
     }
     return <MarkdownSynapse ownerId="syn21985841" wikiId={wikiId} />
   }
 
-  const getStatic = (step: number, summary: boolean): JSX.Element => {
+  const getStatic = (step: number, fullText: boolean): JSX.Element => {
     const quiz = quizes.find(quiz => quiz.screen === step)
     if (quiz) {
       return <></>
@@ -82,7 +82,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
       <>
         {' '}
         {getTitle(step)}
-        {getText(step, summary)}
+        {getText(step, fullText)}
       </>
     )
   }
@@ -203,10 +203,10 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
             defaultChecked
             color="default"
             inputProps={{ 'aria-label': 'checkbox with default color' }}
-            checked={isSummary}
+            checked={isFullText}
             size = "small"
             onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-              setIsSummary(event.target.checked)
+              setIsFullText(event.target.checked)
             }
           />
           <span className="NavToggle__text">Full Text</span>
@@ -216,10 +216,10 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   }
 
   return (
-    <SizeMe monitorHeight>
+    <SizeMe >
       {({ size }) => (
         <div className="ConsentInfo">
-          <Nav>{renderNavChildren(currentStep)}</Nav>
+          <Nav width={size.width}>{renderNavChildren(currentStep)}</Nav>
           <div>
             {currentStep > 0 && (
               <div className="text-right">
@@ -228,7 +228,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
             )}
             <div>{currentStep === 0 && <h1>Welcome {name}</h1>}</div>
             <div>
-              {getStatic(currentStep, isSummary)}
+              {getStatic(currentStep, isFullText)}
 
               {getQuiz(currentStep)}
               {getNavButtons(currentStep, size.width)}

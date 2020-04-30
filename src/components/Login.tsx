@@ -19,9 +19,9 @@ import Button from '@material-ui/core/Button'
 import SignInWithCode from './SignInWithCode'
 import TextField from '@material-ui/core/TextField/TextField'
 import { Redirect } from 'react-router-dom'
-import { RouteComponentProps } from "react-router-dom";
+import { RouteComponentProps } from 'react-router-dom'
 
-export interface  OwnLoginProps  {
+export interface OwnLoginProps {
   redirectUrl?: string // will redirect here after a successful login. if unset, reload the current page url.
   callbackFn?: Function // Callback is invoked after login
   //sessionName: string
@@ -31,7 +31,7 @@ export interface  OwnLoginProps  {
   searchParams?: EmailSigninParams
 }
 
-export type LoginProps =  OwnLoginProps & RouteComponentProps;
+export type LoginProps = OwnLoginProps & RouteComponentProps
 
 const SESSION_TIMEOUT = 'sessionTimeout'
 const STUDY_ID = 'czi-coronavirus'
@@ -48,7 +48,7 @@ function setSessionToken(sessionToken: string) {
 export const Login: React.FunctionComponent<LoginProps> = ({
   searchParams,
   callbackFn,
-  history
+  history,
 }: LoginProps) => {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -61,6 +61,24 @@ export const Login: React.FunctionComponent<LoginProps> = ({
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   //detect if they are bck on the page
+
+  const handleLoggedIn = (loggedIn: Response<LoggedInUserData>) => {
+    const consented = loggedIn.status !== 412
+    if (loggedIn.ok || !consented) {
+      setSession(loggedIn.data.sessionToken, loggedIn.data.firstName, consented)
+      if(callbackFn) {
+        callbackFn (loggedIn.data.sessionToken, loggedIn.data.firstName)
+      }
+      if (consented) {
+        history.push('/dashboard')
+      } else {
+        history.push('/consent')
+      }
+    
+    } else {
+      setError('Error ' + loggedIn.status)
+    }
+  }
   React.useEffect(() => {
     let isSubscribed = true
     const signInWithEmail = async (email: string, token: string) => {
@@ -77,7 +95,8 @@ export const Login: React.FunctionComponent<LoginProps> = ({
           postData
         )
         if (isSubscribed) {
-          const consented = (loggedIn.status !== 412)
+          handleLoggedIn(loggedIn)
+          /*const consented = (loggedIn.status !== 412)
           if (loggedIn.ok || !consented) {
           
             setSession(
@@ -90,9 +109,10 @@ export const Login: React.FunctionComponent<LoginProps> = ({
             } else {
               history.push("/consent")
             }
+            handleLoggedIn(loggedIn)
           } else {
             setError('Error ' + loggedIn.status)
-          }
+          }*/
         }
       } catch (e) {
         alert(JSON.stringify(e, null, 2))
@@ -172,7 +192,6 @@ export const Login: React.FunctionComponent<LoginProps> = ({
       console.log('error ', result)
     }
   }
-
 
   return (
     <>
@@ -260,13 +279,9 @@ export const Login: React.FunctionComponent<LoginProps> = ({
 
           {isLinkSent && (
             <SignInWithCode
-              loggedInByPhoneFn={(result: Response<LoggedInUserData>) => {
-                setSessionToken(result.data.sessionToken)
-                alert(JSON.stringify(result, null, 2))
-                if (callbackFn) {
-                  callbackFn(result.data.sessionToken, result.data.firstName)
-                }
-              }}
+              loggedInByPhoneFn={(result: Response<LoggedInUserData>) =>
+                handleLoggedIn(result)
+              }
               phoneOrEmail={loginType === 'PHONE' ? phone : email}
               loginType={loginType!}
             ></SignInWithCode>

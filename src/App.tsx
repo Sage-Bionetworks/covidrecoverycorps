@@ -143,10 +143,11 @@ const renderLoginOut = (
                   border: '1px solid black',
                   width: '200px',
                   fontSize: '.5rem',
+                  position: 'fixed'
                 }}
               >
                      {renderLoginOut()}
-                <p> FOR DEV NAV PURPOSES ONLY. (thur morn update2) </p>
+                <p> FOR DEV NAV PURPOSES ONLY. (thur 8:50) </p>
                 <ul style={{ display: 'inline' }}>
                   <li>
                     <Link to="/">Home</Link>
@@ -154,9 +155,7 @@ const renderLoginOut = (
                   <li>
                     <Link to="/collaborators">Collaborators</Link>
                   </li>
-                  <li>
-                    <Link to="/Login">Login</Link>
-                  </li>
+                
                   <li>
                     <Link to="/eligibility">Eligibility</Link>
                   </li>

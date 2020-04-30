@@ -6,11 +6,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import ConsentInfo from './ConsentInfo'
 
-
 import useForm from '../useForm'
 import { getAge, getMomentDate, callEndpoint } from '../../helpers/utility'
 import moment from 'moment'
-import { ENDPOINT, SHARE_SCOPE_PARTNERS,SHARE_SCOPE_ALL, SUBPOP_GUID } from '../../types/types'
+import {
+  ENDPOINT,
+  SHARE_SCOPE_PARTNERS,
+  SHARE_SCOPE_ALL,
+  SUBPOP_GUID,
+} from '../../types/types'
 import { Redirect } from 'react-router'
 import MarkdownSynapse from 'synapse-react-client/dist/containers/MarkdownSynapse'
 import Button from '@material-ui/core/Button/Button'
@@ -51,12 +55,11 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
 
   async function onSubmitForm(state: any) {
     let isValid = true
-  
 
     const data = {
       name: state.fullName.value,
 
-      scope: state.shareAll? SHARE_SCOPE_ALL : SHARE_SCOPE_PARTNERS,
+      scope: state.shareAll ? SHARE_SCOPE_ALL : SHARE_SCOPE_PARTNERS,
       signedOn: moment().toLocaleString(),
     }
     console.log('about to call end point')
@@ -87,9 +90,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   }
 
   if (isConsentDone) {
-    return (
-    <Redirect to='Dashboard'></Redirect>
-    )
+    return <Redirect to="Dashboard"></Redirect>
   }
 
   return (
@@ -112,33 +113,51 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           <MarkdownSynapse ownerId="syn21985841" wikiId="602371" />
           Please check the box below if you agree to take part:
           <form className="Consent__form" onSubmit={handleOnSubmit}>
-          <div className="form-group">
+            <div className="form-group">
               <FormControlLabel
                 control={
                   <Checkbox
+                    color="primary"
                     value={state.shareAll.value}
                     onChange={(val) => checkboxChange('shareAll')}
                   />
                 }
                 label="Share my data with this study as well as other qualified researchers <strong>for future research </strong> on COVID related work "
               />
-              <div style={{display: isLearnMore? 'block' : 'none', borderBottom: '1px solid #ddd'}}>
+              <div
+                style={{
+                  display: isLearnMore ? 'block' : 'none',
+                  borderBottom: '1px solid #ddd',
+                }}
+              >
                 some text about learning more about reserch sharing
-                <Button 
-                style={{float:'right'}}
-                onClick={()=> setIsLearnMore(false)}><FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon></Button>
-            
+                <Button
+                  style={{ float: 'right' }}
+                  onClick={() => setIsLearnMore(false)}
+                >
+                  <FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon>
+                </Button>
               </div>
-              <div style={{display: isLearnMore? 'none' : 'block', borderBottom: '1px solid #ddd'}}>
-              Learn More 
-              <Button    style={{float:'right'}} onClick={()=> setIsLearnMore(true)}><FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon></Button>
+              <div
+                style={{
+                  display: isLearnMore ? 'none' : 'block',
+                  borderBottom: '1px solid #ddd',
+                }}
+              >
+                Learn More
+                <Button
+                  style={{ float: 'right' }}
+                  onClick={() => setIsLearnMore(true)}
+                >
+                  <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
+                </Button>
               </div>
-
             </div>
             <div className="form-group">
               <FormControlLabel
                 control={
                   <Checkbox
+                    color="primary"
                     value={state.agree.value}
                     onChange={(val) => checkboxChange('agree')}
                   />
@@ -184,13 +203,19 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
         </div>
       )}
       {isConsentDone && (
-       
         <>
-         <h1>Thank you</h1>
-         <Button color="primary"  variant="contained" fullWidth onClick={()=>window.history.pushState('', 'Dashboard','/dashboard') }>
-        Continue
-       </Button>
-       </>
+          <h1>Thank you</h1>
+          <Button
+            color="primary"
+            variant="contained"
+            fullWidth
+            onClick={() =>
+              window.history.pushState('', 'Dashboard', '/dashboard')
+            }
+          >
+            Continue
+          </Button>
+        </>
       )}
     </div>
   )
