@@ -33,7 +33,6 @@ async function postToHealthData(surveyData: any, token: string): Promise<any> {
     postData,
     token
   )
-  alert(JSON.stringify(result, null, 2))
   return result
 }
 
