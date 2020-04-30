@@ -1,14 +1,16 @@
 import React, { useState, ChangeEvent } from 'react'
-import { faCaretUp, faFileExcel } from '@fortawesome/free-solid-svg-icons'
+
+import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import ConsentInfo from './ConsentInfo'
 
-import { FormControl, FormCheck } from 'react-bootstrap'
+
 import useForm from '../useForm'
 import { getAge, getMomentDate, callEndpoint } from '../../helpers/utility'
 import moment from 'moment'
-import { ENDPOINT, SHARE_SCOPE, SUBPOP_GUID } from '../../types/types'
+import { ENDPOINT, SHARE_SCOPE_PARTNERS,SHARE_SCOPE_ALL, SUBPOP_GUID } from '../../types/types'
 import { Redirect } from 'react-router'
 import MarkdownSynapse from 'synapse-react-client/dist/containers/MarkdownSynapse'
 import Button from '@material-ui/core/Button/Button'
@@ -28,10 +30,11 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
 }: ConsentProps) => {
   const [isInfoDone, setIsInfoDone] = useState(false)
   const [isConsentDone, setIsConsentDone] = useState(false)
+  const [isLearnMore, setIsLearnMore] = useState(false)
 
   const stateSchema = {
     agree: { value: '', error: '' },
-
+    shareAll: { value: '', error: '' },
     fullName: { value: '', error: '' },
   }
 
@@ -39,6 +42,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     agree: {
       required: true,
     },
+    shareAll: {},
 
     fullName: {
       required: true,
@@ -47,20 +51,12 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
 
   async function onSubmitForm(state: any) {
     let isValid = true
-    const age = getAge(
-      state.birthyear?.value,
-      state.birthmonth?.value,
-      state.birthday?.value
-    )
-    if (age < 18) {
-      isValid = false
-      return
-    }
+  
 
     const data = {
       name: state.fullName.value,
 
-      scope: SHARE_SCOPE,
+      scope: state.shareAll? SHARE_SCOPE_ALL : SHARE_SCOPE_PARTNERS,
       signedOn: moment().toLocaleString(),
     }
     console.log('about to call end point')
@@ -84,9 +80,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     onSubmitForm
   )
 
-  const checkboxChange = () => {
+  const checkboxChange = (_name: string) => {
     handleOnChange({
-      target: { name: 'agree', value: !state.agree.value },
+      target: { name: _name, value: !state[_name].value },
     })
   }
 
@@ -110,18 +106,38 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           <MarkdownSynapse ownerId="syn21985841" wikiId="602371" />
           Please check the box below if you agree to take part:
           <form className="Consent__form" onSubmit={handleOnSubmit}>
+          <div className="form-group">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value={state.shareAll.value}
+                    onChange={(val) => checkboxChange('shareAll')}
+                  />
+                }
+                label="Share my data with this study as well as other qualified researchers <strong>for future research </strong> on COVID related work "
+              />
+              <div style={{display: isLearnMore? 'block' : 'none', borderBottom: '1px solid #ddd'}}>
+                some text about learning more about reserch sharing
+                <Button 
+                style={{float:'right'}}
+                onClick={()=> setIsLearnMore(false)}><FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon></Button>
+            
+              </div>
+              <div style={{display: isLearnMore? 'none' : 'block', borderBottom: '1px solid #ddd'}}>
+              Learn More 
+              <Button    style={{float:'right'}} onClick={()=> setIsLearnMore(true)}><FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon></Button>
+              </div>
+
+            </div>
             <div className="form-group">
               <FormControlLabel
                 control={
                   <Checkbox
                     value={state.agree.value}
-                    onChange={(val) => checkboxChange()}
+                    onChange={(val) => checkboxChange('agree')}
                   />
                 }
-                label="I have read this consent form (or someone read it to me).
-            I understand the information in this form. All of my
-            questions have been answered. I freely and willingly
-            choose to take part in NY Strong."
+                label="I have read this consent form (or someone read it to me). I understand the information in this form. All of my questions have been answered. I freely and willingly choose to take part in NY Strong."
               />
             </div>
             <p>{moment().format('MMMM Do, YYYY')}</p>

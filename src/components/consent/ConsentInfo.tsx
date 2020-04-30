@@ -55,8 +55,8 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     '',
     'What it means to share data with us'
   ]
-  const contentSummary = ['602368', '602367', '', '602368']
-  const contentDetail = ['602368', '602366', '', '602368']
+  const contentSummary = ['602368', '602367', '', '602368',  '', '602367']
+  const contentDetail = ['602368', '602366', '', '602368', '', '602366']
 
   const getTitle = (step: number): JSX.Element =>
     titles[step] ? <h1>{titles[step]}</h1> : <></>
