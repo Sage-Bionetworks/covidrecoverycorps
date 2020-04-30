@@ -41,7 +41,7 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
      variant="contained"
      
     >
-      <FontAwesomeIcon icon={faChevronLeft} />
+      <FontAwesomeIcon icon={faChevronLeft} />&nbsp;
       </Button>
    
   ) : (
@@ -54,7 +54,7 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
      color="primary"
      variant="contained"
     >
-      <FontAwesomeIcon icon={faChevronRight} />
+      &nbsp;<FontAwesomeIcon icon={faChevronRight} />
       </Button>
   ) : (
     props.isNoSaveButton? (
@@ -104,7 +104,7 @@ export function NextStepLink(props: NextStepLinkProps): JSX.Element {
   return (
     <span className="nav-link">
       <a onClick={e => props.onNavAction(nextStep)}>{nextStep.title}</a>
-      <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
+      &nbsp;<FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
     </span>
   )
 }

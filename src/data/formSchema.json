@@ -3,7 +3,7 @@
 
     "about": {
       "type": "object",
-      "required": ["biological_sex", "gender_identity", "enthnicity", "sexual_orientation"],
+      "required": ["biological_sex", "gender_identity", "enthnicity", "sexual_orientation", "birthdate"],
       "properties": {
        
 
