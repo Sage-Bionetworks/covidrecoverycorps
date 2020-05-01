@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
-import { ToggleButton, FormControl } from 'react-bootstrap'
-import useForm from './useForm'
 
 import {
   STUDY_ID,
   ENDPOINT,
-  EmailSigninParams,
-  LoggedInUserData,
-  Phone,
-  SignInData,
-  SignInDataPhone,
-  SignInDataEmail,
+
   LoginType,
 } from '../types/types'
 import { callEndpoint, makePhone } from '../helpers/utility'
@@ -37,7 +29,7 @@ export const SignInWithCode: React.FunctionComponent<SignInWithCodeProps> = ({
 
   async function handleOnSubmit(clickEvent: React.FormEvent<HTMLElement>) {
     clickEvent.preventDefault()
-    const _code = code.replace('-', '').trim()
+
     const postData = {
       study: STUDY_ID,
       phone: makePhone(phoneOrEmail),
@@ -52,7 +44,7 @@ export const SignInWithCode: React.FunctionComponent<SignInWithCodeProps> = ({
 
       loggedInByPhoneFn!(loggedIn)
     } catch (e) {
-      setError(e.error.message)
+      setError(e.message)
     }
   }
 

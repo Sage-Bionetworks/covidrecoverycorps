@@ -23,6 +23,16 @@
       "ui:options": {
         "inline": false
       }
+    },
+    "birthdate":{
+      "ui:widget": "alt-date",
+      "ui:options": {
+        "yearsRange": [1910, 2001],
+        "hideNowButton": true,
+        "hideClearButton": true
+      }
+
+
     }
   },
   "registration": {}

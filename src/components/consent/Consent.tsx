@@ -81,7 +81,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     }}
     catch(e) {
 
-      setError(e.error.message)
+      setError(e.message)
     }
   
   }

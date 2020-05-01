@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
-import { ToggleButton, FormControl } from 'react-bootstrap'
-import useForm from './useForm'
+
+import { Button } from '@material-ui/core'
+import { faTimes} from '@fortawesome/free-solid-svg-icons'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type NavProps = {
   staticText?: string
@@ -34,11 +36,13 @@ export const Nav: React.FunctionComponent<NavProps> = props  => {
 
   return (
     <div id="toolbar" className="container" style={{ top: top , width: props.width? `${props.width}px`: '100%'}}>
+       
       <div className="row">
         <div className="col-md-offset-1 col-md-10">
           <div className="row">
-            <div className="text-center">
-              {props.children}
+           <div className="text-center" style={{position: 'relative'}}>
+          {/* <div style={{position: "absolute", left: "-20px"}}><button style={{backgroundColor: "transparent", border: "none"}} onClick={()=> alert('hi')}><FontAwesomeIcon size="xs" icon={faTimes}></FontAwesomeIcon></button></div>*/}
+           {props.children}
             </div>
           </div>
         </div>

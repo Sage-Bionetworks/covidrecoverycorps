@@ -16,6 +16,7 @@ export const Logout: React.FunctionComponent<LogoutProps> = ({
 }: LogoutProps) => {
     const [navigate, setNavigate] = useState(false)
     const logout = () => {
+        onLogout()
         sessionStorage.removeItem(SESSION_NAME)
         sessionStorage.clear()
         setNavigate(true)

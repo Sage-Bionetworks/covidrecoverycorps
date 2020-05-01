@@ -1,10 +1,19 @@
 import React from 'react'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
-import { FormControl } from 'react-bootstrap'
+
 import useForm from '../useForm'
-import { STUDY_ID, ENDPOINT, RegistrationData, LoginType } from '../../types/types'
-import { callEndpoint, makePhone, sendSignInRequest } from '../../helpers/utility'
+import {
+  STUDY_ID,
+  ENDPOINT,
+  RegistrationData,
+  LoginType,
+} from '../../types/types'
+import {
+  callEndpoint,
+  makePhone,
+  sendSignInRequest,
+} from '../../helpers/utility'
 import Button from '@material-ui/core/Button/Button'
 import TextField from '@material-ui/core/TextField/TextField'
 
@@ -75,7 +84,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
       PHONE: `${ENDPOINT}${PHONE_SIGN_IN_TRIGGER_ENDPOINT}`,
       EMAIL: `${ENDPOINT}${EMAIL_SIGN_IN_TRIGGER_ENDPOINT}`,
     }
-    if (state.registrationType == 'EMAIL') {
+    if (state.registrationType === 'EMAIL') {
       delete data.phone
       loginType = 'EMAIL'
     }
@@ -115,11 +124,6 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
     fontSize: '13px',
   }
 
-  const handleSignupTypeChange = (val: any) => {
-    handleOnChange({
-      target: { name: 'registrationType', value: val },
-    })
-  }
   return (
     <>
       <div id="Questions">
@@ -131,25 +135,26 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
         <hr></hr>
         <form className="demoForm" onSubmit={handleOnSubmit}>
           <div className="form-group">
-            <label htmlFor="firstName">What is your first name</label>
+       
             <TextField
               variant="outlined"
               type="text"
               fullWidth
+              label="What is your first name"
               value={state.firstName.value}
               onChange={handleOnChange}
               name="firstName"
             />
           </div>
           <div className="form-group">
-            <label htmlFor="lastName">What is your last name</label>
+      
             <TextField
               variant="outlined"
               type="text"
               fullWidth
-    
               value={state.lastName.value}
               onChange={handleOnChange}
+              label="What is your last name"
               name="lastName"
             />
           </div>
@@ -160,6 +165,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
             <label htmlFor="registrationType">
               How do you want to create your account?
             </label>
+            
             <ToggleButtonGroup
               aria-label="registration type"
               className="verticalToggle"
@@ -181,42 +187,49 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
 
             {state.registrationType.value === 'EMAIL' && (
               <div className="reg">
-                <label htmlFor="email">Email</label>
-                <FormControl
+                <TextField
                   name="email"
                   type="email"
                   value={state.email.value}
-                  placeholder="email"
                   aria-label="email"
                   onChange={handleOnChange}
+                  variant="outlined"
+                  label="Email"
+                  fullWidth
+                  autoComplete="email address"
+                  placeholder="email address"
                 />
+             
               </div>
             )}
 
             {state.registrationType.value === 'PHONE' && (
               <div className="reg">
                 <label htmlFor="phone">Phone</label>
-                <FormControl
+                <TextField
                   name="phone"
                   type="phone"
                   value={state.phone.value}
                   placeholder="phone"
                   aria-label="phone"
+                  label="phone"
+                  variant="outlined"
+                  fullWidth
                   onChange={handleOnChange}
                 />
               </div>
             )}
           </div>
-<div className="text-center">
-          <Button
-            color="primary"
-            variant="contained"
-            size="large"
-            type="submit"
-            disabled={disable || (!state.email.value && !state.phone.value)}
-          >
-            Submit
-          </Button>
+          <div className="text-center">
+            <Button
+              color="primary"
+              variant="contained"
+              size="large"
+              type="submit"
+              disabled={disable || (!state.email.value && !state.phone.value)}
+            >
+              Submit
+            </Button>
           </div>
         </form>
         {Object.keys(state).map(

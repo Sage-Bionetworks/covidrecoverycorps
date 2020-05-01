@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {
   EmailSigninParams,
   LoggedInUserData,
-  Phone,
+
   SignInData,
   SignInDataPhone,
   SignInDataEmail,
@@ -18,13 +18,13 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 import Button from '@material-ui/core/Button'
 import SignInWithCode from './SignInWithCode'
 import TextField from '@material-ui/core/TextField/TextField'
-import { Redirect } from 'react-router-dom'
+
 import { RouteComponentProps } from 'react-router-dom'
 import Alert from '@material-ui/lab/Alert/Alert'
 
 export interface OwnLoginProps {
   redirectUrl?: string // will redirect here after a successful login. if unset, reload the current page url.
-  callbackFn?: Function // Callback is invoked after login
+  callbackFn: Function // Callback is invoked after login
   //sessionName: string
 
   email?: string
@@ -40,11 +40,6 @@ const EMAIL_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/email'
 const PHONE_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/phone'
 const EMAIL_SIGN_IN_ENDPOINT = '/v3/auth/email/signIn'
 
-function setSessionToken(sessionToken: string) {
-  localStorage.setItem(SESSION_NAME, sessionToken)
-  localStorage.setItem(SESSION_TIMEOUT, new Date().getTime() + '')
-  return sessionToken || ''
-}
 
 export const Login: React.FunctionComponent<LoginProps> = ({
   searchParams,
@@ -53,23 +48,19 @@ export const Login: React.FunctionComponent<LoginProps> = ({
 }: LoginProps) => {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [phoneCode, setPhoneCode] = useState('')
+
   const [error, setError] = useState('')
   const [isLinkSent, setIsLinkSent] = useState(false)
   const [loginType, setLoginType] = useState<LoginType>()
   const [isLoading, setIsLoading] = useState(true)
-  const [isConsented, setIsConsented] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
 
   //detect if they are bck on the page
 
   const handleLoggedIn = (loggedIn: Response<LoggedInUserData>) => {
     const consented = loggedIn.status !== 412
     if (loggedIn.ok || !consented) {
-      setSession(loggedIn.data.sessionToken, loggedIn.data.firstName, consented)
-      if(callbackFn) {
         callbackFn (loggedIn.data.sessionToken, loggedIn.data.firstName)
-      }
       if (consented) {
         history.push('/dashboard')
       } else {
@@ -80,6 +71,8 @@ export const Login: React.FunctionComponent<LoginProps> = ({
       setError('Error ' + loggedIn.status)
     }
   }
+
+  
   React.useEffect(() => {
     let isSubscribed = true
     const signInWithEmail = async (email: string, token: string) => {
@@ -190,7 +183,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
       }
       setIsLinkSent(true)
     } catch (e) {
-      setError(e.error.message)
+      setError(e.message)
       console.log('error ', result)
     }
   }

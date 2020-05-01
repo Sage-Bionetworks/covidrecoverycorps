@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import FormGroup from '@material-ui/core/FormGroup';
+
 
 import useForm from '../useForm'
 import { IneligibilityReason, ZIPCODES } from '../../types/types'
-import { getMomentDate, getAge } from '../../helpers/utility'
+
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 
-import moment from 'moment'
+
 import Button from '@material-ui/core/Button/Button'
-import { FormControl } from 'react-bootstrap';
+
 import { TextField } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert/Alert';
 
@@ -78,11 +78,6 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
     validationStateSchema,
     onSubmitForm
   )
-  const errorStyle = {
-    color: 'red',
-    fontSize: '13px'
-  }
-
 
  
   return (
@@ -144,11 +139,12 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
           </ToggleButtonGroup>
         </div>
         <div className="form-group">
-          <label htmlFor="zipcode">Zip Code</label>
+         
           <TextField variant="outlined"
             name="zipcode"
             placeholder="zipcode"
             aria-label="zipcode"
+           label="zipcode"
             fullWidth
             onChange={handleOnChange}
           />

@@ -6,16 +6,14 @@ import {
   faCheckCircle,
   faDotCircle,
   IconDefinition,
-  faIgloo,
+
 } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import useForm from './useForm'
-import SurveyWrapper from './SurveyWrapper'
 
-import { FormControlLabel, Switch, Typography } from '@material-ui/core'
-import Paper from '@material-ui/core/Paper'
-import Grid from '@material-ui/core/Grid'
+
+import { Typography } from '@material-ui/core'
+
 
 import { SurveyService } from '../services/survey.service'
 import { SavedSurveysObject, SurveyType, SavedSurvey } from '../types/types'
