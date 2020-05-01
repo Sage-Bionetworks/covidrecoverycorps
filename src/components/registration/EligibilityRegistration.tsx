@@ -7,49 +7,50 @@ import Ineligible from './Ineligible'
 import SignInWithCode from '../SignInWithCode'
 import { IneligibilityReason, SESSION_NAME } from '../../types/types'
 import Registration from './Registration'
+import { RouteComponentProps } from 'react-router-dom'
 
-
-
-
-export type EligibilityRegistrationProps = {
-  
+export type EligibilityRegistrationOwnProps = {
   callbackFn: Function
 }
-//?email=alina.gendel%2Bny1%40gmail.com&token=pI3j28A8H5TXo8oBPIuUU
 
-// NEW syntax for typing function components
+export type EligibilityRegistrationProps = EligibilityRegistrationOwnProps &
+  RouteComponentProps
+
 const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationProps> = ({
-
+  history,
   callbackFn,
 }: EligibilityRegistrationProps) => {
-  //const [token, setToken] = useState<string | null>(
-    //sessionStorage.getItem(SESSION_NAME),
- // )
   const [eligible, setEligible] = useState<boolean | undefined>(undefined)
   const [ineligibilityReason, setIneligibilityReason] = useState<
     IneligibilityReason | undefined
   >(undefined)
-
 
   const [loginType, setLoginType] = useState<LoginType>()
   const [phoneOrEmail, setPhoneOrEmail] = useState('')
 
   const [error, setError] = useState<string>()
 
-  /*const setSessionToken = (sessionToken: string) => {
-    sessionStorage.setItem(SESSION_NAME, sessionToken)
-    setToken(sessionToken)
-  }*/
-
-  
+  const handleLoggedIn = (loggedIn: Response<LoggedInUserData>) => {
+    const consented = loggedIn.status !== 412
+    if (loggedIn.ok || !consented) {
+      callbackFn(loggedIn.data.sessionToken, loggedIn.data.firstName)
+      if (consented) {
+        history.push('/dashboard')
+      } else {
+        history.push('/consent')
+      }
+    } else {
+      setError('Error ' + loggedIn.status)
+    }
+  }
 
   return (
-<div>
+    <div>
       {eligible === undefined && (
         <Eligiblity
           setEligibilityFn={(
             isEligible: boolean,
-            reason: IneligibilityReason,
+            reason: IneligibilityReason
           ) => {
             setEligible(isEligible)
             setIneligibilityReason(reason)
@@ -65,7 +66,7 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
             type: LoginType,
             status: number,
             data: object,
-            phoneOrEmail: string,
+            phoneOrEmail: string
           ) => {
             setLoginType(type)
             setPhoneOrEmail(phoneOrEmail)
@@ -79,16 +80,12 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
         <SignInWithCode
           loginType={loginType}
           phoneOrEmail={phoneOrEmail}
-          loggedInByPhoneFn={(result: Response<LoggedInUserData>) => {
-           // setSessionToken(result.data.sessionToken)
-           // alert(JSON.stringify(result, null, 2))
-            if (callbackFn){
-              callbackFn(result.data.sessionToken, result.data.firstName, result.data.consented)
-            }
-          }}
+          loggedInByPhoneFn={(result: Response<LoggedInUserData>) =>
+            handleLoggedIn(result)
+          }
         ></SignInWithCode>
       )}
-   </div>  
+    </div>
   )
 }
 

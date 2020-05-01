@@ -60,10 +60,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
   const handleLoggedIn = (loggedIn: Response<LoggedInUserData>) => {
     const consented = loggedIn.status !== 412
     if (loggedIn.ok || !consented) {
-     // setSession(loggedIn.data.sessionToken, loggedIn.data.firstName, consented)
-     // if(callbackFn) {
         callbackFn (loggedIn.data.sessionToken, loggedIn.data.firstName)
-      //}
       if (consented) {
         history.push('/dashboard')
       } else {
@@ -74,6 +71,8 @@ export const Login: React.FunctionComponent<LoginProps> = ({
       setError('Error ' + loggedIn.status)
     }
   }
+
+  
   React.useEffect(() => {
     let isSubscribed = true
     const signInWithEmail = async (email: string, token: string) => {

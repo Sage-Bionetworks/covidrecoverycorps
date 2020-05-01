@@ -165,6 +165,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
             <label htmlFor="registrationType">
               How do you want to create your account?
             </label>
+            
             <ToggleButtonGroup
               aria-label="registration type"
               className="verticalToggle"

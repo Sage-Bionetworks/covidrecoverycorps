@@ -98,8 +98,7 @@ function App() {
         } catch (e) {
           setUserSession(undefined, '', false)
           alert(e.message)
-         // return <Redirect to="/"></Redirect>
-      
+          // return <Redirect to="/"></Redirect>
         }
       }
     }
@@ -129,23 +128,26 @@ function App() {
     )
   }
 
-  const setUserSession = (token: string| undefined, name: string, consented: boolean) => {
+  const setUserSession = (
+    token: string | undefined,
+    name: string,
+    consented: boolean
+  ) => {
     const data = {
       token,
       name,
       consented,
     }
-    if(!token) {
+    if (!token) {
       sessionStorage.clear()
       setToken(undefined)
       setName('')
       setConsented(undefined)
-
     } else {
-    setToken(token)
-    setName(name)
-    setConsented(consented)
-    sessionStorage.setItem(SESSION_NAME, JSON.stringify(data))
+      setToken(token)
+      setName(name)
+      setConsented(consented)
+      sessionStorage.setItem(SESSION_NAME, JSON.stringify(data))
     }
   }
 
@@ -155,7 +157,9 @@ function App() {
       link = (
         <>
           <p>Hello {name}</p>
-          <Logout onLogout={() => setUserSession(undefined, '', false)}></Logout>
+          <Logout
+            onLogout={() => setUserSession(undefined, '', false)}
+          ></Logout>
         </>
       )
     } else {
@@ -249,13 +253,23 @@ function App() {
                         )
                       }}
                     ></Route>
-                    <Route path="/eligibility">
-                      <EligibilityRegistration
-                        callbackFn={(token: string, name: string) =>
-                          setUserSession(token, name, false)
-                        }
-                      />
-                    </Route>
+                    <Route
+                      path="/eligibility"
+                      render={(props) => {
+                        const searchParamsProps = getSearchParams(
+                          props.location.search
+                        )
+                        // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
+                        return (
+                          <EligibilityRegistration
+                            {...props}
+                            callbackFn={(token: string, name: string) =>
+                              setUserSession(token, name, false)
+                            }
+                          />
+                        )
+                      }}
+                    ></Route>
 
                     <PrivateRoute exact={true} path="/dashboard">
                       <Dashboard token={token || ''} />
