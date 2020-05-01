@@ -198,7 +198,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                <p> FOR DEV NAV PURPOSES ONLY. (Fri 12:20) </p>
+                <p> FOR DEV NAV PURPOSES ONLY. (Fri 2:20) </p>
                 {renderLoginOut()}
                 <ul>
                   <li>
