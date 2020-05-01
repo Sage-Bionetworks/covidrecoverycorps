@@ -23,7 +23,7 @@ Sed efficitur orci ligula. Donec congue leo vitae velit semper, vel sagittis leo
 
 const summaryScreens = [
     <div>
-      <h2>About the Study</h2> (summary) What is COVID Recovery Corps Who are
+      <h2>Alina Is TestingAbout the Study</h2> (summary) What is COVID Recovery Corps Who are
       the major players How long is the study? Data and Specimens
     </div>,
     <div>
