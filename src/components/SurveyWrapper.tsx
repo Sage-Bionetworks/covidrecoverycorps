@@ -9,11 +9,8 @@ import Alert from 'react-bootstrap/Alert'
 import { UiSchema } from 'react-jsonschema-form'
 import SynapseForm, { ExtraUIProps } from './synapse_form_wrapper/SynapseForm'
 import { StatusEnum } from './synapse_form_wrapper/types'
-
 import { SurveyType, SavedSurveysObject, SavedSurvey } from '../types/types'
 import { SURVEYS } from '../data/surveys'
-import Grid from '@material-ui/core/Grid/Grid'
-
 import { SurveyService } from '../services/survey.service'
 import { Redirect } from 'react-router-dom'
 
@@ -22,7 +19,6 @@ export interface SurveyWrapperProps {
   formClass?: string // to support potential theaming
   surveyName: SurveyType
   token: string
-
 }
 
 type SurveyWrapperState = {
@@ -87,8 +83,8 @@ export default class SurveyWrapper extends React.Component<
       const currentSurvey = surveyData?.surveys?.find(
         (survey) => survey.type === this.props.surveyName
       )
-    if (currentSurvey) {
-        formData = {...currentSurvey.data, metadata: {}}
+      if (currentSurvey) {
+        formData = { ...currentSurvey.data, metadata: {} }
       }
       //if we are creating a new file - store the versions
 
@@ -99,8 +95,8 @@ export default class SurveyWrapper extends React.Component<
         formNavSchema: SURVEYS.DEMOGRAPHIC.navSchema,
         isLoading: false,
       })
-    } catch (error) {
-      this.onError({ message: error })
+    } catch (e) {
+      this.onError({ message: e.message })
     } finally {
       this.setState({
         isLoading: false,
@@ -165,17 +161,14 @@ export default class SurveyWrapper extends React.Component<
         data,
         this.props.token
       )
-     // alert(result.data)
+      // alert(result.data)
       if (result.ok) {
-        const result2 = await SurveyService.postUserSurvey(
-          savedSurveys,
-          this.props.token
-        )
-    
-        this.setState({isFormSubmitted: true})
+        await SurveyService.postUserSurvey(savedSurveys, this.props.token)
+
+        this.setState({ isFormSubmitted: true })
       }
     } catch (error) {
-      alert('err'+error)
+      alert('err' + error)
       this.onError({ name: 'submission error', message: error })
     }
   }
@@ -267,50 +260,45 @@ export default class SurveyWrapper extends React.Component<
   }
 
   render() {
-    if(this.state.isFormSubmitted) {
- 
-        return <Redirect to='/Dashboard' />
-   
+    if (this.state.isFormSubmitted) {
+      return <Redirect to="/Dashboard" />
     }
     return (
-   
-          <div className={`theme-${this.props.formClass}`}>
-            <div className="SRC-ReactJsonForm">
-              {this.renderNotification(this.state.notification)}
-              {this.renderLoader(this.state, this.props)}
+      <div className={`theme-${this.props.formClass}`}>
+        <div className="SRC-ReactJsonForm">
+          {this.renderNotification(this.state.notification)}
+          {this.renderLoader(this.state, this.props)}
 
-              {this.isReadyToDisplayForm(this.state) && (
-                <div>
-                  <SynapseForm
-                    schema={this.state.formSchema}
-                    uiSchema={this.state.formUiSchema!}
-                    formData={this.state.formData}
-                    navSchema={this.state.formNavSchema}
-                    isWizardMode={true}
-                    formTitle={this.props.formTitle}
-                    formClass={this.props.formClass}
-                    callbackStatus={this.state.status}
-                    onSave={() => null}
-                    onSubmit={async (data: any) =>{
-                     this.submitForm(data, this.cleanData(data))
-                     // return   
-                    }
-                    }
-                    isSubmitted={false}
-                    extraUIProps={extraUIProps}
-                  ></SynapseForm>
-                </div>
-              )}
-              {this.state.status === StatusEnum.SUBMIT_SUCCESS && (
-                <div>
-                  {' '}
-                  You have registered succesfully. You will need to verify your
-                  email before you can log in{' '}
-                </div>
-              )}
+          {this.isReadyToDisplayForm(this.state) && (
+            <div>
+              <SynapseForm
+                schema={this.state.formSchema}
+                uiSchema={this.state.formUiSchema!}
+                formData={this.state.formData}
+                navSchema={this.state.formNavSchema}
+                isWizardMode={true}
+                formTitle={this.props.formTitle}
+                formClass={this.props.formClass}
+                callbackStatus={this.state.status}
+                onSave={() => null}
+                onSubmit={async (data: any) => {
+                  this.submitForm(data, this.cleanData(data))
+                  // return
+                }}
+                isSubmitted={false}
+                extraUIProps={extraUIProps}
+              ></SynapseForm>
             </div>
-          </div>
-     
+          )}
+          {this.state.status === StatusEnum.SUBMIT_SUCCESS && (
+            <div>
+              {' '}
+              You have registered succesfully. You will need to verify your
+              email before you can log in{' '}
+            </div>
+          )}
+        </div>
+      </div>
     )
   }
 }

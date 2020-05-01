@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import MarkdownSynapse from 'synapse-react-client/dist/containers/MarkdownSynapse'
+
 
 import useForm from '../useForm'
 import Nav from '../Nav'

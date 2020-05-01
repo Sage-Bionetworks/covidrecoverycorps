@@ -106,9 +106,9 @@ export default class SynapseForm extends React.Component<
 
   isNewForm = (formData: IFormData): boolean => {
     return (
-      (Object.keys(formData).length == 1 &&
+      (Object.keys(formData).length === 1 &&
         Object.keys(formData)[0] === 'metadata') ||
-      Object.keys(formData).length == 0
+      Object.keys(formData).length === 0
     )
   }
 
@@ -155,13 +155,13 @@ export default class SynapseForm extends React.Component<
   }
 
   onUnload = (ev: any) => {
-    {
+
       if (this.state.hasUnsavedChanges) {
         ev.preventDefault()
         return (ev.returnValue = this.unsavedDataWarning)
       }
       return
-    }
+ 
   }
   // Setup the `beforeunload` event listener
   setupBeforeUnloadListener = () => {

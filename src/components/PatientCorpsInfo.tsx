@@ -34,20 +34,20 @@ export const PatientCorpsInfo: React.FunctionComponent<PatientCorpsInfoProps> = 
             callback(result)
           }
         }
-      } catch (error) {
-        setErrorMessage(error)
+      } catch (e) {
+        setErrorMessage(e.message)
       }
     }
     getInfo(token)
     return () => {
       isSubscribed = false
     }
-  }, [token])
+  }, [token, callback])
   // ...
 
   return (
     <div>
-      <div>{/*errorMessage*/}</div>
+      <div>{errorMessage}</div>
       <pre>{JSON.stringify(data, null, 2) }</pre>
 
     </div>

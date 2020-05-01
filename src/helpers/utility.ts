@@ -20,7 +20,7 @@ export const callEndpoint = async <T>(
   token?: string
 ): Promise<Response<T>> => {
   const headers: HeadersInit = new Headers()
-  let url = new URL(endpoint)
+
 
   headers.set('Content-Type', 'application/json')
   if (token) {
@@ -46,7 +46,7 @@ export const callEndpoint = async <T>(
   const result = await response.json()
   if (!response.ok && response.status !== 412) {
    //alert(JSON.stringify(result, null, 2))
-    throw({error: result})
+    throw(result)
   }
   return { status: response.status, data: result, ok: response.ok }
 }

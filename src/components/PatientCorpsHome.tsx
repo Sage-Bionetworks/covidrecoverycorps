@@ -9,17 +9,16 @@ import Survey from './Survey'
 import Surveys from './Surveys'
 import { useState } from 'react'
 import {
-  SESSION_NAME,
+
   LoggedInUserData,
   ENDPOINT,
-  UserData,
-  Response,
+
 } from '../types/types'
 import _ from 'lodash'
-import Grid from '@material-ui/core/Grid'
+
 
 import { callEndpoint, getSession } from '../helpers/utility'
-import Dashboard from './Dashboard'
+
 
 type USER_STATE =
   | 'HOME'
@@ -93,10 +92,6 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
   }, [token])
 
  
-  const updateUserInfo = (data: LoggedInUserData, status?: number) => {
-    setUserInfo(data)
-    //alert(JSON.stringify(data, null, 2))
-  }
 
   const renderLoginOut = (
     token?: string | null,
@@ -112,12 +107,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
     return <div style={{ float: 'right' }}>{link}</div>
   }
 
-  const isLoggedInAndConsented = (
-    token?: string | null,
-    userInfo?: LoggedInUserData,
-  ): boolean => {
-    return !!token && !!userInfo?.consented
-  }
+
 
   const isLoggedInAndNotConsented = (
     token?: string | null,
@@ -167,16 +157,4 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
   )
 }
 
-/*
-  axios.post('https://webservices.sagebridge.org/v3/itp', {
-        studyId: 'sage-mpower-2',
-        phone: {number: phoneFormatted, regionCode: 'US'},
-        subpopGuid: 'sage-mpower-2',
-        osName: osName,
-        consentSignature: {
-          name: this.$store.getName(),
-          scope: this.$store.getSharingScope()
-        }
-      }).t
-      */
 export default PatientCorpsHome

@@ -8,13 +8,12 @@ import SignInWithCode from '../SignInWithCode'
 import { IneligibilityReason, SESSION_NAME } from '../../types/types'
 import Registration from './Registration'
 
-import { Grid } from '@material-ui/core'
 
 
 
 export type EligibilityRegistrationProps = {
   
-  callbackFn?: Function
+  callbackFn: Function
 }
 //?email=alina.gendel%2Bny1%40gmail.com&token=pI3j28A8H5TXo8oBPIuUU
 
@@ -23,9 +22,9 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
 
   callbackFn,
 }: EligibilityRegistrationProps) => {
-  const [token, setToken] = useState<string | null>(
-    sessionStorage.getItem(SESSION_NAME),
-  )
+  //const [token, setToken] = useState<string | null>(
+    //sessionStorage.getItem(SESSION_NAME),
+ // )
   const [eligible, setEligible] = useState<boolean | undefined>(undefined)
   const [ineligibilityReason, setIneligibilityReason] = useState<
     IneligibilityReason | undefined
@@ -37,10 +36,10 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
 
   const [error, setError] = useState<string>()
 
-  const setSessionToken = (sessionToken: string) => {
+  /*const setSessionToken = (sessionToken: string) => {
     sessionStorage.setItem(SESSION_NAME, sessionToken)
     setToken(sessionToken)
-  }
+  }*/
 
   
 
@@ -81,10 +80,10 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
           loginType={loginType}
           phoneOrEmail={phoneOrEmail}
           loggedInByPhoneFn={(result: Response<LoggedInUserData>) => {
-            setSessionToken(result.data.sessionToken)
-            alert(JSON.stringify(result, null, 2))
+           // setSessionToken(result.data.sessionToken)
+           // alert(JSON.stringify(result, null, 2))
             if (callbackFn){
-              callbackFn(result.data)
+              callbackFn(result.data.sessionToken, result.data.firstName, result.data.consented)
             }
           }}
         ></SignInWithCode>

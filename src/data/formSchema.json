@@ -62,9 +62,8 @@
         },
         "birthdate": {
           "type": "string",
-          "title": "What is your date of birth?",
-          "format": "date"
-        }
+          "title": "What is your date of birth?"
+       }
       
 
 

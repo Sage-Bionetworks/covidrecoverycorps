@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
-import { ToggleButton, FormControl } from 'react-bootstrap'
-import useForm from './useForm'
 import { Logout } from './Logout'
 
 type IntroProps = {

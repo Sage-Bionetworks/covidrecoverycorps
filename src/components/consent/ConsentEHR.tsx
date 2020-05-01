@@ -11,7 +11,7 @@ import { getAge, getMomentDate, callEndpoint } from '../../helpers/utility'
 import moment from 'moment'
 import { ENDPOINT, SHARE_SCOPE_PARTNERS, SUBPOP_GUID } from '../../types/types'
 import { Redirect } from 'react-router'
-import MarkdownSynapse from 'synapse-react-client/dist/containers/MarkdownSynapse'
+
 import Button from '@material-ui/core/Button/Button'
 import { Typography } from '@material-ui/core'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'

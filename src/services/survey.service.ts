@@ -1,8 +1,8 @@
 //import { authHeader } from '../_helpers';
 import {
-  RegistrationData,
+
   ENDPOINT,
-  STUDY_ID,
+
   SURVEY_TIME_CONSTANT,
   SURVEY_IDENTIFIER,
 } from '../types/types'

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from './logo.svg'
 
 import './styles/style.scss'
@@ -10,21 +10,27 @@ import {
   Redirect,
 } from 'react-router-dom'
 import Collaborators from './components/static/Collaborators'
-import PatientCorpsHome from './components/PatientCorpsHome'
+
 import EligibilityRegistration from './components/registration/EligibilityRegistration'
 import SurveyWrapper from './components/SurveyWrapper'
 import Login from './components/Login'
 import Consent from './components/consent/Consent'
-import Container from '@material-ui/core/Container/Container'
+
 import { makeStyles } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline'
-import { createMuiTheme, ThemeProvider, Typography, Grid } from '@material-ui/core'
+import {
+  createMuiTheme,
+  ThemeProvider,
+  Typography,
+  Grid,
+} from '@material-ui/core'
 
-import {getSession} from './helpers/utility'
-import PatientCorpsInfo from './components/PatientCorpsInfo'
+import { getSession, callEndpoint } from './helpers/utility'
+
 import Intro from './components/Intro'
 import Dashboard from './components/Dashboard'
 import { Logout } from './components/Logout'
+import { SESSION_NAME, ENDPOINT, LoggedInUserData } from './types/types'
 
 const theme = createMuiTheme({
   typography: {
@@ -68,56 +74,96 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-
-
 type AppState = {
   token: string
 }
 export const TokenContext = React.createContext('')
 
-
-
-
 function App() {
+  const [token, setToken] = useState(getSession()?.token)
+  const [name, setName] = useState(getSession()?.name)
+  const [consented, setConsented] = useState(getSession()?.consented)
 
-const [token, setToken] = useState(getSession()?.token)
-const [name, setName] = useState(getSession()?.name)
-
-function PrivateRoute({ children, ...rest }: any) {
-  return (
-    <Route
-      {...rest}
-      render={({ location }) =>
-        token ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/login',
-              state: { from: location },
-            }}
-          />
-        )
+  useEffect(() => {
+    let isSubscribed = true
+    async function getInfo(token: string | undefined) {
+      if (token && isSubscribed) {
+        try {
+          const response = await callEndpoint<LoggedInUserData>(
+            `${ENDPOINT}/v3/participants/self`,
+            'GET',
+            {},
+            token
+          )
+        } catch (e) {
+          setUserSession(undefined, '', false)
+          alert(e.message)
+         // return <Redirect to="/"></Redirect>
+      
+        }
       }
-    />
-  )
-}
+    }
+    getInfo(token)
+    return () => {
+      isSubscribed = false
+    }
+  }, [])
 
-const renderLoginOut = (
-
-
-): JSX.Element => {
-  let link = <></>
-  if (token) {
-    link = <><p>Hello {name}</p>
-    <Logout onLogout={() => setToken(undefined)}></Logout>
-</>
-  } else {
-   link = <a href="/login">Login</a>
+  function PrivateRoute({ children, ...rest }: any) {
+    return (
+      <Route
+        {...rest}
+        render={({ location }) =>
+          token ? (
+            children
+          ) : (
+            <Redirect
+              to={{
+                pathname: '/login',
+                state: { from: location },
+              }}
+            />
+          )
+        }
+      />
+    )
   }
 
-  return <div >{link}</div>
-}
+  const setUserSession = (token: string| undefined, name: string, consented: boolean) => {
+    const data = {
+      token,
+      name,
+      consented,
+    }
+    if(!token) {
+      sessionStorage.clear()
+      setToken(undefined)
+      setName('')
+      setConsented(undefined)
+
+    } else {
+    setToken(token)
+    setName(name)
+    setConsented(consented)
+    sessionStorage.setItem(SESSION_NAME, JSON.stringify(data))
+    }
+  }
+
+  const renderLoginOut = (): JSX.Element => {
+    let link = <></>
+    if (token) {
+      link = (
+        <>
+          <p>Hello {name}</p>
+          <Logout onLogout={() => setUserSession(undefined, '', false)}></Logout>
+        </>
+      )
+    } else {
+      link = <a href="/login">Login</a>
+    }
+
+    return <div>{link}</div>
+  }
 
   const classes = useStyles()
 
@@ -145,20 +191,19 @@ const renderLoginOut = (
                   top: '10px',
                   left: '10px',
                   fontSize: '.5rem',
-                  position: 'fixed'
+                  position: 'fixed',
                 }}
               >
-                  
-                <p> FOR DEV NAV PURPOSES ONLY. (thur 12:05) </p>
+                <p> FOR DEV NAV PURPOSES ONLY. (Fri 12:20) </p>
                 {renderLoginOut()}
-                <ul >
+                <ul>
                   <li>
                     <Link to="/">Home</Link>
                   </li>
                   <li>
                     <Link to="/collaborators">Collaborators</Link>
                   </li>
-                
+
                   <li>
                     <Link to="/eligibility">Eligibility</Link>
                   </li>
@@ -166,8 +211,6 @@ const renderLoginOut = (
                   <li>
                     <Link to="/survey1">Survey1</Link>
                   </li>
-
-                  
                 </ul>
               </nav>
               <Grid
@@ -193,19 +236,36 @@ const renderLoginOut = (
                           props.location.search
                         )
                         // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
-                        return <Login {...props} searchParams={searchParamsProps as any}  callbackFn={(token: string, name: string)=> {setToken(token); setName(name)}} />
+                        return (
+                          <Login
+                            {...props}
+                            searchParams={searchParamsProps as any}
+                            callbackFn={(
+                              token: string,
+                              name: string,
+                              consented: boolean
+                            ) => setUserSession(token, name, consented)}
+                          />
+                        )
                       }}
                     ></Route>
                     <Route path="/eligibility">
-                      <EligibilityRegistration />
+                      <EligibilityRegistration
+                        callbackFn={(token: string, name: string) =>
+                          setUserSession(token, name, false)
+                        }
+                      />
                     </Route>
 
                     <PrivateRoute exact={true} path="/dashboard">
-                      <Dashboard token={token || ''}  />
+                      <Dashboard token={token || ''} />
                     </PrivateRoute>
 
                     <PrivateRoute exact={true} path="/consent">
-                      <Consent token={token || ''} name={getSession()?.name || ''} />
+                      <Consent
+                        token={token || ''}
+                        name={getSession()?.name || ''}
+                      />
                     </PrivateRoute>
 
                     <PrivateRoute exact={true} path="/survey1">
@@ -220,8 +280,6 @@ const renderLoginOut = (
                     <Route path="/">
                       <Intro token={token || null}></Intro>
                     </Route>
-
-                   
                   </Switch>
                 </Grid>
               </Grid>

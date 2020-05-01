@@ -44,6 +44,10 @@ div.Introcontent2:after {
   width: 154px;
   height: 20%; }
 
+  h2 {
+    font-size: "36px"
+  }
+
 #toolbar {
   position: fixed;
   /* Make it stick/fixed */

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
-import useForm from '../useForm'
+
 import { IneligibilityReason } from '../../types/types'
 import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
-import FormControl from '@material-ui/core/FormControl/FormControl'
+
 import TextField from '@material-ui/core/TextField/TextField'
 import { Button } from '@material-ui/core'
 
@@ -18,22 +18,26 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
   const [mailList, setMailList] = useState<boolean | undefined>()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [zipcodel, setZipcode] = useState('')
+  const [zipcode, setZipcode] = useState('')
   return (
     <>
       {reason === 'AGE' && (
         <div>
           <h1>Thank you for your interest</h1>
+          <p>
           Unfortunately, you have to be older than 18 years of age to be part of
           this study registry. [Text to be]
+          </p>
         </div>
       )}
       {reason === 'LOCATION' && (
         <div>
           <h1>Thank you for your interest</h1>
+          <p>
           Unfortunately, we are currently focusing on the NYC region at the
           moment. We are hoping to expand in the coming months. Would you like
           to join our mailing list and be notified in the future?
+          </p>
           <div className="form-group">
             <ToggleButtonGroup
               value={mailList}
@@ -77,7 +81,7 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
                   type="text"
                   variant="outlined"
                   fullWidth
-                  value={email}
+                  value={zipcode}
                   placeholder="zip code"
                   aria-label="zip code"
                   label="zip code"
