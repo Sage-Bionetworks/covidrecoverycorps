@@ -97,7 +97,7 @@ function App() {
           )
         } catch (e) {
           setUserSession(undefined, '', false)
-          alert(e.message)
+          //alert(e.message)
           // return <Redirect to="/"></Redirect>
         }
       }
