@@ -95,10 +95,10 @@ const change=(e: any) =>{
 const renderStep2 = (): JSX.Element => {
 
   const element = ( <div>
-    <ConsentCopy screen="HIPA_LAST_INTRO"></ConsentCopy>
+    <ConsentCopy screen="HIPAA_LAST_INTRO" isEHR={true}></ConsentCopy>
     <div className="Consent__inset">
       <p>I know and agree that:</p>
-      <ConsentCopy screen="HIPA_LAST_TERMS"></ConsentCopy>
+      <ConsentCopy screen="HIPAA_LAST_TERMS" isEHR={true}></ConsentCopy>
       Please check the box below if you agree to take part:
       <form className="Consent__form" onSubmit={()=>{/*handleOnSubmit*/}}>
      
@@ -174,8 +174,8 @@ return (
               {renderStep0()}
             </>
           )}
-          {currentStep == 1 && renderStep1()}
-          {currentStep == 2 && renderStep2()}
+          {currentStep === 1 && renderStep1()}
+          {currentStep === 2 && (<div>te{renderStep2()}</div>)}
         </div>
       )}
     </SizeMe>
