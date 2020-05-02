@@ -461,6 +461,10 @@ const ehrScreens = [
 
 const screens: { [key: string]: JSX.Element } = {
   INTRO:   <p className="Consent__copy">intro + {loremIpsum}</p>,
+  CONSENT_SIGNATURE1: <p className="Consent__copy">If you understand and agree to the benefits &amp; risk of participating in this study. Please sign below.</p>,
+  CONSENT_SIGNATURE2: <p className="Consent__copy">My data will be stored in the NY Strong databases. If I give a blood, urine, nose, anal, or saliva sample, it will be stored at the NY Strong biobank. This includes my DNA or genetic material. Information that researchers learn by studying my samples will be stored in the NY Strong databases. Researchers will do COVID-19 studies using the NY Strong databases and biobank. They may also do research on other health conditions that are related to how the body responds to COVID-19. If my sample is used up, I may be asked to give another blood sample. I can say yes or no. My contact information may be used to tell me about other studies. I can withdraw (quit) at any time. There is no penalty if I withdraw. </p>,
+  CONSENT_SHARING: <div><p >By default, you are sharing your data with this study only. </p><p>
+    Would you like to share your study data with other qualified researchers for future research on COVID related work?</p></div>,
   HIPAA_LAST_INTRO: (
     <p className="Consent__copy">
       If you understand and agree to the benefits &amp; risk of participating in

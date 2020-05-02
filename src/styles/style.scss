@@ -97,7 +97,7 @@ color: black;
 .reg {
   padding: 20px;
   margin-top: 10px;
-  border: 1px solid gray;
+
 }
 
 .buttonGroup .btn-block:first-child {
@@ -108,7 +108,7 @@ color: black;
 
 #toolbar {
   position: fixed; /* Make it stick/fixed */
-  top: 60px; /* Stay on top */
+  top: 0px; /* Stay on top */
 
   transition: top 0.3s; /* Transition effect when sliding down (and up) */
 
@@ -175,4 +175,26 @@ color: black;
     border-left-style: solid;
     border-color: #000000;
   }
+}
+
+.loginType {
+  border: 1px solid #000;
+
+  .MuiTabs-root {
+    border-bottom: 1px solid black;
+  }
+
+  .MuiTab-textColorPrimary.Mui-selected {
+  color: #fff;
+    background-color: #000;
+  }
+
+  .MuiTab-textColorPrimary {
+    color: #000;
+  }
+
+
+
+
+
 }

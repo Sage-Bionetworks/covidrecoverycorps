@@ -16,6 +16,7 @@ import {
 } from '../../helpers/utility'
 import Button from '@material-ui/core/Button/Button'
 import TextField from '@material-ui/core/TextField/TextField'
+import { Tabs, Tab } from '@material-ui/core'
 
 type RegistrationProps = {
   onSuccessFn: Function
@@ -35,7 +36,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
     lastName: { value: '', error: '' },
     email: { value: '', error: '' },
     phone: { value: '', error: '' },
-    registrationType: { value: '', error: '' },
+    registrationType: { value: 'EMAIL', error: '' },
   }
 
   const validationStateSchema = {
@@ -135,7 +136,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
         <hr></hr>
         <form className="demoForm" onSubmit={handleOnSubmit}>
           <div className="form-group">
-       
+       <label>What is your first name?</label>
             <TextField
               variant="outlined"
               type="text"
@@ -147,7 +148,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
             />
           </div>
           <div className="form-group">
-      
+      <label>What is your last name?</label>
             <TextField
               variant="outlined"
               type="text"
@@ -165,25 +166,28 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
             <label htmlFor="registrationType">
               How do you want to create your account?
             </label>
-            
-            <ToggleButtonGroup
-              aria-label="registration type"
-              className="verticalToggle"
-              exclusive
-              value={state.registrationType.value}
-              onChange={(_event: any, val: string) =>
-                handleOnChange({
-                  target: { name: 'registrationType', value: val },
-                })
-              }
-            >
-              {state.registrationType.value !== 'PHONE' && (
-                <ToggleButton value={'PHONE'}>Phone</ToggleButton>
-              )}
-              {state.registrationType.value !== 'EMAIL' && (
-                <ToggleButton value={'EMAIL'}>Email</ToggleButton>
-              )}
-            </ToggleButtonGroup>
+
+            <div className="loginType">
+                    <Tabs
+                      value={state.registrationType.value}
+                      indicatorColor="primary"
+                      textColor="primary"
+                      variant="fullWidth"
+                      onChange={(_e, value) =>  handleOnChange({
+                        target: { name: 'registrationType', value: value },
+                      })}
+                      aria-label="disabled tabs example"
+                    >
+                      <Tab label="EMAIL" value="EMAIL">
+                        email
+                      </Tab>
+
+                      <Tab label="PHONE" value="PHONE">
+                        phone
+                      </Tab>
+                    </Tabs>
+
+        
 
             {state.registrationType.value === 'EMAIL' && (
               <div className="reg">
@@ -219,6 +223,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                 />
               </div>
             )}
+            </div>
           </div>
           <div className="text-center">
             <Button

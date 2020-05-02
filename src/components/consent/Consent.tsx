@@ -18,7 +18,14 @@ import {
 
 import Button from '@material-ui/core/Button/Button'
 import TextField from '@material-ui/core/TextField/TextField'
-import { Checkbox, FormControlLabel } from '@material-ui/core'
+import {
+  Checkbox,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+  RadioGroup,
+  Radio,
+} from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert/Alert'
 import ConsentEHR from './ConsentEHR'
 import ConsentCopy from './ConsentCopy'
@@ -26,7 +33,7 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGr
 import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
 import { Redirect } from 'react-router-dom'
 import Nav from '../Nav'
-import { SizeMe } from 'react-sizeme'
+
 
 export type ConsentProps = {
   token: string
@@ -41,14 +48,16 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
 }: ConsentProps) => {
   const [isInfoDone, setIsInfoDone] = useState(false)
   const [isConsentDone, setIsConsentDone] = useState(false)
-  const [doHIPAAConsent, setDoHIPAAConsent] = useState<boolean | undefined>(undefined)
+  const [doHIPAAConsent, setDoHIPAAConsent] = useState<boolean | undefined>(
+    undefined
+  )
   const [isLearnMore, setIsLearnMore] = useState([false, false])
 
   const [error, setError] = useState('')
 
   const stateSchema = {
     agree: { value: '', error: '' },
-    shareAll: { value: '', error: '' },
+    shareScope: { value: '', error: '' },
     fullName: { value: '', error: '' },
     dob: { value: '', error: '' },
   }
@@ -57,7 +66,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     agree: {
       required: true,
     },
-    shareAll: {},
+    shareScope: {
+      required: true,
+    },
 
     fullName: {
       required: true,
@@ -65,12 +76,10 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   }
 
   async function onSubmitForm(state: any) {
-    let isValid = true
-
     const data = {
       name: state.fullName.value,
 
-      scope: state.shareAll ? SHARE_SCOPE_ALL : SHARE_SCOPE_PARTNERS,
+      scope: state.shareScope.value,
       signedOn: moment().toLocaleString(),
     }
     try {
@@ -83,9 +92,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       )
 
       setIsConsentDone(true)
-     // if (setConsentFn) {
-        //setConsentFn(result.ok)
-      //}
+ 
     } catch (e) {
       setError(e.message)
     }
@@ -97,9 +104,10 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     onSubmitForm
   )
 
-  const checkboxChange = (_name: string) => {
+  const checkboxChange = (_name: string, checked: boolean) => {
+
     handleOnChange({
-      target: { name: _name, value: !state[_name].value },
+      target: { name: _name, value: checked },
     })
   }
 
@@ -138,7 +146,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
             display: isLearnMore[1] ? 'none' : 'flex',
           }}
         >
-          Reviews what it means
+          Review what it means
           <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
         </div>
 
@@ -155,7 +163,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
         </ToggleButtonGroup>
 
         <Button
-        className="pull-right"
+          className="pull-right"
           type="button"
           disabled={doHIPAAConsent === undefined}
           variant="contained"
@@ -172,10 +180,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   if (isConsentDone) {
     if (doHIPAAConsent) {
       return <Redirect to="consentehr"></Redirect>
-    } 
-    if (doHIPAAConsent===false) {
- 
-    return <Redirect to="dashboard"></Redirect>
+    }
+    if (doHIPAAConsent === false) {
+      return <Redirect to="dashboard"></Redirect>
     }
   }
 
@@ -189,38 +196,48 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       )}
       {isInfoDone && !isConsentDone && (
         <>
-        <SizeMe >
-      {({ size }) => (
-        <div>
-              <Nav width={size.width}>Consent Signature</Nav>
+    
+              <div>
+                <Nav>Consent Signature</Nav>
               </div>
-      )}</SizeMe>
-          <p>
-            If you understand and agree to the benefits &amp; risk of
-            participating in this study. Please sign below.
-          </p>
+      
+          <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>
+          <p>I know and agree that:</p>
+          <div style={{marginLeft: "4rem"}}>
+          <ConsentCopy screen={'CONSENT_SIGNATURE2'}></ConsentCopy>
           <div className="Consent__inset">
-            <p>I know and agree that:</p>
-            <div style={{marginLeft: "2rem"}}>
-            <ConsentCopy screen="INTRO"></ConsentCopy></div>
-           <p> Please check the box below if you agree to take part:</p>
+          </div>
+
+            <p>&nbsp;</p>
+            <div style={{ marginTop: '2rem', marginLeft: '-8rem', marginBottom: '4rem' }}>
+              <ConsentCopy screen={'CONSENT_SHARING'}></ConsentCopy>
+            </div>
+
             <form className="Consent__form" onSubmit={handleOnSubmit}>
-              <div
-                className="form-group checkbox--indented"
+          
+              <FormControl component="fieldset">
+                <FormLabel component="legend">PLEASE SELECT ONE</FormLabel>
+                <RadioGroup
+                  aria-label="sharing"
+                  name="shareScope"
+                  value={state.shareScope.value}
+                  onChange={handleOnChange}
                
-              >
-                <Checkbox
-                  color="primary"
-                  style={{ paddingTop: '3px' }}
-                  value={state.shareAll.value}
-                  onChange={(val) => checkboxChange('shareAll')}
-                />
-                <div>
-                  <p>
-                    "Share my data with this study as well as other qualified
-                    researchers <strong>for future research </strong> on COVID
-                    related work "
-                  </p>
+                >
+                  <FormControlLabel
+                    value='SHARE_SCOPE_ALL'
+                    control={<Radio     color="primary"/>}
+                    label="Yes, share with my study data with qualified researchers for future COVID related work."
+                  />
+                  <FormControlLabel
+                    value='SHARE_SCOPE_PARTNERS'
+                    control={<Radio    color="primary"/>}
+                    label="No, only use my study data for this study only."
+                  />
+                </RadioGroup>
+              </FormControl>
+           
+                  <p></p>
 
                   <div
                     onClick={() => updateIsLearnMore(0, true)}
@@ -232,8 +249,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     Learn More
                     <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
                   </div>
-                </div>
-              </div>
+               
+           
+
               <div
                 className="learnLessToggle"
                 style={{
@@ -250,15 +268,12 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   <FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon>
                 </button>
               </div>
-              <div
-                className="form-group checkbox--indented"
-               
-              >
+              <div className="form-group checkbox--indented">
                 <Checkbox
                   color="primary"
                   style={{ paddingTop: '3px' }}
                   value={state.agree.value}
-                  onChange={(val) => checkboxChange('agree')}
+                  onChange={(val, checked) => checkboxChange('agree', checked)}
                 />
                 <p>
                   I have <b>read</b> this consent form (or someone read it to
@@ -269,7 +284,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 </p>
               </div>
               <p>{moment().format('MMMM Do, YYYY')}</p>
-              <div className="form-group" style={{marginTop: "4rem"}}>
+              <div className="form-group" style={{ marginTop: '4rem' }}>
                 <TextField
                   label="Full Name of adult participant:"
                   InputLabelProps={{
@@ -283,8 +298,13 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 />
               </div>
               {error && <Alert severity="error">{error}</Alert>}
-              <div className="twoButtons"
-              >
+              {Object.keys(state).map(
+                (key) =>
+                  state[key].error && (
+                    <Alert severity="error">{state[key].error}</Alert>
+                  )
+              )}
+              <div className="twoButtons">
                 <Button
                   onClick={() => alert('todo')}
                   variant="outlined"
@@ -302,12 +322,10 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 </Button>
               </div>
             </form>
-         
           </div>
         </>
       )}
       {isConsentDone && renderHIPAAStep()}
-     
     </div>
   )
 }

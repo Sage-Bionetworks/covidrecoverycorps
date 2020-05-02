@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
 
-import { Button } from '@material-ui/core'
 import { faTimes} from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom'
 
 type NavProps = {
   staticText?: string
-  width: number | null
+
 }
 
 export const Nav: React.FunctionComponent<NavProps> = props  => {
 
   
-  const [top, setTop] = useState('60px')
+  const [top, setTop] = useState('0px')
   const [prevScrollpos, setPrevScrollpos] = useState(0)
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export const Nav: React.FunctionComponent<NavProps> = props  => {
     const currentScrollPos = window.scrollY
 
     if (prevScrollpos >= currentScrollPos) {
-      setTop('60px')
+      setTop('0px')
     } else {
       setTop('-50px')
     }
@@ -35,13 +35,14 @@ export const Nav: React.FunctionComponent<NavProps> = props  => {
   }
 
   return (
-    <div id="toolbar" className="container" style={{ top: top , width: props.width? `${props.width}px`: '100%'}}>
+    <div id="toolbar" className="container" style={{ top: top , width: '100%'}}>
        
-      <div className="row">
+      <div className="row" style={{position: 'relative'}}>
+      { <div style={{position: "absolute", left: "20px"}}><Link to="/home"><FontAwesomeIcon size="xs" icon={faTimes}></FontAwesomeIcon></Link></div>}
         <div className="col-md-offset-1 col-md-10">
           <div className="row">
-           <div className="text-center" style={{position: 'relative'}}>
-          {/* <div style={{position: "absolute", left: "-20px"}}><button style={{backgroundColor: "transparent", border: "none"}} onClick={()=> alert('hi')}><FontAwesomeIcon size="xs" icon={faTimes}></FontAwesomeIcon></button></div>*/}
+           <div className="text-center" >
+
            {props.children}
             </div>
           </div>
