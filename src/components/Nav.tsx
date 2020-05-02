@@ -13,7 +13,7 @@ type NavProps = {
 export const Nav: React.FunctionComponent<NavProps> = props  => {
 
   
-  const [top, setTop] = useState('0px')
+  const [top, setTop] = useState('60px')
   const [prevScrollpos, setPrevScrollpos] = useState(0)
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export const Nav: React.FunctionComponent<NavProps> = props  => {
     const currentScrollPos = window.scrollY
 
     if (prevScrollpos >= currentScrollPos) {
-      setTop('0px')
+      setTop('60px')
     } else {
       setTop('-50px')
     }

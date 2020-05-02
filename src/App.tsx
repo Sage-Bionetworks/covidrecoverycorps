@@ -8,6 +8,7 @@ import {
   Route,
   Link,
   Redirect,
+  NavLink,
 } from 'react-router-dom'
 import Collaborators from './components/static/Collaborators'
 
@@ -23,14 +24,21 @@ import {
   ThemeProvider,
   Typography,
   Grid,
+  Button,
 } from '@material-ui/core'
 
 import { getSession, callEndpoint } from './helpers/utility'
 
-import Intro from './components/Intro'
+import Intro from './components/static/Intro'
 import Dashboard from './components/Dashboard'
 import { Logout } from './components/Logout'
 import { SESSION_NAME, ENDPOINT, LoggedInUserData } from './types/types'
+import ConsentEHR from './components/consent/ConsentEHR'
+import About from './components/static/About'
+
+import Team from './components/static/Team'
+import Contact from './components/static/Contact'
+import FAQs from './components/static/FAQs'
 
 const theme = createMuiTheme({
   typography: {
@@ -46,10 +54,10 @@ const theme = createMuiTheme({
       // contrastText: will be calculated to contrast with palette.primary.main
     },
     secondary: {
-      light: '#0066ff',
-      main: '#0044ff',
+      //light: '#0066ff',
+      main: '#ccc',
       // dark: will be calculated from palette.secondary.main,
-      contrastText: '#ffcc00',
+      //contrastText: '#ffcc00',
     },
     // Used by `getContrastText()` to maximize the contrast between
     // the background and the text.
@@ -152,9 +160,17 @@ function App() {
   }
 
   const renderLoginOut = (): JSX.Element => {
-    let link = <></>
+    const location = window.location.pathname
+
+    let element = (
+      <NavLink to="/login" activeClassName="hidden" className="buttonLink">
+        <Button color="primary" variant="outlined">
+          Login
+        </Button>
+      </NavLink>
+    )
     if (token) {
-      link = (
+      return (
         <>
           <p>Hello {name}</p>
           <Logout
@@ -162,11 +178,22 @@ function App() {
           ></Logout>
         </>
       )
-    } else {
-      link = <a href="/login">Login</a>
     }
 
-    return <div>{link}</div>
+    return (
+      <>
+        <NavLink style={{marginRight:"10px"}}
+          to="/eligibility"
+          activeClassName="hidden"
+          className="buttonLink"
+        >
+          <Button color="primary" variant="contained">
+            Join
+          </Button>
+        </NavLink>
+        {element}
+      </>
+    )
   }
 
   const classes = useStyles()
@@ -181,6 +208,7 @@ function App() {
     })
     return searchParamsProps
   }
+
   return (
     <ThemeProvider theme={theme}>
       <Typography component={'div'}>
@@ -191,31 +219,14 @@ function App() {
               <nav
                 style={{
                   border: '1px solid black',
-                  width: '200px',
+
                   top: '10px',
                   left: '10px',
                   fontSize: '.5rem',
                   position: 'fixed',
                 }}
               >
-                <p> FOR DEV NAV PURPOSES ONLY. (Fri 2:20) </p>
-                {renderLoginOut()}
-                <ul>
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/collaborators">Collaborators</Link>
-                  </li>
-
-                  <li>
-                    <Link to="/eligibility">Eligibility</Link>
-                  </li>
-
-                  <li>
-                    <Link to="/survey1">Survey1</Link>
-                  </li>
-                </ul>
+                (Fri 2:20)
               </nav>
               <Grid
                 container
@@ -224,78 +235,130 @@ function App() {
                 alignItems="center"
                 spacing={2}
               >
-                <Grid item xs={10} md={6} lg={4}>
-                  {/* A <Switch> looks through its children <Route>s and
-          renders the first one that matches the current URL. */}
-                  <Switch>
-                    <Route path="/collaborators">
-                      <Collaborators />
-                    </Route>
-
-                    <Route
-                      exact={true}
-                      path="/login"
-                      render={(props) => {
-                        const searchParamsProps = getSearchParams(
-                          props.location.search
-                        )
-                        // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
-                        return (
-                          <Login
-                            {...props}
-                            searchParams={searchParamsProps as any}
-                            callbackFn={(
-                              token: string,
-                              name: string,
-                              consented: boolean
-                            ) => setUserSession(token, name, consented)}
-                          />
-                        )
-                      }}
-                    ></Route>
-                    <Route
-                      path="/eligibility"
-                      render={(props) => {
-                        const searchParamsProps = getSearchParams(
-                          props.location.search
-                        )
-                        // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
-                        return (
-                          <EligibilityRegistration
-                            {...props}
-                            callbackFn={(token: string, name: string) =>
-                              setUserSession(token, name, false)
-                            }
-                          />
-                        )
-                      }}
-                    ></Route>
-
-                    <PrivateRoute exact={true} path="/dashboard">
-                      <Dashboard token={token || ''} />
-                    </PrivateRoute>
-
-                    <PrivateRoute exact={true} path="/consent">
-                      <Consent
-                        token={token || ''}
-                        name={getSession()?.name || ''}
-                      />
-                    </PrivateRoute>
-
-                    <PrivateRoute exact={true} path="/survey1">
-                      <SurveyWrapper
-                        formTitle="Tell us about yourself"
-                        token={token || ''}
-                        surveyName={'DEMOGRAPHIC'}
-                        formClass="crc"
-                      ></SurveyWrapper>
-                    </PrivateRoute>
-
-                    <Route path="/">
-                      <Intro token={token || null}></Intro>
-                    </Route>
-                  </Switch>
+                <Grid item xs={12}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-around',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <div className="topnav">
+                      <NavLink to="/home" activeClassName="active">
+                        Home
+                      </NavLink>
+                      <NavLink to="/about" activeClassName="active">
+                        About
+                      </NavLink>
+                      <NavLink to="/faqs" activeClassName="active">
+                        FAQs
+                      </NavLink>
+                      <NavLink to="/team" activeClassName="active">
+                        Team
+                      </NavLink>
+                      <NavLink to="/contact" activeClassName="active">
+                        Contact
+                      </NavLink>
+                    </div>
+                    <div>
+                      <div> {renderLoginOut()}</div>
+                    </div>
+                  </div>
                 </Grid>
+                <Grid item xs={10} md={6} lg={6}>
+                  {/* A <Switch> looks through its children <Route>s and
+          renders the first one that matches the current URL. */}{' '}
+                 
+                    <Switch>
+                      <Route path="/collaborators">
+                        <Collaborators />
+                      </Route>
+
+                      <Route
+                        exact={true}
+                        path="/login"
+                        render={(props) => {
+                          const searchParamsProps = getSearchParams(
+                            props.location.search
+                          )
+                          // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
+                          return (
+                            <Login
+                              {...props}
+                              searchParams={searchParamsProps as any}
+                              callbackFn={(
+                                token: string,
+                                name: string,
+                                consented: boolean
+                              ) => setUserSession(token, name, consented)}
+                            />
+                          )
+                        }}
+                      ></Route>
+                      <Route
+                        path="/eligibility"
+                        render={(props) => {
+                          const searchParamsProps = getSearchParams(
+                            props.location.search
+                          )
+                          // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
+                          return (
+                            <EligibilityRegistration
+                              {...props}
+                              callbackFn={(token: string, name: string) =>
+                                setUserSession(token, name, false)
+                              }
+                            />
+                          )
+                        }}
+                      ></Route>
+
+                      <PrivateRoute exact={true} path="/dashboard">
+                        <Dashboard token={token || ''} />
+                      </PrivateRoute>
+
+                      <Route exact={true} path="/consent">
+                        <Consent
+                          token={token || ''}
+                          name={getSession()?.name || ''}
+                        />
+                      </Route>
+
+                      <Route exact={true} path="/consentehr">
+                        <ConsentEHR />
+                      </Route>
+
+                      <PrivateRoute exact={true} path="/survey1">
+                        <SurveyWrapper
+                          formTitle="Tell us about yourself"
+                          token={token || ''}
+                          surveyName={'DEMOGRAPHIC'}
+                          formClass="crc"
+                        ></SurveyWrapper>
+                      </PrivateRoute>
+
+                      <Route path="/about">
+                        <About></About>
+                      </Route>
+                      <Route path="/faqs">
+                        <FAQs></FAQs>
+                      </Route>
+                      <Route path="/team">
+                        <Team></Team>
+                      </Route>
+                      <Route path="/contact">
+                        <Contact></Contact>
+                      </Route>
+                      <Route path="/home">
+                        <Intro token={token || null}></Intro>
+                      </Route>
+
+                      <Route path="/">
+                        <Intro token={token || null}></Intro>
+                      </Route>
+                    </Switch>
+                  </Grid>
+         
               </Grid>
             </div>
           </Router>

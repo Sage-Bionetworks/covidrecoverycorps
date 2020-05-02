@@ -26,7 +26,7 @@ export const Logout: React.FunctionComponent<LogoutProps> = ({
     }
     else {
         return (
-            <Button onClick={logout}>Log out</Button>
+            <Button onClick={logout} variant="outlined">Log out</Button>
         )
     }
 }
