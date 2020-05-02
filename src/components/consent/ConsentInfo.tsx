@@ -40,7 +40,7 @@ const quizes = [
     correctAnser: 0
   }
 ]
-const totalSteps = 5
+const totalSteps = 8
 
 export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   name,
@@ -50,17 +50,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   const [currentStep, setCurrentStep] = useState(0)
   const [quizAnswers, setQuizAnswers] = useState(new Array(2))
 
- /* const titles = [
-    '',
-    'Rearch study activities',
-    '',
-    'What it means to share data with us'
-  ]
-  const contentSummary = ['602368', '602367', '', '602368',  '', '602367']
-  const contentDetail = ['602368', '602366', '', '602368', '', '602366']*/
-
- /* const getTitle = (step: number): JSX.Element =>
-    titles[step] ? <h1>{titles[step]}</h1> : <></>*/
+ 
 
   const getText = (step: number, fullText: boolean): JSX.Element => {
     const stepInfo: StepInfo = {
@@ -68,15 +58,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
       isSummary: !fullText
     }
     return <ConsentCopy stepInfo={stepInfo}></ConsentCopy>
-   /* let wikiId
-    if (!fullText) {
-      console.log('summarytrue', fullText)
-      wikiId = contentSummary[step]
-    } else {
-      console.log('summaryfalse', fullText)
-      wikiId = contentDetail[step]
-    }
-    return <MarkdownSynapse ownerId="syn21985841" wikiId={wikiId} />*/
+
   }
 
   const getStatic = (step: number, fullText: boolean): JSX.Element => {
@@ -109,18 +91,14 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     }
 
     let style: { [key: string]: string } = {
-      display: 'flex',
-      justifyContent: 'space-between',
-      marginTop: '20px',
+     
       width: width ? `${width}px` : 'auto'
     }
 
-    if (quizIndex > -1) {
-      style = { ...style, position: 'fixed', bottom: '16px' }
-    }
+ 
 
     return (
-      <div style={style}>
+      <div className={(quizIndex == -1) ? 'ConsentInfo__navButtons' : 'ConsentInfo__navButtons--quiz'} style={style}>
         {currentStep > 0 && (
           <Button 
           color="primary"

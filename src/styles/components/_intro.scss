@@ -1,0 +1,47 @@
+.Intro {
+  &__content1 {
+    //width: 200px;
+    // height: 200px;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    padding: 0 50px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      background: #ff6d6d;
+      //border-radius: 15px;
+      // transform: skew(-5deg);
+      top: 0;
+      //left:0;
+      right: 0;
+      // bottom:0;
+      z-index: -1;
+      width: 134px;
+      height: 40%;
+    }
+  }
+
+  &__content2 {
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    padding: 0 50px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      background: #ff6d6d;
+      //border-radius: 15px;
+      // transform: skew(-5deg);
+      // top:0;
+      left: 0;
+      // right:0;
+      bottom: 0;
+      z-index: -1;
+      width: 154px;
+      height: 20%;
+    }
+  }
+}

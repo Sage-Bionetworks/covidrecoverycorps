@@ -13,7 +13,7 @@ import { ENDPOINT, SHARE_SCOPE_PARTNERS, SUBPOP_GUID } from '../../types/types'
 import { Redirect } from 'react-router'
 
 import Button from '@material-ui/core/Button/Button'
-import { Typography } from '@material-ui/core'
+import { Typography, Checkbox, TextField } from '@material-ui/core'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
 import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
 import ConsentCopy from './ConsentCopy'
@@ -25,145 +25,163 @@ export type ConsentEHRProps = {
   setConsentEHRFn?: Function
 }
 
+
+
 export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   setConsentEHRFn,
 }: ConsentEHRProps) => {
+
+  const [currentStep, setCurrentStep] = useState(0)
   const [isConsentEHRDone, setIsConsentEHRDone] = useState<boolean>(false)
-  const [isHIPAConsented, setIsHIPAConsented] = useState<boolean | undefined>(
+  const [isHIPAAConsented, setIsHIPAAConsented] = useState<boolean | undefined>(
     undefined
   )
-  const [isLearnMore, setIsLearnMore] = useState(false)
-  const [currentStep, setCurrentStep] = useState(0)
+const[name, setName] = useState('')
+ 
 
-  if (isConsentEHRDone) {
-    return <Redirect to="Dashboard"></Redirect>
-  }
 
-  const renderStep1 = () => {
-    const element = (
-      <>
-       <ConsentCopy stepInfo={{step: 1, isSummary: false}} isEHR={true}/>
-        <Button
-          type="button"
-          disabled={isHIPAConsented === undefined}
-          variant="contained"
-          fullWidth
-          color="primary"
-          onClick={() => setCurrentStep((_prev) => _prev + 1)}
+
+if (isConsentEHRDone) {
+  return <Redirect to="Dashboard"></Redirect>
+}
+
+const renderStep0 = () => {
+  const element = (
+    <>
+      <ConsentCopy stepInfo={{ step: 0, isSummary: false }} isEHR={true} />
+      <Button
+        type="button"
+ 
+        variant="contained"
+        fullWidth
+        color="primary"
+        onClick={() => setCurrentStep((_prev) => _prev + 1)}
+      >
+        Start HIPAA
+      </Button>
+    </>
+  )
+  return element
+}
+
+const renderStep1 = () => {
+  const element = (
+    <>
+      <ConsentCopy stepInfo={{ step: 1, isSummary: false }} isEHR={true} />
+      <Button
+        color="primary"
+        variant="contained"
+        style={{ float: 'right' }}
+        onClick={() => setCurrentStep((_prev) => _prev + 1)}
+      >
+        &nbsp;
+        <FontAwesomeIcon icon={faArrowRight} />
+      </Button>
+    </>
+  )
+  return element
+}
+
+
+const handleSubmit = () => {
+  
+}
+
+const change=(e: any) =>{
+  const x = e;
+  console.log(e.target.value)
+  
+}
+const renderStep2 = (): JSX.Element => {
+
+  const element = ( <div>
+    <ConsentCopy screen="HIPA_LAST_INTRO"></ConsentCopy>
+    <div className="Consent__inset">
+      <p>I know and agree that:</p>
+      <ConsentCopy screen="HIPA_LAST_TERMS"></ConsentCopy>
+      Please check the box below if you agree to take part:
+      <form className="Consent__form" onSubmit={()=>{/*handleOnSubmit*/}}>
+     
+        
+        <div
+          className="form-group checkbox--indented"
+          style={{
+           
+          }}
         >
-          Start HIPAA
-        </Button>
-      </>
-    )
-    return element
-  }
-
-  const renderStep2 = () => {
-    const element = (
-      <>
-            <ConsentCopy stepInfo={{step: 2, isSummary: false}} isEHR={true}/>
-        <Button
-          color="primary"
-          variant="contained"
-          style={{ float: 'right' }}
-          onClick={() => setCurrentStep((_prev) => _prev + 1)}
+          <Checkbox
+            color="primary"
+            style={{ paddingTop: '3px' }}
+            value={isHIPAAConsented}
+            onChange={(_val, isChecked) => setIsHIPAAConsented(isChecked)}
+          />
+          <p>
+          <ConsentCopy screen="HIPAA_LAST_CHECKBOX"></ConsentCopy>
+          </p>
+        </div>
+        <p>{moment().format('MMMM Do, YYYY')}</p>
+        <div className="form-group">
+          <TextField
+            label="Full Name of adult participant:"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            fullWidth
+            onChange={(e)=> setName(e.target.value)}
+            value={name}
+            name="fullName"
+            variant="outlined"
+          />
+        </div>
+     
+        <div className="twoButtons"
         >
-          &nbsp;
-          <FontAwesomeIcon icon={faArrowRight} />
-        </Button>
-      </>
-    )
-    return element
-  }
+          <Button
+            onClick={() => alert('todo')}
+            variant="outlined"
+            color="primary"
+          >
+            Disagree
+          </Button>
+          <Button
+            type="submit"
+            disabled={!name || !isHIPAAConsented}
+            variant="contained"
+            color="primary"
+          >
+            Agree
+          </Button>
+        </div>
+      </form>
+   
+    </div>
+  </div>)
+  return element
+}
 
-  return (
+
+
+return (
+  <div>
     <SizeMe>
       {({ size }) => (
-        <div className="ConsentEHR">
-          {currentStep === 0 && (
+        <div className="Consent">
+      
+         
+          {currentStep == 0 && (
             <>
-                  <ConsentCopy stepInfo={{step: 3, isSummary: false}} isEHR={true}/> <div
-                style={{
-                  display: isLearnMore ? 'flex' : 'none',
-                  borderBottom: '1px solid #ddd',
-
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-end',
-                }}
-              >
-                <p>
-                  some text about learning
-                  <br /> more about <br />
-                  reserch sharing
-                </p>
-                <Button
-                  style={{ float: 'right' }}
-                  onClick={() => setIsLearnMore(false)}
-                >
-                  <FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon>
-                </Button>
-              </div>
-              <div
-                style={{
-                  display: isLearnMore ? 'none' : 'block',
-                  borderBottom: '1px solid #ddd',
-                }}
-              >
-                Review what it means
-                <Button
-                  style={{ float: 'right' }}
-                  onClick={() => setIsLearnMore(true)}
-                >
-                  <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
-                </Button>
-              </div>
-
-              <ToggleButtonGroup
-                value={isHIPAConsented}
-                exclusive
-                className="verticalToggle"
-                style={{ marginTop: '20px', marginBottom: '20px' }}
-                onChange={(_event: any, val: boolean) =>
-                  setIsHIPAConsented(val)
-                }
-                aria-label="are you over 18"
-              >
-                ><ToggleButton value={true}>Yes</ToggleButton>
-                <ToggleButton value={false}>No</ToggleButton>
-              </ToggleButtonGroup>
-
-              <Button
-                type="button"
-                disabled={isHIPAConsented === undefined}
-                variant="contained"
-                color="primary"
-                onClick={() => {
-                  isHIPAConsented
-                    ? setCurrentStep((_prev) => _prev + 1)
-                    : setIsConsentEHRDone(true)
-                }}
-              >
-                Submit
-              </Button>
+              <Nav width={size.width}>HIPAA Authorization</Nav>
+              {renderStep0()}
             </>
           )}
-          {currentStep == 1 && (
-            <>
-              <Nav width={size.width}>HIPPA Authorization</Nav>
-              {renderStep1()}
-            </>
-          )}
+          {currentStep == 1 && renderStep1()}
           {currentStep == 2 && renderStep2()}
-
-          {currentStep == 3 && 
-        
-            <Button onClick={()=> setIsConsentEHRDone(true)}> WILL NEED TO FINISH IT. REDIRECT TO DASHBOARD</Button>
-          }
-       
         </div>
       )}
     </SizeMe>
-  )
+  </div>
+)
+ 
 }
 
 export default ConsentEHR

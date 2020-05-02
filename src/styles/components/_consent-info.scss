@@ -1,0 +1,24 @@
+
+  .ConsentInfo {
+   
+    .quizAnswer {
+      margin: 20px;
+    }
+
+    &__navButtons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+
+        &--quiz {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+           position: fixed;
+           bottom: 40px;
+        
+        }
+    }
+  }
+
+
