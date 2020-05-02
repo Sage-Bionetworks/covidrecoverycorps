@@ -204,7 +204,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     <SizeMe >
       {({ size }) => (
         <div className="ConsentInfo">
-          <Nav width={size.width}>{renderNavChildren(currentStep)}</Nav>
+          <Nav >{renderNavChildren(currentStep)}</Nav>
           <div>
             {currentStep > 0 && (
               <div className="text-right">

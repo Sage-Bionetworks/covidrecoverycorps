@@ -1,5 +1,6 @@
 export const STUDY_ID = 'czi-coronavirus'
 export const SUBPOP_GUID = 'czi-coronavirus'
+export const HIPAA_SUBPOP_GUID = 'hipaa_consented'
 export const SESSION_NAME = 'bridge-session-ny-strong'
 export const ENDPOINT = 'https://webservices.sagebridge.org'
 export const SHARE_SCOPE_PARTNERS = 'sponsors_and_partners'

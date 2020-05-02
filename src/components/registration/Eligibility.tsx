@@ -139,6 +139,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
           </ToggleButtonGroup>
         </div>
         <div className="form-group">
+          <label>Please enter your zip code</label>
          
           <TextField variant="outlined"
             name="zipcode"

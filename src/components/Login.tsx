@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import {
   EmailSigninParams,
   LoggedInUserData,
-
   SignInData,
   SignInDataPhone,
   SignInDataEmail,
@@ -21,6 +20,7 @@ import TextField from '@material-ui/core/TextField/TextField'
 
 import { RouteComponentProps } from 'react-router-dom'
 import Alert from '@material-ui/lab/Alert/Alert'
+import { Tabs, Tab } from '@material-ui/core'
 
 export interface OwnLoginProps {
   redirectUrl?: string // will redirect here after a successful login. if unset, reload the current page url.
@@ -34,12 +34,10 @@ export interface OwnLoginProps {
 
 export type LoginProps = OwnLoginProps & RouteComponentProps
 
-const SESSION_TIMEOUT = 'sessionTimeout'
 const STUDY_ID = 'czi-coronavirus'
 const EMAIL_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/email'
 const PHONE_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/phone'
 const EMAIL_SIGN_IN_ENDPOINT = '/v3/auth/email/signIn'
-
 
 export const Login: React.FunctionComponent<LoginProps> = ({
   searchParams,
@@ -51,28 +49,25 @@ export const Login: React.FunctionComponent<LoginProps> = ({
 
   const [error, setError] = useState('')
   const [isLinkSent, setIsLinkSent] = useState(false)
-  const [loginType, setLoginType] = useState<LoginType>()
+  const [loginType, setLoginType] = useState<LoginType>('EMAIL')
   const [isLoading, setIsLoading] = useState(true)
-
 
   //detect if they are bck on the page
 
   const handleLoggedIn = (loggedIn: Response<LoggedInUserData>) => {
     const consented = loggedIn.status !== 412
     if (loggedIn.ok || !consented) {
-        callbackFn (loggedIn.data.sessionToken, loggedIn.data.firstName)
+      callbackFn(loggedIn.data.sessionToken, loggedIn.data.firstName)
       if (consented) {
         history.push('/dashboard')
       } else {
         history.push('/consent')
       }
-    
     } else {
       setError('Error ' + loggedIn.status)
     }
   }
 
-  
   React.useEffect(() => {
     let isSubscribed = true
     const signInWithEmail = async (email: string, token: string) => {
@@ -197,8 +192,6 @@ export const Login: React.FunctionComponent<LoginProps> = ({
       )}
       {!isLoading && (
         <div>
-         
-
           {(!isLinkSent || error) && (
             <div>
               <form onSubmit={handleLogin} className="form-group">
@@ -206,57 +199,58 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                   <label htmlFor="registrationType">
                     How do you want to log in?
                   </label>
+                  <div className="loginType">
+                    <Tabs
+                      value={loginType}
+                      indicatorColor="primary"
+                      textColor="primary"
+                      variant="fullWidth"
+                      onChange={(_e, value) => setLoginType(value)}
+                      aria-label="disabled tabs example"
+                    >
+                      <Tab label="EMAIL" value="EMAIL">
+                        email
+                      </Tab>
 
-                  <ToggleButtonGroup
-                    value={loginType}
-                    exclusive
-                    className="verticalToggle"
-                    onChange={(_event: any, val: LoginType) =>
-                      setLoginType(val)
-                    }
-                    aria-label="login"
-                  >
-                    {loginType !== 'PHONE' && (
-                      <ToggleButton value={'PHONE'}>Phone</ToggleButton>
+                      <Tab label="PHONE" value="PHONE">
+                        phone
+                      </Tab>
+                    </Tabs>
+
+                    {loginType === 'EMAIL' && (
+                      <div className="reg">
+                        <TextField
+                          id="outlined-basic"
+                          variant="outlined"
+                          label="Email"
+                          fullWidth
+                          autoComplete="email address"
+                          placeholder="email address"
+                          name="email"
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.currentTarget.value)}
+                        />
+                      </div>
                     )}
-                    {loginType !== 'EMAIL' && (
-                      <ToggleButton value={'EMAIL'}>Email</ToggleButton>
+
+                    {loginType === 'PHONE' && (
+                      <div className="reg">
+                        <TextField
+                          id="outlined-basic"
+                          variant="outlined"
+                          autoComplete="phone"
+                          placeholder="phone"
+                          label="Phone"
+                          fullWidth
+                          name="phone"
+                          type="phone"
+                          value={phone}
+                          onChange={(e) => setPhone(e.currentTarget.value)}
+                        />
+                      </div>
                     )}
-                  </ToggleButtonGroup>
-
-                  {loginType === 'EMAIL' && (
-                    <div className="reg">
-                      <TextField
-                        id="outlined-basic"
-                        variant="outlined"
-                        label="Email"
-                        fullWidth
-                        autoComplete="email address"
-                        placeholder="email address"
-                        name="email"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.currentTarget.value)}
-                      />
-                    </div>
-                  )}
-
-                  {loginType === 'PHONE' && (
-                    <div className="reg">
-                      <TextField
-                        id="outlined-basic"
-                        variant="outlined"
-                        autoComplete="phone"
-                        placeholder="phone"
-                        label="Phone"
-                        fullWidth
-                        name="phone"
-                        type="phone"
-                        value={phone}
-                        onChange={(e) => setPhone(e.currentTarget.value)}
-                      />
-                    </div>
-                  )}
+                  </div>
                 </div>
                 {error && <Alert severity="error">{error}</Alert>}
                 <Button
