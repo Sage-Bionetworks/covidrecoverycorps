@@ -171,8 +171,10 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
 
   if (isConsentDone) {
     if (doHIPAAConsent) {
-      return <Redirect to="concentehr"></Redirect>
-    } else {
+      return <Redirect to="consentehr"></Redirect>
+    } 
+    if (doHIPAAConsent===false) {
+ 
     return <Redirect to="dashboard"></Redirect>
     }
   }
@@ -201,15 +203,11 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
             <p>I know and agree that:</p>
             <div style={{marginLeft: "2rem"}}>
             <ConsentCopy screen="INTRO"></ConsentCopy></div>
-            Please check the box below if you agree to take part:
+           <p> Please check the box below if you agree to take part:</p>
             <form className="Consent__form" onSubmit={handleOnSubmit}>
               <div
-                className="form-group"
-                style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  paddingTop: '16px',
-                }}
+                className="form-group checkbox--indented"
+               
               >
                 <Checkbox
                   color="primary"
@@ -271,7 +269,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 </p>
               </div>
               <p>{moment().format('MMMM Do, YYYY')}</p>
-              <div className="form-group">
+              <div className="form-group" style={{marginTop: "4rem"}}>
                 <TextField
                   label="Full Name of adult participant:"
                   InputLabelProps={{

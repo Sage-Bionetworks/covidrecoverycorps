@@ -13,13 +13,9 @@ export type ConsentCopyProps = {
 
 const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum eu orci quis posuere. Maecenas pulvinar nulla vel lacus malesuada, nec dapibus ipsum egestas. Integer vitae nunc iaculis, rhoncus neque a, imperdiet diam. Sed vulputate rhoncus elit eu pellentesque. In aliquam dui tellus, eu pellentesque massa dictum quis. Nulla facilisi. Ut quis augue ac diam ullamcorper commodo et vitae tellus. Maecenas quis laoreet mauris, a volutpat odio. Nam quis tellus a turpis accumsan rutrum. Nulla sed mi id augue pretium bibendum. Sed mollis, metus eu egestas mattis, nibh metus mollis odio, nec cursus arcu lectus a diam. Nunc hendrerit nibh ac pharetra semper. Nulla vel est sem.
 
-Donec lacus nisi, malesuada nec velit eu, porta sagittis ante. Quisque sollicitudin ligula dignissim, fringilla libero non, consectetur ante. Vestibulum ac dictum ligula. Integer metus turpis, venenatis quis erat non, mollis laoreet quam. Nunc consequat ante lacus, vitae viverra sem fermentum ut. Morbi id odio nunc. Morbi fringilla rhoncus neque a tempus. Sed sapien nulla, volutpat et mauris et, commodo imperdiet tellus.
 
 Pellentesque semper pharetra ligula, ac faucibus lorem fermentum et. Morbi ultrices nulla quis iaculis mollis. Praesent molestie mi at pretium consectetur. Ut malesuada lacinia malesuada. Curabitur efficitur dolor at cursus tincidunt. Sed dictum ligula hendrerit ultrices ornare. Quisque quis ligula sit amet est dictum volutpat vitae consequat ipsum. Nam auctor, mauris eget ullamcorper eleifend, nunc nibh sodales odio, vel eleifend magna velit et nibh. Suspendisse lectus dui, dictum eget elementum ut, sodales sit amet nunc. Nulla ex diam, tincidunt a velit eu, rutrum lobortis turpis. Duis consectetur lorem vitae arcu lobortis, vel egestas libero viverra. Nullam lacinia bibendum leo id mattis. Duis interdum augue eros, id luctus velit finibus eleifend. Aliquam sapien purus, condimentum vel lacus vehicula, commodo imperdiet dolor.
-
-Proin ut tellus non massa volutpat ornare eu quis ligula. Aenean luctus vitae neque eu euismod. Vestibulum in purus ut nisi consectetur luctus non et risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sagittis, neque eget vulputate rutrum, tellus felis ornare turpis, vitae lobortis nisl odio ac libero. Curabitur ex tellus, tempor in feugiat eu, vehicula nec justo. Ut ac feugiat dolor. Aliquam commodo purus a lacus accumsan condimentum. Donec at gravida dolor. Suspendisse tincidunt lectus eget vehicula eleifend. Sed sodales purus vel sapien euismod, sit amet pulvinar nunc lacinia. Nullam cursus, enim ac luctus mattis, ipsum nisl rhoncus eros, in scelerisque nunc nulla at sapien. Vestibulum sed aliquet dui, varius scelerisque risus. Nullam vehicula euismod laoreet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-
-Sed efficitur orci ligula. Donec congue leo vitae velit semper, vel sagittis leo lobortis. Sed ultrices libero justo, vitae efficitur nulla egestas in. Vivamus ac lacinia mauris, et vulputate neque. Vivamus eros nisi, porttitor sit amet tellus ac, vulputate auctor lorem. Cras laoreet felis mauris, vel tincidunt eros interdum tincidunt. Quisque odio justo, pharetra sed facilisis sed, egestas congue mi. Aliquam ex tortor, fermentum egestas tellus at, lobortis dapibus elit. Curabitur tincidunt turpis lorem.`
+ vitae velit semper, vel sagittis leo lobortis. Sed ultrices libero justo, vitae efficitur nulla egestas in. Vivamus ac lacinia mauris, et vulputate neque. Vivamus eros nisi, porttitor sit amet tellus ac, vulputate auctor lorem. Cras laoreet felis mauris, vel tincidunt eros interdum tincidunt. Quisque odio justo, pharetra sed facilisis sed, egestas congue mi. Aliquam ex tortor, fermentum egestas tellus at, lobortis dapibus elit. Curabitur tincidunt turpis lorem.`
 
 const summaryScreens = [
   <div>
@@ -458,7 +454,7 @@ const ehrScreens = [
       need to decide if you would like to give us access to your EHR. Ask any
       questions you have. You can say yes or no to signing this form. Your
       choice will not affect your medical care. You can still be part of{' '}
-      <p className="Consent__copy">NY Strong</p> study if you say no.{' '}
+      <b>NY Strong</b> study if you say no.{' '}
     </p>
   </div>,
 ]
@@ -486,7 +482,7 @@ const screens: { [key: string]: JSX.Element } = {
       withdraw.
     </p>
   ),
-  HIPA_LAST_CHECKBOX: (
+  HIPAA_LAST_CHECKBOX: (
     <>
       I have read this consent form (or someone read it to me). I understand the
       information in this form. All of my questions have been answered. I freely
@@ -501,9 +497,9 @@ export const ConsentCopy: React.FunctionComponent<ConsentCopyProps> = ({
   isEHR,
 }: ConsentCopyProps) => {
   if (screen) {
-    if (!isEHR) {
+ 
       return screens[screen]
-    }
+  
   }
 
   if (stepInfo && !isEHR) {
