@@ -7,11 +7,9 @@ import {
   SignInDataEmail,
   LoginType,
   Response,
-
   ENDPOINT,
 } from '../../types/types'
-import { callEndpoint, makePhone} from '../../helpers/utility'
-
+import { callEndpoint, makePhone } from '../../helpers/utility'
 
 import Button from '@material-ui/core/Button'
 import SignInWithCode from './SignInWithCode'
@@ -84,7 +82,6 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         )
         if (isSubscribed) {
           handleLoggedIn(loggedIn)
-        
         }
       } catch (e) {
         alert(JSON.stringify(e, null, 2))
@@ -191,13 +188,9 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                       onChange={(_e, value) => setLoginType(value)}
                       aria-label="disabled tabs example"
                     >
-                      <Tab label="EMAIL" value="EMAIL">
-                        email
-                      </Tab>
+                      <Tab label="EMAIL" value="EMAIL" />
 
-                      <Tab label="PHONE" value="PHONE">
-                        phone
-                      </Tab>
+                      <Tab label="PHONE" value="PHONE" />
                     </Tabs>
 
                     {loginType === 'EMAIL' && (

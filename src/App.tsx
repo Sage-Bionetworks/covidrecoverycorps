@@ -210,7 +210,7 @@ function App() {
                               setUserSession(undefined, '', false)
                             }
                           ></TopNav>
-                          };
+                      
                         </Grid>
                       )
                   }}

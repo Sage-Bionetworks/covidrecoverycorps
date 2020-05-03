@@ -12,8 +12,8 @@ type TopNavProps = {
 }
 
 export const TopNav: React.FunctionComponent<TopNavProps> = (
-  token,
-  logoutCallbackFn
+  {token,
+  logoutCallbackFn}: TopNavProps
 ) => {
   const [topClicked, setTopClicked] = useState(false)
 
@@ -26,6 +26,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
       </NavLink>
     )
     if (token) {
+      console.log(token)
       return (
         <>
         

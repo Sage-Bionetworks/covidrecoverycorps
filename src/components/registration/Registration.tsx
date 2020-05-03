@@ -136,7 +136,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
         <hr></hr>
         <form className="demoForm" onSubmit={handleOnSubmit}>
           <div className="form-group">
-       <label>What is your first name?</label>
+            <label>What is your first name?</label>
             <TextField
               variant="outlined"
               type="text"
@@ -148,7 +148,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
             />
           </div>
           <div className="form-group">
-      <label>What is your last name?</label>
+            <label>What is your last name?</label>
             <TextField
               variant="outlined"
               type="text"
@@ -168,61 +168,56 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
             </label>
 
             <div className="tabbedField">
-                    <Tabs
-                      value={state.registrationType.value}
-                      indicatorColor="primary"
-                      textColor="primary"
-                      variant="fullWidth"
-                      onChange={(_e, value) =>  handleOnChange({
-                        target: { name: 'registrationType', value: value },
-                      })}
-                      aria-label="disabled tabs example"
-                    >
-                      <Tab label="EMAIL" value="EMAIL">
-                        email
-                      </Tab>
+              <Tabs
+                value={state.registrationType.value}
+                indicatorColor="primary"
+                textColor="primary"
+                variant="fullWidth"
+                onChange={(_e, value) =>
+                  handleOnChange({
+                    target: { name: 'registrationType', value: value },
+                  })
+                }
+                aria-label="disabled tabs example"
+              >
+                <Tab label="EMAIL" value="EMAIL" />
 
-                      <Tab label="PHONE" value="PHONE">
-                        phone
-                      </Tab>
-                    </Tabs>
+                <Tab label="PHONE" value="PHONE" />
+              </Tabs>
 
-        
+              {state.registrationType.value === 'EMAIL' && (
+                <div className="input--padded">
+                  <TextField
+                    name="email"
+                    type="email"
+                    value={state.email.value}
+                    aria-label="email"
+                    onChange={handleOnChange}
+                    variant="outlined"
+                    label="Email"
+                    fullWidth
+                    autoComplete="email address"
+                    placeholder="email address"
+                  />
+                </div>
+              )}
 
-            {state.registrationType.value === 'EMAIL' && (
-              <div className="input--padded">
-                <TextField
-                  name="email"
-                  type="email"
-                  value={state.email.value}
-                  aria-label="email"
-                  onChange={handleOnChange}
-                  variant="outlined"
-                  label="Email"
-                  fullWidth
-                  autoComplete="email address"
-                  placeholder="email address"
-                />
-             
-              </div>
-            )}
-
-            {state.registrationType.value === 'PHONE' && (
-              <div className="input--padded">
-                <label htmlFor="phone">Phone</label>
-                <TextField
-                  name="phone"
-                  type="phone"
-                  value={state.phone.value}
-                  placeholder="phone"
-                  aria-label="phone"
-                  label="phone"
-                  variant="outlined"
-                  fullWidth
-                  onChange={handleOnChange}
-                />
-              </div>
-            )}
+              {state.registrationType.value === 'PHONE' && (
+                <div className="input--padded">
+                  <label htmlFor="phone">Phone</label>
+                  <TextField
+                    name="phone"
+                    type="phone"
+                    value={state.phone.value}
+                    placeholder="phone"
+                    aria-label="phone"
+                    label="phone"
+                    variant="outlined"
+                    fullWidth
+                    onChange={handleOnChange}
+                  />
+                </div>
+              )}
             </div>
           </div>
           <div className="text-center">
