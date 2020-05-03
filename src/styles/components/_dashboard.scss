@@ -25,7 +25,7 @@
         }
   
         div.btn-container {
-          display: inline-flex;
+          display: flex;
           border-left: 4px solid #000;
           padding-left: 32px;
           margin-left: 14px;
@@ -34,12 +34,13 @@
           > div {
             color: #000;
             text-align: left;
-            width: 150px;
+            max-width: 150px;
             white-space: pre-wrap;
             padding-top: 0;
             margin-bottom: 3.6rem;
             font-family: 'Source Serif Pro', serif;
             font-size: 1.8rem;
+            flex-grow: 2;
           }
   
           .time {
