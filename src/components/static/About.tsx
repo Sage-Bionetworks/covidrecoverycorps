@@ -9,7 +9,7 @@ type AboutProps = {
 export const About: React.FunctionComponent<AboutProps> = ({}: AboutProps) => {
   return (
 
-      <>
+      <div className="About">
       <h1>&nbsp;</h1>
       <div className="About__content1">
         <p>
@@ -79,7 +79,7 @@ export const About: React.FunctionComponent<AboutProps> = ({}: AboutProps) => {
         </p>
       </div>
     
-    </>
+    </div>
   )
 }
 

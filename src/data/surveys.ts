@@ -4,7 +4,7 @@ import {
     UiSchema,
     
   } from 'react-jsonschema-form'
-  import {FormSchema} from '../components/synapse_form_wrapper/types'
+  import {FormSchema} from '../components/surveys/synapse_form_wrapper/types'
 
 
 

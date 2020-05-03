@@ -5,10 +5,18 @@
       margin: 20px;
     }
 
+    .MuiToggleButtonGroup-root.verticalToggle .MuiToggleButtonGroup-grouped.success.Mui-selected {
+      color: rgb(237, 247, 237)
+    }
+    .MuiToggleButtonGroup-root.verticalToggle .MuiToggleButtonGroup-grouped.error.Mui-selected {
+      color: rgb(253, 236, 234)
+    }
+
     &__navButtons {
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
+
 
         &--quiz {
             display: flex;
@@ -16,6 +24,11 @@
             margin-top: 20px;
            position: fixed;
            bottom: 40px;
+           width:100%;
+
+           button:last-child {
+             float:right;
+           }
         
         }
     }

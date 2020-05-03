@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import logo from './logo.svg'
-import {faBars} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './styles/style.scss'
 import {
@@ -15,8 +13,8 @@ import {
 import Collaborators from './components/static/Collaborators'
 
 import EligibilityRegistration from './components/registration/EligibilityRegistration'
-import SurveyWrapper from './components/SurveyWrapper'
-import Login from './components/Login'
+import SurveyWrapper from './components/surveys/SurveyWrapper'
+import Login from './components/login/Login'
 import Consent from './components/consent/Consent'
 
 import { makeStyles } from '@material-ui/core/styles'
@@ -33,7 +31,7 @@ import { getSession, callEndpoint } from './helpers/utility'
 
 import Intro from './components/static/Intro'
 import Dashboard from './components/Dashboard'
-import { Logout } from './components/Logout'
+
 import { SESSION_NAME, ENDPOINT, LoggedInUserData } from './types/types'
 import ConsentEHR from './components/consent/ConsentEHR'
 import About from './components/static/About'
@@ -41,6 +39,7 @@ import About from './components/static/About'
 import Team from './components/static/Team'
 import Contact from './components/static/Contact'
 import FAQs from './components/static/FAQs'
+import { TopNav } from './components/widgets/TopNav'
 
 const theme = createMuiTheme({
   typography: {
@@ -93,7 +92,6 @@ function App() {
   const [token, setToken] = useState(getSession()?.token)
   const [name, setName] = useState(getSession()?.name)
   const [consented, setConsented] = useState(getSession()?.consented)
-  const [topClicked, setTopClicked]=useState(false)
 
   useEffect(() => {
     let isSubscribed = true
@@ -162,44 +160,6 @@ function App() {
     }
   }
 
-  const renderLoginOut = (): JSX.Element => {
-    const location = window.location.pathname
-
-    let element = (
-      <NavLink to="/login" activeClassName="hidden" className="buttonLink">
-        <Button color="primary" variant="outlined">
-          Login
-        </Button>
-      </NavLink>
-    )
-    if (token) {
-      return (
-        <>
-          <p>Hello {name}</p>
-          <Logout
-            onLogout={() => setUserSession(undefined, '', false)}
-          ></Logout>
-        </>
-      )
-    }
-
-    return (
-      <>
-        <NavLink
-          style={{ marginRight: '10px' }}
-          to="/eligibility"
-          activeClassName="hidden"
-          className="buttonLink"
-        >
-          <Button color="primary" variant="contained">
-            Join
-          </Button>
-        </NavLink>
-        {element}
-      </>
-    )
-  }
-
   const classes = useStyles()
 
   const getSearchParams = (search: string): { [key: string]: string } => {
@@ -229,7 +189,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                (Sat 10:40)
+                (Sun:12:45)
               </nav>
               <Grid
                 container
@@ -244,32 +204,13 @@ function App() {
                     if (!props.location.pathname.includes('onsent'))
                       return (
                         <Grid item xs={12}>
-                          <div
-                           className="topnavContainer"
-                          >
-                            <div className={`${topClicked? 'topnav responsive' : 'topnav'}`}>
-                              <NavLink to="/home" activeClassName="active">
-                                Home
-                              </NavLink>
-                              <NavLink to="/about" activeClassName="active">
-                                About
-                              </NavLink>
-                              <NavLink to="/faqs" activeClassName="active">
-                                FAQs
-                              </NavLink>
-                              <NavLink to="/team" activeClassName="active">
-                                Team
-                              </NavLink>
-                              <NavLink to="/contact" activeClassName="active">
-                                Contact
-                              </NavLink>
-                              <a onClick={() => {setTopClicked(prev=> !prev)}} className="icon"><FontAwesomeIcon icon={faBars}></FontAwesomeIcon></a>
-                     
-                            </div>
-                            <div>
-                              <div className="topnavButtons"> {renderLoginOut()}</div>
-                            </div>
-                          </div>
+                          <TopNav
+                            token={token}
+                            logoutCallbackFn={() =>
+                              setUserSession(undefined, '', false)
+                            }
+                          ></TopNav>
+                      
                         </Grid>
                       )
                   }}

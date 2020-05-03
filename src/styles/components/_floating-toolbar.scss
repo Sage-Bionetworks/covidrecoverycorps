@@ -1,0 +1,29 @@
+.FloatingToolbar {
+    position: fixed; /* Make it stick/fixed */
+    top: 0px; /* Stay on top */
+  
+    transition: top 0.3s; /* Transition effect when sliding down (and up) */
+  
+    position: fixed;
+    text-align: center;
+    padding: 10px;
+  
+    right: 0;
+    left: 0;
+    width: initial;
+    background-color: #fff;
+    height: 56px;
+    z-index: 10;
+
+    transition: top 0.3s;
+
+    &__toggle {
+        display: 'flex';
+        justify-content: 'center';
+        &__text {
+          align-self: center;
+          font-size: 0.75rem;
+        }
+      }
+      
+  }

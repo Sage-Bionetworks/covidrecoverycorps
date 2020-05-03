@@ -1,0 +1,43 @@
+.MuiToggleButtonGroup-root.verticalToggle {
+  display: block;
+  background-color: transparent;
+  .MuiToggleButtonGroup-grouped {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+    background: transparent;
+    border-color: #000000;
+    color: #000;
+    text-align: left;
+    padding-left: 2em;
+  }
+
+  .MuiToggleButton-root.Mui-selected {
+    color: #fff;
+    background-color: #000;
+  }
+  .MuiToggleButtonGroup-grouped:not(:last-child) {
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+  .MuiToggleButtonGroup-grouped:not(:first-child) {
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+
+    border-left-style: solid;
+    border-color: #000000;
+  }
+}
+
+.MuiTabs-root {
+  border-bottom: 1px solid black;
+
+  .MuiTab-textColorPrimary {
+    color: #000;
+
+    &.Mui-selected {
+      color: #fff;
+      background-color: #000;
+    }
+  }
+}

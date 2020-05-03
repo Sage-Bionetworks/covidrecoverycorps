@@ -26,7 +26,7 @@ import ConsentCopy from './ConsentCopy'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
 import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
 import { Redirect } from 'react-router-dom'
-import Nav from '../Nav'
+import FloatingToolbar from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
 
 export type ConsentProps = {
@@ -181,7 +181,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       {isInfoDone && !isConsentDone && (
         <>
           <div>
-            <Nav>Consent Signature</Nav>
+            <FloatingToolbar>Consent Signature</FloatingToolbar>
           </div>
 
           <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>
@@ -288,7 +288,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     <Alert severity="error">{state[key].error}</Alert>
                   )
               )}
-              <div className="twoButtons">
+              <div className="buttons--action">
                 <Button
                   onClick={() => alert('todo')}
                   variant="outlined"
