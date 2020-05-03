@@ -5,11 +5,11 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 
-type FloatingNavProps = {
+type FloatingToolbarProps = {
   staticText?: string
 }
 
-export const FloatingNav: React.FunctionComponent<FloatingNavProps> = (
+export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
   props
 ) => {
   const [top, setTop] = useState('0px')
@@ -34,7 +34,7 @@ export const FloatingNav: React.FunctionComponent<FloatingNavProps> = (
   }
 
   return (
-    <div id="toolbar" className="container" style={{ top: top, width: '100%' }}>
+    <div className="FloatingToolbar" style={{ top: top, width: '100%' }}>
       <div className="row" style={{ position: 'relative' }}>
         {
           <div style={{ position: 'absolute', left: '20px' }}>
@@ -53,4 +53,4 @@ export const FloatingNav: React.FunctionComponent<FloatingNavProps> = (
   )
 }
 
-export default FloatingNav
+export default FloatingToolbar

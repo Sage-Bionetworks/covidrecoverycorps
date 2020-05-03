@@ -167,7 +167,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
               How do you want to create your account?
             </label>
 
-            <div className="loginType">
+            <div className="tabbedField">
                     <Tabs
                       value={state.registrationType.value}
                       indicatorColor="primary"
@@ -190,7 +190,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
         
 
             {state.registrationType.value === 'EMAIL' && (
-              <div className="reg">
+              <div className="input--padded">
                 <TextField
                   name="email"
                   type="email"
@@ -208,7 +208,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
             )}
 
             {state.registrationType.value === 'PHONE' && (
-              <div className="reg">
+              <div className="input--padded">
                 <label htmlFor="phone">Phone</label>
                 <TextField
                   name="phone"

@@ -88,3 +88,5 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
     </div>
   )
 }
+
+export default TopNav

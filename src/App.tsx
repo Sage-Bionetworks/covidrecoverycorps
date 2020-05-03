@@ -31,7 +31,7 @@ import { getSession, callEndpoint } from './helpers/utility'
 
 import Intro from './components/static/Intro'
 import Dashboard from './components/Dashboard'
-import { Logout } from './components/login/Logout'
+
 import { SESSION_NAME, ENDPOINT, LoggedInUserData } from './types/types'
 import ConsentEHR from './components/consent/ConsentEHR'
 import About from './components/static/About'

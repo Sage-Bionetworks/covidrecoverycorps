@@ -7,13 +7,12 @@ import {
   SignInDataEmail,
   LoginType,
   Response,
-  SESSION_NAME,
+
   ENDPOINT,
 } from '../../types/types'
-import { callEndpoint, makePhone, setSession } from '../../helpers/utility'
+import { callEndpoint, makePhone} from '../../helpers/utility'
 
-import ToggleButton from '@material-ui/lab/ToggleButton'
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
+
 import Button from '@material-ui/core/Button'
 import SignInWithCode from './SignInWithCode'
 import TextField from '@material-ui/core/TextField/TextField'
@@ -183,7 +182,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                   <label htmlFor="registrationType">
                     How do you want to log in?
                   </label>
-                  <div className="loginType">
+                  <div className="tabbedField">
                     <Tabs
                       value={loginType}
                       indicatorColor="primary"
@@ -202,7 +201,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                     </Tabs>
 
                     {loginType === 'EMAIL' && (
-                      <div className="reg">
+                      <div className="input--padded">
                         <TextField
                           id="outlined-basic"
                           variant="outlined"
@@ -219,7 +218,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                     )}
 
                     {loginType === 'PHONE' && (
-                      <div className="reg">
+                      <div className="input--padded">
                         <TextField
                           id="outlined-basic"
                           variant="outlined"

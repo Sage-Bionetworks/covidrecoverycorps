@@ -13,7 +13,7 @@ import Button from '@material-ui/core/Button/Button'
 import { Typography, Checkbox, TextField } from '@material-ui/core'
 
 import ConsentCopy from './ConsentCopy'
-import { FloatingNav } from '../widgets/FloatingNav'
+import { FloatingToolbar } from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
 
 
@@ -129,7 +129,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
               />
             </div>
 
-            <div className="twoButtons">
+            <div className="buttons--action">
               <Button
                 onClick={() => alert('todo')}
                 variant="outlined"
@@ -159,7 +159,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           <div className="Consent">
             {currentStep == 0 && (
               <>
-                <FloatingNav >HIPAA Authorization</FloatingNav>
+                <FloatingToolbar >HIPAA Authorization</FloatingToolbar>
                 {renderStep0()}
               </>
             )}

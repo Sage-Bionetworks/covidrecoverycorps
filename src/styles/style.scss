@@ -8,26 +8,13 @@
 @import 'components/consent-info';
 @import 'components/static';
 @import 'components/top-nav';
-@import 'mobile' only screen and (max-width: 768px) ;
+@import 'components/floating-toolbar';
+@import 'material-overrides';
+@import 'forms';
+@import 'mobile' screen and (max-width: 768px);
 
 html {
   font-size: 62.5%; /* 62.5% of 16px = 10px */
-}
-
-h1 {
-  margin-left: 20%;
-
-  font-size: 4rem;
-
-  font-family: 'Source Serif Pro', serif;
-}
-
-p {
-  color: #2a2a2a;
-  font-size: 1.8rem;
-  line-height: 2rem;
- 
-  //width: 320px;
 }
 
 body {
@@ -36,70 +23,24 @@ body {
   background: #f5f5f5;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.NavToggle {
-  display: 'flex';
-  justify-content: 'center';
-  &__text {
-    align-self: center;
-    font-size: 0.75rem;
-  }
+h1 {
+  margin-left: 20%;
+  font-size: 4rem;
+  font-family: 'Source Serif Pro', serif;
 }
 
-.twoButtons {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 20px;
-  align-items: center;
+p {
+  color: #2a2a2a;
+  font-size: 1.8rem;
+  line-height: 2rem;
 }
 
-.reg {
-  padding: 20px;
-  margin-top: 10px;
-}
+
+/*
+
 
 .buttonGroup .btn-block:first-child {
   margin-bottom: 10px;
-}
-
-#toolbar {
-  position: fixed; /* Make it stick/fixed */
-  top: 0px; /* Stay on top */
-
-  transition: top 0.3s; /* Transition effect when sliding down (and up) */
-
-  position: fixed;
-  text-align: center;
-  padding: 10px;
-
-  right: 0;
-  left: 0;
-  width: initial;
-  background-color: #fff;
-  height: 56px;
-  z-index: 10;
-  /* border: 1px solid; */
-  transition: top 0.3s;
-}
-
-.larger {
-  font-size: 32px;
-  line-height: 34px;
 }
 
 .buttonGroup .btn {
@@ -113,64 +54,7 @@ body {
   border: 1px solid black;
   color: #fff;
 }
+*/
 
-.MuiToggleButtonGroup-root.verticalToggle {
-  display: block;
-  background-color: transparent;
-  .MuiToggleButtonGroup-grouped {
-    display: block;
-    width: 100%;
-    margin-bottom: 8px;
-    background: transparent;
-    border-color: #000000;
-    color: #000;
-    text-align: left;
-    padding-left: 2em;
-  }
 
-  .MuiToggleButton-root.Mui-selected {
-    color: #fff;
-    background-color: #000;
-  }
-  .MuiToggleButtonGroup-grouped:not(:last-child) {
-    border-top-right-radius: inherit;
-    border-bottom-right-radius: inherit;
-  }
-  .MuiToggleButtonGroup-grouped:not(:first-child) {
-    border-top-left-radius: inherit;
-    border-bottom-left-radius: inherit;
 
-    border-left-style: solid;
-    border-color: #000000;
-  }
-}
-
-.loginType {
-  border: 1px solid #000;
-
-  .MuiTabs-root {
-    border-bottom: 1px solid black;
-  }
-
-  .MuiTab-textColorPrimary.Mui-selected {
-    color: #fff;
-    background-color: #000;
-  }
-
-  .MuiTab-textColorPrimary {
-    color: #000;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  h1 {
-    margin-left:0px;
-    margin-right: 0px;
-
-  }
-  p {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
