@@ -2,7 +2,7 @@
 .Consent {
 
     h2 {
-        margin-left: 80px;
+        margin-left: 20%;
 
         font-size: 40px;
 
@@ -13,8 +13,8 @@
         color: #2a2a2a;
         font-size: 18px;
         line-height: 20px;
-        margin-left: 80px;
-        margin-right: 48px;
+        margin-left: 20%;
+        margin-right: 10%;
         font-family: georgia;
        // width: 320px;
       }
@@ -24,10 +24,10 @@
       display: flex;
       align-items: flex-start;
       padding-top: 16px;
-      margin-left: 8rem;
+      margin-left: 10%;
 
       p {
-          margin-left: 1rem;
+          margin-left: 5%;
       }
       }
 
@@ -35,7 +35,7 @@
   margin-top: 84px;
 
   &__inset {
-    margin-left: 16px;
+    margin-left: 5%;
   }
 
   .MuiCheckbox-root {
@@ -71,3 +71,17 @@
       background: transparent;
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    .Consent {
+
+    /* For mobile phones: */
+    p.Consent__copy {
+        margin-right:0px;
+        margin-left: 0px;
+    }
+    h2 {
+        margin-left:0;
+    }
+}
+}

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import logo from './logo.svg'
+import {faBars} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './styles/style.scss'
 import {
@@ -91,6 +93,7 @@ function App() {
   const [token, setToken] = useState(getSession()?.token)
   const [name, setName] = useState(getSession()?.name)
   const [consented, setConsented] = useState(getSession()?.consented)
+  const [topClicked, setTopClicked]=useState(false)
 
   useEffect(() => {
     let isSubscribed = true
@@ -226,7 +229,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                (Sat 4:10)
+                (Sat 10:40)
               </nav>
               <Grid
                 container
@@ -242,13 +245,9 @@ function App() {
                       return (
                         <Grid item xs={12}>
                           <div
-                            style={{
-                              display: 'flex',
-                              justifyContent: 'space-around',
-                              alignItems: 'center',
-                            }}
+                           className="topnavContainer"
                           >
-                            <div className="topnav">
+                            <div className={`${topClicked? 'topnav responsive' : 'topnav'}`}>
                               <NavLink to="/home" activeClassName="active">
                                 Home
                               </NavLink>
@@ -264,9 +263,11 @@ function App() {
                               <NavLink to="/contact" activeClassName="active">
                                 Contact
                               </NavLink>
+                              <a onClick={() => {setTopClicked(prev=> !prev)}} className="icon"><FontAwesomeIcon icon={faBars}></FontAwesomeIcon></a>
+                     
                             </div>
                             <div>
-                              <div> {renderLoginOut()}</div>
+                              <div className="topnavButtons"> {renderLoginOut()}</div>
                             </div>
                           </div>
                         </Grid>

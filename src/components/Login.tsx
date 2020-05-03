@@ -85,23 +85,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         )
         if (isSubscribed) {
           handleLoggedIn(loggedIn)
-          /*const consented = (loggedIn.status !== 412)
-          if (loggedIn.ok || !consented) {
-          
-            setSession(
-              loggedIn.data.sessionToken,
-              loggedIn.data.firstName,
-              consented
-            )
-            if(consented) {
-            history.push("/dashboard");
-            } else {
-              history.push("/consent")
-            }
-            handleLoggedIn(loggedIn)
-          } else {
-            setError('Error ' + loggedIn.status)
-          }*/
+        
         }
       } catch (e) {
         alert(JSON.stringify(e, null, 2))

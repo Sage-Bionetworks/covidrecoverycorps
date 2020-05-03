@@ -228,8 +228,7 @@
     font-style: italic;
 
     vertical-align: middle;
-    @include calc(line-height, #{$space-unit} * 2);
-    @include calc(height, #{$space-unit} * 2);
+
 
     button.btn-link {
       @include themify($themes) {

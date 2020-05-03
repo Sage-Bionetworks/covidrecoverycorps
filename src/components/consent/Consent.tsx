@@ -7,14 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ConsentInfo from './ConsentInfo'
 
 import useForm from '../useForm'
-import { getAge, getMomentDate, callEndpoint } from '../../helpers/utility'
 import moment from 'moment'
-import {
-  ENDPOINT,
-  SHARE_SCOPE_PARTNERS,
-  SHARE_SCOPE_ALL,
-  SUBPOP_GUID,
-} from '../../types/types'
+
 
 import Button from '@material-ui/core/Button/Button'
 import TextField from '@material-ui/core/TextField/TextField'
@@ -27,13 +21,13 @@ import {
   Radio,
 } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert/Alert'
-import ConsentEHR from './ConsentEHR'
+
 import ConsentCopy from './ConsentCopy'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
 import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
 import { Redirect } from 'react-router-dom'
 import Nav from '../Nav'
-
+import { ConsentService } from '../../services/consent.service'
 
 export type ConsentProps = {
   token: string
@@ -76,23 +70,14 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   }
 
   async function onSubmitForm(state: any) {
-    const data = {
-      name: state.fullName.value,
-
-      scope: state.shareScope.value,
-      signedOn: moment().toLocaleString(),
-    }
     try {
       setError('')
-      const result = await callEndpoint(
-        `${ENDPOINT}/v3/subpopulations/${SUBPOP_GUID}/consents/signature`,
-        'POST',
-        data,
+      const result = await ConsentService.signGeneralConsent(
+        state.fullName.value,
+        state.shareScope.value,
         token
       )
-
       setIsConsentDone(true)
- 
     } catch (e) {
       setError(e.message)
     }
@@ -105,7 +90,6 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   )
 
   const checkboxChange = (_name: string, checked: boolean) => {
-
     handleOnChange({
       target: { name: _name, value: checked },
     })
@@ -196,25 +180,28 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       )}
       {isInfoDone && !isConsentDone && (
         <>
-    
-              <div>
-                <Nav>Consent Signature</Nav>
-              </div>
-      
-          <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>
-          <p>I know and agree that:</p>
-          <div style={{marginLeft: "4rem"}}>
-          <ConsentCopy screen={'CONSENT_SIGNATURE2'}></ConsentCopy>
-          <div className="Consent__inset">
+          <div>
+            <Nav>Consent Signature</Nav>
           </div>
 
+          <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>
+          <p>I know and agree that:</p>
+          <div style={{ marginLeft: '4rem' }}>
+            <ConsentCopy screen={'CONSENT_SIGNATURE2'}></ConsentCopy>
+            <div className="Consent__inset"></div>
+
             <p>&nbsp;</p>
-            <div style={{ marginTop: '2rem', marginLeft: '-8rem', marginBottom: '4rem' }}>
+            <div
+              style={{
+                marginTop: '2rem',
+                marginLeft: '-8rem',
+                marginBottom: '4rem',
+              }}
+            >
               <ConsentCopy screen={'CONSENT_SHARING'}></ConsentCopy>
             </div>
 
             <form className="Consent__form" onSubmit={handleOnSubmit}>
-          
               <FormControl component="fieldset">
                 <FormLabel component="legend">PLEASE SELECT ONE</FormLabel>
                 <RadioGroup
@@ -222,35 +209,32 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   name="shareScope"
                   value={state.shareScope.value}
                   onChange={handleOnChange}
-               
                 >
                   <FormControlLabel
-                    value='SHARE_SCOPE_ALL'
-                    control={<Radio     color="primary"/>}
+                    value={ConsentService.SHARE_SCOPE_ALL}
+                    control={<Radio color="primary" />}
                     label="Yes, share with my study data with qualified researchers for future COVID related work."
                   />
                   <FormControlLabel
-                    value='SHARE_SCOPE_PARTNERS'
-                    control={<Radio    color="primary"/>}
+                    value={ConsentService.SHARE_SCOPE_PARTNERS}
+                    control={<Radio color="primary" />}
                     label="No, only use my study data for this study only."
                   />
                 </RadioGroup>
               </FormControl>
-           
-                  <p></p>
 
-                  <div
-                    onClick={() => updateIsLearnMore(0, true)}
-                    className="learnMoreToggle"
-                    style={{
-                      display: isLearnMore[0] ? 'none' : 'flex',
-                    }}
-                  >
-                    Learn More
-                    <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
-                  </div>
-               
-           
+              <p></p>
+
+              <div
+                onClick={() => updateIsLearnMore(0, true)}
+                className="learnMoreToggle"
+                style={{
+                  display: isLearnMore[0] ? 'none' : 'flex',
+                }}
+              >
+                Learn More
+                <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
+              </div>
 
               <div
                 className="learnLessToggle"

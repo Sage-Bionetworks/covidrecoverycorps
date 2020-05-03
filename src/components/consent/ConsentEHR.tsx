@@ -2,28 +2,19 @@ import React, { useState, ChangeEvent } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faCaretUp,
-  faCaretDown,
+ 
   faArrowRight,
 } from '@fortawesome/free-solid-svg-icons'
-import useForm from '../useForm'
-import { getAge, getMomentDate, callEndpoint } from '../../helpers/utility'
+
 import moment from 'moment'
-import {
-  ENDPOINT,
-  SHARE_SCOPE_PARTNERS,
-  SUBPOP_GUID,
-  SHARE_SCOPE_ALL,
-  HIPAA_SUBPOP_GUID,
-} from '../../types/types'
 import { Redirect } from 'react-router'
 
 import Button from '@material-ui/core/Button/Button'
 import { Typography, Checkbox, TextField } from '@material-ui/core'
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
-import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
+
 import ConsentCopy from './ConsentCopy'
 import { Nav } from '../Nav'
+import { ConsentService } from '../../services/consent.service'
 
 
 export type ConsentEHRProps = {
@@ -83,22 +74,14 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
     return element
   }
 
-  const handleSubmit = async () => {
-    const data = {
-      name: name,
-
-      scope: SHARE_SCOPE_PARTNERS,
-      signedOn: moment().toLocaleString(),
-    }
+  const handleSubmit = async ( clickEvent: React.FormEvent<HTMLElement>
+    ): Promise<any> => {
+  
+      clickEvent.preventDefault() // avoid page refresh
+  
     try {
       setError('')
-      const result = await callEndpoint(
-        `${ENDPOINT}/v3/subpopulations/${HIPAA_SUBPOP_GUID}/consents/signature`,
-        'POST',
-        data,
-        token
-      )
-
+      const result = await ConsentService.signEhrConsent(name,ConsentService.SHARE_SCOPE_PARTNERS, token)
       setIsConsentEHRDone(true)
       // if (setConsentFn) {
       //setConsentFn(result.ok)
@@ -118,9 +101,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           Please check the box below if you agree to take part:
           <form
             className="Consent__form"
-            onSubmit={() => {
-              handleSubmit()
-            }}
+            onSubmit={handleSubmit}
           >
             <div className="form-group checkbox--indented" style={{}}>
               <Checkbox
