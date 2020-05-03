@@ -9,9 +9,9 @@ import Alert from 'react-bootstrap/Alert'
 import { UiSchema } from 'react-jsonschema-form'
 import SynapseForm, { ExtraUIProps } from './synapse_form_wrapper/SynapseForm'
 import { StatusEnum } from './synapse_form_wrapper/types'
-import { SurveyType, SavedSurveysObject, SavedSurvey } from '../types/types'
-import { SURVEYS } from '../data/surveys'
-import { SurveyService } from '../services/survey.service'
+import { SurveyType, SavedSurveysObject, SavedSurvey } from '../../types/types'
+import { SURVEYS } from '../../data/surveys'
+import { SurveyService } from '../../services/survey.service'
 import { Redirect } from 'react-router-dom'
 
 export interface SurveyWrapperProps {

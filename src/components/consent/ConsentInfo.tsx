@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 
 
 import useForm from '../useForm'
-import Nav from '../Nav'
+import FloatingNav from '../widgets/FloatingNav'
 import Button from '@material-ui/core/Button/Button'
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
@@ -204,7 +204,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     <SizeMe >
       {({ size }) => (
         <div className="ConsentInfo">
-          <Nav >{renderNavChildren(currentStep)}</Nav>
+          <FloatingNav >{renderNavChildren(currentStep)}</FloatingNav>
           <div>
             {currentStep > 0 && (
               <div className="text-right">

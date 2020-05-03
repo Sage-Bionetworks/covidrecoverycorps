@@ -26,7 +26,7 @@ import ConsentCopy from './ConsentCopy'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
 import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
 import { Redirect } from 'react-router-dom'
-import Nav from '../Nav'
+import FloatingNav from '../widgets/FloatingNav'
 import { ConsentService } from '../../services/consent.service'
 
 export type ConsentProps = {
@@ -181,7 +181,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       {isInfoDone && !isConsentDone && (
         <>
           <div>
-            <Nav>Consent Signature</Nav>
+            <FloatingNav>Consent Signature</FloatingNav>
           </div>
 
           <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>

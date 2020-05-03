@@ -21,7 +21,9 @@ const summaryScreens = [
   <div>
     <h2>About the Study</h2>
 
-    <p className="Consent__copy">COVID Recovery Corps is a <b>research study.</b></p>
+    <p className="Consent__copy">
+      COVID Recovery Corps is a <b>research study.</b>
+    </p>
 
     <p className="Consent__copy">
       The goal of the study is to collect information from participants on how
@@ -35,13 +37,12 @@ const summaryScreens = [
       We may also ask you to provide a spit, blood, nasal or fecal swab sample.
       This study will last at least for <b>12 months</b>.
     </p>
-
-  </div>
-  ,
-
+  </div>,
   <div>
     <h2>What will I be asked to do?</h2>
-    <p className="Consent__copy">COVID Recovery Corps is a <b>research study.</b></p>
+    <p className="Consent__copy">
+      COVID Recovery Corps is a <b>research study.</b>
+    </p>
     <p className="Consent__copy">
       The goal of the study is to collect information from participants on how
       the <b> body fights COVID-19</b>.
@@ -54,14 +55,13 @@ const summaryScreens = [
       We may also ask you to provide a spit, blood, nasal or fecal swab sample.
       This study will last at least for <b>12 months</b>.
     </p>
- 
-  </div>
-  ,
-  <div>[intentionally blank -  quiz screen]</div>
-  ,
+  </div>,
+  <div>[intentionally blank - quiz screen]</div>,
   <div>
     <h2>What are the benefits?</h2>
-    <p className="Consent__copy">COVID Recovery Corps is a <b>research study.</b></p>
+    <p className="Consent__copy">
+      COVID Recovery Corps is a <b>research study.</b>
+    </p>
 
     <p className="Consent__copy">
       The goal of the study is to collect information from participants on how
@@ -75,15 +75,15 @@ const summaryScreens = [
       We may also ask you to provide a spit, blood, nasal or fecal swab sample.
       This study will last at least for <b>12 months</b>.
     </p>
-  
   </div>,
 
-<div>[intentionally blank -  quiz screen]</div>
+  <div>[intentionally blank - quiz screen]</div>,
 
-  ,
   <div>
     <h2>What are the risks?</h2>
-    <p className="Consent__copy">COVID Recovery Corps is a <b>research study.</b></p>
+    <p className="Consent__copy">
+      COVID Recovery Corps is a <b>research study.</b>
+    </p>
 
     <p className="Consent__copy">
       The goal of the study is to collect information from participants on how
@@ -97,12 +97,12 @@ const summaryScreens = [
       We may also ask you to provide a spit, blood, nasal or fecal swab sample.
       This study will last at least for <b>12 months</b>.
     </p>
-  
-  </div>
-  ,
+  </div>,
   <div>
     <h2>Your Data and Privacy</h2>
-    <p className="Consent__copy">COVID Recovery Corps is a <b>research study.</b></p>
+    <p className="Consent__copy">
+      COVID Recovery Corps is a <b>research study.</b>
+    </p>
 
     <p className="Consent__copy">
       The goal of the study is to collect information from participants on how
@@ -116,114 +116,112 @@ const summaryScreens = [
       We may also ask you to provide a spit, blood, nasal or fecal swab sample.
       This study will last at least for <b>12 months</b>.
     </p>
- 
   </div>,
-    <div>[intentionally blank -  quiz screen]</div>
-    ,
-   <div>
-   <h2>Sharing your data with future researchers</h2>
-   <p className="Consent__copy">COVID Recovery Corps is a <b>research study.</b></p>
+  <div>[intentionally blank - quiz screen]</div>,
+  <div>
+    <h2>Sharing your data with future researchers</h2>
+    <p className="Consent__copy">
+      COVID Recovery Corps is a <b>research study.</b>
+    </p>
 
-   <p className="Consent__copy">
-     The goal of the study is to collect information from participants on how
-     the <b> body fights COVID-19</b>.
-   </p>
-   <p className="Consent__copy">
-     If you decide to join this study, we will ask you to complete a
-     <b> survey</b>.
-   </p>
-   <p className="Consent__copy">
-     We may also ask you to provide a spit, blood, nasal or fecal swab sample.
-     This study will last at least for <b>12 months</b>.
-   </p>
+    <p className="Consent__copy">
+      The goal of the study is to collect information from participants on how
+      the <b> body fights COVID-19</b>.
+    </p>
+    <p className="Consent__copy">
+      If you decide to join this study, we will ask you to complete a
+      <b> survey</b>.
+    </p>
+    <p className="Consent__copy">
+      We may also ask you to provide a spit, blood, nasal or fecal swab sample.
+      This study will last at least for <b>12 months</b>.
+    </p>
+  </div>,
+  <div>[intentionally blank - quiz screen]</div>,
+  <div>
+    <h2>Not Medical Care</h2>
+    <p className="Consent__copy">
+      COVID Recovery Corps is a <b>research study.</b>
+    </p>
 
- </div>
- ,
- <div>[intentionally blank -  quiz screen]</div>
- ,
- <div>
-   <h2>Not Medical Care</h2>
-   <p className="Consent__copy">COVID Recovery Corps is a <b>research study.</b></p>
+    <p className="Consent__copy">
+      The goal of the study is to collect information from participants on how
+      the <b> body fights COVID-19</b>.
+    </p>
+    <p className="Consent__copy">
+      If you decide to join this study, we will ask you to complete a
+      <b> survey</b>.
+    </p>
+    <p className="Consent__copy">
+      We may also ask you to provide a spit, blood, nasal or fecal swab sample.
+      This study will last at least for <b>12 months</b>.
+    </p>
+  </div>,
+  <div>
+    <h2>Leaving the study</h2>
+    <p className="Consent__copy">
+      COVID Recovery Corps is a <b>research study.</b>
+    </p>
 
-   <p className="Consent__copy">
-     The goal of the study is to collect information from participants on how
-     the <b> body fights COVID-19</b>.
-   </p>
-   <p className="Consent__copy">
-     If you decide to join this study, we will ask you to complete a
-     <b> survey</b>.
-   </p>
-   <p className="Consent__copy">
-     We may also ask you to provide a spit, blood, nasal or fecal swab sample.
-     This study will last at least for <b>12 months</b>.
-   </p>
- 
- </div>
- ,
+    <p className="Consent__copy">
+      The goal of the study is to collect information from participants on how
+      the <b> body fights COVID-19</b>.
+    </p>
+    <p className="Consent__copy">
+      If you decide to join this study, we will ask you to complete a
+      <b> survey</b>.
+    </p>
+    <p className="Consent__copy">
+      We may also ask you to provide a spit, blood, nasal or fecal swab sample.
+      This study will last at least for <b>12 months</b>.
+    </p>
+  </div>,
+  <div>
+    <h2>Things you should consider before you say yes</h2>
+    <p className="Consent__copy">
+      COVID Recovery Corps is a <b>research study.</b>
+    </p>
 
- <div>
-   <h2>Leaving the study</h2>
-   <p className="Consent__copy">COVID Recovery Corps is a <b>research study.</b></p>
-
-   <p className="Consent__copy">
-     The goal of the study is to collect information from participants on how
-     the <b> body fights COVID-19</b>.
-   </p>
-   <p className="Consent__copy">
-     If you decide to join this study, we will ask you to complete a
-     <b> survey</b>.
-   </p>
-   <p className="Consent__copy">
-     We may also ask you to provide a spit, blood, nasal or fecal swab sample.
-     This study will last at least for <b>12 months</b>.
-   </p>
-
- </div>,
- <div>
- <h2>Things you should consider before you say yes</h2>
- <p className="Consent__copy">COVID Recovery Corps is a <b>research study.</b></p>
-
- <p className="Consent__copy">
-   The goal of the study is to collect information from participants on how
-   the <b> body fights COVID-19</b>.
- </p>
- <p className="Consent__copy">
-   If you decide to join this study, we will ask you to complete a
-   <b> survey</b>.
- </p>
- <p className="Consent__copy">
-   We may also ask you to provide a spit, blood, nasal or fecal swab sample.
-   This study will last at least for <b>12 months</b>.
- </p>
-
-</div>
-,
-
-<div>
- <h2>How to contact us?</h2>
- <p className="Consent__copy">sCOVID Recovery Corps is a <b>research study.</b></p>
-
- <p className="Consent__copy">
-   The goal of the study is to collect information from participants on how
-   the <b> body fights COVID-19</b>.
- </p>
- <p className="Consent__copy">
-   If you decide to join this study, we will ask you to complete a
-   <b> survey</b>.
- </p>
- <p className="Consent__copy">
-   We may also ask you to provide a spit, blood, nasal or fecal swab sample.
-   This study will last at least for <b>12 months</b>.
- </p>
- .
-</div>
+    <p className="Consent__copy">
+      The goal of the study is to collect information from participants on how
+      the <b> body fights COVID-19</b>.
+    </p>
+    <p className="Consent__copy">
+      If you decide to join this study, we will ask you to complete a
+      <b> survey</b>.
+    </p>
+    <p className="Consent__copy">
+      We may also ask you to provide a spit, blood, nasal or fecal swab sample.
+      This study will last at least for <b>12 months</b>.
+    </p>
+  </div>,
+  <div>
+    <h2>How to contact us?</h2>
+    <p className="Consent__copy">
+      sCOVID Recovery Corps is a <b>research study.</b>
+    </p>
+    <p className="Consent__copy">
+      The goal of the study is to collect information from participants on how
+      the <b> body fights COVID-19</b>.
+    </p>
+    <p className="Consent__copy">
+      If you decide to join this study, we will ask you to complete a
+      <b> survey</b>.
+    </p>
+    <p className="Consent__copy">
+      We may also ask you to provide a spit, blood, nasal or fecal swab sample.
+      This study will last at least for <b>12 months</b>.
+    </p>
+    .
+  </div>,
 ]
 
 const fullTextScreens = [
   <div>
     <h2>About the Study</h2>
     <p className="Consent__copy">
-      COVID Recovery Corps is a <b>research study</b>. If you join, we will <b>gather data about you </b>.
+      COVID Recovery Corps is a <b>research study</b>. If you join, we will{' '}
+      <b>gather data about you </b>.
     </p>
 
     <p className="Consent__copy">
@@ -460,11 +458,37 @@ const ehrScreens = [
 ]
 
 const screens: { [key: string]: JSX.Element } = {
-  INTRO:   <p className="Consent__copy">intro + {loremIpsum}</p>,
-  CONSENT_SIGNATURE1: <p className="Consent__copy">If you understand and agree to the benefits &amp; risk of participating in this study. Please sign below.</p>,
-  CONSENT_SIGNATURE2: <p className="Consent__copy">My data will be stored in the NY Strong databases. If I give a blood, urine, nose, anal, or saliva sample, it will be stored at the NY Strong biobank. This includes my DNA or genetic material. Information that researchers learn by studying my samples will be stored in the NY Strong databases. Researchers will do COVID-19 studies using the NY Strong databases and biobank. They may also do research on other health conditions that are related to how the body responds to COVID-19. If my sample is used up, I may be asked to give another blood sample. I can say yes or no. My contact information may be used to tell me about other studies. I can withdraw (quit) at any time. There is no penalty if I withdraw. </p>,
-  CONSENT_SHARING: <div><p >By default, you are sharing your data with this study only. </p><p>
-    Would you like to share your study data with other qualified researchers for future research on COVID related work?</p></div>,
+  INTRO: <p className="Consent__copy">intro + {loremIpsum}</p>,
+  CONSENT_SIGNATURE1: (
+    <p className="Consent__copy">
+      If you understand and agree to the benefits &amp; risk of participating in
+      this study. Please sign below.
+    </p>
+  ),
+  CONSENT_SIGNATURE2: (
+    <p className="Consent__copy">
+      My data will be stored in the NY Strong databases. If I give a blood,
+      urine, nose, anal, or saliva sample, it will be stored at the NY Strong
+      biobank. This includes my DNA or genetic material. Information that
+      researchers learn by studying my samples will be stored in the NY Strong
+      databases. Researchers will do COVID-19 studies using the NY Strong
+      databases and biobank. They may also do research on other health
+      conditions that are related to how the body responds to COVID-19. If my
+      sample is used up, I may be asked to give another blood sample. I can say
+      yes or no. My contact information may be used to tell me about other
+      studies. I can withdraw (quit) at any time. There is no penalty if I
+      withdraw.{' '}
+    </p>
+  ),
+  CONSENT_SHARING: (
+    <div>
+      <p>By default, you are sharing your data with this study only. </p>
+      <p>
+        Would you like to share your study data with other qualified researchers
+        for future research on COVID related work?
+      </p>
+    </div>
+  ),
   HIPAA_LAST_INTRO: (
     <p className="Consent__copy">
       If you understand and agree to the benefits &amp; risk of participating in
@@ -501,9 +525,7 @@ export const ConsentCopy: React.FunctionComponent<ConsentCopyProps> = ({
   isEHR,
 }: ConsentCopyProps) => {
   if (screen) {
- 
-      return screens[screen]
-  
+    return screens[screen]
   }
 
   if (stepInfo && !isEHR) {

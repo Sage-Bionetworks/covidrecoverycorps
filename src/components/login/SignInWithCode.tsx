@@ -5,8 +5,8 @@ import {
   ENDPOINT,
 
   LoginType,
-} from '../types/types'
-import { callEndpoint, makePhone } from '../helpers/utility'
+} from '../../types/types'
+import { callEndpoint, makePhone } from '../../helpers/utility'
 import Alert from '@material-ui/lab/Alert/Alert'
 import Button from '@material-ui/core/Button/Button'
 import TextField from '@material-ui/core/TextField/TextField'

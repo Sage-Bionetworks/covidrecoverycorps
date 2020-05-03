@@ -13,7 +13,7 @@ import Button from '@material-ui/core/Button/Button'
 import { Typography, Checkbox, TextField } from '@material-ui/core'
 
 import ConsentCopy from './ConsentCopy'
-import { Nav } from '../Nav'
+import { FloatingNav } from '../widgets/FloatingNav'
 import { ConsentService } from '../../services/consent.service'
 
 
@@ -159,7 +159,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           <div className="Consent">
             {currentStep == 0 && (
               <>
-                <Nav >HIPAA Authorization</Nav>
+                <FloatingNav >HIPAA Authorization</FloatingNav>
                 {renderStep0()}
               </>
             )}

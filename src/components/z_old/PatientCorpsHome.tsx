@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-import PatientCorpsInfo from './PatientCorpsInfo'
-import Consent from './consent/Consent'
-import Logout from './Logout'
-import Login from './Login'
-import Intro from './static/Intro'
+import PatientCorpsInfo from '../PatientCorpsInfo'
+import Consent from '../consent/Consent'
+import Logout from '../login/Logout'
+import Login from '../login/Login'
+import Intro from '../static/Intro'
 import Survey from './Survey'
 import Surveys from './Surveys'
 import { useState } from 'react'
@@ -13,11 +13,11 @@ import {
   LoggedInUserData,
   ENDPOINT,
 
-} from '../types/types'
+} from '../../types/types'
 import _ from 'lodash'
 
 
-import { callEndpoint, getSession } from '../helpers/utility'
+import { callEndpoint, getSession } from '../../helpers/utility'
 
 
 type USER_STATE =

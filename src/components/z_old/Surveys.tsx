@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react'
 
 
 
-import useForm from './useForm'
-import {  callEndpoint } from '../helpers/utility'
+import useForm from '../useForm'
+import {  callEndpoint } from '../../helpers/utility'
 import moment from 'moment'
 import {
   ENDPOINT,
 
   SURVEY_TIME_CONSTANT,
   SURVEY_IDENTIFIER,
-} from '../types/types'
-import SurveyWrapper from './SurveyWrapper'
+} from '../../types/types'
+import SurveyWrapper from '../surveys/SurveyWrapper'
 
 type SurveysProps = {
   token: string

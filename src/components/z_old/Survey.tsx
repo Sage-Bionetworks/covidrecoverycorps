@@ -4,11 +4,11 @@ import {  faCaretUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-import useForm from './useForm'
-import { getAge, getMomentDate, callEndpoint } from '../helpers/utility'
+import useForm from '../useForm'
+import { getAge, getMomentDate, callEndpoint } from '../../helpers/utility'
 import moment from 'moment'
-import { ENDPOINT } from '../types/types'
-import SurveyWrapper from './SurveyWrapper'
+import { ENDPOINT } from '../../types/types'
+import SurveyWrapper from '../surveys/SurveyWrapper'
 
 type SurveyProps = {
     token: string, 
