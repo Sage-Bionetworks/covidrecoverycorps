@@ -73,10 +73,10 @@ export default class SurveyWrapper extends React.Component<
   getData = async (): Promise<void> => {
     try {
       const jsonFormSchemaDeref = (await $RefParser.dereference(
-        JSON.parse(JSON.stringify(SURVEYS.DEMOGRAPHIC.formSchema))
+        JSON.parse(JSON.stringify(SURVEYS[this.props.surveyName].formSchema))
       )) as JSON
       let formData = { metadata: {} }
-      const response = await SurveyService.getUserSurveys(this.props.token)
+    /*  const response = await SurveyService.getUserSurveys(this.props.token)
       const savedData = _.first(response.data.items)
       const surveyData = savedData?.data
       this.setState({ savedSurveys: surveyData })
@@ -85,14 +85,14 @@ export default class SurveyWrapper extends React.Component<
       )
       if (currentSurvey) {
         formData = { ...currentSurvey.data, metadata: {} }
-      }
+      }*/
       //if we are creating a new file - store the versions
 
       this.setState({
         formData,
         formSchema: jsonFormSchemaDeref,
-        formUiSchema: SURVEYS.DEMOGRAPHIC.uiSchema,
-        formNavSchema: SURVEYS.DEMOGRAPHIC.navSchema,
+        formUiSchema: SURVEYS[this.props.surveyName].uiSchema,
+        formNavSchema: SURVEYS[this.props.surveyName].navSchema,
         isLoading: false,
       })
     } catch (e) {

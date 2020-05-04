@@ -40,6 +40,7 @@ import Team from './components/static/Team'
 import Contact from './components/static/Contact'
 import FAQs from './components/static/FAQs'
 import { TopNav } from './components/widgets/TopNav'
+import ResultsUpload from './components/ResultsUpload'
 
 const theme = createMuiTheme({
   typography: {
@@ -190,7 +191,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                (Mon:8:22)
+                (Mon:11:22)
               </nav>
               <Grid
                 container
@@ -267,26 +268,41 @@ function App() {
                     <PrivateRoute exact={true} path="/dashboard">
                       <Dashboard token={token || ''} />
                     </PrivateRoute>
-
+{/*todo make private */}
                     <Route exact={true} path="/consent">
                       <Consent
                         token={token || ''}
                         name={getSession()?.name || ''}
                       />
                     </Route>
-
+{/*todo make private */}
                     <Route exact={true} path="/consentehr">
                       <ConsentEHR token={token || ''} />
                     </Route>
-
-                    <PrivateRoute exact={true} path="/survey1">
+{/*todo make private */}
+                    <Route exact={true} path="/survey1">
                       <SurveyWrapper
                         formTitle="Tell us about yourself"
                         token={token || ''}
                         surveyName={'DEMOGRAPHIC'}
                         formClass="crc"
                       ></SurveyWrapper>
-                    </PrivateRoute>
+                    </Route>
+                    <Route exact={true} path="/survey2">
+                      <SurveyWrapper
+                        formTitle="Your COVID experience"
+                        token={token || ''}
+                        surveyName={'COVID_EXPERIENCE'}
+                        formClass="crc"
+                      ></SurveyWrapper>
+                    </Route>
+                    <Route exact={true} path="/survey3">
+                      <ResultsUpload
+                       
+                        token={token || ''}
+                       
+                      ></ResultsUpload>
+                    </Route>
 
                     <Route path="/about">
                       <About></About>
