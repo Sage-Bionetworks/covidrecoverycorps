@@ -1,37 +1,405 @@
 {
   "definitions": {
- 
-
     "about": {
       "type": "object",
-      "required": [
-     
-        "symptoms"
-       
-      ],
+      "title": "Please descirbe your symptoms",
+   
       "properties": {
+        "cough": {
+          "type": "boolean",
+          "title": "Cough",
+
+          "enum": [true, false]
+        },
+        "fever": {
+          "type": "boolean",
+          "title": "Fever",
+          "enum": [true, false]
+        },
+        "shortness_breath": {
+          "type": "boolean",
+          "title": "Shortness Of Breath",
+          "enum": [true, false]
+        },
+        "chest_pain": {
+          "type": "boolean",
+          "title": "Chest Pain",
+          "enum": [true, false]
+        },
+        "night_sweats": {
+          "type": "boolean",
+          "title": "Night Sweats",
+          "enum": [true, false]
+        },
+        "chills": {
+          "type": "boolean",
+          "title": "Chills",
+          "enum": [true, false]
+        },
+        "rash": {
+          "type": "boolean",
+          "title": "Rash",
+          "enum": [true, false]
+        },
+        "fatigue": {
+          "type": "boolean",
+          "title": "Fatigue",
+          "enum": [true, false]
+        },
+        "headache": {
+          "type": "boolean",
+          "title": "Headache",
+          "enum": [true, false]
+        },
+        "muscle_pain": {
+          "type": "boolean",
+          "title": "Muscle pain",
+          "enum": [true, false]
+        },
+        "runny_nose": {
+          "type": "boolean",
+          "title": "Runny nose",
+          "enum": [true, false]
+        },
+
+        "sore_throat": {
+          "type": "boolean",
+          "title": "Sore throat",
+          "enum": [true, false]
+        },
+        "diarrhea": {
+          "type": "boolean",
+          "title": "Diarrhea",
+          "enum": [true, false]
+        },
+        "nausea_vomiting": {
+          "type": "boolean",
+          "title": "Nausea or vomiting",
+          "enum": [true, false]
+        },
+        "abdominal_pain": {
+          "type": "boolean",
+          "title": "Abdominal pain",
+          "enum": [true, false]
+        },
+
+        "foamy_urine": {
+          "type": "boolean",
+          "title": "Foamy urine",
+          "enum": [true, false]
+        },
+
+        "red_urine": {
+          "type": "boolean",
+          "title": "Red urine",
+          "enum": [true, false]
+        },
+
+        "loss_of_smell": {
+          "type": "boolean",
+          "title": " Partial or complete loss of smell",
+          "enum": [true, false]
+        },
+        "loss_of_taste": {
+          "type": "boolean",
+          "title": " Partial or complete loss of taste",
+          "enum": [true, false]
+        },
+        "hallucinations": {
+          "type": "boolean",
+          "title": "Hallucinations",
+          "enum": [true, false]
+        },
+        "loss_of_consciousness": {
+          "type": "boolean",
+          "title": "Loss Of Consciousness",
+          "enum": [true, false]
+        },
+      
+        "seizures": {
+          "type": "boolean",
+          "title": "Seizures",
+          "enum": [true, false]
+        },
+        "prefer_not_answer": {
+          "type": "boolean",
+          "title": "Prefer Not To Answer",
+          "enum": [true, false]
+        },
+        "other": {
+          "type": "string",
+          "title": "Other Symptoms"
        
-
-        "symptoms": {
-          "type": "array",
-          "title": "Please describe your symptoms (check all that apply)",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-
-            "enum": [
-              "Hispanic or Latino",
-              "White - European",
-              "Asian ",
-              "Black",
-              "Native American",
-              "Pacific Islander",
-              "Don't know",
-              "Prefer not to answer"
-            ]
-          }
         }
-  
+        
+
+
+
+
+
+
+
+
+      },
+      "dependencies": {
+        "cough": {
+          "oneOf": [
+            {
+              "properties": {
+                "cough": {
+                  "enum": [false]
+                }
+              }
+            },
+            {
+              "properties": {
+                "cough": {
+                  "enum": [true]
+                },
+                "cough_duration": {
+                  "title": "How Many Days",
+                  "type": "string"
+                }
+              },
+              "required": ["cough_duration"]
+            }
+          ]
+        },
+        "fever": {
+          "oneOf": [
+            {
+              "properties": {
+                "fever": {
+                  "enum": [false]
+                }
+              }
+            },
+            {
+              "properties": {
+                "fever": {
+                  "enum": [true]
+                },
+                "fever_duration": {
+                  "title": "How Many Days",
+                  "type": "string"
+                },
+          
+              "fever_highest": {
+                "title": "What was the highest temperature",
+                "type": "string"
+              }
+            },   "required": ["fever_duration", "fever_highest"]
+            
+            }
+          ]
+        },
+        "shortness_breath": {
+          "oneOf": [
+            {
+              "properties": {
+                "shortness_breath": {
+                  "enum": [false]
+                }
+              }
+            },
+            {
+              "properties": {
+                "shortness_breath": {
+                  "enum": [true]
+                },
+                "shortness_breath_duration": {
+                  "title": "How Many Days",
+                  "type": "string"
+                }
+              },
+              "required": ["shortness_breath_duration"]
+            }
+          ]
+        },
+        "chest_pain": {
+          "oneOf": [
+            {
+              "properties": {
+                "chest_pain": {
+                  "enum": [false]
+                }
+              }
+            },
+            {
+              "properties": {
+                "chest_pain": {
+                  "enum": [true]
+                },
+                "chest_pain_duration": {
+                  "title": "How Many Days",
+                  "type": "string"
+                }
+              },
+              "required": ["chest_pain_duration"]
+            }
+          ]
+        },
+        "night_sweats": {
+          "oneOf": [
+            {
+              "properties": {
+                "night_sweats": {
+                  "enum": [false]
+                }
+              }
+            },
+            {
+              "properties": {
+                "night_sweats": {
+                  "enum": [true]
+                },
+                "night_sweats_duration": {
+                  "title": "How Many Days",
+                  "type": "string"
+                }
+              },
+              "required": ["night_sweats_duration"]
+            }
+          ]
+        },
+        "chills": {
+          "oneOf": [
+            {
+              "properties": {
+                "chills": {
+                  "enum": [false]
+                }
+              }
+            },
+            {
+              "properties": {
+                "chills": {
+                  "enum": [true]
+                },
+                "chills_duration": {
+                  "title": "How Many Days",
+                  "type": "string"
+                }
+              },
+              "required": ["chills_duration"]
+            }
+          ]
+        },
+        "rash": {
+          "oneOf": [
+            {
+              "properties": {
+                "rash": {
+                  "enum": [false]
+                }
+              }
+            },
+            {
+              "properties": {
+                "rash": {
+                  "enum": [true]
+                },
+                "rash_duration": {
+                  "title": "How Many Days",
+                  "type": "string"
+                }
+              },
+              "required": ["rash_duration"]
+            }
+          ]
+        },
+        "foamy_urine": {
+          "oneOf": [
+            {
+              "properties": {
+                "foamy_urine": {
+                  "enum": [false]
+                }
+              }
+            },
+            {
+              "properties": {
+                "foamy_urine": {
+                  "enum": [true]
+                },
+                "foamy_urine_duration": {
+                  "title": "How Many Days",
+                  "type": "string"
+                }
+              },
+              "required": ["foamy_urine_duration"]
+            }
+          ]
+        },
+        "red_urine": {
+          "oneOf": [
+            {
+              "properties": {
+                "red_urine": {
+                  "enum": [false]
+                }
+              }
+            },
+            {
+              "properties": {
+                "red_urine": {
+                  "enum": [true]
+                },
+                "red_urine_duration": {
+                  "title": "How Many Days",
+                  "type": "string"
+                }
+              },
+              "required": ["red_urine_duration"]
+            }
+          ]
+        },
+        "loss_of_smell": {
+          "oneOf": [
+            {
+              "properties": {
+                "loss_of_smell": {
+                  "enum": [false]
+                }
+              }
+            },
+            {
+              "properties": {
+                "loss_of_smell": {
+                  "enum": [true]
+                },
+                "loss_of_smell_duration": {
+                  "title": "How Many Days",
+                  "type": "string"
+                }
+              },
+              "required": ["loss_of_smell_duration"]
+            }
+          ]
+        },
+        "loss_of_taste": {
+          "oneOf": [
+            {
+              "properties": {
+                "loss_of_taste": {
+                  "enum": [false]
+                }
+              }
+            },
+            {
+              "properties": {
+                "loss_of_taste": {
+                  "enum": [true]
+                },
+                "loss_of_taste_duration": {
+                  "title": "How Many Days",
+                  "type": "string"
+                }
+              },
+              "required": ["loss_of_taste_duration"]
+            }
+          ]
+        }
       }
     },
     "registraion": {}

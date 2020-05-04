@@ -1,15 +1,52 @@
 {
   "about": {
+    "classNames": "symptoms",
+    "ui:order": [
+      "cough",
+      "cough_duration",
+      "fever",
+      "fever_duration",
+      "fever_highest",
+      "shortness_breath",
+      "shortness_breath_duration",
+      "chest_pain",
+      "chest_pain_duration",
+      "night_sweats",
+      "night_sweats_duration",
+      "chills",
+      "chills_duration",
+      "rash",
+      "rash_duration",
+      "fatigue",
+      "headache",
+      "muscle_pain",
+      "runny_nose",
+      "sore_throat",
+      "diarrhea",
+      "nausea_vomiting",
+      "abdominal_pain",
+      "foamy_urine",
+      "foamy_urine_duration",
+      "red_urine",
+      "red_urine_duration",
+      "loss_of_smell",
+      "loss_of_smell_duration",
+      "loss_of_taste",
+      "loss_of_taste_duration",
+      "hallucinations",
+      "loss_of_consciousness",
+      "seizures",
+      "prefer_not_answer","other"
+      
 
+
+
+    ],
     "symptoms": {
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
       }
-  
-  
-
-
     }
   },
   "registration": {}

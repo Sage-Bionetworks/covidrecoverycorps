@@ -42,6 +42,11 @@
     color: #fff;
   }
 
+  .form-group >.checkbox > label > span {
+    min-height: 20px;
+    padding: 10px 20px;
+  }
+
   input[type='text'] {
     min-height: 40px;
     border: 1px solid black;
@@ -57,10 +62,21 @@
   }
 }
 
-.theme-covid-corps {
-  .btn-action.save,
-  .btn-action.validate {
-    //display: none
-    color: red;
+.theme-crc {
+  
+  // symptoms
+  .SRC-ReactJsonForm .symptoms {
+  .form-group.field-boolean  {
+    margin-bottom: 0;
+    > .checkbox {
+      margin-top:5px;
+      margin-bottom: 5px;
+
+    }
   }
+  .form-group.field-string {
+margin-bottom: 5px;
+  }
+}
+
 }
