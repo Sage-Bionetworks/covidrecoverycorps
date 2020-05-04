@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
@@ -39,7 +39,8 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
         {
           <div style={{ position: 'absolute', left: '20px' }}>
             <Link to="/home">
-              <FontAwesomeIcon size="xs" icon={faTimes}></FontAwesomeIcon>
+            <i className="far fa-times-circle"></i>
+
             </Link>
           </div>
         }

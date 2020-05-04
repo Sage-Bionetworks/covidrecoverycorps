@@ -1,11 +1,12 @@
 .Intro {
-  &__content1 {
-    //width: 200px;
+  padding-top: 8rem;
+ &__content1 {
+   /*  //width: 200px;
     // height: 200px;
     position: relative;
-    padding: 20px;
+    //padding: 20px;
     box-sizing: border-box;
-    padding: 0 50px;
+    //padding: 0 50px;
 
     &:before {
       content: '';
@@ -20,14 +21,14 @@
       z-index: -1;
       width: 134px;
       height: 40%;
-    }
+    }*/
   }
 
-  &__content2 {
+ /* &__content2 {
     position: relative;
-    padding: 20px;
+   // padding: 20px;
     box-sizing: border-box;
-    padding: 0 50px;
+  //  padding: 0 50px;
 
     &:after {
       content: '';
@@ -43,5 +44,5 @@
       width: 154px;
       height: 20%;
     }
-  }
+  }*/
 }

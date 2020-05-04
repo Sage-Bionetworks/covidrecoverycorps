@@ -44,8 +44,9 @@ import { TopNav } from './components/widgets/TopNav'
 const theme = createMuiTheme({
   typography: {
     // Tell Material-UI what's the font-size on the html element is.
+    
     htmlFontSize: 10,
-    fontFamily: ['Lato', 'Roboto', 'Helvetica', 'Arial'].join(','),
+    fontFamily: ['Source Serif Pro', 'serif', 'Lato', 'Roboto', 'Helvetica', 'Arial'].join(','),
   },
   palette: {
     primary: {
@@ -189,7 +190,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                (Sun:12:45)
+                (Sun:9:45)
               </nav>
               <Grid
                 container

@@ -12,6 +12,10 @@
     padding-left: 2em;
   }
 
+  .MuiToggleButton-root:hover,  .MuiToggleButton-root.Mui-selected:hover  {
+    border-width:2px;
+  }
+
   .MuiToggleButton-root.Mui-selected {
     color: #fff;
     background-color: #000;

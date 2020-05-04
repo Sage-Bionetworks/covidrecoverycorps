@@ -1,36 +1,29 @@
-
 .Consent {
+  h2 {
+    font-size: 40px;
 
-    h2 {
-    
+    font-family: serif;
+  }
 
-        font-size: 40px;
+  p.Consent__copy {
+    color: #2a2a2a;
+    font-size: 18px;
+    line-height: 20px;
+    //margin-left: 20%;
+    // margin-right: 10%;
+    // font-family: georgia;
+    // width: 320px;
+  }
 
-        font-family:  'Source Serif Pro', serif;
+  .Consent__form {
+    .radiobuttons .MuiFormControlLabel-root {
+      span {
+        font-size: 1.8rem;
       }
+    }
+  }
 
-      p.Consent__copy {
-        color: #2a2a2a;
-        font-size: 18px;
-        line-height: 20px;
-        margin-left: 20%;
-        margin-right: 10%;
-        font-family: georgia;
-       // width: 320px;
-      }
-
-      .checkbox--indented {
-
-      display: flex;
-      align-items: flex-start;
-      padding-top: 16px;
-      margin-left: 10%;
-
-      p {
-          margin-left: 5%;
-      }
-      }
-
+  
 
   margin-top: 84px;
 
@@ -42,8 +35,6 @@
     padding-left: 0;
   }
 
-  
-
   button.x {
     color: #fff;
     background-color: #000;
@@ -51,37 +42,38 @@
 }
 
 .learnMoreToggle {
-    font-family: 'Source Serif Pro';
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 3px;
-    justify-content: space-between;
-    align-items: flex-end;
+  font-family: 'Source Serif Pro';
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 3px;
 
-    cursor: pointer;
+  margin-left: 0;
+  text-align: right;
+
+  cursor: pointer;
+}
+
+.learnLessToggle {
+  margin-top: 2rem;
+  border-bottom: 1px solid #ddd;
+
+  justify-content: space-between;
+  align-items: flex-end;
+  button {
+    padding: 5px 0 5px 0;
+    border: none;
+    background: transparent;
   }
+}
 
-  .learnLessToggle {
-    border-bottom: 1px solid #ddd;
-
-    justify-content: space-between;
-    align-items: flex-end;
-    button {
-      padding: 5px 0 5px 0;
-      border: none;
-      background: transparent;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    .Consent {
-
+@media only screen and (max-width: 768px) {
+  .Consent {
     /* For mobile phones: */
     p.Consent__copy {
-        margin-right:0px;
-        margin-left: 0px;
+      margin-right: 0px;
+      margin-left: 0px;
     }
     h2 {
-        margin-left:0;
+      margin-left: 0;
     }
-}
+  }
 }
