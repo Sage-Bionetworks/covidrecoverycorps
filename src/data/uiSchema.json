@@ -13,17 +13,30 @@
       }
     },
     "enthnicity": {
+      "ui:widget": "checkboxes",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "education": {
       "ui:widget": "radio",
       "ui:options": {
         "inline": false
       }
     },
-    "sexual_orientation": {
+    "income": {
       "ui:widget": "radio",
       "ui:options": {
         "inline": false
       }
     },
+    "healthcare_pay": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    
     "birthdate":{
       "ui:widget": "alt-date",
       "ui:options": {
