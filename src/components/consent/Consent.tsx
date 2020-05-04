@@ -178,7 +178,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           onDone={() => setIsInfoDone(true)}
         ></ConsentInfo>
       )}
-      {!isInfoDone && !isConsentDone && (
+      {isInfoDone && !isConsentDone && (
         <>
           <div>
             <FloatingToolbar>Consent Signature</FloatingToolbar>
