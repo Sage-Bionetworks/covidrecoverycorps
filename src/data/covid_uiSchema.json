@@ -1,0 +1,16 @@
+{
+  "about": {
+
+    "symptoms": {
+      "ui:widget": "checkboxes",
+      "ui:options": {
+        "inline": false
+      }
+  
+  
+
+
+    }
+  },
+  "registration": {}
+}

@@ -1,0 +1,168 @@
+{
+  "definitions": {
+    "address": {
+      "type": "object",
+   
+      "properties": {
+
+        "street_address": {
+          "title": "Street address",
+          "type": "string"
+        },
+        "city": {
+          "title": "City",
+          "type": "string"
+        },
+        "state": {
+          "title": "State",
+          "type": "string",
+          "enum": [
+            "NY",
+            "NJ",
+           "CT"
+          ]
+        },
+        "zip": {
+          "title": "Zip code",
+          "type": "string",
+    
+         
+          "uniqueItems": true
+        }
+      },
+      "required": ["street_address", "city", "state", "zip"]
+    },
+
+    "about": {
+      "type": "object",
+      "required": [
+        "address",
+        "biological_sex",
+        "gender_identity",
+        "enthnicity",
+        "education",
+        "income",
+        "healthcare_pay",
+        "birthdate"
+      ],
+      "properties": {
+        "address": {
+          "title": "What is your mailing address?",
+          "$ref": "#/definitions/address"
+        },
+
+        "birthdate": {
+          "type": "string",
+          "title": "What is your date of birth?"
+        },
+
+        "biological_sex": {
+          "type": "string",
+          "title": "What  was your biological sex assigned at birth?",
+          "enum": [
+            "Female",
+            "Male",
+            "Intersex",
+            "Other",
+            "Prefer not to answer"
+          ],
+          "uniqueItems": true
+        },
+        "gender_identity": {
+          "type": "string",
+          "title": "What term best describes your gender identity?",
+          "enum": [
+            "Woman",
+            "Man",
+            "Non-binary",
+            "Transgender",
+            "Other",
+
+            "Prefer not to answer"
+          ],
+          "uniqueItems": true
+        },
+        "enthnicity": {
+          "type": "array",
+          "title": "What is your ethnicity/ancestry? (check all that apply)",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+
+            "enum": [
+              "Hispanic or Latino",
+              "White - European",
+              "Asian ",
+              "Black",
+              "Native American",
+              "Pacific Islander",
+              "Don't know",
+              "Prefer not to answer"
+            ]
+          }
+        },
+        "education": {
+          "type": "string",
+          "title": " What is the highest grade or level of schooling you completed?",
+          "enum": [
+            "Never attended school or only attended kindergarten",
+            "Grades 1 through 4 (Primary school)",
+            "Grades 5 through 8 (Middle school)",
+            "Grades 9 through 11 (some High school)",
+            "Grade 12 or GED (High school graduate)",
+            "1 to 3 years after high school (some college, Associate’s degree or Technical school)",
+            "College graduate (4 years or more)",
+            "Advanced degree (Master’s, Doctorate, etc.)",
+            "Don’t know/Not sure",
+            "Prefer not to answer"
+          ],
+          "uniqueItems": true
+        },
+
+        "income": {
+          "type": "string",
+          "title": "Thinking about members of your household, what is your combined annual income, meaning the total pre-tax income from all sources earned in the last year?",
+          "enum": [
+            "$0 to $9,999",
+            "$10,000 to $14,999",
+            "$15,000 to $19,999",
+            "$20,000 to $34,999",
+            "$35,000 to $49,999",
+            "$50,000 to $74,999",
+            "$75,000 to $99,999",
+            "$100,000 to $199,999",
+            "$200,000 or more",
+            "Don’t know/Not sure",
+            "Prefer not to answer"
+          ],
+          "uniqueItems": true
+        },
+        "healthcare_pay": {
+          "type": "string",
+          "title": "How do you normally pay for your healthcare?",
+          "enum": [
+            "Insurance purchased directly from an insurance company (by you or another family member)",
+            "Insurance through a current or former employer or union (by you or another family member)",
+            "Medicare, for people 65 and older or people with certain disabilities",
+            "Medicaid, Medical Assistance, or any kind of government- assistance plan for those with low incomes or disability",
+            "TRICARE or other military health care",
+            "Veterans Affairs (VA) (including those who have ever used or enrolled for VA health care)",
+            "Indian Health Service",
+            "I don’ t have health insurance, self-pay",
+            "I don’t know",
+            "Prefer not to answer"
+          ],
+          "uniqueItems": true
+        }
+      }
+    },
+    "registraion": {}
+  },
+  "type": "object",
+  "properties": {
+    "about": {
+      "title": "",
+      "$ref": "#/definitions/about"
+    }
+  }
+}

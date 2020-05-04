@@ -1,0 +1,46 @@
+{
+  "definitions": {
+ 
+
+    "about": {
+      "type": "object",
+      "required": [
+     
+        "symptoms"
+       
+      ],
+      "properties": {
+       
+
+        "symptoms": {
+          "type": "array",
+          "title": "Please describe your symptoms (check all that apply)",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+
+            "enum": [
+              "Hispanic or Latino",
+              "White - European",
+              "Asian ",
+              "Black",
+              "Native American",
+              "Pacific Islander",
+              "Don't know",
+              "Prefer not to answer"
+            ]
+          }
+        }
+  
+      }
+    },
+    "registraion": {}
+  },
+  "type": "object",
+  "properties": {
+    "about": {
+      "title": "",
+      "$ref": "#/definitions/about"
+    }
+  }
+}
