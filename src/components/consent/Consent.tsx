@@ -178,7 +178,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           onDone={() => setIsInfoDone(true)}
         ></ConsentInfo>
       )}
-      {isInfoDone && !isConsentDone && (
+      {!isInfoDone && !isConsentDone && (
         <>
           <div>
             <FloatingToolbar>Consent Signature</FloatingToolbar>
@@ -186,24 +186,24 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
 
           <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>
           <p>I know and agree that:</p>
-          <div style={{ marginLeft: '4rem' }}>
+          <div style={{ marginLeft: '4rem', marginBottom: '4rem', marginTop: '4rem'  }}>
             <ConsentCopy screen={'CONSENT_SIGNATURE2'}></ConsentCopy>
-            <div className="Consent__inset"></div>
+           </div>
 
-            <p>&nbsp;</p>
+      
             <div
               style={{
                 marginTop: '2rem',
-                marginLeft: '-8rem',
+              
                 marginBottom: '4rem',
               }}
             >
               <ConsentCopy screen={'CONSENT_SHARING'}></ConsentCopy>
             </div>
 
-            <form className="Consent__form" onSubmit={handleOnSubmit}>
-              <FormControl component="fieldset">
-                <FormLabel component="legend">PLEASE SELECT ONE</FormLabel>
+            <form className="Consent__form" onSubmit={handleOnSubmit} >
+      <div className="radiobuttons">
+            
                 <RadioGroup
                   aria-label="sharing"
                   name="shareScope"
@@ -215,25 +215,27 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     control={<Radio color="primary" />}
                     label="Yes, share with my study data with qualified researchers for future COVID related work."
                   />
+                 
                   <FormControlLabel
                     value={ConsentService.SHARE_SCOPE_PARTNERS}
                     control={<Radio color="primary" />}
                     label="No, only use my study data for this study only."
                   />
                 </RadioGroup>
-              </FormControl>
+                </div>
 
-              <p></p>
+
 
               <div
                 onClick={() => updateIsLearnMore(0, true)}
                 className="learnMoreToggle"
-                style={{
-                  display: isLearnMore[0] ? 'none' : 'flex',
+                style={{ display: isLearnMore[0] ? 'none' : 'block',
                 }}
               >
-                Learn More
+                <div>
+                <span style={{paddingRight: "10px"}}>Learn More</span>
                 <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
+                </div>
               </div>
 
               <div
@@ -252,7 +254,8 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   <FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon>
                 </button>
               </div>
-              <div className="form-group checkbox--indented">
+              <p style={{marginTop: "4rem", marginBottom: "4rem"}}>Please check the box below if you agree to take part:</p>
+              <div className="form-group checkbox--indented" style={{marginLeft:"0px"}}>
                 <Checkbox
                   color="primary"
                   style={{ paddingTop: '3px' }}
@@ -306,7 +309,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 </Button>
               </div>
             </form>
-          </div>
+         
         </>
       )}
       {isConsentDone && renderHIPAAStep()}

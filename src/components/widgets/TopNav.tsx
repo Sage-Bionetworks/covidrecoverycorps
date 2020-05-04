@@ -59,17 +59,16 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
       <div
         className={`${topClicked ? 'TopNav__menu responsive' : 'TopNav__menu'}`}
       >
+      
         <NavLink to="/home" activeClassName="active">
-          Home
-        </NavLink>
-        <NavLink to="/about" activeClassName="active">
           About
+        </NavLink>
+        
+        <NavLink to="/team" activeClassName="active">
+          Team
         </NavLink>
         <NavLink to="/faqs" activeClassName="active">
           FAQs
-        </NavLink>
-        <NavLink to="/team" activeClassName="active">
-          Team
         </NavLink>
         <NavLink to="/contact" activeClassName="active">
           Contact

@@ -143,7 +143,17 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     const quiz = quizes[quizIndex]
     const content = (
       <div>
-        <h3>{quiz.title}</h3>
+        <h3 style={{marginBottom: "2rem"}}>{quiz.title}</h3>
+        {quizAnswers[quizIndex] !== undefined && (
+          <Alert style={{marginBottom: "2rem"}}
+            severity={
+              quizAnswers[quizIndex] === quiz.correctAnser ? 'success' : 'error'
+            }
+          >
+            {' '}
+            {quiz.explanation}
+          </Alert>
+        )}
 
         <ToggleButtonGroup
           value={quizAnswers[quizIndex]}
@@ -164,16 +174,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
           <ToggleButton value={1} className={getQuizButtonClass(quiz.correctAnser, 1)}> {quiz.options[1]}</ToggleButton>
         </ToggleButtonGroup>
 
-        {quizAnswers[quizIndex] !== undefined && (
-          <Alert
-            severity={
-              quizAnswers[quizIndex] === quiz.correctAnser ? 'success' : 'error'
-            }
-          >
-            {' '}
-            {quiz.explanation}
-          </Alert>
-        )}
+      
       </div>
     )
     return content

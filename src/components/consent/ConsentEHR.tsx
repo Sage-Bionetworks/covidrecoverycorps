@@ -98,7 +98,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
         <div className="Consent__inset">
           <p>I know and agree that:</p>
           <ConsentCopy screen="HIPAA_LAST_TERMS" isEHR={true}></ConsentCopy>
-          Please check the box below if you agree to take part:
+          <p>Please check the box below if you agree to take part:</p>
           <form
             className="Consent__form"
             onSubmit={handleSubmit}

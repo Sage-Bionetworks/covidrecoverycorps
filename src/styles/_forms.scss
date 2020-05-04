@@ -10,10 +10,43 @@
   border: 1px solid #000;
 }
 
-
 .buttons--action {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  align-items: center;
+}
+
+.checkbox--indented {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 16px;
+
+  p {
+    margin: 0;
+    padding-top: 9px;
   }
+}
+
+.form-group.checkbox--bordered {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(54, 54, 54, 0.5);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+ 
+  margin-bottom: 0;
+
+  &:last-child {
+    margin-bottom: 4rem;
+  }
+
+  p {
+    margin: 0;
+    padding-top: 11px;
+  }
+}
+
+.form-group.checkbox--bordered:last-child{
+    margin-bottom: 4rem;
+}
