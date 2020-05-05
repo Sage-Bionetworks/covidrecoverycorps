@@ -64,12 +64,12 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
       'POST',
       registrationData
     )
-    alert(JSON.stringify(result, null, 2))
+    //alert(JSON.stringify(result, null, 2))
     return result
   }
 
   async function onSubmitForm(state: any) {
-    alert(JSON.stringify(state, null, 2))
+    //alert(JSON.stringify(state, null, 2))
 
     //register
     const data: RegistrationData = {

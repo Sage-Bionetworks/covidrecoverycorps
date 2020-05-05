@@ -1,11 +1,30 @@
 {
   "steps": [
     {
-      "id": "about",
-      "order": 5,
+      "id": "habits",
+      "order": 11,
       "title": "",
       "default": "done"
     },
+    {
+      "id": "symptoms2",
+      "order": 5,
+      "title": "",
+      "default": "symptoms2"
+    },
+    {
+      "id": "symptoms",
+      "order": 1,
+      "title": "",
+      "default": "done"
+    },
+    {
+      "id": "hospitalization",
+      "order": 100,
+      "title": "",
+      "default": "done"
+    },
+    
   
  
 

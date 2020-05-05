@@ -84,7 +84,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
           handleLoggedIn(loggedIn)
         }
       } catch (e) {
-        alert(JSON.stringify(e, null, 2))
+        //alert(JSON.stringify(e, null, 2))
       } finally {
         setIsLoading(false)
       }

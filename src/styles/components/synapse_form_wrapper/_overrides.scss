@@ -4,42 +4,53 @@
     padding: 0; //10px 10px 10px 0;
     border: 1px solid black;
     min-width: 27px;
+
+    align-items: center;
+    display: flex;
     > label span {
-      display: block;
+      //AG54display: block;
     }
+   
 
     > label span span {
       min-height: 20px;
-      padding: 10px 20px;
+      padding: 10px 20px 10px 10px;
       margin-bottom: 0;
       font-weight: 400;
       cursor: pointer;
     }
   }
-
+  div.checkbox {
+    padding: 10px  0;
+  }
   .checkbox label,
   .radio label {
     padding: 0;
-    display: block;
+    //AG54display: block;
   }
-  .checkbox input[type='checkbox'],
+  /*.checkbox input[type='checkbox'],
   .checkbox-inline input[type='checkbox'],
   .radio input[type='radio'],
   .radio-inline input[type='radio'] {
     position: absolute;
     margin-top: 4px\9;
     margin-left: -20px;
-  }
+  }*/
 
   input[type='checkbox'],
   input[type='radio'] {
-    display: none;
+   // display: none; AG54
   }
 
-  input[type='checkbox']:checked + span,
+  /*input[type='checkbox']:checked + span,
   input[type='radio']:checked + span {
     background-color: #000000;
     color: #fff;
+  }*/
+
+  .form-group > .checkbox > label > span {
+    min-height: 20px;
+    padding: 10px 20px 10px 10px;
   }
 
   input[type='text'] {
@@ -57,10 +68,106 @@
   }
 }
 
-.theme-covid-corps {
-  .btn-action.save,
-  .btn-action.validate {
-    //display: none
-    color: red;
+.theme-crc {
+  // symptoms
+  //////////////////////////////////////////////////////////////
+// params: $primary-action-color                            //
+//////////////////////////////////////////////////////////////
+
+.checkbox,
+.radio {
+  padding-left: 0px;
+  min-width: 27px;
+}
+input[type='checkbox'],
+input[type='radio'] {
+  display: none;
+}
+.checkbox > label::before,
+.radio::before,
+.radio-inline::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #888;
+  margin-left: 10px; //AG54
+  border-radius: 2px;
+  background: radial-gradient(white, #eee);
+  margin-right: 5px;
+  flex-shrink: 0;
+}
+
+.radio::before {
+  border-radius: 50%;
+}
+.indeterminate-checkbox input[type='checkbox'] + label::before,
+.indeterminate-checkbox input[type='checkbox'] + span::before {
+  content: '–';
+  color: $primary-action-color;
+  font-size: 14px;
+  margin-left: -17px;
+  top: 1px;
+  position: relative;
+  margin-right: 8px;
+  font-weight: bolder;
+}
+input[type='checkbox']:checked + label::before,
+input[type='checkbox']:checked + span::before {
+  content: '✓';
+  color: $primary-action-color;
+  font-size: 14px;
+  margin-left: -29px;
+  top: 1px;
+  position: relative;
+  margin-right: 18px;
+  font-weight: bolder;
+}
+.radio input[type='radio']:checked + label::before,
+.radio input[type='radio']:checked + span::before,
+.radio-inline input[type='radio']:checked + label::before,
+.radio-inline input[type='radio']:checked + span::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: -18px;//AG-18px;
+  margin-right: 18px; //8px;
+  background: $primary-action-color;
+  flex-shrink: 0;
+}
+.radio input[type='radio'] + label,
+.radio input[type='radio'] + span,
+.radio-inline input[type='radio'] + label,
+.radio-inline input[type='radio'] + span {
+  padding-left: 33px; //AG54
+  margin-left: -23px;
+  display: flex;
+  align-items: center;
+
+}
+
+.checkbox label,
+.radio label {
+  padding-left: 0px;
+}
+
+  .SRC-ReactJsonForm .symptoms {
+    .form-group.field-boolean {
+      margin-bottom: 0;
+      > .checkbox {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
+    .form-group.field-string {
+      margin-bottom: 5px;
+    }
+  }
+  .showTitle legend {
+    display:block !important
   }
 }
