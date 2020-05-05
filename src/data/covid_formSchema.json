@@ -1,14 +1,12 @@
 {
   "definitions": {
-    "about": {
+    "symptoms": {
       "type": "object",
       "title": "Please descirbe your symptoms",
-   
       "properties": {
         "cough": {
           "type": "boolean",
           "title": "Cough",
-
           "enum": [true, false]
         },
         "fever": {
@@ -61,7 +59,6 @@
           "title": "Runny nose",
           "enum": [true, false]
         },
-
         "sore_throat": {
           "type": "boolean",
           "title": "Sore throat",
@@ -82,19 +79,16 @@
           "title": "Abdominal pain",
           "enum": [true, false]
         },
-
         "foamy_urine": {
           "type": "boolean",
           "title": "Foamy urine",
           "enum": [true, false]
         },
-
         "red_urine": {
           "type": "boolean",
           "title": "Red urine",
           "enum": [true, false]
         },
-
         "loss_of_smell": {
           "type": "boolean",
           "title": " Partial or complete loss of smell",
@@ -115,7 +109,6 @@
           "title": "Loss Of Consciousness",
           "enum": [true, false]
         },
-      
         "seizures": {
           "type": "boolean",
           "title": "Seizures",
@@ -129,17 +122,7 @@
         "other": {
           "type": "string",
           "title": "Other Symptoms"
-       
         }
-        
-
-
-
-
-
-
-
-
       },
       "dependencies": {
         "cough": {
@@ -183,13 +166,12 @@
                   "title": "How Many Days",
                   "type": "string"
                 },
-          
-              "fever_highest": {
-                "title": "What was the highest temperature",
-                "type": "string"
-              }
-            },   "required": ["fever_duration", "fever_highest"]
-            
+                "fever_highest": {
+                  "title": "What was the highest temperature",
+                  "type": "string"
+                }
+              },
+              "required": ["fever_duration", "fever_highest"]
             }
           ]
         },
@@ -402,13 +384,147 @@
         }
       }
     },
-    "registraion": {}
+    "symptoms2": {
+      "type": "object",
+      "required": ["symptoms_start", "kind_of_testing", "how_was_it_treated"],
+      "properties": {
+        "symptoms_start": {
+          "type": "string",
+          "uniqueItems": true,
+          "title": "Do you remember the dates of your symptoms?",
+          "enum": [
+            "Yes",
+            "Do not know/do not remember",
+            "I never had symptoms",
+            "Prefer not to answer"
+          ]
+        },
+        "kind_of_testing": {
+          "type": "string",
+          "uniqueItems": true,
+          "title": "What kind of COVID-19 testing have you had?",
+          "enum": [
+            "Nasal Swab",
+            "Serum Antibody Tests",
+            "I was not tested, but I had suspected COVID-19",
+            "I was not tested and had no symptoms",
+            "I don't know",
+            "Prefer not to answer"
+          ]
+        },
+        "how_was_it_treated": {
+          "type": "string",
+          "title": "How was your COVID-19 treated? (pick single response reflecting your most intensive level of care)",
+          "enum": [
+            "doctor's office",
+            "emergency_room",
+            "hospital",
+            "icu",
+            "no answer"
+          ],
+          "enumNames": [
+            "I was seen in a doctor's office, clinic, or screening tent, and I was sent home",
+            "I was seen in the emergency room, and I was sent home",
+            "I was admitted to the hospital",
+            "I was in the intensive care unit",
+            "Prefer not to answer"
+          ],
+      
+        "uniqueItems": true
+      }
+      },
+      "dependencies": {
+        "symptoms_start": {
+          "oneOf": [
+            {
+              "properties": {
+                "symptoms_start": {
+                  "enum": [
+                    "Do not know/do not remember",
+                    "I never had symptoms",
+                    "Prefer not to answer"
+                  ]
+                }
+              }
+            },
+            {
+              "properties": {
+                "symptoms_start": {
+                  "enum": ["Yes"]
+                },
+                "first_day": {
+                  "title": "First Day of Symptom",
+                  "type": "string"
+                },
+                "last_day": {
+                  "title": "Last Day of Symptom",
+                  "type": "string"
+                }
+              },
+              "required": ["first_day, last_day"]
+            }
+          ]
+        },
+        "kind_of_testing": {
+          "oneOf": [
+            {
+              "properties": {
+                "kind_of_testing": {
+                  "enum": ["Nasal Swab"]
+                },
+                "nasal_swab_date": {
+                  "title": "Date of the test",
+                  "type": "string"
+                },
+                "nasal_swab_result": {
+                  "title": "What was the result of the test?",
+                  "type": "string",
+                  "uniqueItems": true,
+                  "enum": ["positive", "negative"],
+                  "enumNames": [
+                    "Result of test Confirmed COVID-19 infection",
+                    "Result of test showed no COVID-19 infection"
+                  ]
+                }
+              },
+              "required": ["nasal_swab_date", "nasal_swab_result"]
+            },
+            {
+              "properties": {
+                "kind_of_testing": {
+                  "enum": ["Serum Antibody Tests"]
+                },
+                "serum_test_date": {
+                  "title": "Date of the test",
+                  "type": "string"
+                },
+                "serum_test_result": {
+                  "title": "What was the result of the test?",
+                  "type": "string",
+                  "uniqueItems": true,
+                  "enum": ["positive", "negative"],
+                  "enumNames": [
+                    "Result of test Confirmed COVID-19 infection",
+                    "Result of test showed no COVID-19 infection"
+                  ]
+                }
+              },
+              "required": ["serum_test_date", "serum_test_result"]
+            }
+          ]
+        }
+      }
+    }
   },
   "type": "object",
   "properties": {
-    "about": {
+    "symptoms": {
       "title": "",
-      "$ref": "#/definitions/about"
+      "$ref": "#/definitions/symptoms"
+    },
+    "symptoms2": {
+      "title": "",
+      "$ref": "#/definitions/symptoms2"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "about": {
+  "symptoms": {
     "classNames": "symptoms",
     "ui:order": [
       "cough",
@@ -49,5 +49,37 @@
       }
     }
   },
-  "registration": {}
+  "symptoms2": {
+    "ui:order": [ "symptoms_start", "first_day","last_day","kind_of_testing", "nasal_swab_date", "nasal_swab_result", "serum_test_date", "serum_test_result","how_was_it_treated"],
+    "symptoms_start":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "kind_of_testing":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "nasal_swab_result":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "serum_test_result":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "how_was_it_treated":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    }
+  }
 }

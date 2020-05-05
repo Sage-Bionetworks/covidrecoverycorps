@@ -1,8 +1,14 @@
 {
   "steps": [
     {
-      "id": "about",
+      "id": "symptoms2",
       "order": 5,
+      "title": "",
+      "default": "symptoms2"
+    },
+    {
+      "id": "symptoms2",
+      "order": 15,
       "title": "",
       "default": "done"
     },
