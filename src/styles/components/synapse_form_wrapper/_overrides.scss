@@ -42,7 +42,7 @@
     color: #fff;
   }
 
-  .form-group >.checkbox > label > span {
+  .form-group > .checkbox > label > span {
     min-height: 20px;
     padding: 10px 20px;
   }
@@ -63,20 +63,20 @@
 }
 
 .theme-crc {
-  
   // symptoms
   .SRC-ReactJsonForm .symptoms {
-  .form-group.field-boolean  {
-    margin-bottom: 0;
-    > .checkbox {
-      margin-top:5px;
+    .form-group.field-boolean {
+      margin-bottom: 0;
+      > .checkbox {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
+    .form-group.field-string {
       margin-bottom: 5px;
-
     }
   }
-  .form-group.field-string {
-margin-bottom: 5px;
+  .showTitle legend {
+    display:block !important
   }
-}
-
 }

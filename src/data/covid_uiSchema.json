@@ -90,5 +90,21 @@
       "classNames":  "showTitle"
     }
 
+  },
+  "habits": {
+    "smoking":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    
+    },
+    "vaping":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    
+    }
   }
 }

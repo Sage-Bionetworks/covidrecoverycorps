@@ -2,7 +2,7 @@
   "steps": [
     {
       "id": "habits",
-      "order": 1,
+      "order": 11,
       "title": "",
       "default": "done"
     },
@@ -14,7 +14,7 @@
     },
     {
       "id": "symptoms",
-      "order": 15,
+      "order": 1,
       "title": "",
       "default": "done"
     },
