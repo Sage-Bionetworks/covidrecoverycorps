@@ -191,7 +191,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                (Mon:11:22)
+                (Tue:6:10)
               </nav>
               <Grid
                 container
