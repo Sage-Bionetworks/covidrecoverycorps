@@ -952,6 +952,7 @@ export default class SynapseForm extends React.Component<
                     </div>
                   </Form>
                   {this.renderTextForStaticScreen()}
+                  {this.state.doShowErrors && <div className="error">Responses required above</div>}
                   {!this.props.isWizardMode && (
                     <NextStepLink
                       steps={this.state.steps}
@@ -1046,15 +1047,15 @@ function renderTransformedErrorObject(
   }
   const element = (
     <li key={i} className="">
-      <span>
+      <div>
         {screen.title && (
           <strong>
             {screen.title}
             {index}:
           </strong>
         )}
-        {label}&nbsp; {error.message}
-      </span>
+        <span className="error-label">{label}</span>&nbsp; {error.message}
+      </div>
     </li>
   )
   return { order: screen.order, element }

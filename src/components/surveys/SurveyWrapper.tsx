@@ -168,8 +168,8 @@ export default class SurveyWrapper extends React.Component<
         this.setState({ isFormSubmitted: true })
       }
     } catch (error) {
-      alert('err' + error)
-      this.onError({ name: 'submission error', message: error })
+    
+      this.onError({ name: 'submission error', message: error.message })
     }
   }
 
