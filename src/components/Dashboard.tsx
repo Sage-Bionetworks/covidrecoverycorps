@@ -66,7 +66,10 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   token,
 }: DashboardProps) => {
   const [savedSurveys, setSavedSurveys] = useState<SavedSurveysObject>()
-
+  const [isFromConsent, setIsFromConsent] = useState(
+    sessionStorage.getItem('consented') || ''
+  )
+  
   useEffect(() => {
     const getSurveys = async () => {
       try {
@@ -137,11 +140,11 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     ))
     return <ul className="items">{items}</ul>
   }
-
   return (
     <div className="Dashboard">
-      <Typography variant="h2">Yay, the legal is done!</Typography>
-
+      {isFromConsent &&
+        <Typography variant="h2">Yay, the legal is done!</Typography>
+      }
       <p>
         Our scientists could really use the information from Surveys 1 &amp; 2.
         &mdash; we need text about needing 1&amp;2 if they want to be invited.

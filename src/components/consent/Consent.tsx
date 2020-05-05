@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react'
+import React, { useState, useEffect, ChangeEvent } from 'react'
 
 import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
@@ -49,6 +49,11 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   const [isLearnMore, setIsLearnMore] = useState([false, false])
   const [isShowingCancelConfirmation, setIsShowingCancelConfirmation] = useState(false)
   const [isConsentCanceled, setIsConsentCancelled] = useState(false)
+
+  // indicate that the user consented during this session (used in Dashboard.tsx)
+  useEffect(() => {
+    sessionStorage.setItem('consented', isConsentDone.toString());
+  }, [isConsentDone]);
 
   const [error, setError] = useState('')
 
