@@ -707,7 +707,7 @@ const ehrScreens = [
   <div>
     <h2> HIPAA Authorization</h2>
     <p className="Consent__copy">
-      This form tells about giving NY Strong access to your EHR (electronic
+      This form tells about giving COVID Recovery Corps study access to your EHR (electronic
       health records). We will only be able to access your EHR if you sign this
       form. Health records are the data collected when you get healthcare.
       Electronic health records, or EHR, are when these data are kept in secure
@@ -715,7 +715,7 @@ const ehrScreens = [
       need to decide if you would like to give us access to your EHR. Ask any
       questions you have. You can say yes or no to signing this form. Your
       choice will not affect your medical care. You can still be part of{' '}
-      <b>NY Strong</b> study if you say no.{' '}
+      <b>COVID Recovery Corps</b> study if you say no.{' '}
     </p>
   </div>,
 ]
@@ -743,25 +743,20 @@ const screens: { [key: string]: JSX.Element } = {
   ),
   CONSENT_SIGNATURE2: (
     <p className="Consent__copy">
-      My data will be stored in the NY Strong databases. If I give a blood,
-      urine, nose, anal, or saliva sample, it will be stored at the NY Strong
-      biobank. This includes my DNA or genetic material. Information that
-      researchers learn by studying my samples will be stored in the NY Strong
-      databases. Researchers will do COVID-19 studies using the NY Strong
-      databases and biobank. They may also do research on other health
-      conditions that are related to how the body responds to COVID-19. If my
-      sample is used up, I may be asked to give another blood sample. I can say
-      yes or no. My contact information may be used to tell me about other
-      studies. I can withdraw (quit) at any time. There is no penalty if I
-      withdraw.{' '}
+      <ul>
+        <li>My data will be stored in the COVID Recovery Corps databases.</li>
+        <li>If I give a biosample, it will be stored at the COVID Recovery Corps biobank. This includes my DNA or genetic material. Information that researchers learn by studying my samples will be stored in the COVID Recovery Corps databases.</li>
+        <li>Researchers will do COVID-19 studies using the COVID Recovery Corps databases and biobank. They may also do research on other health conditions that are related to how the body responds to COVID-19.</li>
+        <li>If my sample is used up, I may be asked to give another biosample. I can say yes or no.</li>
+        <li>My contact information may be used to tell me about other COVID-related studies.</li>
+        <li>I can withdraw (quit) at any time. There is no penalty if I withdraw.</li>
+      </ul>{' '}
     </p>
   ),
   CONSENT_SHARING: (
     <div>
-      <p>By default, you are sharing your data with this study only. </p>
       <p>
-        Would you like to share your study data with other qualified researchers
-        for future research on COVID related work?
+        Would you like to share your study data with other qualified researchers for future research on COVID related work?
       </p>
     </div>
   ),
@@ -773,24 +768,21 @@ const screens: { [key: string]: JSX.Element } = {
   ),
   HIPAA_LAST_TERMS: (
     <p className="Consent__copy">
-      My data will be stored in the NY Strong databases. If I give a blood,
-      urine, nose, anal, or saliva sample, it will be stored at the NY Strong
-      biobank. This includes my DNA or genetic material. Information that
-      researchers learn by studying my samples will be stored in the NY Strong
-      databases. Researchers will do COVID-19 studies using the NY Strong
-      databases and biobank. They may also do research on other health
-      conditions that are related to how the body responds to COVID-19. If my
-      sample is used up, I may be asked to give another blood sample. I can say
-      yes or no. My contact information may be used to tell me about other
-      studies. I can withdraw (quit) at any time. There is no penalty if I
-      withdraw.
+      <ul>
+        <li>My data will be stored in the COVID Recovery Corps databases.</li>
+        <li>If I give a biosample, it will be stored at the COVID Recovery Corps biobank. This includes my DNA or genetic material. Information that researchers learn by studying my samples will be stored in the COVID Recovery Corps databases.</li>
+        <li>Researchers will do COVID-19 studies using the COVID Recovery Corps databases and biobank. They may also do research on other health conditions that are related to how the body responds to COVID-19.</li>
+        <li>If my sample is used up, I may be asked to give another biosample. I can say yes or no.</li>
+        <li>My contact information may be used to tell me about other COVID-related studies.</li>
+        <li>I can withdraw (quit) at any time. There is no penalty if I withdraw.</li>
+      </ul>
     </p>
   ),
   HIPAA_LAST_CHECKBOX: (
     <>
       I have read this consent form (or someone read it to me). I understand the
       information in this form. All of my questions have been answered. I freely
-      and willingly choose to take part in NY Strong.
+      and willingly choose to take part in COVID Recovery Corps study.
     </>
   ),
 }

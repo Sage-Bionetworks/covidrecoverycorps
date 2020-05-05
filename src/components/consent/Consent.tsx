@@ -191,7 +191,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           </div>
 
           <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>
-          <p>I know and agree that:</p>
+          <p>I understand and agree to the following:</p>
           <div style={{ marginLeft: '4rem', marginBottom: '4rem', marginTop: '4rem'  }}>
             <ConsentCopy screen={'CONSENT_SIGNATURE2'}></ConsentCopy>
            </div>
@@ -200,7 +200,6 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
             <div
               style={{
                 marginTop: '2rem',
-              
                 marginBottom: '4rem',
               }}
             >
@@ -208,8 +207,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
             </div>
 
             <form className="Consent__form" onSubmit={handleOnSubmit} >
-      <div className="radiobuttons">
-            
+              <div className="radiobuttons">
                 <RadioGroup
                   aria-label="sharing"
                   name="shareScope"
@@ -219,19 +217,24 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   <FormControlLabel
                     value={ConsentService.SHARE_SCOPE_ALL}
                     control={<Radio color="primary" />}
-                    label="Yes, share with my study data with qualified researchers for future COVID related work."
+                    label="Yes, share my study data with qualified researchers for future COVID related work."
                   />
                  
                   <FormControlLabel
                     value={ConsentService.SHARE_SCOPE_PARTNERS}
                     control={<Radio color="primary" />}
-                    label="No, only use my study data for this study only."
+                    label="No, only use my study data for this (COVID Recovery Corps) study only."
                   />
                 </RadioGroup>
+                <div
+                  style={{
+                    marginTop: '2rem',
+                    marginBottom: '4rem',
+                  }}
+                >
+                  <p>By default, you are sharing your data with this study only.</p>
                 </div>
-
-
-
+              </div>
               <div
                 onClick={() => updateIsLearnMore(0, true)}
                 className="learnMoreToggle"
@@ -273,7 +276,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   me). I understand the information in this form. All of my
                   questions have been answered. I{' '}
                   <strong>freely and willingly</strong> choose to take part in
-                  NY Strong."
+                  COVID Recovery Corps study."
                 </p>
               </div>
               <p>{moment().format('MMMM Do, YYYY')}</p>
