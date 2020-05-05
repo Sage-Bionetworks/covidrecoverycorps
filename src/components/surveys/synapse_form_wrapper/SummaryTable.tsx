@@ -151,7 +151,7 @@ export default function SummaryTable(props: SummaryTableProps): JSX.Element {
   let prevScreenId = ''
   const table = (
     <>
-      <table className="table summary-table-header">
+     {/* <table className="table summary-table-header">
         <thead>
           <tr>
             <th>Step</th>
@@ -159,7 +159,7 @@ export default function SummaryTable(props: SummaryTableProps): JSX.Element {
             <th>Value</th>
           </tr>
         </thead>
-      </table>
+  </table> */}
 
       <div className="scroll-area table-body">
         <table className="table summary-table">
@@ -167,12 +167,12 @@ export default function SummaryTable(props: SummaryTableProps): JSX.Element {
             {flatFormData.map((line: SummaryFormat, i: number) => {
               return (
                 <tr key={i + line.screen.id + line.label}>
-                  <td>
+                 {/* <td>
                     {prevScreenId !== line.screen.id &&
                       (prevScreenId = line.screen.id) && (
                         <span>{line.screen.title}</span>
                       )}
-                  </td>
+                      </td>*/}
                   <td>{line.label}</td>
 
                   <td>{line.value}</td>

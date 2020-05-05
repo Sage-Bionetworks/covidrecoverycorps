@@ -1,3 +1,6 @@
+
+$font-size:  1.4rem default;
+
 /* MODAL OVERWRITE! */
 .modal-backdrop {
   opacity: 0.7;
@@ -105,7 +108,7 @@
         margin-bottom: 0;
 
         th {
-          font-size: 1.4rem;
+          font-size: $font-size;
           line-height: 1.6rem;
         }
         td:first-child {
@@ -146,7 +149,7 @@
 
   .panel.unauthenticated {
     border: 1px solid #ddd;
-    font-size: 1.4rem;
+    font-size: $font-size;
   }
 
   /* ---------- layout ---------------*/
@@ -296,7 +299,7 @@
     // for min/max type of field
     .data-range {
       legend {
-        font-size: 1.4rem;
+        font-size: $font-size;
         font-weight: normal;
         color: $gray-formtext;
         display: block;
@@ -319,7 +322,7 @@
 
   label.control-label,
   .data-range legend {
-    font-size: 1.4rem;
+    font-size: $font-size;
     font-weight: normal;
     color: $gray-formtext;
   }
@@ -515,7 +518,7 @@
 
   /*---- form classes -----*/
   .experiments-list legend ~ .field-description {
-    font-size: 1.4rem;
+    font-size: $font-size;
     font-style: italic;
   }
 }
