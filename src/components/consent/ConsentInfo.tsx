@@ -44,7 +44,7 @@ const quizes = [
 
     options: ['The study will destroy or delete my data', 'The study will not share my future data'],
     explanation:
-      'After the participant chooses: If you decide to end your data sharing with qualified researchers, we will not share your future data. But the data we have already shared with qualified researchers, we unfortunately cannot get back.',
+      'If you decide to end your data sharing with qualified researchers, we will not share your future data. But the data we have already shared with qualified researchers, we unfortunately cannot get back.',
     correctAnser: 1,
   },
 ]
