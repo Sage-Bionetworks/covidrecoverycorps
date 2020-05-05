@@ -31,22 +31,32 @@ const quizes = [
     correctAnser: 1,
   },
   {
-    screen: 4,
+    screen: 5,
     title: 'What is the primary risk in this study?',
     options: ['Privacy', 'There is no risk in participating in this study'],
     explanation:
       'We will do our best to protect your privacy. But we can’t guarantee your privacy. It is possible that public health authorities will ask to see the data.',
     correctAnser: 0,
   },
+  {
+    screen: 8,
+    title: 'I decided to share my data broadly with qualified researchers and now I want to stop. What happens to the data I have already shared?',
+
+    options: ['The study will destroy or delete my data', 'The study will not share my future data'],
+    explanation:
+      'After the participant chooses: If you decide to end your data sharing with qualified researchers, we will not share your future data. But the data we have already shared with qualified researchers, we unfortunately cannot get back.',
+    correctAnser: 1,
+  },
 ]
-const totalSteps = 8
+
+const totalSteps = 12
 
 export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   name,
   onDone,
 }: ConsentInfoProps) => {
   const [isFullText, setIsFullText] = useState(true)
-  const [currentStep, setCurrentStep] = useState(0)
+  const [currentStep, setCurrentStep] = useState(-1)
   const [quizAnswers, setQuizAnswers] = useState(new Array(2))
 
   const getText = (step: number, fullText: boolean): JSX.Element => {
@@ -85,7 +95,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
 
     const buttonDiv = (
       <>
-        {currentStep > 0 && (
+        {currentStep > -1 && (
           <Button
             color="primary"
             variant="contained"
@@ -95,7 +105,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
             &nbsp;
           </Button>
         )}
-        {currentStep > 0 && currentStep <= totalSteps && (
+        {currentStep > -1 && currentStep <= totalSteps && (
           <Button
             color="primary"
             variant="contained"
@@ -181,7 +191,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   }
 
   const renderNavChildren = (step: number): JSX.Element | string => {
-    if (step === 0) {
+    if (step < 1 || step===12) {
       return 'Study Consent'
     }
     if (quizes.findIndex((quiz) => quiz.screen === step) > -1) {
@@ -210,20 +220,24 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
         <div className="ConsentInfo">
           <FloatingToolbar>{renderNavChildren(currentStep)}</FloatingToolbar>
           <div>
-            {currentStep > 0 && (
+            {currentStep > -1 && (
               <div className="text-right">
-                {currentStep} of {totalSteps}
+                {currentStep+1} of {totalSteps+1}
               </div>
             )}
-            <div>{currentStep === 0 && <h1>Welcome {name}</h1>}</div>
-            <div>
+           {currentStep === -1 && <div> <h1>Welcome {name}</h1>
+            { <ConsentCopy screen="INTRO" isEHR={false}></ConsentCopy>}
+         
+            
+           </div> }
+           {currentStep > -1 &&  <div>
               {getStatic(currentStep, isFullText)}
 
               {getQuiz(currentStep)}
               {getNavButtons(currentStep)}
-            </div>
+           </div> }
 
-            {currentStep == 0 && (
+            {currentStep === -1 && (
               <div>
                 <Button
                   color="primary"
