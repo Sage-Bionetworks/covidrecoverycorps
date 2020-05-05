@@ -150,11 +150,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       </p>
       <div>{renderSurveyItems(savedSurveys?.surveys || [])}</div>
       <hr/>
-      <PatientCorpsInfo
-                    
-                      token={token}
-                  
-                    ></PatientCorpsInfo>
+
     </div>
   )
 }
