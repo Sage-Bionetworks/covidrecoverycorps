@@ -7,117 +7,186 @@
         "cough": {
           "type": "boolean",
           "title": "Cough",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "fever": {
           "type": "boolean",
           "title": "Fever",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "shortness_breath": {
           "type": "boolean",
           "title": "Shortness Of Breath",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "chest_pain": {
           "type": "boolean",
           "title": "Chest Pain",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "night_sweats": {
           "type": "boolean",
           "title": "Night Sweats",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "chills": {
           "type": "boolean",
           "title": "Chills",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "rash": {
           "type": "boolean",
           "title": "Rash",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "fatigue": {
           "type": "boolean",
           "title": "Fatigue",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "headache": {
           "type": "boolean",
           "title": "Headache",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "muscle_pain": {
           "type": "boolean",
           "title": "Muscle pain",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "runny_nose": {
           "type": "boolean",
           "title": "Runny nose",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "sore_throat": {
           "type": "boolean",
           "title": "Sore throat",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "diarrhea": {
           "type": "boolean",
           "title": "Diarrhea",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "nausea_vomiting": {
           "type": "boolean",
           "title": "Nausea or vomiting",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "abdominal_pain": {
           "type": "boolean",
           "title": "Abdominal pain",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "foamy_urine": {
           "type": "boolean",
           "title": "Foamy urine",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "red_urine": {
           "type": "boolean",
           "title": "Red urine",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "loss_of_smell": {
           "type": "boolean",
           "title": " Partial or complete loss of smell",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "loss_of_taste": {
           "type": "boolean",
           "title": " Partial or complete loss of taste",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "hallucinations": {
           "type": "boolean",
           "title": "Hallucinations",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "loss_of_consciousness": {
           "type": "boolean",
           "title": "Loss Of Consciousness",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "seizures": {
           "type": "boolean",
           "title": "Seizures",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "prefer_not_answer": {
           "type": "boolean",
           "title": "Prefer Not To Answer",
-          "enum": [true, false]
+          "enum": [
+            true,
+            false
+          ]
         },
         "other": {
           "type": "string",
@@ -130,21 +199,27 @@
             {
               "properties": {
                 "cough": {
-                  "enum": [false]
+                  "enum": [
+                    false
+                  ]
                 }
               }
             },
             {
               "properties": {
                 "cough": {
-                  "enum": [true]
+                  "enum": [
+                    true
+                  ]
                 },
                 "cough_duration": {
                   "title": "How Many Days",
-                  "type": "string"
+                  "type": "number"
                 }
               },
-              "required": ["cough_duration"]
+              "required": [
+                "cough_duration"
+              ]
             }
           ]
         },
@@ -153,25 +228,32 @@
             {
               "properties": {
                 "fever": {
-                  "enum": [false]
+                  "enum": [
+                    false
+                  ]
                 }
               }
             },
             {
               "properties": {
                 "fever": {
-                  "enum": [true]
+                  "enum": [
+                    true
+                  ]
                 },
                 "fever_duration": {
                   "title": "How Many Days",
-                  "type": "string"
+                  "type": "number"
                 },
                 "fever_highest": {
                   "title": "What was the highest temperature",
-                  "type": "string"
+                  "type": "number"
                 }
               },
-              "required": ["fever_duration", "fever_highest"]
+              "required": [
+                "fever_duration",
+                "fever_highest"
+              ]
             }
           ]
         },
@@ -180,21 +262,27 @@
             {
               "properties": {
                 "shortness_breath": {
-                  "enum": [false]
+                  "enum": [
+                    false
+                  ]
                 }
               }
             },
             {
               "properties": {
                 "shortness_breath": {
-                  "enum": [true]
+                  "enum": [
+                    true
+                  ]
                 },
                 "shortness_breath_duration": {
                   "title": "How Many Days",
-                  "type": "string"
+                  "type": "number"
                 }
               },
-              "required": ["shortness_breath_duration"]
+              "required": [
+                "shortness_breath_duration"
+              ]
             }
           ]
         },
@@ -203,21 +291,27 @@
             {
               "properties": {
                 "chest_pain": {
-                  "enum": [false]
+                  "enum": [
+                    false
+                  ]
                 }
               }
             },
             {
               "properties": {
                 "chest_pain": {
-                  "enum": [true]
+                  "enum": [
+                    true
+                  ]
                 },
                 "chest_pain_duration": {
                   "title": "How Many Days",
-                  "type": "string"
+                  "type": "number"
                 }
               },
-              "required": ["chest_pain_duration"]
+              "required": [
+                "chest_pain_duration"
+              ]
             }
           ]
         },
@@ -226,21 +320,27 @@
             {
               "properties": {
                 "night_sweats": {
-                  "enum": [false]
+                  "enum": [
+                    false
+                  ]
                 }
               }
             },
             {
               "properties": {
                 "night_sweats": {
-                  "enum": [true]
+                  "enum": [
+                    true
+                  ]
                 },
                 "night_sweats_duration": {
                   "title": "How Many Days",
-                  "type": "string"
+                  "type": "number"
                 }
               },
-              "required": ["night_sweats_duration"]
+              "required": [
+                "night_sweats_duration"
+              ]
             }
           ]
         },
@@ -249,21 +349,27 @@
             {
               "properties": {
                 "chills": {
-                  "enum": [false]
+                  "enum": [
+                    false
+                  ]
                 }
               }
             },
             {
               "properties": {
                 "chills": {
-                  "enum": [true]
+                  "enum": [
+                    true
+                  ]
                 },
                 "chills_duration": {
                   "title": "How Many Days",
-                  "type": "string"
+                  "type": "number"
                 }
               },
-              "required": ["chills_duration"]
+              "required": [
+                "chills_duration"
+              ]
             }
           ]
         },
@@ -272,21 +378,27 @@
             {
               "properties": {
                 "rash": {
-                  "enum": [false]
+                  "enum": [
+                    false
+                  ]
                 }
               }
             },
             {
               "properties": {
                 "rash": {
-                  "enum": [true]
+                  "enum": [
+                    true
+                  ]
                 },
                 "rash_duration": {
                   "title": "How Many Days",
-                  "type": "string"
+                  "type": "number"
                 }
               },
-              "required": ["rash_duration"]
+              "required": [
+                "rash_duration"
+              ]
             }
           ]
         },
@@ -295,21 +407,27 @@
             {
               "properties": {
                 "foamy_urine": {
-                  "enum": [false]
+                  "enum": [
+                    false
+                  ]
                 }
               }
             },
             {
               "properties": {
                 "foamy_urine": {
-                  "enum": [true]
+                  "enum": [
+                    true
+                  ]
                 },
                 "foamy_urine_duration": {
                   "title": "How Many Days",
-                  "type": "string"
+                  "type": "number"
                 }
               },
-              "required": ["foamy_urine_duration"]
+              "required": [
+                "foamy_urine_duration"
+              ]
             }
           ]
         },
@@ -318,21 +436,27 @@
             {
               "properties": {
                 "red_urine": {
-                  "enum": [false]
+                  "enum": [
+                    false
+                  ]
                 }
               }
             },
             {
               "properties": {
                 "red_urine": {
-                  "enum": [true]
+                  "enum": [
+                    true
+                  ]
                 },
                 "red_urine_duration": {
                   "title": "How Many Days",
-                  "type": "string"
+                  "type": "number"
                 }
               },
-              "required": ["red_urine_duration"]
+              "required": [
+                "red_urine_duration"
+              ]
             }
           ]
         },
@@ -341,21 +465,27 @@
             {
               "properties": {
                 "loss_of_smell": {
-                  "enum": [false]
+                  "enum": [
+                    false
+                  ]
                 }
               }
             },
             {
               "properties": {
                 "loss_of_smell": {
-                  "enum": [true]
+                  "enum": [
+                    true
+                  ]
                 },
                 "loss_of_smell_duration": {
                   "title": "How Many Days",
-                  "type": "string"
+                  "type": "number"
                 }
               },
-              "required": ["loss_of_smell_duration"]
+              "required": [
+                "loss_of_smell_duration"
+              ]
             }
           ]
         },
@@ -364,21 +494,27 @@
             {
               "properties": {
                 "loss_of_taste": {
-                  "enum": [false]
+                  "enum": [
+                    false
+                  ]
                 }
               }
             },
             {
               "properties": {
                 "loss_of_taste": {
-                  "enum": [true]
+                  "enum": [
+                    true
+                  ]
                 },
                 "loss_of_taste_duration": {
                   "title": "How Many Days",
-                  "type": "string"
+                  "type": "number"
                 }
               },
-              "required": ["loss_of_taste_duration"]
+              "required": [
+                "loss_of_taste_duration"
+              ]
             }
           ]
         }
@@ -386,7 +522,11 @@
     },
     "symptoms2": {
       "type": "object",
-      "required": ["symptoms_start", "kind_of_testing", "how_was_it_treated"],
+      "required": [
+        "symptoms_start",
+        "kind_of_testing",
+        "how_was_it_treated"
+      ],
       "properties": {
         "symptoms_start": {
           "type": "string",
@@ -429,9 +569,8 @@
             "I was in the intensive care unit",
             "Prefer not to answer"
           ],
-      
-        "uniqueItems": true
-      }
+          "uniqueItems": true
+        }
       },
       "dependencies": {
         "symptoms_start": {
@@ -450,7 +589,9 @@
             {
               "properties": {
                 "symptoms_start": {
-                  "enum": ["Yes"]
+                  "enum": [
+                    "Yes"
+                  ]
                 },
                 "first_day": {
                   "title": "First Day of Symptom",
@@ -461,7 +602,9 @@
                   "type": "string"
                 }
               },
-              "required": ["first_day, last_day"]
+              "required": [
+                "first_day, last_day"
+              ]
             }
           ]
         },
@@ -470,7 +613,9 @@
             {
               "properties": {
                 "kind_of_testing": {
-                  "enum": ["Nasal Swab"]
+                  "enum": [
+                    "Nasal Swab"
+                  ]
                 },
                 "nasal_swab_date": {
                   "title": "Date of the test",
@@ -480,19 +625,27 @@
                   "title": "What was the result of the test?",
                   "type": "string",
                   "uniqueItems": true,
-                  "enum": ["positive", "negative"],
+                  "enum": [
+                    "positive",
+                    "negative"
+                  ],
                   "enumNames": [
                     "Result of test Confirmed COVID-19 infection",
                     "Result of test showed no COVID-19 infection"
                   ]
                 }
               },
-              "required": ["nasal_swab_date", "nasal_swab_result"]
+              "required": [
+                "nasal_swab_date",
+                "nasal_swab_result"
+              ]
             },
             {
               "properties": {
                 "kind_of_testing": {
-                  "enum": ["Serum Antibody Tests"]
+                  "enum": [
+                    "Serum Antibody Tests"
+                  ]
                 },
                 "serum_test_date": {
                   "title": "Date of the test",
@@ -502,29 +655,298 @@
                   "title": "What was the result of the test?",
                   "type": "string",
                   "uniqueItems": true,
-                  "enum": ["positive", "negative"],
+                  "enum": [
+                    "positive",
+                    "negative"
+                  ],
                   "enumNames": [
                     "Result of test Confirmed COVID-19 infection",
                     "Result of test showed no COVID-19 infection"
                   ]
                 }
               },
-              "required": ["serum_test_date", "serum_test_result"]
+              "required": [
+                "serum_test_date",
+                "serum_test_result"
+              ]
             }
           ]
         }
       }
-    }
-  },
-  "type": "object",
-  "properties": {
-    "symptoms": {
-      "title": "",
-      "$ref": "#/definitions/symptoms"
     },
-    "symptoms2": {
-      "title": "",
-      "$ref": "#/definitions/symptoms2"
+    "hospitalization": {
+      "type": "object",
+      "required": [
+        "hospitals"
+      ],
+      "properties": {
+        "hospitals": {
+          "type": "string",
+          "title": "Please indicate any of the hospitals at which you were treated for COVID-19",
+          "uniqueItems": true,
+          "enum": [
+            "Brookdale Hospital",
+            "Calvary Hospital",
+            "Columbia/NewYork-Presbyterian",
+            "Elmhurst Hospital",
+            "Flushing Hospital",
+            "Gracie Square Hospital",
+            "Harlem Hospital",
+            "Hudson Valley Hospital",
+            "Jacobi Hospital",
+            "Kings County Hospital",
+            "Lawrence Hospital",
+            "Lenox Hill Hospital",
+            "Lower Manhattan Hospital",
+            "Maimonides",
+            "Metropolitan Hospital",
+            "Montefiore",
+            "Mount Sinai Beth Israel",
+            "Mount Sinai Hospital",
+            "Mount Sinai St. Luke’s Hospital",
+            "Mount Sinai West",
+            "New York Downtown Hospital",
+            "NewYork-Presbyterian Allen Hospital",
+            "NewYork-Presbyterian Brooklyn Methodist Hospital",
+            "NewYork-Presbyterian Medical Center-Queens",
+            "New York City Health and Hospital",
+            "North General Hospital",
+            "NYU Langone/Bellevue Hospital",
+            "St. Barnabas",
+            "Weill Cornell/ NewYork-Presbyterian",
+            "Woodhull Hospital",
+            "Other",
+            "Prefer not to answer"
+          ]
+        },
+        "hospitalization_treatment": {
+          "type": "object",
+          "title": "If you were hospitalized, did you have the following? (check all that apply)",
+          "properties": {
+            "oxigen": {
+              "type": "boolean",
+              "title": "Oxygen through prongs in your nose",
+              "enum": [
+                true,
+                false
+              ]
+            },
+            "oxigen_mask": {
+              "type": "boolean",
+              "title": "Oxygen mask, BIPAP, or CPAP (mask on the face to help you breathe)",
+              "enum": [
+                true,
+                false
+              ]
+            },
+            "ventilator": {
+              "type": "boolean",
+              "title": "On a ventilator",
+              "enum": [
+                true,
+                false
+              ]
+            },
+            "kidney_dialysis": {
+              "type": "boolean",
+              "title": "Kidney problems requiring dialysis of any kind",
+              "enum": [
+                true,
+                false
+              ]
+            },
+            "heart_cathetirization": {
+              "type": "boolean",
+              "title": "Heart problem requiring cardiac catheterization",
+              "enum": [
+                true,
+                false
+              ]
+            },
+            "liver_problem": {
+              "type": "boolean",
+              "title": "Liver problem or hepatitis",
+              "enum": [
+                true,
+                false
+              ]
+            },
+            "blood_clots": {
+              "type": "boolean",
+              "title": "Blood clots in legs or lungs",
+              "enum": [
+                true,
+                false
+              ]
+            },
+            "septic_shock": {
+              "type": "boolean",
+              "title": "Septic shock requiring blood pressure support with pressor medicines given through an IV",
+              "enum": [
+                true,
+                false
+              ]
+            },
+            "stroke": {
+              "type": "boolean",
+              "title": "Stroke",
+              "enum": [
+                true,
+                false
+              ]
+            },
+            "encepalitis": {
+              "type": "boolean",
+              "title": "Encephalitis",
+              "enum": [
+                true,
+                false
+              ]
+            },
+            "other": {
+              "type": "boolean",
+              "title": "Other",
+              "enum": [
+                true,
+                false
+              ]
+            },
+            "prefer_not_answer": {
+              "type": "boolean",
+              "title": "Prefer not to answer",
+              "enum": [
+                true,
+                false
+              ]
+            }
+
+
+          },
+          "dependencies": {
+            "oxigen": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "oxigen": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "oxigen_days": {
+                      "type": "number",
+                      "title": "How many Days?"
+                    }
+                  }
+                }
+              ]
+            },
+            "oxigen_mask": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "oxigen_mask": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "oxigen_mask_days": {
+                      "type": "number",
+                      "title": "How many Days?"
+                    }
+                  }
+                }
+              ]
+            },
+            "ventilator": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "ventilator": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "ventilator_days": {
+                      "type": "number",
+                      "title": "How many Days?"
+                    }
+                  }
+                }
+              ]
+            },
+            "kidney_dialysis": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "kidney_dialysis": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "kidney_dialysis_days": {
+                      "type": "number",
+                      "title": "How many Days?"
+                    }
+                  }
+                }
+              ]
+            },
+            "other": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "other_answer": {
+                      "type": "string",
+                      "title": "Other Complications"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        
+      }
+  
+  },
+  "dependencies": {
+    "hospitals": {
+      "oneOf": [
+        {
+          "properties": {
+            "hospitals": {
+              "enum": [
+                "Other"
+              ]
+            },
+            "hospital_name_other": {
+              "title": "Name of the hospital",
+              "type": "string"
+            }
+          }
+        }
+      ]
     }
   }
+}
+},
+"type": "object",
+"properties": {
+"symptoms": {
+  "title": "",
+  "$ref": "#/definitions/symptoms"
+},
+"symptoms2": {
+  "title": "",
+  "$ref": "#/definitions/symptoms2"
+},
+"hospitalization": {
+  "title": "",
+  "$ref": "#/definitions/hospitalization"
+}
+}
 }

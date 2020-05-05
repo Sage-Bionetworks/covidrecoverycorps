@@ -1,17 +1,24 @@
 {
   "steps": [
     {
+      "id": "hospitalization",
+      "order": 1,
+      "title": "",
+      "default": "done"
+    },
+    {
       "id": "symptoms2",
       "order": 5,
       "title": "",
       "default": "symptoms2"
     },
     {
-      "id": "symptoms2",
+      "id": "symptoms",
       "order": 15,
       "title": "",
       "default": "done"
     },
+    
   
  
 
