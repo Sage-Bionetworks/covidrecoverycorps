@@ -1,7 +1,7 @@
 {
   "steps": [
     {
-      "id": "hospitalization",
+      "id": "habits",
       "order": 1,
       "title": "",
       "default": "done"
@@ -15,6 +15,12 @@
     {
       "id": "symptoms",
       "order": 15,
+      "title": "",
+      "default": "done"
+    },
+    {
+      "id": "hospitalization",
+      "order": 100,
       "title": "",
       "default": "done"
     },

@@ -819,8 +819,6 @@
                 false
               ]
             }
-
-
           },
           "dependencies": {
             "oxigen": {
@@ -909,44 +907,145 @@
               ]
             }
           }
-        
+        }
+      },
+      "dependencies": {
+        "hospitals": {
+          "oneOf": [
+            {
+              "properties": {
+                "hospitals": {
+                  "enum": [
+                    "Other"
+                  ]
+                },
+                "hospital_name_other": {
+                  "title": "Name of the hospital",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        }
       }
-  
-  },
-  "dependencies": {
-    "hospitals": {
-      "oneOf": [
-        {
-          "properties": {
-            "hospitals": {
-              "enum": [
-                "Other"
-              ]
-            },
-            "hospital_name_other": {
-              "title": "Name of the hospital",
-              "type": "string"
+    },
+    "habits": {
+      "type": "object",
+      "title": "",
+      "properties": {
+        "smoking": {
+          "type": "string",
+          "title": "Do you smoke? FIX",
+          "uniqueItems": true,
+          "enum": [
+            "I have never smoked regularly.",
+            "I used to smoke, but I quit.",
+            "I smoke only rarely.",
+            "I smoke every day.",
+            "Prefer Not To Answer"
+          ]
+        },
+        "vaping": {
+          "type": "string",
+          "title": "Do you vape?",
+          "uniqueItems": true,
+          "enum": [
+            "I have never vaped regularly.",
+            "I used to vape, but I quit.",
+            "I vape only rarely.",
+            "I vape every day.",
+            "Prefer Not To Answer"
+          ]
+        },
+        "alcohol": {
+          "type": "string",
+          "title": "How often do you consume alcoholic beverages?",
+          "uniqueItems": true,
+          "enum": [
+            "Never",
+            "Once a month or less often",
+            "2-4 times a month",
+            "2-3 times a week",
+            "4 times a week or more often",
+            "Prefer not to answer"
+          ]
+        },
+        "anxiety": {
+          "type": "string",
+          "title": "Over the past week, how often have you been feeling nervous, anxious, or on edge?",
+          "uniqueItems": true,
+          "enum": [
+            "Not at all",
+            "Several days",
+            "More than half the days",
+            "Nearly every day",
+            "Prefer Not to Answer"
+          ]
+        },
+        "worry": {
+          "type": "string",
+          "title": "Over the past week, how often have you not been able to stop worrying?",
+          "uniqueItems": true,
+          "enum": [
+            "Not at all",
+            "Several days",
+            "More than half the days",
+            "Nearly every day",
+            "Prefer Not to Answer"
+          ]
+        },
+        "loneliness": {
+          "type": "string",
+          "title": "Many peoples may also feel loneliness during this time. How often have you felt lonely during the past week?",
+          "uniqueItems": true,
+          "enum": [
+            "Not at all",
+            "Several days",
+            "More than half the days",
+            "Nearly every day",
+            "Prefer Not to Answer"
+          ]
+        }
+      
+    },
+    "dependencies": {
+      "smoking": {
+        "oneOf": [
+          {
+            "properties": {
+              "smoking": {
+                "enum": [
+                  "I smoke every day."
+                ],
+                "how_many_cigarettes": {
+                  "type": "string",
+                  "title": "How many cigarettes on average per day"
+                }
+              }
             }
           }
-        }
-      ]
+        ]
+      }
     }
   }
-}
 },
 "type": "object",
 "properties": {
-"symptoms": {
-  "title": "",
-  "$ref": "#/definitions/symptoms"
-},
-"symptoms2": {
-  "title": "",
-  "$ref": "#/definitions/symptoms2"
-},
-"hospitalization": {
-  "title": "",
-  "$ref": "#/definitions/hospitalization"
-}
+  "symptoms": {
+    "title": "",
+    "$ref": "#/definitions/symptoms"
+  },
+  "symptoms2": {
+    "title": "",
+    "$ref": "#/definitions/symptoms2"
+  },
+  "hospitalization": {
+    "title": "",
+    "$ref": "#/definitions/hospitalization"
+  },
+  "habits": {
+    "title": "",
+    "$ref": "#/definitions/habits"
+  }
 }
 }
