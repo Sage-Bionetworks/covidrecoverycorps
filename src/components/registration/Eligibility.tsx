@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
 import useForm from '../useForm'
-import { IneligibilityReason, ZIPCODES } from '../../types/types'
+import { zipcodes }  from '../../data/zips.json'
+import { IneligibilityReason } from '../../types/types'
 
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
@@ -62,7 +63,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
       isValid = false
       reason = 'COVID' as IneligibilityReason
     }
-    if (!ZIPCODES.includes(state.zipcode.value)) {
+    if (!zipcodes.includes(state.zipcode.value)) {
       isValid = false
       reason = 'LOCATION' as IneligibilityReason
     }
