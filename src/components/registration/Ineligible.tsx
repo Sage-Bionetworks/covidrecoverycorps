@@ -22,6 +22,7 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [zipcode, setZipcode] = useState('')
+  const [mailListJoined, setMailListJoined] = useState<boolean | undefined>()
   const formData:MailChimpFormFields = {
     EMAIL: email,
     NAME: name,
@@ -41,88 +42,97 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
       {reason === 'LOCATION' && (
         <div>
           <h1>Thank you for your interest</h1>
-          <p>
-          Unfortunately, we are currently focusing on the NYC region at the
-          moment. We are hoping to expand in the coming months. Would you like
-          to join our mailing list and be notified in the future?
-          </p>
-          <div className="form-group">
-            <ToggleButtonGroup
-              value={mailList}
-              exclusive
-              className="verticalToggle"
-              onChange={(_event: any, val: boolean) => setMailList(val)}
-              aria-label="join mailing list"
-            >
-              ><ToggleButton value={true}>Yes</ToggleButton>
-              <ToggleButton value={false}>No</ToggleButton>
-            </ToggleButtonGroup>
-            {mailList && (
-              <div>
-                <MailchimpSubscribe
-                  url={url}
-                  render={({ subscribe, status, message }) => (
-                    <div>
-                      <div className="form-group">
-                        <div className="input--min-padded">
-                          <TextField
-                            name="name"
-                            value={name}
-                            fullWidth
-                            placeholder="full name"
-                            aria-label="full name"
-                            variant="outlined"
-                            onChange={(e) => setName(e.target.value)}
-                            label="Full name"
-                          />
+          { mailListJoined && (
+            <p>
+                You have successfully joined the mailing list. We will notify you in the coming months
+                if the program expands into your area.
+            </p>
+          )}
+          { !mailListJoined && (
+            <div>
+              <p>
+              Unfortunately, we are currently focusing on the NYC region at the
+              moment. We are hoping to expand in the coming months. Would you like
+              to join our mailing list and be notified in the future?
+              </p>
+              <div className="form-group">
+                <ToggleButtonGroup
+                  value={mailList}
+                  exclusive
+                  className="verticalToggle"
+                  onChange={(_event: any, val: boolean) => setMailList(val)}
+                  aria-label="join mailing list"
+                >
+                  ><ToggleButton value={true}>Yes</ToggleButton>
+                  <ToggleButton value={false}>No</ToggleButton>
+                </ToggleButtonGroup>
+                {mailList && (
+                  <div>
+                    <MailchimpSubscribe
+                      url={url}
+                      render={({ subscribe, status, message }) => (
+                        <div>
+                          <div className="form-group">
+                            <div className="input--min-padded">
+                              <TextField
+                                name="name"
+                                value={name}
+                                fullWidth
+                                placeholder="full name"
+                                aria-label="full name"
+                                variant="outlined"
+                                onChange={(e) => setName(e.target.value)}
+                                label="Full name"
+                              />
+                            </div>
+                            <div className="input--min-padded">
+                              <TextField
+                                name="email"
+                                type="email"
+                                variant="outlined"
+                                fullWidth
+                                value={email}
+                                placeholder="email"
+                                aria-label="email"
+                                label="Email"
+                                onChange={(e) => setEmail(e.target.value)}
+                              />
+                            </div>
+                            <div className="input--min-padded">
+                              <TextField
+                                name="zip"
+                                type="text"
+                                variant="outlined"
+                                fullWidth
+                                value={zipcode}
+                                placeholder="zip code"
+                                aria-label="zip code"
+                                label="Zip code"
+                                onChange={(e) => setZipcode(e.target.value)}
+                              />
+                            </div>
+                          </div>
+                          <Button variant="contained" color="primary" fullWidth onClick={
+                            () =>
+                              email &&
+                              name &&
+                              subscribe(formData)
+                          }>Join Mailing List</Button>
+                          {status === "sending" && <div>Joining Mailing List...</div>}
+                          {status === "success" && setMailListJoined(true)}
+                          {status === "error" && message && (
+                            <div
+                              dangerouslySetInnerHTML={{ __html: message }}
+                            />
+                          )}
                         </div>
-                        <div className="input--min-padded">
-                          <TextField
-                            name="email"
-                            type="email"
-                            variant="outlined"
-                            fullWidth
-                            value={email}
-                            placeholder="email"
-                            aria-label="email"
-                            label="Email"
-                            onChange={(e) => setEmail(e.target.value)}
-                          />
-                        </div>
-                        <div className="input--min-padded">
-                          <TextField
-                            name="zip"
-                            type="text"
-                            variant="outlined"
-                            fullWidth
-                            value={zipcode}
-                            placeholder="zip code"
-                            aria-label="zip code"
-                            label="Zip code"
-                            onChange={(e) => setZipcode(e.target.value)}
-                          />
-                        </div>
-                      </div>
-                      <Button variant="contained" color="primary" fullWidth onClick={
-                        () =>
-                          email &&
-                          name &&
-                          subscribe(formData)
-                      }>Join Mailing List</Button>
-                      {status === "sending" && <div>Joining Mailing List...</div>}
-                      {/* Need help on how to handle this success case Alina!
-                       {status === "success" && <div> Successfully Joined </div>} */}
-                      {status === "error" && message && (
-                        <div
-                          dangerouslySetInnerHTML={{ __html: message }}
-                        />
                       )}
-                    </div>
-                  )}
-                />
+                    />
+                  </div>
+                )}
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       )}
       {reason === 'CONSENT' && (
