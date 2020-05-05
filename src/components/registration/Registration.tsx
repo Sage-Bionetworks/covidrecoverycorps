@@ -79,6 +79,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
       phone: state.phone.value ? makePhone(state.phone.value) : undefined,
       clientData: {},
       study: STUDY_ID,
+      substudyIds: ["columbia"],
     }
     let loginType: LoginType = 'EMAIL'
     const endPoint = {

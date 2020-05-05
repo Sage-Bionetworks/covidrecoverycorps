@@ -49,7 +49,8 @@ export interface LoggedInUserData extends UserData {
 }
 
 export interface RegistrationData extends UserData {
-  study: string
+  study: string,
+  substudyIds: string[]
 }
 
 export interface Response<T> {
