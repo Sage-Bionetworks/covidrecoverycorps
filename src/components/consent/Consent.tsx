@@ -28,6 +28,7 @@ import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
 import { Redirect } from 'react-router-dom'
 import FloatingToolbar from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
+import ConfirmationModal from '../widgets/ConfirmationModal'
 
 export type ConsentProps = {
   token: string
@@ -46,6 +47,8 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     undefined
   )
   const [isLearnMore, setIsLearnMore] = useState([false, false])
+  const [isShowingCancelConfirmation, setIsShowingCancelConfirmation] = useState(false)
+  const [isConsentCanceled, setIsConsentCancelled] = useState(false)
 
   const [error, setError] = useState('')
 
@@ -170,6 +173,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     }
   }
 
+  if (isConsentCanceled) {
+    return <Redirect to="home"></Redirect>
+  }
   return (
     <div className="Consent">
       {!isInfoDone && (
@@ -293,7 +299,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
               )}
               <div className="buttons--action">
                 <Button
-                  onClick={() => alert('todo')}
+                  onClick={() => setIsShowingCancelConfirmation(true)}
                   variant="outlined"
                   color="primary"
                 >
@@ -313,6 +319,23 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
         </>
       )}
       {isConsentDone && renderHIPAAStep()}
+      {isShowingCancelConfirmation && (
+          <ConfirmationModal
+            show={true}
+            topSecondaryCopy={'Sometimes people press things on accident, so we wanted to check...'}
+            mainCopy={<div>Are you sure, you want to <strong>cancel</strong> your <strong>consent form</strong>?</div>}
+            onCancel={() => 
+              // hide cancel confirmation
+              setIsShowingCancelConfirmation(false)
+            }
+            onOK={() =>
+              // redirect back to home
+              setIsConsentCancelled(true)
+            }
+            confirmCopy={'Yes, please cancel'}
+            cancelCopy={'No, take me back'}
+          ></ConfirmationModal>
+        )}
     </div>
   )
 }
