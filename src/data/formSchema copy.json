@@ -6,17 +6,23 @@
       "anyOf": [
         {
           "type": "string",
-          "enum": ["blood"],
+          "enum": [
+            "blood"
+          ],
           "title": "Blood Donation"
         },
         {
           "type": "string",
-          "enum": ["shopping"],
+          "enum": [
+            "shopping"
+          ],
           "title": "Shopping for people at risk"
         },
         {
           "type": "string",
-          "enum": ["other"],
+          "enum": [
+            "other"
+          ],
           "title": "Other"
         }
       ]
@@ -27,12 +33,16 @@
       "anyOf": [
         {
           "type": "string",
-          "enum": ["human"],
+          "enum": [
+            "human"
+          ],
           "title": "Human"
         },
         {
           "type": "string",
-          "enum": ["model_system"],
+          "enum": [
+            "model_system"
+          ],
           "title": "Model System"
         }
       ]
@@ -43,27 +53,37 @@
       "anyOf": [
         {
           "type": "string",
-          "enum": ["mouse"],
+          "enum": [
+            "mouse"
+          ],
           "title": "Mouse"
         },
         {
           "type": "string",
-          "enum": ["rat"],
+          "enum": [
+            "rat"
+          ],
           "title": "Rat"
         },
         {
           "type": "string",
-          "enum": ["drosophila"],
+          "enum": [
+            "drosophila"
+          ],
           "title": "Drosophila"
         },
         {
           "type": "string",
-          "enum": ["cell_culture"],
+          "enum": [
+            "cell_culture"
+          ],
           "title": "Cell Culture"
         },
         {
           "type": "string",
-          "enum": ["other"],
+          "enum": [
+            "other"
+          ],
           "title": "Other"
         }
       ]
@@ -108,7 +128,12 @@
           "uniqueItems": true,
           "items": {
             "type": "string",
-            "enum": ["Cognition", "Behavioral", "Imaging", "Other"]
+            "enum": [
+              "Cognition",
+              "Behavioral",
+              "Imaging",
+              "Other"
+            ]
           }
         },
         "assesments_list_other": {
@@ -119,7 +144,10 @@
     },
     "contact": {
       "type": "object",
-      "required": ["firstName", "lastName"],
+      "required": [
+        "firstName",
+        "lastName"
+      ],
       "properties": {
         "numberEnumRadio": {
           "type": "number",
@@ -141,7 +169,6 @@
           "uniqueItems": true
         },
         "firstName": {
-     
           "title": "1. What was your biological sex assigned at birth?",
           "type": "array",
           "uniqueItems": true,
@@ -176,9 +203,7 @@
     },
     "help": {
       "type": "object",
-   
       "properties": {
-        
         "contribution_type": {
           "title": "How would you like to help?",
           "type": "array",
@@ -217,7 +242,6 @@
     },
     "sign": {
       "type": "object",
-
       "properties": {
         "name": {
           "title": "Full name",

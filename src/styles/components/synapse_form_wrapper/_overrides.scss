@@ -37,6 +37,7 @@
   }
   div.checkbox {
     padding: 10px 10px 10px 0;
+    margin-bottom:  10px;
   }
   .checkbox label,
   .radio label {
@@ -170,6 +171,19 @@
   }
 
   .SRC-ReactJsonForm {
+    .show_fieldSet 
+    {
+      legend {
+      display: block !important;
+    }
+    .form-group {
+      margin-bottom: 0;
+      .checkbox {
+        margin-bottom: 5px;
+        margin-top:0px;
+      }
+    }
+  }
     .demographic {
       .birthdate > ul {
         display: flex;
@@ -211,8 +225,6 @@
         margin-bottom: 5px;
       }
     }
-    .showTitle legend {
-      display: block !important;
-    }
+   
   }
 }

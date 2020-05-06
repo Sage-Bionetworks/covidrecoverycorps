@@ -600,8 +600,46 @@
               "Prefer Not To Answer"
             ]
           }
+        },
+       
+        
+        "diseases_history_cont": {
+          "type": "object",
+          "title": "Have you ever had any of the following diseases diagnosed or treated? (check all that apply)",
+          
+          "properties": {
+            "pulmonary_hypertension": {
+              "type": "boolean",
+              "title": "High pressure in the lung (pulmonary hypertension)"
+            },
+            "other_lung_disorder": {
+              "type": "boolean",
+              "title": "Another lung disorder"
+            },
+            "neuro_disorder": {
+              "type": "boolean",
+              "title": "Neurological disorder (e.g., ALS, Parkinson’s, Huntington’s)"
+            },
+            "osteoarthritis": {
+              "type": "boolean",
+              "title": "Osteoarthritis"
+            },
+            "other_inflammatory_arthritis": {
+              "title":  "Other type of inflammatory arthritis",
+              "type": "boolean"
+            },
+            "no_answer": {
+              "title":  "Prefer Not To Answer",
+              "type": "boolean"
+          }
+        },
+        "dependencies":{
+          
+
         }
       }
+      }
+      
     }
   },
   "type": "object",

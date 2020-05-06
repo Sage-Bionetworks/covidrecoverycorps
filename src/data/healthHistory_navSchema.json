@@ -9,7 +9,7 @@
   
     {
       "id": "history2",
-      "order": 1,
+      "order": 10,
       "title": "Medical History(cont)",
       "default": "history3",
       "rules": []

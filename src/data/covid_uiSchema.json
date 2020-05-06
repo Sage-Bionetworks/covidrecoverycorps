@@ -99,7 +99,7 @@
     "hospitalization_treatment" : {
       "ui:order":["oxigen", "oxigen_days",  "oxigen_mask", "oxigen_mask_days", "ventilator", "ventilator_days", "kidney_dialysis", "kidney_dialysis_days", "heart_cathetirization", "liver_problem","blood_clots","septic_shock", "stroke",  "encepalitis",
       "other", "other_answer", "prefer_not_answer"],
-      "classNames":  "showTitle"
+      "classNames":  "show_fieldSet"
     }
 
   },

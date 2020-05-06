@@ -999,7 +999,7 @@ export default class SynapseForm extends React.Component<
             }
           ></WarningModal>
         )}
-        <DataDebug formData={this.state.formData} hidden={true}></DataDebug>
+        <DataDebug formData={this.state.formData} hidden={false}></DataDebug>
       </div>
     )
   }
