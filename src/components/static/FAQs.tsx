@@ -22,7 +22,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
           that seem connected to how the body responds to COVID-19.
         </p>
         <p>
-          Researchers will have to be approved by NY Strong to use these data.
+          Researchers will have to be approved by COVID Recovery Corps study to use these data.
           These researchers may be from anywhere in the world. They may work for
           commercial companies, like drug companies. Their research will be on
           COVID-19 and related viruses.
