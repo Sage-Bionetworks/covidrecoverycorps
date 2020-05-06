@@ -46,6 +46,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   const [doHIPAAConsent, setDoHIPAAConsent] = useState<boolean | undefined>(
     undefined
   )
+  const [isLearnMore, setIsLearnMore] = useState([false, false])
   const [isShowingCancelConfirmation, setIsShowingCancelConfirmation] = useState(false)
   const [isConsentCanceled, setIsConsentCancelled] = useState(false)
 
@@ -97,11 +98,44 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     })
   }
 
+  const updateIsLearnMore = (index: number, value: boolean) => {
+    setIsLearnMore((prev) =>
+      prev.map((item, _index) => (index === index ? value : item))
+    )
+  }
+
   const renderHIPAAStep = (): JSX.Element => {
     const element = (
       <div>
         <h2> Do you want to share your electronic health records with us?</h2>
         <p>Sharing your EHR (electronic health records) is optional </p>
+
+        <div
+          className="learnLessToggle"
+          style={{
+            display: isLearnMore[1] ? 'flex' : 'none',
+          }}
+        >
+          <p>
+            some text about learning some text about learning some text about
+            learning
+            <br /> more about <br />
+            reserch sharing
+          </p>
+          <button onClick={() => updateIsLearnMore(1, false)}>
+            <FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon>
+          </button>
+        </div>
+        <div
+          onClick={() => updateIsLearnMore(1, true)}
+          className="learnMoreToggle"
+          style={{
+            display: isLearnMore[1] ? 'none' : 'flex',
+          }}
+        >
+          Review what it means
+          <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
+        </div>
 
         <ToggleButtonGroup
           value={doHIPAAConsent}
@@ -200,6 +234,34 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 >
                   <p>By default, you are sharing your data with this study only.</p>
                 </div>
+              </div>
+              <div
+                onClick={() => updateIsLearnMore(0, true)}
+                className="learnMoreToggle"
+                style={{ display: isLearnMore[0] ? 'none' : 'block',
+                }}
+              >
+                <div>
+                <span style={{paddingRight: "10px"}}>Learn More</span>
+                <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
+                </div>
+              </div>
+
+              <div
+                className="learnLessToggle"
+                style={{
+                  display: isLearnMore[0] ? 'flex' : 'none',
+                }}
+              >
+                <p>
+                  some text about learning some text about learning some text
+                  about learning
+                  <br /> more about <br />
+                  reserch sharing
+                </p>
+                <button onClick={() => updateIsLearnMore(0, false)}>
+                  <FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon>
+                </button>
               </div>
               <p style={{marginTop: "4rem", marginBottom: "4rem"}}>Please check the box below if you agree to take part:</p>
               <div className="form-group checkbox--indented" style={{marginLeft:"0px"}}>
