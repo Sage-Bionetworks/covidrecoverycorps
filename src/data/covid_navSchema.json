@@ -1,28 +1,55 @@
 {
   "steps": [
     {
-      "id": "habits",
-      "order": 11,
+      "id": "medications",
+      "order": 25,
       "title": "",
       "default": "done"
     },
     {
-      "id": "symptoms2",
-      "order": 5,
+      "id": "habits",
+      "order": 20,
       "title": "",
-      "default": "symptoms2"
+      "default": "medications"
+    },
+    {
+      "id": "symptoms2",
+      "order": 1,
+      "title": "",
+      "default": "habits",
+      "rules": [
+        {
+          "conditions": {
+            "all": [
+              {
+                "fact": "how_was_it_treated",
+                "operator": "contains",
+                "path": ".symptoms2",
+                "value": ["icu"]
+              }
+            ]
+          },
+          "event": {
+            "type": "next",
+            "params": {
+              "next": "hospitalization"
+            }
+          },
+          "priority:": 1
+        }
+      ]
     },
     {
       "id": "symptoms",
-      "order": 1,
+      "order": 10,
       "title": "",
       "default": "done"
     },
     {
       "id": "hospitalization",
-      "order": 100,
+      "order": 11,
       "title": "",
-      "default": "done"
+      "default": "habits"
     },
     
   

@@ -36,6 +36,7 @@
       "hallucinations",
       "loss_of_consciousness",
       "seizures",
+      "no_symptoms",
       "prefer_not_answer","other"
       
 
@@ -47,7 +48,12 @@
       "ui:options": {
         "inline": false
       }
+     
+    },
+    "cough_duration": {
+      "ui:title": "For how many days did you cough"
     }
+   
   },
   "symptoms2": {
     "ui:order": [ "symptoms_start", "first_day","last_day","kind_of_testing", "nasal_swab_date", "nasal_swab_result", "serum_test_date", "serum_test_result","how_was_it_treated"],
@@ -83,7 +89,13 @@
     }
   },
   "hospitalization": {
-    "ui:order": ["hospitals","hospitalization_treatment"],
+  
+    "hospitals": {
+      "ui:widget": "checkboxes",
+      "ui:options": {
+        "inline": false
+      }
+    },
     "hospitalization_treatment" : {
       "ui:order":["oxigen", "oxigen_days",  "oxigen_mask", "oxigen_mask_days", "ventilator", "ventilator_days", "kidney_dialysis", "kidney_dialysis_days", "heart_cathetirization", "liver_problem","blood_clots","septic_shock", "stroke",  "encepalitis",
       "other", "other_answer", "prefer_not_answer"],
@@ -92,6 +104,7 @@
 
   },
   "habits": {
+    "ui:order": ["smoking", "smoking_how_many_cigarettes", "vaping", "alcohol", "anxiety", "worry", "loneliness"],
     "smoking":{
       "ui:widget": "radio",
       "ui:options": {
@@ -104,7 +117,52 @@
       "ui:options": {
         "inline": false
       }
-    
+    },
+    "alcohol":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "anxiety":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "worry":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "loneliness":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
     }
+  },
+  "medications": {
+    "regular_medications": {
+      "ui:widget": "checkboxes",
+      "ui:options": {
+        "inline": false
+      }
+    },
+ 
+    "covid_medications": {
+      "ui:widget": "checkboxes"
+    },
+
+    "hydroxychloroquine": {
+      "ui:widget": "radio"
+    },
+    "hydroxychloroquine_side_effects": {
+      "ui:widget": "checkboxes"
+
+    }
+ 
+
   }
 }

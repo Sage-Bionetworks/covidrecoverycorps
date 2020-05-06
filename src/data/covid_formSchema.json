@@ -180,6 +180,15 @@
             false
           ]
         },
+        "no_symptoms": {
+          "type": "boolean",
+          "title": "I never had symptoms",
+          "enum": [
+            true,
+            false
+          ]
+        },
+        
         "prefer_not_answer": {
           "type": "boolean",
           "title": "Prefer Not To Answer",
@@ -601,10 +610,7 @@
                   "title": "Last Day of Symptom",
                   "type": "string"
                 }
-              },
-              "required": [
-                "first_day, last_day"
-              ]
+              }
             }
           ]
         },
@@ -612,6 +618,19 @@
           "oneOf": [
             {
               "properties": {
+                "kind_of_testing": {
+                  "enum": [
+                    "I was not tested, but I had suspected COVID-19",
+                    "I was not tested and had no symptoms",
+                    "I don't know",
+                    "Prefer not to answer"
+                  ]
+                }
+              }
+
+              },
+             
+              {"properties": {
                 "kind_of_testing": {
                   "enum": [
                     "Nasal Swab"
@@ -634,13 +653,11 @@
                     "Result of test showed no COVID-19 infection"
                   ]
                 }
-              },
-              "required": [
-                "nasal_swab_date",
-                "nasal_swab_result"
-              ]
+              }
+             
             },
             {
+            
               "properties": {
                 "kind_of_testing": {
                   "enum": [
@@ -664,26 +681,26 @@
                     "Result of test showed no COVID-19 infection"
                   ]
                 }
-              },
-              "required": [
-                "serum_test_date",
-                "serum_test_result"
-              ]
+              }
             }
           ]
         }
+        
       }
     },
     "hospitalization": {
       "type": "object",
       "required": [
-        "hospitals"
+        "hospitals","hospitalization_treatment"
       ],
       "properties": {
         "hospitals": {
-          "type": "string",
+          "type": "array",
           "title": "Please indicate any of the hospitals at which you were treated for COVID-19",
           "uniqueItems": true,
+          "items": {
+            "type": "string",
+       
           "enum": [
             "Brookdale Hospital",
             "Calvary Hospital",
@@ -718,6 +735,7 @@
             "Other",
             "Prefer not to answer"
           ]
+        }
         },
         "hospitalization_treatment": {
           "type": "object",
@@ -907,26 +925,29 @@
               ]
             }
           }
+        },
+        "enthnicity": {
+          "type": "array",
+          "title": "What is your ethnicity/ancestry? (check all that apply)",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+
+            "enum": [
+              "Hispanic or Latino",
+              "White - European",
+              "Asian ",
+              "Black",
+              "Native American",
+              "Pacific Islander",
+              "Don't know",
+              "Prefer not to answer"
+            ]
+          }
         }
       },
       "dependencies": {
-        "hospitals": {
-          "oneOf": [
-            {
-              "properties": {
-                "hospitals": {
-                  "enum": [
-                    "Other"
-                  ]
-                },
-                "hospital_name_other": {
-                  "title": "Name of the hospital",
-                  "type": "string"
-                }
-              }
-            }
-          ]
-        }
+       
       }
     },
     "habits": {
@@ -1006,46 +1027,175 @@
             "Prefer Not to Answer"
           ]
         }
-      
-    },
-    "dependencies": {
-      "smoking": {
-        "oneOf": [
-          {
-            "properties": {
-              "smoking": {
-                "enum": [
-                  "I smoke every day."
-                ],
-                "how_many_cigarettes": {
+      },
+      "dependencies": {
+        "smoking": {
+          "oneOf": [
+            {
+              "properties": {
+                "smoking": {
+                  "enum": [
+                    "I smoke every day."
+                  ]
+                },
+                "smoking_how_many_cigarettes": {
                   "type": "string",
                   "title": "How many cigarettes on average per day"
                 }
               }
             }
+          ]
+        }
+      }
+    },
+    "medications": {
+      "required": [
+        "regular_medications",
+        "covid_medications",
+        "hydroxychloroquine"
+      ],
+      "type": "object",
+      "title": "",
+      "properties": {
+        "regular_medications": {
+          "type": "array",
+          "uniqueItems": true,
+          "title": "Which of the following medications were you taking on a regular basis before you got sick with COVID-19?",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Nonsteroidal anti-inflammatory agents or NSAIDS (aspirin, celecoxib, diclofenac, Cambia, Cataflam, Voltaren, diflunisal, etodolac, ibuprofen, Motrin, Advil, indomethacin, Indocin, ketoprofen, ketorolac, nambumetone, naproxen, Aleve, Anaprox, Naprelan, Naprosyn, oxaprozin, Daypro,  piroxicam, Feldene, salsalate, Disalate, sulidnac, tolmetin)",
+              "Tylenol, Acetaminophen, Daquil, Nyquil, Excedrin, Sinutab.",
+              "Aspirin",
+              "Asthma Medication (bronchodilator Ventolin, albuterol)",
+              "Inhaled corticosteroids (Advair, beclomethasone, budesonide, ciclesonide, flunisolide, fluticasone, or mometasone)",
+              "Oral or injected steroids (prednisone, methylprednisolone, dexamethasone, hydrocortisone)",
+              "Antihistamines (Benadryl, Clarithin, Zyrtec)",
+              "High blood pressure medication- ACE inhibitors (Benazepril, Captopril, Fosinopril, Lisinpril)",
+              "High blood pressure medication-angiotensin receptor blockers (Edarbi, Atacand, Eprosartan, Avapro)",
+              "High blood pressure medication- beta blockers (metoprolol, atenolol, tramadol)",
+              "Cholesterol lowering statins (such as atorvastatin or simvastatin)",
+              "Diabetic medication metformin",
+              "Blood thinning medications (Eliquis, Xarelto, Coumadin, Warfarin)",
+              "Antiplatelet medications to prevent a heart attack or stroke (clopidogrel, Plavix, prasugrel, ticagrelor, cilostazol)",
+              "Thyroid medication (levothryroxyne)",
+              "Heart burn medication (Pepcid, omeprazole)",
+              "Cancer drugs or chemotherapy",
+              "Pill to dampen the immune system (azathioprine)",
+              "Injectable medication to dampen the immune system (Enbrel, humira, actemra, anakinra, Xolair, dupixent)",
+              "IV medications for immune conditions (infliximab/Remicade, rituximab, abatacept/Orencia, and belimumab/Benlysta",
+              "Medications after organ transplant (tacrolimus, cyclosporin, Mycophenolate)",
+              "Anti-depressant (sertraline, fluoxetine, citalopram, trazodone, escitalopram)",
+              "Antibiotics",
+              "HIV medication (lopinavir/ritonavir, darunavir/ritonavir, tenofovir disoproxil fumarate (TDF), tenofovir alafenamide fumarate (TAF), and combination medications containing these agents)"
+            ]
           }
-        ]
+        },
+        "covid_medications": {
+          "type": "array",
+          "title": "Which of the following medications did you take/were you given to treat your COVID-19 illness? (select all that apply):",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Tylenol (acetaminophen)",
+              "NSAIDs (ibuprofen, aspirin, naproxen, celecoxib, diclofenac, indomethacin, piroxicam)",
+              "Hydroxychloroquine (Plaquenil) or Chloroquine",
+              "Azithromycin (Z-pack)",
+              "Pepcid or Famotidine",
+              "Corticosteroids (prednisone, methylprednisolone, dexamethasone, hydrocortisone)",
+              "IL-6 pathway blockers (sarilumab, tocilizumab, siltuximab)",
+              "JAK inhibitors (baricitinib, ruxolitinib, fedratinib, tofacitinib)",
+              "Remdesivir (GS-5735) or another protease inhibitor",
+              "Tamiflu (oseltamivir) or Xofluza (baloxavir marboxil)",
+              "HIV medications [lopinavir/ritonavir, tenofovir (TDF, TAF)]",
+              "Sofosbuvir",
+              "Ribavirin",
+              "Interferon alpha",
+              "Plasma therapy (antibodies from someone else)",
+              "Bronchodilators (asthma-like medications)",
+              "Don’t know",
+              "Prefer Not to Answer"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "hydroxychloroquine": {
+          "type": "string",
+          "title": "Were you treated with hydroxychloroquine (Plaquenil)",
+          "enum": [
+            "yes",
+            "no"
+          ]
+        }
+      },
+      "dependencies": {
+        "hydroxychloroquine": {
+          "oneOf": [
+            {
+              "required": [
+                "hydroxychloroquine_side_effects"
+              ],
+              "properties": {
+                "hydroxychloroquine": {
+                  "enum": [
+                    "yes"
+                  ]
+                },
+                "hydroxychloroquine_side_effects": {
+                  "type": "array",
+                  "title": "If you were treated with hydroxychloroquine (Plaquenil), please describe if you experienced any of the following? (select all that apply):",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "Nausea or vomiting",
+                      "Red skin rash",
+                      "Severe necrotizing skin rash",
+                      "Headaches or migraines",
+                      "Vision problems or blindness",
+                      "Night sweats",
+                      "Insomnia",
+                      "Heart problems",
+                      "Abnormal heartbeat, or arrhythmia",
+                      "Ringing in my ears",
+                      "Tingling sensation",
+                      "Loss of sensation in hands or feet",
+                      "Seizures",
+                      "Loss of consciousness or passing out",
+                      "Hearing or seeing things that do not exist",
+                      "None of the above",
+                      "Prefer Not to Answer"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     }
+  },
+  "type": "object",
+  "properties": {
+    "symptoms": {
+      "title": "",
+      "$ref": "#/definitions/symptoms"
+    },
+    "symptoms2": {
+      "title": "",
+      "$ref": "#/definitions/symptoms2"
+    },
+    "hospitalization": {
+      "title": "",
+      "$ref": "#/definitions/hospitalization"
+    },
+    "habits": {
+      "title": "",
+      "$ref": "#/definitions/habits"
+    },
+    "medications": {
+      "title": "",
+      "$ref": "#/definitions/medications"
+    }
   }
-},
-"type": "object",
-"properties": {
-  "symptoms": {
-    "title": "",
-    "$ref": "#/definitions/symptoms"
-  },
-  "symptoms2": {
-    "title": "",
-    "$ref": "#/definitions/symptoms2"
-  },
-  "hospitalization": {
-    "title": "",
-    "$ref": "#/definitions/hospitalization"
-  },
-  "habits": {
-    "title": "",
-    "$ref": "#/definitions/habits"
-  }
-}
 }
