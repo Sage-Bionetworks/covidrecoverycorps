@@ -544,13 +544,14 @@
     "history3": {
       "type": "object",
       "required": [
-        "diseases_history"
+        "diseases_history",
+        "diseases_history_cont"
       ],
       "properties": {
         "diseases_history": {
           "title": "Have you ever had any of the following diseases diagnosed or treated? (check all that apply)",
           "type": "array",
-          "uniqueItems": "true",
+          "uniqueItems": true,
           "items": {
             "type": "string",
             "enum": [
@@ -601,12 +602,9 @@
             ]
           }
         },
-       
-        
         "diseases_history_cont": {
           "type": "object",
           "title": "Have you ever had any of the following diseases diagnosed or treated? (check all that apply)",
-          
           "properties": {
             "pulmonary_hypertension": {
               "type": "boolean",
@@ -625,21 +623,284 @@
               "title": "Osteoarthritis"
             },
             "other_inflammatory_arthritis": {
-              "title":  "Other type of inflammatory arthritis",
+              "title": "Other type of inflammatory arthritis",
               "type": "boolean"
             },
             "no_answer": {
-              "title":  "Prefer Not To Answer",
+              "title": "Prefer Not To Answer",
               "type": "boolean"
+            }
+          },
+          "dependencies": {
+            "other_lung_disorder": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "other_lung_disorder": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "other_lung_disorder": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "other_lung_disorder_specify": {
+                      "title": "Please specify",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "other_lung_disorder_specify"
+                  ]
+                }
+              ]
+            },
+            "other_inflammatory_arthritis": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "other_inflammatory_arthritis": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "other_inflammatory_arthritis": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "other_inflammatory_arthritis_specify": {
+                      "title": "Please specify",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "other_inflammatory_arthritis_specify"
+                  ]
+                }
+              ]
+            }
           }
-        },
-        "dependencies":{
-          
-
         }
       }
+    },
+    "family_history": {
+      "type": "object",
+      "required": [
+        "immune_deficiency",
+        "family_deseases"
+      ],
+      "properties": {
+        "immune_deficiency": {
+          "type": "boolean",
+          "title": "Do any of your family members have an immune deficiency or immune-related condition?"
+        },
+        "family_diseases": {
+          "type": "object",
+          "title": "What diseases run in your family?",
+          "properties": {
+            "cancer": {
+              "type": "boolean",
+              "title": "Cancer"
+            },
+            "heart_disease": {
+              "type": "boolean",
+              "title": "Heart Disease"
+            },
+            "hypertension": {
+              "type": "boolean",
+              "title": "Hypertension"
+            },
+            "diabetes": {
+              "type": "boolean",
+              "title": "Diabetes"
+            },
+            "kidney_disease": {
+              "title": "Kidney Disease",
+              "type": "boolean"
+            },
+            "other": {
+              "title": "Other",
+              "type": "boolean"
+            },
+            "no_answer": {
+              "title": "Prefer Not To Answer",
+              "type": "boolean"
+            }
+          },
+          "dependencies": {
+            "cancer": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "cancer": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "cancer": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "cancer_specify": {
+                      "title": "Please specify",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "cancer_specify"
+                  ]
+                }
+              ]
+            },
+            "kidney_disease": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "kidney_disease": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "kidney_disease": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "kidney_disease_specify": {
+                      "title": "Please specify",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kidney_disease_specify"
+                  ]
+                }
+              ]
+            },
+            "other": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "other_disease_specify": {
+                      "title": "Please specify",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "other_specify"
+                  ]
+                }
+              ]
+            }
+          }
+        }
       }
-      
+    },
+    "women": {
+      "type": "object",
+      "required": [
+        "pregnant",
+        "complications_q",
+        "complications",
+        "miscarriage",
+        "children_birth"
+      ],
+      "properties": {
+        "pregnant": {
+          "type": "string",
+          "title": "Are you pregnant or have you delivered or miscarried in the last 6 months?",
+          "uniqueItems": true,
+          "enum": [
+            "I am currently pregnant",
+            "I delivered within the last 6 months",
+            "No, I am not currently pregnant and have not recently delivered a baby",
+            "Prefer Not To Answer",
+            "My due date is: ____TODO_____________"
+          ]
+        },
+        "complications_q": {
+          "type": "string",
+          "title": "Did you have any complications with the pregnancy since having the COVID-19 infection?",
+          "uniqueItems": true,
+          "enum": [
+            "Yes",
+            "No",
+            "Prefer Not To Answer"
+          ]
+        },
+        "complications": {
+          "type": "array",
+          "title": "If yes, which of the following complications did you have?",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Premature labor",
+              "Pre-eclampsia",
+              "Other",
+              "Prefer Not To Answer"
+            ]
+          }
+        },
+        "miscarriage": {
+          "type": "string",
+          "title": "Did you have a miscarriage?",
+          "uniqueItems": true,
+          "enum": [
+            "Yes If so, how many times _______TODO",
+            "No",
+            "Prefer Not To Answer"
+          ]
+        },
+        "breastfeeding": {
+          "type": "string",
+          "title": "Are you currently breastfeeding?",
+          "uniqueItems": true,
+          "enum": [
+            "Yes If so, how many times _______TODO",
+            "No",
+            "Prefer Not To Answer"
+          ]
+        },
+        "children_birth": {
+          "type": "number",
+          "title": "How many children have you given birth to?"
+        }
+      }
     }
   },
   "type": "object",
@@ -655,6 +916,14 @@
     "history3": {
       "title": "Medical History Cont.",
       "$ref": "#/definitions/history3"
+    },
+    "family_history": {
+      "title": "Family History",
+      "$ref": "#/definitions/family_history"
+    },
+    "women": {
+      "title": "Questions for Women",
+      "$ref": "#/definitions/women"
     }
   }
 }

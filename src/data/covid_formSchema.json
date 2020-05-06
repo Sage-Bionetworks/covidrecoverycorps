@@ -952,8 +952,26 @@
     },
     "habits": {
       "type": "object",
+      "required": [
+        "sexual_orientation", "smoking", "vaping", "anxiety","alcohol", "worry","loneliness"
+      ],
       "title": "",
       "properties": {
+
+        "sexual_orientation": {
+          "type": "string",
+          "title": "What would best describe  your sexual orientation? ",
+          "enum": [
+            "Asexual",
+            "Bisexual",
+            "Gay",
+            "Lesbian",
+            "Straight (Heterosexual)",
+            "Pan-sexual",
+            "Queer",
+            "Questioning or unsure",
+          "Prefer not to answer"]
+        },
         "smoking": {
           "type": "string",
           "title": "Do you smoke? FIX",
