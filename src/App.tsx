@@ -305,11 +305,12 @@ function App() {
                       ></SurveyWrapper>
                     </Route>
                     <Route exact={true} path="/survey4">
-                      <ResultsUpload
-                       
+                    <SurveyWrapper
+                        formTitle="COVID Part II"
                         token={token || ''}
-                       
-                      ></ResultsUpload>
+                        surveyName={'MORE'}
+                        formClass="crc"
+                      ></SurveyWrapper>
                     </Route>
 
                     <Route path="/about">

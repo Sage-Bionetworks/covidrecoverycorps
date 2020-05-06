@@ -1,61 +1,39 @@
 {
   "steps": [
     {
-      "id": "medications",
-      "order": 25,
-      "title": "",
-      "default": "done"
-    },
-    {
-      "id": "habits",
-      "order": 20,
-      "title": "",
-      "default": "medications"
-    },
-    {
-      "id": "symptoms2",
-      "order": 5,
-      "title": "",
-      "default": "habits",
-      "rules": [
-        {
-          "conditions": {
-            "all": [
-              {
-                "fact": "symptoms2",
-                "operator": "in",
-                "path": ".how_was_it_treated",
-                "value": [
-                  "icu",
-                  "hospital",
-                  "emergency_room"
-                ]
-              }
-            ]
-          },
-          "event": {
-            "type": "next",
-            "params": {
-              "next": "hospitalization"
-            }
-          },
-          "priority:": 1
-        }
-      ]
-    },
-    {
-      "id": "symptoms",
+      "id": "covid1",
       "order": 1,
       "title": "",
-      "validationRules": [],
       "default": "done"
     },
     {
-      "id": "hospitalization",
-      "order": 11,
+      "id": "antibiotics_cold",
+      "order": 10,
       "title": "",
-      "default": "habits"
+      "default": "hygene"
     },
+    {
+      "id": "hygene",
+      "order": 10,
+      "title": "",
+      "default": "life_pets"
+    },
+    {
+        "id": "life_pets",
+        "order": 10,
+        "title": "",
+        "validationRules": [],
+        "default": "job_commute"
+      },
+      {
+        "id": "job_commute",
+        "order": 10,
+        "title": "",
+        "validationRules": [],
+        "default": "done"
+      },
+    
+   
     {
       "id": "done",
       "order": 90,

@@ -10,6 +10,9 @@ import covid_NavSchema from './covid_navSchema.json'
 import healthHistory_FormSchema from './healthHistory_formSchema.json'
 import healthHistory_UiSchema from './healthHistory_uiSchema.json'
 import healthHistory_NavSchema from './healthHistory_navSchema.json'
+import covid2_FormSchema from './covid2_formSchema.json'
+import covid2_UiSchema from './covid2_uiSchema.json'
+import covid2_NavSchema from './covid2_navSchema.json'
 import { SurveyConfigObject } from '../types/types'
 
 export type SurveyConfigData = {
@@ -35,8 +38,8 @@ export const SURVEYS: SurveyConfigObject = {
     navSchema: healthHistory_NavSchema,
   },
   MORE: {
-    formSchema: covid_FormSchema,
-    uiSchema: covid_UiSchema,
-    navSchema: covid_NavSchema,
+    formSchema: covid2_FormSchema,
+    uiSchema: covid2_UiSchema,
+    navSchema: covid2_NavSchema,
   },
 }

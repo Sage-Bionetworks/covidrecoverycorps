@@ -1,0 +1,143 @@
+{
+    "covid1": {
+        "classNames": "covid2_covid1",
+        "ui:order": [
+            "travel",
+            "travel_countries",
+            "travel_dates",
+            "household_size",
+            "housing_type",
+            "people_infected",
+            "people_diagnosed"
+        ],
+        "travel": {
+            "ui:widget": "radio",
+            "classNames": "optional_trigger",
+            "ui:options": {
+                "inline": false
+            }
+        },
+        "travel_countries": {
+            "classNames": "optional",
+            "ui:title": "Specific country/countries"
+        },
+        "travel_dates": {
+            "classNames": "optional",
+            "ui:title": "Specify dates of travel"
+        },
+        "household_size": {
+            "classNames": "show_fieldSet household_size"
+        },
+        "housing_type": {
+            "ui:widget": "radio",
+            "ui:options": {
+                "inline": false
+            }
+        },
+        "people_diagnosed": {
+            "classNames": "show_fieldSet people_diagnosed",
+       
+            "covid_died": {
+                "ui:help": "(relationship)"
+            },
+            "covid_diagnosed": {
+                "ui:help": "(relationship)"
+            },
+            "covid_suspected": {
+                "ui:help": "(relationship)"
+            },
+            "covid_hospitalized": {
+                "ui:help": "(relationship)"
+            }
+        }
+      
+    },
+    "antibiotics_cold": {
+        "antibiotics_covid_prior": {
+            "ui:widget": "radio"
+        },
+        "antibiotics_purpose": {
+            "ui:widget": "radio"
+        },
+        "antibiotics_course": {
+            "ui:widget": "radio"
+        },
+        " cold_how_often": {
+            "ui:widget": "radio"
+        }
+    },
+    "hygene": {
+        "mask_you": {
+            "ui:widget": "radio"
+        },
+        "mask_household": {
+            "ui:widget": "radio"
+        },
+        "sanitizer_you": {
+            "ui:widget": "radio"
+        },
+        "sanitizer_household": {
+            "ui:widget": "radio"
+        },
+        "social_distance_you": {
+            "ui:widget": "radio"
+        },
+        "social_distance_household": {
+            "ui:widget": "radio"
+        }
+    },
+    "life_pets": {
+        "ui:order": [
+            "leave_house_frequency",
+            "pets",
+            "pets_other",
+            "*"
+        ],
+        "leave_house_frequency": {
+            "ui:widget": "radio"
+        },
+        "pets": {
+            "ui:widget": "checkboxes",
+            "ui:options": {
+                "inline": false
+            }
+        },
+        "pets_other": {},
+        "last_time_pet_dog_cat": {
+            "ui:widget": "radio"
+        },
+        "how_purchased_groceries": {
+            "ui:widget": "checkboxes",
+            "ui:options": {
+                "inline": false
+            }
+        },
+        "transportation": {
+            "ui:widget": "checkboxes",
+            "ui:options": {
+                "inline": false
+            }
+        }
+    },
+    "job_commute": {
+        "telecommute": {
+            "ui:widget": "radio"
+        },
+        "job_title": {},
+        "were_healthcare_worker": {
+            "ui:widget": "radio"
+        },
+        "were_teacher_childcare": {
+            "ui:widget": "radio"
+        },
+        "were_foodservice": {
+            "ui:widget": "radio"
+        },
+        "commute_mass_transit": {
+            "ui:widget": "radio"
+        },
+        "commute_car": {
+            "ui:widget": "radio"
+        }
+    }
+}
