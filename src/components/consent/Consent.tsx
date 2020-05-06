@@ -200,12 +200,42 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
             <div
               style={{
                 marginTop: '2rem',
-                marginBottom: '4rem',
               }}
             >
               <ConsentCopy screen={'CONSENT_SHARING'}></ConsentCopy>
             </div>
-
+          <div
+            onClick={() => updateIsLearnMore(0, true)}
+            className="learnMoreToggle"
+            style={{
+              display: isLearnMore[0] ? 'none' : 'block',
+              marginBottom: '4rem',
+            }}
+          >
+            <div>
+              <span style={{ paddingRight: "10px" }}>Learn More</span>
+              <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
+            </div>
+          </div>
+          <div
+            className="learnLessToggle"
+            style={{
+              display: isLearnMore[0] ? 'flex' : 'none',
+              marginBottom: '4rem',
+            }}
+          >
+            <div>
+              <p>
+                You will have the opportunity to share your data with qualified researchers outside of the COVID Recovery Corps. All qualified researchers must be approved by the COVID Recovery Corps study team and will only use de-identified data. This de-identified data does not contain identifiers like name, date of birth, or zip code. These researchers may be from outside the United States and may work for a non-profit institution, commercial drug or medical device companies, or be a private citizen.
+              </p>
+              <p>
+                Sharing your data with qualified researchers is optional and you can change your mind at any time by updating your data sharing options in your profile. But once we share your data we cannot get it back. If you decide to end data sharing, we will not share your future data.
+              </p>
+            </div>
+            <button onClick={() => updateIsLearnMore(0, false)}>
+              <FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon>
+            </button>
+          </div>
             <form className="Consent__form" onSubmit={handleOnSubmit} >
               <div className="radiobuttons">
                 <RadioGroup
@@ -234,34 +264,6 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 >
                   <p>By default, you are sharing your data with this study only.</p>
                 </div>
-              </div>
-              <div
-                onClick={() => updateIsLearnMore(0, true)}
-                className="learnMoreToggle"
-                style={{ display: isLearnMore[0] ? 'none' : 'block',
-                }}
-              >
-                <div>
-                <span style={{paddingRight: "10px"}}>Learn More</span>
-                <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
-                </div>
-              </div>
-
-              <div
-                className="learnLessToggle"
-                style={{
-                  display: isLearnMore[0] ? 'flex' : 'none',
-                }}
-              >
-                <p>
-                  some text about learning some text about learning some text
-                  about learning
-                  <br /> more about <br />
-                  reserch sharing
-                </p>
-                <button onClick={() => updateIsLearnMore(0, false)}>
-                  <FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon>
-                </button>
               </div>
               <p style={{marginTop: "4rem", marginBottom: "4rem"}}>Please check the box below if you agree to take part:</p>
               <div className="form-group checkbox--indented" style={{marginLeft:"0px"}}>
