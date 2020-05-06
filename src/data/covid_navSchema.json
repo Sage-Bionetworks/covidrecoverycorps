@@ -22,10 +22,10 @@
           "conditions": {
             "all": [
               {
-                "fact": "how_was_it_treated",
-                "operator": "contains",
-                "path": ".symptoms2",
-                "value": ["icu"]
+                "fact": "symptoms2",
+                "operator": "in",
+                "path": ".how_was_it_treated",
+                "value": ["icu", "hospital", "emergency_room"]
               }
             ]
           },
