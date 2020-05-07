@@ -1,7 +1,7 @@
 {
   "steps": [
     {
-      "id": "contact",
+      "id": "attributes",
       "order": 5,
       "title": "",
       "default": "done"

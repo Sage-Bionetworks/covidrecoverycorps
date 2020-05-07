@@ -12,6 +12,7 @@ import { StatusEnum } from './synapse_form_wrapper/types'
 import { SurveyType, SavedSurveysObject, SavedSurvey } from '../../types/types'
 import { SURVEYS } from '../../data/surveys'
 import { SurveyService } from '../../services/survey.service'
+import { UserService } from '../../services/user.service'
 import { Redirect } from 'react-router-dom'
 
 export interface SurveyWrapperProps {
@@ -76,16 +77,34 @@ export default class SurveyWrapper extends React.Component<
         JSON.parse(JSON.stringify(SURVEYS[this.props.surveyName].formSchema))
       )) as JSON
       let formData = { metadata: {} }
-    /*  const response = await SurveyService.getUserSurveys(this.props.token)
-      const savedData = _.first(response.data.items)
-      const surveyData = savedData?.data
-      this.setState({ savedSurveys: surveyData })
-      const currentSurvey = surveyData?.surveys?.find(
-        (survey) => survey.type === this.props.surveyName
-      )
-      if (currentSurvey) {
-        formData = { ...currentSurvey.data, metadata: {} }
-      }*/
+      const userInfoResponse = await UserService.getUserInfo(this.props.token)
+
+      if (this.props.surveyName !== 'CONTACT') {
+        const savedSurveysResponse = await SurveyService.getUserSurveys(
+          this.props.token
+        )
+        const savedData = _.first(savedSurveysResponse.data.items)
+        const surveyData = savedData?.data
+        this.setState({ savedSurveys: surveyData })
+        const currentSurvey = surveyData?.surveys?.find(
+          (survey) => survey.type === this.props.surveyName
+        )
+        if (currentSurvey) {
+          formData = { ...currentSurvey.data, metadata: {} }
+        }
+
+        if (this.props.surveyName === 'HISTORY') {
+          formData.metadata = {
+            ...formData.metadata,
+            gender: userInfoResponse.data.attributes?.gender || '',
+          }
+        }
+      } else {
+        const attr = {
+          attributes: { ...userInfoResponse.data.attributes, included: true },
+        }
+        formData = { ...attr, metadata: {} }
+      }
       //if we are creating a new file - store the versions
 
       this.setState({
@@ -128,6 +147,19 @@ export default class SurveyWrapper extends React.Component<
     })
   }
 
+  updateUserAttributres = async (_rawData: any, data: any) => {
+    try {
+      const result = await UserService.updateUserAttributes(
+        this.props.token,
+        data.attributes
+      )
+
+      this.setState({ isFormSubmitted: true })
+    } catch (error) {
+      this.onError({ name: 'submission error', message: error.message })
+    }
+  }
+
   submitForm = async (rawData: any, data: any) => {
     this.setState({
       isLoading: true,
@@ -168,7 +200,6 @@ export default class SurveyWrapper extends React.Component<
         this.setState({ isFormSubmitted: true })
       }
     } catch (error) {
-    
       this.onError({ name: 'submission error', message: error.message })
     }
   }
@@ -282,8 +313,9 @@ export default class SurveyWrapper extends React.Component<
                 callbackStatus={this.state.status}
                 onSave={() => null}
                 onSubmit={async (data: any) => {
-                  this.submitForm(data, this.cleanData(data))
-                  // return
+                  this.props.surveyName !== 'CONTACT'
+                    ? this.submitForm(data, this.cleanData(data))
+                    : this.updateUserAttributres(data, this.cleanData(data))
                 }}
                 isSubmitted={false}
                 extraUIProps={extraUIProps}
