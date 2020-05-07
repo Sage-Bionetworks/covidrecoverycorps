@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import useForm from '../useForm'
 import FloatingToolbar from '../widgets/FloatingToolbar'
 import Button from '@material-ui/core/Button/Button'
-import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faArrowLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Alert from '@material-ui/lab/Alert'
@@ -218,7 +218,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   return (
     
         <div className="ConsentInfo">
-          <FloatingToolbar closeLinkDestination='/home'>{renderNavChildren(currentStep)}</FloatingToolbar>
+          <FloatingToolbar closeLinkDestination='/home' closeIcon={faTimes}>{renderNavChildren(currentStep)}</FloatingToolbar>
           <div>
             {currentStep > -1 && (
               <div className="text-right">

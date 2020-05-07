@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
-
-import { faAngleLeft, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 type FloatingToolbarProps = {
-  closeLinkDestination: string
+  closeLinkDestination: string,
+  closeIcon: IconProp
 }
 
 export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
@@ -39,7 +38,7 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
         {
           <div style={{ position: 'absolute', left: '20px', zIndex: 999}}>
             <Link to={props.closeLinkDestination}>
-              <FontAwesomeIcon icon={faTimesCircle} />
+              <FontAwesomeIcon icon={props.closeIcon} />
             </Link>
           </div>
         }

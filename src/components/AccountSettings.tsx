@@ -6,9 +6,10 @@ import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
 import { blue } from '@material-ui/core/colors';
 import { Button, Icon, withStyles } from '@material-ui/core'
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FloatingToolbar from './widgets/FloatingToolbar';
+import LearnMore from './widgets/LearnMore';
 
 type AcountSettingsProps = {
 }
@@ -45,17 +46,27 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = ({
   return (
     <>
       <div>
-          <FloatingToolbar closeLinkDestination='/dashboard'>Account Settings</FloatingToolbar>
+          <FloatingToolbar closeLinkDestination='/dashboard' closeIcon={faAngleLeft}>Account Settings</FloatingToolbar>
       </div>
       <FormGroup>
         <FormControlLabel
           control={<BlueSwitch checked={isConsented} color="primary" onChange={handleConsentChange} name='checkConsent' />}
           label='Share my study data with qualified researchers for future COVID related work'
         />
+        <LearnMore learnMoreText='Learn more'>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan accumsan vehicula. Donec porttitor ullamcorper dolor at accumsan. Pellentesque id libero blandit, porttitor lectus elementum, rutrum risus. Vivamus at malesuada mi. Suspendisse potenti. Phasellus eget enim porttitor, sagittis massa ac, semper lorem. Integer tortor tortor, volutpat id eros a, mattis tincidunt nisl. Praesent efficitur leo quis ornare mattis.
+          </p>
+        </LearnMore>
         <FormControlLabel
           control={<BlueSwitch checked={isEhrConsented} color='primary' onChange={handleEhrConsentChange} name='checkEhrConsent' />}
           label='Share my electronic health records'
         />
+        <LearnMore learnMoreText='Learn more'>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan accumsan vehicula. Donec porttitor ullamcorper dolor at accumsan. Pellentesque id libero blandit, porttitor lectus elementum, rutrum risus. Vivamus at malesuada mi. Suspendisse potenti. Phasellus eget enim porttitor, sagittis massa ac, semper lorem. Integer tortor tortor, volutpat id eros a, mattis tincidunt nisl. Praesent efficitur leo quis ornare mattis.
+          </p>
+        </LearnMore>
       </FormGroup>
       <Button
         style={{width: '100%'}}
