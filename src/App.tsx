@@ -41,6 +41,7 @@ import Contact from './components/static/Contact'
 import FAQs from './components/static/FAQs'
 import { TopNav } from './components/widgets/TopNav'
 import ResultsUpload from './components/ResultsUpload'
+import { UserService } from './services/user.service'
 
 const theme = createMuiTheme({
   typography: {
@@ -104,19 +105,13 @@ function App() {
 
   useEffect(() => {
     let isSubscribed = true
+    //the whole point of this is to log out the user if their session ha expired on the servier
     async function getInfo(token: string | undefined) {
       if (token && isSubscribed) {
         try {
-          const response = await callEndpoint<LoggedInUserData>(
-            `${ENDPOINT}/v3/participants/self`,
-            'GET',
-            {},
-            token
-          )
+          await UserService.getUserInfo(token)
         } catch (e) {
           setUserSession(undefined, '', false)
-          //alert(e.message)
-          // return <Redirect to="/"></Redirect>
         }
       }
     }
@@ -286,7 +281,7 @@ function App() {
                       <ConsentEHR token={token || ''} />
                     </Route>
                     {/*todo make private */}
-                    <Route exact={true} path="/contact">
+                    <Route exact={true} path="/contactinfo">
                       <SurveyWrapper
                         formTitle="Tell us about yourself"
                         token={token || ''}

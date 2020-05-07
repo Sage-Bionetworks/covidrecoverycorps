@@ -57,6 +57,7 @@
     }
   },
   "symptoms2": {
+    "classNames": "symptoms2",
     "ui:order": [
       "symptoms_start",
       "first_day",
@@ -73,20 +74,44 @@
       "ui:options": {
         "inline": false
       }
+
+
+  
     },
+
+    "first_day" : {
+      "classNames": ["subfield_inverted symptom_day_first"]
+    },
+    "last_day" : {
+      "classNames": ["subfield_inverted symptom_day_last"]
+    },  
+
+
     "kind_of_testing": {
       "ui:widget": "radio",
       "ui:options": {
         "inline": false
       }
     },
+    "nasal_swab_date": {
+      "classNames": ["subfield_inverted   nasal_swab"],
+      "ui:title": "What was the date of the nasal swab test"
+    },
     "nasal_swab_result": {
+      "ui:title": "What was the result of the nasal swab test",
       "ui:widget": "radio",
+      "classNames": ["subfield_inverted  secondary_radio nasal_swab"],
       "ui:options": {
         "inline": false
       }
     },
+    "serum_test_date": {
+      "classNames": ["subfield_inverted   antibody"],
+      "ui:title": "What was the date of the serum antibody test"
+    },
     "serum_test_result": {
+      "ui:title": "What was the result of the serum antibody test",
+      "classNames": ["subfield_inverted  secondary_radio antibody"],
       "ui:widget": "radio",
       "ui:options": {
         "inline": false
@@ -126,10 +151,11 @@
         "other_answer",
         "prefer_not_answer"
       ],
-      "classNames": "show_fieldSet"
+      "classNames": "show_fieldSet hospitalization_treatment"
     }
   },
   "habits": {
+    "classNames": "habits",
     "ui:order": [
       "sexual_orientation",
       "smoking",
@@ -152,6 +178,9 @@
       "ui:options": {
         "inline": false
       }
+    },
+    "smoking_how_many_cigarettes": {
+     "classNames": "how_many_cigarettes"
     },
     "vaping": {
       "ui:widget": "radio",
@@ -199,8 +228,10 @@
     "hydroxychloroquine": {
       "ui:widget": "radio"
     },
+
     "hydroxychloroquine_side_effects": {
-      "ui:widget": "checkboxes"
+      "ui:widget": "checkboxes",
+      "ui:title": "If you were treated with hydroxychloroquine (Plaquenil), please describe if you experienced any of the following? (select all that apply)"
     }
   }
 }

@@ -26,6 +26,16 @@
     @include subfield_inverted;
   }
 
+.buttonWrapper {
+  width: 100%;
+  button:first-child {
+    float: left;
+  }
+  button:last-child {
+    float: right;
+  }
+}
+
   .form-group.field-error {
     margin-left: -15px;
     padding-left: 15px;
@@ -177,7 +187,9 @@
     }
   }
 
-  margin-right: 8px;
+  margin-right: 8px;   //Alina why is it here
+
+  // demographic survey
   .demographic {
     .birthdate > ul {
       display: flex;
@@ -212,6 +224,7 @@
     }
   }
 
+  //covid1 survey
   .symptoms {
     .form-group.field-boolean {
       margin-bottom: 0;
@@ -228,6 +241,54 @@
       @include subfield_inverted;
     }
   }
+
+  .symptoms2 {
+    .form-group.field-boolean {
+      margin-bottom: 0;
+      > .checkbox {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
+    .symptom_day_first, .symptom_day_last {
+      width: 50%;
+      float: left;
+    }
+    .form-group.field-string {
+      margin-bottom: 5px;
+    }
+
+    .secondary_radio .radio {
+      margin-bottom: 0;
+      font-size:1.4rem;
+    }
+   
+  }
+
+  .hospitalization_treatment {
+    legend {
+      font-size: 1.6rem;
+    margin-bottom: 5px;
+    }
+    .form-group.field-string,
+    .form-group.field-number {
+      @include subfield_inverted;
+    }
+  }
+
+  .habits  {
+    .how_many_cigarettes {
+    @include subfield_inverted;
+    margin-top: -2rem;
+    }
+  }
+
+
+
+
+
+
+
 
   .covid2 {
     &_covid1 {

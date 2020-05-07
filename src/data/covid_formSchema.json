@@ -1,5 +1,79 @@
 {
   "definitions": {
+
+    "hospitals_array":
+    [
+      "Brookdale Hospital",
+      "Calvary Hospital",
+      "Columbia/NewYork-Presbyterian",
+      "Elmhurst Hospital",
+      "Flushing Hospital",
+      "Gracie Square Hospital",
+      "Harlem Hospital",
+      "Hudson Valley Hospital",
+      "Jacobi Hospital",
+      "Kings County Hospital",
+      "Lawrence Hospital",
+      "Lenox Hill Hospital",
+      "Lower Manhattan Hospital",
+      "Maimonides",
+      "Metropolitan Hospital",
+      "Montefiore",
+      "Mount Sinai Beth Israel",
+      "Mount Sinai Hospital",
+      "Mount Sinai St. Luke’s Hospital",
+      "Mount Sinai West",
+      "New York Downtown Hospital",
+      "NewYork-Presbyterian Allen Hospital",
+      "NewYork-Presbyterian Brooklyn Methodist Hospital",
+      "NewYork-Presbyterian Medical Center-Queens",
+      "New York City Health and Hospital",
+      "North General Hospital",
+      "NYU Langone/Bellevue Hospital",
+      "St. Barnabas",
+      "Weill Cornell/ NewYork-Presbyterian",
+      "Woodhull Hospital",
+      "Other",
+      "Prefer not to answer"
+    ],
+
+    "hospitals_array_no_other":
+    [
+      "Brookdale Hospital",
+      "Calvary Hospital",
+      "Columbia/NewYork-Presbyterian",
+      "Elmhurst Hospital",
+      "Flushing Hospital",
+      "Gracie Square Hospital",
+      "Harlem Hospital",
+      "Hudson Valley Hospital",
+      "Jacobi Hospital",
+      "Kings County Hospital",
+      "Lawrence Hospital",
+      "Lenox Hill Hospital",
+      "Lower Manhattan Hospital",
+      "Maimonides",
+      "Metropolitan Hospital",
+      "Montefiore",
+      "Mount Sinai Beth Israel",
+      "Mount Sinai Hospital",
+      "Mount Sinai St. Luke’s Hospital",
+      "Mount Sinai West",
+      "New York Downtown Hospital",
+      "NewYork-Presbyterian Allen Hospital",
+      "NewYork-Presbyterian Brooklyn Methodist Hospital",
+      "NewYork-Presbyterian Medical Center-Queens",
+      "New York City Health and Hospital",
+      "North General Hospital",
+      "NYU Langone/Bellevue Hospital",
+      "St. Barnabas",
+      "Weill Cornell/ NewYork-Presbyterian",
+      "Woodhull Hospital",
+      "Prefer not to answer"
+    ],
+
+
+
     "symptoms": {
       "type": "object",
       "properties": {
@@ -574,7 +648,7 @@
           "uniqueItems": true,
           "items": {
             "type": "string",
-            "enum": [
+            "enum":  [
               "Brookdale Hospital",
               "Calvary Hospital",
               "Columbia/NewYork-Presbyterian",
@@ -726,6 +800,15 @@
                       "title": "How many Days?"
                     }
                   }
+                },
+                {
+                  "properties": {
+                    "oxigen": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
                 }
               ]
             },
@@ -743,6 +826,16 @@
                       "title": "How many Days?"
                     }
                   }
+                },
+                {
+                  "properties": {
+                    "oxigen_mask": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                 
+                  }
                 }
               ]
             },
@@ -758,6 +851,15 @@
                     "ventilator_days": {
                       "type": "number",
                       "title": "How many Days?"
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "ventilator": {
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 }
@@ -777,6 +879,15 @@
                       "title": "How many Days?"
                     }
                   }
+                },
+                {
+                  "properties": {
+                    "kidney_dialysis": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
                 }
               ]
             },
@@ -794,13 +905,22 @@
                       "title": "Other Complications"
                     }
                   }
+                },
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
                 }
               ]
             }
           }
         }
-      },
-      "dependencies": {}
+      }
+    
     },
     "habits": {
       "type": "object",
@@ -978,7 +1098,9 @@
               "Medications after organ transplant (tacrolimus, cyclosporin, Mycophenolate)",
               "Anti-depressant (sertraline, fluoxetine, citalopram, trazodone, escitalopram)",
               "Antibiotics",
-              "HIV medication (lopinavir/ritonavir, darunavir/ritonavir, tenofovir disoproxil fumarate (TDF), tenofovir alafenamide fumarate (TAF), and combination medications containing these agents)"
+              "HIV medication (lopinavir/ritonavir, darunavir/ritonavir, tenofovir disoproxil fumarate (TDF), tenofovir alafenamide fumarate (TAF), and combination medications containing these agents)",
+              "None",
+              "Prefer Not To Answer"
             ]
           }
         },

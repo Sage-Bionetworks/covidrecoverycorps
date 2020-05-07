@@ -434,8 +434,18 @@ export default class SynapseForm extends React.Component<
     // we don't need to validate on save so bypassing submit
     if (navAction === NavActionEnum.SAVE) {
       return this.props.onSave(this.state.formData)
-    } else {
+    } 
+    else 
+    {
       this.navAction = navAction
+      if(navAction === NavActionEnum.PREVIOUS) {
+      this.performAction(
+        this.navAction,
+        this.state.currentStep.state === StepStateEnum.ERROR
+      )
+    }
+    else {
+      //this.navAction = navAction
       // first run whatever custom validaton we have
       this.extraErrors = await this.runCustomValidation(
         this.state.formData,
@@ -445,7 +455,7 @@ export default class SynapseForm extends React.Component<
       if (this.formRef.current) {
         this.formRef.current.submit()
       }
-    }
+    }}
   }
 
   // triggered when we click on the step name in left nav (doesn't happen in wizard mode)
