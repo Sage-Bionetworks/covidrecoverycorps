@@ -32,7 +32,7 @@ import { getSession, callEndpoint } from './helpers/utility'
 import Intro from './components/static/Intro'
 import Dashboard from './components/Dashboard'
 
-import { SESSION_NAME, ENDPOINT, LoggedInUserData } from './types/types'
+import { SESSION_NAME } from './types/types'
 import ConsentEHR from './components/consent/ConsentEHR'
 import About from './components/static/About'
 
@@ -40,7 +40,6 @@ import Team from './components/static/Team'
 import Contact from './components/static/Contact'
 import FAQs from './components/static/FAQs'
 import { TopNav } from './components/widgets/TopNav'
-import ResultsUpload from './components/ResultsUpload'
 import { UserService } from './services/user.service'
 
 const theme = createMuiTheme({
@@ -193,7 +192,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                (Tue:11:10)
+                (Thursd:14:30)
               </nav>
               <Grid
                 container
