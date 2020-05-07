@@ -3,6 +3,16 @@
   $red-error: #ff6d6d;
   $red-error2: #ff6d6d;
 
+  @mixin subfield_inverted {
+    label {
+      color: #fff;
+    }
+    margin-top: -5px;
+    padding: 20px;
+    background-color: #000;
+    margin-bottom: .5rem;
+  }
+
   .scroll-area {
     overflow-x: auto;
     padding: 0px 25px;
@@ -10,6 +20,10 @@
 
   table.summary-table > tbody > tr:first-child > td {
     border-top: none;
+  }
+
+  .subfield_inverted {
+    @include subfield_inverted;
   }
 
   .form-group.field-error {
@@ -39,7 +53,7 @@
     }
   }
   .form-error-summary {
-    display: none;
+   display: block ;// display: none;
   }
   .error {
     color: $red-error;
@@ -68,11 +82,10 @@
     }
   }
   div.checkbox {
-   // padding: 10px 10px 10px 0;
+    // padding: 10px 10px 10px 0;
     margin-bottom: 10px;
   }
 
- 
   .checkbox label,
   .radio label {
     padding: 0;
@@ -85,7 +98,7 @@
   }
 
   .checkbox label > span {
-    display:flex;
+    display: flex;
     align-items: center;
   }
 
@@ -97,16 +110,15 @@
     margin-right: 8px;
   }
 
-  input[type='checkbox']:checked + label::before, 
+  input[type='checkbox']:checked + label::before,
   input[type='checkbox']:checked + span::before {
-    
     margin-right: 12px;
     margin-left: -23px;
-
-}
-.radio input[type='radio']:checked + label::before,
-.radio input[type='radio']:checked + span::before 
-{margin-right: 12px}
+  }
+  .radio input[type='radio']:checked + label::before,
+  .radio input[type='radio']:checked + span::before {
+    margin-right: 12px;
+  }
 
   /*.checkbox input[type='checkbox'],
   .checkbox-inline input[type='checkbox'],
@@ -165,9 +177,6 @@
     }
   }
 
-
-
-
   margin-right: 8px;
   .demographic {
     .birthdate > ul {
@@ -182,7 +191,7 @@
         margin-bottom: 1rem;
       }
 
-      > fieldset {
+      > .fieldset {
         width: 100%;
 
         .zip {
@@ -192,7 +201,7 @@
           &.form-group.field-error {
             margin-left: 0;
             padding-left: 15px;
-            border-left: none
+            border-left: none;
           }
         }
         .state {
@@ -214,12 +223,16 @@
     .form-group.field-string {
       margin-bottom: 5px;
     }
+    .form-group.field-string,
+    .form-group.field-number {
+      @include subfield_inverted;
+    }
   }
 
   .covid2 {
     &_covid1 {
       .household_size {
-        fieldset {
+        .fieldset {
           width: 100%;
         }
         .field-number {
@@ -279,7 +292,7 @@
   input[type='radio'] {
     display: none;
   }
-  
+
   .checkbox > label::before,
   .radio::before,
   .radio-inline::before {
