@@ -1,60 +1,20 @@
 {
   "definitions": {
-    "address": {
-      "type": "object",
-   
-      "properties": {
-
-        "street_address": {
-          "title": "Street address",
-          "type": "string"
-        },
-        "city": {
-          "title": "City",
-          "type": "string"
-        },
-        "state": {
-          "title": "State",
-          "type": "string",
-          "enum": [
-            "NY",
-            "NJ",
-           "CT"
-          ]
-        },
-        "zip": {
-          "title": "Zip code",
-          "type": "string",
-    
-         
-          "uniqueItems": true
-        }
-      },
-      "required": ["street_address", "city", "state", "zip"]
-    },
-
+  
     "about": {
       "type": "object",
       "required": [
-        "address",
+     
         "biological_sex",
         "gender_identity",
         "enthnicity",
         "education",
         "income",
-        "healthcare_pay",
-        "birthdate"
+        "healthcare_pay"
+       
       ],
       "properties": {
-        "address": {
-          "title": "What is your mailing address?",
-          "$ref": "#/definitions/address"
-        },
-
-        "birthdate": {
-          "type": "string",
-          "title": "What is your date of birth?"
-        },
+      
 
         "biological_sex": {
           "type": "string",
