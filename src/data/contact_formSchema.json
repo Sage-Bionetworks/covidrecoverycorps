@@ -1,11 +1,10 @@
 {
   "definitions": {
-    "address": {
+    "attributes": {
       "type": "object",
-   
+      "required": ["address", "city", "state", "zip_code", "gender", "dob"],
       "properties": {
-
-        "street_address": {
+        "address": {
           "title": "Street address",
           "type": "string"
         },
@@ -16,50 +15,39 @@
         "state": {
           "title": "State",
           "type": "string",
-          "enum": [
-            "NY",
-            "NJ",
-           "CT"
-          ]
+          "enum": ["NY", "NJ", "CT"]
         },
-        "zip": {
+        "zip_code": {
           "title": "Zip code",
           "type": "string",
-    
-         
-          "uniqueItems": true
-        }
-      },
-      "required": ["street_address", "city", "state", "zip"]
-    },
 
-    "contact": {
-      "type": "object",
-      "required": [
-        "address",
-       
-        "birthdate"
-      ],
-      "properties": {
-        "address": {
-          "title": "What is your mailing address?",
-          "$ref": "#/definitions/address"
+          "uniqueItems": true
+        },
+        "gender": {
+          "type": "string",
+          "title": "What  was your biological sex assigned at birth?",
+          "enum": [
+            "Female",
+            "Male",
+            "Intersex",
+            "Other",
+            "Prefer not to answer"
+          ],
+          "uniqueItems": true
         },
 
-        "birthdate": {
+        "dob": {
           "type": "string",
           "title": "What is your date of birth?"
         }
-      
       }
     }
-  
   },
   "type": "object",
   "properties": {
-    "contact": {
+    "attributes": {
       "title": "",
-      "$ref": "#/definitions/contact"
+      "$ref": "#/definitions/attributes"
     }
   }
 }

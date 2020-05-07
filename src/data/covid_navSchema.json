@@ -8,7 +8,7 @@
     },
     {
       "id": "habits",
-      "order": 1,
+      "order": 10,
       "title": "",
       "default": "medications"
     },
@@ -45,9 +45,34 @@
     },
     {
       "id": "symptoms",
-      "order": 10,
+      "order": 1,
       "title": "",
-      "validationRules": [],
+      "validationRules": [
+
+      
+          {
+            "conditions": {
+              "all": [
+                {
+                  "fact": "symptoms",
+                  "operator": "notHasChecked",
+                  "path": ".symptoms_list",
+                  "value": true
+                }
+              ]
+            },
+            "event": {
+              "type": "validation",
+              "params": {
+                "message": "   ",
+                "name": "required",
+                "property": "symptoms.symptoms_list"
+              }
+            },
+            "priority:": 1
+          }
+
+      ],
       "default": "symptoms2"
     },
     {

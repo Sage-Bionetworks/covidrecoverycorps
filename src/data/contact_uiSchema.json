@@ -1,56 +1,24 @@
 {
-  "about": {
+  "attributes": {
     "classNames": "demographic",
     "address": {
-      "classNames": "address",
-      "zip": {
-        "classNames": "zip"
-      },
-      "state": {
-        "classNames": "state"
-      }
-     
+      "classNames": "address"
     },
-   
-  
-    "biological_sex": {
+    "zip_code": {
+      "classNames": "zip"
+    },
+    "state": {
+      "classNames": "state"
+    },
+
+    "gender": {
       "ui:widget": "radio",
       "ui:options": {
         "inline": false
       }
     },
-    "gender_identity": {
-      "ui:widget": "radio",
-      "ui:options": {
-        "inline": false
-      }
-    },
-    "enthnicity": {
-      "ui:widget": "checkboxes",
-      "ui:options": {
-        "inline": false
-      }
-    },
-    "education": {
-      "ui:widget": "radio",
-      "ui:options": {
-        "inline": false
-      }
-    },
-    "income": {
-      "ui:widget": "radio",
-      "ui:options": {
-        "inline": false
-      }
-    },
-    "healthcare_pay": {
-      "ui:widget": "radio",
-      "ui:options": {
-        "inline": false
-      }
-    },
-    
-    "birthdate":{
+
+    "dob": {
       "classNames": "birthdate",
       "ui:widget": "alt-date",
       "ui:options": {
@@ -58,9 +26,6 @@
         "hideNowButton": true,
         "hideClearButton": true
       }
-
-
     }
-  },
-  "registration": {}
+  }
 }
