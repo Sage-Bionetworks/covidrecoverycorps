@@ -341,7 +341,7 @@ function App() {
                       <Contact></Contact>
                     </Route>
                     <Route path="/settings">
-                      <AcountSettings></AcountSettings>
+                      <AcountSettings token={token!}></AcountSettings>
                     </Route>
                     <Route path="/home">
                       <Intro token={token || null}></Intro>

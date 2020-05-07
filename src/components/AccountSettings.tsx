@@ -12,8 +12,12 @@ import FloatingToolbar from './widgets/FloatingToolbar';
 import LearnMore from './widgets/LearnMore';
 import ConfirmationModal from './widgets/ConfirmationModal';
 import { Link } from 'react-router-dom';
+import { ConsentService } from '../services/consent.service'
+import { UserService } from '../services/user.service';
+import { LoggedInUserData } from '../types/types';
 
 type AcountSettingsProps = {
+  token: string
 }
 
 const BlueSwitch = withStyles({
@@ -30,16 +34,39 @@ const BlueSwitch = withStyles({
   track: {},
 })(Switch)
 
-export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = ({
-}: AcountSettingsProps) => {
-  const [isConsented, setIsConsented] = useState<boolean | undefined>()
+export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (props: AcountSettingsProps) => {
+  const [isShareScopeAll, setIsShareScopeAll] = useState<boolean | undefined>()
   const [isEhrConsented, setIsEhrConsented] = useState<boolean | undefined>()
-  const [isShowingWithdrawConfirmation, setIsShowingWithdrawConfirmation] = useState<boolean | undefined>()
+  const [isShowingWithdrawConfirmation, setIsShowingWithdrawConfirmation] = useState<boolean | undefined>(false)
   
-  const handleConsentChange = () => {
-    alert('handleConsentChange todo')
+  // initialize check box values
+  useEffect(() => {
+    let isSubscribed = true
+    async function getInfo(token: string | undefined) {
+      if (token && isSubscribed) {
+        const userInfoResponse = await UserService.getUserInfo(token)
+        const isCurrentlySharingAll = ConsentService.SHARE_SCOPE_ALL == userInfoResponse.data.sharingScope
+        setIsShareScopeAll(_prev => isCurrentlySharingAll)
+      }
+    }
+    getInfo(props.token)
+    return () => {
+      isSubscribed = false
+    }
+  }, [])
+
+  const handleConsentChange = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
+    const newScope = checked ? ConsentService.SHARE_SCOPE_ALL : ConsentService.SHARE_SCOPE_PARTNERS
+    ConsentService.updateMySharingScope(
+      newScope,
+      props.token
+    ).then((participantRecord:any)=> {
+      // TODO: this does not properly update the switch state for some reason.
+      const isCurrentlySharingAll = ConsentService.SHARE_SCOPE_ALL == participantRecord.sharingScope
+      setIsShareScopeAll(_prev => isCurrentlySharingAll)
+    })
   }
-  const handleEhrConsentChange = () => {
+  const handleEhrConsentChange = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
     alert('handleEhrConsentChange todo')
   }
   const handleOnWithdrawFromStudyClick = () => {
@@ -63,15 +90,20 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = ({
       </Link>
 
       <FormGroup style={{ marginTop: '4rem' }}>
-        <FormControlLabel
-          control={<BlueSwitch checked={isConsented} color="primary" onChange={handleConsentChange} name='checkConsent' />}
-          label='Share my study data with qualified researchers for future COVID related work'
-        />
-        <LearnMore learnMoreText='Learn more'>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan accumsan vehicula. Donec porttitor ullamcorper dolor at accumsan. Pellentesque id libero blandit, porttitor lectus elementum, rutrum risus. Vivamus at malesuada mi. Suspendisse potenti. Phasellus eget enim porttitor, sagittis massa ac, semper lorem. Integer tortor tortor, volutpat id eros a, mattis tincidunt nisl. Praesent efficitur leo quis ornare mattis.
-          </p>
-        </LearnMore>
+        {isShareScopeAll !== undefined && (
+          <>
+            <FormControlLabel
+              control={<BlueSwitch checked={isShareScopeAll} color="primary" onChange={handleConsentChange} name='checkConsent' />}
+              label='Share my study data with qualified researchers for future COVID related work'
+            />
+            <LearnMore learnMoreText='Learn more'>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan accumsan vehicula. Donec porttitor ullamcorper dolor at accumsan. Pellentesque id libero blandit, porttitor lectus elementum, rutrum risus. Vivamus at malesuada mi. Suspendisse potenti. Phasellus eget enim porttitor, sagittis massa ac, semper lorem. Integer tortor tortor, volutpat id eros a, mattis tincidunt nisl. Praesent efficitur leo quis ornare mattis.
+              </p>
+            </LearnMore>
+          </>
+        )}
+        
         <FormControlLabel
           control={<BlueSwitch checked={isEhrConsented} color='primary' onChange={handleEhrConsentChange} name='checkEhrConsent' />}
           label='Share my electronic health records'

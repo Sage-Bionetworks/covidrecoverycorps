@@ -205,6 +205,7 @@ export interface UserData {
 export interface LoggedInUserData extends UserData {
   sessionToken: string
   consented: boolean
+  sharingScope: string
 }
 
 export interface RegistrationData extends UserData {
