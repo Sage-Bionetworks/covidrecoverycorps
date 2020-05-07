@@ -159,7 +159,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           <div className="Consent">
             {currentStep == 0 && (
               <>
-                <FloatingToolbar >HIPAA Authorization</FloatingToolbar>
+                <FloatingToolbar closeLinkDestination='/home'>HIPAA Authorization</FloatingToolbar>
                 {renderStep0()}
               </>
             )}

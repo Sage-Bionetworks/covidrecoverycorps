@@ -8,6 +8,7 @@ import { blue } from '@material-ui/core/colors';
 import { Button, Icon, withStyles } from '@material-ui/core'
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FloatingToolbar from './widgets/FloatingToolbar';
 
 type AcountSettingsProps = {
 }
@@ -43,6 +44,9 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = ({
   }
   return (
     <>
+      <div>
+          <FloatingToolbar closeLinkDestination='/dashboard'>Account Settings</FloatingToolbar>
+      </div>
       <FormGroup>
         <FormControlLabel
           control={<BlueSwitch checked={isConsented} color="primary" onChange={handleConsentChange} name='checkConsent' />}

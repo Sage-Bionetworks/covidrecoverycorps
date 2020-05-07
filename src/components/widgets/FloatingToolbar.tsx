@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 
 type FloatingToolbarProps = {
-  staticText?: string
+  closeLinkDestination: string
 }
 
 export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
@@ -34,13 +34,12 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
   }
 
   return (
-    <div className="FloatingToolbar" style={{ top: top, width: '100%' }}>
-      <div className="row" style={{ position: 'relative' }}>
+    <div className="FloatingToolbar" style={{ top: top, width: '100%', height: '62px' }}>
+      <div className="row" style={{ position: 'relative', marginTop: '5px' }}>
         {
-          <div style={{ position: 'absolute', left: '20px' }}>
-            <Link to="/home">
-            <i className="far fa-times-circle"></i>
-
+          <div style={{ position: 'absolute', left: '20px', zIndex: 999}}>
+            <Link to={props.closeLinkDestination}>
+              <FontAwesomeIcon icon={faTimesCircle} />
             </Link>
           </div>
         }
