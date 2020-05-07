@@ -1,27 +1,17 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
-
-import { faCaretUp, faCaretDown, faTimes } from '@fortawesome/free-solid-svg-icons'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import ConsentInfo from './ConsentInfo'
-
 import useForm from '../useForm'
 import moment from 'moment'
-
-
 import Button from '@material-ui/core/Button/Button'
 import TextField from '@material-ui/core/TextField/TextField'
 import {
   Checkbox,
   FormControlLabel,
-  FormControl,
-  FormLabel,
   RadioGroup,
   Radio,
 } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert/Alert'
-
 import ConsentCopy from './ConsentCopy'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
 import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'

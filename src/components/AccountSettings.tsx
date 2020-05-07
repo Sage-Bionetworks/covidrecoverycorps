@@ -48,7 +48,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = ({
       <div>
           <FloatingToolbar closeLinkDestination='/dashboard' closeIcon={faAngleLeft}>Account Settings</FloatingToolbar>
       </div>
-      <FormGroup>
+      <FormGroup style={{ marginTop: '4rem' }}>
         <FormControlLabel
           control={<BlueSwitch checked={isConsented} color="primary" onChange={handleConsentChange} name='checkConsent' />}
           label='Share my study data with qualified researchers for future COVID related work'
@@ -69,7 +69,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = ({
         </LearnMore>
       </FormGroup>
       <Button
-        style={{width: '100%'}}
+        style={{width: '100%', marginTop: '2rem'}}
         variant='contained'
         color='primary'
         onClick={handleOnWithdrawFromStudyClick}

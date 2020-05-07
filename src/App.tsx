@@ -6,9 +6,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
-  NavLink,
 } from 'react-router-dom'
 import Collaborators from './components/static/Collaborators'
 
@@ -24,7 +22,6 @@ import {
   ThemeProvider,
   Typography,
   Grid,
-  Button,
 } from '@material-ui/core'
 
 import { getSession, callEndpoint } from './helpers/utility'
@@ -46,9 +43,11 @@ import AcountSettings from './components/AccountSettings'
 const theme = createMuiTheme({
   typography: {
     // Tell Material-UI what's the font-size on the html element is.
-    
     htmlFontSize: 10,
     fontFamily: ['Source Serif Pro', 'serif', 'Lato', 'Roboto', 'Helvetica', 'Arial'].join(','),
+    button: {
+      textTransform: 'none'
+    }
   },
   palette: {
     primary: {
@@ -82,7 +81,8 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    //backgroundColor: '#E5E5E5'
+    height: '100%',
+    minHeight: '100vh'
   },
 }))
 
