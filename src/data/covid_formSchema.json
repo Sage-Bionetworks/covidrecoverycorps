@@ -3,9 +3,11 @@
     "symptoms": {
       "type": "object",
       "properties": {
+       
         "symptoms_list": {
           "type": "object",
-          "minProperties": 5,
+        
+
           "title": "Please descirbe your symptoms",
           "properties": {
             "cough": {
@@ -132,10 +134,7 @@
                       "title": "How Many Days",
                       "type": "number"
                     }
-                  },
-                  "required": [
-                    "cough_duration"
-                  ]
+                  }
                 }
               ]
             },
@@ -165,11 +164,7 @@
                       "title": "What was the highest temperature",
                       "type": "number"
                     }
-                  },
-                  "required": [
-                    "fever_duration",
-                    "fever_highest"
-                  ]
+                  }
                 }
               ]
             },
@@ -195,10 +190,7 @@
                       "title": "How Many Days",
                       "type": "number"
                     }
-                  },
-                  "required": [
-                    "shortness_breath_duration"
-                  ]
+                  }
                 }
               ]
             },
@@ -224,10 +216,7 @@
                       "title": "How Many Days",
                       "type": "number"
                     }
-                  },
-                  "required": [
-                    "chest_pain_duration"
-                  ]
+                  }
                 }
               ]
             },
@@ -253,10 +242,7 @@
                       "title": "How Many Days",
                       "type": "number"
                     }
-                  },
-                  "required": [
-                    "night_sweats_duration"
-                  ]
+                  }
                 }
               ]
             },
@@ -282,10 +268,7 @@
                       "title": "How Many Days",
                       "type": "number"
                     }
-                  },
-                  "required": [
-                    "chills_duration"
-                  ]
+                  }
                 }
               ]
             },
@@ -311,10 +294,7 @@
                       "title": "How Many Days",
                       "type": "number"
                     }
-                  },
-                  "required": [
-                    "rash_duration"
-                  ]
+                  }
                 }
               ]
             },
@@ -340,10 +320,7 @@
                       "title": "How Many Days",
                       "type": "number"
                     }
-                  },
-                  "required": [
-                    "foamy_urine_duration"
-                  ]
+                  }
                 }
               ]
             },
@@ -369,10 +346,7 @@
                       "title": "How Many Days",
                       "type": "number"
                     }
-                  },
-                  "required": [
-                    "red_urine_duration"
-                  ]
+                  }
                 }
               ]
             },
@@ -398,10 +372,7 @@
                       "title": "How Many Days",
                       "type": "number"
                     }
-                  },
-                  "required": [
-                    "loss_of_smell_duration"
-                  ]
+                  }
                 }
               ]
             },
@@ -427,10 +398,7 @@
                       "title": "How Many Days",
                       "type": "number"
                     }
-                  },
-                  "required": [
-                    "loss_of_taste_duration"
-                  ]
+                  }
                 }
               ]
             }
