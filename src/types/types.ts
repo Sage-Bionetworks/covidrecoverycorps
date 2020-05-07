@@ -73,7 +73,7 @@ export interface SignInDataEmail extends SignInData {
 }
 
 // --------------Surveys
-export type SurveyType = 'DEMOGRAPHIC' | 'COVID_EXPERIENCE' | 'HISTORY' | 'MORE'
+export type SurveyType = 'CONTACT'|'DEMOGRAPHIC' | 'COVID_EXPERIENCE' | 'HISTORY' | 'MORE'
 
 export type SurveyConfigObject = {
   [key in SurveyType]: {

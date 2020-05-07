@@ -4,6 +4,9 @@ import { FormSchema } from '../components/surveys/synapse_form_wrapper/types'
 import demographic_FormSchema from './demographic_formSchema.json'
 import demographic_UiSchema from './demographic_uiSchema.json'
 import demographic_NavSchema from './demographic_navSchema.json'
+import contact_FormSchema from './contact_formSchema.json'
+import contact_UiSchema from './contact_uiSchema.json'
+import contact_NavSchema from './contact_navSchema.json'
 import covid_FormSchema from './covid_formSchema.json'
 import covid_UiSchema from './covid_uiSchema.json'
 import covid_NavSchema from './covid_navSchema.json'
@@ -22,6 +25,11 @@ export type SurveyConfigData = {
 }
 
 export const SURVEYS: SurveyConfigObject = {
+  CONTACT: {
+    formSchema: contact_FormSchema,
+    uiSchema: contact_UiSchema,
+    navSchema: contact_NavSchema,
+  },
   DEMOGRAPHIC: {
     formSchema: demographic_FormSchema,
     uiSchema: demographic_UiSchema,

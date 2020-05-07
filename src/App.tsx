@@ -45,9 +45,16 @@ import ResultsUpload from './components/ResultsUpload'
 const theme = createMuiTheme({
   typography: {
     // Tell Material-UI what's the font-size on the html element is.
-    
+
     htmlFontSize: 10,
-    fontFamily: ['Source Serif Pro', 'serif', 'Lato', 'Roboto', 'Helvetica', 'Arial'].join(','),
+    fontFamily: [
+      'Source Serif Pro',
+      'serif',
+      'Lato',
+      'Roboto',
+      'Helvetica',
+      'Arial',
+    ].join(','),
   },
   palette: {
     primary: {
@@ -212,7 +219,6 @@ function App() {
                               setUserSession(undefined, '', false)
                             }
                           ></TopNav>
-                      
                         </Grid>
                       )
                   }}
@@ -268,18 +274,26 @@ function App() {
                     <PrivateRoute exact={true} path="/dashboard">
                       <Dashboard token={token || ''} />
                     </PrivateRoute>
-{/*todo make private */}
+                    {/*todo make private */}
                     <Route exact={true} path="/consent">
                       <Consent
                         token={token || ''}
                         name={getSession()?.name || ''}
                       />
                     </Route>
-{/*todo make private */}
+                    {/*todo make private */}
                     <Route exact={true} path="/consentehr">
                       <ConsentEHR token={token || ''} />
                     </Route>
-{/*todo make private */}
+                    {/*todo make private */}
+                    <Route exact={true} path="/contact">
+                      <SurveyWrapper
+                        formTitle="Tell us about yourself"
+                        token={token || ''}
+                        surveyName={'CONTACT'}
+                        formClass="crc"
+                      ></SurveyWrapper>
+                    </Route>
                     <Route exact={true} path="/survey1">
                       <SurveyWrapper
                         formTitle="Tell us about yourself"
@@ -305,7 +319,7 @@ function App() {
                       ></SurveyWrapper>
                     </Route>
                     <Route exact={true} path="/survey4">
-                    <SurveyWrapper
+                      <SurveyWrapper
                         formTitle="COVID Part II"
                         token={token || ''}
                         surveyName={'MORE'}

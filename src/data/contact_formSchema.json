@@ -1,0 +1,65 @@
+{
+  "definitions": {
+    "address": {
+      "type": "object",
+   
+      "properties": {
+
+        "street_address": {
+          "title": "Street address",
+          "type": "string"
+        },
+        "city": {
+          "title": "City",
+          "type": "string"
+        },
+        "state": {
+          "title": "State",
+          "type": "string",
+          "enum": [
+            "NY",
+            "NJ",
+           "CT"
+          ]
+        },
+        "zip": {
+          "title": "Zip code",
+          "type": "string",
+    
+         
+          "uniqueItems": true
+        }
+      },
+      "required": ["street_address", "city", "state", "zip"]
+    },
+
+    "contact": {
+      "type": "object",
+      "required": [
+        "address",
+       
+        "birthdate"
+      ],
+      "properties": {
+        "address": {
+          "title": "What is your mailing address?",
+          "$ref": "#/definitions/address"
+        },
+
+        "birthdate": {
+          "type": "string",
+          "title": "What is your date of birth?"
+        }
+      
+      }
+    }
+  
+  },
+  "type": "object",
+  "properties": {
+    "contact": {
+      "title": "",
+      "$ref": "#/definitions/contact"
+    }
+  }
+}
