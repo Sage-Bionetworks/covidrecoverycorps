@@ -79,6 +79,16 @@
     //AG54display: block;
   }
 
+  .checkbox label {
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox label > span {
+    display:flex;
+    align-items: center;
+  }
+
   div.radio > label span span {
     padding-left: 27px;
   }
@@ -132,7 +142,7 @@
 
   select {
     height: 40px;
-    border: 1px solid black;
+    border: 1px solid black !important;
     border-radius: 0;
     padding: 10px 20px;
   }
@@ -154,6 +164,11 @@
       margin-bottom: 10px;
     }
   }
+
+
+
+
+  margin-right: 8px;
   .demographic {
     .birthdate > ul {
       display: flex;
@@ -171,9 +186,14 @@
         width: 100%;
 
         .zip {
-          float: left;
+          float: right;
           width: 60%;
           padding-left: 5px;
+          &.form-group.field-error {
+            margin-left: 0;
+            padding-left: 15px;
+            border-left: none
+          }
         }
         .state {
           float: left;

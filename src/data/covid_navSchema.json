@@ -8,7 +8,7 @@
     },
     {
       "id": "habits",
-      "order": 20,
+      "order": 1,
       "title": "",
       "default": "medications"
     },
@@ -16,7 +16,7 @@
       "id": "symptoms2",
       "order": 5,
       "title": "",
-      "default": "habits",
+      "default": "hospitalization",
       "rules": [
         {
           "conditions": {
@@ -45,10 +45,10 @@
     },
     {
       "id": "symptoms",
-      "order": 1,
+      "order": 10,
       "title": "",
       "validationRules": [],
-      "default": "done"
+      "default": "symptoms2"
     },
     {
       "id": "hospitalization",
