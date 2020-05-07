@@ -41,6 +41,7 @@ import Contact from './components/static/Contact'
 import FAQs from './components/static/FAQs'
 import { TopNav } from './components/widgets/TopNav'
 import ResultsUpload from './components/ResultsUpload'
+import AcountSettings from './components/AccountSettings'
 
 const theme = createMuiTheme({
   typography: {
@@ -315,6 +316,9 @@ function App() {
                     </Route>
                     <Route path="/contact">
                       <Contact></Contact>
+                    </Route>
+                    <Route path="/settings">
+                      <AcountSettings></AcountSettings>
                     </Route>
                     <Route path="/home">
                       <Intro token={token || null}></Intro>

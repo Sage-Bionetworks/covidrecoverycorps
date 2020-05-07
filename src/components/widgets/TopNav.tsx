@@ -73,6 +73,11 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
         <NavLink to="/contact" activeClassName="active">
           Contact
         </NavLink>
+        {token && (
+          <NavLink to="/settings" activeClassName="active">
+            Settings
+          </NavLink>
+        )}
         <a
           onClick={() => {
             setTopClicked((prev) => !prev)
