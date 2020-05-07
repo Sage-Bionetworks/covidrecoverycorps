@@ -8,8 +8,6 @@ import {
   ErrorListProps,
 } from 'react-jsonschema-form'
 
-
-
 import {
   Step,
   StepStateEnum,
@@ -28,6 +26,7 @@ import SummaryTable from './SummaryTable'
 import WarningModal from './WarningModal'
 import Switch from 'react-switch'
 import { Prompt } from 'react-router-dom'
+import { getUiOptions } from 'react-jsonschema-form/lib/utils'
 
 export interface IFormData {
   [key: string]: {
@@ -79,6 +78,59 @@ type SynapseFormState = {
 export interface SummaryFormat {
   label: string
   value: string
+}
+
+function ObjectFieldTemplate(props: any) {
+  const canExpand = function canExpand() {
+    const { formData, schema, uiSchema } = props
+    if (!schema.additionalProperties) {
+      return false
+    }
+    // @ts-ignore
+    const { expandable } = getUiOptions(uiSchema)
+    if (expandable === false) {
+      return expandable
+    }
+    // if ui:options.expandable was not explicitly set to false, we can add
+    // another property if we have not exceeded maxProperties yet
+    if (schema.maxProperties !== undefined) {
+      return Object.keys(formData).length < schema.maxProperties
+    }
+    return true
+  }
+
+  const { TitleField, DescriptionField } = props
+  return (
+    <div className="fieldset" id={props.idSchema.$id}>
+      {(props.uiSchema['ui:title'] || props.title) && (
+        <TitleField
+          id={`${props.idSchema.$id}__title`}
+          title={props.title || props.uiSchema['ui:title']}
+          required={props.required}
+          formContext={props.formContext}
+        />
+      )}
+      {props.description && (
+        <DescriptionField
+          id={`${props.idSchema.$id}__description`}
+          description={props.description}
+          formContext={props.formContext}
+        />
+      )}
+
+      {
+        //@ts-ignore
+        props.properties.map((prop: { content: any }) => prop.content)
+      }
+      {canExpand() && (
+        <button
+          className="object-property-expand"
+          onClick={props.onAddClick(props.schema)}
+          disabled={props.disabled || props.readonly}
+        />
+      )}
+    </div>
+  )
 }
 
 export default class SynapseForm extends React.Component<
@@ -155,13 +207,11 @@ export default class SynapseForm extends React.Component<
   }
 
   onUnload = (ev: any) => {
-
-      if (this.state.hasUnsavedChanges) {
-        ev.preventDefault()
-        return (ev.returnValue = this.unsavedDataWarning)
-      }
-      return
- 
+    if (this.state.hasUnsavedChanges) {
+      ev.preventDefault()
+      return (ev.returnValue = this.unsavedDataWarning)
+    }
+    return
   }
   // Setup the `beforeunload` event listener
   setupBeforeUnloadListener = () => {
@@ -708,6 +758,7 @@ export default class SynapseForm extends React.Component<
     const allRules: any[] = []
     rules.forEach((rule) => {
       //take a rule
+
       const paramProp = rule.event.params.property
       // if it's just a normal rule - add it
       if (paramProp.indexOf('[*]') === -1) {
@@ -715,6 +766,7 @@ export default class SynapseForm extends React.Component<
       } else {
         const path = paramProp.split('[*]')[0].substring(1)
         const data = _.get(formData, path)
+        console.log(data)
         // generate a rule for each item in the data array by substituting [*] w/ appropriate index
         if (Array.isArray(data) && typeof data !== 'string') {
           for (let i = 0; i < data.length; i++) {
@@ -728,14 +780,25 @@ export default class SynapseForm extends React.Component<
         }
       }
     })
-    // no we run  all the rules through the engine
-    const engine = new Engine(allRules, {
-      allowUndefinedFacts: true,
+    // check if we have something selected
+    const engine = new Engine()
+    engine.addOperator('notHasChecked', (factValue: any, value: any) => {
+      if (!factValue) {
+        return true
+      }
+
+      const vals = Object.values(factValue).filter((fv) => fv === value)
+
+      return vals.length === 0
+    })
+    allRules.forEach((rule) => {
+      engine.addRule(rule)
     })
 
     try {
       const result: RulesResult = await engine.run(data)
       const validationEvents = result.events as IRulesValidationEvent[]
+      console.log(result)
       validationEvents.forEach((event) => {
         const err: AjvError = {
           ...event.params,
@@ -942,6 +1005,7 @@ export default class SynapseForm extends React.Component<
                     }
                     ErrorList={this.renderErrorListTemplate}
                     transformErrors={this.transformErrors}
+                    ObjectFieldTemplate={ObjectFieldTemplate}
                     ref={this.formRef}
                     disabled={
                       this.state.currentStep.excluded || this.state.isSubmitted
@@ -952,7 +1016,9 @@ export default class SynapseForm extends React.Component<
                     </div>
                   </Form>
                   {this.renderTextForStaticScreen()}
-                  {this.state.doShowErrors && <div className="error">Responses required above</div>}
+                  {this.state.doShowErrors && (
+                    <div className="error">Responses required above</div>
+                  )}
                   {!this.props.isWizardMode && (
                     <NextStepLink
                       steps={this.state.steps}
@@ -999,7 +1065,7 @@ export default class SynapseForm extends React.Component<
             }
           ></WarningModal>
         )}
-        <DataDebug formData={this.state.formData} hidden={true}></DataDebug>
+        <DataDebug formData={this.state.formData} hidden={false}></DataDebug>
       </div>
     )
   }

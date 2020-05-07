@@ -1,0 +1,53 @@
+{
+  "definitions": {
+    "attributes": {
+      "type": "object",
+      "required": ["address", "city", "state", "zip_code", "gender", "dob"],
+      "properties": {
+        "address": {
+          "title": "Street address",
+          "type": "string"
+        },
+        "city": {
+          "title": "City",
+          "type": "string"
+        },
+        "state": {
+          "title": "State",
+          "type": "string",
+          "enum": ["NY", "NJ", "CT"]
+        },
+        "zip_code": {
+          "title": "Zip code",
+          "type": "string",
+
+          "uniqueItems": true
+        },
+        "gender": {
+          "type": "string",
+          "title": "What  was your biological sex assigned at birth?",
+          "enum": [
+            "Female",
+            "Male",
+            "Intersex",
+            "Other",
+            "Prefer not to answer"
+          ],
+          "uniqueItems": true
+        },
+
+        "dob": {
+          "type": "string",
+          "title": "What is your date of birth?"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "title": "",
+      "$ref": "#/definitions/attributes"
+    }
+  }
+}

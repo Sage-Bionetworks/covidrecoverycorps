@@ -51,7 +51,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = ({
       <div>
           <FloatingToolbar closeLinkDestination='/dashboard' closeIcon={faAngleLeft}>Account Settings</FloatingToolbar>
       </div>
-      <Link to='/contact'>
+      <Link to='/contactinfo'>
         <Button
           style={{width: '100%', marginTop: '4rem'}}
           variant='contained'

@@ -1,18 +1,7 @@
 {
   "about": {
     "classNames": "demographic",
-    "address": {
-      "classNames": "address",
-      "zip": {
-        "classNames": "zip"
-      },
-      "state": {
-        "classNames": "state"
-      }
-     
-    },
-   
-  
+
     "biological_sex": {
       "ui:widget": "radio",
       "ui:options": {
@@ -48,18 +37,6 @@
       "ui:options": {
         "inline": false
       }
-    },
-    
-    "birthdate":{
-      "classNames": "birthdate",
-      "ui:widget": "alt-date",
-      "ui:options": {
-        "yearsRange": [1910, 2001],
-        "hideNowButton": true,
-        "hideClearButton": true
-      }
-
-
     }
   },
   "registration": {}
