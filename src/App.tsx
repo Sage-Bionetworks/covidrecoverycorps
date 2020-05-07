@@ -29,7 +29,7 @@ import { getSession, callEndpoint } from './helpers/utility'
 import Intro from './components/static/Intro'
 import Dashboard from './components/Dashboard'
 
-import { SESSION_NAME, ENDPOINT, LoggedInUserData } from './types/types'
+import { SESSION_NAME } from './types/types'
 import ConsentEHR from './components/consent/ConsentEHR'
 import About from './components/static/About'
 
@@ -37,7 +37,7 @@ import Team from './components/static/Team'
 import Contact from './components/static/Contact'
 import FAQs from './components/static/FAQs'
 import { TopNav } from './components/widgets/TopNav'
-import ResultsUpload from './components/ResultsUpload'
+import { UserService } from './services/user.service'
 import AcountSettings from './components/AccountSettings'
 
 const theme = createMuiTheme({
@@ -105,19 +105,13 @@ function App() {
 
   useEffect(() => {
     let isSubscribed = true
+    //the whole point of this is to log out the user if their session ha expired on the servier
     async function getInfo(token: string | undefined) {
       if (token && isSubscribed) {
         try {
-          const response = await callEndpoint<LoggedInUserData>(
-            `${ENDPOINT}/v3/participants/self`,
-            'GET',
-            {},
-            token
-          )
+          await UserService.getUserInfo(token)
         } catch (e) {
           setUserSession(undefined, '', false)
-          //alert(e.message)
-          // return <Redirect to="/"></Redirect>
         }
       }
     }
@@ -199,7 +193,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                (Tue:11:10)
+                (Thursd:14:30)
               </nav>
               <Grid
                 container
@@ -287,7 +281,7 @@ function App() {
                       <ConsentEHR token={token || ''} />
                     </Route>
                     {/*todo make private */}
-                    <Route exact={true} path="/contact">
+                    <Route exact={true} path="/contactinfo">
                       <SurveyWrapper
                         formTitle="Tell us about yourself"
                         token={token || ''}

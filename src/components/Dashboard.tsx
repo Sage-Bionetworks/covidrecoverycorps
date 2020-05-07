@@ -33,6 +33,13 @@ type UISurvey = {
 
 const surveys: UISurvey[] = [
   {
+    type: 'CONTACT',
+    title: 'Survey1',
+    description: 'Contact',
+    time: 2,
+    link: '/contactinfo',
+  },
+  {
     type: 'DEMOGRAPHIC',
     title: 'Survey 1',
     description: 'Tell us about yourself',

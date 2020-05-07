@@ -16,7 +16,7 @@
       "id": "symptoms2",
       "order": 5,
       "title": "",
-      "default": "hospitalization",
+      "default": "habits",
       "rules": [
         {
           "conditions": {
@@ -77,9 +77,35 @@
     },
     {
       "id": "hospitalization",
-      "order": 11,
+      "order": 8,
       "title": "",
-      "default": "habits"
+      "default": "habits",
+      "validationRules": [
+
+      
+        {
+          "conditions": {
+            "all": [
+              {
+                "fact": "hospitalization",
+                "operator": "notHasChecked",
+                "path": ".hospitalization_treatment",
+                "value": true
+              }
+            ]
+          },
+          "event": {
+            "type": "validation",
+            "params": {
+              "message": "   ",
+              "name": "required",
+              "property": "hospitalization.hospitalization_treatment"
+            }
+          },
+          "priority:": 1
+        }
+
+    ]
     },
     {
       "id": "done",
