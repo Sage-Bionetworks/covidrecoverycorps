@@ -31,9 +31,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
   onErrorFn,
 }: RegistrationProps) => {
   const stateSchema = {
-    firstName: { value: '', error: '' },
-
-    lastName: { value: '', error: '' },
+ 
     email: { value: '', error: '' },
     phone: { value: '', error: '' },
     registrationType: { value: 'EMAIL', error: '' },
@@ -50,12 +48,6 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
     },
     registrationType: {},
 
-    firstName: {
-      required: true,
-    },
-    lastName: {
-      required: true,
-    },
   }
 
   const submitRegistration = async (registrationData: RegistrationData) => {
@@ -73,8 +65,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
 
     //register
     const data: RegistrationData = {
-      firstName: state.firstName.value,
-      lastName: state.lastName.value,
+
       email: state.email.value,
       phone: state.phone.value ? makePhone(state.phone.value) : undefined,
       clientData: {},
@@ -136,32 +127,8 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
         </p>
         <hr></hr>
         <form className="demoForm" onSubmit={handleOnSubmit}>
-          <div className="form-group">
-            <label>What is your first name?</label>
-            <TextField
-              variant="outlined"
-              type="text"
-              fullWidth
-              label="What is your first name"
-              value={state.firstName.value}
-              onChange={handleOnChange}
-              name="firstName"
-            />
-          </div>
-          <div className="form-group">
-            <label>What is your last name?</label>
-            <TextField
-              variant="outlined"
-              type="text"
-              fullWidth
-              value={state.lastName.value}
-              onChange={handleOnChange}
-              label="What is your last name"
-              name="lastName"
-            />
-          </div>
-
-          <hr></hr>
+        
+      
 
           <div className="form-group">
             <label htmlFor="registrationType">

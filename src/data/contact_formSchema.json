@@ -1,5 +1,18 @@
 {
   "definitions": {
+    "data": {
+      "type": "object",
+      "required": ["attributes", "firstName", "lastName"],
+      "properties": {
+      "firstName": {
+        "type": "string",
+        "title": "Please enter your first name"
+      },
+      "lastName": {
+        "type": "string",
+        "title": "Please enter your last name"
+      },
+
     "attributes": {
       "type": "object",
       "required": ["address", "city", "state", "zip_code", "gender", "dob"],
@@ -23,6 +36,11 @@
 
           "uniqueItems": true
         },
+
+        "dob": {
+          "type": "string",
+          "title": "What is your date of birth?"
+        },
         "gender": {
           "type": "string",
           "title": "What  was your biological sex assigned at birth?",
@@ -34,20 +52,16 @@
             "Prefer not to answer"
           ],
           "uniqueItems": true
-        },
-
-        "dob": {
-          "type": "string",
-          "title": "What is your date of birth?"
         }
-      }
-    }
+
+      }}
+    }}
   },
   "type": "object",
   "properties": {
-    "attributes": {
-      "title": "",
-      "$ref": "#/definitions/attributes"
+    "data": {
+  
+      "$ref": "#/definitions/data"
     }
   }
 }

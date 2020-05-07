@@ -24,13 +24,11 @@ import LearnMore from '../widgets/LearnMore'
 export type ConsentProps = {
   token: string
   setConsentFn?: Function
-  name: string
+
 }
 
 export const Consent: React.FunctionComponent<ConsentProps> = ({
-  token,
-  setConsentFn,
-  name,
+  token
 }: ConsentProps) => {
   const [isInfoDone, setIsInfoDone] = useState(false)
   const [isConsentDone, setIsConsentDone] = useState(false)
@@ -148,7 +146,6 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     <div className="Consent">
       {!isInfoDone && (
         <ConsentInfo
-          name={name}
           onDone={() => setIsInfoDone(true)}
         ></ConsentInfo>
       )}

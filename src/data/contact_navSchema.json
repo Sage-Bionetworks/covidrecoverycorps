@@ -1,7 +1,7 @@
 {
   "steps": [
     {
-      "id": "attributes",
+      "id": "data",
       "order": 5,
       "title": "",
       "default": "done"
