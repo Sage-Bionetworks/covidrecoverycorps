@@ -3,8 +3,7 @@ import { Button } from '@material-ui/core'
 import Modal from 'react-bootstrap/Modal'
 
 export type ConfirmationModalProps = {
-  mainCopy: string | JSX.Element
-  topSecondaryCopy?: string | JSX.Element
+  content: JSX.Element
   confirmCopy?: string
   cancelCopy?: string
   className?: string
@@ -17,12 +16,7 @@ export default function ConfirmationModal(props: ConfirmationModalProps) {
   return (
     <Modal show={props.show} animation={false} className={props.className}>
       <Modal.Body>
-        <p>
-          {props.topSecondaryCopy}
-        </p>
-        <h2 className="modal--main-copy">
-          {props.mainCopy}
-        </h2>
+        {props.content}
         <div className="buttons--vertical-stack">
           <Button
             onClick={() => props.onOK()}

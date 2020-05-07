@@ -273,8 +273,11 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       {isShowingCancelConfirmation && (
           <ConfirmationModal
             show={true}
-            topSecondaryCopy={'Sometimes people press things on accident, so we wanted to check...'}
-            mainCopy={<div>Are you sure, you want to <strong>cancel</strong> your <strong>consent form</strong>?</div>}
+            content={
+              <div>
+                <p>Sometimes people press things on accident, so we wanted to check...</p>
+                <h2 style={{marginTop: '4rem'}}>Are you sure, you want to <strong>cancel</strong> your <strong>consent form</strong>?</h2>
+              </div>}
             onCancel={() => 
               // hide cancel confirmation
               setIsShowingCancelConfirmation(false)
