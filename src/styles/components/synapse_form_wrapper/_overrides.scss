@@ -1,14 +1,46 @@
-.SRC-ReactJsonForm {
+.theme-crc .SRC-ReactJsonForm {
   $font-size: 1.6rem;
   $red-error: #ff6d6d;
   $red-error2: #ff6d6d;
 
+  .scroll-area {
+    overflow-x: auto;
+    padding: 0px 25px;
+  }
 
-
-  table.summary-table>tbody>tr:first-child>td {
+  table.summary-table > tbody > tr:first-child > td {
     border-top: none;
   }
 
+  .form-group.field-error {
+    margin-left: -15px;
+    padding-left: 15px;
+    border-left: 10px solid #ff6d6d;
+
+    &.has-error {
+      .checkbox,
+      .checkbox-inline,
+      .radio,
+      .radio-inline,
+      .checkbox label,
+      .checkbox-inline label,
+      .radio label,
+      .radio-inline label {
+        color: unset;
+      }
+
+      .control-label::before {
+        font-family: 'Glyphicons Halflings';
+        font-weight: 900;
+        content: '\e101';
+        font-size: 1.2rem;
+        margin-right: 5px;
+      }
+    }
+  }
+  .form-error-summary {
+    display: none;
+  }
   .error {
     color: $red-error;
   }
@@ -17,7 +49,7 @@
   }
   div.checkbox,
   div.radio {
-    padding: 0; //10px 10px 10px 0;
+    padding: 10px 0; // 10px 10px 10px 0;
     border: 1px solid black;
     min-width: 27px;
 
@@ -29,20 +61,53 @@
 
     > label span span {
       min-height: 20px;
-      padding: 10px 20px 10px 10px;
+      //padding: 10px 20px 10px 10px;
       margin-bottom: 0;
       font-weight: 400;
       cursor: pointer;
     }
   }
   div.checkbox {
-    padding: 10px 0;
+   // padding: 10px 10px 10px 0;
+    margin-bottom: 10px;
   }
+
+ 
   .checkbox label,
   .radio label {
     padding: 0;
     //AG54display: block;
   }
+
+  .checkbox label {
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox label > span {
+    display:flex;
+    align-items: center;
+  }
+
+  div.radio > label span span {
+    padding-left: 27px;
+  }
+
+  .checkbox > label::before {
+    margin-right: 8px;
+  }
+
+  input[type='checkbox']:checked + label::before, 
+  input[type='checkbox']:checked + span::before {
+    
+    margin-right: 12px;
+    margin-left: -23px;
+
+}
+.radio input[type='radio']:checked + label::before,
+.radio input[type='radio']:checked + span::before 
+{margin-right: 12px}
+
   /*.checkbox input[type='checkbox'],
   .checkbox-inline input[type='checkbox'],
   .radio input[type='radio'],
@@ -52,10 +117,10 @@
     margin-left: -20px;
   }*/
 
-  input[type='checkbox'],
-  input[type='radio'] {
-    // display: none; AG54
-  }
+  // input[type='checkbox'],
+  // input[type='radio'] {
+  // display: none; AG54
+  //}
 
   /*input[type='checkbox']:checked + span,
   input[type='radio']:checked + span {
@@ -63,10 +128,10 @@
     color: #fff;
   }*/
 
-  .form-group > .checkbox > label > span {
+  /*  .form-group > .checkbox > label > span {
     min-height: 20px;
     padding: 10px 20px 10px 10px;
-  }
+  }*/
 
   input[type='text'] {
     min-height: 40px;
@@ -77,9 +142,125 @@
 
   select {
     height: 40px;
-    border: 1px solid black;
+    border: 1px solid black !important;
     border-radius: 0;
     padding: 10px 20px;
+  }
+
+  ///////overrides
+
+  .show_fieldSet {
+    legend {
+      display: block !important;
+    }
+    .form-group.field-boolean {
+      margin-bottom: 0;
+      .checkbox {
+        margin-bottom: 5px;
+        margin-top: 0px;
+      }
+    }
+    .form-group.field-string {
+      margin-bottom: 10px;
+    }
+  }
+
+
+
+
+  margin-right: 8px;
+  .demographic {
+    .birthdate > ul {
+      display: flex;
+    }
+
+    .address {
+      display: flex;
+      width: 100%;
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      > fieldset {
+        width: 100%;
+
+        .zip {
+          float: right;
+          width: 60%;
+          padding-left: 5px;
+          &.form-group.field-error {
+            margin-left: 0;
+            padding-left: 15px;
+            border-left: none
+          }
+        }
+        .state {
+          float: left;
+          width: 40%;
+        }
+      }
+    }
+  }
+
+  .symptoms {
+    .form-group.field-boolean {
+      margin-bottom: 0;
+      > .checkbox {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
+    .form-group.field-string {
+      margin-bottom: 5px;
+    }
+  }
+
+  .covid2 {
+    &_covid1 {
+      .household_size {
+        fieldset {
+          width: 100%;
+        }
+        .field-number {
+          width: 25%;
+          float: left;
+          margin-right: 5px;
+        }
+        .field-boolean {
+          clear: left;
+          margin-right: 5px;
+          .checkbox {
+            border: none;
+            color: #515359;
+          }
+
+          .checkbox > label::before {
+            margin-left: 0 !important;
+          }
+        }
+      }
+      .people_diagnosed {
+        .form-group.field-number {
+          display: flex;
+          label {
+            flex-basis: 60%;
+          }
+          input {
+            flex-basis: 20%;
+            margin-right: 5px;
+          }
+        }
+        .checkbox {
+          border: none;
+          color: #515359;
+        }
+
+        .checkbox > label::before {
+          margin-left: 0 !important;
+        }
+      }
+    }
   }
 }
 
@@ -98,6 +279,7 @@
   input[type='radio'] {
     display: none;
   }
+  
   .checkbox > label::before,
   .radio::before,
   .radio-inline::before {
@@ -133,7 +315,7 @@
     content: '✓';
     color: $primary-action-color;
     font-size: 14px;
-    margin-left: -29px;
+    margin-left: -19px;
     top: 1px;
     position: relative;
     margin-right: 18px;
@@ -167,52 +349,5 @@
   .checkbox label,
   .radio label {
     padding-left: 0px;
-  }
-
-  .SRC-ReactJsonForm {
-    .demographic {
-      .birthdate > ul {
-        display: flex;
-      }
-
-      .address {
-        display: flex;
-        width: 100%;
-     
-          .form-group {
-            margin-bottom: 1rem;
-          }
-        
-        > fieldset {
-          width: 100%;
-
-          .zip {
-            float: left;
-            width: 60%;
-            padding-left: 5px;
-          }
-          .state {
-            float: left;
-            width: 40%;
-          }
-        }
-      }
-    }
-
-    .symptoms {
-      .form-group.field-boolean {
-        margin-bottom: 0;
-        > .checkbox {
-          margin-top: 5px;
-          margin-bottom: 5px;
-        }
-      }
-      .form-group.field-string {
-        margin-bottom: 5px;
-      }
-    }
-    .showTitle legend {
-      display: block !important;
-    }
   }
 }

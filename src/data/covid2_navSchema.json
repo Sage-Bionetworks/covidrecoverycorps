@@ -1,0 +1,48 @@
+{
+  "steps": [
+    {
+      "id": "covid1",
+      "order": 1,
+      "title": "",
+      "default": "done"
+    },
+    {
+      "id": "antibiotics_cold",
+      "order": 10,
+      "title": "",
+      "default": "hygene"
+    },
+    {
+      "id": "hygene",
+      "order": 10,
+      "title": "",
+      "default": "life_pets"
+    },
+    {
+        "id": "life_pets",
+        "order": 10,
+        "title": "",
+        "validationRules": [],
+        "default": "job_commute"
+      },
+      {
+        "id": "job_commute",
+        "order": 10,
+        "title": "",
+        "validationRules": [],
+        "default": "done"
+      },
+    
+   
+    {
+      "id": "done",
+      "order": 90,
+      "final": true,
+      "title": "Done",
+      "default": null,
+      "description": "<p>You are about to submit the form. Once you submit, you will no longer be able to edit the submission. </p>",
+      "presubmission_description": "Below is all of the data you have entered. Please check it for correctness before submission.",
+      "rules": []
+    }
+  ]
+}

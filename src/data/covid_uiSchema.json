@@ -1,53 +1,70 @@
 {
   "symptoms": {
+
     "classNames": "symptoms",
-    "ui:order": [
-      "cough",
-      "cough_duration",
-      "fever",
-      "fever_duration",
-      "fever_highest",
-      "shortness_breath",
-      "shortness_breath_duration",
-      "chest_pain",
-      "chest_pain_duration",
-      "night_sweats",
-      "night_sweats_duration",
-      "chills",
-      "chills_duration",
-      "rash",
-      "rash_duration",
-      "fatigue",
-      "headache",
-      "muscle_pain",
-      "runny_nose",
-      "sore_throat",
-      "diarrhea",
-      "nausea_vomiting",
-      "abdominal_pain",
-      "foamy_urine",
-      "foamy_urine_duration",
-      "red_urine",
-      "red_urine_duration",
-      "loss_of_smell",
-      "loss_of_smell_duration",
-      "loss_of_taste",
-      "loss_of_taste_duration",
-      "hallucinations",
-      "loss_of_consciousness",
-      "seizures",
-      "prefer_not_answer","other"
-      
-
-
-
-    ],
-    "symptoms": {
+   
+ 
+      "symptoms_list": {
+        "ui:order": [
+          "cough",
+          "cough_duration",
+          "fever",
+          "fever_duration",
+          "fever_highest",
+          "shortness_breath",
+          "shortness_breath_duration",
+          "chest_pain",
+          "chest_pain_duration",
+          "night_sweats",
+          "night_sweats_duration",
+          "chills",
+          "chills_duration",
+          "rash",
+          "rash_duration",
+          "fatigue",
+          "headache",
+          "muscle_pain",
+          "runny_nose",
+          "sore_throat",
+          "diarrhea",
+          "nausea_vomiting",
+          "abdominal_pain",
+          "foamy_urine",
+          "foamy_urine_duration",
+          "red_urine",
+          "red_urine_duration",
+          "loss_of_smell",
+          "loss_of_smell_duration",
+          "loss_of_taste",
+          "loss_of_taste_duration",
+          "hallucinations",
+          "loss_of_consciousness",
+          "seizures",
+          "no_symptoms",
+          "prefer_not_answer","other"
+          
+    
+    
+    
+        ],
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
       }
+     ,
+
+    "cough": {
+      "ui:widget": "checkbox",
+      "ui:options": {
+        "inline": false
+      }
+
+    },
+    "cough_duration": {
+      "ui:title": "For how many days did you cough"
     }
+  }
+   
   },
   "symptoms2": {
     "ui:order": [ "symptoms_start", "first_day","last_day","kind_of_testing", "nasal_swab_date", "nasal_swab_result", "serum_test_date", "serum_test_result","how_was_it_treated"],
@@ -83,15 +100,30 @@
     }
   },
   "hospitalization": {
-    "ui:order": ["hospitals","hospitalization_treatment"],
+  
+    "hospitals": {
+      "ui:widget": "checkboxes",
+      "ui:options": {
+        "inline": false
+      }
+    },
     "hospitalization_treatment" : {
       "ui:order":["oxigen", "oxigen_days",  "oxigen_mask", "oxigen_mask_days", "ventilator", "ventilator_days", "kidney_dialysis", "kidney_dialysis_days", "heart_cathetirization", "liver_problem","blood_clots","septic_shock", "stroke",  "encepalitis",
       "other", "other_answer", "prefer_not_answer"],
-      "classNames":  "showTitle"
+      "classNames":  "show_fieldSet"
     }
 
   },
   "habits": {
+    "ui:order": ["sexual_orientation", "smoking", "smoking_how_many_cigarettes", "vaping", "alcohol", "anxiety", "worry", "loneliness"],
+    "sexual_orientation":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    
+    },
+   
     "smoking":{
       "ui:widget": "radio",
       "ui:options": {
@@ -104,7 +136,52 @@
       "ui:options": {
         "inline": false
       }
-    
+    },
+    "alcohol":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "anxiety":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "worry":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "loneliness":{
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
     }
+  },
+  "medications": {
+    "regular_medications": {
+      "ui:widget": "checkboxes",
+      "ui:options": {
+        "inline": false
+      }
+    },
+ 
+    "covid_medications": {
+      "ui:widget": "checkboxes"
+    },
+
+    "hydroxychloroquine": {
+      "ui:widget": "radio"
+    },
+    "hydroxychloroquine_side_effects": {
+      "ui:widget": "checkboxes"
+
+    }
+ 
+
   }
 }
