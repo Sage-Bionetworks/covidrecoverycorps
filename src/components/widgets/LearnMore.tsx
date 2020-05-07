@@ -18,7 +18,6 @@ export const LearnMore: React.FunctionComponent<LearnMoreProps> = (
         className="learnMoreToggle"
         style={{
           display: isShowingLearnMore ? 'none' : 'block',
-          marginBottom: '4rem',
         }}
       >
         <div>
@@ -30,7 +29,6 @@ export const LearnMore: React.FunctionComponent<LearnMoreProps> = (
         className="learnLessToggle"
         style={{
           display: isShowingLearnMore ? 'flex' : 'none',
-          marginBottom: '4rem',
         }}
       >
         {props.children}

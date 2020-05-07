@@ -14,6 +14,7 @@ export const ConsentService = {
   updateMySharingScope,
   signGeneralConsent,
   signEhrConsent,
+  withdrawEhrConsent,
   SHARE_SCOPE_PARTNERS,
   SHARE_SCOPE_ALL,
   SUBPOP_GUID,
@@ -76,19 +77,14 @@ async function signEhrConsent(
 }
 
 async function withdrawEhrConsent(
-  name: string,
-  scope: string,
   token: string
 ): Promise<any> {
   const data = {
-    name,
-
-    scope,
-    signedOn: moment().toLocaleString(),
+    // could add a reason
   }
 
   const result = await callEndpoint(
-    `${ENDPOINT}/v3/subpopulations/${HIPAA_SUBPOP_GUID}/consents/signature`,
+    `${ENDPOINT}/v3/subpopulations/${HIPAA_SUBPOP_GUID}/consents/signature/withdraw`,
     'POST',
     data,
     token

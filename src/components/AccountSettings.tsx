@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FloatingToolbar from './widgets/FloatingToolbar';
 import LearnMore from './widgets/LearnMore';
 import ConfirmationModal from './widgets/ConfirmationModal';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { ConsentService } from '../services/consent.service'
 import { UserService } from '../services/user.service';
 import { LoggedInUserData } from '../types/types';
@@ -38,6 +38,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
   const [isShareScopeAll, setIsShareScopeAll] = useState<boolean | undefined>()
   const [isEhrConsented, setIsEhrConsented] = useState<boolean | undefined>()
   const [isShowingWithdrawConfirmation, setIsShowingWithdrawConfirmation] = useState<boolean | undefined>(false)
+  const [isRedirectingToEhr, setIsRedirectingToEhr] = useState<boolean | undefined>(false)
   
   // initialize check box values
   useEffect(() => {
@@ -47,6 +48,8 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
         const userInfoResponse = await UserService.getUserInfo(token)
         const isCurrentlySharingAll = ConsentService.SHARE_SCOPE_ALL == userInfoResponse.data.sharingScope
         setIsShareScopeAll(_prev => isCurrentlySharingAll)
+        const isEhrConsented = userInfoResponse.data.dataGroups && userInfoResponse.data.dataGroups.includes('hipaa_consented')
+        setIsEhrConsented(_prev => isEhrConsented)
       }
     }
     getInfo(props.token)
@@ -54,7 +57,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
       isSubscribed = false
     }
   }, [])
-
+  
   const handleConsentChange = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
     const newScope = checked ? ConsentService.SHARE_SCOPE_ALL : ConsentService.SHARE_SCOPE_PARTNERS
     ConsentService.updateMySharingScope(
@@ -67,12 +70,29 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
     })
   }
   const handleEhrConsentChange = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
-    alert('handleEhrConsentChange todo')
+    if (checked) {
+      //sign
+      // we need the full participant name, right?
+      // ConsentService.signEhrConsent(fullName,ConsentService.SHARE_SCOPE_PARTNERS, props.token).then(()=> {
+      //   setIsEhrConsented(_prev => true)
+      // })
+      setIsRedirectingToEhr(true)
+    } else {
+      //unsign
+      ConsentService.withdrawEhrConsent(props.token).then(()=> {
+          setIsEhrConsented(_prev => false)
+        })
+    }
   }
+  if (isRedirectingToEhr) {
+    return <Redirect to='/consentehr' />
+  }
+
   const handleOnWithdrawFromStudyClick = () => {
     alert('handleOnWithdrawFromStudyClick todo')
     setIsShowingWithdrawConfirmation(false)
   }
+  
   return (
     <>
       <div>
@@ -103,17 +123,21 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
             </LearnMore>
           </>
         )}
-        
-        <FormControlLabel
-          control={<BlueSwitch checked={isEhrConsented} color='primary' onChange={handleEhrConsentChange} name='checkEhrConsent' />}
-          label='Share my electronic health records'
-        />
-        <LearnMore learnMoreText='Learn more'>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan accumsan vehicula. Donec porttitor ullamcorper dolor at accumsan. Pellentesque id libero blandit, porttitor lectus elementum, rutrum risus. Vivamus at malesuada mi. Suspendisse potenti. Phasellus eget enim porttitor, sagittis massa ac, semper lorem. Integer tortor tortor, volutpat id eros a, mattis tincidunt nisl. Praesent efficitur leo quis ornare mattis.
-          </p>
-        </LearnMore>
+        {isEhrConsented !== undefined && (
+          <>
+            <FormControlLabel
+              control={<BlueSwitch checked={isEhrConsented} color='primary' onChange={handleEhrConsentChange} name='checkEhrConsent' />}
+              label='Share my electronic health records'
+            />
+            <LearnMore learnMoreText='Learn more'>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan accumsan vehicula. Donec porttitor ullamcorper dolor at accumsan. Pellentesque id libero blandit, porttitor lectus elementum, rutrum risus. Vivamus at malesuada mi. Suspendisse potenti. Phasellus eget enim porttitor, sagittis massa ac, semper lorem. Integer tortor tortor, volutpat id eros a, mattis tincidunt nisl. Praesent efficitur leo quis ornare mattis.
+              </p>
+            </LearnMore>
+        </>
+        )}
       </FormGroup>
+  
       <Button
         style={{width: '100%', marginTop: '2rem'}}
         variant='contained'
