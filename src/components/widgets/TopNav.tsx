@@ -20,7 +20,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
   const renderLoginOut = (): JSX.Element => {
     let element = (
       <NavLink to="/login" activeClassName="hidden" className="buttonLink">
-        <Button color="primary" variant="outlined">
+        <Button style={{  width: '90px' }} color="primary" variant="outlined" size="large">
           Login
         </Button>
       </NavLink>
@@ -45,7 +45,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
           activeClassName="hidden"
           className="buttonLink"
         >
-          <Button color="primary" variant="contained">
+          <Button style={{  width: '90px' }}color="primary" variant="contained" size="large">
             Join
           </Button>
         </NavLink>
