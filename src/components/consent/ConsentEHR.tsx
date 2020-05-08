@@ -3,7 +3,7 @@ import React, { useState, ChangeEvent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
  
-  faArrowRight,
+  faArrowRight, faTimes,
 } from '@fortawesome/free-solid-svg-icons'
 
 import moment from 'moment'
@@ -159,7 +159,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           <div className="Consent">
             {currentStep == 0 && (
               <>
-                <FloatingToolbar >HIPAA Authorization</FloatingToolbar>
+                <FloatingToolbar closeLinkDestination='/home' closeIcon={faTimes}>HIPAA Authorization</FloatingToolbar>
                 {renderStep0()}
               </>
             )}

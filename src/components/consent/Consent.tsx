@@ -1,27 +1,17 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
-
-import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import ConsentInfo from './ConsentInfo'
-
 import useForm from '../useForm'
 import moment from 'moment'
-
-
 import Button from '@material-ui/core/Button/Button'
 import TextField from '@material-ui/core/TextField/TextField'
 import {
   Checkbox,
   FormControlLabel,
-  FormControl,
-  FormLabel,
   RadioGroup,
   Radio,
 } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert/Alert'
-
 import ConsentCopy from './ConsentCopy'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
 import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
@@ -29,6 +19,7 @@ import { Redirect } from 'react-router-dom'
 import FloatingToolbar from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
 import ConfirmationModal from '../widgets/ConfirmationModal'
+import LearnMore from '../widgets/LearnMore'
 
 export type ConsentProps = {
   token: string
@@ -46,7 +37,6 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   const [doHIPAAConsent, setDoHIPAAConsent] = useState<boolean | undefined>(
     undefined
   )
-  const [isLearnMore, setIsLearnMore] = useState([false, false])
   const [isShowingCancelConfirmation, setIsShowingCancelConfirmation] = useState(false)
   const [isConsentCanceled, setIsConsentCancelled] = useState(false)
 
@@ -103,45 +93,18 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     })
   }
 
-  const updateIsLearnMore = (index: number, value: boolean) => {
-    setIsLearnMore((prev) =>
-      prev.map((item, _index) => (index === index ? value : item))
-    )
-  }
-
   const renderHIPAAStep = (): JSX.Element => {
     const element = (
       <div>
         <h2> Do you want to share your electronic health records with us?</h2>
         <p>Sharing your EHR (electronic health records) is optional </p>
 
-        <div
-          className="learnLessToggle"
-          style={{
-            display: isLearnMore[1] ? 'flex' : 'none',
-          }}
-        >
+        <LearnMore learnMoreText='Review what it means'>
           <p>
-            some text about learning some text about learning some text about
-            learning
-            <br /> more about <br />
-            reserch sharing
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan accumsan vehicula. Donec porttitor ullamcorper dolor at accumsan. Pellentesque id libero blandit, porttitor lectus elementum, rutrum risus. Vivamus at malesuada mi. Suspendisse potenti. Phasellus eget enim porttitor, sagittis massa ac, semper lorem. Integer tortor tortor, volutpat id eros a, mattis tincidunt nisl. Praesent efficitur leo quis ornare mattis.
           </p>
-          <button onClick={() => updateIsLearnMore(1, false)}>
-            <FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon>
-          </button>
-        </div>
-        <div
-          onClick={() => updateIsLearnMore(1, true)}
-          className="learnMoreToggle"
-          style={{
-            display: isLearnMore[1] ? 'none' : 'flex',
-          }}
-        >
-          Review what it means
-          <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
-        </div>
-
+        </LearnMore>
+       
         <ToggleButtonGroup
           value={doHIPAAConsent}
           exclusive
@@ -192,7 +155,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       {isInfoDone && !isConsentDone && (
         <>
           <div>
-            <FloatingToolbar>Consent Signature</FloatingToolbar>
+            <FloatingToolbar closeLinkDestination='/home' closeIcon={faTimes}>Consent Signature</FloatingToolbar>
           </div>
 
           <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>
@@ -209,26 +172,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
             >
               <ConsentCopy screen={'CONSENT_SHARING'}></ConsentCopy>
             </div>
-          <div
-            onClick={() => updateIsLearnMore(0, true)}
-            className="learnMoreToggle"
-            style={{
-              display: isLearnMore[0] ? 'none' : 'block',
-              marginBottom: '4rem',
-            }}
-          >
-            <div>
-              <span style={{ paddingRight: "10px" }}>Learn More</span>
-              <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
-            </div>
-          </div>
-          <div
-            className="learnLessToggle"
-            style={{
-              display: isLearnMore[0] ? 'flex' : 'none',
-              marginBottom: '4rem',
-            }}
-          >
+          <LearnMore learnMoreText='Learn more'>
             <div>
               <p>
                 You will have the opportunity to share your data with qualified researchers outside of the COVID Recovery Corps. All qualified researchers must be approved by the COVID Recovery Corps study team and will only use de-identified data. This de-identified data does not contain identifiers like name, date of birth, or zip code. These researchers may be from outside the United States and may work for a non-profit institution, commercial drug or medical device companies, or be a private citizen.
@@ -237,10 +181,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 Sharing your data with qualified researchers is optional and you can change your mind at any time by updating your data sharing options in your profile. But once we share your data we cannot get it back. If you decide to end data sharing, we will not share your future data.
               </p>
             </div>
-            <button onClick={() => updateIsLearnMore(0, false)}>
-              <FontAwesomeIcon icon={faCaretUp}></FontAwesomeIcon>
-            </button>
-          </div>
+          </LearnMore>
             <form className="Consent__form" onSubmit={handleOnSubmit} >
               <div className="radiobuttons">
                 <RadioGroup
@@ -332,8 +273,11 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       {isShowingCancelConfirmation && (
           <ConfirmationModal
             show={true}
-            topSecondaryCopy={'Sometimes people press things on accident, so we wanted to check...'}
-            mainCopy={<div>Are you sure, you want to <strong>cancel</strong> your <strong>consent form</strong>?</div>}
+            content={
+              <div>
+                <p>Sometimes people press things on accident, so we wanted to check...</p>
+                <h2 style={{marginTop: '4rem'}}>Are you sure, you want to <strong>cancel</strong> your <strong>consent form</strong>?</h2>
+              </div>}
             onCancel={() => 
               // hide cancel confirmation
               setIsShowingCancelConfirmation(false)

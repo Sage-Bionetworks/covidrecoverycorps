@@ -54,25 +54,33 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
     )
   }
 
+  const collapseMenu = () => {
+    setTopClicked(false)
+  }
   return (
     <div className="TopNav">
       <div
         className={`${topClicked ? 'TopNav__menu responsive' : 'TopNav__menu'}`}
       >
       
-        <NavLink to="/home" activeClassName="active">
+        <NavLink to="/home" activeClassName="active" onClick={collapseMenu}>
           About
         </NavLink>
         
-        <NavLink to="/team" activeClassName="active">
+        <NavLink to="/team" activeClassName="active" onClick={collapseMenu}>
           Team
         </NavLink>
-        <NavLink to="/faqs" activeClassName="active">
+        <NavLink to="/faqs" activeClassName="active" onClick={collapseMenu}>
           FAQs
         </NavLink>
-        <NavLink to="/contact" activeClassName="active">
+        <NavLink to="/contact" activeClassName="active" onClick={collapseMenu}>
           Contact
         </NavLink>
+        {token && (
+          <NavLink to="/settings" activeClassName="active" onClick={collapseMenu}>
+            Settings
+          </NavLink>
+        )}
         <a
           onClick={() => {
             setTopClicked((prev) => !prev)

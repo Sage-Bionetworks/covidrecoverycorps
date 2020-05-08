@@ -8,7 +8,6 @@ export const ENDPOINT = 'https://webservices.sagebridge.org'
 export const SURVEY_TIME_CONSTANT = '2020-05-07T00:14:04.322Z'
 export const SURVEY_IDENTIFIER = 'ny-strong'
 
-
 export interface MailChimpFormFields extends EmailFormFields {
   NAME: string
   ZIP: string
@@ -57,6 +56,8 @@ export interface UserData {
 export interface LoggedInUserData extends UserData {
   sessionToken: string
   consented: boolean
+  sharingScope: string
+  dataGroups: string[]
 }
 
 export interface RegistrationData extends UserData {
