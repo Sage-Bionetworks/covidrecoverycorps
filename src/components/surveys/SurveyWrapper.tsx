@@ -152,11 +152,11 @@ export default class SurveyWrapper extends React.Component<
     })
   }
 
-  updateUserAttributres = async (_rawData: any, data: any) => {
+  updateUserContactInfo = async (_rawData: any, data: any) => {
     try {
-      const result = await UserService.updateUserAttributes(
+      const result = await UserService.updateUserData(
         this.props.token,
-        data.attributes
+        data.data
       )
 
       this.setState({ isFormSubmitted: true })
@@ -320,7 +320,7 @@ export default class SurveyWrapper extends React.Component<
                 onSubmit={async (data: any) => {
                   this.props.surveyName !== 'CONTACT'
                     ? this.submitForm(data, this.cleanData(data))
-                    : this.updateUserAttributres(data, this.cleanData(data))
+                    : this.updateUserContactInfo(data, this.cleanData(data))
                 }}
                 isSubmitted={false}
                 extraUIProps={extraUIProps}

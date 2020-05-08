@@ -1,147 +1,5 @@
 {
   "definitions": {
-    "contribution_field": {
-      "title": "",
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": [
-            "blood"
-          ],
-          "title": "Blood Donation"
-        },
-        {
-          "type": "string",
-          "enum": [
-            "shopping"
-          ],
-          "title": "Shopping for people at risk"
-        },
-        {
-          "type": "string",
-          "enum": [
-            "other"
-          ],
-          "title": "Other"
-        }
-      ]
-    },
-    "data_origin_field": {
-      "title": "",
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": [
-            "human"
-          ],
-          "title": "Human"
-        },
-        {
-          "type": "string",
-          "enum": [
-            "model_system"
-          ],
-          "title": "Model System"
-        }
-      ]
-    },
-    "model_system_field": {
-      "title": "",
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": [
-            "mouse"
-          ],
-          "title": "Mouse"
-        },
-        {
-          "type": "string",
-          "enum": [
-            "rat"
-          ],
-          "title": "Rat"
-        },
-        {
-          "type": "string",
-          "enum": [
-            "drosophila"
-          ],
-          "title": "Drosophila"
-        },
-        {
-          "type": "string",
-          "enum": [
-            "cell_culture"
-          ],
-          "title": "Cell Culture"
-        },
-        {
-          "type": "string",
-          "enum": [
-            "other"
-          ],
-          "title": "Other"
-        }
-      ]
-    },
-    "assays_field": {
-      "type": "object",
-      "title": "Assays",
-      "properties": {
-        "assays_list": {
-          "title": "List all assays specimens have been used for",
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": [
-              "SNP genotypes",
-              "WES or WGS",
-              "RNAseq",
-              "RNAseq single cell",
-              "ChIPseq",
-              "ATACseq",
-              "ATACseq single cell",
-              "Proteomics",
-              "Metabolomics",
-              "Other"
-            ]
-          }
-        },
-        "assays_list_other": {
-          "type": "string",
-          "title": "If other - describe"
-        }
-      }
-    },
-    "assesments_field": {
-      "type": "object",
-      "title": "Assessments",
-      "properties": {
-        "assesments_list": {
-          "type": "array",
-          "title": "List all assessments",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": [
-              "Cognition",
-              "Behavioral",
-              "Imaging",
-              "Other"
-            ]
-          }
-        },
-        "assesments_list_other": {
-          "type": "string",
-          "title": "If other - describe"
-        }
-      }
-    },
     "history1": {
       "type": "object",
       "required": [
@@ -837,7 +695,8 @@
         "complications_q",
         "complications",
         "miscarriage",
-        "children_birth"
+        "children_birth",
+        "breastfeeding"
       ],
       "properties": {
         "pregnant": {
@@ -848,8 +707,7 @@
             "I am currently pregnant",
             "I delivered within the last 6 months",
             "No, I am not currently pregnant and have not recently delivered a baby",
-            "Prefer Not To Answer",
-            "My due date is: ____TODO_____________"
+            "Prefer Not To Answer"
           ]
         },
         "complications_q": {
@@ -862,26 +720,12 @@
             "Prefer Not To Answer"
           ]
         },
-        "complications": {
-          "type": "array",
-          "title": "If yes, which of the following complications did you have?",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": [
-              "Premature labor",
-              "Pre-eclampsia",
-              "Other",
-              "Prefer Not To Answer"
-            ]
-          }
-        },
         "miscarriage": {
           "type": "string",
           "title": "Did you have a miscarriage?",
           "uniqueItems": true,
           "enum": [
-            "Yes If so, how many times _______TODO",
+            "Yes",
             "No",
             "Prefer Not To Answer"
           ]
@@ -891,7 +735,7 @@
           "title": "Are you currently breastfeeding?",
           "uniqueItems": true,
           "enum": [
-            "Yes If so, how many times _______TODO",
+            "Yes",
             "No",
             "Prefer Not To Answer"
           ]
@@ -899,6 +743,103 @@
         "children_birth": {
           "type": "number",
           "title": "How many children have you given birth to?"
+        }
+      },
+      "dependencies": {
+        "pregnant": {
+          "oneOf": [
+            {
+              "properties": {
+                "pregnant": {
+                  "enum": [
+                    "I delivered within the last 6 months",
+                    "No, I am not currently pregnant and have not recently delivered a baby",
+                    "Prefer Not To Answer"
+                  ]
+                }
+              }
+            },
+            {
+              "properties": {
+                "pregnant": {
+                  "pregnant": {
+                    "enum": [
+                      "I am currently pregnant"
+                    ]
+                  }
+                },
+                "due_date": {
+                  "type": "string",
+                  "title": "My due date is"
+                }
+              }
+            }
+          ]
+        },
+        "complications_q": {
+          "oneOf": [
+            {
+              "properties": {
+                "complications_q": {
+                  "enum": [
+                    "No",
+                    "Prefer Not To Answer"
+                  ]
+                }
+              }
+            },
+            {
+              "properties": {
+                "complications_q": {
+                  "enum": [
+                    "Yes"
+                  ]
+                },
+                "complications": {
+                  "type": "array",
+                  "title": "If yes, which of the following complications did you have?",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "Premature labor",
+                      "Pre-eclampsia",
+                      "Other",
+                      "Prefer Not To Answer"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "miscarriage": {
+          "oneOf": [
+            {
+              "properties": {
+                "miscarriage": {
+                  "enum": [
+                    "No",
+                    "Prefer Not To Answer"
+                  ]
+                }
+              }
+            },
+            {
+              "properties": {
+                "miscarriage": {
+                  "enum": [
+                    "Yes"
+                  ]
+                },
+                "miscarriage_number": {
+                  "title": "If so, how many times",
+                  "type": "number"
+                }
+              },
+              "required": ["miscarriage_number"]
+            }
+          ]
         }
       }
     }
