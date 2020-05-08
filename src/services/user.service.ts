@@ -13,8 +13,7 @@ const SUBPOP_GUID = 'czi-coronavirus'
 export const UserService = {
   getUserInfo,
   updateUserAttributes,
-  updateUserData,
-  sendPageViewToGoogleAnalytics
+  updateUserData
 }
 
 async function getUserInfo(token: string): Promise<Response<LoggedInUserData>> {
@@ -58,15 +57,4 @@ async function updateUserData(
     token
   )
   return result
-}
-
-function sendPageViewToGoogleAnalytics() {
-  const windowAny: any = window
-  const gtag = windowAny.gtag
-  if (gtag) {
-    gtag('config', 'UA-148914952-2', {
-      page_location: window.location.href,
-      page_path: window.location.pathname,
-    })
-  }
 }

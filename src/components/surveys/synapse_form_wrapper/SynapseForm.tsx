@@ -27,7 +27,7 @@ import WarningModal from './WarningModal'
 import Switch from 'react-switch'
 import { Prompt } from 'react-router-dom'
 import { getUiOptions } from 'react-jsonschema-form/lib/utils'
-import { UserService } from '../../../services/user.service'
+import { GoogleService } from '../../../services/google.service'
 
 export interface IFormData {
   [key: string]: {
@@ -384,8 +384,8 @@ export default class SynapseForm extends React.Component<
         }
       })
     }
-    window.history.pushState(null, nextStep.title, `${window.location.pathname}#${nextStepId}`);
-    UserService.sendPageViewToGoogleAnalytics()
+    window.history.replaceState(null, nextStep.title, `${window.location.pathname}?step=${nextStepId}`);
+    GoogleService.sendPageView()
     this.saveStepState(previousStack, steps, nextStep!, formData)
   }
 
