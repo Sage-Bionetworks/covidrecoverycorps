@@ -120,7 +120,7 @@ function App() {
     return () => {
       isSubscribed = false
     }
-  }, [])
+  }, [token])
 
   function PrivateRoute({ children, ...rest }: any) {
     return (
