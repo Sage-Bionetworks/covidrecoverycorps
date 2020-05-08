@@ -47,6 +47,29 @@ p {
   margin-top: 4rem;
 }
 
+.cookiesBanner {
+  background: #0085FF;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  font-size: 15px;
+  padding: 20px 20px;
+  // stick to bottom
+  position: fixed;
+  bottom: 15px;
+  z-index: 6;
+  width: 100%;
+
+  a {
+    color: white;
+  }
+  button {
+    height:33px;
+    margin-left: 10px;
+  }
+}
 
 /*
 

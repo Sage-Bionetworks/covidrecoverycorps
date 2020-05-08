@@ -40,6 +40,7 @@ import { TopNav } from './components/widgets/TopNav'
 import { UserService } from './services/user.service'
 import AcountSettings from './components/AccountSettings'
 import GoogleAnalyticsPageTracker from './components/widgets/GoogleAnalyticsPageTracker'
+import CookieNotificationBanner from './components/widgets/CookieNotificationBanner'
 
 const theme = createMuiTheme({
   typography: {
@@ -183,6 +184,7 @@ function App() {
           <CssBaseline />
           <Router>
             <div>
+              <CookieNotificationBanner />
               <GoogleAnalyticsPageTracker />
               <nav
                 style={{
