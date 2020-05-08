@@ -1,5 +1,5 @@
 import {
-  ENDPOINT
+  ENDPOINT, LoggedInUserData
 } from '../types/types'
 import { SavedSurveysObject, Response } from '../types/types'
 import { callEndpoint } from '../helpers/utility'
@@ -22,13 +22,13 @@ export const ConsentService = {
   HIPAA_SUBPOP_GUID
 }
 
-async function updateMySharingScope(scope: string, token: string): Promise<any> {
+async function updateMySharingScope(scope: string, token: string): Promise<Response<LoggedInUserData>> {
   const data = {
     sharingScope: scope,
   }
 
-  const result = await callEndpoint(
-    `${ENDPOINT}/v3/participants/selfinvalid`,
+  const result = await callEndpoint<LoggedInUserData>(
+    `${ENDPOINT}/v3/participants/self`,
     'POST',
     data,
     token
