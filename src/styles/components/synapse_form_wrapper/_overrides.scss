@@ -341,6 +341,27 @@
       }
     }
   }
+
+  .women {
+    .due_date {
+      @include subfield_inverted;
+      margin-top: -2rem;
+    }
+
+    .complications {
+      @include subfield_inverted;
+      margin-top: -2rem;
+
+    }
+    .miscarriage_number {
+      @include subfield_inverted;
+      margin-top: -2rem;
+
+    }
+    #root_women > legend {
+      display: none;
+    }
+  }
 }
 
 .theme-crc {

@@ -1,167 +1,194 @@
 {
-    "history1": {
-        "general_health_status": {
-            "ui:widget": "radio",
-            "ui:options": {
-                "inline": false
-            }
-        },
-        "physical_activity_level": {
-            "ui:widget": "radio",
-            "ui:options": {
-                "inline": false
-            }
-        },
-        "where_go_for_care": {
-            "ui:widget": "checkboxes"
-        },
-        "routine_exam_2019": {
-            "ui:widget": "radio",
-            "ui:options": {
-                "inline": false
-            }
-        },
-        "vaccinations": {
-            "ui:widget": "checkboxes"
-        },
-        "travel_time_to_doctor": {
-            "ui:widget": "radio",
-            "ui:options": {
-                "inline": false
-            }
-        },
-        "blood_type": {
-            "ui:widget": "radio",
-            "ui:options": {
-                "inline": false
-            }
-        }
+  "history1": {
+    "general_health_status": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
     },
-    "history2": {
-        "diabetes_diagnosis": {
-            "ui:widget": "radio",
-            "ui:options": {
-                "inline": false
-            }
-        },
-        "diabetes_drugs": {
-            "ui:widget": "checkboxes"
-        },
-        "blood_pressure": {
-            "ui:widget": "radio",
-            "ui:options": {
-                "inline": false
-            }
-        },
-        "blood_pressure_medication": {
-            "ui:widget": "radio",
-            "ui:options": {
-                "inline": false
-            }
-        },
-        "what_bp_medication": {
-            "ui:title": "What blood pressure medication"
-        },
-        "health_conditions": {
-            "classNames": "health_conditions, show_fieldSet",
-            "ui:order": [
-                "heart_attack",
-                "heart_attack_age",
-                "stroke",
-                "stroke_age",
-                "head_hemorrhage",
-                "head_hemorrhage_age",
-                "coronary_bypass_surgery",
-                "coronary_bypass_surgery_age",
-                "cardiac_catheterization",
-                "cardiac_catheterization_age",
-                "no_answer"
-            ],
-            "heart_attack_age": {
-                "ui:title": "What was your age at the time of a heart attack?"
-            },
-            "stroke_age": {
-                "ui:title": "What was your age at the time of a stroke?"
-            },
-            "head_hemorrhage_age": {
-                "ui:title": "What was your age at the time of a head hemorrhage"
-            },
-            "coronary_bypass_surgery_age": {
-                "ui:title": "What was your age at the time of a coronary bypass surgery?"
-            },
-            "cardiac_catheterization_age": {
-                "ui:title": "What was your age at the time of a cardiac catheterization?"
-            }
-        }
+    "physical_activity_level": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
     },
-    "history3": {
-        "diseases_history": {
-            "ui:widget": "checkboxes"
-        },
-        "diseases_history_cont": {
-            "ui:order": [
-                "diseases_history_cont",
-                "pulmonary_hypertension",
-                "other_lung_disorder",
-                "other_lung_disorder_specify",
-                "neuro_disorder",
-                "osteoarthritis",
-                "other_inflammatory_arthritis",
-                "other_inflammatory_arthritis_specify",
-                "no_answer"
-            ],
-            "classNames": "diseases_history_cont show_fieldSet",
-            "ui:widget": "checkboxes"
-        }
+    "where_go_for_care": {
+      "ui:widget": "checkboxes"
     },
-    "family_history": {
-        "immune_deficiency": {
-            "ui:widget": "radio",
-            "ui:options": {
-                "inline": false
-            }
-        },
-        "family_diseases": {
-            "ui:order": [
-                "cancer",
-                "cancer_specify",
-                "heart_disease",
-                "hypertension",
-                "diabetes",
-                "kidney_disease",
-                "kidney_disease_specify",
-                "other",
-                "other_specify",
-                "no_answer"
-            ],
-            "classNames": "family_diseases show_fieldSet",
-            "ui:widget": "checkboxes"
-        }
+    "routine_exam_2019": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
     },
-    "women": {
-        "pregnant" :{
-            "ui:widget": "radio",
-            "ui:options": {
-                "inline": false
-            }
-
-        },
-         "complications_q": {
-            "ui:widget": "radio",
-            "ui:options": {
-                "inline": false
-            }
-         } ,
-         "complications": {
-            "ui:widget": "checkboxes"
-         },
-         "miscarriage": {
-            "ui:widget": "radio",
-            "ui:options": {
-                "inline": false
-            }
-         } 
-
+    "vaccinations": {
+      "ui:widget": "checkboxes"
+    },
+    "travel_time_to_doctor": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "blood_type": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
     }
-
+  },
+  "history2": {
+    "diabetes_diagnosis": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "diabetes_drugs": {
+      "ui:widget": "checkboxes"
+    },
+    "blood_pressure": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "blood_pressure_medication": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "what_bp_medication": {
+      "ui:title": "What blood pressure medication"
+    },
+    "health_conditions": {
+      "classNames": "health_conditions, show_fieldSet",
+      "ui:order": [
+        "heart_attack",
+        "heart_attack_age",
+        "stroke",
+        "stroke_age",
+        "head_hemorrhage",
+        "head_hemorrhage_age",
+        "coronary_bypass_surgery",
+        "coronary_bypass_surgery_age",
+        "cardiac_catheterization",
+        "cardiac_catheterization_age",
+        "no_answer"
+      ],
+      "heart_attack_age": {
+        "ui:title": "What was your age at the time of a heart attack?"
+      },
+      "stroke_age": {
+        "ui:title": "What was your age at the time of a stroke?"
+      },
+      "head_hemorrhage_age": {
+        "ui:title": "What was your age at the time of a head hemorrhage"
+      },
+      "coronary_bypass_surgery_age": {
+        "ui:title": "What was your age at the time of a coronary bypass surgery?"
+      },
+      "cardiac_catheterization_age": {
+        "ui:title": "What was your age at the time of a cardiac catheterization?"
+      }
+    }
+  },
+  "history3": {
+    "diseases_history": {
+      "ui:widget": "checkboxes"
+    },
+    "diseases_history_cont": {
+      "ui:order": [
+        "diseases_history_cont",
+        "pulmonary_hypertension",
+        "other_lung_disorder",
+        "other_lung_disorder_specify",
+        "neuro_disorder",
+        "osteoarthritis",
+        "other_inflammatory_arthritis",
+        "other_inflammatory_arthritis_specify",
+        "no_answer"
+      ],
+      "classNames": "diseases_history_cont show_fieldSet",
+      "ui:widget": "checkboxes"
+    }
+  },
+  "family_history": {
+    "immune_deficiency": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "family_diseases": {
+      "ui:order": [
+        "cancer",
+        "cancer_specify",
+        "heart_disease",
+        "hypertension",
+        "diabetes",
+        "kidney_disease",
+        "kidney_disease_specify",
+        "other",
+        "other_specify",
+        "no_answer"
+      ],
+      "classNames": "family_diseases show_fieldSet",
+      "ui:widget": "checkboxes"
+    }
+  },
+  "women": {
+    "ui:order": [
+      "pregnant",
+      "due_date",
+      "complications_q",
+      "complications",
+      "miscarriage",
+      "miscarriage_number",
+      "children_birth",
+      "breastfeeding"
+    ],
+    "classNames": "women",
+    "breastfeeding": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "pregnant": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "miscarriage_number": {
+      "classNames": ["miscarriage_number"]
+    },
+    "due_date": {
+      "classNames": "due_date",
+      "ui:widget": "alt-date",
+      "ui:options": {
+        "yearsRange": [2020, 2021],
+        "hideNowButton": true,
+        "hideClearButton": true
+      }
+    },
+    "complications_q": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "complications": {
+      "classNames": "complications",
+      "ui:widget": "checkboxes"
+    },
+    "miscarriage": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    }
+  }
 }
