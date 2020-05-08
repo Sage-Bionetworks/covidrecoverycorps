@@ -43,6 +43,7 @@ import GoogleAnalyticsPageTracker from './components/widgets/GoogleAnalyticsPage
 import CookieNotificationBanner from './components/widgets/CookieNotificationBanner'
 
 const theme = createMuiTheme({
+  
   typography: {
     // Tell Material-UI what's the font-size on the html element is.
     htmlFontSize: 10,
@@ -61,7 +62,7 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: '#000', ///'#202423' //'#ff4400',
+      main: '#0085FF', ///'#202423' //'#ff4400',
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
     },
@@ -83,8 +84,18 @@ const theme = createMuiTheme({
     // Name of the component ⚛️
     MuiButtonBase: {
       // The properties to apply
-      disableRipple: true, // No more ripple, on the whole application 💣!
+      disableRipple: true, // No more ripple, on the whole application 💣!      
     },
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        borderRadius: 25,
+        paddingLeft: 40,
+        paddingRight: 40,
+        height: 47,
+      }, 
+    }, 
   },
 })
 
@@ -190,13 +201,13 @@ function App() {
                 style={{
                   border: '1px solid black',
 
-                  top: '10px',
-                  left: '10px',
+                  bottom: '10px',
+                  right: '10px',
                   fontSize: '.5rem',
                   position: 'fixed',
                 }}
               >
-                (Thursd:14:30)
+                (Friday:14:30)
               </nav>
               <Grid
                 container
