@@ -14,7 +14,7 @@ import ConfirmationModal from './widgets/ConfirmationModal';
 import { Link, Redirect } from 'react-router-dom';
 import { ConsentService } from '../services/consent.service'
 import { UserService } from '../services/user.service';
-import { LoggedInUserData } from '../types/types';
+import { LoggedInUserData, Response } from '../types/types';
 import Alert from '@material-ui/lab/Alert';
 
 type AcountSettingsProps = {
@@ -67,17 +67,17 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
     return () => {
       isSubscribed = false
     }
-  }, [])
+  }, [props.token])
   
   const handleConsentChange = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
     setError('')
     const newScope = checked ? ConsentService.SHARE_SCOPE_ALL : ConsentService.SHARE_SCOPE_PARTNERS
+    console.log(newScope)
     ConsentService.updateMySharingScope(
       newScope,
       props.token
-    ).then((participantRecord:any)=> {
-      // TODO: this does not properly update the switch state for some reason.
-      const isCurrentlySharingAll = ConsentService.SHARE_SCOPE_ALL == participantRecord.sharingScope
+    ).then((participantRecordResponse:Response<LoggedInUserData>)=> {
+      const isCurrentlySharingAll = ConsentService.SHARE_SCOPE_ALL == participantRecordResponse.data.sharingScope
       setIsShareScopeAll(_prev => isCurrentlySharingAll)
     }).catch( err => {
       setError(err.message)
