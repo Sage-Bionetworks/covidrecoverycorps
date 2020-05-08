@@ -342,24 +342,95 @@
     }
   }
 
-  .women {
-    .due_date {
-      @include subfield_inverted;
-      margin-top: -2rem;
+  /* -------------------------------------    health history */
+  .health-history {
+    .height {
+      margin-bottom: 1rem;
+      > .fieldset {
+        display: flex;
+        flex-wrap: wrap;
+        legend {
+          font-size: 1.6rem;
+          width: 100%;
+          margin-bottom: 5px;
+        }
+        label.control-label {
+          display: none;
+        }
+
+        .form-group:first-of-type {
+          margin-right: 5px;
+          margin-bottom: 0;
+        }
+
+        .field-error.form-group:not(:first-of-type) {
+          border-left: 0px;
+        }
+      }
     }
 
-    .complications {
-      @include subfield_inverted;
-      margin-top: -2rem;
+    .health-conditions {
+   
+      legend {
+        font-size: 1.6rem;
+      }
 
+      .form-group.field-boolean {
+        margin-bottom:0px;
+        > .checkbox {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
     }
-    .miscarriage_number {
-      @include subfield_inverted;
-      margin-top: -2rem;
 
+    .bp_medication {
+      @include subfield_inverted;
     }
-    #root_women > legend {
-      display: none;
+
+    .diseases_history_cont {
+      legend{
+        font-size: 1.6rem;
+      }
+      .form-group.field-string {
+        margin-bottom: 5px;
+      }
+      .form-group.field-string,
+      .form-group.field-number {
+        @include subfield_inverted;
+      }
+    }
+
+    .health-conditions {
+      legend{
+        font-size: 1.6rem;
+      }
+      .form-group.field-string {
+        margin-bottom: 5px;
+      }
+      .form-group.field-string,
+      .form-group.field-number {
+        @include subfield_inverted;
+      }
+    }
+
+    .women {
+      .due_date {
+        @include subfield_inverted;
+        margin-top: -2rem;
+      }
+
+      .complications {
+        @include subfield_inverted;
+        margin-top: -2rem;
+      }
+      .miscarriage_number {
+        @include subfield_inverted;
+        margin-top: -2rem;
+      }
+      #root_women > legend {
+        display: none;
+      }
     }
   }
 }

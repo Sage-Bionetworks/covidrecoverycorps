@@ -134,7 +134,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     }
 
     const items = surveys.map((survey: UISurvey) => (
-      <li className="item-wrap">
+      <li className="item-wrap" key={survey.title}>
         <div className="item">
           <FontAwesomeIcon icon={getIcon(survey)} />
           <div className="btn-container">

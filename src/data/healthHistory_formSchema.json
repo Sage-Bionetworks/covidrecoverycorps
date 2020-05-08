@@ -38,12 +38,22 @@
           ]
         },
         "weight": {
-          "type": "string",
+          "type": "number",
           "title": "How much do you weigh? (lbs.)"
         },
         "height": {
-          "type": "string",
-          "title": "How tall are you? [TODO] ______ feet ______ inches"
+          "type": "object",
+          "title": "How tall are you?",
+          "required": ["feet", "inches"],
+          "properties": {
+            "feet":{
+              "type": "number"},
+             "inches":{
+               "type": "number"}
+             } 
+           
+
+
         },
         "where_go_for_care": {
           "type": "array",
@@ -122,14 +132,14 @@
       "type": "object",
       "required": [
         "diabetes_diagnosis",
-        "diabetes_drugs",
+    
         "blood_pressure",
         "blood_pressure_medication"
       ],
       "properties": {
         "diabetes_diagnosis": {
           "type": "string",
-          "title": "Have you been diagnosed with diabetes? [TODO]",
+          "title": "Have you been diagnosed with diabetes?",
           "enum": [
             "No",
             "No, but sometimes have high blood sugar",
@@ -140,21 +150,7 @@
             "Prefer Not To Answer"
           ]
         },
-        "diabetes_drugs": {
-          "type": "array",
-          "uniqueItems": true,
-          "title": "What drugs prescribed by a physician do you use for diabetes?",
-          "items": {
-            "type": "string",
-            "enum": [
-              "No Drugs",
-              "Insulin",
-              "Pills",
-              "Insulin And Pills",
-              "Prefer Not To Answer"
-            ]
-          }
-        },
+    
         "blood_pressure": {
           "type": "string",
           "title": "Have you ever been diagnosed with hypertension or high blood pressure?",
@@ -350,6 +346,48 @@
         }
       },
       "dependencies": {
+        "diabetes_diagnosis": {
+          "oneOf":[
+            {
+              "properties": {
+                "diabetes_diagnosis": {
+                  "enum":[
+                    "No",
+                    "No, but sometimes have high blood sugar",
+                    "Prefer Not To Answer"
+                  ]
+                }
+              }
+            },{
+              "properties": {
+                "diabetes_diagnosis": {
+                  "enum":[
+                    "Yes, Type 1 diabetes (treated with insulin)",
+                    "Yes, Type 2 diabetes (often treated with pills)",
+                    "Yes, but I don’t know the type",
+                    "Yes, Gestational diabetes"
+                  ]
+                },
+                "diabetes_drugs": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "title": "What drugs prescribed by a physician do you use for diabetes?",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "No Drugs",
+                      "Insulin",
+                      "Pills",
+                      "Insulin And Pills",
+                      "Prefer Not To Answer"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+
+        },
         "blood_pressure_medication": {
           "oneOf": [
             {
@@ -409,6 +447,7 @@
         "diseases_history": {
           "title": "Have you ever had any of the following diseases diagnosed or treated? (check all that apply)",
           "type": "array",
+          "minLength": 1,
           "uniqueItems": true,
           "items": {
             "type": "string",
@@ -693,7 +732,6 @@
       "required": [
         "pregnant",
         "complications_q",
-        "complications",
         "miscarriage",
         "children_birth",
         "breastfeeding"
@@ -752,8 +790,24 @@
               "properties": {
                 "pregnant": {
                   "enum": [
-                    "I delivered within the last 6 months",
-                    "No, I am not currently pregnant and have not recently delivered a baby",
+                    "I delivered within the last 6 months"
+                  ]
+                }
+              }
+            },
+            {
+              "properties": {
+                "pregnant": {
+                  "enum": [
+                    "No, I am not currently pregnant and have not recently delivered a baby"
+                  ]
+                }
+              }
+            },
+            {
+              "properties": {
+                "pregnant": {
+                  "enum": [
                     "Prefer Not To Answer"
                   ]
                 }
@@ -782,7 +836,15 @@
               "properties": {
                 "complications_q": {
                   "enum": [
-                    "No",
+                    "No"
+                  ]
+                }
+              }
+            },
+            {
+              "properties": {
+                "complications_q": {
+                  "enum": [
                     "Prefer Not To Answer"
                   ]
                 }
@@ -819,7 +881,15 @@
               "properties": {
                 "miscarriage": {
                   "enum": [
-                    "No",
+                    "No"
+                  ]
+                }
+              }
+            },
+            {
+              "properties": {
+                "miscarriage": {
+                  "enum": [
                     "Prefer Not To Answer"
                   ]
                 }
@@ -847,19 +917,19 @@
   "type": "object",
   "properties": {
     "history1": {
-      "title": "Medical History",
+      "title": "",
       "$ref": "#/definitions/history1"
     },
     "history2": {
-      "title": "Medical History Cont.",
+      "title": "",
       "$ref": "#/definitions/history2"
     },
     "history3": {
-      "title": "Medical History Cont.",
+      "title": "",
       "$ref": "#/definitions/history3"
     },
     "family_history": {
-      "title": "Family History",
+      "title": "",
       "$ref": "#/definitions/family_history"
     },
     "women": {
