@@ -40,11 +40,6 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   const [isShowingCancelConfirmation, setIsShowingCancelConfirmation] = useState(false)
   const [isConsentCanceled, setIsConsentCancelled] = useState(false)
 
-  // indicate that the user consented during this session (used in Dashboard.tsx)
-  useEffect(() => {
-    sessionStorage.setItem('consented', isConsentDone.toString());
-  }, [isConsentDone]);
-
   const [error, setError] = useState('')
 
   const stateSchema = {
@@ -137,7 +132,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       return <Redirect to="consentehr"></Redirect>
     }
     if (doHIPAAConsent === false) {
-      return <Redirect to="dashboard"></Redirect>
+      return <Redirect to="dashboard?consented=true"></Redirect>
     }
   }
 
@@ -160,7 +155,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
 
           <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>
           <p>I understand and agree to the following:</p>
-          <div style={{ marginLeft: '4rem', marginBottom: '4rem', marginTop: '4rem'  }}>
+          <div className='margin-top-std' style={{ marginLeft: '4rem', marginBottom: '4rem' }}>
             <ConsentCopy screen={'CONSENT_SIGNATURE2'}></ConsentCopy>
            </div>
 
@@ -211,7 +206,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   <p>By default, you are sharing your data with this study only.</p>
                 </div>
               </div>
-              <p style={{marginTop: "4rem", marginBottom: "4rem"}}>Please check the box below if you agree to take part:</p>
+              <p className='margin-top-std' style={{marginBottom: "4rem"}}>Please check the box below if you agree to take part:</p>
               <div className="form-group checkbox--indented" style={{marginLeft:"0px"}}>
                 <Checkbox
                   color="primary"
@@ -276,7 +271,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
             content={
               <div>
                 <p>Sometimes people press things on accident, so we wanted to check...</p>
-                <h2 style={{marginTop: '4rem'}}>Are you sure, you want to <strong>cancel</strong> your <strong>consent form</strong>?</h2>
+                <h2 className='margin-top-std'>Are you sure, you want to <strong>cancel</strong> your <strong>consent form</strong>?</h2>
               </div>}
             onCancel={() => 
               // hide cancel confirmation

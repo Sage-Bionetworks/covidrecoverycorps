@@ -15,6 +15,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { ConsentService } from '../services/consent.service'
 import { UserService } from '../services/user.service';
 import { LoggedInUserData } from '../types/types';
+import Alert from '@material-ui/lab/Alert';
 
 type AcountSettingsProps = {
   token: string
@@ -39,17 +40,27 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
   const [isEhrConsented, setIsEhrConsented] = useState<boolean | undefined>()
   const [isShowingWithdrawConfirmation, setIsShowingWithdrawConfirmation] = useState<boolean | undefined>(false)
   const [isRedirectingToEhr, setIsRedirectingToEhr] = useState<boolean | undefined>(false)
-  
+  const [isRedirectingHome, setIsRedirectingHome] = useState<boolean | undefined>(false)
+  const [userId, setUserId] = useState<string | undefined>()
+  const [error, setError] = useState('')
+
   // initialize check box values
   useEffect(() => {
     let isSubscribed = true
     async function getInfo(token: string | undefined) {
       if (token && isSubscribed) {
-        const userInfoResponse = await UserService.getUserInfo(token)
-        const isCurrentlySharingAll = ConsentService.SHARE_SCOPE_ALL == userInfoResponse.data.sharingScope
-        setIsShareScopeAll(_prev => isCurrentlySharingAll)
-        const isEhrConsented = userInfoResponse.data.dataGroups && userInfoResponse.data.dataGroups.includes('hipaa_consented')
-        setIsEhrConsented(_prev => isEhrConsented)
+        setError('')
+        try {
+          const userInfoResponse = await UserService.getUserInfo(token)
+          const userData:LoggedInUserData = userInfoResponse.data
+          const isCurrentlySharingAll = ConsentService.SHARE_SCOPE_ALL == userData.sharingScope
+          setIsShareScopeAll(_prev => isCurrentlySharingAll)
+          const isEhrConsented = userData.dataGroups && userData.dataGroups.includes('hipaa_consented')
+          setIsEhrConsented(_prev => isEhrConsented)
+          setUserId(userData.id)
+        } catch (e) {
+          setError(e.message)
+        }
       }
     }
     getInfo(props.token)
@@ -59,6 +70,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
   }, [])
   
   const handleConsentChange = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
+    setError('')
     const newScope = checked ? ConsentService.SHARE_SCOPE_ALL : ConsentService.SHARE_SCOPE_PARTNERS
     ConsentService.updateMySharingScope(
       newScope,
@@ -67,9 +79,12 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
       // TODO: this does not properly update the switch state for some reason.
       const isCurrentlySharingAll = ConsentService.SHARE_SCOPE_ALL == participantRecord.sharingScope
       setIsShareScopeAll(_prev => isCurrentlySharingAll)
+    }).catch( err => {
+      setError(err.message)
     })
   }
   const handleEhrConsentChange = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
+    setError('')
     if (checked) {
       //sign
       // we need the full participant name, right?
@@ -81,15 +96,27 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
       //unsign
       ConsentService.withdrawEhrConsent(props.token).then(()=> {
           setIsEhrConsented(_prev => false)
+        }).catch( err => {
+          setError(err.message)
         })
     }
   }
   if (isRedirectingToEhr) {
     return <Redirect to='/consentehr' />
   }
+  if (isRedirectingHome) {
+    // need a way to force App to reload the token, because the session is dead after withdrawing from the study!
+    window.location.href = '/home'
+    // return <Redirect to='/home' />
+  }
 
   const handleOnWithdrawFromStudyClick = () => {
-    alert('handleOnWithdrawFromStudyClick todo')
+    setError('')
+    ConsentService.withdrawFromStudy(userId!, props.token).then(()=> {
+      setIsRedirectingHome(true)
+    }).catch( err => {
+      setError(err.message)
+    })
     setIsShowingWithdrawConfirmation(false)
   }
   
@@ -98,18 +125,20 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
       <div>
           <FloatingToolbar closeLinkDestination='/dashboard' closeIcon={faAngleLeft}>Account Settings</FloatingToolbar>
       </div>
+      {error && <Alert severity="error">{error}</Alert>}
       <Link to='/contactinfo'>
         <Button
-          style={{width: '100%', marginTop: '4rem'}}
+          style={{width: '100%'}}
           variant='contained'
           color='primary'
+          className='margin-top-std'
         >
           Update contact info
           <FontAwesomeIcon style={{right:'10px', position: 'absolute'}} color={blue[500]} icon={faAngleRight} />
         </Button>
       </Link>
 
-      <FormGroup style={{ marginTop: '4rem' }}>
+      <FormGroup className='margin-top-std'>
         {isShareScopeAll !== undefined && (
           <>
             <FormControlLabel
@@ -138,22 +167,25 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
         )}
       </FormGroup>
   
-      <Button
-        style={{width: '100%', marginTop: '2rem'}}
-        variant='contained'
-        color='primary'
-        onClick={() => setIsShowingWithdrawConfirmation(true)}
-      >
-        Withdraw from study
-        <FontAwesomeIcon style={{right:'10px', position: 'absolute'}} color={blue[500]} icon={faAngleRight} />
-      </Button>
-      {isShowingWithdrawConfirmation && (
+      {userId !== undefined && (
+        <Button
+          style={{width: '100%', marginTop: '2rem'}}
+          variant='contained'
+          color='primary'
+          onClick={() => setIsShowingWithdrawConfirmation(true)}
+        >
+          Withdraw from study
+          <FontAwesomeIcon style={{right:'10px', position: 'absolute'}} color={blue[500]} icon={faAngleRight} />
+        </Button>
+      )}
+      
+      {userId !== undefined && isShowingWithdrawConfirmation && (
           <ConfirmationModal
             show={true}
             content={
               <div>
                 <h2 style={{marginTop: '0rem'}}>Withdrawing from COVID Recovery Corps:</h2>
-                <p style={{marginTop: '4rem'}}>If you withdraw, your samples will be destroyed. Your data will not be distributed any more.</p>
+                <p className='margin-top-std'>If you withdraw, your samples will be destroyed. Your data will not be distributed any more.</p>
                 <p style={{marginTop: '2rem', marginBottom: '6rem'}}>However, if researchers already have your data or samples for their studies, the COVID Recovery Corps study cannot get it back.</p>
               </div>}
             onCancel={() => 
@@ -164,7 +196,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
             confirmCopy={'Yes, withdraw study'}
             cancelCopy={'No, keep me in the study'}
           ></ConfirmationModal>
-        )}
+      )}
     </>
   )
 }

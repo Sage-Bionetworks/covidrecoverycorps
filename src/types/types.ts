@@ -58,6 +58,7 @@ export interface LoggedInUserData extends UserData {
   consented: boolean
   sharingScope: string
   dataGroups: string[]
+  id: string
 }
 
 export interface RegistrationData extends UserData {

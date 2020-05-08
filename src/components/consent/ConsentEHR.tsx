@@ -35,7 +35,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   const [error, setError] = useState('')
 
   if (isConsentEHRDone) {
-    return <Redirect to="Dashboard"></Redirect>
+    return <Redirect to="/dashboard?consented=true"></Redirect>
   }
 
   const renderStep0 = () => {
