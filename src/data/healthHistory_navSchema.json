@@ -2,46 +2,90 @@
   "steps": [
     {
       "id": "history1",
-      "order": 5,
+      "order": 2,
       "title": "Medical History",
       "default": "history2"
     },
 
     {
       "id": "history2",
-      "order": 10,
+      "order": 5,
       "title": "Medical History(cont)",
       "default": "history3",
-      "rules": []
-    },
-    {
-      "id": "history3",
-      "order": 11,
-      "title": "Medical History(cont)",
-      "default": "family_history",
       "rules": [],
       "validationRules": [
         {
           "conditions": {
             "all": [
               {
-                "fact": "history3",
-                "operator": "greaterThan",
-                "path": ".diseases_history_cont",
-                "value": {
-                  "fact": "in_vivo_data",
-                  "path": ".experiments[*].age_range.age_range_max"
-                }
+                "fact": "history2",
+                "operator": "notHasChecked",
+                "path": ".health_conditions",
+                "value": true
               }
             ]
           },
           "event": {
             "type": "validation",
             "params": {
-              "message": "minimum age should be less than maximum age",
-              "name": "range",
-              "property": ".in_vivo_data.experiments[*].age_range"
+              "message": "   ",
+              "name": "required",
+              "property": "history2.health_conditions"
             }
+          },
+          "priority:": 1
+        }
+      ]
+    },
+    {
+      "id": "history3",
+      "order": 8,
+      "title": "Medical History(cont)",
+      "default": "family_history",
+
+      "rules": [
+        {
+          "conditions": {
+            "all": [
+              {
+                "fact": "metadata",
+                "operator": "equal",
+                "path": ".gender",
+                "value": "Female"
+              }
+            ]
+          },
+          "event": {
+            "type": "next",
+            "params": {
+              "next": "women"
+            }
+          },
+          "priority:": 1
+        }
+      ],
+
+      "validationRules": [
+        {
+          "conditions": {
+            "all": [
+              {
+                "fact": "history3",
+                "operator": "notHasChecked",
+                "path": ".diseases_history_cont",
+                "value": true
+              }
+            ]
+          },
+          "event": {
+            "type": "validation",
+            "params": {
+              "message": "  ",
+              "name": "required",
+              "property": "history3.diseases_history_cont"
+            }
+
+            
           },
           "priority:": 1
         },
@@ -72,24 +116,22 @@
       ]
     },
     {
-        "id": "family_history",
-        "order": 11,
-        "title": "Family History",
-        "default": "family_history",
-        "rules": []
-       
-      },
-      {
-        "id": "women",
-        "order": 1,
-        "title": "Questions for Women",
-        "default": "women",
-        "rules": []
-       
-      },
+      "id": "family_history",
+      "order": 15,
+      "title": "Family History",
+      "default": "done",
+      "rules": []
+    },
+    {
+      "id": "women",
+      "order": 1,
+      "title": "Questions for Women",
+      "default": "family_history",
+      "rules": []
+    },
 
     {
-      "id": "registration",
+      "id": "done",
       "order": 90,
       "final": true,
       "title": "Registration",
