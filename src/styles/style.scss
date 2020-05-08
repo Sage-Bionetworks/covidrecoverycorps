@@ -47,6 +47,11 @@ p {
   margin-top: 4rem;
 }
 
+#root {
+  // issue 78: https://material-ui.com/components/grid/#limitations
+  padding: 12px;
+}
+
 .cookiesBanner {
   background: #0085FF;
   color: white;
