@@ -95,6 +95,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
           <Button
             color="primary"
             variant="contained"
+            size="large"
             onClick={() => setCurrentStep((prev) => prev - 1)}
           >
             <FontAwesomeIcon icon={faArrowLeft} />
@@ -105,6 +106,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
           <Button
             color="primary"
             variant="contained"
+            size="large"
             disabled={isDisabled()}
             onClick={() => {
               if (currentStep < totalSteps) {
