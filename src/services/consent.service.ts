@@ -28,7 +28,7 @@ async function updateMySharingScope(scope: string, token: string): Promise<any> 
   }
 
   const result = await callEndpoint(
-    `${ENDPOINT}/v3/participants/selfinvalid`,
+    `${ENDPOINT}/v3/participants/self`,
     'POST',
     data,
     token

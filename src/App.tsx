@@ -39,6 +39,7 @@ import FAQs from './components/static/FAQs'
 import { TopNav } from './components/widgets/TopNav'
 import { UserService } from './services/user.service'
 import AcountSettings from './components/AccountSettings'
+import GoogleAnalyticsPageTracker from './components/widgets/GoogleAnalyticsPageTracker'
 
 const theme = createMuiTheme({
   typography: {
@@ -183,6 +184,7 @@ function App() {
           <CssBaseline />
           <Router>
             <div>
+              <GoogleAnalyticsPageTracker />
               <nav
                 style={{
                   border: '1px solid black',

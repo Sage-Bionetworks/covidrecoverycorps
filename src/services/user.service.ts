@@ -58,4 +58,3 @@ async function updateUserData(
   )
   return result
 }
-
