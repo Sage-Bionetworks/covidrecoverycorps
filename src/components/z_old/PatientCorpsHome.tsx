@@ -132,7 +132,7 @@ const PatientCorpsHome: React.FunctionComponent<PatientCorpsHomeProps> = ({
                 {(page === 'CONSENT' ||
                   isLoggedInAndNotConsented(token, userInfo)) && (
                   <Consent
-                    name={userInfo?.firstName || ''}
+             
                     setConsentFn={(isConsented: boolean) =>
                       setUserInfo(userInfo => {
                         return { ...userInfo!, consented: isConsented }

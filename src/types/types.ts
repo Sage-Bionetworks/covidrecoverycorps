@@ -61,9 +61,13 @@ export interface LoggedInUserData extends UserData {
   id: string
 }
 
-export interface RegistrationData extends UserData {
-  study: string,
+export interface RegistrationData {
+  study: string
   substudyIds: string[]
+
+  email?: string
+  phone?: Phone
+  clientData: object
 }
 
 export interface Response<T> {

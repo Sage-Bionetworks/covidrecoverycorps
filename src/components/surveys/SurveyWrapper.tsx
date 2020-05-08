@@ -100,10 +100,15 @@ export default class SurveyWrapper extends React.Component<
           }
         }
       } else {
-        const attr = {
-          attributes: { ...userInfoResponse.data.attributes, included: true },
+        //contact path
+        const data = {
+          data: { 
+            firstName: userInfoResponse.data.firstName,
+            lastName: userInfoResponse.data.lastName, 
+            attributes: userInfoResponse.data.attributes,
+            included: true },
         }
-        formData = { ...attr, metadata: {} }
+        formData = { ...data, metadata: {} }
       }
       //if we are creating a new file - store the versions
 

@@ -1,6 +1,8 @@
 {
-  "attributes": {
-    "classNames": "demographic",
+  "data": {
+    "classNames": "contact",
+    "attributes": {
+ 
     "address": {
       "classNames": "address"
     },
@@ -12,6 +14,7 @@
     },
 
     "gender": {
+      "classNames": "gender",
       "ui:widget": "radio",
       "ui:options": {
         "inline": false
@@ -28,4 +31,5 @@
       }
     }
   }
+}
 }

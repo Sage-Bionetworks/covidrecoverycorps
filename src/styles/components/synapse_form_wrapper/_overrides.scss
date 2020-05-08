@@ -189,39 +189,51 @@
 
   margin-right: 8px; //Alina why is it here
 
-  // demographic survey
-  .demographic {
+  //contactinfo survey
+  .contact {
+    legend {
+      display: none;
+    }
     .birthdate > ul {
       display: flex;
     }
 
+    .gender {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #ccc;
+    }
+
     .address {
-      display: flex;
-      width: 100%;
-
-      .form-group {
-        margin-bottom: 1rem;
-      }
-
-      > .fieldset {
-        width: 100%;
-
-        .zip {
-          float: right;
-          width: 60%;
-          padding-left: 5px;
-          &.form-group.field-error {
-            margin-left: 0;
-            padding-left: 15px;
-            border-left: none;
-          }
-        }
-        .state {
-          float: left;
-          width: 40%;
-        }
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #ccc;
+      > label {
+        // font-weight: bold;
       }
     }
+    > .fieldset {
+      width: 100%;
+
+      .zip {
+        float: right;
+        width: 60%;
+        padding-left: 5px;
+        &.form-group.field-error {
+          margin-left: 0;
+          padding-left: 15px;
+          border-left: none;
+        }
+      }
+      .state {
+        float: left;
+        width: 40%;
+      }
+    }
+  }
+
+  // demographic survey
+  .demographic {
   }
 
   //covid1 survey

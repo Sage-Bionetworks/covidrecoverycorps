@@ -273,7 +273,6 @@ function App() {
                     <Route exact={true} path="/consent">
                       <Consent
                         token={token || ''}
-                        name={getSession()?.name || ''}
                       />
                     </Route>
                     {/*todo make private */}

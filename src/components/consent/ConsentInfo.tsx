@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-
-import useForm from '../useForm'
 import FloatingToolbar from '../widgets/FloatingToolbar'
 import Button from '@material-ui/core/Button/Button'
 import { faArrowRight, faArrowLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -15,13 +13,12 @@ import ConsentCopy, { StepInfo } from './ConsentCopy'
 import Grid from '@material-ui/core/Grid/Grid'
 
 type ConsentInfoProps = {
-  name: string
   onDone: Function
 }
 const quizes = [
   {
     screen: 2,
-    title: ' What is the purpose of [Study name]? ',
+    title: ' What is the purpose of COVID Recovery Corps? ',
     options: [
       'To receive medical treatment for COVID-19',
       'To be able to better understand COVID-19',
@@ -52,7 +49,6 @@ const quizes = [
 const totalSteps = 12
 
 export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
-  name,
   onDone,
 }: ConsentInfoProps) => {
   const [isFullText, setIsFullText] = useState(true)
@@ -225,7 +221,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
                 {currentStep+1} of {totalSteps+1}
               </div>
             )}
-           {currentStep === -1 && <div> <h1>Welcome {name}</h1>
+           {currentStep === -1 && <div> <h1>Welcome!</h1>
             { <ConsentCopy screen="INTRO" isEHR={false}></ConsentCopy>}
          
             
