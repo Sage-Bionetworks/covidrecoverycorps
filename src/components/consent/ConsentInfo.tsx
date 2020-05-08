@@ -121,13 +121,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
       </>
     )
 
-    const result = isQuiz ? (
-      <div className="ConsentInfo__navButtons--quiz">
-        <Grid item xs={10} md={6} lg={6}>
-          {buttonDiv}
-        </Grid>{' '}
-      </div>
-    ) : (
+    const result = (
       <div className="ConsentInfo__navButtons">{buttonDiv}</div>
     )
     return result
