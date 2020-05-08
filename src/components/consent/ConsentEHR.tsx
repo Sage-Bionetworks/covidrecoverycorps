@@ -35,7 +35,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   const [error, setError] = useState('')
 
   if (isConsentEHRDone) {
-    return <Redirect to="Dashboard"></Redirect>
+    return <Redirect to="/dashboard?consented=true"></Redirect>
   }
 
   const renderStep0 = () => {
@@ -159,7 +159,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           <div className="Consent">
             {currentStep == 0 && (
               <>
-                <FloatingToolbar closeLinkDestination='/home' closeIcon={faTimes}>HIPAA Authorization</FloatingToolbar>
+                <FloatingToolbar closeLinkDestination='/dashboard' closeIcon={faTimes}>HIPAA Authorization</FloatingToolbar>
                 {renderStep0()}
               </>
             )}

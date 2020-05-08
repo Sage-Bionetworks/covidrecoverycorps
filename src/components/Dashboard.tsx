@@ -72,9 +72,11 @@ const surveys: UISurvey[] = [
 export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   token,
 }: DashboardProps) => {
+  const urlParams = new URLSearchParams(window.location.search)
   const [savedSurveys, setSavedSurveys] = useState<SavedSurveysObject>()
   const [isFromConsent, setIsFromConsent] = useState(
-    sessionStorage.getItem('consented') || ''
+    //get url param
+    urlParams.get('consented')
   )
   
   useEffect(() => {
