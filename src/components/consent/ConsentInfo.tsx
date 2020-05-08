@@ -51,7 +51,7 @@ const totalSteps = 12
 export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   onDone,
 }: ConsentInfoProps) => {
-  const [isFullText, setIsFullText] = useState(true)
+  const [isFullText, setIsFullText] = useState(false)
   const [currentStep, setCurrentStep] = useState(-1)
   const [quizAnswers, setQuizAnswers] = useState(new Array(2))
 
