@@ -113,7 +113,13 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
     const renderSurveyInfo = (survey: UISurvey, isTier1: boolean): JSX.Element => {
       const innerElement = (
-        <>
+        <><div className="graphics">
+          <div className="circle">
+            {' '}
+            <FontAwesomeIcon icon={getIcon(survey)} />
+          </div>
+          {isTier1 && <div className="rect"></div>}
+        </div>
           <div>
             <strong>{survey.title}</strong>
             <br />
@@ -142,11 +148,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     const items = _surveys.map((survey: UISurvey, index) => (
       <li className="item-wrap" key={survey.title}>
         <div className="item">
-          <div className="circle">
-            {' '}
-            <FontAwesomeIcon icon={getIcon(survey)} />
-          </div>
-          {isTier1 && <div className="rect"></div>}
+          
 
           {renderSurveyInfo(survey, isTier1)}
         </div>
