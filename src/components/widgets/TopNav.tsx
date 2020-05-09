@@ -151,9 +151,6 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
             keepMounted: true, // Better open performance on mobile.
           }}
         >
-          <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}>
-            <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
-          </IconButton>
           {drawer}
         </Drawer>
       </nav>
