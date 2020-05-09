@@ -90,8 +90,6 @@ const theme = createMuiTheme({
     MuiButton: {
       root: {
         borderRadius: 25,
-        paddingLeft: 40,
-        paddingRight: 40,
         height: 47,
       }, 
     }, 
