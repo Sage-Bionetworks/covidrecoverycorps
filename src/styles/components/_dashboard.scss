@@ -1,91 +1,123 @@
 .Dashboard {
-    ul.items {
-      list-style-type: none;
-      padding: 0;
-      margin-left: 1.5rem;
-      margin-top: 4rem;
-  
-      li {
-        margin-left: -1.75rem;
-  
-        &:first-child {
-          margin-top: -0.75rem;
+  div.circle {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    z-index: 10;
+    top: 50%;
+    margin-top: -16px;
+    left: 40px;
+  }
+  div.rect {
+    position: absolute;
+    width: 32px;
+    height: 200px;
+    left: 40px;
+    top: -20px;
+    background-color: rgba(0, 132, 255, 0.1);
+  }
+  div.separator {
+    background-image: url('../../assets/dashboard-separator.svg');
+    background-repeat: repeat-x;
+    text-align: center;
+    background-position: center;
+  }
+  ul.items {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 4rem;
+
+    li {
+      overflow-y: hidden;
+
+      &:first-child {
+        div.rect {
+          top: 50%;
         }
-  
-        &:last-child div.btn-container {
-          border-left: none;
+      }
+      &:last-child {
+        div.rect {
+          top: -120px;
         }
-  
-        div.item {
-          position: relative;
+      }
+
+      div.item {
+        position: relative;
+      }
+
+      div.subMenu ul svg {
+        margin: 0 1.2rem 0 0;
+      }
+
+      .btn-container {
+        padding-left: 20%;
+        padding-top: 28px;
+        display: flex;
+
+        margin-left: 0px;
+        margin-left: 0px;
+        padding-right: 4rem;
+        justify-content: space-between;
+
+        > a,
+        > div {
+          color: #000;
+          text-align: left;
+          max-width: 150px;
+          white-space: pre-wrap;
+          padding-top: 0;
+          margin-bottom: 3.6rem;
+          font-family: 'Source Serif Pro', serif;
+          font-size: 1.8rem;
+          flex-grow: 2;
         }
-  
-        div.subMenu ul svg {
-          margin: 0 1.2rem 0 0;
-        }
-  
-        div.btn-container {
-          display: flex;
-          border-left: 4px solid #000;
-          padding-left: 32px;
-          margin-left: 14px;
-  
-          > a,
-          > div {
-            color: #000;
-            text-align: left;
-            max-width: 150px;
-            white-space: pre-wrap;
-            padding-top: 0;
-            margin-bottom: 3.6rem;
-            font-family: 'Source Serif Pro', serif;
-            font-size: 1.8rem;
-            flex-grow: 2;
+
+        .time {
+          text-align: right;
+          span {
+            font-size: 10px;
+            font-style: italic;
+            padding-left: 3px;
+            display: block;
           }
-  
-          .time {
-            //display: inline-flex;
-            text-align: right;
-            span {
-              font-size: 10px;
-              font-style: italic;
-              padding-left: 3px;
-              display: block;
-            }
-          }
         }
       }
-  
-      .svg-inline--fa.fa-w-16 {
-        width: 1.2rem;
-        height: 1.2rem;
-      }
-  
-      .svg-inline--fa.fa-w-16.fa-circle,
-      .svg-inline--fa.fa-w-16.fa-check-circle,
-      .svg-inline--fa.fa-w-16.fa-dot-circle {
-        border-radius: 50%;
-        border: 4px solid #000;
-  
-        width: 3.2rem;
-        height: 3.2rem;
-        position: absolute;
-        vertical-align: top;
-      }
-  
-      .svg-inline--fa.fa-w-16.fa-circle {
-        color: #e5e5e5;
-      }
-      .svg-inline--fa.fa-w-16.fa-check-circle {
-        background-color: #e5e5e5;
-        color: #000;
-        border: none;
-      }
-      .svg-inline--fa.fa-w-16.fa-dot-circle {
-        background-color: #e5e5e5;
-        color: #000;
-        border: none;
+
+      .btn-container:hover {
+        background-color: #fff;
+        text-decoration: none;
       }
     }
+
+    .svg-inline--fa.fa-w-16 {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+
+    .svg-inline--fa.fa-w-16.fa-circle,
+    .svg-inline--fa.fa-w-16.fa-check-circle,
+    .svg-inline--fa.fa-w-16.fa-dot-circle {
+      border-radius: 50%;
+      border: 4px solid #0084ff;
+
+      width: 3.2rem;
+      height: 3.2rem;
+      position: absolute;
+      vertical-align: top;
+    }
+
+    .svg-inline--fa.fa-w-16.fa-circle {
+      color: #f5f5f5;
+    }
+    .svg-inline--fa.fa-w-16.fa-check-circle {
+      background-color: #f5f5f5;
+      color: #0084ff;
+      border: none;
+    }
+    .svg-inline--fa.fa-w-16.fa-dot-circle {
+      background-color: #f5f5f5;
+      color: #0084ff;
+      border: none;
+    }
   }
-  
+}
