@@ -43,7 +43,6 @@ import GoogleAnalyticsPageTracker from './components/widgets/GoogleAnalyticsPage
 import CookieNotificationBanner from './components/widgets/CookieNotificationBanner'
 
 const theme = createMuiTheme({
-  
   typography: {
     // Tell Material-UI what's the font-size on the html element is.
     htmlFontSize: 10,
@@ -91,8 +90,10 @@ const theme = createMuiTheme({
     MuiButton: {
       root: {
         borderRadius: 25,
+        paddingLeft: 40,
+        paddingRight: 40,
         height: 47,
-      },
+      }, 
     }, 
   },
 })
@@ -214,148 +215,138 @@ function App() {
                 alignItems="center"
                 spacing={2}
               >
-                <Route
-                  render={(props) => {
-                    console.log(props.location)
-                    if (!props.location.pathname.includes('onsent'))
-                      return (
-                        <Grid item xs={12}>
-                          <TopNav
-                            token={token}
-                            logoutCallbackFn={() =>
-                              setUserSession(undefined, '', false)
-                            }
-                          ></TopNav>
-                        </Grid>
-                      )
-                  }}
-                />
+                <Grid item xs={10} md={8} lg={6}>
+                  <TopNav
+                      token={token}
+                      logoutCallbackFn={() =>
+                        setUserSession(undefined, '', false)
+                      }
+                    >
+                    {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}{' '}
+                    <Switch>
+                      <Route path="/collaborators">
+                        <Collaborators />
+                      </Route>
 
-                <Grid item xs={10} md={6} lg={6}>
-                  {/* A <Switch> looks through its children <Route>s and
-          renders the first one that matches the current URL. */}{' '}
-                  <Switch>
-                    <Route path="/collaborators">
-                      <Collaborators />
-                    </Route>
+                      <Route
+                        exact={true}
+                        path="/login"
+                        render={(props) => {
+                          const searchParamsProps = getSearchParams(
+                            props.location.search
+                          )
+                          // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
+                          return (
+                            <Login
+                              {...props}
+                              searchParams={searchParamsProps as any}
+                              callbackFn={(
+                                token: string,
+                                name: string,
+                                consented: boolean
+                              ) => setUserSession(token, name, consented)}
+                            />
+                          )
+                        }}
+                      ></Route>
+                      <Route
+                        path="/eligibility"
+                        render={(props) => {
+                          const searchParamsProps = getSearchParams(
+                            props.location.search
+                          )
+                          // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
+                          return (
+                            <EligibilityRegistration
+                              {...props}
+                              callbackFn={(token: string, name: string) =>
+                                setUserSession(token, name, false)
+                              }
+                            />
+                          )
+                        }}
+                      ></Route>
 
-                    <Route
-                      exact={true}
-                      path="/login"
-                      render={(props) => {
-                        const searchParamsProps = getSearchParams(
-                          props.location.search
-                        )
-                        // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
-                        return (
-                          <Login
-                            {...props}
-                            searchParams={searchParamsProps as any}
-                            callbackFn={(
-                              token: string,
-                              name: string,
-                              consented: boolean
-                            ) => setUserSession(token, name, consented)}
-                          />
-                        )
-                      }}
-                    ></Route>
-                    <Route
-                      path="/eligibility"
-                      render={(props) => {
-                        const searchParamsProps = getSearchParams(
-                          props.location.search
-                        )
-                        // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
-                        return (
-                          <EligibilityRegistration
-                            {...props}
-                            callbackFn={(token: string, name: string) =>
-                              setUserSession(token, name, false)
-                            }
-                          />
-                        )
-                      }}
-                    ></Route>
+                      <PrivateRoute exact={true} path="/dashboard">
+                        <Dashboard token={token || ''} />
+                      </PrivateRoute>
+                      {/*todo make private */}
+                      <Route exact={true} path="/consent">
+                        <Consent
+                          token={token || ''}
+                        />
+                      </Route>
+                      {/*todo make private */}
+                      <Route exact={true} path="/consentehr">
+                        <ConsentEHR token={token || ''} />
+                      </Route>
+                      {/*todo make private */}
+                      <Route exact={true} path="/contactinfo">
+                        <SurveyWrapper
+                          formTitle="Tell us about yourself"
+                          token={token || ''}
+                          surveyName={'CONTACT'}
+                          formClass="crc"
+                        ></SurveyWrapper>
+                      </Route>
+                      <Route exact={true} path="/survey1">
+                        <SurveyWrapper
+                          formTitle="Tell us about yourself"
+                          token={token || ''}
+                          surveyName={'DEMOGRAPHIC'}
+                          formClass="crc"
+                        ></SurveyWrapper>
+                      </Route>
+                      <Route exact={true} path="/survey2">
+                        <SurveyWrapper
+                          formTitle="Your COVID experience"
+                          token={token || ''}
+                          surveyName={'COVID_EXPERIENCE'}
+                          formClass="crc"
+                        ></SurveyWrapper>
+                      </Route>
+                      <Route exact={true} path="/survey3">
+                        <SurveyWrapper
+                          formTitle="Health History"
+                          token={token || ''}
+                          surveyName={'HISTORY'}
+                          formClass="crc"
+                        ></SurveyWrapper>
+                      </Route>
+                      <Route exact={true} path="/survey4">
+                        <SurveyWrapper
+                          formTitle="COVID Part II"
+                          token={token || ''}
+                          surveyName={'MORE'}
+                          formClass="crc"
+                        ></SurveyWrapper>
+                      </Route>
 
-                    <PrivateRoute exact={true} path="/dashboard">
-                      <Dashboard token={token || ''} />
-                    </PrivateRoute>
-                    {/*todo make private */}
-                    <Route exact={true} path="/consent">
-                      <Consent
-                        token={token || ''}
-                      />
-                    </Route>
-                    {/*todo make private */}
-                    <Route exact={true} path="/consentehr">
-                      <ConsentEHR token={token || ''} />
-                    </Route>
-                    {/*todo make private */}
-                    <Route exact={true} path="/contactinfo">
-                      <SurveyWrapper
-                        formTitle="Tell us about yourself"
-                        token={token || ''}
-                        surveyName={'CONTACT'}
-                        formClass="crc"
-                      ></SurveyWrapper>
-                    </Route>
-                    <Route exact={true} path="/survey1">
-                      <SurveyWrapper
-                        formTitle="Tell us about yourself"
-                        token={token || ''}
-                        surveyName={'DEMOGRAPHIC'}
-                        formClass="crc"
-                      ></SurveyWrapper>
-                    </Route>
-                    <Route exact={true} path="/survey2">
-                      <SurveyWrapper
-                        formTitle="Your COVID experience"
-                        token={token || ''}
-                        surveyName={'COVID_EXPERIENCE'}
-                        formClass="crc"
-                      ></SurveyWrapper>
-                    </Route>
-                    <Route exact={true} path="/survey3">
-                      <SurveyWrapper
-                        formTitle="Health History"
-                        token={token || ''}
-                        surveyName={'HISTORY'}
-                        formClass="crc"
-                      ></SurveyWrapper>
-                    </Route>
-                    <Route exact={true} path="/survey4">
-                      <SurveyWrapper
-                        formTitle="COVID Part II"
-                        token={token || ''}
-                        surveyName={'MORE'}
-                        formClass="crc"
-                      ></SurveyWrapper>
-                    </Route>
+                      <Route path="/about">
+                        <About></About>
+                      </Route>
+                      <Route path="/faqs">
+                        <FAQs></FAQs>
+                      </Route>
+                      <Route path="/team">
+                        <Team></Team>
+                      </Route>
+                      <Route path="/contact">
+                        <Contact></Contact>
+                      </Route>
+                      <Route path="/settings">
+                        <AcountSettings token={token!}></AcountSettings>
+                      </Route>
+                      <Route path="/home">
+                        <Intro token={token || null}></Intro>
+                      </Route>
 
-                    <Route path="/about">
-                      <About></About>
-                    </Route>
-                    <Route path="/faqs">
-                      <FAQs></FAQs>
-                    </Route>
-                    <Route path="/team">
-                      <Team></Team>
-                    </Route>
-                    <Route path="/contact">
-                      <Contact></Contact>
-                    </Route>
-                    <Route path="/settings">
-                      <AcountSettings token={token!}></AcountSettings>
-                    </Route>
-                    <Route path="/home">
-                      <Intro token={token || null}></Intro>
-                    </Route>
-
-                    <Route path="/">
-                      <Intro token={token || null}></Intro>
-                    </Route>
-                  </Switch>
+                      <Route path="/">
+                        <Intro token={token || null}></Intro>
+                      </Route>
+                    </Switch>
+                  </TopNav>
                 </Grid>
               </Grid>
             </div>

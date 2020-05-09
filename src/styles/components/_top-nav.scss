@@ -43,10 +43,8 @@
 
       a {
         padding: 4px 16px;
-
-        &:not(:first-child) {
-          display: none;
-        }
+        display: none;
+        
         &.icon {
           float: right;
           display: block;
