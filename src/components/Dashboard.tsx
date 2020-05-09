@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import testTubeImg from '../assets/icon_testtube.svg'
 
 import {
   faCircle,
@@ -6,14 +7,11 @@ import {
   faCheckCircle,
   faDotCircle,
   IconDefinition,
-
 } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-
 import { Typography } from '@material-ui/core'
-
 
 import { SurveyService } from '../services/survey.service'
 import { SavedSurveysObject, SurveyType, SavedSurvey } from '../types/types'
@@ -41,21 +39,21 @@ const surveys: UISurvey[] = [
   },
   {
     type: 'DEMOGRAPHIC',
-    title: 'Survey 1',
+    title: 'Survey 2',
     description: 'Tell us about yourself',
     time: 2,
     link: '/survey1',
   },
   {
     type: 'COVID_EXPERIENCE',
-    title: 'Survey 2',
-    description: 'Tell us about your recent COVID-19 Experience',
+    title: 'Survey 3',
+    description: 'Recent COVID-19 Experience',
     time: 5,
     link: '/survey2',
   },
   {
     type: 'HISTORY',
-    title: 'Survey 3',
+    title: 'Survey 4',
     description: 'Medical History',
     time: 15,
     link: '/survey3',
@@ -78,7 +76,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     //get url param
     urlParams.get('consented')
   )
-  
+
   useEffect(() => {
     const getSurveys = async () => {
       try {
@@ -93,7 +91,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     }
   }, [token])
 
-  const renderSurveyItems = (savedSurveys: SavedSurvey[]) => {
+  const renderSurveyItems = (savedSurveys: SavedSurvey[], isTier1: boolean) => {
     const getSavedSurvey = (survey: UISurvey): SavedSurvey | undefined => {
       return savedSurveys.find(
         (savedSurvey) => survey.type === savedSurvey.type
@@ -113,37 +111,44 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       return isInProgress(survey) ? faDotCircle : iconDef
     }
 
-    const renderSurveyInfo = (survey: UISurvey): JSX.Element => {
+    const renderSurveyInfo = (survey: UISurvey, isTier1: boolean): JSX.Element => {
       const innerElement = (
-        <div>
-          <strong>{survey.title}</strong>
-          <br />
-          {survey.description}
-        </div>
+        <>
+          <div>
+            <strong>{survey.title}</strong>
+            <br />
+            {survey.description}
+          </div>
+          <div className="time">
+            <FontAwesomeIcon icon={faClock} />
+            <span>{survey.time}&nbsp;min</span>
+          </div>
+        </>
       )
 
       if (isDone(survey)) {
-        return innerElement
+        return <div className="btn-container">{innerElement}</div>
       } else {
         return (
-          <a className="btn btn-link" href={survey.link}>
+          <a className="btn-container" href={survey.link}>
             {innerElement}
           </a>
         )
       }
     }
 
-    const items = surveys.map((survey: UISurvey) => (
+    const _surveys = isTier1? surveys.slice(0,3): surveys.slice(3)
+
+    const items = _surveys.map((survey: UISurvey, index) => (
       <li className="item-wrap" key={survey.title}>
         <div className="item">
-          <FontAwesomeIcon icon={getIcon(survey)} />
-          <div className="btn-container">
-            {renderSurveyInfo(survey)}
-            <div className="time">
-              <FontAwesomeIcon icon={faClock} />
-              <span>{survey.time}mins.</span>
-            </div>
+          <div className="circle">
+            {' '}
+            <FontAwesomeIcon icon={getIcon(survey)} />
           </div>
+          {isTier1 && <div className="rect"></div>}
+
+          {renderSurveyInfo(survey, isTier1)}
         </div>
       </li>
     ))
@@ -151,18 +156,20 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   }
   return (
     <div className="Dashboard">
-      {isFromConsent &&
+      <div className="intro">
+      {isFromConsent && (
         <Typography variant="h2">Yay, the legal is done!</Typography>
-      }
+      )}
       <p>
         Our scientists could really use the information from Surveys 1 &amp; 2.
         &mdash; we need text about needing 1&amp;2 if they want to be invited.
         If you have the time, anything from 3 &amp; 4 would be phenomenal value
         to the research.
       </p>
-      <div>{renderSurveyItems(savedSurveys?.surveys || [])}</div>
-      <hr/>
-
+      </div>
+      <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
+      <div className="separator"><img src={testTubeImg}></img></div>
+      <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
     </div>
   )
 }

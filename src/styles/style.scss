@@ -20,7 +20,7 @@ html {
 body {
   margin: 0;
   font-family: 'Source Serif Pro', serif;
-  background: #f5f5f5;
+  background: #efefef
 }
 
 h1 {
@@ -70,25 +70,22 @@ p {
   }
 }
 
-/*
-
-
-.buttonGroup .btn-block:first-child {
-  margin-bottom: 10px;
-}
-
-.buttonGroup .btn {
-  background: #fff;
-  border: 1px solid black;
-  color: #000;
-}
-
-.buttonGroup .btn.active {
-  background: #000;
-  border: 1px solid black;
+div.intro {
+  background-color: #0084FF;
   color: #fff;
+  font-size: 1.6em;
+  line-height: 1.8rem;
+  font-family: 'Source Serif Pro', serif;
+  padding: 3.2rem 4rem;
+
+  p , span {
+color: #fff;
+  }
+
+  h1:first-child, h2:first-child {
+    margin-top: 4.8rem;
+  }
 }
-*/
 
 
 

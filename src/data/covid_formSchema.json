@@ -82,7 +82,7 @@
           "type": "object",
         
 
-          "title": "Please descirbe your symptoms",
+          "title": "Please describe your symptoms",
           "properties": {
             "cough": {
               "type": "boolean",
