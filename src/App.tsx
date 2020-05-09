@@ -208,20 +208,21 @@ function App() {
               >
                 (Friday:14:30)
               </nav>
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                spacing={2}
+              <TopNav
+                token={token}
+                logoutCallbackFn={() =>
+                  setUserSession(undefined, '', false)
+                }
               >
-                <Grid item xs={10} md={8} lg={6}>
-                  <TopNav
-                      token={token}
-                      logoutCallbackFn={() =>
-                        setUserSession(undefined, '', false)
-                      }
-                    >
+                <Grid
+                  container
+                  direction="row"
+                  justify="center"
+                  alignItems="center"
+                  spacing={2}
+                >
+                  <Grid item xs={10} md={8} lg={6}>
+                  
                     {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}{' '}
                     <Switch>
@@ -346,9 +347,9 @@ function App() {
                         <Intro token={token || null}></Intro>
                       </Route>
                     </Switch>
-                  </TopNav>
+                  </Grid>
                 </Grid>
-              </Grid>
+              </TopNav>
             </div>
           </Router>
         </div>

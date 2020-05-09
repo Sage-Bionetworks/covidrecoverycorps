@@ -61,29 +61,29 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
 
   const drawer = <div>
     <List>
-      <NavLink to="/home" activeClassName="active">
+      <NavLink to="/home" activeClassName="active" onClick={handleDrawerToggle}>
         <ListItem button>
             About
         </ListItem>
       </NavLink>
-      <NavLink to="/team" activeClassName="active">
+      <NavLink to="/team" activeClassName="active" onClick={handleDrawerToggle}>
         <ListItem button>
             Meet the Researchers
         </ListItem>
       </NavLink>
-      <NavLink to="/faqs" activeClassName="active">
+      <NavLink to="/faqs" activeClassName="active" onClick={handleDrawerToggle}>
         <ListItem button>
           FAQs
         </ListItem>
       </NavLink>
-      <NavLink to="/contact" activeClassName="active">
+      <NavLink to="/contact" activeClassName="active" onClick={handleDrawerToggle}>
         <ListItem button>
             Contact Us
         </ListItem>
       </NavLink>
       <Divider />
       {props.token && (
-        <NavLink to="/settings" activeClassName="active">
+        <NavLink to="/settings" activeClassName="active" onClick={handleDrawerToggle}>
           <ListItem button>
               Settings
           </ListItem>
@@ -95,7 +95,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
         ></Logout>
       )}
       {!props.token && (
-        <NavLink to="/login" activeClassName="hidden">
+        <NavLink to="/login" activeClassName="hidden" onClick={handleDrawerToggle}>
           <ListItem>
               Log in
           </ListItem>
@@ -105,7 +105,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
         <NavLink
           style={{ marginRight: '10px' }}
           to="/eligibility"
-          activeClassName="hidden"
+          activeClassName="hidden" onClick={handleDrawerToggle}
         >
         <ListItem>
             Join Us
@@ -118,25 +118,26 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
   return (
     <div>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar className={classes.toolBar}>
+      <Toolbar className={classes.toolBar}>
+        <div>
           <Typography variant="h6" noWrap>
             <NavLink to="/home">
-              Covid Recovery Corps (title image)
+              Covid Recovery Corps
             </NavLink>
           </Typography>
-          <IconButton
-            color="inherit"
-            aria-label="Open drawer"
-            edge="end"
-            onClick={handleDrawerToggle}
-            className={classes.menuButton}
-          >
-            <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-
+        </div>
+        
+        <IconButton
+          color="inherit"
+          aria-label="Open drawer"
+          edge="end"
+          onClick={handleDrawerToggle}
+          className={classes.menuButton}
+        >
+          <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
+        </IconButton>
+      </Toolbar>
+      
       <nav className={classes.drawer}>
         <Drawer
           variant="temporary"
