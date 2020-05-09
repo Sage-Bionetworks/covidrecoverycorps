@@ -2,6 +2,7 @@
   $font-size: 1.6rem;
   $red-error: #ffc0bd;
   $red-error2: #ffc0bd;
+  $left-pad: 4rem;
 
   input[type='checkbox']:checked ~ span {
     // color: blue;
@@ -29,7 +30,12 @@
 
   .scroll-area {
     overflow-x: auto;
-    padding: 0px 25px;
+    padding: 0px 5px;
+  }
+
+  .summary.scroll-area,
+  .summary.scroll-area > .scroll-area {
+    padding: 0px 0px;
   }
 
   table.summary-table > tbody > tr:first-child > td {
@@ -87,7 +93,7 @@
   }
   div.checkbox,
   div.radio {
-    padding: 2rem 1rem 2rem 4rem; // 10px 10px 10px 0;
+    padding: 2rem 1rem 2rem $left-pad; // 10px 10px 10px 0;
     //border: 1px solid black;
     min-width: 27px;
     background-color: #f5f5f5;
@@ -409,6 +415,13 @@
       #root_women > legend {
         display: none;
       }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    div.checkbox,
+    div.radio {
+      padding: 1rem 1rem 1rem 1.5rem; // 10px 10px 10px 0;
     }
   }
 }
