@@ -181,6 +181,10 @@
     }
     .birthdate > ul {
       display: flex;
+
+      select {
+        padding: 0;
+      }
     }
 
     .gender {
