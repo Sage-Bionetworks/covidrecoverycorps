@@ -1,21 +1,5 @@
 .Dashboard {
-  div.circle {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    z-index: 10;
-    top: 50%;
-    margin-top: -16px;
-    left: 40px;
-  }
-  div.rect {
-    position: absolute;
-    width: 32px;
-    height: 200px;
-    left: 40px;
-    top: -20px;
-    background-color: rgba(0, 132, 255, 0.1);
-  }
+
   div.separator {
     background-image: url('../../assets/dashboard-separator.svg');
     background-repeat: repeat-x;
@@ -31,13 +15,13 @@
       overflow-y: hidden;
 
       &:first-child {
-        div.rect {
+        .btn-container  > .graphics  >  div.rect {
           top: 50%;
         }
       }
-      &:last-child {
-        div.rect {
-          top: -120px;
+      &:last-child  {
+        .btn-container  > .graphics  >  div.rect {
+          top: -170px;
         }
       }
 
@@ -50,28 +34,59 @@
       }
 
       .btn-container {
-        padding-left: 20%;
+        padding-left: 5%;
         padding-top: 28px;
         display: flex;
 
         margin-left: 0px;
         margin-left: 0px;
-        padding-right: 4rem;
+        padding-right: 10%;
         justify-content: space-between;
+
+        .graphics  {
+          width: 8rem;
+          flex-grow: 0;
+          flex-shrink: 0;
+          position: relative;
+
+          div.circle {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            z-index: 10;
+            top: 50%;
+            margin-top: -16px;
+            left: -4px;
+          }
+          div.rect {
+            position: absolute;
+            width: 32px;
+            height: 200px;
+            left: 1px;
+            top: -40px;
+            background-color: rgba(0, 132, 255, 0.1);
+          }
+        }
+
 
         > a,
         > div {
           color: #000;
           text-align: left;
-          max-width: 150px;
+     
           white-space: pre-wrap;
           padding-top: 0;
           margin-bottom: 3.6rem;
           font-family: 'Source Serif Pro', serif;
           font-size: 1.8rem;
+       
+        }
+        >div:nth-of-type(2) {
           flex-grow: 2;
+
         }
 
+      
         .time {
           text-align: right;
           span {
