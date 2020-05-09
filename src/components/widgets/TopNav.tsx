@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -61,41 +61,43 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
 
   const drawer = <div>
     <List>
-      <NavLink to="/home" activeClassName="active" onClick={handleDrawerToggle}>
+      <NavLink to="/home" onClick={handleDrawerToggle}>
         <ListItem button>
             About
         </ListItem>
       </NavLink>
-      <NavLink to="/team" activeClassName="active" onClick={handleDrawerToggle}>
+      <NavLink to="/team" onClick={handleDrawerToggle}>
         <ListItem button>
             Meet the Researchers
         </ListItem>
       </NavLink>
-      <NavLink to="/faqs" activeClassName="active" onClick={handleDrawerToggle}>
+      <NavLink to="/faqs" onClick={handleDrawerToggle}>
         <ListItem button>
           FAQs
         </ListItem>
       </NavLink>
-      <NavLink to="/contact" activeClassName="active" onClick={handleDrawerToggle}>
+      <NavLink to="/contact" onClick={handleDrawerToggle}>
         <ListItem button>
             Contact Us
         </ListItem>
       </NavLink>
       <Divider />
       {props.token && (
-        <NavLink to="/settings" activeClassName="active" onClick={handleDrawerToggle}>
+        <NavLink to="/settings" onClick={handleDrawerToggle}>
           <ListItem button>
               Settings
           </ListItem>
         </NavLink>
       )}
       {props.token && (
-        <Logout
-          onLogout={() => props.logoutCallbackFn(undefined, '', false)}
-        ></Logout>
+        <NavLink to="/home" onClick={handleDrawerToggle}>
+          <Logout
+            onLogout={() => props.logoutCallbackFn(undefined, '', false)}
+          ></Logout>
+        </NavLink>
       )}
       {!props.token && (
-        <NavLink to="/login" activeClassName="hidden" onClick={handleDrawerToggle}>
+        <NavLink to="/login" onClick={handleDrawerToggle}>
           <ListItem>
               Log in
           </ListItem>
@@ -104,8 +106,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
       {!props.token && (
         <NavLink
           style={{ marginRight: '10px' }}
-          to="/eligibility"
-          activeClassName="hidden" onClick={handleDrawerToggle}
+          to="/eligibility" onClick={handleDrawerToggle}
         >
         <ListItem>
             Join Us
