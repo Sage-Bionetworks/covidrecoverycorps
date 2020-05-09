@@ -7,7 +7,6 @@
 @import 'components/consent';
 @import 'components/consent-info';
 @import 'components/static';
-@import 'components/top-nav';
 @import 'components/floating-toolbar';
 @import 'material-overrides';
 @import 'forms';
@@ -45,11 +44,6 @@ p {
 
 #root .margin-top-std {
   margin-top: 4rem;
-}
-
-#root {
-  // issue 78: https://material-ui.com/components/grid/#limitations
-  padding: 12px;
 }
 
 .cookiesBanner {

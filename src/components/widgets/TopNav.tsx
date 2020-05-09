@@ -1,97 +1,162 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import Button from '@material-ui/core/Button/Button'
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Logout from '../login/Logout'
+import { ListItem, List, Divider } from '@material-ui/core'
+import AppBar from '@material-ui/core/AppBar';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Drawer from '@material-ui/core/Drawer';
+import IconButton from '@material-ui/core/IconButton';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 type TopNavProps = {
   token: string | undefined
   logoutCallbackFn: Function
 }
+const drawerWidth = 240;
+const useStyles = makeStyles(theme => ({
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+  },
+  toolBar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    color: '#21394A',
+    backgroundColor: 'rgb(254, 254, 254)'
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+  closeMenuButton: {
+    marginRight: 'auto',
+    marginLeft: 0,
+  },
+}))
 
 export const TopNav: React.FunctionComponent<TopNavProps> = (
-  {token,
-  logoutCallbackFn}: TopNavProps
+  props
 ) => {
-  const [topClicked, setTopClicked] = useState(false)
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const classes = useStyles()
+  const theme = useTheme()
 
-  const renderLoginOut = (): JSX.Element => {
-    let element = (
-      <NavLink to="/login" activeClassName="hidden" className="buttonLink">
-        <Button style={{  width: '90px' }} color="primary" variant="outlined" size="large">
-          Login
-        </Button>
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen)
+  }
+
+  const drawer = <div>
+    <List>
+      <NavLink to="/home" activeClassName="active" onClick={handleDrawerToggle}>
+        <ListItem button>
+            About
+        </ListItem>
       </NavLink>
-    )
-    if (token) {
-      console.log(token)
-      return (
-        <>
-        
-          <Logout
-            onLogout={() => logoutCallbackFn(undefined, '', false)}
-          ></Logout>
-        </>
-      )
-    }
-
-    return (
-      <>
+      <NavLink to="/team" activeClassName="active" onClick={handleDrawerToggle}>
+        <ListItem button>
+            Meet the Researchers
+        </ListItem>
+      </NavLink>
+      <NavLink to="/faqs" activeClassName="active" onClick={handleDrawerToggle}>
+        <ListItem button>
+          FAQs
+        </ListItem>
+      </NavLink>
+      <NavLink to="/contact" activeClassName="active" onClick={handleDrawerToggle}>
+        <ListItem button>
+            Contact Us
+        </ListItem>
+      </NavLink>
+      <Divider />
+      {props.token && (
+        <NavLink to="/settings" activeClassName="active" onClick={handleDrawerToggle}>
+          <ListItem button>
+              Settings
+          </ListItem>
+        </NavLink>
+      )}
+      {props.token && (
+        <Logout
+          onLogout={() => props.logoutCallbackFn(undefined, '', false)}
+        ></Logout>
+      )}
+      {!props.token && (
+        <NavLink to="/login" activeClassName="hidden" onClick={handleDrawerToggle}>
+          <ListItem>
+              Log in
+          </ListItem>
+        </NavLink>
+      )}
+      {!props.token && (
         <NavLink
           style={{ marginRight: '10px' }}
           to="/eligibility"
-          activeClassName="hidden"
-          className="buttonLink"
+          activeClassName="hidden" onClick={handleDrawerToggle}
         >
-          <Button style={{  width: '90px' }}color="primary" variant="contained" size="large">
-            Join
-          </Button>
-        </NavLink>
-        {element}
-      </>
-    )
-  }
+        <ListItem>
+            Join Us
+        </ListItem>
+      </NavLink>
+      )}
+    </List>
+  </div>
 
-  const collapseMenu = () => {
-    setTopClicked(false)
-  }
   return (
-    <div className="TopNav">
-      <div
-        className={`${topClicked ? 'TopNav__menu responsive' : 'TopNav__menu'}`}
-      >
-      
-        <NavLink to="/home" activeClassName="active" onClick={collapseMenu}>
-          About
-        </NavLink>
+    <div>
+      <CssBaseline />
+      <Toolbar className={classes.toolBar}>
+        <div>
+          <Typography variant="h6" noWrap>
+            <NavLink to="/home">
+              Covid Recovery Corps
+            </NavLink>
+          </Typography>
+        </div>
         
-        <NavLink to="/team" activeClassName="active" onClick={collapseMenu}>
-          Team
-        </NavLink>
-        <NavLink to="/faqs" activeClassName="active" onClick={collapseMenu}>
-          FAQs
-        </NavLink>
-        <NavLink to="/contact" activeClassName="active" onClick={collapseMenu}>
-          Contact
-        </NavLink>
-        {token && (
-          <NavLink to="/settings" activeClassName="active" onClick={collapseMenu}>
-            Settings
-          </NavLink>
-        )}
-        <a
-          onClick={() => {
-            setTopClicked((prev) => !prev)
-          }}
-          className="icon"
+        <IconButton
+          color="inherit"
+          aria-label="Open drawer"
+          edge="end"
+          onClick={handleDrawerToggle}
+          className={classes.menuButton}
         >
           <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
-        </a>
-      </div>
-      <div>
-        <div className="TopNav__buttons"> {renderLoginOut()}</div>
+        </IconButton>
+      </Toolbar>
+      
+      <nav className={classes.drawer}>
+        <Drawer
+          variant="temporary"
+          anchor="right"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </nav>
+      <div className={classes.content}>
+        <div className={classes.toolbar} />
+        {props.children}
       </div>
     </div>
   )
