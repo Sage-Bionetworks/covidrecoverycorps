@@ -52,7 +52,7 @@ const extraUIProps: ExtraUIProps = {
     alert('hi')
   },
   isHelpHidden: true,
-  isNoSaveButton: true,
+  isNoSaveButton: false,
 }
 
 export default class SurveyWrapper extends React.Component<
@@ -102,11 +102,12 @@ export default class SurveyWrapper extends React.Component<
       } else {
         //contact path
         const data = {
-          data: { 
+          data: {
             firstName: userInfoResponse.data.firstName,
-            lastName: userInfoResponse.data.lastName, 
+            lastName: userInfoResponse.data.lastName,
             attributes: userInfoResponse.data.attributes,
-            included: true },
+            included: true,
+          },
         }
         formData = { ...data, metadata: {} }
       }
@@ -165,15 +166,17 @@ export default class SurveyWrapper extends React.Component<
     }
   }
 
-  submitForm = async (rawData: any, data: any) => {
+  saveSurvey = async (rawData: any, completedDate?: Date) => {
     this.setState({
+      status: StatusEnum.PROGRESS,
+      notification: { type: StatusEnum.PROGRESS, message: 'Progress' },
       isLoading: true,
     })
 
     const updatedSurvey: SavedSurvey = {
       type: this.props.surveyName,
       updatedDate: new Date(),
-      completedDate: new Date(),
+      completedDate: completedDate,
       data: rawData,
     }
 
@@ -194,14 +197,52 @@ export default class SurveyWrapper extends React.Component<
     }
 
     try {
+      await SurveyService.postUserSurvey(savedSurveys, this.props.token)
+
+      // this.setState({ is true })
+      this.finishedProcessing(StatusEnum.SAVE_SUCCESS, 'File Saved')
+    } catch (error) {
+      this.onError({ name: 'save error', message: error.message })
+    }
+  }
+
+  submitForm = async (rawData: any, data: any) => {
+    this.setState({
+      isLoading: true,
+    })
+
+   /* const updatedSurvey: SavedSurvey = {
+      type: this.props.surveyName,
+      updatedDate: new Date(),
+      completedDate: new Date(),
+      data: rawData,
+    }
+
+    let savedSurveys = _.cloneDeep(this.state.savedSurveys)
+    if (!savedSurveys?.surveys) {
+      savedSurveys = {
+        surveys: [updatedSurvey],
+      }
+    } else {
+      const ourSurveyIndex: number | undefined = savedSurveys.surveys.findIndex(
+        (survey) => survey.type === updatedSurvey.type
+      )
+      if (ourSurveyIndex === -1) {
+        savedSurveys.surveys.push(updatedSurvey)
+      } else {
+        savedSurveys.surveys[ourSurveyIndex] = updatedSurvey
+      }
+    }*/
+
+    try {
       const result = await SurveyService.postToHealthData(
         data,
         this.props.token
       )
       // alert(result.data)
       if (result.ok) {
-        await SurveyService.postUserSurvey(savedSurveys, this.props.token)
-
+       // await SurveyService.postUserSurvey(savedSurveys, this.props.token)
+        await this.saveSurvey(rawData, new Date())
         this.setState({ isFormSubmitted: true })
       }
     } catch (error) {
@@ -316,7 +357,7 @@ export default class SurveyWrapper extends React.Component<
                 formTitle={this.props.formTitle}
                 formClass={this.props.formClass}
                 callbackStatus={this.state.status}
-                onSave={() => null}
+                onSave={(data: any) => this.saveSurvey(data)}
                 onSubmit={async (data: any) => {
                   this.props.surveyName !== 'CONTACT'
                     ? this.submitForm(data, this.cleanData(data))

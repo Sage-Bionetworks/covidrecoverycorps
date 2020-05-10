@@ -75,12 +75,12 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
     <Button 
     color="primary"
     className="save"
-    variant="contained"
+    variant="text"
     
       disabled={props.isFormSubmitted}
       onClick={e => props.onNavAction(NavActionEnum.SAVE)}
     >
-      SAVE
+      Save progress
       </Button>
   ): (
     <></>
@@ -89,8 +89,11 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
   return (
     <div>
       <hr></hr>
-      <div className="buttonWrapper pull-right">
-        {previousButton} {nextButton} {saveButton}
+      <div className="buttonWrapper" style={{overflow:'visible'}}>
+        {previousButton} {nextButton}
+      </div>
+      <div  className="text-right" style={{clear:'both'}}>
+      {saveButton}
       </div>
     </div>
   )

@@ -1,76 +1,6 @@
 {
   "definitions": {
 
-    "hospitals_array":
-    [
-      "Brookdale Hospital",
-      "Calvary Hospital",
-      "Columbia/NewYork-Presbyterian",
-      "Elmhurst Hospital",
-      "Flushing Hospital",
-      "Gracie Square Hospital",
-      "Harlem Hospital",
-      "Hudson Valley Hospital",
-      "Jacobi Hospital",
-      "Kings County Hospital",
-      "Lawrence Hospital",
-      "Lenox Hill Hospital",
-      "Lower Manhattan Hospital",
-      "Maimonides",
-      "Metropolitan Hospital",
-      "Montefiore",
-      "Mount Sinai Beth Israel",
-      "Mount Sinai Hospital",
-      "Mount Sinai St. Luke’s Hospital",
-      "Mount Sinai West",
-      "New York Downtown Hospital",
-      "NewYork-Presbyterian Allen Hospital",
-      "NewYork-Presbyterian Brooklyn Methodist Hospital",
-      "NewYork-Presbyterian Medical Center-Queens",
-      "New York City Health and Hospital",
-      "North General Hospital",
-      "NYU Langone/Bellevue Hospital",
-      "St. Barnabas",
-      "Weill Cornell/ NewYork-Presbyterian",
-      "Woodhull Hospital",
-      "Other",
-      "Prefer not to answer"
-    ],
-
-    "hospitals_array_no_other":
-    [
-      "Brookdale Hospital",
-      "Calvary Hospital",
-      "Columbia/NewYork-Presbyterian",
-      "Elmhurst Hospital",
-      "Flushing Hospital",
-      "Gracie Square Hospital",
-      "Harlem Hospital",
-      "Hudson Valley Hospital",
-      "Jacobi Hospital",
-      "Kings County Hospital",
-      "Lawrence Hospital",
-      "Lenox Hill Hospital",
-      "Lower Manhattan Hospital",
-      "Maimonides",
-      "Metropolitan Hospital",
-      "Montefiore",
-      "Mount Sinai Beth Israel",
-      "Mount Sinai Hospital",
-      "Mount Sinai St. Luke’s Hospital",
-      "Mount Sinai West",
-      "New York Downtown Hospital",
-      "NewYork-Presbyterian Allen Hospital",
-      "NewYork-Presbyterian Brooklyn Methodist Hospital",
-      "NewYork-Presbyterian Medical Center-Queens",
-      "New York City Health and Hospital",
-      "North General Hospital",
-      "NYU Langone/Bellevue Hospital",
-      "St. Barnabas",
-      "Weill Cornell/ NewYork-Presbyterian",
-      "Woodhull Hospital",
-      "Prefer not to answer"
-    ],
 
 
 
@@ -786,6 +716,7 @@
             }
           },
           "dependencies": {
+      
             "oxigen": {
               "oneOf": [
                 {
@@ -918,6 +849,62 @@
               ]
             }
           }
+        }
+      },
+      "dependencies":{
+
+        "hospitals": {
+          "oneOf": [
+            {"properties": {
+              "hospitals":{
+                "enum": [
+                  "Brookdale Hospital",
+                  "Calvary Hospital",
+                  "Columbia/NewYork-Presbyterian",
+                  "Elmhurst Hospital",
+                  "Flushing Hospital",
+                  "Gracie Square Hospital",
+                  "Harlem Hospital",
+                  "Hudson Valley Hospital",
+                  "Jacobi Hospital",
+                  "Kings County Hospital",
+                  "Lawrence Hospital",
+                  "Lenox Hill Hospital",
+                  "Lower Manhattan Hospital",
+                  "Maimonides",
+                  "Metropolitan Hospital",
+                  "Montefiore",
+                  "Mount Sinai Beth Israel",
+                  "Mount Sinai Hospital",
+                  "Mount Sinai St. Luke’s Hospital",
+                  "Mount Sinai West",
+                  "New York Downtown Hospital",
+                  "NewYork-Presbyterian Allen Hospital",
+                  "NewYork-Presbyterian Brooklyn Methodist Hospital",
+                  "NewYork-Presbyterian Medical Center-Queens",
+                  "New York City Health and Hospital",
+                  "North General Hospital",
+                  "NYU Langone/Bellevue Hospital",
+                  "St. Barnabas",
+                  "Weill Cornell/ NewYork-Presbyterian",
+                  "Woodhull Hospital",
+                  "Prefer not to answer"
+                ]
+              }
+            }},
+            {"properties": {
+              "hospitals": {
+                "enum":["Other"]
+
+              },
+              "hospitals_other": {
+                "type": "string",
+                "title": "Other Hospital Name"
+              }
+            }}
+
+          ]
+
         }
       }
     

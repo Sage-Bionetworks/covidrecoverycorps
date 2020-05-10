@@ -60,7 +60,7 @@ const surveys: UISurvey[] = [
   },
   {
     type: 'MORE',
-    title: 'Survey 4',
+    title: 'Survey 5',
     description: 'More COVID-19 Experience',
     time: 15,
     link: '/survey4',
@@ -133,7 +133,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       )
 
       if (isDone(survey)) {
-        return <div className="btn-container">{innerElement}</div>
+        return <div className="btn-container done">{innerElement}</div>
       } else {
         return (
           <a className="btn-container" href={survey.link}>

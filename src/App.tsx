@@ -219,7 +219,7 @@ function App() {
                   alignItems="center"
                   spacing={2}
                 >
-                  <Grid item xs={10} md={8} lg={6}>
+                  <Grid item xs={12} md={8} lg={6}>
                   
                     {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}{' '}
