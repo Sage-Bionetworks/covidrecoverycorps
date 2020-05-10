@@ -344,6 +344,7 @@ export default class SynapseForm extends React.Component<
     //only need to do it if moving forward i.e. nextStepId is undefined
     if (isMoveForwardInWizardMode) {
       previousStack.push(currentStep.id)
+      window.scrollTo(0,100)
     }
 
     if (!isError) {

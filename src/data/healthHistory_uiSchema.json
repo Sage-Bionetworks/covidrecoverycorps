@@ -146,6 +146,12 @@
                 "inline": false
             }
         },
+        "sexual_orientation": {
+            "ui:widget": "radio",
+            "ui:options": {
+              "inline": false
+            }
+          },
         "family_diseases": {
             "ui:order": [
                 "cancer",

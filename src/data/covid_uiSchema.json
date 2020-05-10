@@ -157,7 +157,7 @@
   "habits": {
     "classNames": "habits",
     "ui:order": [
-      "sexual_orientation",
+    
       "smoking",
       "smoking_how_many_cigarettes",
       "vaping",
@@ -166,12 +166,7 @@
       "worry",
       "loneliness"
     ],
-    "sexual_orientation": {
-      "ui:widget": "radio",
-      "ui:options": {
-        "inline": false
-      }
-    },
+  
 
     "smoking": {
       "ui:widget": "radio",

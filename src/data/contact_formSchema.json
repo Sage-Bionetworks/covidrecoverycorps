@@ -47,9 +47,7 @@
           "enum": [
             "Female",
             "Male",
-            "Intersex",
-            "Other",
-            "Prefer not to answer"
+            "Other"
           ],
           "uniqueItems": true
         }
