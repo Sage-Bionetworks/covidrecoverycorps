@@ -120,7 +120,7 @@
   }
 
   $margin-from-dot: 5px;
-  $negative-offset-from-dot: 18px;
+  $negative-offset-from-dot: 19px;
   $extra-label-padding: 20px;
   $checkbox-width: 18px;
 
@@ -139,8 +139,8 @@
     content: '';
     display: inline-block;
     vertical-align: middle;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     border: 1px solid #888;
     border-radius: 2px;
     background: radial-gradient(white, #eee);
