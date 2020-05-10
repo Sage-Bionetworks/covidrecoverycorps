@@ -59,6 +59,9 @@ const theme = createMuiTheme({
     }
   },
   palette: {
+    background: {
+     //default: '#e5e5e5'
+    },
     primary: {
       // light: will be calculated from palette.primary.main,
       main: '#0085FF', ///'#202423' //'#ff4400',
@@ -204,7 +207,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                (Friday:14:30)
+                (Sun:11:30)
               </nav>
               <TopNav
                 token={token}

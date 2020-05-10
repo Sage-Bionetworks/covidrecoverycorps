@@ -4,7 +4,7 @@
       "id": "covid1",
       "order": 1,
       "title": "",
-      "default": "done"
+      "default": "antibiotics_cold"
     },
     {
       "id": "antibiotics_cold",
