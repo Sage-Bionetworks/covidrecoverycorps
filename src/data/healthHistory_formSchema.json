@@ -595,7 +595,8 @@
       "type": "object",
       "required": [
         "immune_deficiency",
-        "family_deseases"
+        "family_diseases",
+        "sexual_orientation"
       ],
       "properties": {
         "immune_deficiency": {
@@ -724,6 +725,21 @@
               ]
             }
           }
+        },
+        "sexual_orientation": {
+          "type": "string",
+          "title": "What would best describe  your sexual orientation? ",
+          "enum": [
+            "Asexual",
+            "Bisexual",
+            "Gay",
+            "Lesbian",
+            "Straight (Heterosexual)",
+            "Pan-sexual",
+            "Queer",
+            "Questioning or unsure",
+            "Prefer not to answer"
+          ]
         }
       }
     },
