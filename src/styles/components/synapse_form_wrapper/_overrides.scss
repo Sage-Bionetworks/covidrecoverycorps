@@ -154,7 +154,7 @@
     }
   }
   .form-error-summary {
-    display: block; // display: none;
+    display:none; // display: none;
   }
   .error {
     color: $red-error;
@@ -577,6 +577,12 @@
         .field-error.form-group:not(:first-of-type) {
           border-left: 0px;
         }
+      }
+    }
+
+    .weight {
+      input {
+        width: 30%;
       }
     }
 
