@@ -57,7 +57,7 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
       &nbsp;<FontAwesomeIcon icon={faChevronRight} />
       </Button>
   ) : (
-    props.isNoSaveButton? (
+   /* props.isNoSaveButton?*/ 
       <Button 
       color="primary"
       className="save"
@@ -67,11 +67,10 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
     >
       SUBMIT
     </Button>
-    ): 
-    <></>
+  
   )
 
-  const saveButton = (!props.currentStep.final && !props.isNoSaveButton) ?(
+  const saveButton = (!props.currentStep.final && !props.isNoSaveButton && props.steps.length > 2) ?(
     <Button 
     color="primary"
     className="save"
@@ -88,7 +87,6 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
 
   return (
     <div>
-      <hr></hr>
       <div className="buttonWrapper" style={{overflow:'visible'}}>
         {previousButton} {nextButton}
       </div>

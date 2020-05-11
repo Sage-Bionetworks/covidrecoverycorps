@@ -10,6 +10,7 @@ export type Step = {
   id: string
   title: string
   order: number
+  orderDisplay?: string
   state: StepStateEnum
   inProgress: boolean
   rules?: any[]
