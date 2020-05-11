@@ -94,9 +94,7 @@
                 "fact": "medications2",
                 "operator": "contains",
                 "path": ".covid_medications",
-                "value": [
-                  "Hydroxychloroquine (Plaquenil) or Chloroquine"
-                ]
+                "value": "Hydroxychloroquine (Plaquenil) or Chloroquine"
               }
             ]
           },
