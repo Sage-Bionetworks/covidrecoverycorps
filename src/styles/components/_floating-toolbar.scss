@@ -11,12 +11,15 @@
     right: 0;
     left: 0;
     width: initial;
-    background-color: #fff;
+    color: #F2F2F2;
+    background-color: #2E2E2E;
     height: 56px;
     z-index: 10;
 
     transition: top 0.3s;
-
+    a, a:hover, a:visited {
+      color: #F2F2F2;
+    }
     &__toggle {
         display: 'flex';
         justify-content: 'center';

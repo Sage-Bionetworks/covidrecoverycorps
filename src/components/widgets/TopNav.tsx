@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
-import { NavLink, Link } from 'react-router-dom'
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from 'react-router-dom'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Logout from '../login/Logout'
 import { ListItem, List, Divider } from '@material-ui/core'
-import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Alert from '@material-ui/lab/Alert';
+import {getSearchParams} from '../../App'
+import GlobalAlertCopy from './GlobalAlertCopy';
 
 type TopNavProps = {
   token: string | undefined
@@ -59,14 +61,23 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
 ) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const classes = useStyles()
-  const theme = useTheme()
-
+  const searchParamsProps = getSearchParams(
+    window.location.search
+  )
+  const alertCode:string = searchParamsProps['alert']
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
   }
 
   const drawer = <div>
     <List>
+      {props.token && (
+        <NavLink to="/dashboard" onClick={handleDrawerToggle} className={classes.navBarLink}>
+          <ListItem button>
+              Survey Dashboard
+          </ListItem>
+        </NavLink>
+      )}
       <NavLink to="/home" onClick={handleDrawerToggle} className={classes.navBarLink}>
         <ListItem button>
             About
@@ -74,7 +85,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
       </NavLink>
       <NavLink to="/team" onClick={handleDrawerToggle} className={classes.navBarLink}>
         <ListItem button>
-            Meet the Researchers
+            Meet the researchers
         </ListItem>
       </NavLink>
       <NavLink to="/faqs" onClick={handleDrawerToggle} className={classes.navBarLink}>
@@ -91,7 +102,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
       {props.token && (
         <NavLink to="/settings" onClick={handleDrawerToggle} className={classes.navBarLink}>
           <ListItem button>
-              Settings
+              Account Settings
           </ListItem>
         </NavLink>
       )}
@@ -161,8 +172,14 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
           {drawer}
         </Drawer>
       </nav>
+
+      {/* global alert area */}
+      {alertCode &&
+        <Alert severity="info" variant="filled" icon={false}>
+          <GlobalAlertCopy code={alertCode}></GlobalAlertCopy>
+        </Alert>
+      }
       <div className={classes.content}>
-        <div className={classes.toolbar} />
         {props.children}
       </div>
     </div>

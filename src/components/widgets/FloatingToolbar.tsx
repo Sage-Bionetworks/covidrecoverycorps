@@ -5,7 +5,8 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 type FloatingToolbarProps = {
   closeLinkDestination: string,
-  closeIcon: IconProp
+  closeIcon: IconProp,
+  closeLinkText: string
 }
 
 export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
@@ -39,6 +40,7 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
           <div style={{ position: 'absolute', left: '20px', zIndex: 999}}>
             <Link to={props.closeLinkDestination}>
               <FontAwesomeIcon icon={props.closeIcon} />
+              <span style={{ marginLeft: '5px' }}>{props.closeLinkText}</span>
             </Link>
           </div>
         }

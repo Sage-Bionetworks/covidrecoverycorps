@@ -43,8 +43,9 @@ p {
 }
 
 a {
-  color: #337ab7;
+  color: #0085FF;
   text-decoration: none;
+  cursor: pointer;
 }
 
 #root .margin-top-std {
@@ -92,5 +93,12 @@ color: #fff;
   }
 }
 
+// material ui "lab" component override is challenging: https://github.com/mui-org/material-ui/issues/19427
+// overriding the style here:
+#root .MuiAlert-filledInfo {
+  border-radius: 0;
+  background-color: #0084FF;
+  padding: 20px 30px;
+}
 
 
