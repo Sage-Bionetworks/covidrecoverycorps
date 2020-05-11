@@ -174,6 +174,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         <div>
           {(!isLinkSent || error) && (
             <div>
+              <h1>Log in</h1>
               <form onSubmit={handleLogin} className="form-group">
                 <div className="form-group">
                   <label htmlFor="registrationType">
@@ -226,19 +227,21 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                         />
                       </div>
                     )}
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      size="large"
+                      type="submit"
+                      fullWidth
+                      disabled={!loginType}
+                      onSubmit={handleLogin}
+                    >
+                      Log in
+                    </Button>
                   </div>
+                  
                 </div>
                 {error && <Alert severity="error">{error}</Alert>}
-                <Button
-                  color="primary"
-                  variant="contained"
-                  size="large"
-                  type="submit"
-                  disabled={!loginType}
-                  onSubmit={handleLogin}
-                >
-                  Sign in
-                </Button>
               </form>
             </div>
           )}
