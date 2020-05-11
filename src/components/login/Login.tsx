@@ -174,7 +174,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         <div>
           {(!isLinkSent || error) && (
             <div>
-              <h1>Log in</h1>
+              <h1 className="text-center margin-top-std">Log in</h1>
               <form onSubmit={handleLogin} className="form-group">
                 <div className="form-group">
                   <label htmlFor="registrationType">
