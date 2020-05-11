@@ -46,11 +46,11 @@
       "ui:options": {
         "inline": false
       },
-    
+
       "cough_duration": {
         "ui:title": "For how many days did you cough"
       },
-     
+
       "fever_duration": {
         "ui:title": "For how many days did you have fever"
       }
@@ -60,9 +60,9 @@
     "classNames": "symptoms2",
     "ui:order": [
       "symptoms_start",
-      "first_day",
-      "last_day",
+      "symptoms_dates",
       "kind_of_testing",
+      "result",
       "nasal_swab_date",
       "nasal_swab_result",
       "serum_test_date",
@@ -74,18 +74,28 @@
       "ui:options": {
         "inline": false
       }
-
-
-  
     },
-
-    "first_day" : {
-      "classNames": ["subfield_inverted symptom_day_first"]
+    "symptoms_dates": {
+      "classNames": "subfields",
+      "first_day": {
+        "ui:widget": "alt-date",
+        "ui:options": {
+          "yearsRange": [2019, 2020],
+          "hideNowButton": true,
+          "hideClearButton": true
+        },
+        "classNames": ["symptom_day_first"]
+      },
+      "last_day": {
+        "ui:widget": "alt-date",
+        "ui:options": {
+          "yearsRange": [2019, 2020],
+          "hideNowButton": true,
+          "hideClearButton": true
+        },
+        "classNames": ["symptom_day_last"]
+      }
     },
-    "last_day" : {
-      "classNames": ["subfield_inverted symptom_day_last"]
-    },  
-
 
     "kind_of_testing": {
       "ui:widget": "radio",
@@ -93,28 +103,39 @@
         "inline": false
       }
     },
-    "nasal_swab_date": {
-      "classNames": ["subfield_inverted   nasal_swab"],
-      "ui:title": "What was the date of the nasal swab test"
-    },
-    "nasal_swab_result": {
-      "ui:title": "What was the result of the nasal swab test",
-      "ui:widget": "radio",
-      "classNames": ["subfield_inverted  secondary_radio nasal_swab"],
-      "ui:options": {
-        "inline": false
-      }
-    },
-    "serum_test_date": {
-      "classNames": ["subfield_inverted   antibody"],
-      "ui:title": "What was the date of the serum antibody test"
-    },
-    "serum_test_result": {
-      "ui:title": "What was the result of the serum antibody test",
-      "classNames": ["subfield_inverted  secondary_radio antibody"],
-      "ui:widget": "radio",
-      "ui:options": {
-        "inline": false
+    "result": {
+      "classNames": "subfields",
+      "nasal_swab_date": {
+        "classNames": ["nasal_swab"],
+        "ui:widget": "alt-date",
+        "ui:options": {
+          "yearsRange": [2019, 2020],
+          "hideNowButton": true,
+          "hideClearButton": true
+        }
+      },
+      "nasal_swab_result": {
+        "ui:widget": "radio",
+        "classNames": ["secondary_radio nasal_swab"],
+        "ui:options": {
+          "inline": false
+        }
+      },
+      "serum_test_date": {
+        "classNames": ["antibody"],
+        "ui:widget": "alt-date",
+        "ui:options": {
+          "yearsRange": [2019, 2020],
+          "hideNowButton": true,
+          "hideClearButton": true
+        }
+      },
+      "serum_test_result": {
+        "classNames": ["secondary_radio antibody"],
+        "ui:widget": "radio",
+        "ui:options": {
+          "inline": false
+        }
       }
     },
     "how_was_it_treated": {
@@ -125,11 +146,26 @@
     }
   },
   "hospitalization": {
+    "ui:order": [
+      "hospitals",
+      "hospitals_other",
+      "hospitals_other_name",
+      "hospitalization_treatment",
+      "*"
+    ],
     "hospitals": {
+      "classNames": "hospitals",
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
       }
+    },
+    "hospitals_other": {
+      "classNames": "hospitals_other",
+      "ui:widget": "checkbox"
+    },
+    "hospitals_other_name": {
+      "classNames": "hospitals_other_name"
     },
     "hospitalization_treatment": {
       "ui:order": [
@@ -157,7 +193,6 @@
   "habits": {
     "classNames": "habits",
     "ui:order": [
-    
       "smoking",
       "smoking_how_many_cigarettes",
       "vaping",
@@ -166,7 +201,6 @@
       "worry",
       "loneliness"
     ],
-  
 
     "smoking": {
       "ui:widget": "radio",
@@ -175,7 +209,7 @@
       }
     },
     "smoking_how_many_cigarettes": {
-     "classNames": "how_many_cigarettes"
+      "classNames": "how_many_cigarettes"
     },
     "vaping": {
       "ui:widget": "radio",

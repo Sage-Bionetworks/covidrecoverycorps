@@ -12,7 +12,7 @@
           "type": "object",
         
 
-          "title": "Please describe your symptoms",
+          "title": "1. Please describe your symptoms (check all that apply):",
           "properties": {
             "cough": {
               "type": "boolean",
@@ -112,7 +112,7 @@
             },
             "other": {
               "type": "boolean",
-              "title": "Other Symptoms"
+              "title": "Other"
             }
           },
           "dependencies": {
@@ -421,7 +421,7 @@
         "symptoms_start": {
           "type": "string",
           "uniqueItems": true,
-          "title": "Do you remember the dates of your symptoms?",
+          "title": "2. Do you remember the dates of your symptoms?",
           "enum": [
             "Yes",
             "Do not know/do not remember",
@@ -432,7 +432,7 @@
         "kind_of_testing": {
           "type": "string",
           "uniqueItems": true,
-          "title": "What kind of COVID-19 testing have you had?",
+          "title": "3. What kind of COVID-19 testing have you had?",
           "enum": [
             "Nasal Swab",
             "Serum Antibody Tests",
@@ -444,7 +444,7 @@
         },
         "how_was_it_treated": {
           "type": "string",
-          "title": "How was your COVID-19 treated? (pick single response reflecting your most intensive level of care)",
+          "title": "4. How was your COVID-19 treated? (pick single response reflecting your most intensive level of care)",
           "enum": [
             "doctor's office",
             "emergency_room",
@@ -483,6 +483,11 @@
                     "Yes"
                   ]
                 },
+                "symptoms_dates":  {
+                  "type": "object",
+                  "title": "2a. When were your first and last day of your symptoms?",
+                  "properties": {
+             
                 "first_day": {
                   "title": "First Day of Symptom",
                   "type": "string"
@@ -492,7 +497,9 @@
                   "type": "string"
                 }
               }
+              }
             }
+          }
           ]
         },
         "kind_of_testing": {
@@ -516,12 +523,17 @@
                     "Nasal Swab"
                   ]
                 },
+                "result": {
+                  "type": "object",
+                  "title": "3a. When was your test and what was the result?",
+                  "properties": {
+              
                 "nasal_swab_date": {
-                  "title": "Date of the test",
+                  "title": "Date of test:",
                   "type": "string"
                 },
                 "nasal_swab_result": {
-                  "title": "What was the result of the test?",
+                  "title": "Result of the test?",
                   "type": "string",
                   "uniqueItems": true,
                   "enum": [
@@ -529,10 +541,10 @@
                     "negative"
                   ],
                   "enumNames": [
-                    "Result of test Confirmed COVID-19 infection",
-                    "Result of test showed no COVID-19 infection"
+                    "COVID-19 Positive",
+                    "COVID-19 Negative"
                   ]
-                }
+                }}}
               }
             },
             {
@@ -542,12 +554,16 @@
                     "Serum Antibody Tests"
                   ]
                 },
+                "result": {
+                  "title": "3a. When was your test and what was the result? ",
+                  "type": "object",
+                  "properties": {
                 "serum_test_date": {
-                  "title": "Date of the test",
+              "title": "Date of test",
                   "type": "string"
                 },
                 "serum_test_result": {
-                  "title": "What was the result of the test?",
+                  "title": "Result of the test?",
                   "type": "string",
                   "uniqueItems": true,
                   "enum": [
@@ -555,11 +571,13 @@
                     "negative"
                   ],
                   "enumNames": [
-                    "Result of test Confirmed COVID-19 infection",
-                    "Result of test showed no COVID-19 infection"
+                    "COVID-19 Positive",
+                    "COVID-19 Negative"
                   ]
                 }
+                
               }
+            }}
             }
           ]
         }
@@ -569,6 +587,8 @@
       "type": "object",
       "required": [
         "hospitals",
+        "hospitals_other",
+     
         "hospitalization_treatment"
       ],
       "properties": {
@@ -609,7 +629,7 @@
               "St. Barnabas",
               "Weill Cornell/ NewYork-Presbyterian",
               "Woodhull Hospital",
-              "Other",
+           
               "Prefer not to answer"
             ]
           }
@@ -849,62 +869,45 @@
               ]
             }
           }
+        },
+        "hospitals_other": {
+          "title": "I was treated in another hospital",
+          "type": "boolean",
+          "enum": [
+            true,
+            false
+          ]
+
         }
       },
       "dependencies":{
 
-        "hospitals": {
+
+        "hospitals_other": {
           "oneOf": [
-            {"properties": {
-              "hospitals":{
-                "enum": [
-                  "Brookdale Hospital",
-                  "Calvary Hospital",
-                  "Columbia/NewYork-Presbyterian",
-                  "Elmhurst Hospital",
-                  "Flushing Hospital",
-                  "Gracie Square Hospital",
-                  "Harlem Hospital",
-                  "Hudson Valley Hospital",
-                  "Jacobi Hospital",
-                  "Kings County Hospital",
-                  "Lawrence Hospital",
-                  "Lenox Hill Hospital",
-                  "Lower Manhattan Hospital",
-                  "Maimonides",
-                  "Metropolitan Hospital",
-                  "Montefiore",
-                  "Mount Sinai Beth Israel",
-                  "Mount Sinai Hospital",
-                  "Mount Sinai St. Luke’s Hospital",
-                  "Mount Sinai West",
-                  "New York Downtown Hospital",
-                  "NewYork-Presbyterian Allen Hospital",
-                  "NewYork-Presbyterian Brooklyn Methodist Hospital",
-                  "NewYork-Presbyterian Medical Center-Queens",
-                  "New York City Health and Hospital",
-                  "North General Hospital",
-                  "NYU Langone/Bellevue Hospital",
-                  "St. Barnabas",
-                  "Weill Cornell/ NewYork-Presbyterian",
-                  "Woodhull Hospital",
-                  "Prefer not to answer"
-                ]
+            {
+              "properties": {
+                "hospitals_other": {
+                  "enum": [
+                    true
+                  ]
+                },
+                "hospitals_other_name": {
+                  "type": "string",
+                  "title": "What was the name of the hospital"
+                }
               }
-            }},
-            {"properties": {
-              "hospitals": {
-                "enum":["Other"]
-
-              },
-              "hospitals_other": {
-                "type": "string",
-                "title": "Other Hospital Name"
+            },
+            {
+              "properties": {
+                "hospitals_other": {
+                  "enum": [
+                    false
+                  ]
+                }
               }
-            }}
-
+            }
           ]
-
         }
       }
     

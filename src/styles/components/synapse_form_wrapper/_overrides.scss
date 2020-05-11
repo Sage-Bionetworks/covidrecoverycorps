@@ -61,6 +61,7 @@
     line-height: 20px;
   }
 
+ 
   .right-top-actions {
     display: none;
   }
@@ -73,6 +74,35 @@
     overflow-x: auto;
     padding: 0px 5px;
   }
+
+
+  .subfields {
+    legend {
+      @include control_label;
+    }
+    .form-group {
+      padding-left:4rem;
+      padding-bottom: 2rem;
+
+    margin-bottom: 0;
+      background-color: #f5f5f5;
+      label {
+        @include label_level2
+      }
+    }
+    .form-group:first-of-type {
+      padding-top: 2rem;
+    }
+    div.radio {
+      margin-bottom: 0;
+      font-size: 1.4rem;
+      padding-top:1rem;
+      padding-bottom: 1rem;
+      padding-left: 0;
+    }
+
+  }
+
 
   .summary.scroll-area,
   .summary.scroll-area > .scroll-area {
@@ -161,6 +191,13 @@
       cursor: pointer;
       display: flex;
     }
+  }
+
+  div.secondary-radio div.radio {
+    padding: 1rem 1rem 1rem 0;
+      margin-bottom: 0;
+      font-size: 1.4rem;
+   
   }
 
   $margin-from-dot: 5px;
@@ -296,7 +333,7 @@
     height: 40px;
     border: 1px solid $primary-blue !important;
     border-radius: 0;
-    padding: 10px 20px;
+    padding: 5px 20px;
     box-shadow: none;
     border-radius: 0;
     -webkit-appearance: none;
@@ -431,10 +468,13 @@
       }
     }
     .symptom_day_first {
-      padding-top:2.5rem;
+     // padding-top:2.5rem;
     }
     .symptom_day_first,
     .symptom_day_last {
+      label {
+       @include label_level2;
+      }
     //  width: 50%;
      // float: left;
     }
@@ -442,10 +482,7 @@
       //margin-bottom: 5px;
     }
 
-    .secondary_radio .radio {
-      margin-bottom: 0;
-      font-size: 1.4rem;
-    }
+  
   }
 
   .hospitalization_treatment {
@@ -608,6 +645,9 @@
     div.checkbox,
     div.radio {
       padding: 1rem 1rem 1rem 1.5rem; // 10px 10px 10px 0;
+    }
+    .subfields .form-group {
+      padding-left:1rem;
     }
   }
 }
