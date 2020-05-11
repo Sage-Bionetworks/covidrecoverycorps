@@ -210,7 +210,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   return (
     
         <div className="ConsentInfo">
-          <FloatingToolbar closeLinkDestination='/home' closeIcon={faTimes}>{renderNavChildren(currentStep)}</FloatingToolbar>
+          <FloatingToolbar closeLinkDestination='/home' closeIcon={faTimes} closeLinkText=''>{renderNavChildren(currentStep)}</FloatingToolbar>
           <div>
             {currentStep > -1 && (
               <div className="text-right">

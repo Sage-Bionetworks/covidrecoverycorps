@@ -147,7 +147,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       {isInfoDone && !isConsentDone && (
         <>
           <div>
-            <FloatingToolbar closeLinkDestination='/home' closeIcon={faTimes}>Consent Signature</FloatingToolbar>
+            <FloatingToolbar closeLinkDestination='/home' closeIcon={faTimes} closeLinkText=''>Consent Signature</FloatingToolbar>
           </div>
 
           <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>

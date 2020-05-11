@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 type IntroProps = {
   token: string | null
 }
@@ -8,12 +7,9 @@ type IntroProps = {
 export const Intro: React.FunctionComponent<IntroProps> = ({
 
 }: IntroProps) => {
-
   return (
     <div className="Intro">
-   
-
-      <div>
+       <div>
         <h1> A citizen-powered movement to fuel COVID-19 discoveries. </h1>
         <div className="Intro__content1">
           {' '}

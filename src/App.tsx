@@ -43,6 +43,7 @@ import GoogleAnalyticsPageTracker from './components/widgets/GoogleAnalyticsPage
 import CookieNotificationBanner from './components/widgets/CookieNotificationBanner'
 
 const theme = createMuiTheme({
+  
   typography: {
     // Tell Material-UI what's the font-size on the html element is.
     htmlFontSize: 10,
@@ -95,7 +96,7 @@ const theme = createMuiTheme({
         borderRadius: 25,
         height: 47,
       }, 
-    }, 
+    },
   },
 })
 
@@ -109,6 +110,16 @@ type AppState = {
   token: string
 }
 export const TokenContext = React.createContext('')
+
+export const getSearchParams = (search: string): { [key: string]: string } => {
+  const searchParamsProps: any = {}
+  // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
+  const searchParams = new URLSearchParams(search)
+  searchParams.forEach((value, key) => {
+    searchParamsProps[key] = value
+  })
+  return searchParamsProps
+}
 
 function App() {
   const [token, setToken] = useState(getSession()?.token)
@@ -177,16 +188,6 @@ function App() {
   }
 
   const classes = useStyles()
-
-  const getSearchParams = (search: string): { [key: string]: string } => {
-    const searchParamsProps: any = {}
-    // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
-    const searchParams = new URLSearchParams(search)
-    searchParams.forEach((value, key) => {
-      searchParamsProps[key] = value
-    })
-    return searchParamsProps
-  }
 
   return (
     <ThemeProvider theme={theme}>

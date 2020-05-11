@@ -12,6 +12,7 @@ import FloatingToolbar from './widgets/FloatingToolbar';
 import LearnMore from './widgets/LearnMore';
 import ConfirmationModal from './widgets/ConfirmationModal';
 import { Link, Redirect } from 'react-router-dom';
+import MaterialUiLink from '@material-ui/core/Link';
 import { ConsentService } from '../services/consent.service'
 import { UserService } from '../services/user.service';
 import { LoggedInUserData, Response } from '../types/types';
@@ -106,7 +107,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
   }
   if (isRedirectingHome) {
     // need a way to force App to reload the token, because the session is dead after withdrawing from the study!
-    window.location.href = '/home'
+    window.location.href = '/home?alert=WITHDRAWN_FROM_STUDY'
     // return <Redirect to='/home' />
   }
 
@@ -123,21 +124,13 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
   return (
     <>
       <div>
-          <FloatingToolbar closeLinkDestination='/dashboard' closeIcon={faAngleLeft}>Account Settings</FloatingToolbar>
+          <FloatingToolbar closeLinkDestination='/dashboard' closeIcon={faAngleLeft} closeLinkText='Dashboard' />
       </div>
+      <h1 className="text-center margin-top-std">Account Settings</h1>
       {error && <Alert severity="error">{error}</Alert>}
       <Link to='/contactinfo'>
-        <Button
-          style={{width: '100%'}}
-          variant='contained'
-          color='primary'
-          className='margin-top-std'
-        >
-          Update contact info
-          <FontAwesomeIcon style={{right:'10px', position: 'absolute'}} color={blue[500]} icon={faAngleRight} />
-        </Button>
+          Update contact information
       </Link>
-
       <FormGroup className='margin-top-std'>
         {isShareScopeAll !== undefined && (
           <>
@@ -168,17 +161,10 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
       </FormGroup>
   
       {userId !== undefined && (
-        <Button
-          style={{width: '100%', marginTop: '2rem'}}
-          variant='contained'
-          color='primary'
-          onClick={() => setIsShowingWithdrawConfirmation(true)}
-        >
+        <MaterialUiLink onClick={() => setIsShowingWithdrawConfirmation(true)}>
           Withdraw from study
-          <FontAwesomeIcon style={{right:'10px', position: 'absolute'}} color={blue[500]} icon={faAngleRight} />
-        </Button>
+        </MaterialUiLink>
       )}
-      
       {userId !== undefined && isShowingWithdrawConfirmation && (
           <ConfirmationModal
             show={true}
