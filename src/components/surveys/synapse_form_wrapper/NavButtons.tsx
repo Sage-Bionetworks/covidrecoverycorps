@@ -70,7 +70,7 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
   
   )
 
-  const saveButton = (!props.currentStep.final && !props.isNoSaveButton && props.steps.length > 2) ?(
+  const saveButton = (!props.currentStep.final && !props.isNoSaveButton && props.steps.length > 1) ?(
     <Button 
     color="primary"
     className="save"

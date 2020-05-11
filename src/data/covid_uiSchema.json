@@ -149,7 +149,7 @@
     "ui:order": [
       "hospitals",
       "hospitals_other",
- 
+
       "hospitalization_treatment",
       "*"
     ],
@@ -192,12 +192,7 @@
   },
   "habits": {
     "classNames": "habits",
-    "ui:order": [
-      "smoking",
-      "smoking_how_many_cigarettes",
-      "vaping",
-      "alcohol"
-    ],
+    "ui:order": ["smoking", "smoking_how_many_cigarettes", "vaping", "alcohol"],
 
     "smoking": {
       "ui:widget": "radio",
@@ -223,11 +218,7 @@
   },
   "habits2": {
     "classNames": "habits",
-    "ui:order": [
-      "anxiety",
-      "worry",
-      "loneliness"
-    ],
+    "ui:order": ["anxiety", "worry", "loneliness"],
     "anxiety": {
       "ui:widget": "radio",
       "ui:options": {
@@ -256,18 +247,18 @@
     }
   },
   "medications2": {
-
     "covid_medications": {
       "ui:widget": "checkboxes"
     },
 
     "hydroxychloroquine": {
       "ui:widget": "radio"
-    },
-
-    "hydroxychloroquine_side_effects": {
-      "ui:widget": "checkboxes",
-      "ui:title": "If you were treated with hydroxychloroquine (Plaquenil), please describe if you experienced any of the following? (select all that apply)"
     }
+  },
+  "medications_hydroxy": {
+  "hydroxychloroquine_side_effects": {
+    "ui:widget": "checkboxes",
+    "ui:title": "If you were treated with hydroxychloroquine (Plaquenil), please describe if you experienced any of the following? (select all that apply)"
   }
+}
 }
