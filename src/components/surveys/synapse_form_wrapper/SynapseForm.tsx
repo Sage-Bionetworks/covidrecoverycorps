@@ -916,7 +916,8 @@ export default class SynapseForm extends React.Component<
         <Header
           isSubmitted={this.state.isSubmitted}
           bodyText={this.state.currentStep.description}
-          title={this.props.formTitle}
+          title={this.state.currentStep.title}
+          orderDisplay= {this.state.currentStep.orderDisplay}
         ></Header>
         <div>
           <div className="inner-wrap">
@@ -933,7 +934,7 @@ export default class SynapseForm extends React.Component<
               </div>
             )}
             <div className="form-wrap">
-              <div className="form-title">{this.state.currentStep.title}</div>
+             {/*} <div className="form-title">{this.state.currentStep.title}</div>*/}
               {this.renderNotification(this.props.callbackStatus)}
               <div
                 className={`right-top-actions ${
