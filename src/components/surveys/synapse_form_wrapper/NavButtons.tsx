@@ -48,7 +48,7 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
     <></>
   )
 
-  const nextButton = !props.currentStep.final ? (
+  const nextButton = props.currentStep.default ? (
     <Button 
       onClick={e => props.onNavAction(NavActionEnum.NEXT)}
      color="primary"

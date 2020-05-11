@@ -1,14 +1,10 @@
 {
   "about": {
     "classNames": "demographic",
+    "ui:order": [ "gender_identity",  "enthnicity",  "ethnicity_other", "ethnicity_other_text", "*"],
 
-    "biological_sex": {
-      "ui:widget": "radio",
-      "ui:options": {
-        "inline": false
-      }
-    },
     "gender_identity": {
+   
       "ui:widget": "radio",
       "ui:options": {
         "inline": false
@@ -20,12 +16,23 @@
         "inline": false
       }
     },
+      "ethnicity_other": {
+        "classNames": "ethnicity_other"
+      },
+      "ethnicity_other_text": {
+        "classNames": "ethnicity_other_text"
+      
+    },
     "education": {
       "ui:widget": "radio",
       "ui:options": {
         "inline": false
       }
-    },
+    }
+  },
+  "about2": {
+    "classNames": "demographic",
+
     "income": {
       "ui:widget": "radio",
       "ui:options": {
@@ -38,6 +45,6 @@
         "inline": false
       }
     }
-  },
-  "registration": {}
+  }
+
 }
