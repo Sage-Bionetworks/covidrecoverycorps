@@ -143,13 +143,13 @@ export const Login: React.FunctionComponent<LoginProps> = ({
 
     try {
       setError('')
-      if (phone) {
+      if (loginType === 'PHONE' && phone) {
         result = await sendSignInRequest(
           'PHONE',
           phone,
           `${ENDPOINT}${PHONE_SIGN_IN_TRIGGER_ENDPOINT}`
         )
-      } else if (email) {
+      } else if (loginType === 'EMAIL' && email) {
         result = await sendSignInRequest(
           'EMAIL',
           email,
@@ -178,7 +178,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
               <form onSubmit={handleLogin} className="form-group">
                 <div className="form-group">
                   <label htmlFor="registrationType">
-                    How do you want to log in?
+                    How would you like to log in?
                   </label>
                   <div className="tabbedField">
                     <Tabs
@@ -227,19 +227,20 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                         />
                       </div>
                     )}
-                    <Button
-                      color="primary"
-                      variant="contained"
-                      size="large"
-                      type="submit"
-                      fullWidth
-                      disabled={!loginType}
-                      onSubmit={handleLogin}
-                    >
-                      Log in
-                    </Button>
+                    <div className="input--padded">
+                      <Button
+                        color="primary"
+                        variant="contained"
+                        size="large"
+                        type="submit"
+                        fullWidth
+                        disabled={!loginType}
+                        onSubmit={handleLogin}
+                      >
+                        Log in
+                      </Button>
+                    </div>
                   </div>
-                  
                 </div>
                 {error && <Alert severity="error">{error}</Alert>}
               </form>
