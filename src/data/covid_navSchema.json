@@ -1,52 +1,11 @@
 {
   "steps": [
     {
-      "id": "medications",
-      "order": 25,
-      "title": "",
-      "default": "done"
-    },
-    {
-      "id": "habits",
-      "order": 10,
-      "title": "",
-      "default": "medications"
-    },
-    {
-      "id": "symptoms2",
-      "order": 5,
-      "title": "",
-      "default": "habits",
-      "rules": [
-        {
-          "conditions": {
-            "all": [
-              {
-                "fact": "symptoms2",
-                "operator": "in",
-                "path": ".how_was_it_treated",
-                "value": [
-                  "icu",
-                  "hospital",
-                  "emergency_room"
-                ]
-              }
-            ]
-          },
-          "event": {
-            "type": "next",
-            "params": {
-              "next": "hospitalization"
-            }
-          },
-          "priority:": 1
-        }
-      ]
-    },
-    {
       "id": "symptoms",
-      "order": 1,
-      "title": "",
+      "order": 5,
+      "title": "COVID-19 Experience ",
+      "orderDisplay": "1/6",
+      "description": "Lorem ipsum survey instructions ",
       "validationRules": [
         {
           "conditions": {
@@ -73,28 +32,78 @@
       "default": "symptoms2"
     },
     {
-      "id": "hospitalization",
-      "order": 8,
+      "id": "symptoms2",
+      "orderDisplay": "2/6",
+      "order": 10,
       "title": "",
-      "default": "habits",
-      "validationRules": [
+      "default": "medications",
+      "rules": [
         {
           "conditions": {
             "all": [
               {
-                "fact": "hospitalization",
-                "operator": "notHasChecked",
-                "path": ".hospitalization_treatment",
-                "value": true
+                "fact": "symptoms2",
+                "operator": "in",
+                "path": ".how_was_it_treated",
+                "value": [
+                  "icu",
+                  "hospital",
+                  "emergency_room"
+                ]
               }
             ]
           },
           "event": {
-            "type": "validation",
+            "type": "next",
             "params": {
-              "message": "   ",
-              "name": "required",
-              "property": "hospitalization.hospitalization_treatment"
+              "next": "hospitalization"
+            }
+          },
+          "priority:": 1
+        }
+      ]
+    },
+  
+    {
+      "id": "hospitalization",
+      "orderDisplay": "2a/6",
+      "order": 15,
+      "title": "",
+      "default": "medications"
+    },
+  
+    {
+      "id": "medications",
+      "orderDisplay": "3/6",
+      "order": 30,
+      "title": "",
+      "default": "medications2"
+    },
+
+    {
+      "id": "medications2",
+      "orderDisplay": "4/6",
+      "order": 35,
+      "title": "",
+      "default": "habits",
+      "rules": [
+        {
+          "conditions": {
+            "all": [
+              {
+                "fact": "medications2",
+                "operator": "contains",
+                "path": ".covid_medications",
+                "value": [
+                  "Hydroxychloroquine (Plaquenil) or Chloroquine"
+                ]
+              }
+            ]
+          },
+          "event": {
+            "type": "next",
+            "params": {
+              "next": "medications_hydroxy"
             }
           },
           "priority:": 1
@@ -102,14 +111,26 @@
       ]
     },
     {
-      "id": "done",
-      "order": 90,
-      "final": true,
-      "title": "Done",
-      "default": null,
-      "description": "<p>You are about to submit the form. Once you submit, you will no longer be able to edit the submission. </p>",
-      "presubmission_description": "Below is all of the data you have entered. Please check it for correctness before submission.",
-      "rules": []
+      "id": "medications_hydroxy",
+      "orderDisplay": "4a/6",
+      "order": 40,
+      "title": "",
+      "default": "habits"
+    },
+
+    {
+      "orderDisplay": "5/6",
+      "id": "habits",
+      "order": 45,
+      "title": "",
+      "default": "habits2"
+    },
+    {
+      "id": "habits2",
+      "orderDisplay": "6/6",
+      "order": 50,
+      "title": "",
+      "default": ""
     }
   ]
 }
