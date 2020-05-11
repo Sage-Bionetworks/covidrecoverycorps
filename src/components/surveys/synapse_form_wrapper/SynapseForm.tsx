@@ -387,8 +387,6 @@ export default class SynapseForm extends React.Component<
     }
     window.history.replaceState(null, nextStep.title, `${window.location.pathname}?step=${nextStepId}`);
     GoogleService.sendPageView()
-    // 99: scroll to the top of the page on form page change.
-    window.scrollTo(0, 0)
     this.saveStepState(previousStack, steps, nextStep!, formData)
   }
 
