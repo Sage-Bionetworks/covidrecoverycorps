@@ -494,12 +494,15 @@
     .form-group.field-number {
       @include subfield_inverted;
     }
+    .form-group.field-number input {
+      width: 30%;
+    }
   }
 
   .habits {
     .how_many_cigarettes {
       @include subfield_inverted;
-      margin-top: -2rem;
+      margin-top: -4rem;
     }
   }
 

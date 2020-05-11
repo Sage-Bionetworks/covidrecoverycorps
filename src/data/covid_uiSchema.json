@@ -149,7 +149,7 @@
     "ui:order": [
       "hospitals",
       "hospitals_other",
-      "hospitals_other_name",
+ 
       "hospitalization_treatment",
       "*"
     ],
@@ -160,11 +160,8 @@
         "inline": false
       }
     },
+
     "hospitals_other": {
-      "classNames": "hospitals_other",
-      "ui:widget": "checkbox"
-    },
-    "hospitals_other_name": {
       "classNames": "hospitals_other_name"
     },
     "hospitalization_treatment": {
@@ -187,7 +184,10 @@
         "other_answer",
         "prefer_not_answer"
       ],
-      "classNames": "show_fieldSet hospitalization_treatment"
+      "classNames": "show_fieldSet hospitalization_treatment",
+      "other_answer": {
+        "ui:widget": "textarea"
+      }
     }
   },
   "habits": {
@@ -196,10 +196,7 @@
       "smoking",
       "smoking_how_many_cigarettes",
       "vaping",
-      "alcohol",
-      "anxiety",
-      "worry",
-      "loneliness"
+      "alcohol"
     ],
 
     "smoking": {
@@ -222,7 +219,15 @@
       "ui:options": {
         "inline": false
       }
-    },
+    }
+  },
+  "habits2": {
+    "classNames": "habits",
+    "ui:order": [
+      "anxiety",
+      "worry",
+      "loneliness"
+    ],
     "anxiety": {
       "ui:widget": "radio",
       "ui:options": {
@@ -248,7 +253,9 @@
       "ui:options": {
         "inline": false
       }
-    },
+    }
+  },
+  "medications2": {
 
     "covid_medications": {
       "ui:widget": "checkboxes"
