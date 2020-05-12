@@ -501,8 +501,8 @@
 
   .habits {
     .how_many_cigarettes {
-      @include subfield_inverted;
-      margin-top: -4rem;
+     // @include subfield_inverted;
+     // margin-top: -4rem;
     }
   }
 
