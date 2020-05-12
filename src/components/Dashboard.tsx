@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import testTubeImg from '../assets/icon_testtube.svg'
+import saveProgressIconImg from '../assets/icon_savedprogress.svg'
 
 import {
   faCircle,
@@ -103,20 +104,24 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     }
     const isInProgress = (survey: UISurvey): boolean => {
       const savedSurvey = getSavedSurvey(survey)
+      const progress = <img src={testTubeImg}></img>
       return !!savedSurvey?.updatedDate && !isDone(survey)
     }
 
-    const getIcon = (survey: UISurvey): IconDefinition => {
+    const getIcon = (survey: UISurvey): JSX.Element => {
       const iconDef = isDone(survey) ? faCheckCircle : faCircle
-      return isInProgress(survey) ? faDotCircle : iconDef
+      const notProgress =    <FontAwesomeIcon icon={iconDef} />
+     // const saveProgressIconImg = <><img src={saveProgressIconImg}></img></>
+     // return isInProgress(survey) ? saveProgressIconImg : notProgress
+     return notProgress
     }
 
     const renderSurveyInfo = (survey: UISurvey, isTier1: boolean): JSX.Element => {
       const innerElement = (
         <><div className="graphics">
           <div className="circle">
-            {' '}
-            <FontAwesomeIcon icon={getIcon(survey)} />
+            {!isInProgress(survey) && getIcon(survey)}
+           {!isInProgress(survey) && <img src={saveProgressIconImg}></img>}
           </div>
           {isTier1 && <div className="rect"></div>}
         </div>

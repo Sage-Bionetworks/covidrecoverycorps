@@ -392,6 +392,7 @@
           "type": "string",
           "title": "4. How was your COVID-19 treated? (pick single response reflecting your most intensive level of care)",
           "enum": [
+            "at_home",
             "doctor's office",
             "emergency_room",
             "hospital",
@@ -399,6 +400,7 @@
             "no answer"
           ],
           "enumNames": [
+            "My COVID-19 was managed at home",
             "I was seen in a doctor's office, clinic, or screening tent, and I was sent home",
             "I was seen in the emergency room, and I was sent home",
             "I was admitted to the hospital",
@@ -613,7 +615,7 @@
             },
             "other": {
               "type": "boolean",
-              "title": "Other",
+              "title": "Other complications",
               "enum": [true, false]
             },
             "prefer_not_answer": {
@@ -720,7 +722,7 @@
                     },
                     "other_answer": {
                       "type": "string",
-                      "title": "Other Complications"
+                      "title": "Please specify:"
                     }
                   }
                 },
