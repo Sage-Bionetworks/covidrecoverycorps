@@ -5,11 +5,13 @@
       margin: 20px;
     }
 
-    .MuiToggleButtonGroup-root.verticalToggle .MuiToggleButtonGroup-grouped.success.Mui-selected {
-      color: rgb(237, 247, 237)
+    .MuiFormControlLabel-root.success .MuiRadio-root.Mui-checked {
+      color:#0085FF;
+      // background-color: rgb(232, 244, 253); // default background color (MuiAlert-standardInfo)
     }
-    .MuiToggleButtonGroup-root.verticalToggle .MuiToggleButtonGroup-grouped.error.Mui-selected {
-      color: rgb(253, 236, 234)
+    .MuiFormControlLabel-root.error .MuiRadio-root.Mui-checked {
+      color: #f44336; // default error color
+      // background-color: rgb(253, 236, 234); //default background color (MuiAlert-standardError)
     }
 
     &__navButtons {
