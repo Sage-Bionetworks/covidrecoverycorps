@@ -434,13 +434,18 @@
                   "title": "2a. When were your first and last day of your symptoms?",
                   "properties": {
                     "first_day": {
-                      "title": "First Day of Symptom",
+                      "title": "First day of symptoms:",
                       "type": "string"
                     },
                     "last_day": {
-                      "title": "Last Day of Symptom",
+                      "title": "First day of symptoms:",
                       "type": "string"
+                    },
+                    "still_have_symptoms": {
+                      "title": "I still have symptoms",
+                      "type": "boolean"
                     }
+
                   }
                 }
               }
