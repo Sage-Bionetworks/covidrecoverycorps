@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {Redirect} from 'react-router'
 import { SESSION_NAME } from '../../types/types'
 import Button from '@material-ui/core/Button/Button'
-import { ListItem } from '@material-ui/core'
+import { ListItem, Link } from '@material-ui/core'
 
 //import {SESSION_NAME} from './types'
 
@@ -27,7 +27,7 @@ export const Logout: React.FunctionComponent<LogoutProps> = ({
     }
     else {
         return (
-            <ListItem onClick={logout}>Log out</ListItem>
+            <span onClick={logout}>Log out</span>
         )
     }
 }
