@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import testTubeImg from '../assets/icon_testtube.svg'
 import saveProgressIconImg from '../assets/icon_savedprogress.svg'
+import pencilImg from '../assets/icon_pencil.svg'
 
 import {
   faCircle,
@@ -33,35 +34,35 @@ type UISurvey = {
 const surveys: UISurvey[] = [
   {
     type: 'CONTACT',
-    title: 'Survey1',
+    title: 'Contact Information',
     description: 'Contact',
     time: 2,
     link: '/contactinfo',
   },
   {
     type: 'DEMOGRAPHIC',
-    title: 'Survey 2',
+    title: 'Survey 1',
     description: 'Tell us about yourself',
     time: 2,
     link: '/survey1',
   },
   {
     type: 'COVID_EXPERIENCE',
-    title: 'Survey 3',
+    title: 'Survey 2',
     description: 'Recent COVID-19 Experience',
     time: 5,
     link: '/survey2',
   },
   {
     type: 'HISTORY',
-    title: 'Survey 4',
+    title: 'Survey 3',
     description: 'Medical History',
     time: 15,
     link: '/survey3',
   },
   {
     type: 'MORE',
-    title: 'Survey 5',
+    title: 'Survey 4',
     description: 'More COVID-19 Experience',
     time: 15,
     link: '/survey4',
@@ -110,19 +111,33 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
     const getIcon = (survey: UISurvey): JSX.Element => {
       const iconDef = isDone(survey) ? faCheckCircle : faCircle
-      const notProgress =    <FontAwesomeIcon icon={iconDef} />
-     return notProgress
+      const notProgress = <FontAwesomeIcon icon={iconDef} />
+      return notProgress
     }
 
-    const renderSurveyInfo = (survey: UISurvey, isTier1: boolean): JSX.Element => {
+    const getIconImage = (survey: UISurvey): JSX.Element => {
+      if (survey.type === 'CONTACT') {
+        return <img src={pencilImg}></img>
+      }
+      return isInProgress(survey) ? (
+        <img src={saveProgressIconImg}></img>
+      ) : (
+        getIcon(survey)
+      )
+    }
+
+    const renderSurveyInfo = (
+      survey: UISurvey,
+      isTier1: boolean
+    ): JSX.Element => {
       const innerElement = (
-        <><div className="graphics">
-          <div className="circle">
-            {!isInProgress(survey) && getIcon(survey)}
-           {isInProgress(survey) && <img src={saveProgressIconImg}></img>}
+        <>
+          <div className="graphics">
+            <div className="circle">
+              {getIconImage(survey)}
+            </div>
+            {isTier1 && <div className="rect"></div>}
           </div>
-          {isTier1 && <div className="rect"></div>}
-        </div>
           <div>
             <strong>{survey.title}</strong>
             <br />
@@ -146,13 +161,11 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       }
     }
 
-    const _surveys = isTier1? surveys.slice(0,3): surveys.slice(3)
+    const _surveys = isTier1 ? surveys.slice(0, 3) : surveys.slice(3)
 
     const items = _surveys.map((survey: UISurvey, index) => (
       <li className="item-wrap" key={survey.title}>
-        <div className="item">
-          {renderSurveyInfo(survey, isTier1)}
-        </div>
+        <div className="item">{renderSurveyInfo(survey, isTier1)}</div>
       </li>
     ))
     return <ul className="items">{items}</ul>
@@ -160,18 +173,20 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   return (
     <div className="Dashboard">
       <div className="intro">
-      {isFromConsent && (
-        <Typography variant="h2">Yay, the legal is done!</Typography>
-      )}
-      <p>
-        Our scientists could really use the information from Surveys 1 &amp; 2.
-        &mdash; we need text about needing 1&amp;2 if they want to be invited.
-        If you have the time, anything from 3 &amp; 4 would be phenomenal value
-        to the research.
-      </p>
+        {isFromConsent && (
+          <Typography variant="h2">Yay, the legal is done!</Typography>
+        )}
+        <p>
+        The information you provide will help researchers learn more about COVID-19.</p>
+        <p> To be invited for a lab test, you will need to add your contact information and complete surveys 1 and 2. Surveys 3 and 4 are optional but still provide us with important information. Please consider completing them if you have the time.
+        </p>
       </div>
       <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
-      <div className="separator"><img src={testTubeImg}></img></div>
+      <div className="separator">
+        <img src={testTubeImg}></img>
+        <div className="small"> Minimum surveys required for lab invites </div>
+
+      </div>
       <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
     </div>
   )

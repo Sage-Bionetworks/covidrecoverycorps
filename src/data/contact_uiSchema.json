@@ -3,15 +3,35 @@
 
     "classNames": "contact",
     "attributes": {
+      "firstName": {
+        "ui:placeholder": "First Name",
+        "classNames": "firstName"
+      },
+      "lastName": {
+        "ui:placeholder": "Last Name",
+        "classNames": "lastName"
+      },
  
-    "address": {
-      "classNames": "address"
+    "address1": {
+      "ui:placeholder": "Street Address",
+      "classNames": "address1"
+    },
+    "address2": {
+      "classNames": "address2",
+      "ui:placeholder": "Apt/Suite/Other"
+     
     },
     "zip_code": {
-      "classNames": "zip"
+      "classNames": "zip",
+      "ui:placeholder": "Zip code"
     },
     "state": {
-      "classNames": "state"
+      "classNames": "state",
+      "ui:placeholder": "State"
+    },
+    "city": {
+      "classNames": "city",
+      "ui:placeholder": "City"
     },
 
     "gender": {
