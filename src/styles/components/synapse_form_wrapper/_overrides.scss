@@ -39,6 +39,14 @@
     margin-bottom: 1.5rem;
   }
 
+  @mixin field-description {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
   margin-right: 0;
 
   span {
@@ -54,11 +62,7 @@
   }
 
   .field-description {
-    font-family: 'Open Sans';
-    font-style: italic;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 20px;
+    @include field-description
   }
 
   .right-top-actions {
@@ -334,7 +338,7 @@
     height: 40px;
     border: 1px solid $primary-blue !important;
     border-radius: 0;
-    padding: 5px 20px;
+    padding: 5px 10px;
     box-shadow: none;
     border-radius: 0;
     -webkit-appearance: none;
@@ -465,22 +469,23 @@
         margin-bottom: 5px;
       }
     }
-    .symptom_day_first {
-      // padding-top:2.5rem;
-    }
+
     .symptom_day_first,
     .symptom_day_last {
       label {
         @include label_level2;
       }
-      .still_symptoms.form-group  {
-        label {
-          @include control_label;
-
-        }
-      }
+    
       //  width: 50%;
       // float: left;
+    }
+    .still_symptoms.form-group  {
+      padding-left: 0;
+      label {
+        @include field-description;
+       // @include control_label;
+
+      }
     }
     .form-group.field-string {
       //margin-bottom: 5px;
