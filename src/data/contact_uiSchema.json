@@ -44,7 +44,7 @@
 
     "dob": {
       "classNames": "birthdate",
-      "ui:description": "Your birthdate helps us ensure we match test kits to the right person.",
+      "ui:description": "Your birthdate helps us ensure we match the biosamples to the right person.",
       "ui:widget": "alt-date",
       "ui:options": {
         "yearsRange": [1910, 2001],
