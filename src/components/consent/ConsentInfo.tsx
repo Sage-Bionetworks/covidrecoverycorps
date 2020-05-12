@@ -214,7 +214,13 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   return (
     
         <div className="ConsentInfo">
-          <FloatingToolbar closeLinkDestination='/home?alert=CANCELLED_CONSENT' closeIcon={faTimes} closeLinkText=''>{renderNavChildren(currentStep)}</FloatingToolbar>
+          <FloatingToolbar closeLinkDestination='/home?alert=CANCELLED_CONSENT'
+          closeIcon={faTimes}
+          closeLinkText=''
+          closeConfirmationText='Are you sure you want to leave the consent process?'
+          >
+            {renderNavChildren(currentStep)}
+          </FloatingToolbar>
           <div>
             {currentStep > -1 && (
               <div className="text-right">

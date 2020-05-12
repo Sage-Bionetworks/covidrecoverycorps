@@ -35,8 +35,6 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   const [doHIPAAConsent, setDoHIPAAConsent] = useState<boolean | undefined>(
     undefined
   )
-  const [isShowingCancelConfirmation, setIsShowingCancelConfirmation] = useState(false)
-  const [isConsentCanceled, setIsConsentCancelled] = useState(false)
 
   const [error, setError] = useState('')
 
@@ -134,11 +132,6 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     }
   }
 
-  if (isConsentCanceled) {
-    // TopNav does not read the new search param when using the optimized react router redirect, so replacing for now :(
-    window.location.href = '/home?alert=CANCELLED_CONSENT'
-    // return <Redirect to="home?alert=CANCELLED_CONSENT"></Redirect>
-  }
   return (
     <div className="Consent">
       {!isInfoDone && (
@@ -149,7 +142,12 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       {isInfoDone && !isConsentDone && (
         <>
           <div>
-            <FloatingToolbar closeLinkDestination='/home?alert=CANCELLED_CONSENT' closeIcon={faTimes} closeLinkText=''>Consent Signature</FloatingToolbar>
+            <FloatingToolbar 
+            closeLinkDestination='/home?alert=CANCELLED_CONSENT' 
+            closeIcon={faTimes} closeLinkText='' 
+            closeConfirmationText='Are you sure you want to leave the consent process?'>
+              Consent Signature
+            </FloatingToolbar>
           </div>
 
           <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>
@@ -244,13 +242,6 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
               )}
               <div className="buttons--action">
                 <Button
-                  onClick={() => setIsShowingCancelConfirmation(true)}
-                  variant="outlined"
-                  color="primary"
-                >
-                  Disagree
-                </Button>
-                <Button
                   type="submit"
                   disabled={disable}
                   variant="contained"
@@ -264,25 +255,6 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
         </>
       )}
       {isConsentDone && renderHIPAAStep()}
-      {isShowingCancelConfirmation && (
-          <ConfirmationModal
-            show={true}
-            content={
-              <div>
-                <h2>Are you sure you want to leave the consent process?</h2>
-              </div>}
-            onCancel={() => 
-              // hide cancel confirmation
-              setIsShowingCancelConfirmation(false)
-            }
-            onOK={() =>
-              // redirect back to home
-              setIsConsentCancelled(true)
-            }
-            confirmCopy={'Yes'}
-            cancelCopy={'No, take me back'}
-          ></ConfirmationModal>
-        )}
     </div>
   )
 }
