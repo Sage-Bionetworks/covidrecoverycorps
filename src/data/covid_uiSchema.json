@@ -94,7 +94,11 @@
           "hideClearButton": true
         },
         "classNames": ["symptom_day_last"]
+      },
+      "still_have_symptoms": {
+        "classNames": "still_symptoms"
       }
+
     },
 
     "kind_of_testing": {
