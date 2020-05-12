@@ -402,13 +402,27 @@
       //border-top: 1px solid #ccc;
     }
 
-    .address {
+    .address1 {
+      margin-bottom: 1rem;
       // margin-top: 3rem;
       // padding-top: 2rem;
       // border-top: 1px solid #ccc;
       > label {
         // font-weight: bold;
       }
+    }
+    .form-group.address2 , .form-group.city {
+      margin-bottom: 1rem;
+    }
+
+    .form-group.address2 , .form-group.city, 
+    .form-group.state, .form-group.zip {
+      label {
+        display:none
+      }
+
+
+
     }
     > .fieldset {
       width: 100%;

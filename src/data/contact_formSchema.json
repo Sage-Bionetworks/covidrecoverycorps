@@ -6,36 +6,40 @@
       "properties": {
       "firstName": {
         "type": "string",
-        "title": "1. Please enter your first name"
+        "title": "First name:"
       },
       "lastName": {
         "type": "string",
-        "title": "2. Please enter your last name"
+        "title": "Last name:"
       },
 
     "attributes": {
       "type": "object",
-      "required": ["address", "city", "state", "zip_code", "gender", "dob"],
+      "required": ["address1", "city", "state", "zip_code", "gender", "dob"],
       "properties": {
         "dob": {
           "type": "string",
-          "title": "3. What is your date of birth?"
+          "title": "Date of birth:"
         },
-        "address": {
-          "title": "4. Where do you currently reside?",
+        "address1": {
+          "title": "Current Residential Address:",
+          "type": "string"
+        },
+        "address2": {
+       
           "type": "string"
         },
         "city": {
-          "title": "City",
+      
           "type": "string"
         },
         "state": {
-          "title": "State",
+       
           "type": "string",
           "enum": ["NY", "NJ", "CT"]
         },
         "zip_code": {
-          "title": "Zip code",
+        
           "type": "string",
 
           "uniqueItems": true
@@ -44,7 +48,7 @@
     
         "gender": {
           "type": "string",
-          "title": "5. What  was your biological sex assigned at birth?",
+          "title": "What  was your biological sex assigned at birth?",
           "enum": [
             "Female",
             "Male",
