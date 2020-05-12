@@ -135,7 +135,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   }
 
   if (isConsentCanceled) {
-    return <Redirect to="home"></Redirect>
+    // TopNav does not read the new search param when using the optimized react router redirect, so replacing for now :(
+    window.location.href = '/home?alert=CANCELLED_CONSENT'
+    // return <Redirect to="home?alert=CANCELLED_CONSENT"></Redirect>
   }
   return (
     <div className="Consent">
@@ -147,7 +149,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       {isInfoDone && !isConsentDone && (
         <>
           <div>
-            <FloatingToolbar closeLinkDestination='/home' closeIcon={faTimes} closeLinkText=''>Consent Signature</FloatingToolbar>
+            <FloatingToolbar closeLinkDestination='/home?alert=CANCELLED_CONSENT' closeIcon={faTimes} closeLinkText=''>Consent Signature</FloatingToolbar>
           </div>
 
           <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>
@@ -267,8 +269,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
             show={true}
             content={
               <div>
-                <p>Sometimes people press things on accident, so we wanted to check...</p>
-                <h2 className='margin-top-std'>Are you sure, you want to <strong>cancel</strong> your <strong>consent form</strong>?</h2>
+                <h2>Are you sure you want to leave the consent process?</h2>
               </div>}
             onCancel={() => 
               // hide cancel confirmation
@@ -278,7 +279,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
               // redirect back to home
               setIsConsentCancelled(true)
             }
-            confirmCopy={'Yes, please cancel'}
+            confirmCopy={'Yes'}
             cancelCopy={'No, take me back'}
           ></ConfirmationModal>
         )}

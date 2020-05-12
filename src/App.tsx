@@ -41,6 +41,7 @@ import { UserService } from './services/user.service'
 import AcountSettings from './components/AccountSettings'
 import GoogleAnalyticsPageTracker from './components/widgets/GoogleAnalyticsPageTracker'
 import CookieNotificationBanner from './components/widgets/CookieNotificationBanner'
+import ScrollToTopOnRouteChange from './components/widgets/ScrollToTopOnRouteChange'
 
 const theme = createMuiTheme({
   
@@ -198,6 +199,7 @@ function App() {
             <div>
               <CookieNotificationBanner />
               <GoogleAnalyticsPageTracker />
+              <ScrollToTopOnRouteChange />
               <nav
                 style={{
                   border: '1px solid black',

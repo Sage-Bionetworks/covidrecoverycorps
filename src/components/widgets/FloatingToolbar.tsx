@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from 'react-router-dom'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import { Link } from '@material-ui/core'
 
 type FloatingToolbarProps = {
   closeLinkDestination: string,
@@ -38,7 +38,7 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
       <div className="row" style={{ position: 'relative', marginTop: '5px' }}>
         {
           <div style={{ position: 'absolute', left: '20px', zIndex: 999}}>
-            <Link to={props.closeLinkDestination}>
+            <Link href={props.closeLinkDestination}>
               <FontAwesomeIcon icon={props.closeIcon} />
               <span style={{ marginLeft: '5px' }}>{props.closeLinkText}</span>
             </Link>
