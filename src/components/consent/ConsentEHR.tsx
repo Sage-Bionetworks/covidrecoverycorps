@@ -198,6 +198,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
               closeLinkDestination="/dashboard"
               closeIcon={faTimes}
               closeLinkText=""
+              closeConfirmationText='Are you sure you want to leave the HIPPA Authorization process?'
             >
               HIPAA Authorization
             </FloatingToolbar>
