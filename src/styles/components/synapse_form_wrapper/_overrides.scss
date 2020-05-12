@@ -1,7 +1,7 @@
 .theme-crc .SRC-ReactJsonForm {
   $font-size: 1.6rem;
-  $red-error: #ffc0bd;
-  $red-error2: #ffc0bd;
+  $red-error: #FF6D6D;
+  $red-error2: #FF6D6D;
   $left-pad: 4rem;
   $primary-blue: #0084ff;
 
@@ -501,8 +501,8 @@
 
   .habits {
     .how_many_cigarettes {
-      @include subfield_inverted;
-      margin-top: -4rem;
+     // @include subfield_inverted;
+     // margin-top: -4rem;
     }
   }
 

@@ -48,11 +48,11 @@
       },
 
       "cough_duration": {
-        "ui:title": "For how many days did you cough"
+
       },
 
       "fever_duration": {
-        "ui:title": "For how many days did you have fever"
+      
       }
     }
   },
@@ -257,8 +257,7 @@
   },
   "medications_hydroxy": {
   "hydroxychloroquine_side_effects": {
-    "ui:widget": "checkboxes",
-    "ui:title": "If you were treated with hydroxychloroquine (Plaquenil), please describe if you experienced any of the following? (select all that apply)"
+    "ui:widget": "checkboxes"
   }
 }
 }

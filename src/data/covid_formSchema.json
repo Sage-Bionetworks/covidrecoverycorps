@@ -102,7 +102,7 @@
             },
             "prefer_not_answer": {
               "type": "boolean",
-              "title": "Prefer Not To Answer"
+              "title": "Prefer not To Answer"
             },
             "other": {
               "type": "boolean",
@@ -125,7 +125,7 @@
                       "enum": [true]
                     },
                     "cough_duration": {
-                      "title": "How Many Days",
+                      "title": "How Many Days?",
                       "type": "number"
                     }
                   }
@@ -147,11 +147,11 @@
                       "enum": [true]
                     },
                     "fever_duration": {
-                      "title": "How Many Days",
+                      "title": "How Many Days?",
                       "type": "number"
                     },
                     "fever_highest": {
-                      "title": "What was the highest temperature",
+                      "title": "What was the highest temperature?(\u00B0 F) ",
                       "type": "number"
                     }
                   }
@@ -173,7 +173,7 @@
                       "enum": [true]
                     },
                     "shortness_breath_duration": {
-                      "title": "How Many Days",
+                      "title": "How Many Days?",
                       "type": "number"
                     }
                   }
@@ -195,7 +195,7 @@
                       "enum": [true]
                     },
                     "chest_pain_duration": {
-                      "title": "How Many Days",
+                      "title": "How Many Days?",
                       "type": "number"
                     }
                   }
@@ -217,7 +217,7 @@
                       "enum": [true]
                     },
                     "night_sweats_duration": {
-                      "title": "How Many Days",
+                      "title": "How Many Days?",
                       "type": "number"
                     }
                   }
@@ -239,7 +239,7 @@
                       "enum": [true]
                     },
                     "chills_duration": {
-                      "title": "How Many Days",
+                      "title": "How Many Days?",
                       "type": "number"
                     }
                   }
@@ -261,7 +261,7 @@
                       "enum": [true]
                     },
                     "rash_duration": {
-                      "title": "How Many Days",
+                      "title": "How Many Days?",
                       "type": "number"
                     }
                   }
@@ -283,7 +283,7 @@
                       "enum": [true]
                     },
                     "foamy_urine_duration": {
-                      "title": "How Many Days",
+                      "title": "How Many Days?",
                       "type": "number"
                     }
                   }
@@ -305,7 +305,7 @@
                       "enum": [true]
                     },
                     "red_urine_duration": {
-                      "title": "How Many Days",
+                      "title": "How Many Days?",
                       "type": "number"
                     }
                   }
@@ -327,7 +327,7 @@
                       "enum": [true]
                     },
                     "loss_of_smell_duration": {
-                      "title": "How Many Days",
+                      "title": "How Many Days?",
                       "type": "number"
                     }
                   }
@@ -349,7 +349,7 @@
                       "enum": [true]
                     },
                     "loss_of_taste_duration": {
-                      "title": "How Many Days",
+                      "title": "How Many Days?",
                       "type": "number"
                     }
                   }
@@ -392,6 +392,7 @@
           "type": "string",
           "title": "4. How was your COVID-19 treated? (pick single response reflecting your most intensive level of care)",
           "enum": [
+            "at_home",
             "doctor's office",
             "emergency_room",
             "hospital",
@@ -399,6 +400,7 @@
             "no answer"
           ],
           "enumNames": [
+            "My COVID-19 was managed at home",
             "I was seen in a doctor's office, clinic, or screening tent, and I was sent home",
             "I was seen in the emergency room, and I was sent home",
             "I was admitted to the hospital",
@@ -613,7 +615,7 @@
             },
             "other": {
               "type": "boolean",
-              "title": "Other",
+              "title": "Other complications",
               "enum": [true, false]
             },
             "prefer_not_answer": {
@@ -720,7 +722,7 @@
                     },
                     "other_answer": {
                       "type": "string",
-                      "title": "Other Complications"
+                      "title": "Please specify:"
                     }
                   }
                 },
@@ -749,31 +751,31 @@
       "properties": {
         "smoking": {
           "type": "string",
-          "title": "5. Do you smoke?",
+          "title": "7. Do you smoke?",
           "uniqueItems": true,
           "enum": [
             "I have never smoked regularly.",
             "I used to smoke, but I quit.",
             "I smoke only rarely.",
             "I smoke every day.",
-            "Prefer Not To Answer"
+            "Prefer not To Answer"
           ]
         },
         "vaping": {
           "type": "string",
-          "title": "6. Do you vape?",
+          "title": "8. Do you vape?",
           "uniqueItems": true,
           "enum": [
             "I have never vaped regularly.",
             "I used to vape, but I quit.",
             "I vape only rarely.",
             "I vape every day.",
-            "Prefer Not To Answer"
+            "Prefer not To Answer"
           ]
         },
         "alcohol": {
           "type": "string",
-          "title": "7. How often do you consume alcoholic beverages?",
+          "title": "9. How often do you consume alcoholic beverages?",
           "uniqueItems": true,
           "enum": [
             "Never",
@@ -795,7 +797,7 @@
                 },
                 "smoking_how_many_cigarettes": {
                   "type": "string",
-                  "title": "How many cigarettes on average per day"
+                  "title": "7a. How many cigarettes on average do you smoke per day?"
                 }
               }
             },
@@ -806,7 +808,7 @@
                     "I have never smoked regularly.",
                     "I used to smoke, but I quit.",
                     "I smoke only rarely.",
-                    "Prefer Not To Answer"
+                    "Prefer not To Answer"
                   ]
                 }
               }
@@ -822,7 +824,7 @@
       "properties": {
         "anxiety": {
           "type": "string",
-          "title": "8. Over the past week, how often have you been feeling nervous, anxious, or on edge?",
+          "title": "10. Over the past week, how often have you been feeling nervous, anxious, or on edge?",
           "uniqueItems": true,
           "enum": [
             "Not at all",
@@ -834,7 +836,7 @@
         },
         "worry": {
           "type": "string",
-          "title": "9. Over the past week, how often have you not been able to stop worrying?",
+          "title": "11. Over the past week, how often have you not been able to stop worrying?",
           "uniqueItems": true,
           "enum": [
             "Not at all",
@@ -846,7 +848,7 @@
         },
         "loneliness": {
           "type": "string",
-          "title": "10. Many peoples may also feel loneliness during this time. How often have you felt lonely during the past week?",
+          "title": "12. Many peoples may also feel loneliness during this time. How often have you felt lonely during the past week?",
           "uniqueItems": true,
           "enum": [
             "Not at all",
@@ -866,7 +868,7 @@
         "regular_medications": {
           "type": "array",
           "uniqueItems": true,
-          "title": "11. Which of the following medications were you taking on a regular basis before you got sick with COVID-19? (check all that apply)",
+          "title": "5. Which of the following medications were you taking on a regular basis before you got sick with COVID-19? (check all that apply)",
           "items": {
             "type": "string",
             "enum": [
@@ -895,7 +897,7 @@
               "Antibiotics",
               "HIV medication (lopinavir/ritonavir, darunavir/ritonavir, tenofovir disoproxil fumarate (TDF), tenofovir alafenamide fumarate (TAF), and combination medications containing these agents)",
               "None",
-              "Prefer Not To Answer"
+              "Prefer not To Answer"
             ]
           }
         }
@@ -908,7 +910,7 @@
       "properties": {
         "covid_medications": {
           "type": "array",
-          "title": "12. Which of the following medications did you take/were you given to treat your COVID-19 illness? (check all that apply):",
+          "title": "6. Which of the following medications did you take/were you given to treat your COVID-19 illness? (check all that apply):",
           "items": {
             "type": "string",
             "enum": [
@@ -944,7 +946,7 @@
       "properties": {
         "hydroxychloroquine_side_effects": {
           "type": "array",
-          "title": "12b. If you were treated with hydroxychloroquine (Plaquenil), please describe if you experienced any of the following? (check all that apply):",
+          "title": "6a. If you were treated with hydroxychloroquine (Plaquenil), please describe if you experienced any of the following? (check all that apply):",
           "uniqueItems": true,
           "items": {
             "type": "string",
