@@ -33,12 +33,6 @@ const useStyles = makeStyles(theme => ({
     color: '#F2F2F2',  // light
     backgroundColor: '#2E2E2E' // dark
   },
-  toolBarAnonymous: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    color: '#2E2E2E', // dark
-    backgroundColor: '#F2F2F2' // light
-  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -73,20 +67,6 @@ const useStyles = makeStyles(theme => ({
       color: '#F2F2F2',
     },
   },
-  fullNavBarLinkAnonymous: {
-    color: '#F2F2F2',
-    marginLeft: 25,
-    paddingBottom: 7,
-    '&:hover': {
-      textDecoration: 'none',
-      color: '#F2F2F2',
-    },
-    '&:focus': {
-      textDecoration: 'none',
-      color: '#F2F2F2',
-    },
-  },
-
   fullNavBarLinkActive: {
     borderBottom: '4px solid #0084FF'
   },

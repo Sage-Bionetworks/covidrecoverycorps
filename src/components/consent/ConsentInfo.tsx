@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import FloatingToolbar from '../widgets/FloatingToolbar'
 import Button from '@material-ui/core/Button/Button'
-import { faArrowRight, faArrowLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Alert from '@material-ui/lab/Alert'
@@ -10,7 +10,8 @@ import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
 
 import Switch from '@material-ui/core/Switch/Switch'
 import ConsentCopy, { StepInfo } from './ConsentCopy'
-import Grid from '@material-ui/core/Grid/Grid'
+import BlueSeparator from '../static/BlueSeparator'
+import { RadioGroup, FormControlLabel, Radio } from '@material-ui/core'
 
 type ConsentInfoProps = {
   onDone: Function
@@ -86,22 +87,19 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
       return true
     }
 
-
-    const isQuiz = quizIndex !== -1
-
     const buttonDiv = (
       <>
         {currentStep > -1 && (
           <Button
             color="primary"
-            variant="contained"
+            variant="outlined"
             size="large"
             onClick={() => {
               window.scrollTo(0,0)
               setCurrentStep((prev) => prev - 1)
             }}
           >
-            <FontAwesomeIcon icon={faArrowLeft} />
+            <FontAwesomeIcon icon={faAngleLeft} />
             &nbsp;
           </Button>
         )}
@@ -121,7 +119,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
             }}
           >
             &nbsp;
-            <FontAwesomeIcon icon={faArrowRight} />
+            <FontAwesomeIcon icon={faAngleRight} />
           </Button>
         )}
       </>
@@ -151,36 +149,31 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
       <div>
         <h3 style={{marginBottom: "2rem"}}>{quiz.title}</h3>
         {quizAnswers[quizIndex] !== undefined && (
-          <Alert style={{marginBottom: "2rem"}}
+          <Alert style={{marginBottom: "2rem", backgroundColor: 'unset', padding: '0px'}}
             severity={
               quizAnswers[quizIndex] === quiz.correctAnser ? 'success' : 'error'
+            }
+            color={
+              quizAnswers[quizIndex] === quiz.correctAnser ? 'info' : 'error'
             }
           >
             {' '}
             {quiz.explanation}
           </Alert>
         )}
-
-        <ToggleButtonGroup
-          value={quizAnswers[quizIndex]}
-          exclusive
-          className="verticalToggle"
-          onChange={(_event: any, value: number) =>
+        <BlueSeparator></BlueSeparator>
+        <RadioGroup aria-label="can consent" name="quizQuestion" value={quizAnswers[quizIndex]} 
+          onChange={(_event: any, value: string) =>
             setQuizAnswers((prev) => {
               const newAnswers = [...prev]
               // const correct = value === quiz.correctAnser
-              newAnswers[quizIndex] = value
+              newAnswers[quizIndex] = parseInt(value, 10)
               console.log(newAnswers)
               return newAnswers
-            })
-          }
-          aria-label="can consent"
-        >
-          ><ToggleButton value={0} className={getQuizButtonClass(quiz.correctAnser, 0)}> {quiz.options[0]}</ToggleButton>
-          <ToggleButton value={1} className={getQuizButtonClass(quiz.correctAnser, 1)}> {quiz.options[1]}</ToggleButton>
-        </ToggleButtonGroup>
-
-      
+            })}>
+          <FormControlLabel className={getQuizButtonClass(quiz.correctAnser, 0)} value="0" control={<Radio />} label={quiz.options[0]} />
+          <FormControlLabel className={getQuizButtonClass(quiz.correctAnser, 1)} value="1" control={<Radio />} label={quiz.options[1]} />
+        </RadioGroup>
       </div>
     )
     return content
