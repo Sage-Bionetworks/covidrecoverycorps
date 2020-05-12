@@ -111,8 +111,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     const getIcon = (survey: UISurvey): JSX.Element => {
       const iconDef = isDone(survey) ? faCheckCircle : faCircle
       const notProgress =    <FontAwesomeIcon icon={iconDef} />
-     // const saveProgressIconImg = <><img src={saveProgressIconImg}></img></>
-     // return isInProgress(survey) ? saveProgressIconImg : notProgress
      return notProgress
     }
 
@@ -121,7 +119,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         <><div className="graphics">
           <div className="circle">
             {!isInProgress(survey) && getIcon(survey)}
-           {!isInProgress(survey) && <img src={saveProgressIconImg}></img>}
+           {isInProgress(survey) && <img src={saveProgressIconImg}></img>}
           </div>
           {isTier1 && <div className="rect"></div>}
         </div>
@@ -153,8 +151,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     const items = _surveys.map((survey: UISurvey, index) => (
       <li className="item-wrap" key={survey.title}>
         <div className="item">
-          
-
           {renderSurveyInfo(survey, isTier1)}
         </div>
       </li>
