@@ -208,7 +208,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                (Mon:3:40pm)
+                (Tue:11:02am)
               </nav>
               <TopNav
                 token={token}
