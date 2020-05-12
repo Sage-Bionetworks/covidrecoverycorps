@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import testTubeImg from '../assets/icon_testtube.svg'
 import saveProgressIconImg from '../assets/icon_savedprogress.svg'
 import pencilImg from '../assets/icon_pencil.svg'
+import { makeStyles } from '@material-ui/core/styles';
 
 import {
   faCircle,
@@ -14,7 +15,9 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { Typography } from '@material-ui/core'
+import Card from '@material-ui/core/Card';
 
+import CardContent from '@material-ui/core/CardContent';
 import { SurveyService } from '../services/survey.service'
 import { SavedSurveysObject, SurveyType, SavedSurvey } from '../types/types'
 import _ from 'lodash'
@@ -30,6 +33,21 @@ type UISurvey = {
   description: string
   time: number
 }
+
+
+//#F5F5F5;
+
+const useStyles = makeStyles({
+  root: {
+   // minWidth: 275,
+    backgroundColor: '#f5f5f5',
+    paddingLeft: '0',
+    paddingRight: '0'
+
+  }
+}
+)
+
 
 const surveys: UISurvey[] = [
   {
@@ -69,6 +87,7 @@ const surveys: UISurvey[] = [
   },
 ]
 
+
 export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   token,
 }: DashboardProps) => {
@@ -78,6 +97,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     //get url param
     urlParams.get('consented')
   )
+
+  const classes = useStyles();
 
   useEffect(() => {
     const getSurveys = async () => {
@@ -172,7 +193,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   }
   return (
     <div className="Dashboard">
-      <div className="intro">
+      <div className="dashboard-intro">
         {isFromConsent && (
           <Typography variant="h2">Yay, the legal is done!</Typography>
         )}
@@ -181,6 +202,9 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         <p> To be invited for a lab test, you will need to add your contact information and complete surveys 1 and 2. Surveys 3 and 4 are optional but still provide us with important information. Please consider completing them if you have the time.
         </p>
       </div>
+
+      <Card className={classes.root}>
+      <CardContent>
       <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
       <div className="separator">
         <img src={testTubeImg}></img>
@@ -188,6 +212,9 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
       </div>
       <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
+  
+      </CardContent>
+      </Card>
     </div>
   )
 }

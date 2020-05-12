@@ -143,6 +143,7 @@ function App() {
   const [token, setToken] = useState(getSession()?.token)
   const [name, setName] = useState(getSession()?.name)
   const [consented, setConsented] = useState(getSession()?.consented)
+  const [currentLocation, setCurrentLocation] = useState(window.location.pathname)
 
   useEffect(() => {
     let isSubscribed = true
@@ -207,16 +208,24 @@ function App() {
 
   const classes = useStyles()
 
+  const getTopClass= (location: string) => {
+    if (location.includes('dashboard') || location.includes('survey') || location.includes('contactinfo')) {
+      return 'partialGreen'
+    } else {
+      return ''
+    }
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Typography component={'div'}>
         <div className={classes.root}>
           <CssBaseline />
           <Router>
-            <div>
+            <div  className={getTopClass(currentLocation)}>
               <CookieNotificationBanner />
               <GoogleAnalyticsPageTracker />
-              <ScrollToTopOnRouteChange />
+              <ScrollToTopOnRouteChange  onRouteChangeFn={(location: string)=>{alert(location); setCurrentLocation(location) }}/>
               <nav
                 style={{
                   border: '1px solid black',
