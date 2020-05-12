@@ -2,14 +2,25 @@
   "steps": [
     {
       "id": "history1",
-      "order": 2,
+      "order": 5,
       "title": "Medical History",
-      "default": "history2"
+      "default": "history11",
+      "orderDisplay": "1/8",
+      "description": "Lorem ipsum survey instructions "
+    },
+    {
+      "id": "history11",
+      "order": 5,
+
+      "default": "history2",
+      "orderDisplay": "2/8"
+
     },
 
     {
       "id": "history2",
-      "order": 5,
+      "order": 10,
+      "orderDisplay": "3/8",
       "title": "Medical History(cont)",
       "default": "history3",
       "rules": [],
@@ -39,7 +50,7 @@
     },
     {
       "id": "history3",
-      "order": 8,
+      "order": 15,
       "title": "Medical History(cont)",
       "default": "family_history",
 
@@ -117,14 +128,14 @@
     },
     {
       "id": "family_history",
-      "order": 15,
+      "order": 20,
       "title": "Family History",
       "default": "done",
       "rules": []
     },
     {
       "id": "women",
-      "order": 1,
+      "order": 25,
       "title": "Questions for Women",
       "default": "family_history",
       "rules": []

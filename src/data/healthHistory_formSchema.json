@@ -4,19 +4,13 @@
       "type": "object",
       "required": [
         "general_health_status",
-        "physical_activity_level",
-        "weight",
-        "height",
-        "where_go_for_care",
-        "routine_exam_2019",
-        "vaccinations",
-        "travel_time_to_doctor",
-        "blood_type"
+        "physical_activity_level"
+     
       ],
       "properties": {
         "general_health_status": {
           "type": "string",
-          "title": "How would you rate your general health status prior to the infection?",
+          "title": "1. How would you rate your general health status prior to the infection?",
           "enum": [
             "Excellent",
             "Very good",
@@ -28,7 +22,7 @@
         },
         "physical_activity_level": {
           "type": "string",
-          "title": "What is the level of your usual physical activity? ",
+          "title": "2. What is the level of your usual physical activity? ",
           "enum": [
             "I read, watch TV, and perform chores that are not physically taxing",
             "I walk, bike, or are otherwise physically active for many days a week. Including among other activities: walking, hunting, and light gardening work",
@@ -39,26 +33,40 @@
         },
         "weight": {
           "type": "number",
-          "title": "How much do you weigh? (lbs.)"
+          "title": "3. How much do you weigh? (lbs.)"
         },
         "height": {
           "type": "object",
-          "title": "How tall are you?",
-          "required": ["feet", "inches"],
+          "title": "4. How tall are you?",
+          "required": [
+            "feet",
+            "inches"
+          ],
           "properties": {
-            "feet":{
-              "type": "number"},
-             "inches":{
-               "type": "number"}
-             } 
-           
-
-
-        },
+            "feet": {
+              "type": "number"
+            },
+            "inches": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "history11": {
+      "type": "object",
+      "required": [
+        "where_go_for_care",
+        "routine_exam_2019",
+        "vaccinations",
+        "travel_time_to_doctor"
+     
+      ],
+      "properties": {
         "where_go_for_care": {
           "type": "array",
           "uniqueItems": true,
-          "title": "When you are sick, where do you usually go for care?",
+          "title": "5. When you are sick, where do you usually go for care?",
           "items": {
             "type": "string",
             "enum": [
@@ -73,7 +81,7 @@
         },
         "routine_exam_2019": {
           "type": "string",
-          "title": "Did you have a routine health exam (check-up) in the last year (2019/2020)?",
+          "title": "6. Did you have a routine health exam (check-up) in the last year (2019/2020)?",
           "enum": [
             "Yes",
             "No",
@@ -84,7 +92,7 @@
         "vaccinations": {
           "type": "array",
           "uniqueItems": true,
-          "title": " Have you received a vaccination in 2019/2020 against any of the following? (check all that apply)",
+          "title": "7. Have you received a vaccination in 2019/2020 against any of the following? (check all that apply)",
           "items": {
             "type": "string",
             "enum": [
@@ -99,7 +107,7 @@
         },
         "travel_time_to_doctor": {
           "type": "string",
-          "title": "How long does it take to travel to see your doctor/healthcare provider?",
+          "title": "8. How long does it take to travel to see your doctor/healthcare provider? ",
           "enum": [
             "Less than 10 minutes",
             "10-30 minutes",
@@ -109,7 +117,19 @@
             "Don’t know",
             "Prefer Not To Answer"
           ]
-        },
+        }
+       
+      }
+    },
+    "history2": {
+      "type": "object",
+      "required": [
+        "blood_type",
+        "diabetes_diagnosis",
+        "blood_pressure",
+        "blood_pressure_medication"
+      ],
+      "properties": {
         "blood_type": {
           "type": "string",
           "title": "What is your blood type?",
@@ -125,18 +145,7 @@
             "I Don’t Know",
             "Prefer Not To Answer"
           ]
-        }
-      }
-    },
-    "history2": {
-      "type": "object",
-      "required": [
-        "diabetes_diagnosis",
-    
-        "blood_pressure",
-        "blood_pressure_medication"
-      ],
-      "properties": {
+        },
         "diabetes_diagnosis": {
           "type": "string",
           "title": "Have you been diagnosed with diabetes?",
@@ -150,7 +159,6 @@
             "Prefer Not To Answer"
           ]
         },
-    
         "blood_pressure": {
           "type": "string",
           "title": "Have you ever been diagnosed with hypertension or high blood pressure?",
@@ -347,21 +355,22 @@
       },
       "dependencies": {
         "diabetes_diagnosis": {
-          "oneOf":[
+          "oneOf": [
             {
               "properties": {
                 "diabetes_diagnosis": {
-                  "enum":[
+                  "enum": [
                     "No",
                     "No, but sometimes have high blood sugar",
                     "Prefer Not To Answer"
                   ]
                 }
               }
-            },{
+            },
+            {
               "properties": {
                 "diabetes_diagnosis": {
-                  "enum":[
+                  "enum": [
                     "Yes, Type 1 diabetes (treated with insulin)",
                     "Yes, Type 2 diabetes (often treated with pills)",
                     "Yes, but I don’t know the type",
@@ -386,7 +395,6 @@
               }
             }
           ]
-
         },
         "blood_pressure_medication": {
           "oneOf": [
@@ -923,7 +931,9 @@
                   "type": "number"
                 }
               },
-              "required": ["miscarriage_number"]
+              "required": [
+                "miscarriage_number"
+              ]
             }
           ]
         }
@@ -935,6 +945,10 @@
     "history1": {
       "title": "",
       "$ref": "#/definitions/history1"
+    },
+    "history11": {
+      "title": "",
+      "$ref": "#/definitions/history11"
     },
     "history2": {
       "title": "",

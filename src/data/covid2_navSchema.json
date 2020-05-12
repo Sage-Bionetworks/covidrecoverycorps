@@ -3,7 +3,9 @@
     {
       "id": "covid1",
       "order": 1,
-      "title": "",
+      "title": "COVID-19 Experience ",
+      "orderDisplay": "1/6",
+      "description": "Lorem ipsum survey instructions ",
       "default": "antibiotics_cold"
     },
     {

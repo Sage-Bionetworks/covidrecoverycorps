@@ -1,7 +1,7 @@
 {
   "about": {
     "classNames": "demographic",
-    "ui:order": [ "gender_identity",  "enthnicity",  "ethnicity_other", "ethnicity_other_text", "*"],
+    "ui:order": [ "gender_identity",  "ethnicity",  "ethnicity_other",  "*"],
 
     "gender_identity": {
    
@@ -10,19 +10,16 @@
         "inline": false
       }
     },
-    "enthnicity": {
+    "ethnicity": {
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
       }
     },
-      "ethnicity_other": {
+      "enthnicity_other": {
         "classNames": "ethnicity_other"
       },
-      "ethnicity_other_text": {
-        "classNames": "ethnicity_other_text"
-      
-    },
+     
     "education": {
       "ui:widget": "radio",
       "ui:options": {
