@@ -4,7 +4,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { makeStyles } from '@material-ui/core/styles';
 import Logout from '../login/Logout'
-import { ListItem, List, Divider } from '@material-ui/core'
+import { ListItem, List, Divider, Hidden } from '@material-ui/core'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
@@ -30,8 +30,8 @@ const useStyles = makeStyles(theme => ({
   toolBar: {
     display: 'flex',
     justifyContent: 'space-between',
-    color: '#21394A',
-    backgroundColor: 'rgb(254, 254, 254)'
+    color: '#F2F2F2',
+    backgroundColor: '#2E2E2E'
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -49,10 +49,28 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 0,
   },
   navBarLink: {
-    color: '#000',
+    color: '#2E2E2E',
     '&:hover': {
       textDecoration: 'none',
+      color: '#2E2E2E',
    },
+  },
+  
+  fullNavBarLink: {
+    color: '#F2F2F2',
+    marginLeft: 25,
+    paddingBottom: 7,
+    '&:hover': {
+      textDecoration: 'none',
+      color: '#F2F2F2',
+    },
+    '&:focus': {
+      textDecoration: 'none',
+      color: '#F2F2F2',
+    },
+  },
+  fullNavBarLinkActive: {
+    borderBottom: '4px solid #0084FF'
   }
 }))
 
@@ -85,7 +103,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
       </NavLink>
       <NavLink to="/team" onClick={handleDrawerToggle} className={classes.navBarLink}>
         <ListItem button>
-            Meet the researchers
+            Meet the Researchers
         </ListItem>
       </NavLink>
       <NavLink to="/faqs" onClick={handleDrawerToggle} className={classes.navBarLink}>
@@ -107,31 +125,75 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
         </NavLink>
       )}
       {props.token && (
-        <NavLink to="/home" onClick={handleDrawerToggle} className={classes.navBarLink}>
-          <Logout
-            onLogout={() => props.logoutCallbackFn(undefined, '', false)}
-          ></Logout>
-        </NavLink>
-      )}
-      {!props.token && (
-        <NavLink to="/login" onClick={handleDrawerToggle} className={classes.navBarLink}>
+        <NavLink to="/logout" onClick={handleDrawerToggle} className={classes.navBarLink}>
           <ListItem>
-              Log in
+            <Logout
+              onLogout={() => props.logoutCallbackFn(undefined, '', false)}
+            ></Logout>
           </ListItem>
         </NavLink>
       )}
       {!props.token && (
-        <NavLink
-          style={{ marginRight: '10px' }}
-          to="/eligibility" onClick={handleDrawerToggle} className={classes.navBarLink}
-        >
+        <NavLink to="/eligibility" onClick={handleDrawerToggle} className={classes.navBarLink}>
         <ListItem>
-            Join Us
+          Join Us
         </ListItem>
       </NavLink>
       )}
+      {!props.token && (
+        <NavLink to="/login" onClick={handleDrawerToggle} className={classes.navBarLink}>
+          <ListItem button>
+            Log in
+          </ListItem>
+        </NavLink>
+      )}
     </List>
   </div>
+
+const fullScreenNavBar = <div>
+  {props.token && (
+    <NavLink to="/dashboard" className={classes.fullNavBarLink} activeClassName={classes.fullNavBarLinkActive}>
+        Survey Dashboard
+    </NavLink>
+  )}
+  <NavLink to="/home" className={classes.fullNavBarLink} activeClassName={classes.fullNavBarLinkActive}>
+      About
+  </NavLink>
+  <NavLink to="/team" className={classes.fullNavBarLink} activeClassName={classes.fullNavBarLinkActive}>
+    Meet the Researchers
+  </NavLink>
+  <NavLink to="/faqs" className={classes.fullNavBarLink} activeClassName={classes.fullNavBarLinkActive}>
+      FAQs
+  </NavLink>
+  <NavLink to="/contact" className={classes.fullNavBarLink} activeClassName={classes.fullNavBarLinkActive}>
+      Contact Us
+  </NavLink>
+  {props.token && (
+    <NavLink to="/settings" className={classes.fullNavBarLink} activeClassName={classes.fullNavBarLinkActive}>
+        Account Settings
+    </NavLink>
+  )}
+  {props.token && (
+    <NavLink to="/logout" className={classes.fullNavBarLink} activeClassName={classes.fullNavBarLinkActive}>
+      <Logout
+        onLogout={() => props.logoutCallbackFn(undefined, '', false)}
+      ></Logout>
+    </NavLink>
+  )}
+  {!props.token && (
+    <NavLink
+      style={{ marginLeft: '50px' }}
+      to="/eligibility" className={classes.fullNavBarLink} activeClassName={classes.fullNavBarLinkActive}
+    >
+      Join Us
+  </NavLink>
+  )}
+  {!props.token && (
+    <NavLink to="/login" className={classes.fullNavBarLink} activeClassName={classes.fullNavBarLinkActive}>
+          Log in
+    </NavLink>
+  )}
+</div>
 
   return (
     <div>
@@ -145,15 +207,21 @@ export const TopNav: React.FunctionComponent<TopNavProps> = (
           </Typography>
         </div>
         
-        <IconButton
-          color="inherit"
-          aria-label="Open drawer"
-          edge="end"
-          onClick={handleDrawerToggle}
-          className={classes.menuButton}
-        >
-          <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
-        </IconButton>
+        {/* show hamburger menu on xs and sm, but full nav bar on md and up */}
+        <Hidden mdUp>
+          <IconButton
+            color="inherit"
+            aria-label="Open drawer"
+            edge="end"
+            onClick={handleDrawerToggle}
+            className={classes.menuButton}
+          >
+            <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
+          </IconButton>  
+        </Hidden>
+        <Hidden smDown>
+          {fullScreenNavBar}
+        </Hidden>
       </Toolbar>
       
       <nav className={classes.drawer}>
