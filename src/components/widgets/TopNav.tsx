@@ -4,7 +4,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { makeStyles } from '@material-ui/core/styles';
 import Logout from '../login/Logout'
-import { ListItem, List, Divider, Hidden } from '@material-ui/core'
+import { ListItem, List, Divider, Hidden, Grid } from '@material-ui/core'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
@@ -30,13 +30,18 @@ const useStyles = makeStyles(theme => ({
   toolBar: {
     display: 'flex',
     justifyContent: 'space-between',
-    color: '#F2F2F2',
-    backgroundColor: '#2E2E2E'
+    color: '#F2F2F2',  // light
+    backgroundColor: '#2E2E2E' // dark
+  },
+  toolBarAnonymous: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    color: '#2E2E2E', // dark
+    backgroundColor: '#F2F2F2' // light
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth
   },
@@ -55,8 +60,20 @@ const useStyles = makeStyles(theme => ({
       color: '#2E2E2E',
    },
   },
-  
   fullNavBarLink: {
+    color: '#F2F2F2', // light
+    marginLeft: 25,
+    paddingBottom: 7,
+    '&:hover': {
+      textDecoration: 'none',
+      color: '#F2F2F2',
+    },
+    '&:focus': {
+      textDecoration: 'none',
+      color: '#F2F2F2',
+    },
+  },
+  fullNavBarLinkAnonymous: {
     color: '#F2F2F2',
     marginLeft: 25,
     paddingBottom: 7,
@@ -69,8 +86,12 @@ const useStyles = makeStyles(theme => ({
       color: '#F2F2F2',
     },
   },
+
   fullNavBarLinkActive: {
     borderBottom: '4px solid #0084FF'
+  },
+  globalAlertMessage: {
+    width: '100%'
   }
 }))
 
@@ -243,8 +264,16 @@ const fullScreenNavBar = <div>
 
       {/* global alert area */}
       {alertCode &&
-        <Alert severity="info" variant="filled" icon={false}>
-          <GlobalAlertCopy code={alertCode}></GlobalAlertCopy>
+        <Alert severity="info" variant="filled" icon={false} classes={{
+          message: classes.globalAlertMessage}}>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
+            <GlobalAlertCopy code={alertCode}></GlobalAlertCopy>
+          </Grid>
         </Alert>
       }
       <div className={classes.content}>

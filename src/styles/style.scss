@@ -101,4 +101,8 @@ color: #fff;
   padding: 20px 30px;
 }
 
+// if a button is in a link, do not decorate the text on hover
+#root a:hover > button {
+  text-decoration: 'none';
+}
 

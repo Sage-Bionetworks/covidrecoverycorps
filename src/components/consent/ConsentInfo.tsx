@@ -96,7 +96,10 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
             color="primary"
             variant="contained"
             size="large"
-            onClick={() => setCurrentStep((prev) => prev - 1)}
+            onClick={() => {
+              window.scrollTo(0,0)
+              setCurrentStep((prev) => prev - 1)
+            }}
           >
             <FontAwesomeIcon icon={faArrowLeft} />
             &nbsp;
@@ -109,6 +112,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
             size="large"
             disabled={isDisabled()}
             onClick={() => {
+              window.scrollTo(0,0)
               if (currentStep < totalSteps) {
                 setCurrentStep((prev) => prev + 1)
               } else {
@@ -210,7 +214,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   return (
     
         <div className="ConsentInfo">
-          <FloatingToolbar closeLinkDestination='/home' closeIcon={faTimes} closeLinkText=''>{renderNavChildren(currentStep)}</FloatingToolbar>
+          <FloatingToolbar closeLinkDestination='/home?alert=CANCELLED_CONSENT' closeIcon={faTimes} closeLinkText=''>{renderNavChildren(currentStep)}</FloatingToolbar>
           <div>
             {currentStep > -1 && (
               <div className="text-right">
