@@ -42,7 +42,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
 
   const stateSchema = {
     agree: { value: '', error: '' },
-    shareScope: { value: '', error: '' },
+    shareScope: { value: ConsentService.SHARE_SCOPE_PARTNERS, error: '' },
     fullName: { value: '', error: '' },
     dob: { value: '', error: '' },
   }
