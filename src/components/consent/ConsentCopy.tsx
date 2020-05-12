@@ -529,8 +529,7 @@ const fullTextScreens = [
       infected with the virus and why some people responded differently than
       others. We will study how different people’s bodies fought the virus with
       their immune system. We will also study changes in health after people
-      have recovered from COVID-19.You can learn more about the research we are
-      doing at [TODO website here].{' '}
+      have recovered from COVID-19.
     </p>
 
     <p className="Consent__copy">
@@ -775,15 +774,13 @@ const ehrScreens = [
     <p className="Consent__copy">If you sign this form, COVID Recovery Corps will be getting access to your
     EHR. We will add your EHR to your COVID Recovery Corps study data. The lead
     researcher of COVID Recovery Corps is Dr. Wendy Chung. She oversees the
-    whole Research Program. Visit [website] if you want to learn more about how
-    your EHR gets to COVID Recovery Corps. </p>
+    whole Research Program.</p>
     <p className="Consent__copy">The scientific database will have
     individual-level information about people in COVID Recovery Corps. Access to
     this cloud-based database will be controlled. Researchers will have to be
     approved by COVID Recovery Corps to use this database. These researchers may
     be from anywhere in the world. They may work for commercial companies, like
-    drug companies. Their research will be on COVID-19 and related viruses. You
-    can learn more about the research being done at [website].</p>
+    drug companies. Their research will be on COVID-19 and related viruses.</p>
     <p className="Consent__copy"> Once your
     information is shared with COVID Recovery Corps, it may no longer be
     protected by patient privacy rules (like “HIPAA”). However, it will still be
@@ -803,8 +800,7 @@ const ehrScreens = [
     study.</p>
     <p className="Consent__copy"> You can tell us through the app or website, or use the contact
     information at the end of this form to call or write to us. You can update
-    the study’s access to your EHR in your profile settings on the website
-    (website) at any time.</p>  <p className="Consent__copy"> However, if researchers have already accessed data
+    the study’s access to your EHR in your profile settings on the website at any time.</p>  <p className="Consent__copy"> However, if researchers have already accessed data
     from your EHR for their studies, we at COVID Recovery Corps cannot get it
     back. Also, we will let researchers check the results of past studies. If
     they need your old data to do this work, we will give it to them.</p>
@@ -821,7 +817,7 @@ const ehrScreens = [
      <li>For general questions, please contact the COVID Recovery Corps study at
     212-305-5700 or <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">COVIDRecoveryCorps@cumc.columbia.edu</a> </li>
     <li>For your rights as a
-    research participant, please contact Western IRB (WIRB) at help@WIRB.com at
+    research participant, please contact Western IRB (WIRB) at <a href="mailto:help@WIRB.com">help@WIRB.com</a> at
     360-252-2500 or toll-free 800-562-4789.</li>
     </ul>
   </div>,
