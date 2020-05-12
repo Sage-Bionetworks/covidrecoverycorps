@@ -8,12 +8,28 @@
                 "inline": false
             }
         },
+      
         "physical_activity_level": {
             "ui:widget": "radio",
             "ui:options": {
                 "inline": false
             }
         },
+        "weight": {
+            "classNames": "weight",
+            "ui:description": "Weight in lbs:"
+        },
+        "height": {
+            "classNames": "height",
+            "feet": {
+                "ui:help": "feet"
+            },
+            "inches": {
+                "ui:help": "inches"
+            }
+        }
+    },
+    "history11": {
         "where_go_for_care": {
             "ui:widget": "checkboxes"
         },
@@ -31,28 +47,12 @@
             "ui:options": {
                 "inline": false
             }
-        },
-        "blood_type": {
-            "ui:widget": "radio",
-            "ui:options": {
-                "inline": false
-            }
-        },
-        "weight": {
-            "classNames": "weight"
-        },
-        "height": {
-            "classNames": "height",
-            "feet": {
-                "ui:help": "feet"
-            },
-            "inches": {
-                "ui:help": "inches"
-            }
         }
+      
     },
     "history2": {
         "ui:order": [
+            "blood_type",
             "diabetes_diagnosis",
             "diabetes_drugs",
             "blood_pressure",
@@ -60,6 +60,13 @@
             "what_bp_medication",
             "*"
         ],
+   
+        "blood_type": {
+            "ui:widget": "radio",
+            "ui:options": {
+                "inline": false
+            }
+        },
         "diabetes_diagnosis": {
             "ui:widget": "radio",
             "ui:options": {

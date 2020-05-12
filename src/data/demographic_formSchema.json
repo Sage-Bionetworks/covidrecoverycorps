@@ -2,7 +2,7 @@
   "definitions": {
     "about": {
       "type": "object",
-      "required": ["gender_identity", "enthnicity", "education"],
+      "required": ["gender_identity", "ethnicity", "education"],
       "properties": {
         "gender_identity": {
           "type": "string",
@@ -17,7 +17,7 @@
           ],
           "uniqueItems": true
         },
-        "enthnicity": {
+        "ethnicity": {
           "type": "array",
           "title": "2. What is your ethnicity/ancestry? (check all that apply)",
           "uniqueItems": true,
@@ -37,6 +37,13 @@
             ]
           }
         },
+        "enthnicity_other": {
+          "type": "string",
+          "title": "2a. If you selected 'other', please specify."
+       
+       
+        },
+
         "education": {
           "type": "string",
           "title": "3. What is the highest grade or level of schooling you completed?",
