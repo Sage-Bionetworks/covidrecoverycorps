@@ -2,8 +2,9 @@ import React, { useState, ChangeEvent } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
- 
-  faArrowRight, faTimes,
+  faArrowRight,
+  faArrowLeft,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons'
 
 import moment from 'moment'
@@ -15,7 +16,6 @@ import { Typography, Checkbox, TextField } from '@material-ui/core'
 import ConsentCopy from './ConsentCopy'
 import { FloatingToolbar } from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
-
 
 export type ConsentEHRProps = {
   setConsentEHRFn?: Function
@@ -33,6 +33,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   )
   const [name, setName] = useState('')
   const [error, setError] = useState('')
+  const totalSteps = 12
 
   if (isConsentEHRDone) {
     return <Redirect to="/dashboard?consented=true"></Redirect>
@@ -56,32 +57,70 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
     return element
   }
 
-  const renderStep1 = () => {
+  const getNavButtons = (step: number): JSX.Element => {
+    const buttonDiv = (
+      <>
+        {currentStep > 0 && (
+          <Button
+            color="primary"
+            variant="contained"
+            size="large"
+            onClick={() => setCurrentStep((prev) => prev - 1)}
+          >
+            <FontAwesomeIcon icon={faArrowLeft} />
+            &nbsp;
+          </Button>
+        )}
+        {currentStep > 0 /*&& currentStep <= totalSteps */ && (
+          <Button
+            color="primary"
+            variant="contained"
+            size="large"
+            onClick={() => {
+              //  if (currentStep < totalSteps) {
+              setCurrentStep((prev) => prev + 1)
+              //  } else {
+              //    onDone()
+              //  }
+            }}
+          >
+            &nbsp;
+            <FontAwesomeIcon icon={faArrowRight} />
+          </Button>
+        )}
+      </>
+    )
+
+    const result = <div className="ConsentInfo__navButtons">{buttonDiv}</div>
+    return result
+  }
+
+  const renderInfoStep = () => {
     const element = (
       <>
-        <ConsentCopy stepInfo={{ step: 1, isSummary: false }} isEHR={true} />
-        <Button
-          color="primary"
-          variant="contained"
-          style={{ float: 'right' }}
-          onClick={() => setCurrentStep((_prev) => _prev + 1)}
-        >
-          &nbsp;
-          <FontAwesomeIcon icon={faArrowRight} />
-        </Button>
+        <ConsentCopy
+          stepInfo={{ step: currentStep, isSummary: false }}
+          isEHR={true}
+        />
+
+        {getNavButtons(currentStep)}
       </>
     )
     return element
   }
 
-  const handleSubmit = async ( clickEvent: React.FormEvent<HTMLElement>
-    ): Promise<any> => {
-  
-      clickEvent.preventDefault() // avoid page refresh
-  
+  const handleSubmit = async (
+    clickEvent: React.FormEvent<HTMLElement>
+  ): Promise<any> => {
+    clickEvent.preventDefault() // avoid page refresh
+
     try {
       setError('')
-      const result = await ConsentService.signEhrConsent(name,ConsentService.SHARE_SCOPE_PARTNERS, token)
+      const result = await ConsentService.signEhrConsent(
+        name,
+        ConsentService.SHARE_SCOPE_PARTNERS,
+        token
+      )
       setIsConsentEHRDone(true)
       // if (setConsentFn) {
       //setConsentFn(result.ok)
@@ -91,7 +130,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
     }
   }
 
-  const renderStep2 = (): JSX.Element => {
+  const renderSignatureStep = (): JSX.Element => {
     const element = (
       <div>
         <ConsentCopy screen="HIPAA_LAST_INTRO" isEHR={true}></ConsentCopy>
@@ -99,10 +138,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           <p>I understand and agree to the following:</p>
           <ConsentCopy screen="HIPAA_LAST_TERMS" isEHR={true}></ConsentCopy>
           <p>Please check the box below if you agree to take part:</p>
-          <form
-            className="Consent__form"
-            onSubmit={handleSubmit}
-          >
+          <form className="Consent__form" onSubmit={handleSubmit}>
             <div className="form-group checkbox--indented" style={{}}>
               <Checkbox
                 color="primary"
@@ -155,18 +191,28 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
 
   return (
     <div>
-  
-          <div className="Consent">
-            {currentStep == 0 && (
-              <>
-                <FloatingToolbar closeLinkDestination='/dashboard' closeIcon={faTimes} closeLinkText=''>HIPAA Authorization</FloatingToolbar>
-                {renderStep0()}
-              </>
-            )}
-            {currentStep === 1 && renderStep1()}
-            {currentStep === 2 && <div>{renderStep2()}</div>}
+      <div className="Consent">
+        {currentStep < 10 && (
+          <>
+            <FloatingToolbar
+              closeLinkDestination="/dashboard"
+              closeIcon={faTimes}
+              closeLinkText=""
+            >
+              HIPAA Authorization
+            </FloatingToolbar>
+          </>
+        )}
+
+        {currentStep > 0 && (
+          <div className="text-right">
+            {currentStep} of {totalSteps}
           </div>
-  
+        )}
+        {currentStep === 0 && renderStep0()}
+        {currentStep > 0 && currentStep < totalSteps && renderInfoStep()}
+        {currentStep === 12 && <div>{renderSignatureStep()}</div>}
+      </div>
     </div>
   )
 }

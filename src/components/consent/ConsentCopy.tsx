@@ -704,19 +704,126 @@ const ehrScreens = [
       outline the benefits and risks. Please take your time to go over it.{' '}
     </p>
   </div>,
+  
   <div>
-    <h2> HIPAA Authorization</h2>
-    <p className="Consent__copy">
-      This form tells about giving COVID Recovery Corps study access to your EHR (electronic
-      health records). We will only be able to access your EHR if you sign this
-      form. Health records are the data collected when you get healthcare.
-      Electronic health records, or EHR, are when these data are kept in secure
-      electronic systems. Please read this form carefully. Take all the time you
-      need to decide if you would like to give us access to your EHR. Ask any
-      questions you have. You can say yes or no to signing this form. Your
-      choice will not affect your medical care. You can still be part of{' '}
-      <b>COVID Recovery Corps</b> study if you say no.{' '}
-    </p>
+    <h2>Overview </h2>
+    <p className="Consent__copy">This form tells about giving COVID Recovery Corps access to your EHR
+    (electronic health records). We will only be able to access your EHR if you
+    sign this form. </p>
+    <p className="Consent__copy">Please read this form carefully. Take all the time you need
+    to decide if you would like to give us access to your EHR. Ask any questions
+    you have.</p> <p className="Consent__copy"> You can say yes or no to signing this form. Your choice will not
+    affect your medical care. Your choice will not stop you from taking part in
+    COVID Recovery Corps.</p>
+  </div>,
+  <div>
+    <h2>What is an EHR?</h2>
+    Health records are the data collected when you get healthcare. Electronic
+    health records, or EHR, are when these data are kept in secure electronic
+    systems.
+  </div>,
+  <div>
+    <h2>What data is in my EHR?</h2>
+    The information in your EHR depends on what kinds of healthcare providers
+    you see. Your EHR tells about the health problems and care you have
+    received. It might list the medicines you take. It might have test results.
+    It might have images, like X-rays. If you have had a medical procedure,
+    notes about it will probably be in your EHR.
+  </div>,
+  <div>
+    <h2>Are there sensitive data in my EHR?</h2>
+    <p className="Consent__copy">There might be sensitive data in your EHR. For example, about your use of
+    alcohol or drugs. Your EHR might have data about sexually transmitted
+    infections, like HIV. It might have results from genetic (DNA) tests. We
+    will be able to see these data. </p>
+    <p className="Consent__copy">If you have seen counselors or doctors who
+    treat addictions or substance use disorders, information about your care
+    might be part of your EHR. The same goes for if you have seen counselors or
+    doctors who treat mental health, like depression or bipolar disorder. These
+    data would be about your diagnosis and treatment. We will be able to see
+    these data.
+    </p> <p className="Consent__copy"> One exception are any notes from counselors or doctors in
+    specialized clinics who treat addictions or substance use disorders. These
+    notes are usually private and not part of the EHR. We will only be able to
+    see these notes if they are part of your EHR.</p>
+  </div>,
+  <div>
+    {' '}
+    <h2>What exactly will you access in my EHR? </h2>
+    We will access your whole EHR. That means we will take a copy of all the
+    tests, results, and images in your EHR. This includes data about your
+    diagnoses, medications, symptoms, allergies, and treatments.
+  </div>,
+  <div>
+    <h2>Why do you want access to my EHR?</h2>
+    Your EHR contains important data about your health. We will add your EHR to
+    your COVID Recovery Corps record. Your record will be part of the COVID
+    Recovery Corps scientific database. In order to use this database,
+    researchers will have to be approved by COVID Recovery Corps. Researchers
+    will use this database to look for patterns related to the COVID-19
+    infection.
+  </div>,
+  <div>
+    <h2>Who will be sending you my EHR?</h2>
+    We will request your EHR from all of your healthcare providers. This
+    includes your regular healthcare providers. It also includes specialists. We
+    may ask for your EHR from many different places. This may include hospitals
+    where you have gotten care.
+  </div>,
+  <div>
+    <h2>Who will be getting access to my EHR?</h2>
+    <p className="Consent__copy">If you sign this form, COVID Recovery Corps will be getting access to your
+    EHR. We will add your EHR to your COVID Recovery Corps study data. The lead
+    researcher of COVID Recovery Corps is Dr. Wendy Chung. She oversees the
+    whole Research Program. Visit [website] if you want to learn more about how
+    your EHR gets to COVID Recovery Corps. </p>
+    <p className="Consent__copy">The scientific database will have
+    individual-level information about people in COVID Recovery Corps. Access to
+    this cloud-based database will be controlled. Researchers will have to be
+    approved by COVID Recovery Corps to use this database. These researchers may
+    be from anywhere in the world. They may work for commercial companies, like
+    drug companies. Their research will be on COVID-19 and related viruses. You
+    can learn more about the research being done at [website].</p>
+    <p className="Consent__copy"> Once your
+    information is shared with COVID Recovery Corps, it may no longer be
+    protected by patient privacy rules (like “HIPAA”). However, it will still be
+    protected by other privacy rules and agreements. These include the rules and
+    agreements that researchers must follow to access the COVID Recovery Corps
+    scientific database.</p>
+  </div>,
+  <div>
+    <h2>
+      What if I don’t want to give access to my EHR? What if I change my mind?
+    </h2>
+    <p className="Consent__copy"> Giving COVID Recovery Corps access to your EHR is voluntary. You get to
+    choose. No matter what you decide, now or in the future, it will not affect
+    your medical care. If you decide to give COVID Recovery Corps access to your
+    EHR, you can change your mind at any time. If you decide you want to stop
+    giving us access, you need to tell us you would like to withdraw from the
+    study.</p>
+    <p className="Consent__copy"> You can tell us through the app or website, or use the contact
+    information at the end of this form to call or write to us. You can update
+    the study’s access to your EHR in your profile settings on the website
+    (website) at any time.</p>  <p className="Consent__copy"> However, if researchers have already accessed data
+    from your EHR for their studies, we at COVID Recovery Corps cannot get it
+    back. Also, we will let researchers check the results of past studies. If
+    they need your old data to do this work, we will give it to them.</p>
+  </div>,
+  <div>
+    <h2>When will my consent expire</h2>
+    Unless you tell us to stop, we will access your EHR until the COVID Recovery
+    Corps study ends to check what has happened to your health after your
+    COVID-19 infection.
+  </div>,
+  <div>
+    <h2>Who can answer my questions?</h2>
+    <ul>
+     <li>For general questions, please contact the COVID Recovery Corps study at
+    212-305-5700 or <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">COVIDRecoveryCorps@cumc.columbia.edu</a> </li>
+    <li>For your rights as a
+    research participant, please contact Western IRB (WIRB) at help@WIRB.com at
+    360-252-2500 or toll-free 800-562-4789.</li>
+    </ul>
   </div>,
 ]
 
@@ -745,18 +852,36 @@ const screens: { [key: string]: JSX.Element } = {
     <p className="Consent__copy">
       <ul>
         <li>My data will be stored in the COVID Recovery Corps databases.</li>
-        <li>If I give a biosample, it will be stored at the COVID Recovery Corps biobank. This includes my DNA or genetic material. Information that researchers learn by studying my samples will be stored in the COVID Recovery Corps databases.</li>
-        <li>Researchers will do COVID-19 studies using the COVID Recovery Corps databases and biobank. They may also do research on other health conditions that are related to how the body responds to COVID-19.</li>
-        <li>If my sample is used up, I may be asked to give another biosample. I can say yes or no.</li>
-        <li>My contact information may be used to tell me about other COVID-related studies.</li>
-        <li>I can withdraw (quit) at any time. There is no penalty if I withdraw.</li>
+        <li>
+          If I give a biosample, it will be stored at the COVID Recovery Corps
+          biobank. This includes my DNA or genetic material. Information that
+          researchers learn by studying my samples will be stored in the COVID
+          Recovery Corps databases.
+        </li>
+        <li>
+          Researchers will do COVID-19 studies using the COVID Recovery Corps
+          databases and biobank. They may also do research on other health
+          conditions that are related to how the body responds to COVID-19.
+        </li>
+        <li>
+          If my sample is used up, I may be asked to give another biosample. I
+          can say yes or no.
+        </li>
+        <li>
+          My contact information may be used to tell me about other
+          COVID-related studies.
+        </li>
+        <li>
+          I can withdraw (quit) at any time. There is no penalty if I withdraw.
+        </li>
       </ul>{' '}
     </p>
   ),
   CONSENT_SHARING: (
     <div>
       <p>
-        Would you like to share your study data with other qualified researchers for future research on COVID related work?
+        Would you like to share your study data with other qualified researchers
+        for future research on COVID related work?
       </p>
     </div>
   ),
@@ -770,11 +895,28 @@ const screens: { [key: string]: JSX.Element } = {
     <p className="Consent__copy">
       <ul>
         <li>My data will be stored in the COVID Recovery Corps databases.</li>
-        <li>If I give a biosample, it will be stored at the COVID Recovery Corps biobank. This includes my DNA or genetic material. Information that researchers learn by studying my samples will be stored in the COVID Recovery Corps databases.</li>
-        <li>Researchers will do COVID-19 studies using the COVID Recovery Corps databases and biobank. They may also do research on other health conditions that are related to how the body responds to COVID-19.</li>
-        <li>If my sample is used up, I may be asked to give another biosample. I can say yes or no.</li>
-        <li>My contact information may be used to tell me about other COVID-related studies.</li>
-        <li>I can withdraw (quit) at any time. There is no penalty if I withdraw.</li>
+        <li>
+          If I give a biosample, it will be stored at the COVID Recovery Corps
+          biobank. This includes my DNA or genetic material. Information that
+          researchers learn by studying my samples will be stored in the COVID
+          Recovery Corps databases.
+        </li>
+        <li>
+          Researchers will do COVID-19 studies using the COVID Recovery Corps
+          databases and biobank. They may also do research on other health
+          conditions that are related to how the body responds to COVID-19.
+        </li>
+        <li>
+          If my sample is used up, I may be asked to give another biosample. I
+          can say yes or no.
+        </li>
+        <li>
+          My contact information may be used to tell me about other
+          COVID-related studies.
+        </li>
+        <li>
+          I can withdraw (quit) at any time. There is no penalty if I withdraw.
+        </li>
       </ul>
     </p>
   ),
