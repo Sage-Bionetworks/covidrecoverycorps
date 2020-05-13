@@ -938,7 +938,7 @@ export default class SynapseForm extends React.Component<
               </div>
             )}
             <div className="form-wrap">
-              <div className="padded-panel text-right paging">{this.state.currentStep.orderDisplay}</div>
+              <div className="text-right paging">{this.state.currentStep.orderDisplay}</div>
              {/*} <div className="form-title">{this.state.currentStep.title}</div>*/}
               {this.renderNotification(this.props.callbackStatus)}
               <div

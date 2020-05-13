@@ -24,7 +24,7 @@ export default function Header(props: HeaderProps) {
       className={`submission-header${props.isSubmitted ? ' submitted' : ''}`}
     >
       <h2>{props.title}</h2>
-      {bodyText}
+      <p className="surveyIntro">{bodyText}</p>
  
     </div>
   )
