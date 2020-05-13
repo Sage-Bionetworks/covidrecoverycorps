@@ -20,6 +20,7 @@ import FloatingToolbar from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
 import ConfirmationModal from '../widgets/ConfirmationModal'
 import LearnMore from '../widgets/LearnMore'
+import { setSession, getSession } from '../../helpers/utility'
 
 export type ConsentProps = {
   token: string
@@ -66,6 +67,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
         state.shareScope.value,
         token
       )
+      setSession(token, getSession()?.name|| '', true)
       setIsConsentDone(true)
     } catch (e) {
       setError(e.message)

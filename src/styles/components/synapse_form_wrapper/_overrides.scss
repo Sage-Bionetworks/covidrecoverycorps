@@ -4,7 +4,7 @@
   $red-error2: #ff6d6d;
   $left-pad: 4rem;
   $primary-blue: #0084ff;
-  $gray-bg:  #fcfcfc;
+  $gray-bg: #fcfcfc;
 
   @mixin label_level2 {
     font-family: 'Open Sans';
@@ -21,8 +21,8 @@
     margin-top: -5px;
     padding: 0rem 2rem 2rem 4.4rem;
     margin-right: -1.5rem;
-    background-color:$gray-bg;
- 
+    background-color: $gray-bg;
+
     margin-bottom: 0.5rem;
     @media (max-width: 768px) {
       padding-left: 4rem;
@@ -53,7 +53,7 @@
   margin-right: 0;
 
   .MuiCard-root {
-    background-color:  #f5f5f5;
+    background-color: #f5f5f5;
     //padding-top: 4.8rem;
   }
 
@@ -64,20 +64,20 @@
   legend {
     font-weight: bold;
     margin-left: 4rem;
- 
   }
 
-#root.fieldset {
-  padding-right: 1.5rem;
-}
+  #root.fieldset {
+    padding-right: 1.5rem;
+  }
 
-.field-radio-group, div.checkboxes {
-  margin-right: -1.5rem;
-}
+  .field-radio-group,
+  div.checkboxes {
+    margin-right: -1.5rem;
+  }
 
   .paging {
     margin: 2rem;
-    font-weight:bold;
+    font-weight: bold;
   }
 
   .padded-panel {
@@ -87,12 +87,12 @@
   label.control-label {
     @include control_label;
 
-      margin-left: 4rem;
-      margin-right: 1rem;
+    margin-left: 4rem;
+    margin-right: 1rem;
   }
 
   .field-description {
-    @include field-description
+    @include field-description;
   }
 
   .right-top-actions {
@@ -103,17 +103,23 @@
     margin-bottom: 3.5rem;
   }
 
-
   .scroll-area {
     overflow-x: hidden;
     padding: 0;
+  }
+
+  .form-group.field.field-string.text {
+    display:flex;
+    flex-wrap: wrap;
+    label{
+      width: 100%;
+    }
   }
 
   .subfields {
     legend {
       @include control_label;
       margin-bottom: 1rem;
-    
     }
     .form-group {
       padding-left: 4rem;
@@ -122,7 +128,7 @@
 
       margin-bottom: 0;
       background-color: #fcfcfc;
-      >label {
+      > label {
         @include label_level2;
         margin-left: 0;
         margin-bottom: 1rem;
@@ -370,7 +376,6 @@
     padding: 10px 20px;
     font-size: 1.6rem;
     margin-left: 4rem;
-    width: fit-content
 
   }
 
@@ -451,18 +456,18 @@
         // font-weight: bold;
       }
     }
-    .form-group.address2 , .form-group.city {
+    .form-group.address2,
+    .form-group.city {
       margin-bottom: 1rem;
     }
 
-    .form-group.address2 , .form-group.city, 
-    .form-group.state, .form-group.zip {
+    .form-group.address2,
+    .form-group.city,
+    .form-group.state,
+    .form-group.zip {
       label {
-        display:none
+        display: none;
       }
-
-
-
     }
     > .fieldset {
       width: 100%;
@@ -529,16 +534,15 @@
       label {
         @include label_level2;
       }
-    
+
       //  width: 50%;
       // float: left;
     }
-    .still_symptoms.form-group  {
+    .still_symptoms.form-group {
       padding-left: 0;
       label {
         @include field-description;
-       // @include control_label;
-
+        // @include control_label;
       }
     }
     .form-group.field-string {
@@ -723,7 +727,7 @@
       margin-left: 1.5rem;
       margin-right: 1rem;
     }
-    .subfields .form-group  {
+    .subfields .form-group {
       padding-left: 1rem;
     }
     .padded-panel {

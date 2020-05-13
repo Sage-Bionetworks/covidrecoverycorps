@@ -24,7 +24,7 @@ import {
   Grid,
 } from '@material-ui/core'
 
-import { getSession, callEndpoint } from './helpers/utility'
+import { getSession} from './helpers/utility'
 
 import Intro from './components/static/Intro'
 import Dashboard from './components/Dashboard'
@@ -262,10 +262,7 @@ function App() {
               <CookieNotificationBanner />
               <GoogleAnalyticsPageTracker />
               <ScrollToTopOnRouteChange
-                onRouteChangeFn={(location: string) => {
-                  alert(location)
-                  setCurrentLocation(location)
-                }}
+                onRouteChangeFn={(location: string) => setCurrentLocation(location)}
               />
               <nav
                 style={{
@@ -337,9 +334,9 @@ function App() {
                         }}
                       ></Route>
 
-                      <PrivateRoute exact={true} path="/dashboard">
+                      <ConsentedRoute exact={true} path="/dashboard">
                         <Dashboard token={token || ''} />
-                      </PrivateRoute>
+                      </ConsentedRoute>
                       {/*todo make private */}
                       <Route exact={true} path="/consent">
                         <Consent token={token || ''} />
@@ -349,46 +346,46 @@ function App() {
                         <ConsentEHR token={token || ''} />
                       </Route>
                       {/*todo make private */}
-                      <Route exact={true} path="/contactinfo">
+                      <ConsentedRoute exact={true} path="/contactinfo">
                         <SurveyWrapper
                           formTitle="Tell us about yourself"
                           token={token || ''}
                           surveyName={'CONTACT'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </Route>
-                      <Route exact={true} path="/survey1">
+                      </ConsentedRoute>
+                      <ConsentedRoute exact={true} path="/survey1">
                         <SurveyWrapper
                           formTitle="Tell us about yourself"
                           token={token || ''}
                           surveyName={'DEMOGRAPHIC'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </Route>
-                      <Route exact={true} path="/survey2">
+                      </ConsentedRoute>
+                      <ConsentedRoute exact={true} path="/survey2">
                         <SurveyWrapper
                           formTitle="Your COVID experience"
                           token={token || ''}
                           surveyName={'COVID_EXPERIENCE'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </Route>
-                      <Route exact={true} path="/survey3">
+                       </ConsentedRoute>
+                       <ConsentedRoute  exact={true} path="/survey3">
                         <SurveyWrapper
                           formTitle="Health History"
                           token={token || ''}
                           surveyName={'HISTORY'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </Route>
-                      <Route exact={true} path="/survey4">
+                      </ConsentedRoute>
+                      <ConsentedRoute  exact={true} path="/survey4">
                         <SurveyWrapper
                           formTitle="COVID Part II"
                           token={token || ''}
                           surveyName={'MORE'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </Route>
+                      </ConsentedRoute>
 
                       <Route path="/about">
                         <About></About>

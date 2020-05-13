@@ -9,7 +9,7 @@ import {
   Response,
   ENDPOINT,
 } from '../../types/types'
-import { callEndpoint, makePhone } from '../../helpers/utility'
+import { callEndpoint, makePhone, setSession } from '../../helpers/utility'
 
 import Button from '@material-ui/core/Button'
 import SignInWithCode from './SignInWithCode'
@@ -54,7 +54,8 @@ export const Login: React.FunctionComponent<LoginProps> = ({
   const handleLoggedIn = (loggedIn: Response<LoggedInUserData>) => {
     const consented = loggedIn.status !== 412
     if (loggedIn.ok || !consented) {
-      callbackFn(loggedIn.data.sessionToken, loggedIn.data.firstName)
+      callbackFn(loggedIn.data.sessionToken, loggedIn.data.firstName, loggedIn.data.consented)
+     
       if (consented) {
         history.push('/dashboard')
       } else {
