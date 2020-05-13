@@ -17,7 +17,7 @@
       }
     },
       "enthnicity_other": {
-        "classNames": "ethnicity_other"
+        "classNames": "ethnicity_other text"
       },
      
     "education": {
