@@ -1,5 +1,9 @@
 .Dashboard {
 
+
+  .dashboard-intro {
+    background-color: #87E3D6;
+  }
   div.separator {
     background-image: url('../../assets/dashboard-separator.svg');
     background-repeat: repeat-x;
@@ -9,7 +13,7 @@
   ul.items {
     list-style-type: none;
     padding: 0;
-    margin-top: 4rem;
+    //margin-top: 4rem;
 
     li {
       overflow-y: hidden;

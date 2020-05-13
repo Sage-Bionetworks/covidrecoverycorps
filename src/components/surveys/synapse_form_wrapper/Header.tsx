@@ -4,7 +4,6 @@ export type HeaderProps = {
   isSubmitted?: boolean
   bodyText?: string //should never take user input only use cardcoded text from a parent component. Uses dangerouslySetInnerHTML
   title: string
-  orderDisplay?: string
 }
 
 export default function Header(props: HeaderProps) {
@@ -23,7 +22,7 @@ export default function Header(props: HeaderProps) {
   return (
     <div
       className={`submission-header${props.isSubmitted ? ' submitted' : ''}`}
-    ><div className="screen-order pull-right">{props.orderDisplay}</div>
+    >
       <h2>{props.title}</h2>
       {bodyText}
  

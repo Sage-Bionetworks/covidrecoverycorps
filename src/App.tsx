@@ -24,7 +24,7 @@ import {
   Grid,
 } from '@material-ui/core'
 
-import { getSession, callEndpoint } from './helpers/utility'
+import { getSession} from './helpers/utility'
 
 import Intro from './components/static/Intro'
 import Dashboard from './components/Dashboard'
@@ -62,7 +62,6 @@ const openSansFont = [
 ].join(',')
 
 const theme = createMuiTheme({
-  
   typography: {
     // Tell Material-UI what's the font-size on the html element is.
     htmlFontSize: 10,
@@ -73,7 +72,7 @@ const theme = createMuiTheme({
   },
   palette: {
     background: {
-     //default: '#e5e5e5'
+      //default: '#e5e5e5'
     },
     primary: {
       // light: will be calculated from palette.primary.main,
@@ -99,7 +98,7 @@ const theme = createMuiTheme({
     // Name of the component ⚛️
     MuiButtonBase: {
       // The properties to apply
-      disableRipple: true, // No more ripple, on the whole application 💣!      
+      disableRipple: true, // No more ripple, on the whole application 💣!
     },
   },
   overrides: {
@@ -120,7 +119,7 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100%'
+    height: '100%',
   },
 }))
 
@@ -143,6 +142,9 @@ function App() {
   const [token, setToken] = useState(getSession()?.token)
   const [name, setName] = useState(getSession()?.name)
   const [consented, setConsented] = useState(getSession()?.consented)
+  const [currentLocation, setCurrentLocation] = useState(
+    window.location.pathname
+  )
 
   useEffect(() => {
     let isSubscribed = true
@@ -182,6 +184,37 @@ function App() {
     )
   }
 
+  function ConsentedRoute({ children, ...rest }: any) {
+    return (
+      <Route
+        {...rest}
+        render={({ location }) => {
+          if (!token) {
+            return (
+              <Redirect
+                to={{
+                  pathname: '/login',
+                  state: { from: location },
+                }}
+              />
+            )
+          }
+          if (!getSession()?.consented) {
+            return (
+              <Redirect
+                to={{
+                  pathname: '/consent',
+                  state: { from: location },
+                }}
+              />
+            )
+          }
+          return children
+        }}
+      />
+    )
+  }
+
   const setUserSession = (
     token: string | undefined,
     name: string,
@@ -207,16 +240,30 @@ function App() {
 
   const classes = useStyles()
 
+  const getTopClass = (location: string) => {
+
+    const specialPages = ['dashboard','survey', 'contactinfo']
+    if (
+      specialPages.find(page=> location.toLowerCase().includes(page))
+    ) {
+      return 'partialGreen'
+    } else {
+      return ''
+    }
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Typography component={'div'}>
         <div className={classes.root}>
           <CssBaseline />
           <Router>
-            <div>
+            <div className={getTopClass(currentLocation)}>
               <CookieNotificationBanner />
               <GoogleAnalyticsPageTracker />
-              <ScrollToTopOnRouteChange />
+              <ScrollToTopOnRouteChange
+                onRouteChangeFn={(location: string) => setCurrentLocation(location)}
+              />
               <nav
                 style={{
                   border: '1px solid black',
@@ -231,9 +278,7 @@ function App() {
               </nav>
               <TopNav
                 token={token}
-                logoutCallbackFn={() =>
-                  setUserSession(undefined, '', false)
-                }
+                logoutCallbackFn={() => setUserSession(undefined, '', false)}
               >
                 <Grid
                   container
@@ -243,7 +288,6 @@ function App() {
                   spacing={2}
                 >
                   <Grid item xs={12} md={8} lg={6}>
-                  
                     {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}{' '}
                     <Switch>
@@ -290,60 +334,58 @@ function App() {
                         }}
                       ></Route>
 
-                      <PrivateRoute exact={true} path="/dashboard">
+                      <ConsentedRoute exact={true} path="/dashboard">
                         <Dashboard token={token || ''} />
-                      </PrivateRoute>
+                      </ConsentedRoute>
                       {/*todo make private */}
                       <Route exact={true} path="/consent">
-                        <Consent
-                          token={token || ''}
-                        />
+                        <Consent token={token || ''} />
                       </Route>
                       {/*todo make private */}
                       <Route exact={true} path="/consentehr">
                         <ConsentEHR token={token || ''} />
                       </Route>
                       {/*todo make private */}
-                      <Route exact={true} path="/contactinfo">
+                      <ConsentedRoute exact={true} path="/contactinfo">
                         <SurveyWrapper
                           formTitle="Tell us about yourself"
                           token={token || ''}
                           surveyName={'CONTACT'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </Route>
-                      <Route exact={true} path="/survey1">
+                      </ConsentedRoute>
+                      <ConsentedRoute exact={true} path="/survey1">
                         <SurveyWrapper
                           formTitle="Tell us about yourself"
                           token={token || ''}
                           surveyName={'DEMOGRAPHIC'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </Route>
-                      <Route exact={true} path="/survey2">
+                      </ConsentedRoute>
+                      <ConsentedRoute exact={true} path="/survey2">
                         <SurveyWrapper
                           formTitle="Your COVID experience"
                           token={token || ''}
                           surveyName={'COVID_EXPERIENCE'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </Route>
-                      <Route exact={true} path="/survey3">
+                       </ConsentedRoute>
+                       <ConsentedRoute  exact={true} path="/survey3">
                         <SurveyWrapper
                           formTitle="Health History"
                           token={token || ''}
                           surveyName={'HISTORY'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </Route>
-                      <Route exact={true} path="/survey4">
+                      </ConsentedRoute>
+                      <ConsentedRoute  exact={true} path="/survey4">
                         <SurveyWrapper
                           formTitle="COVID Part II"
                           token={token || ''}
                           surveyName={'MORE'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </Route>
+                      </ConsentedRoute>
 
                       <Route path="/about">
                         <About></About>

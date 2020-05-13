@@ -166,7 +166,7 @@
     },
 
     "hospitals_other": {
-      "classNames": "hospitals_other_name"
+      "classNames": "hospitals_other_name text"
     },
     "hospitalization_treatment": {
       "ui:order": [

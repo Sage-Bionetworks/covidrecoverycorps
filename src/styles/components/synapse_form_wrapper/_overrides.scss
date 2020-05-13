@@ -4,6 +4,7 @@
   $red-error2: #ff6d6d;
   $left-pad: 4rem;
   $primary-blue: #0084ff;
+  $gray-bg: #fcfcfc;
 
   @mixin label_level2 {
     font-family: 'Open Sans';
@@ -18,11 +19,13 @@
       @include label_level2;
     }
     margin-top: -5px;
-    padding: 0rem 2rem 2rem 8.4rem;
-    background-color: #f5f5f5;
+    padding: 0rem 2rem 2rem 4.4rem;
+    margin-right: -1.5rem;
+    background-color: $gray-bg;
+
     margin-bottom: 0.5rem;
     @media (max-width: 768px) {
-      padding-left: 6rem;
+      padding-left: 4rem;
     }
   }
 
@@ -36,7 +39,7 @@
     font-weight: bold;
     font-size: 1.8rem;
     line-height: 2.1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
   }
 
   @mixin field-description {
@@ -49,20 +52,47 @@
 
   margin-right: 0;
 
+  .MuiCard-root {
+    background-color: #f5f5f5;
+    //padding-top: 4.8rem;
+  }
+
   span {
     font-family: 'Open Sans';
   }
 
   legend {
     font-weight: bold;
+    margin-left: 4rem;
+  }
+
+  #root.fieldset {
+    padding-right: 1.5rem;
+  }
+
+  .field-radio-group,
+  div.checkboxes {
+    margin-right: -1.5rem;
+  }
+
+  .paging {
+    margin: 2rem;
+    font-weight: bold;
+  }
+
+  .padded-panel {
+    padding: 0 1.5rem 0 4rem;
   }
 
   label.control-label {
     @include control_label;
+
+    margin-left: 4rem;
+    margin-right: 1rem;
   }
 
   .field-description {
-    @include field-description
+    @include field-description;
   }
 
   .right-top-actions {
@@ -74,22 +104,34 @@
   }
 
   .scroll-area {
-    overflow-x: auto;
-    padding: 0px 5px;
+    overflow-x: hidden;
+    padding: 0;
+  }
+
+  .form-group.field.field-string.text {
+    display:flex;
+    flex-wrap: wrap;
+    label{
+      width: 100%;
+    }
   }
 
   .subfields {
     legend {
       @include control_label;
+      margin-bottom: 1rem;
     }
     .form-group {
       padding-left: 4rem;
       padding-bottom: 2rem;
+      margin-right: -1.5rem;
 
       margin-bottom: 0;
-      background-color: #f5f5f5;
-      label {
+      background-color: #fcfcfc;
+      > label {
         @include label_level2;
+        margin-left: 0;
+        margin-bottom: 1rem;
       }
     }
     .form-group:first-of-type {
@@ -171,11 +213,12 @@
     padding: 2rem 1rem 2rem $left-pad; // 10px 10px 10px 0;
     //border: 1px solid black;
     min-width: 27px;
-    background-color: #f5f5f5;
+
     justify-content: center;
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+    background-color: $gray-bg;
 
     label {
       padding: 0;
@@ -332,6 +375,8 @@
     border-radius: 0;
     padding: 10px 20px;
     font-size: 1.6rem;
+    margin-left: 4rem;
+
   }
 
   select {
@@ -411,18 +456,18 @@
         // font-weight: bold;
       }
     }
-    .form-group.address2 , .form-group.city {
+    .form-group.address2,
+    .form-group.city {
       margin-bottom: 1rem;
     }
 
-    .form-group.address2 , .form-group.city, 
-    .form-group.state, .form-group.zip {
+    .form-group.address2,
+    .form-group.city,
+    .form-group.state,
+    .form-group.zip {
       label {
-        display:none
+        display: none;
       }
-
-
-
     }
     > .fieldset {
       width: 100%;
@@ -489,16 +534,15 @@
       label {
         @include label_level2;
       }
-    
+
       //  width: 50%;
       // float: left;
     }
-    .still_symptoms.form-group  {
+    .still_symptoms.form-group {
       padding-left: 0;
       label {
         @include field-description;
-       // @include control_label;
-
+        // @include control_label;
       }
     }
     .form-group.field-string {
@@ -672,12 +716,27 @@
   }
 
   @media only screen and (max-width: 768px) {
+    legend {
+      margin-left: 1.5rem;
+    }
     div.checkbox,
     div.radio {
       padding: 1rem 1rem 1rem 1.5rem; // 10px 10px 10px 0;
     }
+    label.control-label {
+      margin-left: 1.5rem;
+      margin-right: 1rem;
+    }
     .subfields .form-group {
       padding-left: 1rem;
+    }
+    .padded-panel {
+      padding: 0 1.5rem 0 1.5rem;
+    }
+
+    input[type='text'],
+    input[type='number'] {
+      margin-left: 1.5rem;
     }
   }
 }

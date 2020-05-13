@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import testTubeImg from '../assets/icon_testtube.svg'
 import saveProgressIconImg from '../assets/icon_savedprogress.svg'
 import pencilImg from '../assets/icon_pencil.svg'
+import { makeStyles } from '@material-ui/core/styles'
 
 import {
   faCircle,
@@ -14,7 +15,9 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { Typography } from '@material-ui/core'
+import Card from '@material-ui/core/Card'
 
+import CardContent from '@material-ui/core/CardContent'
 import { SurveyService } from '../services/survey.service'
 import { SavedSurveysObject, SurveyType, SavedSurvey } from '../types/types'
 import _ from 'lodash'
@@ -30,6 +33,12 @@ type UISurvey = {
   description: string
   time: number
 }
+
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: '#f5f5f5',
+  },
+})
 
 const surveys: UISurvey[] = [
   {
@@ -78,6 +87,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     //get url param
     urlParams.get('consented')
   )
+
+  const classes = useStyles()
 
   useEffect(() => {
     const getSurveys = async () => {
@@ -133,9 +144,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       const innerElement = (
         <>
           <div className="graphics">
-            <div className="circle">
-              {getIconImage(survey)}
-            </div>
+            <div className="circle">{getIconImage(survey)}</div>
             {isTier1 && <div className="rect"></div>}
           </div>
           <div>
@@ -172,22 +181,36 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   }
   return (
     <div className="Dashboard">
-      <div className="intro">
+      <div className="dashboard-intro">
         {isFromConsent && (
           <Typography variant="h2">Yay, the legal is done!</Typography>
         )}
         <p>
-        The information you provide will help researchers learn more about COVID-19.</p>
-        <p> To be invited for a lab test, you will need to add your contact information and complete surveys 1 and 2. Surveys 3 and 4 are optional but still provide us with important information. Please consider completing them if you have the time.
+          The information you provide will help researchers learn more about
+          COVID-19.
+        </p>
+        <p>
+          {' '}
+          To be invited for a lab test, you will need to add your contact
+          information and complete surveys 1 and 2. Surveys 3 and 4 are optional
+          but still provide us with important information. Please consider
+          completing them if you have the time.
         </p>
       </div>
-      <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
-      <div className="separator">
-        <img src={testTubeImg}></img>
-        <div className="small"> Minimum surveys required for lab invites </div>
 
-      </div>
-      <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
+      <Card className={classes.root}>
+     
+          <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
+          <div className="separator">
+            <img src={testTubeImg}></img>
+            <div className="small">
+              {' '}
+              Minimum surveys required for lab invites{' '}
+            </div>
+          </div>
+          <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
+        
+      </Card>
     </div>
   )
 }

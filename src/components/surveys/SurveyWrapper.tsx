@@ -49,7 +49,6 @@ const extraUIProps: ExtraUIProps = {
   isLeftNavHidden: true,
   isValidateHidden: true,
   onNextCallback: () => {
-    alert('hi')
   },
   isHelpHidden: true,
   isNoSaveButton: false,
@@ -211,35 +210,12 @@ export default class SurveyWrapper extends React.Component<
       isLoading: true,
     })
 
-   /* const updatedSurvey: SavedSurvey = {
-      type: this.props.surveyName,
-      updatedDate: new Date(),
-      completedDate: new Date(),
-      data: rawData,
-    }
-
-    let savedSurveys = _.cloneDeep(this.state.savedSurveys)
-    if (!savedSurveys?.surveys) {
-      savedSurveys = {
-        surveys: [updatedSurvey],
-      }
-    } else {
-      const ourSurveyIndex: number | undefined = savedSurveys.surveys.findIndex(
-        (survey) => survey.type === updatedSurvey.type
-      )
-      if (ourSurveyIndex === -1) {
-        savedSurveys.surveys.push(updatedSurvey)
-      } else {
-        savedSurveys.surveys[ourSurveyIndex] = updatedSurvey
-      }
-    }*/
-
     try {
       const result = await SurveyService.postToHealthData(
         data,
         this.props.token
       )
-      // alert(result.data)
+  
       if (result.ok) {
        // await SurveyService.postUserSurvey(savedSurveys, this.props.token)
         await this.saveSurvey(rawData, new Date())
