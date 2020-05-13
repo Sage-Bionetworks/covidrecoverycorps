@@ -42,29 +42,17 @@
   }
 }
 
-.form-group.checkbox--bordered {
-  display: flex;
-  align-items: flex-start;
-  border-bottom: 1px solid rgba(54, 54, 54, 0.5);
-  padding-top: 2rem;
-  padding-bottom: 2rem;
- 
-  margin-bottom: 0;
-
-  &:last-child {
-    margin-bottom: 4rem;
-  }
-
-  p {
-    margin: 0;
-    padding-top: 11px;
-  }
+label.block--dark {
+  display: block;
+  color: #FFF;
+  background-color: #000;
+  text-align: center;
+  padding: 1rem;
 }
 
-.form-group.checkbox--bordered:last-child{
-    margin-bottom: 4rem;
+.error {
+  color:  #ff6d6d;
 }
-
 .modal-body {
   padding: 100px 50px;
 }

@@ -108,10 +108,27 @@ const theme = createMuiTheme({
         height: 47,
         fontFamily: openSansFont,
       }, 
+      text: {
+        borderRadius: 25,
+        height: 47,
+        fontFamily: openSansFont,
+        color: '#0084FF',
+        '&:hover': {
+          background: 'none',
+          textDecoration: 'underline'
+        },
+      }, 
     },
     MuiInputBase: {
       root: {
         fontFamily: openSansFont,
+      }
+    },
+    MuiCard: {
+      root: {
+      backgroundColor: '#f5f5f5',
+      maxWidth:'360px',
+      margin: '0 auto'
       }
     }
   },

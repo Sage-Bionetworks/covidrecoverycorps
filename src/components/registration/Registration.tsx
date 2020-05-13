@@ -1,6 +1,5 @@
 import React from 'react'
-import ToggleButton from '@material-ui/lab/ToggleButton'
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
+import BlueSeparator from '../static/BlueSeparator'
 
 import useForm from '../useForm'
 import {
@@ -26,12 +25,36 @@ type RegistrationProps = {
 const EMAIL_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/email'
 const PHONE_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/phone'
 
+const signupIntro = {
+  PHONE: (
+    <>
+      <h1>Dont have email?</h1>
+      <p>
+        At this time, we are only able to invite participants to lab draws with
+        an email account. We are working on this issue. We hope to support
+        scheduling appointments with your phone number in the near future. You
+        can still provide important information to our researchers by filling
+        out surveys.
+      </p>
+    </>
+  ),
+  EMAIL: (
+    <>
+      <h1>Getting Started</h1>
+      <p>
+        {' '}
+        To access the consent and surveys, you will need to create an account.
+        You will use your email to log into your account in the future.
+      </p>
+    </>
+  ),
+}
+
 export const Registration: React.FunctionComponent<RegistrationProps> = ({
   onSuccessFn,
   onErrorFn,
 }: RegistrationProps) => {
   const stateSchema = {
- 
     email: { value: '', error: '' },
     phone: { value: '', error: '' },
     registrationType: { value: 'EMAIL', error: '' },
@@ -47,7 +70,6 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
       },
     },
     registrationType: {},
-
   }
 
   const submitRegistration = async (registrationData: RegistrationData) => {
@@ -65,12 +87,11 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
 
     //register
     const data: RegistrationData = {
-
       email: state.email.value,
       phone: state.phone.value ? makePhone(state.phone.value) : undefined,
       clientData: {},
       study: STUDY_ID,
-      substudyIds: ["columbia"],
+      substudyIds: ['columbia'],
     }
     let loginType: LoginType = 'EMAIL'
     const endPoint = {
@@ -89,13 +110,12 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
     const phoneOrEmail = data.email || data.phone?.number || ''
     const result = await submitRegistration(data)
     if (result.status === 201) {
-      console.log('registered')
       const sentSigninRequest = await sendSignInRequest(
         loginType,
         phoneOrEmail,
         endPoint[loginType]
       )
-      console.log('sent request')
+
       onSuccessFn(
         loginType,
         sentSigninRequest.status,
@@ -112,48 +132,19 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
     validationStateSchema,
     onSubmitForm
   )
-  const errorStyle = {
-    color: 'red',
-    fontSize: '13px',
-  }
 
   return (
-    <>
-      <div id="Questions">
-        <h1>We could use your help! </h1>
-        <p>
-          We are looking to build our community in New York first. Looks like
-          you fit the bill. Now, let’s get you set up.
-        </p>
-        <hr></hr>
-        <form className="demoForm" onSubmit={handleOnSubmit}>
-        
-      
-
-          <div className="form-group">
-            <label htmlFor="registrationType">
-              How do you want to create your account?
-            </label>
-
-            <div className="tabbedField">
-              <Tabs
-                value={state.registrationType.value}
-                indicatorColor="primary"
-                textColor="primary"
-                variant="fullWidth"
-                onChange={(_e, value) =>
-                  handleOnChange({
-                    target: { name: 'registrationType', value: value },
-                  })
-                }
-                aria-label="disabled tabs example"
-              >
-                <Tab label="EMAIL" value="EMAIL" />
-
-                <Tab label="PHONE" value="PHONE" />
-              </Tabs>
-
-              {state.registrationType.value === 'EMAIL' && (
+    <div>
+      {signupIntro[state.registrationType.value as LoginType]}
+      <BlueSeparator></BlueSeparator>
+      <form className="demoForm" onSubmit={handleOnSubmit}>
+        <div className="form-group" style={{ marginBottom: 0 }}>
+          <div className="tabbedField">
+            {state.registrationType.value === 'EMAIL' && (
+              <div>
+                <label htmlFor="email" className="block--dark">
+                  EMAIL
+                </label>
                 <div className="input--padded">
                   <TextField
                     name="email"
@@ -168,11 +159,40 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                     placeholder="email address"
                   />
                 </div>
-              )}
 
-              {state.registrationType.value === 'PHONE' && (
+                <div className="text-center">
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    size="large"
+                    type="submit"
+                    disabled={!state.email.value}
+                  >
+                    Create account
+                  </Button>
+                  <Button
+                    variant="text"
+                    onClick={() => {
+                      handleOnChange({
+                        target: { name: 'registrationType', value: 'PHONE' },
+                      })
+                      handleOnChange({
+                        target: { name: 'email', value: '' },
+                      })
+                    }}
+                  >
+                    I don't have email address
+                  </Button>
+                </div>
+              </div>
+            )}
+
+            {state.registrationType.value === 'PHONE' && (
+              <div>
+                <label htmlFor="phone" className="block--dark">
+                  Phone
+                </label>
                 <div className="input--padded">
-                  <label htmlFor="phone">Phone</label>
                   <TextField
                     name="phone"
                     type="phone"
@@ -185,27 +205,47 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                     onChange={handleOnChange}
                   />
                 </div>
-              )}
-            </div>
+                {Object.keys(state).map(
+                  (key) =>
+                    state[key].error && (
+                      <p
+                        className="error"
+                        style={{ marginLeft: '2rem', fontSize: '1.4rem' }}
+                      >
+                        {state[key].error}
+                      </p>
+                    )
+                )}
+                <div className="text-center">
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    size="large"
+                    type="submit"
+                    disabled={!state.phone.value}
+                  >
+                    Create account
+                  </Button>
+                  <Button
+                    variant="text"
+                    onClick={() => {
+                      handleOnChange({
+                        target: { name: 'registrationType', value: 'EMAIL' },
+                      })
+                      handleOnChange({
+                        target: { name: 'phone', value: '' },
+                      })
+                    }}
+                  >
+                    I want to sign up with email
+                  </Button>
+                </div>
+              </div>
+            )}
           </div>
-          <div className="text-center">
-            <Button
-              color="primary"
-              variant="contained"
-              size="large"
-              type="submit"
-              disabled={disable || (!state.email.value && !state.phone.value)}
-            >
-              Submit
-            </Button>
-          </div>
-        </form>
-        {Object.keys(state).map(
-          (key) =>
-            state[key].error && <p style={errorStyle}>{state[key].error}</p>
-        )}
-      </div>
-    </>
+        </div>
+      </form>
+    </div>
   )
 }
 
