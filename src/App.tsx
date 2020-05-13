@@ -152,7 +152,8 @@ function App() {
     async function getInfo(token: string | undefined) {
       if (token && isSubscribed) {
         try {
-          await UserService.getUserInfo(token)
+          const userInfo = await UserService.getUserInfo(token)
+          setUserSession(token, userInfo.data.firstName, userInfo.data.consented )
         } catch (e) {
           setUserSession(undefined, '', false)
         }
