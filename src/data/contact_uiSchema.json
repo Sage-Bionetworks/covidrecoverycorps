@@ -2,16 +2,17 @@
   "data": {
 
     "classNames": "contact",
+    "firstName": {
+      "ui:placeholder": "First Name",
+      "classNames": "firstName text"
+    },
+    "lastName": {
+      "ui:placeholder": "Last Name",
+      "classNames": "lastName text"
+    },
+
     "attributes": {
-      "firstName": {
-        "ui:placeholder": "First Name",
-        "classNames": "firstName text"
-      },
-      "lastName": {
-        "ui:placeholder": "Last Name",
-        "classNames": "lastName text"
-      },
- 
+     
     "address1": {
       "ui:placeholder": "Street Address",
       "classNames": "address1 text"
@@ -26,7 +27,7 @@
       "ui:placeholder": "Zip code"
     },
     "state": {
-      "classNames": "state",
+      "classNames": "state text",
       "ui:placeholder": "State"
     },
     "city": {
@@ -43,7 +44,7 @@
     },
 
     "dob": {
-      "classNames": "birthdate",
+      "classNames": "birthdate text",
       "ui:description": "Your birthdate helps us ensure we match the biosamples to the right person.",
       "ui:widget": "alt-date",
       "ui:options": {

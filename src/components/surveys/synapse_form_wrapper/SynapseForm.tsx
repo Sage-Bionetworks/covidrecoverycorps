@@ -1036,7 +1036,7 @@ export default class SynapseForm extends React.Component<
                   </Form>
                   {this.renderTextForStaticScreen()}
                   {this.state.doShowErrors && (
-                    <div className="error">Responses required above</div>
+                    <div className="error padded-panel pull-right" style={{margin: "1rem 0 2rem 0"}}>Responses required above</div>
                   )}
                   {!this.props.isWizardMode && (
                     <NextStepLink

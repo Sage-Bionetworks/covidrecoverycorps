@@ -19,13 +19,16 @@
       @include label_level2;
     }
     margin-top: -5px;
-    padding: 0rem 2rem 2rem 4.4rem;
+    padding: 0rem 0 2rem 8rem;
     margin-right: -1.5rem;
     background-color: $gray-bg;
 
     margin-bottom: 0.5rem;
+    label {
+      margin-left:0
+    }
     @media (max-width: 768px) {
-      padding-left: 4rem;
+      padding-left: 6.5rem;
     }
   }
 
@@ -54,6 +57,7 @@
 
   .MuiCard-root {
     background-color: #f5f5f5;
+    padding-bottom: 2rem;
     //padding-top: 4.8rem;
   }
 
@@ -72,6 +76,10 @@
 
   .field-radio-group,
   div.checkboxes {
+    margin-right: -1.5rem;
+  }
+
+  .form-group.field-boolean {
     margin-right: -1.5rem;
   }
 
@@ -108,11 +116,10 @@
     padding: 0;
   }
 
-  .form-group.field.field-string.text {
-    display:flex;
-    flex-wrap: wrap;
+  .form-group.field.text {
+   padding-left: 4rem;
     label{
-      width: 100%;
+      margin-left: 0
     }
   }
 
@@ -196,6 +203,13 @@
         content: '\e101';
         font-size: 1.2rem;
         margin-right: 5px;
+      }
+    }
+
+    .bs-callout {
+      margin-left:4rem;
+      @media (max-width: 768px) {
+        margin-left: 1.5rem;
       }
     }
   }
@@ -375,7 +389,7 @@
     border-radius: 0;
     padding: 10px 20px;
     font-size: 1.6rem;
-    margin-left: 4rem;
+
 
   }
 
@@ -495,6 +509,7 @@
 
   //-------------------------------------            covid1 survey3
   .symptoms {
+    
     legend {
       @include control_label;
     }
@@ -733,11 +748,12 @@
     .padded-panel {
       padding: 0 1.5rem 0 1.5rem;
     }
+    .form-group.text {
+      padding-left: 1.5rem;
+      
+     }
 
-    input[type='text'],
-    input[type='number'] {
-      margin-left: 1.5rem;
-    }
+ 
   }
 }
 
