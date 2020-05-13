@@ -17,6 +17,7 @@ import { ConsentService } from '../services/consent.service'
 import { UserService } from '../services/user.service';
 import { LoggedInUserData, Response } from '../types/types';
 import Alert from '@material-ui/lab/Alert';
+import { setSession, getSession } from '../helpers/utility';
 
 type AcountSettingsProps = {
   token: string
@@ -114,6 +115,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
   const handleOnWithdrawFromStudyClick = () => {
     setError('')
     ConsentService.withdrawFromStudy(userId!, props.token).then(()=> {
+      setSession(props.token, getSession()?.name || '', false)
       setIsRedirectingHome(true)
     }).catch( err => {
       setError(err.message)
