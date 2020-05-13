@@ -17,7 +17,8 @@ import TextField from '@material-ui/core/TextField/TextField'
 
 import { RouteComponentProps } from 'react-router-dom'
 import Alert from '@material-ui/lab/Alert/Alert'
-import { Tabs, Tab } from '@material-ui/core'
+import { Tabs, Tab, Card, CardContent } from '@material-ui/core'
+import BlueSeparator from '../static/BlueSeparator'
 
 export interface OwnLoginProps {
   redirectUrl?: string // will redirect here after a successful login. if unset, reload the current page url.
@@ -172,12 +173,13 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         </div>
       )}
       {!isLoading && (
-        <div>
+        <Card><CardContent>
           {(!isLinkSent || error) && (
             <div>
               <h1 className="text-center margin-top-std">Log in</h1>
-              <form onSubmit={handleLogin} className="form-group">
-                <div className="form-group">
+              <BlueSeparator></BlueSeparator>
+              <form onSubmit={handleLogin} >
+                <div >
                   <label htmlFor="registrationType">
                     How would you like to log in?
                   </label>
@@ -257,7 +259,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
               loginType={loginType!}
             ></SignInWithCode>
           )}
-        </div>
+        </CardContent></Card>
       )}
     </>
   )

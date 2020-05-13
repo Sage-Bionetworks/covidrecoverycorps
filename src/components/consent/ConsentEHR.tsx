@@ -11,7 +11,7 @@ import moment from 'moment'
 import { Redirect } from 'react-router'
 
 import Button from '@material-ui/core/Button/Button'
-import { Typography, Checkbox, TextField } from '@material-ui/core'
+import { Checkbox, TextField, CardContent, Card } from '@material-ui/core'
 
 import ConsentCopy from './ConsentCopy'
 import { FloatingToolbar } from '../widgets/FloatingToolbar'
@@ -48,6 +48,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           variant="contained"
           fullWidth
           color="primary"
+          style={{marginTop: "20px"}}
           onClick={() => setCurrentStep((_prev) => _prev + 1)}
         >
           Start HIPAA
@@ -190,31 +191,33 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   }
 
   return (
-    <div>
-      <div className="Consent">
-        {currentStep < 10 && (
-          <>
-            <FloatingToolbar
-              closeLinkDestination="/dashboard"
-              closeIcon={faTimes}
-              closeLinkText=""
-              closeConfirmationText='Are you sure you want to leave the HIPPA Authorization process?'
-            >
-              HIPAA Authorization
-            </FloatingToolbar>
-          </>
-        )}
+    <Card>
+      <CardContent>
+        <div className="Consent">
+          {currentStep < 10 && (
+            <>
+              <FloatingToolbar
+                closeLinkDestination="/dashboard"
+                closeIcon={faTimes}
+                closeLinkText=""
+                closeConfirmationText="Are you sure you want to leave the HIPPA Authorization process?"
+              >
+                HIPAA Authorization
+              </FloatingToolbar>
+            </>
+          )}
 
-        {currentStep > 0 && (
-          <div className="text-right">
-            {currentStep} of {totalSteps}
-          </div>
-        )}
-        {currentStep === 0 && renderStep0()}
-        {currentStep > 0 && currentStep < totalSteps && renderInfoStep()}
-        {currentStep === 12 && <div>{renderSignatureStep()}</div>}
-      </div>
-    </div>
+          {currentStep > 0 && (
+            <div className="text-right">
+              <strong>{currentStep}/{totalSteps}</strong>
+            </div>
+          )}
+          {currentStep === 0 && renderStep0()}
+          {currentStep > 0 && currentStep < totalSteps && renderInfoStep()}
+          {currentStep === 12 && <div>{renderSignatureStep()}</div>}
+        </div>
+      </CardContent>
+    </Card>
   )
 }
 
