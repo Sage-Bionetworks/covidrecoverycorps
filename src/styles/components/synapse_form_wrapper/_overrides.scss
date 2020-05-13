@@ -2,7 +2,7 @@
   $font-size: 1.6rem;
   $red-error: #ff6d6d;
   $red-error2: #ff6d6d;
-  $left-pad: 4rem;
+  $left-pad: 1.5rem;
   $primary-blue: #0084ff;
   $gray-bg: #fcfcfc;
 
@@ -19,23 +19,16 @@
       @include label_level2;
     }
     margin-top: -5px;
-    padding: 0rem 0 2rem 8rem;
+    padding: 0rem 0 2rem 6.5rem;
     margin-right: -1.5rem;
     background-color: $gray-bg;
 
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
     label {
       margin-left:0
     }
-    @media (max-width: 768px) {
-      padding-left: 6.5rem;
-    }
+ 
   }
-
-  /* @mixin subfield_inverted_first {
-    @include subfield_inverted;
-    padding-top: 0;
-  }*/
 
   @mixin control_label {
     font-family: 'Source Serif Pro';
@@ -55,11 +48,11 @@
 
   margin-right: 0;
 
-  .MuiCard-root {
+ /* .MuiCard-root {
     background-color: #f5f5f5;
     padding-bottom: 2rem;
-    //padding-top: 4.8rem;
-  }
+
+  }*/
 
   span {
     font-family: 'Open Sans';
@@ -67,7 +60,7 @@
 
   legend {
     font-weight: bold;
-    margin-left: 4rem;
+    margin-left:  $left-pad;
   }
 
   #root.fieldset {
@@ -84,18 +77,18 @@
   }
 
   .paging {
-    margin: 2rem;
+    margin: 1rem 2rem 2rem 0;
     font-weight: bold;
   }
 
   .padded-panel {
-    padding: 0 1.5rem 0 4rem;
+    padding: 0 1.5rem 0  $left-pad;
   }
 
   label.control-label {
     @include control_label;
 
-    margin-left: 4rem;
+    margin-left: $left-pad;
     margin-right: 1rem;
   }
 
@@ -116,8 +109,23 @@
     padding: 0;
   }
 
+  .submission-header {
+    max-width: 360px;
+    margin: 0 auto;
+    h2 {
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+      font-weight: bold;
+      font-family: "Source Serif Pro", serif;
+    }
+    .surveyIntro {
+      margin: 0 0 2rem 0;
+
+    }
+  }
+
   .form-group.field.text {
-   padding-left: 4rem;
+   padding-left: $left-pad;
     label{
       margin-left: 0
     }
@@ -129,7 +137,7 @@
       margin-bottom: 1rem;
     }
     .form-group {
-      padding-left: 4rem;
+      padding-left: $left-pad;
       padding-bottom: 2rem;
       margin-right: -1.5rem;
 
@@ -185,6 +193,10 @@
     padding-left: 5px;
     border-left: 8px solid $red-error;
 
+    legend {
+      color: $red-error;
+    }
+
     &.has-error {
       .checkbox,
       .checkbox-inline,
@@ -207,14 +219,12 @@
     }
 
     .bs-callout {
-      margin-left:4rem;
-      @media (max-width: 768px) {
-        margin-left: 1.5rem;
-      }
+      margin-left:$left-pad;
+    
     }
   }
   .form-error-summary {
-    display: block; // display: none;
+    display: none;// display: none;
   }
   .error {
     color: $red-error;
@@ -430,7 +440,7 @@
     .form-group.field-boolean {
       margin-bottom: 0;
       .checkbox {
-        margin-bottom: 5px;
+        margin-bottom: 2px;
         margin-top: 0px;
       }
     }
@@ -579,12 +589,7 @@
     }
   }
 
-  .habits {
-    .how_many_cigarettes {
-      // @include subfield_inverted;
-      // margin-top: -4rem;
-    }
-  }
+
 
   .covid2 {
     &_covid1 {
@@ -731,9 +736,7 @@
   }
 
   @media only screen and (max-width: 768px) {
-    legend {
-      margin-left: 1.5rem;
-    }
+   
     div.checkbox,
     div.radio {
       padding: 1rem 1rem 1rem 1.5rem; // 10px 10px 10px 0;
@@ -745,14 +748,8 @@
     .subfields .form-group {
       padding-left: 1rem;
     }
-    .padded-panel {
-      padding: 0 1.5rem 0 1.5rem;
-    }
-    .form-group.text {
-      padding-left: 1.5rem;
-      
-     }
-
+  
+   
  
   }
 }

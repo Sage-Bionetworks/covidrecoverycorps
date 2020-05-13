@@ -205,7 +205,7 @@
       }
     },
     "smoking_how_many_cigarettes": {
-      "classNames": "how_many_cigarettes"
+      "classNames": "text"
     },
     "vaping": {
       "ui:widget": "radio",
