@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
-import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
 import { blue } from '@material-ui/core/colors';
 import { Button, Icon, withStyles } from '@material-ui/core'
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
@@ -17,6 +15,10 @@ import { ConsentService } from '../services/consent.service'
 import { UserService } from '../services/user.service';
 import { LoggedInUserData, Response } from '../types/types';
 import Alert from '@material-ui/lab/Alert';
+import {
+  Card,
+  CardContent,
+} from '@material-ui/core'
 import { setSession, getSession } from '../helpers/utility';
 
 type AcountSettingsProps = {
@@ -128,6 +130,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
       <div>
           <FloatingToolbar closeLinkDestination='/dashboard' closeIcon={faAngleLeft} closeLinkText='Dashboard' />
       </div>
+      <Card><CardContent>
       <h1 className="text-center margin-top-std">Account Settings</h1>
       {error && <Alert severity="error">{error}</Alert>}
       <Link to='/contactinfo'>
@@ -167,6 +170,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
           Withdraw from study
         </MaterialUiLink>
       )}
+       </CardContent></Card>
       {userId !== undefined && isShowingWithdrawConfirmation && (
           <ConfirmationModal
             show={true}
@@ -185,6 +189,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
             cancelCopy={'No, keep me in the study'}
           ></ConfirmationModal>
       )}
+     
     </>
   )
 }

@@ -10,6 +10,8 @@ import {
   FormControlLabel,
   RadioGroup,
   Radio,
+  Card,
+  CardContent,
 } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert/Alert'
 import ConsentCopy from './ConsentCopy'
@@ -135,6 +137,8 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   }
 
   return (
+    <Card>
+      <CardContent>
     <div className="Consent">
       {!isInfoDone && (
         <ConsentInfo
@@ -258,6 +262,8 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       )}
       {isConsentDone && renderHIPAAStep()}
     </div>
+    </CardContent>
+    </Card>
   )
 }
 
