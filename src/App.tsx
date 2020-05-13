@@ -43,22 +43,33 @@ import GoogleAnalyticsPageTracker from './components/widgets/GoogleAnalyticsPage
 import CookieNotificationBanner from './components/widgets/CookieNotificationBanner'
 import ScrollToTopOnRouteChange from './components/widgets/ScrollToTopOnRouteChange'
 
+const sourceSerifProFont: string = [
+  'Source Serif Pro',
+  'serif',
+  'Lato',
+  'Roboto',
+  'Helvetica',
+  'Arial',
+].join(',')
+
+const openSansFont = [
+  'Open Sans',
+  'serif',
+  'Lato',
+  'Roboto',
+  'Helvetica',
+  'Arial',
+].join(',')
+
 const theme = createMuiTheme({
   
   typography: {
     // Tell Material-UI what's the font-size on the html element is.
     htmlFontSize: 10,
-    fontFamily: [
-      'Source Serif Pro',
-      'serif',
-      'Lato',
-      'Roboto',
-      'Helvetica',
-      'Arial',
-    ].join(','),
+    fontFamily: sourceSerifProFont,
     button: {
       textTransform: 'none'
-    }
+    },
   },
   palette: {
     background: {
@@ -96,8 +107,14 @@ const theme = createMuiTheme({
       root: {
         borderRadius: 25,
         height: 47,
+        fontFamily: openSansFont,
       }, 
     },
+    MuiInputBase: {
+      root: {
+        fontFamily: openSansFont,
+      }
+    }
   },
 })
 
