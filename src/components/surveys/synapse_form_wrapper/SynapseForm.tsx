@@ -29,6 +29,8 @@ import { Prompt } from 'react-router-dom'
 import { getUiOptions } from 'react-jsonschema-form/lib/utils'
 import { GoogleService } from '../../../services/google.service'
 
+import Card from '@material-ui/core/Card'
+
 export interface IFormData {
   [key: string]: {
     included?: boolean
@@ -80,6 +82,7 @@ export interface SummaryFormat {
   label: string
   value: string
 }
+
 
 function ObjectFieldTemplate(props: any) {
   const canExpand = function canExpand() {
@@ -156,6 +159,7 @@ export default class SynapseForm extends React.Component<
   uiSchema: {}
   nextStep: Step | undefined
   extraErrors: AjvError[] = []
+
 
   isNewForm = (formData: IFormData): boolean => {
     return (
@@ -917,9 +921,9 @@ export default class SynapseForm extends React.Component<
           isSubmitted={this.state.isSubmitted}
           bodyText={this.state.currentStep.description}
           title={this.state.currentStep.title}
-          orderDisplay= {this.state.currentStep.orderDisplay}
+   
         ></Header>
-        <div>
+         <Card >
           <div className="inner-wrap">
             {!this.props.extraUIProps?.isLeftNavHidden && (
               <StepsSideNav
@@ -934,6 +938,7 @@ export default class SynapseForm extends React.Component<
               </div>
             )}
             <div className="form-wrap">
+              <div className="padded-panel text-right paging">{this.state.currentStep.orderDisplay}</div>
              {/*} <div className="form-title">{this.state.currentStep.title}</div>*/}
               {this.renderNotification(this.props.callbackStatus)}
               <div
@@ -1065,7 +1070,7 @@ export default class SynapseForm extends React.Component<
               ></NavButtons>
             </div>
           </div>
-        </div>
+        </Card>
         {this.state.modalContext && (
           <WarningModal
             show={true}
@@ -1156,3 +1161,5 @@ function stringToElementForProp(srcObject: any, key: string): object {
   })
   return srcObject
 }
+
+

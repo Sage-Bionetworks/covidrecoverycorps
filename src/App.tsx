@@ -62,7 +62,6 @@ const openSansFont = [
 ].join(',')
 
 const theme = createMuiTheme({
-  
   typography: {
     // Tell Material-UI what's the font-size on the html element is.
     htmlFontSize: 10,
@@ -73,7 +72,7 @@ const theme = createMuiTheme({
   },
   palette: {
     background: {
-     //default: '#e5e5e5'
+      //default: '#e5e5e5'
     },
     primary: {
       // light: will be calculated from palette.primary.main,
@@ -99,7 +98,7 @@ const theme = createMuiTheme({
     // Name of the component ⚛️
     MuiButtonBase: {
       // The properties to apply
-      disableRipple: true, // No more ripple, on the whole application 💣!      
+      disableRipple: true, // No more ripple, on the whole application 💣!
     },
   },
   overrides: {
@@ -120,7 +119,7 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100%'
+    height: '100%',
   },
 }))
 
@@ -143,7 +142,9 @@ function App() {
   const [token, setToken] = useState(getSession()?.token)
   const [name, setName] = useState(getSession()?.name)
   const [consented, setConsented] = useState(getSession()?.consented)
-  const [currentLocation, setCurrentLocation] = useState(window.location.pathname)
+  const [currentLocation, setCurrentLocation] = useState(
+    window.location.pathname
+  )
 
   useEffect(() => {
     let isSubscribed = true
@@ -183,6 +184,37 @@ function App() {
     )
   }
 
+  function ConsentedRoute({ children, ...rest }: any) {
+    return (
+      <Route
+        {...rest}
+        render={({ location }) => {
+          if (!token) {
+            return (
+              <Redirect
+                to={{
+                  pathname: '/login',
+                  state: { from: location },
+                }}
+              />
+            )
+          }
+          if (!getSession()?.consented) {
+            return (
+              <Redirect
+                to={{
+                  pathname: '/consent',
+                  state: { from: location },
+                }}
+              />
+            )
+          }
+          return children
+        }}
+      />
+    )
+  }
+
   const setUserSession = (
     token: string | undefined,
     name: string,
@@ -208,8 +240,12 @@ function App() {
 
   const classes = useStyles()
 
-  const getTopClass= (location: string) => {
-    if (location.includes('dashboard') || location.includes('survey') || location.includes('contactinfo')) {
+  const getTopClass = (location: string) => {
+
+    const specialPages = ['dashboard','survey', 'contactinfo']
+    if (
+      specialPages.find(page=> location.toLowerCase().includes(page))
+    ) {
       return 'partialGreen'
     } else {
       return ''
@@ -222,10 +258,15 @@ function App() {
         <div className={classes.root}>
           <CssBaseline />
           <Router>
-            <div  className={getTopClass(currentLocation)}>
+            <div className={getTopClass(currentLocation)}>
               <CookieNotificationBanner />
               <GoogleAnalyticsPageTracker />
-              <ScrollToTopOnRouteChange  onRouteChangeFn={(location: string)=>{alert(location); setCurrentLocation(location) }}/>
+              <ScrollToTopOnRouteChange
+                onRouteChangeFn={(location: string) => {
+                  alert(location)
+                  setCurrentLocation(location)
+                }}
+              />
               <nav
                 style={{
                   border: '1px solid black',
@@ -240,9 +281,7 @@ function App() {
               </nav>
               <TopNav
                 token={token}
-                logoutCallbackFn={() =>
-                  setUserSession(undefined, '', false)
-                }
+                logoutCallbackFn={() => setUserSession(undefined, '', false)}
               >
                 <Grid
                   container
@@ -252,7 +291,6 @@ function App() {
                   spacing={2}
                 >
                   <Grid item xs={12} md={8} lg={6}>
-                  
                     {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}{' '}
                     <Switch>
@@ -304,9 +342,7 @@ function App() {
                       </PrivateRoute>
                       {/*todo make private */}
                       <Route exact={true} path="/consent">
-                        <Consent
-                          token={token || ''}
-                        />
+                        <Consent token={token || ''} />
                       </Route>
                       {/*todo make private */}
                       <Route exact={true} path="/consentehr">

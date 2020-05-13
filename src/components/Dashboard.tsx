@@ -37,8 +37,6 @@ type UISurvey = {
 const useStyles = makeStyles({
   root: {
     backgroundColor: '#f5f5f5',
-    paddingLeft: '0',
-    paddingRight: '0',
   },
 })
 
@@ -201,7 +199,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       </div>
 
       <Card className={classes.root}>
-        <CardContent>
+     
           <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
           <div className="separator">
             <img src={testTubeImg}></img>
@@ -211,7 +209,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
             </div>
           </div>
           <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
-        </CardContent>
+        
       </Card>
     </div>
   )

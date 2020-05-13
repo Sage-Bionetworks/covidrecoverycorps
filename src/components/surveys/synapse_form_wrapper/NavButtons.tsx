@@ -86,7 +86,7 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
   )
 
   return (
-    <div>
+    <div className="padded-panel">
       <div className="buttonWrapper" style={{overflow:'visible'}}>
         {previousButton} {nextButton}
       </div>
