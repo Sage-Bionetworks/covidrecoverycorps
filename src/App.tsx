@@ -275,7 +275,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                (Tue:12:02am)
+                (Wed:10:02am)
               </nav>
               <TopNav
                 token={token}
@@ -307,6 +307,7 @@ function App() {
                           return (
                             <Login
                               {...props}
+                              key={Math.random()}
                               searchParams={searchParamsProps as any}
                               callbackFn={(
                                 token: string,
