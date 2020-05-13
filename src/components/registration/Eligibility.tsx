@@ -9,8 +9,9 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 
 import Button from '@material-ui/core/Button/Button'
 
-import { TextField, Checkbox } from '@material-ui/core'
+import { TextField, Checkbox, FormControlLabel } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert/Alert'
+import BlueSeparator from '../static/BlueSeparator'
 
 type EligibilityProps = {
   setEligibilityFn: Function
@@ -79,55 +80,70 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
 
   return (
     <div id="Questions">
-      <h1>Am I eligible? </h1>
+      <h1>Eligibility</h1>
       <p>
-        To be eligible to take part in the Covid Recovery Corps Study, you must
-        fufill the following:
+        To be eligible to take part in the COVID Recovery Corps Study, you must fulfill the following:
       </p>
+      <BlueSeparator></BlueSeparator>
       <form onSubmit={handleOnSubmit}>
       <div className="form-group">
           <div className="form-group checkbox--bordered" style={{}}>
-            <Checkbox
-              color="primary"
-              value={state.over18.value}
-              onChange={(evt) =>
-                handleOnChange({
-                  target: { name: 'over18', value: evt.target.checked? "yes":"no" },
-                })
-              }
-            />
-            <p>I am 18 years of age or older</p>
+            <FormControlLabel
+                  control={
+                    <Checkbox
+                      color="primary"
+                      value={state.over18.value}
+                      onChange={(evt) =>
+                        handleOnChange({
+                          target: { name: 'over18', value: evt.target.checked? "yes":"no" },
+                        })
+                      }
+                    />
+                  }
+                  label="I am 18 years of age or older"
+                />
           </div>
          
           <div className="form-group checkbox--bordered">
-          <Checkbox
-              color="primary"
-              value={state.cons.value}
-              onChange={(evtd) =>
-                handleOnChange({
-                  target: { name: 'cons', value: evtd.target.checked? "yes":"no"},
-                })
-              }
-            />
-            <p>I am able to provide consent for myself</p>
+            <FormControlLabel
+                control={
+                  <Checkbox
+                    color="primary"
+                    value={state.cons.value}
+                    onChange={(evtd) =>
+                      handleOnChange({
+                        target: { name: 'cons', value: evtd.target.checked? "yes":"no"},
+                      })
+                    }
+                  />
+                }
+                label="I am able to provide consent for myself"
+              />
           </div>
        
           <div className="form-group checkbox--bordered">
-          <Checkbox
-              color="primary"
-              value={state.hadCovid.value}
-              onChange={(evt) =>
-                handleOnChange({
-                  target: { name: 'hadCovid', value: evt.target.checked? "yes":"no" },
-                })
+            <FormControlLabel
+              control={
+                <Checkbox
+                  color="primary"
+                  value={state.hadCovid.value}
+                  onChange={(evt) =>
+                    handleOnChange({
+                      target: { name: 'hadCovid', value: evt.target.checked? "yes":"no" },
+                    })
+                  }
+                />
               }
+              label="I think I’ve had COVID-19"
             />
-            <p> I think I’ve had COVID-19</p>
           </div>
         
           </div>
+        
         <div className="form-group">
-          <label>Please enter your zip code</label>
+          <div>
+            <label>Please enter your zip code</label>
+          </div>
 
           <TextField
             variant="outlined"
@@ -135,7 +151,6 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
             placeholder="zipcode"
             aria-label="zipcode"
             label="zipcode"
-            fullWidth
             onChange={handleOnChange}
           />
         </div>
@@ -146,6 +161,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
             size="medium"
             type="submit"
             disabled={disable}
+            fullWidth
           >
             Submit
           </Button>
