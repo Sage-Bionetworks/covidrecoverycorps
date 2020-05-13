@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react'
 
 
 import { IneligibilityReason, MailChimpFormFields } from '../../types/types'
-import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
-
 import TextField from '@material-ui/core/TextField/TextField'
 import { Button } from '@material-ui/core'
 import MailchimpSubscribe from 'react-mailchimp-subscribe'
@@ -18,7 +15,6 @@ const url = 'https://sagebionetworks.us7.list-manage.com/subscribe/post?u=b146de
 export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
   reason,
 }: IneligibleProps) => {
-  const [mailList, setMailList] = useState<boolean | undefined>()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [zipcode, setZipcode] = useState('')
@@ -51,22 +47,16 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
           { !mailListJoined && (
             <div>
               <p>
-              Unfortunately, we are currently focusing on the NYC region at the
-              moment. We are hoping to expand in the coming months. Would you like
-              to join our mailing list and be notified in the future?
+                Unfortunately, we are only able to enroll participants who live within a 25 mile radius of the Columbia University Medical Center.
+              </p>
+              <p>
+                We are hoping to expand the study in the coming months.
+              </p>
+              <p>
+                You can sign up for our mailing list here:
               </p>
               <div className="form-group">
-                <ToggleButtonGroup
-                  value={mailList}
-                  exclusive
-                  className="verticalToggle"
-                  onChange={(_event: any, val: boolean) => setMailList(val)}
-                  aria-label="join mailing list"
-                >
-                  ><ToggleButton value={true}>Yes</ToggleButton>
-                  <ToggleButton value={false}>No</ToggleButton>
-                </ToggleButtonGroup>
-                {mailList && (
+                {(
                   <div>
                     <MailchimpSubscribe
                       url={url}
@@ -117,8 +107,8 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
                               email &&
                               name &&
                               subscribe(formData)
-                          }>Join Mailing List</Button>
-                          {status === "sending" && <div>Joining Mailing List...</div>}
+                          }>Join mailing list</Button>
+                          {status === "sending" && <div>Joining mailing list...</div>}
                           {status === "success" && setMailListJoined(true)}
                           {status === "error" && message && (
                             <div
