@@ -19,12 +19,13 @@
       @include label_level2;
     }
     margin-top: -5px;
-    padding: 0rem 2rem 2rem 8.4rem;
+    padding: 0rem 2rem 2rem 4.4rem;
+    margin-right: -1.5rem;
     background-color:$gray-bg;
  
     margin-bottom: 0.5rem;
     @media (max-width: 768px) {
-      padding-left: 6rem;
+      padding-left: 4rem;
     }
   }
 
@@ -63,8 +64,16 @@
   legend {
     font-weight: bold;
     margin-left: 4rem;
-    padding-right: 1rem;
+ 
   }
+
+#root.fieldset {
+  padding-right: 1.5rem;
+}
+
+.field-radio-group, div.checkboxes {
+  margin-right: -1.5rem;
+}
 
   .paging {
     margin: 2rem;
@@ -109,10 +118,11 @@
     .form-group {
       padding-left: 4rem;
       padding-bottom: 2rem;
+      margin-right: -1.5rem;
 
       margin-bottom: 0;
       background-color: #fcfcfc;
-      label {
+      >label {
         @include label_level2;
         margin-left: 0;
         margin-bottom: 1rem;
@@ -360,6 +370,7 @@
     padding: 10px 20px;
     font-size: 1.6rem;
     margin-left: 4rem;
+    width: fit-content
 
   }
 
