@@ -8,6 +8,10 @@ import SignInWithCode from '../login/SignInWithCode'
 import { IneligibilityReason, SESSION_NAME } from '../../types/types'
 import Registration from './Registration'
 import { RouteComponentProps } from 'react-router-dom'
+import Card from '@material-ui/core/Card';
+
+import CardContent from '@material-ui/core/CardContent';
+
 
 export type EligibilityRegistrationOwnProps = {
   callbackFn: Function
@@ -45,7 +49,8 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
   }
 
   return (
-    <div>
+    <Card>
+      <CardContent>
       {eligible === undefined && (
         <Eligiblity
           setEligibilityFn={(
@@ -85,7 +90,8 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
           }
         ></SignInWithCode>
       )}
-    </div>
+      </CardContent>
+    </Card>
   )
 }
 

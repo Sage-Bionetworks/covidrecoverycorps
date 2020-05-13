@@ -87,7 +87,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
       <BlueSeparator></BlueSeparator>
       <form onSubmit={handleOnSubmit}>
       <div className="form-group">
-          <div className="form-group checkbox--bordered" style={{}}>
+          <div className="form-group checkbox" style={{}}>
             <FormControlLabel
                   control={
                     <Checkbox
@@ -104,7 +104,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
                 />
           </div>
          
-          <div className="form-group checkbox--bordered">
+          <div className="form-group checkbox">
             <FormControlLabel
                 control={
                   <Checkbox
@@ -121,7 +121,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
               />
           </div>
        
-          <div className="form-group checkbox--bordered">
+          <div className="form-group checkbox">
             <FormControlLabel
               control={
                 <Checkbox
