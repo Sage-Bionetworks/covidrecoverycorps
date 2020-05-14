@@ -5,22 +5,22 @@
       "order": 5,
       "title": "Medical History",
       "default": "history11",
-      "orderDisplay": "1/8",
+      "orderDisplay": "1/6",
       "description": "Lorem ipsum survey instructions "
     },
     {
       "id": "history11",
-      "order": 5,
+      "order": 10,
 
       "default": "history2",
-      "orderDisplay": "2/8"
+      "orderDisplay": "2/6"
 
     },
 
     {
       "id": "history2",
-      "order": 10,
-      "orderDisplay": "3/8",
+      "order": 15,
+      "orderDisplay": "3/6",
       "default": "history21",
       "rules": [
         {
@@ -47,8 +47,8 @@
     },
     {
       "id": "history21",
-      "order": 15,
-      "orderDisplay": "4/8",
+      "order": 20,
+      "orderDisplay": "4/6",
       "default": "history3",
       "rules": [],
       "validationRules": [
@@ -77,16 +77,16 @@
     },
     {
       "id": "history3",
-      "order": 20,
-      "orderDisplay": "5/8",
+      "order": 25,
+      "orderDisplay": "5/6",
  
       "default": "history31"
 
     },
     {
       "id": "history31",
-      "order": 25,
-      "orderDisplay": "5/8",
+      "order": 30,
+      "orderDisplay": "6/6",
 
       "default": "",
       "validationRules": [
@@ -144,8 +144,9 @@
    
     {
       "id": "women",
-      "order": 0,
+      "order": 35,
       "title": "",
+      "orderDisplay": "3a/6",
       "default": "women3",
       "rules": [
 
@@ -174,15 +175,17 @@
     },
     {
       "id": "women2",
-      "order": 0,
+      "order": 40,
       "title": "",
       "default": "women3",
+      "orderDisplay": "3b/6",
       "rules": []
     },
     {
       "id": "women3",
-      "order": 0,
+      "order": 45,
       "title": "",
+      "orderDisplay": "3c/6",
       "default": "history21",
       "rules": []
     }
