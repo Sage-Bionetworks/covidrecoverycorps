@@ -63,10 +63,14 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
   labImageDiv: {
-    maxWidth: '600px'
+    maxWidth: '500px',
+    [theme.breakpoints.up('md')]: {
+      float: 'right',
+    },
   },
   labTextDiv: {
-    padding: '40px 25px'
+    padding: '40px 25px',
+    maxWidth: '500px',
   },
   labTextTitleDiv: {
     fontFamily: playfairDisplayFont,
@@ -77,7 +81,15 @@ const useStyles = makeStyles(theme => ({
   },
   labTextBodyDiv: {
     fontFamily: openSansFont,
-    lineHeight: '25pt'
+    lineHeight: '25pt',
+    padding: '20px 0px',
+  },
+  photographyNote: {
+    fontSize: '1rem',
+    fontFamily: openSansFont,
+    fontStyle: 'italic',
+    float: 'right',
+    paddingTop: '3px'
   }
 }))
 
@@ -117,12 +129,13 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
           container
           direction="row"
           justify="center"
-          alignItems="flex-start"
+          alignItems="center"
           spacing={2}
         >
           <Grid item xs={12} md={6}>
             <div className={classes.labImageDiv}>
               <img src={LandingPageLab} alt="Lab" width="100%" />
+              <p className={classes.photographyNote}>Photography by Noah Berger</p>
             </div>
           </Grid>
           <Grid item xs={12} md={6}>
