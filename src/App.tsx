@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Component } from 'react'
 import logo from './logo.svg'
 
 import './styles/style.scss'
@@ -24,7 +24,7 @@ import {
   Grid,
 } from '@material-ui/core'
 
-import { getSession} from './helpers/utility'
+import { getSession } from './helpers/utility'
 
 import Intro from './components/static/Intro'
 import Dashboard from './components/Dashboard'
@@ -117,7 +117,7 @@ const theme = createMuiTheme({
         borderRadius: 25,
         height: 47,
         fontFamily: openSansFont,
-      }, 
+      },
       text: {
         borderRadius: 25,
         height: 47,
@@ -127,7 +127,7 @@ const theme = createMuiTheme({
           background: 'none',
           textDecoration: 'underline'
         },
-      }, 
+      },
     },
     MuiInputBase: {
       root: {
@@ -136,9 +136,9 @@ const theme = createMuiTheme({
     },
     MuiCard: {
       root: {
-      backgroundColor: '#f5f5f5',
-      maxWidth:'360px',
-      margin: '0 auto'
+        backgroundColor: '#f5f5f5',
+        maxWidth: '360px',
+        margin: '0 auto'
       }
     }
   },
@@ -165,6 +165,20 @@ export const getSearchParams = (search: string): { [key: string]: string } => {
   return searchParamsProps
 }
 
+function renderWithGridLayout(el: JSX.Element) {
+  return <Grid
+    container
+    direction="row"
+    justify="center"
+    alignItems="center"
+    spacing={2}
+  >
+    <Grid item xs={12} md={8} lg={6}>
+      {el}
+    </Grid>
+  </Grid>
+}
+
 function App() {
   const [token, setToken] = useState(getSession()?.token)
   const [name, setName] = useState(getSession()?.name)
@@ -180,7 +194,7 @@ function App() {
       if (token && isSubscribed) {
         try {
           const userInfo = await UserService.getUserInfo(token)
-          setUserSession(token, userInfo.data.firstName, userInfo.data.consented )
+          setUserSession(token, userInfo.data.firstName, userInfo.data.consented)
         } catch (e) {
           setUserSession(undefined, '', false)
         }
@@ -200,13 +214,13 @@ function App() {
           token ? (
             children
           ) : (
-            <Redirect
-              to={{
-                pathname: '/login',
-                state: { from: location },
-              }}
-            />
-          )
+              <Redirect
+                to={{
+                  pathname: '/login',
+                  state: { from: location },
+                }}
+              />
+            )
         }
       />
     )
@@ -270,9 +284,9 @@ function App() {
 
   const getTopClass = (location: string) => {
 
-    const specialPages = ['dashboard','survey', 'contactinfo']
+    const specialPages = ['dashboard', 'survey', 'contactinfo']
     if (
-      specialPages.find(page=> location.toLowerCase().includes(page))
+      specialPages.find(page => location.toLowerCase().includes(page))
     ) {
       return 'partialGreen'
     } else {
@@ -308,139 +322,153 @@ function App() {
                 token={token}
                 logoutCallbackFn={() => setUserSession(undefined, '', false)}
               >
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  spacing={2}
-                >
-                  <Grid item xs={12} md={8} lg={6}>
-                    {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}{' '}
-                    <Switch>
-                      <Route path="/collaborators">
-                        <Collaborators />
-                      </Route>
+                {/* A <Switch> looks through its children <Route>s and
+        renders the first one that matches the current URL. */}{' '}
+                <Switch>
+                  <Route path="/collaborators">
+                    {
+                      renderWithGridLayout(<Collaborators />)
+                    }
+                  </Route>
 
-                      <Route
-                        exact={true}
-                        path="/login"
-                        render={(props) => {
-                          const searchParamsProps = getSearchParams(
-                            props.location.search
-                          )
-                          // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
-                          return (
-                            <Login
-                              {...props}
-                              key={Math.random()}
-                              searchParams={searchParamsProps as any}
-                              callbackFn={(
-                                token: string,
-                                name: string,
-                                consented: boolean
-                              ) => setUserSession(token, name, consented)}
-                            />
-                          )
-                        }}
-                      ></Route>
-                      <Route
-                        path="/eligibility"
-                        render={(props) => {
-                          const searchParamsProps = getSearchParams(
-                            props.location.search
-                          )
-                          // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
-                          return (
-                            <EligibilityRegistration
-                              {...props}
-                              callbackFn={(token: string, name: string) =>
-                                setUserSession(token, name, false)
-                              }
-                            />
-                          )
-                        }}
-                      ></Route>
+                  <Route
+                    exact={true}
+                    path="/login"
+                    render={(props) => {
+                      const searchParamsProps = getSearchParams(
+                        props.location.search
+                      )
+                      // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
+                      return renderWithGridLayout(
+                        <Login
+                          {...props}
+                          key={Math.random()}
+                          searchParams={searchParamsProps as any}
+                          callbackFn={(
+                            token: string,
+                            name: string,
+                            consented: boolean
+                          ) => setUserSession(token, name, consented)}
+                        />
+                      )
+                    }}
+                  ></Route>
+                  <Route
+                    path="/eligibility"
+                    render={(props) => {
+                      const searchParamsProps = getSearchParams(
+                        props.location.search
+                      )
+                      // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
+                      return renderWithGridLayout(
+                        <EligibilityRegistration
+                          {...props}
+                          callbackFn={(token: string, name: string) =>
+                            setUserSession(token, name, false)
+                          }
+                        />
+                      )
+                    }}
+                  ></Route>
 
-                      <ConsentedRoute exact={true} path="/dashboard">
-                        <Dashboard token={token || ''} />
-                      </ConsentedRoute>
-                      {/*todo make private */}
-                      <Route exact={true} path="/consent">
-                        <Consent token={token || ''} />
-                      </Route>
-                      {/*todo make private */}
-                      <Route exact={true} path="/consentehr">
-                        <ConsentEHR token={token || ''} />
-                      </Route>
-                      {/*todo make private */}
-                      <ConsentedRoute exact={true} path="/contactinfo">
+                  <ConsentedRoute exact={true} path="/dashboard">
+                    {
+                      renderWithGridLayout(<Dashboard token={token || ''} />)
+                    }
+                  </ConsentedRoute>
+                  {/*todo make private */}
+                  <Route exact={true} path="/consent">
+                    {
+                      renderWithGridLayout(<Consent token={token || ''} />)
+                    }
+                  </Route>
+                  {/*todo make private */}
+                  <Route exact={true} path="/consentehr">
+                    {
+                      renderWithGridLayout(<ConsentEHR token={token || ''} />)
+                    }
+                  </Route>
+                  {/*todo make private */}
+                  <ConsentedRoute exact={true} path="/contactinfo">
+                    {
+                      renderWithGridLayout(
                         <SurveyWrapper
                           formTitle="Tell us about yourself"
                           token={token || ''}
                           surveyName={'CONTACT'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </ConsentedRoute>
-                      <ConsentedRoute exact={true} path="/survey1">
+                      )
+                    }
+                  </ConsentedRoute>
+                  <ConsentedRoute exact={true} path="/survey1">
+                    {
+                      renderWithGridLayout(
                         <SurveyWrapper
                           formTitle="Tell us about yourself"
                           token={token || ''}
                           surveyName={'DEMOGRAPHIC'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </ConsentedRoute>
-                      <ConsentedRoute exact={true} path="/survey2">
+                      )
+                    }
+                  </ConsentedRoute>
+                  <ConsentedRoute exact={true} path="/survey2">
+                    {
+                      renderWithGridLayout(
                         <SurveyWrapper
                           formTitle="Your COVID experience"
                           token={token || ''}
                           surveyName={'COVID_EXPERIENCE'}
                           formClass="crc"
                         ></SurveyWrapper>
-                       </ConsentedRoute>
-                       <ConsentedRoute  exact={true} path="/survey3">
+                      )}
+                  </ConsentedRoute>
+                  <ConsentedRoute exact={true} path="/survey3">
+                    {
+                      renderWithGridLayout(
                         <SurveyWrapper
                           formTitle="Health History"
                           token={token || ''}
                           surveyName={'HISTORY'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </ConsentedRoute>
-                      <ConsentedRoute  exact={true} path="/survey4">
+                      )}
+                  </ConsentedRoute>
+                  <ConsentedRoute exact={true} path="/survey4">
+                    {
+                      renderWithGridLayout(
                         <SurveyWrapper
                           formTitle="COVID Part II"
                           token={token || ''}
                           surveyName={'MORE'}
                           formClass="crc"
                         ></SurveyWrapper>
-                      </ConsentedRoute>
+                      )}
+                  </ConsentedRoute>
 
-                      <Route path="/about">
-                        <About></About>
-                      </Route>
-                      <Route path="/faqs">
-                        <FAQs></FAQs>
-                      </Route>
-                      <Route path="/team">
-                        <Team></Team>
-                      </Route>
-                      <Route path="/contact">
-                        <Contact></Contact>
-                      </Route>
-                      <Route path="/settings">
-                        <AcountSettings token={token!}></AcountSettings>
-                      </Route>
-                      <Route path="/home">
-                        <Intro token={token || null}></Intro>
-                      </Route>
-
-                      <Route path="/">
-                        <Intro token={token || null}></Intro>
-                      </Route>
-                    </Switch>
-                  </Grid>
-                </Grid>
+                  <Route path="/about">
+                    {renderWithGridLayout(<About></About>)}
+                  </Route>
+                  <Route path="/faqs">
+                    {renderWithGridLayout(<FAQs></FAQs>)}
+                  </Route>
+                  <Route path="/team">
+                    {renderWithGridLayout(<Team></Team>)}
+                  </Route>
+                  <Route path="/contact">
+                    {renderWithGridLayout(<Contact></Contact>)}
+                  </Route>
+                  <Route path="/settings">
+                    {renderWithGridLayout(<AcountSettings token={token!}></AcountSettings>)}
+                  </Route>
+                  <Route path="/home">
+                    <Intro token={token || null}></Intro>
+                  </Route>
+                  <Route path="/">
+                    <Intro token={token || null}></Intro>
+                  </Route>
+                </Switch>
               </TopNav>
             </div>
           </Router>

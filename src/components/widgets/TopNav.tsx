@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-between',
     color: '#2E2E2E',  // dark
     backgroundColor: '#F2F2F2', // light
-    height: '65px',
+    height: '80px',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -87,7 +87,8 @@ const useStyles = makeStyles(theme => ({
     },
   },
   navbarTitle: {
-    paddingTop: '10px'
+    paddingTop: '11px',
+    paddingLeft: '15px',
   }
 }))
 

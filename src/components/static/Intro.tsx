@@ -1,16 +1,38 @@
 import React from 'react'
+import { makeStyles } from '@material-ui/core'
+import {playfairDisplayFont, openSansFont} from '../../App'
+import LandingPageAboveFold from '../../assets/LandingPageAboveFold.png'
 
 type IntroProps = {
   token: string | null
 }
 
+const useStyles = makeStyles(theme => ({
+  heroImage: {
+    backgroundImage: `url(${LandingPageAboveFold})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    height: '50%'
+  },
+  heroText: {
+    color: '#F2F2F2',
+    fontFamily: playfairDisplayFont
+  }
+}))
+
 export const Intro: React.FunctionComponent<IntroProps> = ({
 
 }: IntroProps) => {
+  const classes = useStyles()
   return (
     <div className="Intro">
        <div>
-        <h1> A citizen-powered movement to fuel COVID-19 discoveries. </h1>
+         <div className={classes.heroImage}>
+            <div className={classes.heroText}>
+              <h1> A citizen-powered movement to drive scientific breakthroughs and save lives in the fight against COVID-19. </h1>
+            </div>
+         </div>
         <div className="Intro__content1">
           {' '}
           <p>
