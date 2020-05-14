@@ -1,10 +1,11 @@
 import React from 'react'
-import { makeStyles, Button, Grid } from '@material-ui/core'
+import { makeStyles, Button, Grid, Hidden } from '@material-ui/core'
 import {playfairDisplayFont, openSansFont} from '../../App'
 import LandingPageAboveFold from '../../assets/LandingPageAboveFold.png'
 import LandingPageLab from '../../assets/LandingPageLab.png'
 import {ReactComponent as Logos} from '../../assets/columbia_and_sage_logo.svg'
 import { NavLink } from 'react-router-dom'
+import BlueSeparator from './BlueSeparator'
 
 type IntroProps = {
   token: string | null
@@ -104,6 +105,24 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     fontFamily: playfairDisplayFont,
+  },
+  participationPanelWrapper: {
+    padding: '20px',
+    marginTop: '-170px'
+  },
+  participationPanel: {
+    backgroundColor: '#FCFCFC',
+    border: '2px #EEEEEE solid'
+  },
+  participationPanelTitle: {
+    fontFamily: playfairDisplayFont,
+    fontWeight: 'bold',
+    fontSize: '2.5rem',
+    textAlign: 'center',
+    padding: '40px 20px 0px 20px'
+  },
+  pink: {
+    color: '#FC9090',
   }
 }))
 
@@ -168,6 +187,28 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
             By sharing your experience in recovering from COVID-19, you can help answer critical questions. 
           </div>
         </div>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={2}
+          className={classes.participationPanelWrapper}
+        >
+          <Grid item xs={12} md={10} lg={8}>
+            <div className={classes.participationPanel}>
+              <div className={classes.participationPanelTitle}>
+                <span>Participation is simple.&nbsp;</span>
+                <Hidden smUp>
+                  <br></br>
+                </Hidden>
+                <span className={classes.pink}>Here’s how it works.</span>
+              </div>
+              <BlueSeparator></BlueSeparator>
+              
+            </div>
+          </Grid>
+        </Grid>
       </div>
     </div>
   )
