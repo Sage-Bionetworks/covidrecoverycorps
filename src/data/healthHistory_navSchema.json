@@ -145,8 +145,45 @@
     {
       "id": "women",
       "order": 0,
-      "title": "Questions for Women",
-      "default": "family_history",
+      "title": "",
+      "default": "women3",
+      "rules": [
+
+
+        {
+          "conditions": {
+            "all": [
+              {
+                "fact": "women",
+                "operator": "in",
+                "path": ".pregnant",
+                "value": ["I am currently pregnant", "I delivered within the last 6 months"]
+              }
+            ]
+          },
+          "event": {
+            "type": "next",
+            "params": {
+              "next": "women2"
+            }
+          },
+          "priority:": 1
+        }
+      
+      ]
+    },
+    {
+      "id": "women2",
+      "order": 0,
+      "title": "",
+      "default": "women3",
+      "rules": []
+    },
+    {
+      "id": "women3",
+      "order": 0,
+      "title": "",
+      "default": "history21",
       "rules": []
     }
 
