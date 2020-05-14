@@ -252,7 +252,7 @@ const fullScreenNavBar = <div>
         </div>
         
         {/* show hamburger menu on xs and sm, but full nav bar on md and up */}
-        <Hidden mdUp>
+        <Hidden lgUp>
           <IconButton
             color="inherit"
             aria-label="Open drawer"
@@ -263,7 +263,7 @@ const fullScreenNavBar = <div>
             <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
           </IconButton>  
         </Hidden>
-        <Hidden smDown>
+        <Hidden mdDown>
           {fullScreenNavBar}
         </Hidden>
       </Toolbar>

@@ -4,7 +4,11 @@ import {playfairDisplayFont, openSansFont} from '../../App'
 import LandingPageAboveFold from '../../assets/LandingPageAboveFold.png'
 import LandingPageLab from '../../assets/LandingPageLab.png'
 import {ReactComponent as Logos} from '../../assets/columbia_and_sage_logo.svg'
-import { NavLink } from 'react-router-dom'
+import {ReactComponent as Tablet} from '../../assets/tablet.svg'
+import {ReactComponent as TestTubes} from '../../assets/test_tubes.svg'
+import {ReactComponent as BooksApple} from '../../assets/books_apple.svg'
+
+import { NavLink, Link } from 'react-router-dom'
 import BlueSeparator from './BlueSeparator'
 
 type IntroProps = {
@@ -29,13 +33,13 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '550px',
     lineHeight: '127%'
   },
-  heroJoinButton: {
+  joinButton: {
     height: '36px',
     width: '100px',
+    marginTop: '40px',
     marginBottom: '80px'
   },
   navLink: {
-    paddingLeft: '60px',
     '&:hover': {
       textDecoration: 'none',
     },
@@ -70,7 +74,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   labTextDiv: {
-    padding: '40px 25px',
+    padding: '40px 25px 40px 90px',
     maxWidth: '500px',
   },
   labTextTitleDiv: {
@@ -112,7 +116,8 @@ const useStyles = makeStyles(theme => ({
   },
   participationPanel: {
     backgroundColor: '#FCFCFC',
-    border: '2px #EEEEEE solid'
+    border: '2px #EEEEEE solid',
+    padding: '30px 50px',
   },
   participationPanelTitle: {
     fontFamily: playfairDisplayFont,
@@ -123,7 +128,48 @@ const useStyles = makeStyles(theme => ({
   },
   pink: {
     color: '#FC9090',
-  }
+  },
+  participationPanelStepNumber: {
+    color: '#FC9090',
+    fontFamily: openSansFont,
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    paddingBottom: '1px'
+  },
+  participationPanelStepTitle: {
+    fontFamily: playfairDisplayFont, 
+    fontWeight: 'bold',
+    fontSize: '2rem',
+    lineHeight: '2.75rem',
+    color: '#2A2A2A',
+    paddingBottom: '17px'
+  },
+  participationPanelStepBody: {
+    fontFamily: openSansFont, 
+    fontSize: '1.3rem',
+    lineHeight: '2rem',
+    color: '#3A3A3A',
+    paddingBottom: '50px'
+  },
+  participationPanelStepIconDiv: {
+    paddingLeft: '50px'
+  },
+  participationPanelStepIconMobileDiv: {
+    textAlign: 'center',
+    padding: '20px'
+  },
+  fightTogetherDiv: {
+    backgroundColor: '#3A3A3A',
+  },
+  fightTogetherDivText: {
+    fontFamily: playfairDisplayFont,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#FFFFFF',
+    padding: '40px 25px 0px 25px',
+    fontSize: '2.7rem',
+  },
+
 }))
 
 export const Intro: React.FunctionComponent<IntroProps> = ({
@@ -136,19 +182,21 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
          <div className={classes.heroImage}>
             <div className={classes.heroText}>
               A citizen-powered movement<br></br>to drive scientific breakthroughs<br></br>and save lives in the<br></br>fight against COVID-19.
+              <div>
+                <NavLink
+                  to="/eligibility"
+                  className={classes.navLink}
+                >
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    className={classes.joinButton}
+                  >
+                  Join us
+                  </Button>
+                </NavLink>
+              </div>
             </div>
-            <NavLink
-              to="/eligibility"
-              className={classes.navLink}
-            >
-              <Button
-                color="primary"
-                variant="contained"
-                className={classes.heroJoinButton}
-              >
-              Join Us
-              </Button>
-            </NavLink>
          </div>
         <div className={classes.content1}>
           <div className={classes.content1TextDiv}>
@@ -163,7 +211,6 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
           direction="row"
           justify="center"
           alignItems="center"
-          spacing={2}
         >
           <Grid item xs={12} md={6}>
             <div className={classes.labImageDiv}>
@@ -192,7 +239,6 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
           direction="row"
           justify="center"
           alignItems="center"
-          spacing={2}
           className={classes.participationPanelWrapper}
         >
           <Grid item xs={12} md={10} lg={8}>
@@ -204,10 +250,127 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
                 </Hidden>
                 <span className={classes.pink}>Here’s how it works.</span>
               </div>
-              <BlueSeparator></BlueSeparator>
-              
+              <Hidden xsDown>
+                <BlueSeparator />
+              </Hidden>
+
+              {/* Step one               */}
+              <Hidden smUp>
+                <div className={classes.participationPanelStepIconMobileDiv}>
+                  <Tablet />
+                </div>
+              </Hidden>
+              <Grid
+                container
+                justify="center"
+                alignItems="center"
+              >
+                <Grid item xs={12} sm={9}>
+                  <div className={classes.participationPanelStepNumber}>
+                    STEP ONE
+                  </div>
+                  <div className={classes.participationPanelStepTitle}>
+                    Register and take the survey
+                  </div>
+                  <div className={classes.participationPanelStepBody}>
+                    To get started, click <Link to="/eligibility" style={{fontWeight: 'bold'}}>Join Us</Link> and review information about what will happen in the study. After registering, you will be invited to take brief surveys that may help scientists begin to answer questions like: Why do some people experience very mild symptoms while others get very sick? How does recovering from COVID-19 impact your health over time?
+                  </div>
+                </Grid>
+                <Grid item xs={12} sm={3}>
+                  <div className={classes.participationPanelStepIconDiv}>
+                    <Hidden xsDown>
+                      <Tablet />
+                    </Hidden>
+                  </div>
+                </Grid>
+              </Grid>
+
+              {/* Step two               */}
+              <Hidden smUp>
+                <div className={classes.participationPanelStepIconMobileDiv}>
+                  <TestTubes />
+                </div>
+              </Hidden>
+              <Grid
+                container
+                justify="center"
+                alignItems="center"
+              >
+                <Grid item xs={12} sm={9}>
+                  <div className={classes.participationPanelStepNumber}>
+                    STEP TWO
+                  </div>
+                  <div className={classes.participationPanelStepTitle}>
+                    Share your samples
+                  </div>
+                  <div className={classes.participationPanelStepBody}>
+                    We will invite some participants to visit clinical sites in New York City to donate a sample.  In the future, other participants will be invited to donate a sample from home.  Sharing your samples will help researchers develop more reliable antibody tests that can make antibody testing accessible to more people, and in turn, may help answer important questions  including: Who was really infected with COVID-19?  What levels of antibodies are needed to protect us from reinfection? Is it possible for people to develop full immunity to COVID-19?
+                  </div>
+                </Grid>
+                <Grid item xs={12} sm={3}>
+                  <div className={classes.participationPanelStepIconDiv}>
+                    <Hidden xsDown>
+                      <TestTubes />
+                    </Hidden>
+                  </div>
+                </Grid>
+              </Grid>
+
+              {/* Step three               */}
+              <Hidden smUp>
+                <div className={classes.participationPanelStepIconMobileDiv}>
+                  <BooksApple />
+                </div>
+              </Hidden>
+              <Grid
+                container
+                justify="center"
+                alignItems="center"
+              >
+                <Grid item xs={12} sm={9}>
+                  <div className={classes.participationPanelStepNumber}>
+                    STEP THREE
+                  </div>
+                  <div className={classes.participationPanelStepTitle}>
+                    Learn with us along the way
+                  </div>
+                  <div className={classes.participationPanelStepBody}>
+                    If you are asked to provide a sample, we will return results of the antibody test approved by the New York State Department of Health and share information about what those results mean. As we learn more about the impact of COVID-19 across study participants, we will share regular updates with the broader scientific and patient community. We may also ask if you are interested in joining other related studies. For instance, some participants may choose to be notified of opportunities to donate plasma and help those still fighting for survival from COVID-19.
+                  </div>
+                </Grid>
+                <Grid item xs={12} sm={3}>
+                  <div className={classes.participationPanelStepIconDiv}>
+                    <Hidden xsDown>
+                      <BooksApple />
+                    </Hidden>
+                  </div>
+                </Grid>
+              </Grid>
             </div>
           </Grid>
+        </Grid>
+      </div>
+      <div className={classes.fightTogetherDiv}>
+        <div className={classes.fightTogetherDivText}>
+          Together, we can fight COVID-19.
+        </div>
+        <Grid
+          container
+          justify="center"
+          alignItems="center"
+        >
+          <NavLink
+              to="/eligibility"
+              className={classes.navLink}
+          >
+            <Button
+              color="primary"
+              variant="contained"
+              className={classes.joinButton}
+            >
+            Join us
+            </Button>
+          </NavLink>
         </Grid>
       </div>
     </div>
