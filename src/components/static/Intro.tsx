@@ -1,7 +1,9 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, Button } from '@material-ui/core'
 import {playfairDisplayFont, openSansFont} from '../../App'
 import LandingPageAboveFold from '../../assets/LandingPageAboveFold.png'
+import {ReactComponent as Logos} from '../../assets/columbia_and_sage_logo.svg'
+import { NavLink } from 'react-router-dom'
 
 type IntroProps = {
   token: string | null
@@ -13,13 +15,52 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    height: '50%'
+    minHeight: '450px'
   },
   heroText: {
     color: '#F2F2F2',
     fontFamily: playfairDisplayFont,
-    fontSize: '5.5rem'
-  }
+    fontSize: '3.5rem',
+    paddingTop: '100px',
+    paddingLeft: '60px',
+    paddingBottom: '35px',
+    maxWidth: '550px',
+    lineHeight: '127%'
+  },
+  heroJoinButton: {
+    height: '36px',
+    width: '100px',
+    marginBottom: '80px'
+  },
+  navLink: {
+    paddingLeft: '60px',
+    '&:hover': {
+      textDecoration: 'none',
+    },
+    '&:focus': {
+      textDecoration: 'none',
+    },
+  },
+  content1: {
+    fontFamily: playfairDisplayFont,
+    backgroundColor: '#90CCCC',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    paddingTop: '50px',
+    paddingBottom: '50px',
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  content1TextDiv: {
+    maxWidth: '650px',
+    paddingLeft: '20px',
+    paddingRight: '20px',
+  },
+  logosDiv: {
+    padding: '50px 20px',
+    display: 'flex',
+    justifyContent: 'center',
+  },
 }))
 
 export const Intro: React.FunctionComponent<IntroProps> = ({
@@ -31,16 +72,28 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
        <div>
          <div className={classes.heroImage}>
             <div className={classes.heroText}>
-              A citizen-powered movement to drive scientific breakthroughs and save lives in the fight against COVID-19.
+              A citizen-powered movement<br></br>to drive scientific breakthroughs<br></br>and save lives in the<br></br>fight against COVID-19.
             </div>
+            <NavLink
+              to="/eligibility"
+              className={classes.navLink}
+            >
+              <Button
+                color="primary"
+                variant="contained"
+                className={classes.heroJoinButton}
+              >
+              Join Us
+              </Button>
+            </NavLink>
          </div>
-        <div className="Intro__content1">
-          {' '}
-          <p>
-            If you live in the New York Tri-State area and have recovered from
-            COVID-19 — or think you have— you can help scientists make progress
-            in the global fight against this disease.{' '}
-          </p>
+        <div className={classes.content1}>
+          <div className={classes.content1TextDiv}>
+            If you live in the New York City metro area and have recovered from COVID-19, you can help scientists make progress in the global fight against this disease.
+          </div>
+        </div>
+        <div className={classes.logosDiv}>
+          <Logos />
         </div>
         <h1>Why Participate? </h1>
         <div className="Intro__content2">
