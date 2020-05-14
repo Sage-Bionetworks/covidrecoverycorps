@@ -1,7 +1,8 @@
 import React from 'react'
-import { makeStyles, Button } from '@material-ui/core'
+import { makeStyles, Button, Grid } from '@material-ui/core'
 import {playfairDisplayFont, openSansFont} from '../../App'
 import LandingPageAboveFold from '../../assets/LandingPageAboveFold.png'
+import LandingPageLab from '../../assets/LandingPageLab.png'
 import {ReactComponent as Logos} from '../../assets/columbia_and_sage_logo.svg'
 import { NavLink } from 'react-router-dom'
 
@@ -61,6 +62,23 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
   },
+  labImageDiv: {
+    maxWidth: '600px'
+  },
+  labTextDiv: {
+    padding: '40px 25px'
+  },
+  labTextTitleDiv: {
+    fontFamily: playfairDisplayFont,
+    fontWeight: 'bold',
+    color: '#2a2a2a',
+    lineHeight: '37pt',
+    fontSize: '2.5rem'
+  },
+  labTextBodyDiv: {
+    fontFamily: openSansFont,
+    lineHeight: '25pt'
+  }
 }))
 
 export const Intro: React.FunctionComponent<IntroProps> = ({
@@ -95,6 +113,30 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
         <div className={classes.logosDiv}>
           <Logos />
         </div>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="flex-start"
+          spacing={2}
+        >
+          <Grid item xs={12} md={6}>
+            <div className={classes.labImageDiv}>
+              <img src={LandingPageLab} alt="Lab" width="100%" />
+            </div>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <div className={classes.labTextDiv}>
+              <div className={classes.labTextTitleDiv}>
+                There is an urgent need to come together as a survivor community to rapidly advance our understanding of COVID-19.
+              </div>
+              <div className={classes.labTextBodyDiv}>
+                You recovered. So have thousands of others. Your experiences could help unlock the mysteries behind this disease. Our mission is to learn more about COVID-19 by bringing your experiences together. 
+              </div>
+            </div>
+          </Grid>
+        </Grid>
+
         <h1>Why Participate? </h1>
         <div className="Intro__content2">
           <p>
