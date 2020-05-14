@@ -19,15 +19,14 @@
       @include label_level2;
     }
     margin-top: -5px;
-    padding: 0rem 0 2rem 6.5rem;
+    padding: 0rem 1rem 2rem 6rem;
     margin-right: -1.5rem;
     background-color: $gray-bg;
 
     margin-bottom: 0.2rem;
     label {
-      margin-left:0
+      margin-left: 0;
     }
- 
   }
 
   @mixin control_label {
@@ -48,7 +47,7 @@
 
   margin-right: 0;
 
- /* .MuiCard-root {
+  /* .MuiCard-root {
     background-color: #f5f5f5;
     padding-bottom: 2rem;
 
@@ -60,7 +59,7 @@
 
   legend {
     font-weight: bold;
-    margin-left:  $left-pad;
+    margin-left: $left-pad;
   }
 
   #root.fieldset {
@@ -82,7 +81,7 @@
   }
 
   .padded-panel {
-    padding: 0 1.5rem 0  $left-pad;
+    padding: 0 1.5rem 0 $left-pad;
   }
 
   label.control-label {
@@ -116,18 +115,17 @@
       font-size: 2.8rem;
       margin-bottom: 2rem;
       font-weight: bold;
-      font-family: "Source Serif Pro", serif;
+      font-family: 'Source Serif Pro', serif;
     }
     .surveyIntro {
       margin: 0 0 2rem 0;
-
     }
   }
 
   .form-group.field.text {
-   padding-left: $left-pad;
-    label{
-      margin-left: 0
+    padding-left: $left-pad;
+    label {
+      margin-left: 0;
     }
   }
 
@@ -219,12 +217,11 @@
     }
 
     .bs-callout {
-      margin-left:$left-pad;
-    
+      margin-left: $left-pad;
     }
   }
   .form-error-summary {
-    display: none;// display: none;
+    display: none; // display: none;
   }
   .error {
     color: $red-error;
@@ -399,8 +396,6 @@
     border-radius: 0;
     padding: 10px 20px;
     font-size: 1.6rem;
-
-
   }
 
   select {
@@ -436,6 +431,7 @@
   .show_fieldSet {
     legend {
       display: block !important;
+      font-size: 1.8rem;
     }
     .form-group.field-boolean {
       margin-bottom: 0;
@@ -513,13 +509,12 @@
     }
   }
 
-  // demographic survey
-  .demographic {
-  }
-
   //-------------------------------------            covid1 survey3
-  .symptoms {
-    
+  .symptoms,
+  .hospitalization_treatment,
+  .diseases_history_cont,
+  .family_diseases,
+  .health-conditions {
     legend {
       @include control_label;
     }
@@ -559,9 +554,6 @@
       label {
         @include label_level2;
       }
-
-      //  width: 50%;
-      // float: left;
     }
     .still_symptoms.form-group {
       padding-left: 0;
@@ -569,23 +561,6 @@
         @include field-description;
         // @include control_label;
       }
-    }
-    .form-group.field-string {
-      //margin-bottom: 5px;
-    }
-  }
-
-  .hospitalization_treatment {
-    legend {
-      font-size: 1.6rem;
-      margin-bottom: 5px;
-    }
-    .form-group.field-string,
-    .form-group.field-number {
-      @include subfield_inverted;
-    }
-    .form-group.field-number input {
-      width: 30%;
     }
   }
 
@@ -641,19 +616,22 @@
   /* -------------------------------------    health history */
   .health-history {
     .height {
-      margin-bottom: 1rem;
+      margin-bottom: 0rem;
       > .fieldset {
         display: flex;
         flex-wrap: wrap;
         legend {
-          font-size: 1.6rem;
+          font-size: 1.8rem;
           width: 100%;
           margin-bottom: 5px;
         }
         label.control-label {
           display: none;
         }
-
+        .form-group {
+          width: 45%;
+          margin-bottom: 0px;
+        }
         .form-group:first-of-type {
           margin-right: 5px;
           margin-bottom: 0;
@@ -671,49 +649,15 @@
       }
     }
 
-    .health-conditions {
-      legend {
-        font-size: 1.6rem;
-      }
-
-      .form-group.field-boolean {
-        margin-bottom: 0px;
-        > .checkbox {
-          margin-top: 5px;
-          margin-bottom: 5px;
-        }
-      }
-    }
+  
 
     .bp_medication {
       @include subfield_inverted;
     }
 
-    .diseases_history_cont {
-      legend {
-        font-size: 1.6rem;
-      }
-      .form-group.field-string {
-        margin-bottom: 5px;
-      }
-      .form-group.field-string,
-      .form-group.field-number {
-        @include subfield_inverted;
-      }
-    }
+    
 
-    .health-conditions {
-      legend {
-        font-size: 1.6rem;
-      }
-      .form-group.field-string {
-        margin-bottom: 5px;
-      }
-      .form-group.field-string,
-      .form-group.field-number {
-        @include subfield_inverted;
-      }
-    }
+    ////
 
     .women {
       .due_date {
@@ -736,10 +680,9 @@
   }
 
   @media only screen and (max-width: 768px) {
-   
     div.checkbox,
     div.radio {
-      padding: 1rem 1rem 1rem 1.5rem; // 10px 10px 10px 0;
+      padding: 1rem 1rem 1rem 1.5rem; 
     }
     label.control-label {
       margin-left: 1.5rem;
@@ -748,15 +691,6 @@
     .subfields .form-group {
       padding-left: 1rem;
     }
-  
-   
- 
   }
 }
 
-.theme-crc {
-  // symptoms
-  //////////////////////////////////////////////////////////////
-  // params: $primary-action-color                            //
-  //////////////////////////////////////////////////////////////
-}
