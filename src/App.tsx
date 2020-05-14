@@ -172,6 +172,7 @@ function renderWithGridLayout(el: JSX.Element) {
     justify="center"
     alignItems="center"
     spacing={2}
+    style={{paddingLeft: '24px', paddingRight: '24px'}}
   >
     <Grid item xs={12} md={8} lg={6}>
       {el}

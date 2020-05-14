@@ -17,7 +17,8 @@ const useStyles = makeStyles(theme => ({
   },
   heroText: {
     color: '#F2F2F2',
-    fontFamily: playfairDisplayFont
+    fontFamily: playfairDisplayFont,
+    fontSize: '5.5rem'
   }
 }))
 
@@ -30,7 +31,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
        <div>
          <div className={classes.heroImage}>
             <div className={classes.heroText}>
-              <h1> A citizen-powered movement to drive scientific breakthroughs and save lives in the fight against COVID-19. </h1>
+              A citizen-powered movement to drive scientific breakthroughs and save lives in the fight against COVID-19.
             </div>
          </div>
         <div className="Intro__content1">
