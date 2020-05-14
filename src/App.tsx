@@ -43,7 +43,7 @@ import GoogleAnalyticsPageTracker from './components/widgets/GoogleAnalyticsPage
 import CookieNotificationBanner from './components/widgets/CookieNotificationBanner'
 import ScrollToTopOnRouteChange from './components/widgets/ScrollToTopOnRouteChange'
 
-const sourceSerifProFont: string = [
+export const sourceSerifProFont: string = [
   'Source Serif Pro',
   'serif',
   'Lato',
@@ -52,7 +52,7 @@ const sourceSerifProFont: string = [
   'Arial',
 ].join(',')
 
-const openSansFont = [
+export const openSansFont = [
   'Open Sans',
   'serif',
   'Lato',
@@ -60,6 +60,16 @@ const openSansFont = [
   'Helvetica',
   'Arial',
 ].join(',')
+
+export const playfairDisplayFont = [
+  'Playfair Display',
+  'serif',
+  'Lato',
+  'Roboto',
+  'Helvetica',
+  'Arial',
+].join(',')
+
 
 const theme = createMuiTheme({
   typography: {
