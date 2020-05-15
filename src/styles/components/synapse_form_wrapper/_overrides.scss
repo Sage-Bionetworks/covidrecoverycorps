@@ -48,6 +48,7 @@
 
   .MuiCard-root {
     padding-bottom: 2rem;
+    max-width: 360px;
   }
 
   margin-right: 0;
@@ -639,19 +640,21 @@
           }
         }
       }
-      .household_size {
+      .household_size,  .people_diagnosed  {
         .fieldset {
           width: 100%;
         }
         .field-number {
           display: flex;
           flex-direction: row-reverse;
-          margin-left: 1.5rem;
+          padding-left: 1.5rem;
           margin-bottom: 1.5rem;
           justify-content: flex-end;
           align-items: center;
+          width:100%;
           input {
             width:30%;
+            flex-shrink: 0;
           }
           label {
             margin-bottom: 0;
@@ -672,7 +675,7 @@
           }
         }
       }
-      .people_diagnosed {
+ /* .people_diagnosed {
         .form-group.field-number {
           display: flex;
           label {
@@ -691,7 +694,7 @@
         .checkbox > label::before {
           margin-left: 0 !important;
         }
-      }
+      }*/
     }
   }
 
