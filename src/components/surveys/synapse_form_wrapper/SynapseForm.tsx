@@ -797,17 +797,31 @@ export default class SynapseForm extends React.Component<
         }
       }
     })
-    // check if we have something selected
+  
     const engine = new Engine()
+    //this operator checks if any properties match value
     engine.addOperator('notHasChecked', (factValue: any, value: any) => {
       if (!factValue) {
         return true
       }
-
       const vals = Object.values(factValue).filter((fv) => fv === value)
-
       return vals.length === 0
     })
+
+
+    engine.addOperator('minPropsLength', (factValue: any, value: any) => {
+      if (!factValue) {
+        return true
+      }
+      const vals = Object.values(factValue)
+      return vals.length < value
+    })
+
+
+
+
+
+
     allRules.forEach((rule) => {
       engine.addRule(rule)
     })

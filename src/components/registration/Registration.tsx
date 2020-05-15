@@ -28,7 +28,7 @@ const PHONE_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/phone'
 const signupIntro = {
   PHONE: (
     <>
-      <h1>Dont have email?</h1>
+      <h1>Don't have email?</h1>
       <p>
         At this time, we are only able to invite participants to lab draws with
         an email account. We are working on this issue. We hope to support
@@ -169,7 +169,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                     disabled={!state.email.value}
                   >
                     Create account
-                  </Button>
+                  </Button><br/>
                   <Button
                     variant="text"
                     onClick={() => {
@@ -225,7 +225,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                     disabled={!state.phone.value}
                   >
                     Create account
-                  </Button>
+                  </Button><br/>
                   <Button
                     variant="text"
                     onClick={() => {
