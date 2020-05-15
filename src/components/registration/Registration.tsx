@@ -28,12 +28,13 @@ const PHONE_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/phone'
 const signupIntro = {
   PHONE: (
     <>
-      <h1>Dont have email?</h1>
+      <h1>Don't have email?</h1>
       <p>
         At this time, we are only able to invite participants to lab draws with
-        an email account. We are working on this issue. We hope to support
-        scheduling appointments with your phone number in the near future. You
-        can still provide important information to our researchers by filling
+        an email account.</p>
+        <p>We are working on this issue. We hope to support
+        scheduling appointments with your phone number in the near future.</p>
+        <p>You can still provide important information to our researchers by filling
         out surveys.
       </p>
     </>
@@ -43,8 +44,8 @@ const signupIntro = {
       <h1>Getting Started</h1>
       <p>
         {' '}
-        To access the consent and surveys, you will need to create an account.
-        You will use your email to log into your account in the future.
+        To access the consent and surveys, you will need to create an account.</p>
+       <p> You will use your email to log into your account in the future.
       </p>
     </>
   ),
@@ -169,7 +170,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                     disabled={!state.email.value}
                   >
                     Create account
-                  </Button>
+                  </Button><br/>
                   <Button
                     variant="text"
                     onClick={() => {
@@ -225,7 +226,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                     disabled={!state.phone.value}
                   >
                     Create account
-                  </Button>
+                  </Button><br/>
                   <Button
                     variant="text"
                     onClick={() => {

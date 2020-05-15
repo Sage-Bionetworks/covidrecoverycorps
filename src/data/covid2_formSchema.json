@@ -24,12 +24,12 @@
       "properties": {
         "travel": {
           "type": "string",
-          "title": "Were you abroad just before getting sick / being exposed to or being suspected for COVID-19 infection?",
+          "title": "1. Were you abroad just before getting sick / being exposed to or being suspected for COVID-19 infection?",
           "enum": ["No", "Yes", "Prefer not to answer"]
         },
         "household_size": {
           "type": "object",
-          "title": "How many people live with you in your apartment/house in each age category? Include yourself. (Fill in 0 if none are)",
+          "title": "2.How many people live with you in your apartment/house in each age category? Include yourself. (Fill in 0 if none are)",
 
           "properties": {
             "under3": {
@@ -71,7 +71,7 @@
         },
         "housing_type": {
           "type": "string",
-          "title": "What type of household do you live in?",
+          "title": "3. What type of household do you live in?",
           "uniqueItems": true,
           "enum": [
             "Studio apartment",
@@ -125,14 +125,14 @@
     "covid11": {
       "type": "object",
       "title": "",
-      "required": ["people_infected", "people_diagnosed"],
+      "required": [ "people_diagnosed",  "antibiotics_covid_prior"],
       "properties": {
         "people_infected": {
           "type": "number",
           "title": "4. How many people in your household have been infected with or presumed to be infected with COVID-19?"
         },
         "people_diagnosed": {
-          "title": "How many of your immediate or extended family members related by blood have the following:",
+          "title": "5. How many of your immediate or extended family members related by blood have the following:",
           "type": "object",
           "minProperties": 1,
           "properties": {
@@ -152,14 +152,14 @@
               "type": "number",
               "title": "Died due to COVID-19? "
             },
-            "prefer_not_answer": {
+            "no_answer": {
               "type": "boolean",
               "title": "Prefer not to answer"
             }
           }
         },
         "antibiotics_covid_prior": {
-          "title": "Prior to COVID-19, when was the last time a doctor gave you antibiotics?",
+          "title": "6. Prior to COVID-19, when was the last time a doctor gave you antibiotics?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -180,7 +180,7 @@
       "required": ["antibiotics_purpose", "antibiotics_course"],
       "properties": {
         "antibiotics_purpose": {
-          "title": "For what purpose, did the doctor give you antibiotics the last time you took antibiotics?",
+          "title": "6a. For what purpose, did the doctor give you antibiotics the last time you took antibiotics?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -195,7 +195,7 @@
           ]
         },
         "antibiotics_course": {
-          "title": "How long was your course of antibiotics?",
+          "title": "6b. How long was your course of antibiotics?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -221,7 +221,7 @@
       ],
       "properties": {
         "cold_how_often": {
-          "title": "How often do you usually get a cold?",
+          "title": "7. How often do you usually get a cold?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -233,7 +233,7 @@
           ]
         },
         "mask_you": {
-          "title": "In the 2 weeks prior to becoming ill, how often did you wear a face mask in public?",
+          "title": "8. In the 2 weeks prior to becoming ill, how often did you wear a face mask in public?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -245,7 +245,7 @@
           ]
         },
         "mask_household": {
-          "title": "In the 2 weeks prior to becoming ill, how often did the people you live with wear a face mask in public?",
+          "title": "9. In the 2 weeks prior to becoming ill, how often did the people you live with wear a face mask in public?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -257,7 +257,7 @@
           ]
         },
         "sanitizer_you": {
-          "title": "In the 2 weeks prior to becoming ill, how often did you use hand sanitizer?",
+          "title": "10. In the 2 weeks prior to becoming ill, how often did you use hand sanitizer?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -276,11 +276,12 @@
       "required": [
         "sanitizer_household",
         "social_distance_you",
-        "social_distance_household"
+        "social_distance_household",
+        "leave_house_frequency"
       ],
       "properties": {
         "sanitizer_household": {
-          "title": "In the 2 weeks prior to becoming ill, how often did the people you live with use hand sanitizer?",
+          "title": "11. In the 2 weeks prior to becoming ill, how often did the people you live with use hand sanitizer?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -292,7 +293,7 @@
           ]
         },
         "social_distance_you": {
-          "title": "In the 2 weeks prior to becoming ill, how often did you consciously attempt to socially distance from others?",
+          "title": "12. In the 2 weeks prior to becoming ill, how often did you consciously attempt to socially distance from others?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -304,7 +305,7 @@
           ]
         },
         "social_distance_household": {
-          "title": "In the 2 weeks prior to becoming ill, how often did the people you live with consciously attempt to socially distance from others?",
+          "title": "13. In the 2 weeks prior to becoming ill, how often did the people you live with consciously attempt to socially distance from others?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -314,36 +315,37 @@
             "Always",
             "Prefer not to answer"
           ]
-        }
+        },
+        "leave_house_frequency": {
+            "title": "14. In the 2 weeks prior to becoming ill, how often did you leave your apartment or house?",
+            "type": "string",
+            "uniqueItems": true,
+            "enum": [
+              "Never",
+              "3 to 4 times a week",
+              "Daily",
+              "Multiple times per day",
+              "Prefer not to answer"
+            ]
+          }
       }
     },
     "life_pets": {
       "type": "object",
       "title": "",
       "required": [
-        "leave_house_frequency",
+     
         "pets",
         "last_time_pet_dog_cat",
-        "how_purchased_groceries",
-        "transportation"
+        "how_purchased_groceries"
+   
       ],
       "properties": {
-        "leave_house_frequency": {
-          "title": "In the 2 weeks prior to becoming ill, how often did you leave your apartment or house?",
-          "type": "string",
-          "uniqueItems": true,
-          "enum": [
-            "Never",
-            "3 to 4 times a week",
-            "Daily",
-            "Multiple times per day",
-            "Prefer not to answer"
-          ]
-        },
+     
         "pets": {
           "type": "array",
           "uniqueItems": true,
-          "title": "Do you have any the following pets in your home (please click all that apply)",
+          "title": "15. Do you have any the following pets in your home (check all that apply)",
           "items": {
             "type": "string",
             "enum": [
@@ -358,10 +360,10 @@
         },
         "pets_other": {
           "type": "string",
-          "title": "TODO"
+          "title": "15a. If you checked \"other\" in the previous question, what kind of pet is it? "
         },
         "last_time_pet_dog_cat": {
-          "title": " When was the last time you pet a dog or cat before you got sick?",
+          "title": "16. When was the last time you pet a dog or cat before you got sick?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -374,7 +376,7 @@
           ]
         },
         "how_purchased_groceries": {
-          "title": "In the two weeks prior to becoming ill, how did you purchase groceries?",
+          "title": "17. In the two weeks prior to becoming ill, how did you purchase groceries? (check all that apply)",
           "type": "array",
           "uniqueItems": true,
           "items": {
@@ -388,25 +390,8 @@
               "Prefer not to answer"
             ]
           }
-        },
-        "transportation": {
-          "title": "What transportation did you take in the two weeks prior to becoming ill? (check all that apply)",
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": [
-              "Subway",
-              "Bus",
-              "Uber/Lyft/Taxi cab or similar",
-              "Airplane",
-              "Train",
-              "Ferry",
-              "Car",
-              "Prefer not to answer"
-            ]
-          }
         }
+      
       },
       "dependencies": {}
     },
@@ -414,6 +399,7 @@
       "type": "object",
       "title": "",
       "required": [
+          "transportation",
         "telecommute",
         "job_title",
         "were_healthcare_worker",
@@ -423,8 +409,26 @@
         "commute_car"
       ],
       "properties": {
+        "transportation": {
+            "title": "18. What transportation did you take in the two weeks prior to becoming ill? (check all that apply)",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "Subway",
+                "Bus",
+                "Uber/Lyft/Taxi cab or similar",
+                "Airplane",
+                "Train",
+                "Ferry",
+                "Car",
+                "Prefer not to answer"
+              ]
+            }
+          },
         "telecommute": {
-          "title": "Were you able to telecommute to work in the two weeks prior to becoming ill?",
+          "title": "19. Were you able to telecommute to work in the two weeks prior to becoming ill?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -437,34 +441,34 @@
         },
         "job_title": {
           "type": "string",
-          "title": "What is your job title"
+          "title": "20. What is your job title"
         },
         "were_healthcare_worker": {
-          "title": "Over the last year, were you a health care worker?",
+          "title": "21. Over the last year, were you a health care worker?",
           "type": "string",
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"]
         },
         "were_teacher_childcare": {
-          "title": "Over the last year, have you worked as a teacher or worked in childcare services?",
+          "title": "22. Over the last year, have you worked as a teacher or worked in childcare services?",
           "type": "string",
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"]
         },
         "were_foodservice": {
-          "title": "Over the last year, have you worked in the food service industry?",
+          "title": "23. Over the last year, have you worked in the food service industry?",
           "type": "string",
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"]
         },
         "commute_mass_transit": {
-          "title": "Do you usually commute by mass transit (subway, train, bus)?",
+          "title": "24. Do you usually commute by mass transit (subway, train, bus)?",
           "type": "string",
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"]
         },
         "commute_car": {
-          "title": "Do you usually commute by driving, using taxis, or car share services?",
+          "title": "25. Do you usually commute by driving, using taxis, or car share services?",
           "type": "string",
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"]

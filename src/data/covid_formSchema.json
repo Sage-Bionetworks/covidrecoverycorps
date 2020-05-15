@@ -743,7 +743,7 @@
           }
         },
         "hospitals_other": {
-          "title": "If you were treated in a different hospital, what was it's name?",
+          "title": "If you were treated in a different hospital, what was its name?",
           "type": "string"
         }
       },

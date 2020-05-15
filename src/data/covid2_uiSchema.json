@@ -100,7 +100,7 @@
     }
   },
   "life_pets": {
-    "ui:order": ["leave_house_frequency", "pets", "pets_other", "*"],
+    "ui:order": ["leave_house_frequency", "pets", "pets_other",  "*"],
     "leave_house_frequency": {
       "ui:widget": "radio"
     },
@@ -110,7 +110,10 @@
         "inline": false
       }
     },
-    "pets_other": {},
+    "pets_other": {
+      "classNames": "text"
+      },
+
     "last_time_pet_dog_cat": {
       "ui:widget": "radio"
     },
@@ -119,19 +122,22 @@
       "ui:options": {
         "inline": false
       }
-    },
-    "transportation": {
-      "ui:widget": "checkboxes",
-      "ui:options": {
-        "inline": false
-      }
     }
+  
   },
   "job_commute": {
+    "transportation": {
+        "ui:widget": "checkboxes",
+        "ui:options": {
+          "inline": false
+        }
+      },
     "telecommute": {
       "ui:widget": "radio"
     },
-    "job_title": {},
+    "job_title": {
+        "classNames": "text"
+    },
     "were_healthcare_worker": {
       "ui:widget": "radio"
     },
