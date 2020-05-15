@@ -1,14 +1,13 @@
 import React from 'react'
-import _01 from  '../../assets/consent_icons/_0.png'
-import _02 from  '../../assets/consent_icons/_1.png'
-import _03 from  '../../assets/consent_icons/_2.png'
-import _04 from  '../../assets/consent_icons/_3.png'
-import _05 from  '../../assets/consent_icons/_4.png'
-import _06 from  '../../assets/consent_icons/_5.png'
-import _07 from  '../../assets/consent_icons/_6.png'
-import _08 from  '../../assets/consent_icons/_7.png'
-import _09 from  '../../assets/consent_icons/_9.png'
-
+import _01 from '../../assets/consent_icons/_0.png'
+import _02 from '../../assets/consent_icons/_1.png'
+import _03 from '../../assets/consent_icons/_2.png'
+import _04 from '../../assets/consent_icons/_3.png'
+import _05 from '../../assets/consent_icons/_4.png'
+import _06 from '../../assets/consent_icons/_5.png'
+import _07 from '../../assets/consent_icons/_6.png'
+import _08 from '../../assets/consent_icons/_7.png'
+import _09 from '../../assets/consent_icons/_9.png'
 
 export type StepInfo = {
   isSummary: boolean
@@ -702,29 +701,19 @@ const fullTextScreens = [
 
 const ehrScreens = [
   <div>
-    <h2>
-      Please understand the benefits &amp; risks of sharing your electronic
-      health records{' '}
-    </h2>
+    <h2>HIPAA Consent</h2>
     <p className="Consent__copy">
-      HIPAA stands for Health Insurance Portability and Accountablity Act of
-      1996, a federal law to protect your health information from being
-      disclosed without your consent or knowledge. The following sections will
-      outline the benefits and risks. Please take your time to go over it.{' '}
+      Before you decide to share your electronic health record (EHR) with us,
+      let’s learn more about how the COVID Recovery Corp will use this
+      information.
+    </p>
+    <p className="Consent__copy">
+      The next screens will tell you about why we are asking you to share your
+      EHR information, what types of information is collected in your EHR, and
+      what we will do with this information.
     </p>
   </div>,
-  
-  <div>
-    <h2>Overview </h2>
-    <p className="Consent__copy">This form tells about giving COVID Recovery Corps access to your EHR
-    (electronic health records). We will only be able to access your EHR if you
-    sign this form. </p>
-    <p className="Consent__copy">Please read this form carefully. Take all the time you need
-    to decide if you would like to give us access to your EHR. Ask any questions
-    you have.</p> <p className="Consent__copy"> You can say yes or no to signing this form. Your choice will not
-    affect your medical care. Your choice will not stop you from taking part in
-    COVID Recovery Corps.</p>
-  </div>,
+
   <div>
     <h2>What is an EHR?</h2>
     Health records are the data collected when you get healthcare. Electronic
@@ -741,20 +730,26 @@ const ehrScreens = [
   </div>,
   <div>
     <h2>Are there sensitive data in my EHR?</h2>
-    <p className="Consent__copy">There might be sensitive data in your EHR. For example, about your use of
-    alcohol or drugs. Your EHR might have data about sexually transmitted
-    infections, like HIV. It might have results from genetic (DNA) tests. We
-    will be able to see these data. </p>
-    <p className="Consent__copy">If you have seen counselors or doctors who
-    treat addictions or substance use disorders, information about your care
-    might be part of your EHR. The same goes for if you have seen counselors or
-    doctors who treat mental health, like depression or bipolar disorder. These
-    data would be about your diagnosis and treatment. We will be able to see
-    these data.
-    </p> <p className="Consent__copy"> One exception are any notes from counselors or doctors in
-    specialized clinics who treat addictions or substance use disorders. These
-    notes are usually private and not part of the EHR. We will only be able to
-    see these notes if they are part of your EHR.</p>
+    <p className="Consent__copy">
+      There might be sensitive data in your EHR. For example, about your use of
+      alcohol or drugs. Your EHR might have data about sexually transmitted
+      infections, like HIV. It might have results from genetic (DNA) tests. We
+      will be able to see these data.{' '}
+    </p>
+    <p className="Consent__copy">
+      If you have seen counselors or doctors who treat addictions or substance
+      use disorders, information about your care might be part of your EHR. The
+      same goes for if you have seen counselors or doctors who treat mental
+      health, like depression or bipolar disorder. These data would be about
+      your diagnosis and treatment. We will be able to see these data.
+    </p>{' '}
+    <p className="Consent__copy">
+      {' '}
+      One exception are any notes from counselors or doctors in specialized
+      clinics who treat addictions or substance use disorders. These notes are
+      usually private and not part of the EHR. We will only be able to see these
+      notes if they are part of your EHR.
+    </p>
   </div>,
   <div>
     {' '}
@@ -781,39 +776,55 @@ const ehrScreens = [
   </div>,
   <div>
     <h2>Who will be getting access to my EHR?</h2>
-    <p className="Consent__copy">If you sign this form, COVID Recovery Corps will be getting access to your
-    EHR. We will add your EHR to your COVID Recovery Corps study data. The lead
-    researcher of COVID Recovery Corps is Dr. Wendy Chung. She oversees the
-    whole Research Program.</p>
-    <p className="Consent__copy">The scientific database will have
-    individual-level information about people in COVID Recovery Corps. Access to
-    this cloud-based database will be controlled. Researchers will have to be
-    approved by COVID Recovery Corps to use this database. These researchers may
-    be from anywhere in the world. They may work for commercial companies, like
-    drug companies. Their research will be on COVID-19 and related viruses.</p>
-    <p className="Consent__copy"> Once your
-    information is shared with COVID Recovery Corps, it may no longer be
-    protected by patient privacy rules (like “HIPAA”). However, it will still be
-    protected by other privacy rules and agreements. These include the rules and
-    agreements that researchers must follow to access the COVID Recovery Corps
-    scientific database.</p>
+    <p className="Consent__copy">
+      If you sign this form, COVID Recovery Corps will be getting access to your
+      EHR. We will add your EHR to your COVID Recovery Corps study data. The
+      lead researcher of COVID Recovery Corps is Dr. Wendy Chung. She oversees
+      the whole Research Program.
+    </p>
+    <p className="Consent__copy">
+      The scientific database will have individual-level information about
+      people in COVID Recovery Corps. Access to this cloud-based database will
+      be controlled. Researchers will have to be approved by COVID Recovery
+      Corps to use this database. These researchers may be from anywhere in the
+      world. They may work for commercial companies, like drug companies. Their
+      research will be on COVID-19 and related viruses.
+    </p>
+    <p className="Consent__copy">
+      {' '}
+      Once your information is shared with COVID Recovery Corps, it may no
+      longer be protected by patient privacy rules (like “HIPAA”). However, it
+      will still be protected by other privacy rules and agreements. These
+      include the rules and agreements that researchers must follow to access
+      the COVID Recovery Corps scientific database.
+    </p>
   </div>,
   <div>
     <h2>
       What if I don’t want to give access to my EHR? What if I change my mind?
     </h2>
-    <p className="Consent__copy"> Giving COVID Recovery Corps access to your EHR is voluntary. You get to
-    choose. No matter what you decide, now or in the future, it will not affect
-    your medical care. If you decide to give COVID Recovery Corps access to your
-    EHR, you can change your mind at any time. If you decide you want to stop
-    giving us access, you need to tell us you would like to withdraw from the
-    study.</p>
-    <p className="Consent__copy"> You can tell us through the app or website, or use the contact
-    information at the end of this form to call or write to us. You can update
-    the study’s access to your EHR in your profile settings on the website at any time.</p>  <p className="Consent__copy"> However, if researchers have already accessed data
-    from your EHR for their studies, we at COVID Recovery Corps cannot get it
-    back. Also, we will let researchers check the results of past studies. If
-    they need your old data to do this work, we will give it to them.</p>
+    <p className="Consent__copy">
+      {' '}
+      Giving COVID Recovery Corps access to your EHR is voluntary. You get to
+      choose. No matter what you decide, now or in the future, it will not
+      affect your medical care. If you decide to give COVID Recovery Corps
+      access to your EHR, you can change your mind at any time. If you decide
+      you want to stop giving us access, you need to tell us you would like to
+      withdraw from the study.
+    </p>
+    <p className="Consent__copy">
+      {' '}
+      You can tell us through the app or website, or use the contact information
+      at the end of this form to call or write to us. You can update the study’s
+      access to your EHR in your profile settings on the website at any time.
+    </p>{' '}
+    <p className="Consent__copy">
+      {' '}
+      However, if researchers have already accessed data from your EHR for their
+      studies, we at COVID Recovery Corps cannot get it back. Also, we will let
+      researchers check the results of past studies. If they need your old data
+      to do this work, we will give it to them.
+    </p>
   </div>,
   <div>
     <h2>When will my consent expire</h2>
@@ -824,11 +835,18 @@ const ehrScreens = [
   <div>
     <h2>Who can answer my questions?</h2>
     <ul>
-     <li>For general questions, please contact the COVID Recovery Corps study at
-    212-305-5700 or <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">COVIDRecoveryCorps@cumc.columbia.edu</a> </li>
-    <li>For your rights as a
-    research participant, please contact Western IRB (WIRB) at <a href="mailto:help@WIRB.com">help@WIRB.com</a> at
-    360-252-2500 or toll-free 800-562-4789.</li>
+      <li>
+        For general questions, please contact the COVID Recovery Corps study at
+        212-305-5700 or{' '}
+        <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
+          COVIDRecoveryCorps@cumc.columbia.edu
+        </a>{' '}
+      </li>
+      <li>
+        For your rights as a research participant, please contact Western IRB
+        (WIRB) at <a href="mailto:help@WIRB.com">help@WIRB.com</a> at
+        360-252-2500 or toll-free 800-562-4789.
+      </li>
     </ul>
   </div>,
 ]
@@ -935,7 +953,7 @@ const screens: { [key: string]: JSX.Element } = {
   ),
 }
 
-export const ConsentImages = [_01, _02, _03, _04, _05 ]
+export const ConsentImages = [_01, _02, _03, _04, _05]
 
 export const ConsentCopy: React.FunctionComponent<ConsentCopyProps> = ({
   stepInfo,

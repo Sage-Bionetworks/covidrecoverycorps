@@ -16,6 +16,7 @@ import { Checkbox, TextField, CardContent, Card } from '@material-ui/core'
 import ConsentCopy from './ConsentCopy'
 import { FloatingToolbar } from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
+import ConsentIcons from './ConsentIcons'
 
 export type ConsentEHRProps = {
   setConsentEHRFn?: Function
@@ -33,7 +34,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   )
   const [name, setName] = useState('')
   const [error, setError] = useState('')
-  const totalSteps = 12
+  const totalSteps = 10
 
   if (isConsentEHRDone) {
     return <Redirect to="/dashboard?consented=true"></Redirect>
@@ -48,7 +49,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           variant="contained"
           fullWidth
           color="primary"
-          style={{marginTop: "20px"}}
+          style={{ marginTop: '20px' }}
           onClick={() => setCurrentStep((_prev) => _prev + 1)}
         >
           Start HIPAA
@@ -92,18 +93,24 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
       </>
     )
 
-    const result = <div className="ConsentInfo__navButtons">{buttonDiv}</div>
+    const result = <div className="navButtons">{buttonDiv}</div>
     return result
   }
 
   const renderInfoStep = () => {
     const element = (
       <>
+        {' '}
+        <div className="icon-top">
+          <img
+            className="consentIcon"
+            src={ConsentIcons.enr[currentStep - 1]}
+          ></img>
+        </div>
         <ConsentCopy
           stepInfo={{ step: currentStep, isSummary: false }}
           isEHR={true}
         />
-
         {getNavButtons(currentStep)}
       </>
     )
@@ -207,14 +214,16 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
             </>
           )}
 
-          {currentStep > 0 && (
-            <div className="text-right">
-              <strong>{currentStep}/{totalSteps}</strong>
+          {currentStep > 0 && currentStep <= totalSteps && (
+            <div className="text-right page-numbers">
+              <strong>
+                {currentStep}/{totalSteps}
+              </strong>
             </div>
           )}
           {currentStep === 0 && renderStep0()}
-          {currentStep > 0 && currentStep < totalSteps && renderInfoStep()}
-          {currentStep === 12 && <div>{renderSignatureStep()}</div>}
+          {currentStep > 0 && currentStep <= totalSteps && renderInfoStep()}
+          {currentStep === totalSteps + 1 && <div>{renderSignatureStep()}</div>}
         </div>
       </CardContent>
     </Card>
