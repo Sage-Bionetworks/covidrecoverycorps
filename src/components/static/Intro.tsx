@@ -26,11 +26,11 @@ const useStyles = makeStyles(theme => ({
   heroText: {
     color: '#F2F2F2',
     fontFamily: playfairDisplayFont,
-    fontSize: '3.5rem',
+    fontSize: '40px',
     paddingTop: '100px',
     paddingLeft: '60px',
     paddingBottom: '35px',
-    maxWidth: '550px',
+    maxWidth: '650px',
     lineHeight: '127%'
   },
   joinButton: {
@@ -58,9 +58,10 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center'
   },
   content1TextDiv: {
-    maxWidth: '650px',
+    maxWidth: '940px',
     paddingLeft: '20px',
     paddingRight: '20px',
+    fontSize: '24px',
   },
   logosDiv: {
     padding: '50px 20px',
@@ -68,29 +69,40 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
   labImageDiv: {
-    maxWidth: '500px',
+    maxWidth: '550px',
+    paddingBottom: '90px',
     [theme.breakpoints.up('md')]: {
       float: 'right',
     },
   },
   labTextDiv: {
-    padding: '40px 25px 40px 90px',
+    paddingTop: '40px',
+    paddingRight: '25px',
+    paddingBottom: '40px',
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: '90px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: '25px',
+    },
+
     maxWidth: '500px',
   },
   labTextTitleDiv: {
     fontFamily: playfairDisplayFont,
     fontWeight: 'bold',
     color: '#2a2a2a',
-    lineHeight: '37pt',
-    fontSize: '2.5rem'
+    lineHeight: '37px',
+    fontSize: '32px'
   },
   labTextBodyDiv: {
     fontFamily: openSansFont,
-    lineHeight: '25pt',
+    lineHeight: '25px',
     padding: '20px 0px',
+    fontSize: '16px',
   },
   photographyNote: {
-    fontSize: '1rem',
+    fontSize: '12px',
     fontFamily: openSansFont,
     fontStyle: 'italic',
     float: 'right',
@@ -105,13 +117,13 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '700px',
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: '2rem',
+    fontSize: '24px',
     marginLeft: 'auto',
     marginRight: 'auto',
     fontFamily: playfairDisplayFont,
   },
   participationPanelWrapper: {
-    padding: '20px',
+    padding: '20px 20px 90px 20px',
     marginTop: '-170px'
   },
   participationPanel: {
@@ -122,7 +134,7 @@ const useStyles = makeStyles(theme => ({
   participationPanelTitle: {
     fontFamily: playfairDisplayFont,
     fontWeight: 'bold',
-    fontSize: '2.5rem',
+    fontSize: '32px',
     textAlign: 'center',
     padding: '40px 20px 0px 20px'
   },
@@ -132,21 +144,21 @@ const useStyles = makeStyles(theme => ({
   participationPanelStepNumber: {
     color: '#FC9090',
     fontFamily: openSansFont,
-    fontSize: '1rem',
+    fontSize: '12px',
     fontWeight: 'bold',
-    paddingBottom: '1px'
+    paddingBottom: '5px'
   },
   participationPanelStepTitle: {
     fontFamily: playfairDisplayFont, 
     fontWeight: 'bold',
-    fontSize: '2rem',
+    fontSize: '24px',
     lineHeight: '2.75rem',
     color: '#2A2A2A',
     paddingBottom: '17px'
   },
   participationPanelStepBody: {
     fontFamily: openSansFont, 
-    fontSize: '1.3rem',
+    fontSize: '16px',
     lineHeight: '2rem',
     color: '#3A3A3A',
     paddingBottom: '50px'
@@ -167,7 +179,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: '#FFFFFF',
     padding: '40px 25px 0px 25px',
-    fontSize: '2.7rem',
+    fontSize: '32px',
   },
 
 }))
@@ -181,7 +193,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
        <div>
          <div className={classes.heroImage}>
             <div className={classes.heroText}>
-              A citizen-powered movement<br></br>to drive scientific breakthroughs<br></br>and save lives in the<br></br>fight against COVID-19.
+              A citizen-powered movement to drive scientific breakthroughs and save lives in the <br></br>fight against COVID-19.
               <div>
                 <NavLink
                   to="/eligibility"
