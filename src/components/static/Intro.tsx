@@ -22,8 +22,8 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: 'top center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    transition: 'background-image 1.5s linear',
-    mozTransition: 'background-image 1.5s linear',
+    transition: 'background-image 2s linear',
+    mozTransition: 'background-image 2s linear',
   },
   heroBackgroundImage0: {
     backgroundImage: `url(${LandingPageAboveFold})`,
