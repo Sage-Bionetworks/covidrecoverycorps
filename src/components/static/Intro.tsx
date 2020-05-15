@@ -74,6 +74,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       float: 'right',
     },
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: '25px'
+    },
   },
   labTextDiv: {
     paddingTop: '40px',
