@@ -137,7 +137,7 @@ const theme = createMuiTheme({
     MuiCard: {
       root: {
         backgroundColor: '#f5f5f5',
-        maxWidth: '360px',
+        maxWidth: '511px',
         margin: '0 auto',
       },
     },
