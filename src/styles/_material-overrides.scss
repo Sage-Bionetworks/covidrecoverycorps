@@ -12,8 +12,9 @@
     padding-left: 2em;
   }
 
-  .MuiToggleButton-root:hover,  .MuiToggleButton-root.Mui-selected:hover  {
-    border-width:2px;
+  .MuiToggleButton-root:hover,
+  .MuiToggleButton-root.Mui-selected:hover {
+    border-width: 2px;
   }
 
   .MuiToggleButton-root.Mui-selected {
@@ -35,6 +36,9 @@
 
 .MuiTabs-root {
   border-bottom: 1px solid black;
+  .MuiTab-root {
+    min-width: 110px;
+  }
 
   .MuiTab-textColorPrimary {
     color: #000;
