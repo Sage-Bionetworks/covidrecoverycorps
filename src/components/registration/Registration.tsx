@@ -31,9 +31,10 @@ const signupIntro = {
       <h1>Don't have email?</h1>
       <p>
         At this time, we are only able to invite participants to lab draws with
-        an email account. We are working on this issue. We hope to support
-        scheduling appointments with your phone number in the near future. You
-        can still provide important information to our researchers by filling
+        an email account.</p>
+        <p>We are working on this issue. We hope to support
+        scheduling appointments with your phone number in the near future.</p>
+        <p>You can still provide important information to our researchers by filling
         out surveys.
       </p>
     </>
@@ -43,8 +44,8 @@ const signupIntro = {
       <h1>Getting Started</h1>
       <p>
         {' '}
-        To access the consent and surveys, you will need to create an account.
-        You will use your email to log into your account in the future.
+        To access the consent and surveys, you will need to create an account.</p>
+       <p> You will use your email to log into your account in the future.
       </p>
     </>
   ),
