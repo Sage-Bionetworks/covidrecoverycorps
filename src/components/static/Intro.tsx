@@ -18,20 +18,28 @@ type IntroProps = {
 const useStyles = makeStyles(theme => ({
   heroImage: {
     backgroundImage: `url(${LandingPageAboveFold})`,
-    backgroundPosition: 'center',
+    backgroundPosition: 'top center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    minHeight: '450px'
   },
   heroText: {
     color: '#F2F2F2',
     fontFamily: playfairDisplayFont,
     fontSize: '40px',
-    paddingTop: '100px',
-    paddingLeft: '60px',
-    paddingBottom: '35px',
     maxWidth: '650px',
-    lineHeight: '127%'
+    lineHeight: '127%',
+    [theme.breakpoints.up('xs')]: {
+      padding: '100px 20px 50px 30px'
+    },
+    [theme.breakpoints.up('sm')]: {
+      padding: '130px 20px 80px 40px'
+    },
+    [theme.breakpoints.up('md')]: {
+      padding: '150px 20px 100px 40px'
+    },
+    [theme.breakpoints.up('lg')]: {
+      padding: '200px 20px 130px 40px'
+    }
   },
   joinButton: {
     height: '36px',
