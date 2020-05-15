@@ -4,6 +4,10 @@ import {playfairDisplayFont, openSansFont} from '../../App'
 import LandingPageAboveFold from '../../assets/LandingPageAboveFold.png'
 import LandingPageAboveFold2 from '../../assets/LandingPageAboveFold2.png'
 import LandingPageAboveFold3 from '../../assets/LandingPageAboveFold3.png'
+import LandingPageAboveFoldMobile from '../../assets/LandingPageAboveFold_mobile.png'
+import LandingPageAboveFold2Mobile from '../../assets/LandingPageAboveFold2_mobile.png'
+import LandingPageAboveFold3Mobile from '../../assets/LandingPageAboveFold3_mobile.png'
+
 import LandingPageLab from '../../assets/LandingPageLab.png'
 import {ReactComponent as Logos} from '../../assets/columbia_and_sage_logo.svg'
 import {ReactComponent as Tablet} from '../../assets/tablet.svg'
@@ -262,9 +266,17 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
     <div className="Intro">
        <div>
          <div className={classes.heroContainer}>
-           <img className={classes.heroImage} src={LandingPageAboveFold} style={{opacity: heroImage1Opacity}}/>
-           <img className={classes.heroImage} src={LandingPageAboveFold2} style={{opacity: heroImage2Opacity}}/>
-           <img className={classes.heroImage} src={LandingPageAboveFold3} style={{opacity: heroImage3Opacity}}/>
+            <Hidden smUp>
+              <img className={classes.heroImage} src={LandingPageAboveFoldMobile} style={{opacity: heroImage1Opacity}}/>
+              <img className={classes.heroImage} src={LandingPageAboveFold2Mobile} style={{opacity: heroImage2Opacity}}/>
+              <img className={classes.heroImage} src={LandingPageAboveFold3Mobile} style={{opacity: heroImage3Opacity}}/>       
+            </Hidden>
+            <Hidden xsDown>
+              <img className={classes.heroImage} src={LandingPageAboveFold} style={{opacity: heroImage1Opacity}}/>
+              <img className={classes.heroImage} src={LandingPageAboveFold2} style={{opacity: heroImage2Opacity}}/>
+              <img className={classes.heroImage} src={LandingPageAboveFold3} style={{opacity: heroImage3Opacity}}/>       
+            </Hidden>
+           
             {heroTextContent}
          </div>
         <div className={classes.content1}>
