@@ -1,14 +1,7 @@
 .Consent {
   margin-top: .5rem;
-  h2 {
-    font-size: 40px;
-  }
 
-  p.Consent__copy {
-    color: #2a2a2a;
-    font-size: 18px;
-    line-height: 20px;
-  }
+
 
   .Consent__form {
     .radiobuttons .MuiFormControlLabel-root {
@@ -26,10 +19,37 @@
     padding-left: 0;
   }
 
-  button.x {
-    color: #fff;
-    background-color: #000;
+
+  .paging {
+    color: #FC9090
   }
+ 
+  .quizAnswer {
+    margin: 20px;
+  }
+
+  .MuiFormControlLabel-root.success .MuiRadio-root.Mui-checked {
+    color:#0085FF;
+    // background-color: rgb(232, 244, 253); // default background color (MuiAlert-standardInfo)
+  }
+  .MuiFormControlLabel-root.error .MuiRadio-root.Mui-checked {
+    color: #f44336; // default error color
+    // background-color: rgb(253, 236, 234); //default background color (MuiAlert-standardError)
+  }
+
+  &__navButtons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      width:100%;
+ 
+      button {
+        width: 92px;
+      }
+  }
+
+
+
 }
 
 .learnMoreToggle {
@@ -57,14 +77,5 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .Consent {
-    /* For mobile phones: */
-    p.Consent__copy {
-      margin-right: 0px;
-      margin-left: 0px;
-    }
-    h2 {
-      margin-left: 0;
-    }
-  }
+  
 }

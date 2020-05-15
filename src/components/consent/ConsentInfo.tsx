@@ -12,6 +12,9 @@ import Switch from '@material-ui/core/Switch/Switch'
 import ConsentCopy, { StepInfo } from './ConsentCopy'
 import BlueSeparator from '../static/BlueSeparator'
 import { RadioGroup, FormControlLabel, Radio } from '@material-ui/core'
+import ConsentIcons from './ConsentIcons'
+
+
 
 type ConsentInfoProps = {
   onDone: Function
@@ -206,7 +209,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
 
   return (
     
-        <div className="ConsentInfo">
+        <div className="Consent">
           <FloatingToolbar closeLinkDestination='/home?alert=CANCELLED_CONSENT'
           closeIcon={faTimes}
           closeLinkText=''
@@ -216,7 +219,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
           </FloatingToolbar>
           <div>
             {currentStep > -1 && (
-              <div className="text-right">
+              <div className="text-right page-numbers">
                <strong>{currentStep+1}/{totalSteps+1}</strong> 
               </div>
             )}
@@ -226,6 +229,8 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
             
            </div> }
            {currentStep > -1 &&  <div>
+             <div className="icon-top">
+            <img className="consentIcon" src={ConsentIcons.consent[currentStep]}></img></div>
               {getStatic(currentStep, isFullText)}
 
               {getQuiz(currentStep)}
