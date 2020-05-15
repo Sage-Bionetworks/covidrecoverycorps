@@ -5,7 +5,74 @@
             "travel",
             "travel_countries",
             "travel_dates",
-            "household_size",
+            "household_size"
+         
+        ],
+        "travel": {
+            "ui:widget": "radio",
+            "classNames": "optional_trigger",
+            "ui:options": {
+                "inline": false
+            }
+        },
+        "travel_countries": {
+            "classNames": "countries",
+            "items": {
+            "country_name": {
+               "classNames": "country-name" 
+            },
+            "travel_start":{
+                "ui:widget": "alt-date",
+                "ui:options": {
+                  "yearsRange": [2019, 2020],
+                  "hideNowButton": true,
+                  "hideClearButton": true
+                }
+            },
+            "travel_end":{
+                "ui:widget": "alt-date",
+                "ui:options": {
+                  "yearsRange": [2019, 2020],
+                  "hideNowButton": true,
+                  "hideClearButton": true
+                }
+            }
+        }
+            
+   
+    
+        },
+        "household_size": {
+            "classNames": "show_fieldSet household_size"
+        },
+        "housing_type": {
+            "ui:widget": "radio",
+            "ui:options": {
+                "inline": false
+            }
+        },
+        "people_diagnosed": {
+            "classNames": "show_fieldSet people_diagnosed",
+       
+            "covid_died": {
+                "ui:help": "(relationship)"
+            },
+            "covid_diagnosed": {
+                "ui:help": "(relationship)"
+            },
+            "covid_suspected": {
+                "ui:help": "(relationship)"
+            },
+            "covid_hospitalized": {
+                "ui:help": "(relationship)"
+            }
+        }
+      
+    },
+    "covid2": {
+        "classNames": "covid2_covid1",
+        "ui:order": [
+         
             "housing_type",
             "people_infected",
             "people_diagnosed"
