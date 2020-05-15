@@ -26,6 +26,18 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     overflow: 'hidden',
   },
+  heroTextGradiant: {
+    zIndex: 1,
+    background: 'linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,1,0) 70%)',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    [theme.breakpoints.down('xs')]: {
+      background: 'linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,1,0) 90%)',
+    }
+  },
   heroImage: {
     transition: 'opacity 2s ease-in-out',
     position: 'absolute',
@@ -266,6 +278,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
     <div className="Intro">
        <div>
          <div className={classes.heroContainer}>
+            <div className={classes.heroTextGradiant}></div>
             <Hidden smUp>
               <img className={classes.heroImage} src={LandingPageAboveFoldMobile} style={{opacity: heroImage1Opacity}}/>
               <img className={classes.heroImage} src={LandingPageAboveFold2Mobile} style={{opacity: heroImage2Opacity}}/>
