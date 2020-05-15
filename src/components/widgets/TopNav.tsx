@@ -63,11 +63,11 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold',
     '&:hover': {
       textDecoration: 'none',
-      color: '2E2E2E',
+      color: '#2E2E2E',
     },
     '&:focus': {
       textDecoration: 'none',
-      color: '2E2E2E',
+      color: '#2E2E2E',
     },
   },
   fullNavBarLinkActive: {

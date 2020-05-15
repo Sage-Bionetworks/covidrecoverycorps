@@ -42,6 +42,7 @@ import AcountSettings from './components/AccountSettings'
 import GoogleAnalyticsPageTracker from './components/widgets/GoogleAnalyticsPageTracker'
 import CookieNotificationBanner from './components/widgets/CookieNotificationBanner'
 import ScrollToTopOnRouteChange from './components/widgets/ScrollToTopOnRouteChange'
+import Footer from './components/widgets/Footer'
 
 export const sourceSerifProFont: string = [
   'Source Serif Pro',
@@ -471,6 +472,7 @@ function App() {
                   </Route>
                 </Switch>
               </TopNav>
+              <Footer token={token} />
             </div>
           </Router>
         </div>
