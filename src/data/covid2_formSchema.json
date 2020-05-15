@@ -1,14 +1,29 @@
 {
     "definitions": {
+        "country": {
+            "type": "object",
+            "properties": {
+              "country_name": {
+                  "title": "Name of the country",
+                "type": "string"
+              },
+              "travel_start": {
+                  "title": "From:",
+                  "type": "string"
+              },
+              "travel_end": {
+                "title": "To:",
+                "type": "string"
+            }
+            }
+          },
         "covid1": {
             "type": "object",
             "title": "",
             "required": [
                 "travel",
-                "household_size",
-                "housing_type",
-                "people_infected",
-                "people_diagnosed"
+                "household_size"
+               
             ],
             "properties": {
                 "travel": {
@@ -17,7 +32,7 @@
                     "enum": [
                         "No",
                         "Yes",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "household_size": {
@@ -50,10 +65,65 @@
                         },
                         "no_answer": {
                             "type": "boolean",
-                            "title": "Prefer Not To Answer"
+                            "title": "Prefer not to answer"
                         }
                     }
-                },
+                }
+            },
+            "dependencies": {
+                "travel": {
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "travel": {
+                                    "enum": [
+                                        "No"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "travel": {
+                                    "enum": [
+                                        "Prefer not to answer"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "travel": {
+                                    "enum": [
+                                        "Yes"
+                                    ]
+                                },
+                                "travel_countries": {
+                                    "type": "array",
+                                    "title": "1b. What specific country/countries did you travel to?",
+                                    "minItems": 1,
+                                    "items": {
+                                      "$ref": "#/definitions/country"
+                                    }
+                                  }
+                             
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "covid11": {
+            "type": "object",
+            "title": "",
+            "required": [
+             
+                "housing_type",
+                "people_infected",
+                "people_diagnosed"
+            ],
+            "properties": {
+             
                 "housing_type": {
                     "type": "string",
                     "title": "What type of household do you live in?",
@@ -97,48 +167,9 @@
                         },
                         "prefer_not_answer": {
                             "type": "boolean",
-                            "title": "Prefer Not To Answer"
+                            "title": "Prefer not to answer"
                         }
                     }
-                }
-            },
-            "dependencies": {
-                "travel": {
-                    "oneOf": [
-                        {
-                            "properties": {
-                                "travel": {
-                                    "enum": [
-                                        "No"
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            "properties": {
-                                "travel": {
-                                    "enum": [
-                                        "Prefer Not To Answer"
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            "properties": {
-                                "travel": {
-                                    "enum": [
-                                        "Yes"
-                                    ]
-                                },
-                                "travel_countries": {
-                                    "type": "string"
-                                },
-                                "travel_dates": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    ]
                 }
             }
         },
@@ -157,7 +188,7 @@
                         "Within the last 10 years",
                         "Over 10 years ago",
                         "Never",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "antibiotics_purpose": {
@@ -172,7 +203,7 @@
                         "Other purpose",
                         "Don’t know",
                         "I have never taken antibiotics",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "antibiotics_course": {
@@ -185,7 +216,7 @@
                         "14 days",
                         "More than 14 days",
                         "I don’t know",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "cold_how_often": {
@@ -197,7 +228,7 @@
                         "Once every 2 years",
                         "Once a year",
                         "Twice a year of more",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 }
             },
@@ -224,7 +255,7 @@
                         "Rarely",
                         "Usually",
                         "Always",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "mask_household": {
@@ -236,7 +267,7 @@
                         "Rarely",
                         "Usually",
                         "Always",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "sanitizer_you": {
@@ -248,7 +279,7 @@
                         "Rarely",
                         "Usually",
                         "Always",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "sanitizer_household": {
@@ -260,7 +291,7 @@
                         "Rarely",
                         "Usually",
                         "Always",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "social_distance_you": {
@@ -272,7 +303,7 @@
                         "Rarely",
                         "Usually",
                         "Always",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "social_distance_household": {
@@ -284,7 +315,7 @@
                         "Rarely",
                         "Usually",
                         "Always",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 }
             }
@@ -309,7 +340,7 @@
                         "3 to 4 times a week",
                         "Daily",
                         "Multiple times per day",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "pets": {
@@ -324,7 +355,7 @@
                             "Indoor/outdoor cat",
                             "Other",
                             "No pets",
-                            "Prefer Not To Answer"
+                            "Prefer not to answer"
                         ]
                     }
                 },
@@ -342,7 +373,7 @@
                         "One month",
                         "More than one month",
                         "Don’t remember",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "how_purchased_groceries": {
@@ -357,7 +388,7 @@
                             "In-store pick up",
                             "Had a caregiver or family member purchase your groceries",
                             "Did not visit the store",
-                            "Prefer Not To Answer"
+                            "Prefer not to answer"
                         ]
                     }
                 },
@@ -375,7 +406,7 @@
                             "Train",
                             "Ferry",
                             "Car",
-                            "Prefer Not To Answer"
+                            "Prefer not to answer"
                         ]
                     }
                 }
@@ -404,7 +435,7 @@
                         "No",
                         "Not Applicable, Lost job as part of COVID-19",
                         "Not Applicable, Unemployed or retired prior to disease",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "job_title": {
@@ -418,7 +449,7 @@
                     "enum": [
                         "Yes",
                         "No",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "were_teacher_childcare": {
@@ -428,7 +459,7 @@
                     "enum": [
                         "Yes",
                         "No",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "were_foodservice": {
@@ -438,7 +469,7 @@
                     "enum": [
                         "Yes",
                         "No",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "commute_mass_transit": {
@@ -448,7 +479,7 @@
                     "enum": [
                         "Yes",
                         "No",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 },
                 "commute_car": {
@@ -458,7 +489,7 @@
                     "enum": [
                         "Yes",
                         "No",
-                        "Prefer Not To Answer"
+                        "Prefer not to answer"
                     ]
                 }
             }
@@ -469,6 +500,10 @@
         "covid1": {
             "title": "",
             "$ref": "#/definitions/covid1"
+        },
+        "covid11": {
+            "title": "",
+            "$ref": "#/definitions/covid11"
         },
         "antibiotics_cold": {
             "title": "",

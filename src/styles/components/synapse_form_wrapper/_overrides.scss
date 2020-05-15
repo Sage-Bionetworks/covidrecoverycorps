@@ -46,11 +46,9 @@
     line-height: 20px;
   }
 
- .MuiCard-root {
- 
+  .MuiCard-root {
     padding-bottom: 2rem;
- }
-
+  }
 
   margin-right: 0;
 
@@ -108,7 +106,43 @@
     overflow-x: hidden;
     padding: 0;
   }
+  .field-array {
+    legend {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    .array-item {
+      position: relative;
+      margin: 0;
+      padding: 0;
 
+      border: none;
+      .array-item-toolbox {
+        i.glyphicon {
+          background-color: $primary-blue;
+        }
+
+        .array-item-remove::after {
+          display: none;
+        }
+      }
+      .col-xs-3.array-item-add {
+        position: static;
+      }
+      .col-xs-9 {
+        width: 100%;
+        padding: 0;
+      }
+      .col-xs-3 {
+        width: auto;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
   .submission-header {
     max-width: 360px;
     margin: 0 auto;
@@ -129,8 +163,9 @@
       margin-left: 0;
     }
     &.short {
-      input[type='text'], input[type='number'] {
-        width: 50%
+      input[type='text'],
+      input[type='number'] {
+        width: 50%;
       }
     }
   }
@@ -451,8 +486,6 @@
     }
   }
 
-
-
   //contactinfo survey
   .contact {
     legend {
@@ -467,14 +500,11 @@
     }
 
     .gender {
-
       clear: both;
-   
     }
 
     .address1 {
       margin-bottom: 1rem;
-      
     }
     .form-group.address2,
     .form-group.city {
@@ -515,7 +545,8 @@
   .diseases_history_cont,
   .family_diseases,
   .health-conditions,
-  .women .complications {
+  .women .complications,
+  .countries {
     legend {
       @include control_label;
     }
@@ -540,7 +571,6 @@
           width: 100%;
         }
       }
-    
     }
   }
 
@@ -566,30 +596,75 @@
       padding-left: 0;
       label {
         @include field-description;
-        // @include control_label;
       }
     }
   }
 
-
-
   .covid2 {
     &_covid1 {
+      .countries {
+        .country-name {
+          input[type='text'] {
+            width: 75%
+          }
+        }
+        .array-item-add {
+          margin: 0 1rem 0 1rem;
+          padding: 0 4rem 0 3.5rem;
+
+          text-align: left;
+
+          .btn-add {
+            i {
+              background-color: $primary-blue;
+            }
+            text-align: left;
+            background-color: $primary-blue;
+            color: #fff;
+            padding: 0.7rem 1rem;
+            font-size: 1.6rem;
+
+            &::after {
+              content: 'Add Country';
+            }
+          }
+        }
+        .form-group {
+          background-color: transparent;
+          padding-bottom: 1rem;
+          padding-left: 2.5rem;
+
+          &.field-object {
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
       .household_size {
         .fieldset {
           width: 100%;
         }
         .field-number {
-          width: 25%;
-          float: left;
-          margin-right: 5px;
+          display: flex;
+          flex-direction: row-reverse;
+          margin-left: 1.5rem;
+          margin-bottom: 1.5rem;
+          justify-content: flex-end;
+          align-items: center;
+          input {
+            width:30%;
+          }
+          label {
+            margin-bottom: 0;
+            font-size: 1.6rem;
+            font-weight: normal;
+          }
         }
         .field-boolean {
           clear: left;
           margin-right: 5px;
           .checkbox {
             border: none;
-            color: #515359;
+            background-color: transparent;
           }
 
           .checkbox > label::before {
@@ -656,19 +731,13 @@
       }
     }
 
-  
-
     .bp_medication {
       @include subfield_inverted;
     }
 
-    
-
     ////
 
     .women {
-  
-
       .miscarriage_number {
         @include subfield_inverted;
         margin-top: -2rem;
@@ -682,7 +751,7 @@
   @media only screen and (max-width: 768px) {
     div.checkbox,
     div.radio {
-      padding: 1rem 1rem 1rem 1.5rem; 
+      padding: 1rem 1rem 1rem 1.5rem;
     }
     label.control-label {
       margin-left: 1.5rem;
@@ -693,4 +762,3 @@
     }
   }
 }
-
