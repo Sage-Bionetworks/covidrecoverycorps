@@ -4,6 +4,10 @@ import {playfairDisplayFont, openSansFont} from '../../App'
 import LandingPageAboveFold from '../../assets/LandingPageAboveFold.png'
 import LandingPageAboveFold2 from '../../assets/LandingPageAboveFold2.png'
 import LandingPageAboveFold3 from '../../assets/LandingPageAboveFold3.png'
+import LandingPageAboveFoldMobile from '../../assets/LandingPageAboveFold_mobile.png'
+import LandingPageAboveFold2Mobile from '../../assets/LandingPageAboveFold2_mobile.png'
+import LandingPageAboveFold3Mobile from '../../assets/LandingPageAboveFold3_mobile.png'
+
 import LandingPageLab from '../../assets/LandingPageLab.png'
 import {ReactComponent as Logos} from '../../assets/columbia_and_sage_logo.svg'
 import {ReactComponent as Tablet} from '../../assets/tablet.svg'
@@ -18,35 +22,34 @@ type IntroProps = {
 }
 
 const useStyles = makeStyles(theme => ({
+  heroContainer: {
+    position: 'relative',
+    overflow: 'hidden',
+  },
   heroImage: {
-    backgroundPosition: 'top center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    transition: 'background-image 2s linear',
-    mozTransition: 'background-image 2s linear',
-  },
-  heroBackgroundImage0: {
-    backgroundImage: `url(${LandingPageAboveFold})`,
-  },
-  heroBackgroundImage1: {
-    backgroundImage: `url(${LandingPageAboveFold2})`,
-  },
-  heroBackgroundImage2: {
-    backgroundImage: `url(${LandingPageAboveFold3})`,
+    transition: 'opacity 2s ease-in-out',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: 'auto',
   },
   heroText: {
+    zIndex: 2,
+    position: 'relative',
     color: '#F2F2F2',
     fontFamily: playfairDisplayFont,
-    fontSize: '40px',
     maxWidth: '650px',
     lineHeight: '127%',
     [theme.breakpoints.up('xs')]: {
-      padding: '100px 20px 50px 30px'
+      fontSize: '30px',
+      padding: '15px 20px 0px 30px'
     },
     [theme.breakpoints.up('sm')]: {
-      padding: '130px 20px 80px 40px'
+      padding: '50px 20px 80px 40px'
     },
     [theme.breakpoints.up('md')]: {
+      fontSize: '40px',
       padding: '150px 20px 100px 40px'
     },
     [theme.breakpoints.up('lg')]: {
@@ -56,8 +59,11 @@ const useStyles = makeStyles(theme => ({
   joinButton: {
     height: '36px',
     width: '100px',
-    marginTop: '40px',
-    marginBottom: '80px'
+    marginTop: '10px',
+    [theme.breakpoints.up('sm')]: {
+      marginTop: '40px',
+    },
+    marginBottom: '10px'
   },
   navLink: {
     '&:hover': {
@@ -81,7 +87,11 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '940px',
     paddingLeft: '20px',
     paddingRight: '20px',
-    fontSize: '24px',
+    fontSize: '20px',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '24px',
+    },
+
   },
   logosDiv: {
     padding: '50px 20px',
@@ -195,13 +205,14 @@ const useStyles = makeStyles(theme => ({
   },
   fightTogetherDiv: {
     backgroundColor: '#3A3A3A',
+    padding: '40px 0px',
   },
   fightTogetherDivText: {
     fontFamily: playfairDisplayFont,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#FFFFFF',
-    padding: '40px 25px 0px 25px',
+    padding: '0px 25px 0px 25px',
     fontSize: '32px',
   },
 
@@ -210,44 +221,63 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
 
 }: IntroProps) => {
   const classes = useStyles()
-  const [heroBackgroundImage, setHeroBackgroundImage] = useState<string>(classes.heroBackgroundImage0)
+  const [heroImage1Opacity, setHeroImage1Opacity] = useState(1)
+  const [heroImage2Opacity, setHeroImage2Opacity] = useState(0)
+  const [heroImage3Opacity, setHeroImage3Opacity] = useState(0)
+
   const selectNextHeroBackground = () => {
     // get next image
     let nextHeroBackgroundImage:string
-    if (heroBackgroundImage === classes.heroBackgroundImage0) {
-      nextHeroBackgroundImage = classes.heroBackgroundImage1
-    } else if (heroBackgroundImage === classes.heroBackgroundImage1) {
-      nextHeroBackgroundImage = classes.heroBackgroundImage2
+    if (heroImage1Opacity > 0) {
+      setHeroImage1Opacity(0)
+      setHeroImage2Opacity(1)
+    } else if (heroImage2Opacity > 0) {
+      setHeroImage2Opacity(0)
+      setHeroImage3Opacity(1)
     } else {
-      nextHeroBackgroundImage = classes.heroBackgroundImage0
+      setHeroImage3Opacity(0)
+      setHeroImage1Opacity(1)
     }
-    setHeroBackgroundImage(nextHeroBackgroundImage)
   }
   useEffect(() => {
     const interval = setInterval(selectNextHeroBackground, 8000);
     return () => clearInterval(interval);
-  }, [heroBackgroundImage]);
+  }, [heroImage1Opacity, heroImage2Opacity, heroImage3Opacity]);
+
+  const heroTextContent = 
+    <div className={classes.heroText}>
+      A citizen-powered movement to drive scientific breakthroughs and save lives in the <br></br>fight against COVID-19.
+      <div>
+        <NavLink
+          to="/eligibility"
+          className={classes.navLink}
+        >
+          <Button
+            color="primary"
+            variant="contained"
+            className={classes.joinButton}
+          >
+          Join us
+          </Button>
+        </NavLink>
+      </div>
+    </div>
   return (
     <div className="Intro">
        <div>
-         <div className={`${classes.heroImage} ${heroBackgroundImage}`}>
-            <div className={classes.heroText}>
-              A citizen-powered movement to drive scientific breakthroughs and save lives in the <br></br>fight against COVID-19.
-              <div>
-                <NavLink
-                  to="/eligibility"
-                  className={classes.navLink}
-                >
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    className={classes.joinButton}
-                  >
-                  Join us
-                  </Button>
-                </NavLink>
-              </div>
-            </div>
+         <div className={classes.heroContainer}>
+            <Hidden smUp>
+              <img className={classes.heroImage} src={LandingPageAboveFoldMobile} style={{opacity: heroImage1Opacity}}/>
+              <img className={classes.heroImage} src={LandingPageAboveFold2Mobile} style={{opacity: heroImage2Opacity}}/>
+              <img className={classes.heroImage} src={LandingPageAboveFold3Mobile} style={{opacity: heroImage3Opacity}}/>       
+            </Hidden>
+            <Hidden xsDown>
+              <img className={classes.heroImage} src={LandingPageAboveFold} style={{opacity: heroImage1Opacity}}/>
+              <img className={classes.heroImage} src={LandingPageAboveFold2} style={{opacity: heroImage2Opacity}}/>
+              <img className={classes.heroImage} src={LandingPageAboveFold3} style={{opacity: heroImage3Opacity}}/>       
+            </Hidden>
+           
+            {heroTextContent}
          </div>
         <div className={classes.content1}>
           <div className={classes.content1TextDiv}>
