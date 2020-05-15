@@ -43,6 +43,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
+    minHeight: 'calc(100vh - 240px)'
   },
   closeMenuButton: {
     marginRight: 'auto',

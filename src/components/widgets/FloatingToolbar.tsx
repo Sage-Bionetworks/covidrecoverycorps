@@ -45,8 +45,8 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
   }
 
   return (
-    <div className="FloatingToolbar" style={{ top: top, width: '100%', height: '62px' }}>
-      <div className="row" style={{ position: 'relative', marginTop: '5px' }}>
+    <div className="FloatingToolbar" style={{ top: top, width: '100%', height: '78px' }}>
+      <div className="row" style={{ position: 'relative', marginTop: '17px' }}>
         {
           <div style={{ position: 'absolute', left: '20px', zIndex: 999}}>
             <Link onClick={ () => {
