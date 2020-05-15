@@ -129,7 +129,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     )
 
     const result = (
-      <div className="ConsentInfo__navButtons">{buttonDiv}</div>
+      <div className="navButtons">{buttonDiv}</div>
     )
     return result
   }
