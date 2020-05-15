@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '@material-ui/core'
-import Modal from 'react-bootstrap/Modal'
 
+export const privacyPolicyLink:string = '/PrivacyPolicy_v1.0-04.May.2020.pdf'
 
 export default function CookieNotificationBanner() {
   const isCookiePolicyPreviouslyAccepted:boolean = localStorage.getItem('cookiePolicyAccepted') == 'true'
   const [isCookiePolicyAccepted, setIsCookiePolicyAccepted] = useState<boolean>(isCookiePolicyPreviouslyAccepted)
-  
   useEffect(() => {
     localStorage.setItem('cookiePolicyAccepted', isCookiePolicyAccepted.toString());
   }, [isCookiePolicyAccepted]);
@@ -23,7 +22,7 @@ export default function CookieNotificationBanner() {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="/PrivacyPolicy_v1.0-04.May.2020.pdf"
+            href={privacyPolicyLink}
           >
             {' '}
             <u> Learn more</u>
