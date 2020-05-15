@@ -70,14 +70,14 @@ export const playfairDisplayFont = [
   'Arial',
 ].join(',')
 
-
+const defaultTheme = createMuiTheme()
 const theme = createMuiTheme({
   typography: {
     // Tell Material-UI what's the font-size on the html element is.
     htmlFontSize: 10,
     fontFamily: sourceSerifProFont,
     button: {
-      textTransform: 'none'
+      textTransform: 'none',
     },
   },
   palette: {
@@ -125,22 +125,36 @@ const theme = createMuiTheme({
         color: '#0084FF',
         '&:hover': {
           background: 'none',
-          textDecoration: 'underline'
+          textDecoration: 'underline',
         },
       },
     },
     MuiInputBase: {
       root: {
         fontFamily: openSansFont,
-      }
+      },
     },
     MuiCard: {
       root: {
         backgroundColor: '#f5f5f5',
         maxWidth: '360px',
-        margin: '0 auto'
+        margin: '0 auto',
+      },
+    },
+    MuiCardContent: {
+      root: {
+      [defaultTheme.breakpoints.up('md')]: {
+        padding: '46px',
+      },
+
+      '&:last-child': {
+        [defaultTheme.breakpoints.up('md')]: {
+          paddingBottom: '46px',
+        },
       }
-    }
+
+    },
+    },
   },
 })
 
@@ -166,18 +180,20 @@ export const getSearchParams = (search: string): { [key: string]: string } => {
 }
 
 function renderWithGridLayout(el: JSX.Element) {
-  return <Grid
-    container
-    direction="row"
-    justify="center"
-    alignItems="center"
-    spacing={2}
-    style={{padding: '24px'}}
-  >
-    <Grid item xs={12} md={8} lg={6}>
-      {el}
+  return (
+    <Grid
+      container
+      direction="row"
+      justify="center"
+      alignItems="center"
+      spacing={2}
+      style={{ padding: '24px' }}
+    >
+      <Grid item xs={12} md={8} lg={6}>
+        {el}
+      </Grid>
     </Grid>
-  </Grid>
+  )
 }
 
 function App() {
@@ -195,7 +211,11 @@ function App() {
       if (token && isSubscribed) {
         try {
           const userInfo = await UserService.getUserInfo(token)
-          setUserSession(token, userInfo.data.firstName, userInfo.data.consented)
+          setUserSession(
+            token,
+            userInfo.data.firstName,
+            userInfo.data.consented
+          )
         } catch (e) {
           setUserSession(undefined, '', false)
         }
@@ -215,13 +235,13 @@ function App() {
           token ? (
             children
           ) : (
-              <Redirect
-                to={{
-                  pathname: '/login',
-                  state: { from: location },
-                }}
-              />
-            )
+            <Redirect
+              to={{
+                pathname: '/login',
+                state: { from: location },
+              }}
+            />
+          )
         }
       />
     )
@@ -284,11 +304,8 @@ function App() {
   const classes = useStyles()
 
   const getTopClass = (location: string) => {
-
     const specialPages = ['dashboard', 'survey', 'contactinfo']
-    if (
-      specialPages.find(page => location.toLowerCase().includes(page))
-    ) {
+    if (specialPages.find((page) => location.toLowerCase().includes(page))) {
       return 'partialGreen'
     } else {
       return ''
@@ -305,7 +322,9 @@ function App() {
               <CookieNotificationBanner />
               <GoogleAnalyticsPageTracker />
               <ScrollToTopOnRouteChange
-                onRouteChangeFn={(location: string) => setCurrentLocation(location)}
+                onRouteChangeFn={(location: string) =>
+                  setCurrentLocation(location)
+                }
               />
               <nav
                 style={{
@@ -327,9 +346,7 @@ function App() {
         renders the first one that matches the current URL. */}{' '}
                 <Switch>
                   <Route path="/collaborators">
-                    {
-                      renderWithGridLayout(<Collaborators />)
-                    }
+                    {renderWithGridLayout(<Collaborators />)}
                   </Route>
 
                   <Route
@@ -373,79 +390,66 @@ function App() {
                   ></Route>
 
                   <ConsentedRoute exact={true} path="/dashboard">
-                    {
-                      renderWithGridLayout(<Dashboard token={token || ''} />)
-                    }
+                    {renderWithGridLayout(<Dashboard token={token || ''} />)}
                   </ConsentedRoute>
                   {/*todo make private */}
                   <Route exact={true} path="/consent">
-                    {
-                      renderWithGridLayout(<Consent token={token || ''} />)
-                    }
+                    {renderWithGridLayout(<Consent token={token || ''} />)}
                   </Route>
                   {/*todo make private */}
                   <Route exact={true} path="/consentehr">
-                    {
-                      renderWithGridLayout(<ConsentEHR token={token || ''} />)
-                    }
+                    {renderWithGridLayout(<ConsentEHR token={token || ''} />)}
                   </Route>
                   {/*todo make private */}
                   <ConsentedRoute exact={true} path="/contactinfo">
-                    {
-                      renderWithGridLayout(
-                        <SurveyWrapper
-                          formTitle="Tell us about yourself"
-                          token={token || ''}
-                          surveyName={'CONTACT'}
-                          formClass="crc"
-                        ></SurveyWrapper>
-                      )
-                    }
+                    {renderWithGridLayout(
+                      <SurveyWrapper
+                        formTitle="Tell us about yourself"
+                        token={token || ''}
+                        surveyName={'CONTACT'}
+                        formClass="crc"
+                      ></SurveyWrapper>
+                    )}
                   </ConsentedRoute>
                   <ConsentedRoute exact={true} path="/survey1">
-                    {
-                      renderWithGridLayout(
-                        <SurveyWrapper
-                          formTitle="Tell us about yourself"
-                          token={token || ''}
-                          surveyName={'DEMOGRAPHIC'}
-                          formClass="crc"
-                        ></SurveyWrapper>
-                      )
-                    }
+                    {renderWithGridLayout(
+                      <SurveyWrapper
+                        formTitle="Tell us about yourself"
+                        token={token || ''}
+                        surveyName={'DEMOGRAPHIC'}
+                        formClass="crc"
+                      ></SurveyWrapper>
+                    )}
                   </ConsentedRoute>
                   <ConsentedRoute exact={true} path="/survey2">
-                    {
-                      renderWithGridLayout(
-                        <SurveyWrapper
-                          formTitle="Your COVID experience"
-                          token={token || ''}
-                          surveyName={'COVID_EXPERIENCE'}
-                          formClass="crc"
-                        ></SurveyWrapper>
-                      )}
+                    {renderWithGridLayout(
+                      <SurveyWrapper
+                        formTitle="Your COVID experience"
+                        token={token || ''}
+                        surveyName={'COVID_EXPERIENCE'}
+                        formClass="crc"
+                      ></SurveyWrapper>
+                    )}
                   </ConsentedRoute>
                   <ConsentedRoute exact={true} path="/survey3">
-                    {
-                      renderWithGridLayout(
-                        <SurveyWrapper
-                          formTitle="Health History"
-                          token={token || ''}
-                          surveyName={'HISTORY'}
-                          formClass="crc"
-                        ></SurveyWrapper>
-                      )}
+                    {renderWithGridLayout(
+                      <SurveyWrapper
+                        formTitle="Health History"
+                        token={token || ''}
+                        surveyName={'HISTORY'}
+                        formClass="crc"
+                      ></SurveyWrapper>
+                    )}
                   </ConsentedRoute>
                   <ConsentedRoute exact={true} path="/survey4">
-                    {
-                      renderWithGridLayout(
-                        <SurveyWrapper
-                          formTitle="COVID Part II"
-                          token={token || ''}
-                          surveyName={'MORE'}
-                          formClass="crc"
-                        ></SurveyWrapper>
-                      )}
+                    {renderWithGridLayout(
+                      <SurveyWrapper
+                        formTitle="COVID Part II"
+                        token={token || ''}
+                        surveyName={'MORE'}
+                        formClass="crc"
+                      ></SurveyWrapper>
+                    )}
                   </ConsentedRoute>
 
                   <Route path="/about">
@@ -461,7 +465,9 @@ function App() {
                     {renderWithGridLayout(<Contact></Contact>)}
                   </Route>
                   <Route path="/settings">
-                    {renderWithGridLayout(<AcountSettings token={token!}></AcountSettings>)}
+                    {renderWithGridLayout(
+                      <AcountSettings token={token!}></AcountSettings>
+                    )}
                   </Route>
                   <Route path="/home">
                     <Intro token={token || null}></Intro>
