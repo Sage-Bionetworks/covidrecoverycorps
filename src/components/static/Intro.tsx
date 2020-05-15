@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles, Button, Grid, Hidden } from '@material-ui/core'
 import {playfairDisplayFont, openSansFont} from '../../App'
 import LandingPageAboveFold from '../../assets/LandingPageAboveFold.png'
+import LandingPageAboveFold2 from '../../assets/LandingPageAboveFold2.png'
+import LandingPageAboveFold3 from '../../assets/LandingPageAboveFold3.png'
 import LandingPageLab from '../../assets/LandingPageLab.png'
 import {ReactComponent as Logos} from '../../assets/columbia_and_sage_logo.svg'
 import {ReactComponent as Tablet} from '../../assets/tablet.svg'
@@ -17,10 +19,20 @@ type IntroProps = {
 
 const useStyles = makeStyles(theme => ({
   heroImage: {
-    backgroundImage: `url(${LandingPageAboveFold})`,
     backgroundPosition: 'top center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+    transition: 'background-image 1.5s linear',
+    mozTransition: 'background-image 1.5s linear',
+  },
+  heroBackgroundImage0: {
+    backgroundImage: `url(${LandingPageAboveFold})`,
+  },
+  heroBackgroundImage1: {
+    backgroundImage: `url(${LandingPageAboveFold2})`,
+  },
+  heroBackgroundImage2: {
+    backgroundImage: `url(${LandingPageAboveFold3})`,
   },
   heroText: {
     color: '#F2F2F2',
@@ -194,15 +206,31 @@ const useStyles = makeStyles(theme => ({
   },
 
 }))
-
 export const Intro: React.FunctionComponent<IntroProps> = ({
 
 }: IntroProps) => {
   const classes = useStyles()
+  const [heroBackgroundImage, setHeroBackgroundImage] = useState<string>(classes.heroBackgroundImage0)
+  const selectNextHeroBackground = () => {
+    // get next image
+    let nextHeroBackgroundImage:string
+    if (heroBackgroundImage === classes.heroBackgroundImage0) {
+      nextHeroBackgroundImage = classes.heroBackgroundImage1
+    } else if (heroBackgroundImage === classes.heroBackgroundImage1) {
+      nextHeroBackgroundImage = classes.heroBackgroundImage2
+    } else {
+      nextHeroBackgroundImage = classes.heroBackgroundImage0
+    }
+    setHeroBackgroundImage(nextHeroBackgroundImage)
+  }
+  useEffect(() => {
+    const interval = setInterval(selectNextHeroBackground, 8000);
+    return () => clearInterval(interval);
+  }, [heroBackgroundImage]);
   return (
     <div className="Intro">
        <div>
-         <div className={classes.heroImage}>
+         <div className={`${classes.heroImage} ${heroBackgroundImage}`}>
             <div className={classes.heroText}>
               A citizen-powered movement to drive scientific breakthroughs and save lives in the <br></br>fight against COVID-19.
               <div>
