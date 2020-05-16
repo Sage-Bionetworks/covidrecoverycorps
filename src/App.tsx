@@ -458,7 +458,7 @@ function App() {
                     <Team />
                   </Route>
                   <Route path="/contact">
-                    {renderWithGridLayout(<Contact></Contact>)}
+                    <Contact />
                   </Route>
                   <Route path="/settings">
                     {renderWithGridLayout(
