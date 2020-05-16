@@ -452,7 +452,7 @@ function App() {
                   </ConsentedRoute>
 
                   <Route path="/faqs">
-                    {renderWithGridLayout(<FAQs></FAQs>)}
+                    <FAQs />
                   </Route>
                   <Route path="/team">
                     <Team />
