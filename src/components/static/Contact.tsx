@@ -1,88 +1,77 @@
 import React from 'react'
-
-
-
+import { makeStyles, Grid, Hidden } from '@material-ui/core'
+import {useIntroStyles} from './Intro'
+import BlueSeparator from './BlueSeparator'
+import { Link } from 'react-router-dom'
 type ContactProps = {
   reason?: string
 }
 
+export const useStyles = makeStyles(theme => ({
+  paperHeaderDiv: {
+    backgroundColor: '#90CCCC',
+  },
+}))
+
 export const Contact: React.FunctionComponent<ContactProps> = ({}: ContactProps) => {
+  const introClasses = useIntroStyles()
+  const classes = useStyles()
   return (
-
-   <div className="Contact__content1">
-             <h1>&nbsp;</h1>
-        <p>
-          For information about participating and questions related to the
-          study, please review the FAQ. If you have additional questions, please
-          send us a message.
-        </p>
-        <p>
-          [Send us a message]
-        </p>
-        <p>
-          This study is sponsored by:
-        </p>
-        <p>
-          Sage Bionetworks, a 501(c)(3) nonprofit research organization located
-          at 2901 3rd Ave, Seattle, WA 98121.
-        </p>
-        <p>
-          Columbia University,
-        </p>
-        <p>
-          Chan Zuckerberg Initiative
-        </p>
-        <p>
-          NAME OF STUDY is a research study. This study does not provide medical
-          advice, diagnosis, or treatment of any kind. If you have questions
-          about your health, talk to your healthcare team. Do not use the
-          information provided on the study website or email correspondence in
-          place of advice from your healthcare team.
-        </p>
-        <p>
-          Sage Bionetworks, Columbia University, and the Chan Zuckerberg
-          Initiative are not liable or responsible for any advice, course of
-          treatment, diagnosis or any other information, services, or products
-          you obtain through the study.
-        </p>
-        <p>
-          If you have any questions at any time before, during, or after the
-          study, contact:
-        </p>
-        <p>
-          Dr. Wendy Chung, MD, PhD, principal investigator of the study. INSERT
-          CONTACT DETAILS FOR WENDY
-        </p>
-        <p>
-          Privacy<br />
-
-          For questions, comments, or requests regarding the privacy policy or
-          our processing of your information, please contact:
-          privacypolicy@sagebionetworks.org.
-        </p>
-        <p>
-          Technical support<br />
-
-          Please contact our technical support team at JOHN TO INSERT
-        </p>
-        <p>
-          Independent Review
-          <br />
-          The Western Institutional Review Board (WIRB) oversees the INSERT NAME
-          study. Contact WIRB you have questions, concerns, or complaints about
-          this study. Contact WIRB if you have questions or concerns about your
-          rights as a participant in this study.
-        </p>
-        <p>
-          Western Institutional Review Board® (WIRB®)<br />
-
-          1019 39th Avenue SE Suite 120 Puyallup, WA 98374-2115 <br />
-
-          1-800-562-4789 or 1-360-252-2500<br />
-
-          Help@wirb.com.
-        </p>
+    <div>
+      <div className={`${classes.paperHeaderDiv} ${introClasses.paperHeaderDiv}`}>
       </div>
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        className={introClasses.paperPanelWrapper}
+      >
+        <Grid item xs={12} md={10} lg={8}>
+          <div className={introClasses.paperPanel}>
+            <div className={introClasses.paperPanelTitle}>
+              <span>Contact Us</span>
+            </div>
+            <Hidden xsDown>
+              <BlueSeparator />
+            </Hidden>
+            <div className="Contact__content1">
+                <p>For information about participating and questions related to the study, visit the <Link to="/faqs">FAQ</Link> section of the site. If you have additional questions, please send us a message.</p>
+                <p>COVID-19 Recovery Corps is a research study. This study does not provide medical advice, diagnosis, or treatment of any kind. If you have questions about your health, talk to your healthcare team. Do not use the information provided on the study website or email correspondence in place of advice from your healthcare team.</p>
+                <p>Sage Bionetworks, Columbia University, and The Chan Zuckerberg Initiative are not liable or responsible for any advice, course of treatment, diagnosis or any other information, services, or products you obtain through the study.</p>
+                <h3>
+                  If you have any questions at any time before, during, or after the study, contact:
+                </h3>
+                <p>
+                  Dr. Wendy Chung, MD, PhD, principal investigator of the study. If you have any questions or need assistance, you can call <b>212-305-5700</b> or email 
+                  <br></br><a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">COVIDRecoveryCorps@cumc.columbia.edu</a>.
+                </p>
+                <h3>
+                  Privacy
+                </h3>
+                <p>
+                  For questions, comments, or requests regarding the privacy policy or our processing of your information, please contact: 
+                  <br></br><a href="mailto:privacypolicy@sagebionetworks.org">privacypolicy@sagebionetworks.org</a>.
+                </p>
+                <h3>
+                  Independent Review
+                </h3>
+                  <p>The Western Institutional Review Board (WIRB) oversees the COVID Recovery Corps study. Contact WIRB if you have questions or concerns about your rights as a participant in this study. </p>
+
+                  <p>
+                    <b>Western Institutional Review Board® (WIRB®)</b><br></br>
+                    1019 39th Avenue SE<br></br>
+                    Suite 120<br></br>
+                    Puyallup, WA 98374-2115<br></br>
+                    <b>800-562-4789</b> or <b>360-252-2500</b> <br></br>
+                    <a href="mailto:Help@wirb.com">Help@wirb.com</a>
+                  </p>
+                </div>
+          </div>    
+        </Grid>
+      </Grid>
+      
+    </div>
  
   )
 }
