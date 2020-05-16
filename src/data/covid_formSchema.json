@@ -126,7 +126,8 @@
                     },
                     "cough_duration": {
                       "title": "How Many Days?",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   }
                 }
@@ -148,11 +149,13 @@
                     },
                     "fever_duration": {
                       "title": "How Many Days?",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     },
                     "fever_highest": {
                       "title": "What was the highest temperature?(\u00B0 F) ",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 90
                     }
                   }
                 }
@@ -174,7 +177,8 @@
                     },
                     "shortness_breath_duration": {
                       "title": "How Many Days?",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   }
                 }
@@ -196,7 +200,8 @@
                     },
                     "chest_pain_duration": {
                       "title": "How Many Days?",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   }
                 }
@@ -218,7 +223,8 @@
                     },
                     "night_sweats_duration": {
                       "title": "How Many Days?",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   }
                 }
@@ -240,7 +246,8 @@
                     },
                     "chills_duration": {
                       "title": "How Many Days?",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   }
                 }
@@ -262,7 +269,8 @@
                     },
                     "rash_duration": {
                       "title": "How Many Days?",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   }
                 }
@@ -284,7 +292,8 @@
                     },
                     "foamy_urine_duration": {
                       "title": "How Many Days?",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   }
                 }
@@ -306,7 +315,8 @@
                     },
                     "red_urine_duration": {
                       "title": "How Many Days?",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   }
                 }
@@ -328,7 +338,8 @@
                     },
                     "loss_of_smell_duration": {
                       "title": "How Many Days?",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   }
                 }
@@ -350,7 +361,8 @@
                     },
                     "loss_of_taste_duration": {
                       "title": "How Many Days?",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   }
                 }
@@ -438,7 +450,7 @@
                       "type": "string"
                     },
                     "last_day": {
-                      "title": "First day of symptoms:",
+                      "title": "Last day of symptoms:",
                       "type": "string"
                     },
                     "still_have_symptoms": {
@@ -639,7 +651,8 @@
                     },
                     "oxigen_days": {
                       "type": "number",
-                      "title": "How many Days?"
+                      "title": "How many Days?",
+                      "minimum": 1
                     }
                   }
                 },
@@ -661,7 +674,8 @@
                     },
                     "oxigen_mask_days": {
                       "type": "number",
-                      "title": "How many Days?"
+                      "title": "How many Days?",
+                      "minimum": 1
                     }
                   }
                 },
@@ -683,7 +697,8 @@
                     },
                     "ventilator_days": {
                       "type": "number",
-                      "title": "How many Days?"
+                      "title": "How many Days?",
+                      "minimum": 1
                     }
                   }
                 },
@@ -705,7 +720,8 @@
                     },
                     "kidney_dialysis_days": {
                       "type": "number",
-                      "title": "How many Days?"
+                      "title": "How many Days?",
+                      "minimum": 1
                     }
                   }
                 },

@@ -32,17 +32,20 @@
         },
         "weight": {
           "type": "number",
-          "title": "3. How much do you weigh? (lbs.)"
+          "title": "3. How much do you weigh? (lbs.)",
+          "minimum": 50
         },
         "height": {
           "type": "object",
           "title": "4. How tall are you?",
           "properties": {
             "feet": {
-              "type": "number"
+              "type": "number",
+              "minimum": 1
             },
             "inches": {
-              "type": "number"
+              "type": "number",
+              "minimum": 0
             }
           }
         }
@@ -270,7 +273,8 @@
                     },
                     "heart_attack_age": {
                       "title": "What was your age",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   },
                   "required": [
@@ -299,7 +303,8 @@
                     },
                     "stroke_age": {
                       "title": "What was your age",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   },
                   "required": [
@@ -328,7 +333,8 @@
                     },
                     "head_hemorrhage_age": {
                       "title": "What was your age",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   },
                   "required": [
@@ -357,7 +363,8 @@
                     },
                     "coronary_bypass_surgery_age": {
                       "title": "What was your age",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   },
                   "required": [
@@ -386,7 +393,8 @@
                     },
                     "cardiac_catheterization_age": {
                       "title": "What was your age",
-                      "type": "number"
+                      "type": "number",
+                      "minimum": 1
                     }
                   },
                   "required": [
@@ -928,7 +936,8 @@
                             },
                             "miscarriage_number": {
                               "title": "If so, how many times",
-                              "type": "number"
+                              "type": "number",
+                              "minimum": 1
                             }
                           }
                         }
@@ -986,7 +995,8 @@
         },
         "children_birth": {
           "type": "number",
-          "title": "How many children have you given birth to?"
+          "title": "How many children have you given birth to?",
+          "minimum": 1
         }
       }
     }
