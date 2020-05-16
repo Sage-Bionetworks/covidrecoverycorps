@@ -31,8 +31,6 @@ import Dashboard from './components/Dashboard'
 
 import { SESSION_NAME } from './types/types'
 import ConsentEHR from './components/consent/ConsentEHR'
-import About from './components/static/About'
-
 import Team from './components/static/Team'
 import Contact from './components/static/Contact'
 import FAQs from './components/static/FAQs'
@@ -453,14 +451,11 @@ function App() {
                     )}
                   </ConsentedRoute>
 
-                  <Route path="/about">
-                    {renderWithGridLayout(<About></About>)}
-                  </Route>
                   <Route path="/faqs">
                     {renderWithGridLayout(<FAQs></FAQs>)}
                   </Route>
                   <Route path="/team">
-                    {renderWithGridLayout(<Team></Team>)}
+                    <Team />
                   </Route>
                   <Route path="/contact">
                     {renderWithGridLayout(<Contact></Contact>)}

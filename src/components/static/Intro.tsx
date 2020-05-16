@@ -21,7 +21,7 @@ type IntroProps = {
   token: string | null
 }
 
-const useStyles = makeStyles(theme => ({
+export const useIntroStyles = makeStyles(theme => ({
   heroContainer: {
     position: 'relative',
     overflow: 'hidden',
@@ -103,7 +103,6 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       fontSize: '24px',
     },
-
   },
   logosDiv: {
     padding: '50px 20px',
@@ -153,11 +152,11 @@ const useStyles = makeStyles(theme => ({
     float: 'right',
     paddingTop: '3px'
   },
-  participationHeaderDiv: {
+  paperHeaderDiv: {
     backgroundColor: '#3A3A3A',
     padding: '60px 25px 200px 25px',
   },
-  participationHeaderText: {
+  paperHeaderText: {
     color: '#ffffff',
     maxWidth: '700px',
     textAlign: 'center',
@@ -167,16 +166,16 @@ const useStyles = makeStyles(theme => ({
     marginRight: 'auto',
     fontFamily: playfairDisplayFont,
   },
-  participationPanelWrapper: {
+  paperPanelWrapper: {
     padding: '20px 20px 90px 20px',
     marginTop: '-170px'
   },
-  participationPanel: {
+  paperPanel: {
     backgroundColor: '#FCFCFC',
     border: '2px #EEEEEE solid',
     padding: '30px 50px',
   },
-  participationPanelTitle: {
+  paperPanelTitle: {
     fontFamily: playfairDisplayFont,
     fontWeight: 'bold',
     fontSize: '32px',
@@ -186,14 +185,14 @@ const useStyles = makeStyles(theme => ({
   pink: {
     color: '#FC9090',
   },
-  participationPanelStepNumber: {
+  paperPanelStepNumber: {
     color: '#FC9090',
     fontFamily: openSansFont,
     fontSize: '12px',
     fontWeight: 'bold',
     paddingBottom: '5px'
   },
-  participationPanelStepTitle: {
+  paperPanelStepTitle: {
     fontFamily: playfairDisplayFont, 
     fontWeight: 'bold',
     fontSize: '24px',
@@ -201,17 +200,17 @@ const useStyles = makeStyles(theme => ({
     color: '#2A2A2A',
     paddingBottom: '17px'
   },
-  participationPanelStepBody: {
+  paperPanelStepBody: {
     fontFamily: openSansFont, 
     fontSize: '16px',
     lineHeight: '2rem',
     color: '#3A3A3A',
     paddingBottom: '50px'
   },
-  participationPanelStepIconDiv: {
+  paperPanelStepIconDiv: {
     paddingLeft: '50px'
   },
-  participationPanelStepIconMobileDiv: {
+  paperPanelStepIconMobileDiv: {
     textAlign: 'center',
     padding: '20px'
   },
@@ -232,7 +231,7 @@ const useStyles = makeStyles(theme => ({
 export const Intro: React.FunctionComponent<IntroProps> = ({
 
 }: IntroProps) => {
-  const classes = useStyles()
+  const classes = useIntroStyles()
   const [heroImage1Opacity, setHeroImage1Opacity] = useState(1)
   const [heroImage2Opacity, setHeroImage2Opacity] = useState(0)
   const [heroImage3Opacity, setHeroImage3Opacity] = useState(0)
@@ -323,8 +322,8 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
             </div>
           </Grid>
         </Grid>
-        <div className={classes.participationHeaderDiv}>
-          <div className={classes.participationHeaderText}>
+        <div className={classes.paperHeaderDiv}>
+          <div className={classes.paperHeaderText}>
             By sharing your experience in recovering from COVID-19, you can help answer critical questions. 
           </div>
         </div>
@@ -333,11 +332,11 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
           direction="row"
           justify="center"
           alignItems="center"
-          className={classes.participationPanelWrapper}
+          className={classes.paperPanelWrapper}
         >
           <Grid item xs={12} md={10} lg={8}>
-            <div className={classes.participationPanel}>
-              <div className={classes.participationPanelTitle}>
+            <div className={classes.paperPanel}>
+              <div className={classes.paperPanelTitle}>
                 <span>Participation is simple.&nbsp;</span>
                 <Hidden smUp>
                   <br></br>
@@ -350,7 +349,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
 
               {/* Step one               */}
               <Hidden smUp>
-                <div className={classes.participationPanelStepIconMobileDiv}>
+                <div className={classes.paperPanelStepIconMobileDiv}>
                   <Tablet />
                 </div>
               </Hidden>
@@ -360,18 +359,18 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
                 alignItems="center"
               >
                 <Grid item xs={12} sm={9}>
-                  <div className={classes.participationPanelStepNumber}>
+                  <div className={classes.paperPanelStepNumber}>
                     STEP ONE
                   </div>
-                  <div className={classes.participationPanelStepTitle}>
+                  <div className={classes.paperPanelStepTitle}>
                     Register and take the survey
                   </div>
-                  <div className={classes.participationPanelStepBody}>
+                  <div className={classes.paperPanelStepBody}>
                     To get started, click <Link to="/eligibility" style={{fontWeight: 'bold'}}>Join Us</Link> and review information about what will happen in the study. After registering, you will be invited to take brief surveys that may help scientists begin to answer questions like: Why do some people experience very mild symptoms while others get very sick? How does recovering from COVID-19 impact your health over time?
                   </div>
                 </Grid>
                 <Grid item xs={12} sm={3}>
-                  <div className={classes.participationPanelStepIconDiv}>
+                  <div className={classes.paperPanelStepIconDiv}>
                     <Hidden xsDown>
                       <Tablet />
                     </Hidden>
@@ -381,7 +380,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
 
               {/* Step two               */}
               <Hidden smUp>
-                <div className={classes.participationPanelStepIconMobileDiv}>
+                <div className={classes.paperPanelStepIconMobileDiv}>
                   <TestTubes />
                 </div>
               </Hidden>
@@ -391,18 +390,18 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
                 alignItems="center"
               >
                 <Grid item xs={12} sm={9}>
-                  <div className={classes.participationPanelStepNumber}>
+                  <div className={classes.paperPanelStepNumber}>
                     STEP TWO
                   </div>
-                  <div className={classes.participationPanelStepTitle}>
+                  <div className={classes.paperPanelStepTitle}>
                     Share your samples
                   </div>
-                  <div className={classes.participationPanelStepBody}>
+                  <div className={classes.paperPanelStepBody}>
                     We will invite some participants to visit clinical sites in New York City to donate a sample.  In the future, other participants will be invited to donate a sample from home.  Sharing your samples will help researchers develop more reliable antibody tests that can make antibody testing accessible to more people, and in turn, may help answer important questions  including: Who was really infected with COVID-19?  What levels of antibodies are needed to protect us from reinfection? Is it possible for people to develop full immunity to COVID-19?
                   </div>
                 </Grid>
                 <Grid item xs={12} sm={3}>
-                  <div className={classes.participationPanelStepIconDiv}>
+                  <div className={classes.paperPanelStepIconDiv}>
                     <Hidden xsDown>
                       <TestTubes />
                     </Hidden>
@@ -412,7 +411,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
 
               {/* Step three               */}
               <Hidden smUp>
-                <div className={classes.participationPanelStepIconMobileDiv}>
+                <div className={classes.paperPanelStepIconMobileDiv}>
                   <BooksApple />
                 </div>
               </Hidden>
@@ -422,18 +421,18 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
                 alignItems="center"
               >
                 <Grid item xs={12} sm={9}>
-                  <div className={classes.participationPanelStepNumber}>
+                  <div className={classes.paperPanelStepNumber}>
                     STEP THREE
                   </div>
-                  <div className={classes.participationPanelStepTitle}>
+                  <div className={classes.paperPanelStepTitle}>
                     Learn with us along the way
                   </div>
-                  <div className={classes.participationPanelStepBody}>
+                  <div className={classes.paperPanelStepBody}>
                     If you are asked to provide a sample, we will return results of the antibody test approved by the New York State Department of Health and share information about what those results mean. As we learn more about the impact of COVID-19 across study participants, we will share regular updates with the broader scientific and patient community. We may also ask if you are interested in joining other related studies. For instance, some participants may choose to be notified of opportunities to donate plasma and help those still fighting for survival from COVID-19.
                   </div>
                 </Grid>
                 <Grid item xs={12} sm={3}>
-                  <div className={classes.participationPanelStepIconDiv}>
+                  <div className={classes.paperPanelStepIconDiv}>
                     <Hidden xsDown>
                       <BooksApple />
                     </Hidden>
