@@ -4,7 +4,7 @@ import {playfairDisplayFont, openSansFont} from '../../App'
 import AboutPageAboveFold from '../../assets/AboutPageAboveFold.png'
 import AboutPageAboveFoldMobile from '../../assets/AboutPageAboveFold_mobile.png'
 import Wendy from '../../assets/Wendy.png'
-import Lara from '../../assets/Lara.png'
+import Lara from '../../assets/Lara.jpg'
 import {ReactComponent as ColumbiaLogo} from '../../assets/columbia_logo.svg'
 import {ReactComponent as SageLogo} from '../../assets/sage_logo.svg'
 
@@ -50,7 +50,6 @@ export const useStyles = makeStyles(theme => ({
     lineHeight: '37px',
     fontSize: '32px'
   },
-
 }))
 export const Team: React.FunctionComponent<TeamProps> = ({
 
