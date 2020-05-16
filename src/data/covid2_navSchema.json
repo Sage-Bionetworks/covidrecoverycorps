@@ -2,7 +2,7 @@
   "steps": [
     {
       "id": "covid1",
-      "order": 10,
+      "order": 1,
       "title": "More COVID-19 Experience ",
       "orderDisplay": "1/6",
       "description": "Please fill out the following survey questions to the best of your ability. If you do not remember or would not like to answer, please click \"Prefer not to answer\". ",
@@ -124,7 +124,7 @@
     {
         "id": "life_pets",
         "orderDisplay": "5/6",
-        "order":1,
+        "order":30,
         "title": "",
         "validationRules": [],
         "default": "job_commute"
