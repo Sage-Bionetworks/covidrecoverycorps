@@ -6,9 +6,9 @@ import { Link } from '@material-ui/core'
 import ConfirmationModal from './ConfirmationModal'
 
 type FloatingToolbarProps = {
-  closeLinkDestination: string,
-  closeIcon: IconProp,
-  closeLinkText: string,
+  closeLinkDestination: string
+  closeIcon?: IconProp
+  closeLinkText: string
   closeConfirmationText?: string
 }
 
@@ -18,7 +18,10 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
   const [top, setTop] = useState('0px')
   const [prevScrollpos, setPrevScrollpos] = useState(0)
 
-  const [isShowingCancelConfirmation, setIsShowingCancelConfirmation] = useState(false)
+  const [
+    isShowingCancelConfirmation,
+    setIsShowingCancelConfirmation,
+  ] = useState(false)
   const [isCanceled, setIsCancelled] = useState(false)
 
   useEffect(() => {
@@ -46,18 +49,32 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
   }
 
   return (
-    <div className="FloatingToolbar" style={{ top: top, width: '100%', height: '78px' }}>
+    <div
+      className="FloatingToolbar"
+      style={{ top: top, width: '100%', height: '78px' }}
+    >
       <div className="row" style={{ position: 'relative', marginTop: '17px' }}>
         {
-          <div style={{ position: 'absolute', left: '20px',top: '-12px', zIndex: 999}}>
-            <Link onClick={ () => {
-              if (props.closeConfirmationText) {
-                setIsShowingCancelConfirmation(true)
-              } else {
-                setIsCancelled(true)
-              }
-            }}>
-              <img src={btnClose} alt={props.closeLinkText}></img>
+          <div style={{ position: 'absolute', left: '20px', zIndex: 999 }}>
+            <Link
+              onClick={() => {
+                if (props.closeConfirmationText) {
+                  setIsShowingCancelConfirmation(true)
+                } else {
+                  setIsCancelled(true)
+                }
+              }}
+            >
+              {!props.closeIcon && (
+                <img
+                  style={{ top: '-12px', position: 'absolute' }}
+                  src={btnClose}
+                  alt={props.closeLinkText}
+                ></img>
+              )}
+
+              {props.closeIcon && <FontAwesomeIcon icon={props.closeIcon} />}
+
               <span style={{ marginLeft: '5px' }}>{props.closeLinkText}</span>
             </Link>
           </div>
@@ -69,24 +86,25 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
         </div>
       </div>
       {isShowingCancelConfirmation && (
-          <ConfirmationModal
-            show={true}
-            content={
-              <div>
-                <h2>{props.closeConfirmationText}</h2>
-              </div>}
-            onCancel={() => 
-              // hide cancel confirmation
-              setIsShowingCancelConfirmation(false)
-            }
-            onOK={() =>
-              // redirect back
-              setIsCancelled(true)
-            }
-            confirmCopy={'Yes'}
-            cancelCopy={'No, take me back'}
-          ></ConfirmationModal>
-        )}
+        <ConfirmationModal
+          show={true}
+          content={
+            <div>
+              <h2>{props.closeConfirmationText}</h2>
+            </div>
+          }
+          onCancel={() =>
+            // hide cancel confirmation
+            setIsShowingCancelConfirmation(false)
+          }
+          onOK={() =>
+            // redirect back
+            setIsCancelled(true)
+          }
+          confirmCopy={'Yes'}
+          cancelCopy={'No, take me back'}
+        ></ConfirmationModal>
+      )}
     </div>
   )
 }
