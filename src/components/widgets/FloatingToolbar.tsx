@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import btnClose from '../../assets/btn_close.png'
 import { Link } from '@material-ui/core'
 import ConfirmationModal from './ConfirmationModal'
 
@@ -48,7 +49,7 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
     <div className="FloatingToolbar" style={{ top: top, width: '100%', height: '78px' }}>
       <div className="row" style={{ position: 'relative', marginTop: '17px' }}>
         {
-          <div style={{ position: 'absolute', left: '20px', zIndex: 999}}>
+          <div style={{ position: 'absolute', left: '20px',top: '-12px', zIndex: 999}}>
             <Link onClick={ () => {
               if (props.closeConfirmationText) {
                 setIsShowingCancelConfirmation(true)
@@ -56,7 +57,7 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
                 setIsCancelled(true)
               }
             }}>
-              <FontAwesomeIcon icon={props.closeIcon} />
+              <img src={btnClose} alt={props.closeLinkText}></img>
               <span style={{ marginLeft: '5px' }}>{props.closeLinkText}</span>
             </Link>
           </div>
