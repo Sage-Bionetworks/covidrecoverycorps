@@ -1,17 +1,28 @@
 .Consent {
-
   h2 {
     font-size: 2.4rem;
-    font-family: "Playfair Display" ;
-    font-weight: 'bold';  
+    font-family: 'Playfair Display';
+    font-weight: 700;
     margin-bottom: 3.2rem;
+    line-height: 3rem;
+    color: #2a2a2a;
 
   }
 
   p {
     color: #3a3a3a;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
   }
 
+  .consentConfirmation {
+    text-align: center;
+    margin-bottom: 3.2rem;
+    margin-top: 6rem;
+  }
 
   .Consent__form {
     .radiobuttons .MuiFormControlLabel-root {
@@ -29,14 +40,18 @@
     padding-left: 0;
   }
 
-
   .page-numbers {
-    color: #FC9090
+    color: #2a2a2a;
+    margin-top: -3rem;
+    font-family: 'Playfair Display';
+    font-size: 1.4rem;
+    font-weight: 700;
+  
   }
- 
+
   .icon-top {
-    text-align:center;
-    margin-top:1rem;
+    text-align: center;
+    margin-top: 1rem;
     margin-bottom: 4.5rem;
   }
   .quizAnswer {
@@ -44,7 +59,7 @@
   }
 
   .MuiFormControlLabel-root.success .MuiRadio-root.Mui-checked {
-    color:#0085FF;
+    color: #0085ff;
     // background-color: rgb(232, 244, 253); // default background color (MuiAlert-standardInfo)
   }
   .MuiFormControlLabel-root.error .MuiRadio-root.Mui-checked {
@@ -53,18 +68,15 @@
   }
 
   .navButtons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-      width:100%;
- 
-      button {
-        width: 92px;
-      }
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    width: 100%;
+
+    button {
+      width: 92px;
+    }
   }
-
-
-
 }
 
 .learnMoreToggle {
@@ -92,5 +104,4 @@
 }
 
 @media only screen and (max-width: 768px) {
-  
 }

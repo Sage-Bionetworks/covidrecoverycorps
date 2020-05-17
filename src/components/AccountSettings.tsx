@@ -106,7 +106,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
     }
   }
   if (isRedirectingToEhr) {
-    return <Redirect to='/consentehr' />
+    return <Redirect to='/consentehr/?from=ACCOUNT' />
   }
   if (isRedirectingHome) {
     // need a way to force App to reload the token, because the session is dead after withdrawing from the study!

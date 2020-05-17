@@ -11,7 +11,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Alert from '@material-ui/lab/Alert';
-import {getSearchParams, openSansFont} from '../../App'
+import {openSansFont} from '../../App'
+import {getSearchParams} from '../../helpers/utility';
 import GlobalAlertCopy from './GlobalAlertCopy';
 import {privacyPolicyLink} from './CookieNotificationBanner';
 
