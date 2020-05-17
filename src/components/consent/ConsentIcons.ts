@@ -18,6 +18,7 @@ import ehr_06 from '../../assets/ehr_icons/_5.png'
 import ehr_07 from '../../assets/ehr_icons/_6.png'
 import ehr_08 from '../../assets/ehr_icons/_7.png'
 import ehr_09 from '../../assets/ehr_icons/_8.png'
+import ehr_10 from '../../assets/ehr_icons/_9.png'
 
 
 const ConsentIcons = {
@@ -46,6 +47,7 @@ const ConsentIcons = {
     ehr_07,
     ehr_08,
     ehr_09,
+    ehr_10,
   ],
 }
 
