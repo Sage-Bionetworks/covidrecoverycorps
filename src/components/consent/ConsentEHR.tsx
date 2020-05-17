@@ -175,13 +175,6 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
 
             <div className="buttons--action">
               <Button
-                onClick={() => alert('todo')}
-                variant="outlined"
-                color="primary"
-              >
-                Disagree
-              </Button>
-              <Button
                 type="submit"
                 disabled={!name || !isHIPAAConsented}
                 variant="contained"
