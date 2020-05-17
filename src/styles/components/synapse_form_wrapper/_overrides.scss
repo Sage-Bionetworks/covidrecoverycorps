@@ -38,6 +38,7 @@
     font-size: 16px;
     line-height: 25px;
     margin-bottom: 1rem;
+    width: auto;
   }
 
   @mixin field-description {
@@ -390,7 +391,7 @@
 
     width: calc(-2px + #{$checkbox-width});
     height: calc(-2px + #{$checkbox-width});
-    padding-top: 3px;
+    padding-top: 0;
     padding-left: 1px;
     background-color: #0084ff;
     color: #fff;
