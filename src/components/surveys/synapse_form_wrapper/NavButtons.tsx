@@ -60,12 +60,12 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
    /* props.isNoSaveButton?*/ 
       <Button 
       color="primary"
-      className="save"
+      className="submit"
       variant="contained"
       disabled={props.isFormSubmitted}
       onClick={e => props.onNavAction(NavActionEnum.SUBMIT)}
     >
-      SUBMIT
+      Submit
     </Button>
   
   )
