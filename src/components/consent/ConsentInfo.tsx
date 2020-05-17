@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import FloatingToolbar from '../widgets/FloatingToolbar'
 import Button from '@material-ui/core/Button/Button'
-import { faTimes, faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Alert from '@material-ui/lab/Alert'
@@ -102,7 +102,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
               setCurrentStep((prev) => prev - 1)
             }}
           >
-            <FontAwesomeIcon icon={faAngleLeft} />
+            <FontAwesomeIcon icon={faArrowLeft} />
             &nbsp;
           </Button>
         )}
@@ -122,7 +122,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
             }}
           >
             &nbsp;
-            <FontAwesomeIcon icon={faAngleRight} />
+            <FontAwesomeIcon icon={faArrowRight} />
           </Button>
         )}
       </>
@@ -191,18 +191,18 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     }
     return (
       <div className="FloatingToolbar__toggle">
-        <span className="FloatingToolbar__toggle__text">Summary</span>
+        <span className="FloatingToolbar__toggle__text" onClick={() =>setIsFullText(false)}>Summary</span>
         <Switch
         
-          color="default"
-          inputProps={{ 'aria-label': 'checkbox with default color' }}
+          color="primary"
+          inputProps={{ 'aria-label': 'consent text summary toggle' }}
           checked={isFullText}
           size="small"
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             setIsFullText(event.target.checked)
           }
         />
-        <span className="FloatingToolbar__toggle__text">Full Text</span>
+        <span className="FloatingToolbar__toggle__text" onClick={() =>setIsFullText(true)}>Full Text</span>
       </div>
     )
   }
@@ -211,7 +211,6 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     
         <div className="Consent">
           <FloatingToolbar closeLinkDestination='/home?alert=CANCELLED_CONSENT'
-          closeIcon={faTimes}
           closeLinkText=''
           closeConfirmationText='Are you sure you want to leave the consent process?'
           >

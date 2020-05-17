@@ -17,6 +17,8 @@ import ConsentCopy from './ConsentCopy'
 import { FloatingToolbar } from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
 import ConsentIcons from './ConsentIcons'
+import ConsentSentConfirmation from './ConsentSentConfirmation'
+
 
 export type ConsentEHRProps = {
   setConsentEHRFn?: Function
@@ -34,9 +36,13 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   )
   const [name, setName] = useState('')
   const [error, setError] = useState('')
+  const [isConsentConfirmationShown, setConsentConfirmationShown] = useState(
+    false
+  )
   const totalSteps = 10
+  
 
-  if (isConsentEHRDone) {
+  if (isConsentConfirmationShown) {
     return <Redirect to="/dashboard?consented=true"></Redirect>
   }
 
@@ -176,6 +182,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
             <div className="buttons--action">
               <Button
                 type="submit"
+                fullWidth
                 disabled={!name || !isHIPAAConsented}
                 variant="contained"
                 color="primary"
@@ -198,7 +205,6 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
             <>
               <FloatingToolbar
                 closeLinkDestination="/dashboard"
-                closeIcon={faTimes}
                 closeLinkText=""
                 closeConfirmationText="Are you sure you want to leave the HIPPA Authorization process?"
               >
@@ -216,7 +222,12 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           )}
           {currentStep === 0 && renderStep0()}
           {currentStep > 0 && currentStep <= totalSteps && renderInfoStep()}
-          {currentStep === totalSteps + 1 && <div>{renderSignatureStep()}</div>}
+          {(currentStep === totalSteps + 1 && !isConsentEHRDone) && <div>{renderSignatureStep()}</div>}
+          {(isConsentEHRDone && ! isConsentConfirmationShown) && (<ConsentSentConfirmation
+              type="EHR"
+              doneCallbackFn={() => setConsentConfirmationShown(true)}
+            ></ConsentSentConfirmation>
+          )}
         </div>
       </CardContent>
     </Card>

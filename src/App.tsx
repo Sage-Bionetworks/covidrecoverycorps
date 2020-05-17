@@ -24,7 +24,7 @@ import {
   Grid,
 } from '@material-ui/core'
 
-import { getSession } from './helpers/utility'
+import { getSession, getSearchParams } from './helpers/utility'
 
 import Intro from './components/static/Intro'
 import Dashboard from './components/Dashboard'
@@ -167,16 +167,6 @@ type AppState = {
   token: string
 }
 export const TokenContext = React.createContext('')
-
-export const getSearchParams = (search: string): { [key: string]: string } => {
-  const searchParamsProps: any = {}
-  // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
-  const searchParams = new URLSearchParams(search)
-  searchParams.forEach((value, key) => {
-    searchParamsProps[key] = value
-  })
-  return searchParamsProps
-}
 
 function renderWithGridLayout(el: JSX.Element) {
   return (
@@ -335,7 +325,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                (Wed:10:02am)
+                (staging push  Sun 4:30)
               </nav>
               <TopNav
                 token={token}

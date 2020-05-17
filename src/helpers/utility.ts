@@ -132,3 +132,13 @@ export const sendSignInRequest = async (
     throw e
   }
 }
+
+export const getSearchParams = (search: string): { [key: string]: string } => {
+  const searchParamsProps: any = {}
+  // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
+  const searchParams = new URLSearchParams(search)
+  searchParams.forEach((value, key) => {
+    searchParamsProps[key] = value
+  })
+  return searchParamsProps
+}
