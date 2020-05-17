@@ -177,6 +177,17 @@
     }
   }
 
+  //submit button
+  .MuiButtonBase-root.submit {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+
+    span {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+  }
+
   .form-group.field.text {
     padding-left: $left-pad;
     label {
