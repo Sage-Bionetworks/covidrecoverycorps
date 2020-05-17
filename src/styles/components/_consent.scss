@@ -16,6 +16,16 @@
     font-weight: normal;
     font-size: 1.6rem;
     line-height: 2.6rem;
+    margin-bottom: 2rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  li {
+    padding-bottom: 1rem;
+    &:last-child {
+      padding-bottom: 0;
+    }
   }
 
   .consentConfirmation {
@@ -23,6 +33,11 @@
     margin-bottom: 3.2rem;
     margin-top: 6rem;
   }
+
+  .checkbox--indented p {
+    padding-top: 0
+  }
+
 
   .Consent__form {
     .radiobuttons .MuiFormControlLabel-root {
