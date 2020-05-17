@@ -5,6 +5,7 @@
   $left-pad: 1.5rem;
   $primary-blue: #0084ff;
   $gray-bg: #fcfcfc;
+  $text-dark: #2a2a2a;
 
   @mixin label_level2 {
     font-family: 'Open Sans';
@@ -31,19 +32,20 @@
   }
 
   @mixin control_label {
-    font-family: 'Source Serif Pro';
+    font-family: 'Open Sans';
+    font-style: normal;
     font-weight: bold;
-    font-size: 1.8rem;
-    line-height: 2.1rem;
-    margin-bottom: 3rem;
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 1rem;
   }
 
   @mixin field-description {
     font-family: 'Open Sans';
-    font-style: italic;
+    font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 1.4rem;
+    line-height: 2rem;
   }
 
   .MuiCard-root {
@@ -77,7 +79,12 @@
 
   .paging {
     margin: 1rem 2rem 2rem 0;
+    font-family: 'Playfair Display';
+    font-style: normal;
     font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 1.3rem;
+    color: $text-dark;
   }
 
   .padded-panel {
@@ -100,7 +107,7 @@
   }
 
   .form-group {
-    margin-bottom: 3.5rem;
+    margin-bottom: 2rem;
   }
 
   .scroll-area {
@@ -148,13 +155,24 @@
     max-width: 360px;
     margin: 0 auto;
     h2 {
-      font-size: 2.8rem;
-      margin-bottom: 2rem;
+      text-align: left;
+      font-family: 'Playfair Display';
+      font-style: normal;
       font-weight: bold;
-      font-family: 'Source Serif Pro', serif;
+      font-size: 2.4rem;
+      line-height: 3rem;
+      margin-top: 0px;
+      margin-bottom: 2.4rem;
     }
     .surveyIntro {
-      margin: 0 0 2rem 0;
+      margin: 0 0 2.4rem 0;
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: normal;
+
+      font-size: 16px;
+      line-height: 25px;
+      color: $text-dark;
     }
   }
 
@@ -289,8 +307,14 @@
     }
 
     > label span {
+      font-family: 'Open Sans';
       display: flex;
       align-items: center;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1.6rem;
+      line-height: 1.8rem;
+      color: $text-dark;
     }
 
     > label span span {
@@ -606,7 +630,7 @@
       .countries {
         .country-name {
           input[type='text'] {
-            width: 75%
+            width: 75%;
           }
         }
         .array-item-add {
@@ -640,7 +664,8 @@
           }
         }
       }
-      .household_size,  .people_diagnosed  {
+      .household_size,
+      .people_diagnosed {
         .fieldset {
           width: 100%;
         }
@@ -651,9 +676,9 @@
           margin-bottom: 1.5rem;
           justify-content: flex-end;
           align-items: center;
-          width:100%;
+          width: 100%;
           input {
-            width:30%;
+            width: 30%;
             flex-shrink: 0;
           }
           label {
@@ -675,7 +700,7 @@
           }
         }
       }
- /* .people_diagnosed {
+      /* .people_diagnosed {
         .form-group.field-number {
           display: flex;
           label {
