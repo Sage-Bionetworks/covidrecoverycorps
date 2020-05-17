@@ -30,6 +30,8 @@ import { getUiOptions } from 'react-jsonschema-form/lib/utils'
 import { GoogleService } from '../../../services/google.service'
 
 import Card from '@material-ui/core/Card'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import FloatingToolbar from '../../widgets/FloatingToolbar'
 
 export interface IFormData {
   [key: string]: {
@@ -82,7 +84,6 @@ export interface SummaryFormat {
   label: string
   value: string
 }
-
 
 function ObjectFieldTemplate(props: any) {
   const canExpand = function canExpand() {
@@ -159,7 +160,6 @@ export default class SynapseForm extends React.Component<
   uiSchema: {}
   nextStep: Step | undefined
   extraErrors: AjvError[] = []
-
 
   isNewForm = (formData: IFormData): boolean => {
     return (
@@ -348,7 +348,7 @@ export default class SynapseForm extends React.Component<
     //only need to do it if moving forward i.e. nextStepId is undefined
     if (isMoveForwardInWizardMode) {
       previousStack.push(currentStep.id)
-      window.scrollTo(0,100)
+      window.scrollTo(0, 100)
     }
 
     if (!isError) {
@@ -389,7 +389,11 @@ export default class SynapseForm extends React.Component<
         }
       })
     }
-    window.history.replaceState(null, nextStep.title, `${window.location.pathname}?step=${nextStepId}`);
+    window.history.replaceState(
+      null,
+      nextStep.title,
+      `${window.location.pathname}?step=${nextStepId}`
+    )
     GoogleService.sendPageView()
     this.saveStepState(previousStack, steps, nextStep!, formData)
   }
@@ -441,28 +445,26 @@ export default class SynapseForm extends React.Component<
     // we don't need to validate on save so bypassing submit
     if (navAction === NavActionEnum.SAVE) {
       return this.props.onSave(this.state.formData)
-    } 
-    else 
-    {
+    } else {
       this.navAction = navAction
-      if(navAction === NavActionEnum.PREVIOUS) {
-      this.performAction(
-        this.navAction,
-        this.state.currentStep.state === StepStateEnum.ERROR
-      )
-    }
-    else {
-      //this.navAction = navAction
-      // first run whatever custom validaton we have
-      this.extraErrors = await this.runCustomValidation(
-        this.state.formData,
-        this.state.currentStep,
-        this.state.steps
-      )
-      if (this.formRef.current) {
-        this.formRef.current.submit()
+      if (navAction === NavActionEnum.PREVIOUS) {
+        this.performAction(
+          this.navAction,
+          this.state.currentStep.state === StepStateEnum.ERROR
+        )
+      } else {
+        //this.navAction = navAction
+        // first run whatever custom validaton we have
+        this.extraErrors = await this.runCustomValidation(
+          this.state.formData,
+          this.state.currentStep,
+          this.state.steps
+        )
+        if (this.formRef.current) {
+          this.formRef.current.submit()
+        }
       }
-    }}
+    }
   }
 
   // triggered when we click on the step name in left nav (doesn't happen in wizard mode)
@@ -797,7 +799,7 @@ export default class SynapseForm extends React.Component<
         }
       }
     })
-  
+
     const engine = new Engine()
     //this operator checks if any properties match value
     engine.addOperator('notHasChecked', (factValue: any, value: any) => {
@@ -808,7 +810,6 @@ export default class SynapseForm extends React.Component<
       return vals.length === 0
     })
 
-
     engine.addOperator('minPropsLength', (factValue: any, value: any) => {
       if (!factValue) {
         return true
@@ -816,11 +817,6 @@ export default class SynapseForm extends React.Component<
       const vals = Object.values(factValue)
       return vals.length < value
     })
-
-
-
-
-
 
     allRules.forEach((rule) => {
       engine.addRule(rule)
@@ -927,6 +923,13 @@ export default class SynapseForm extends React.Component<
   render() {
     return (
       <div className="outter-wrap">
+        <div>
+          <FloatingToolbar
+            closeLinkDestination="/dashboard"
+            closeIcon={faAngleLeft}
+            closeLinkText="Dashboard"
+          />
+        </div>
         <Prompt
           when={this.state.hasUnsavedChanges}
           message={this.unsavedDataWarning}
@@ -935,9 +938,8 @@ export default class SynapseForm extends React.Component<
           isSubmitted={this.state.isSubmitted}
           bodyText={this.state.currentStep.description}
           title={this.state.currentStep.title}
-   
         ></Header>
-         <Card >
+        <Card>
           <div className="inner-wrap">
             {!this.props.extraUIProps?.isLeftNavHidden && (
               <StepsSideNav
@@ -952,8 +954,10 @@ export default class SynapseForm extends React.Component<
               </div>
             )}
             <div className="form-wrap">
-              <div className="text-right paging">{this.state.currentStep.orderDisplay}</div>
-             {/*} <div className="form-title">{this.state.currentStep.title}</div>*/}
+              <div className="text-right paging">
+                {this.state.currentStep.orderDisplay}
+              </div>
+              {/*} <div className="form-title">{this.state.currentStep.title}</div>*/}
               {this.renderNotification(this.props.callbackStatus)}
               <div
                 className={`right-top-actions ${
@@ -1050,7 +1054,12 @@ export default class SynapseForm extends React.Component<
                   </Form>
                   {this.renderTextForStaticScreen()}
                   {this.state.doShowErrors && (
-                    <div className="error padded-panel pull-right" style={{margin: "1rem 0 2rem 0"}}>Responses required above</div>
+                    <div
+                      className="error padded-panel pull-right"
+                      style={{ margin: '1rem 0 2rem 0' }}
+                    >
+                      Responses required above
+                    </div>
                   )}
                   {!this.props.isWizardMode && (
                     <NextStepLink
@@ -1175,5 +1184,3 @@ function stringToElementForProp(srcObject: any, key: string): object {
   })
   return srcObject
 }
-
-
