@@ -250,6 +250,10 @@
             "cardiac_catheterization": {
               "type": "boolean",
               "title": "Cardiac catheterization or stent"
+            },
+            "no_answer": {
+              "type": "boolean",
+              "title": "Prefer not to answer"
             }
           },
           "dependencies": {
