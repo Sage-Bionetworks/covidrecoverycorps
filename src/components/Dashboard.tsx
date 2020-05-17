@@ -182,19 +182,16 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   return (
     <div className="Dashboard">
       <div className="dashboard-intro">
-        {isFromConsent && (
+        {/* isFromConsent && (
           <Typography variant="h2">Yay, the legal is done!</Typography>
-        )}
+        )*/}
         <p>
           The information you provide will help researchers learn more about
           COVID-19.
         </p>
         <p>
           {' '}
-          To be invited for a lab test, you will need to add your contact
-          information and complete surveys 1 and 2. Surveys 3 and 4 are optional
-          but still provide us with important information. Please consider
-          completing them if you have the time.
+          To be invited for a lab test, you will need to complete surveys 1-3. Surveys 4 and 5 are optional but still provide us this with important information. Please consider completing them if you have the time.
         </p>
       </div>
 
