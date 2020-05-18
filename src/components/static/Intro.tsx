@@ -48,9 +48,11 @@ export const useIntroStyles = makeStyles(theme => ({
     height: 'auto',
   },
   heroText: {
+    color: '#F2F2F2',
+  },
+  heroTextDiv: {
     zIndex: 2,
     position: 'relative',
-    color: '#F2F2F2',
     maxWidth: '650px',
     [theme.breakpoints.up('xs')]: {
       padding: '0px 20px 0px 30px'
@@ -162,9 +164,6 @@ export const useIntroStyles = makeStyles(theme => ({
     padding: '30px 50px',
   },
   paperPanelTitle: {
-    fontFamily: playfairDisplayFont,
-    fontWeight: 'bold',
-    fontSize: '32px',
     textAlign: 'center',
     padding: '40px 20px 0px 20px'
   },
@@ -232,8 +231,8 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
   }, [heroImage1Opacity, heroImage2Opacity, heroImage3Opacity]);
 
   const heroTextContent = 
-    <div className={classes.heroText}>
-      <h1>A citizen-powered movement to drive scientific breakthroughs and save lives in the fight against COVID-19.</h1>
+    <div className={classes.heroTextDiv}>
+      <h1 className={classes.heroText}>A citizen-powered movement to drive scientific breakthroughs and save lives in the fight against COVID-19.</h1>
       <div>
         <NavLink
           to="/eligibility"
@@ -297,9 +296,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
           </Grid>
         </Grid>
         <div className={classes.paperHeaderDiv}>
-          <div className={classes.paperHeaderText}>
-            <h3>By sharing your experience in recovering from COVID-19, you can help answer critical questions. </h3>
-          </div>
+          <h3 className={classes.paperHeaderText}>By sharing your experience in recovering from COVID-19, you can help answer critical questions. </h3>
         </div>
         <Grid
           container
@@ -367,7 +364,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
                   </div>
                   <h3 className={classes.paperPanelStepTitle}>Share your samples</h3>
                   <div className={classes.paperPanelStepBody}>
-                    We will invite some participants to visit clinical sites in New York City to donate a sample.  In the future, other participants will be invited to donate a sample from home.  Sharing your samples will help researchers develop more reliable antibody tests that can make antibody testing accessible to more people, and in turn, may help answer important questions  including: Who was really infected with COVID-19?  What levels of antibodies are needed to protect us from reinfection? Is it possible for people to develop full immunity to COVID-19?
+                    <p>We will invite some participants to visit clinical sites in New York City to donate a sample.  In the future, other participants will be invited to donate a sample from home.  Sharing your samples will help researchers develop more reliable antibody tests that can make antibody testing accessible to more people, and in turn, may help answer important questions  including: Who was really infected with COVID-19?  What levels of antibodies are needed to protect us from reinfection? Is it possible for people to develop full immunity to COVID-19?</p>
                   </div>
                 </Grid>
                 <Grid item xs={12} sm={3}>
@@ -396,7 +393,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
                   </div>
                   <h3 className={classes.paperPanelStepTitle}>Learn with us along the way</h3>
                   <div className={classes.paperPanelStepBody}>
-                    If you are asked to provide a sample, we will return results of the antibody test approved by the New York State Department of Health and share information about what those results mean. As we learn more about the impact of COVID-19 across study participants, we will share regular updates with the broader scientific and patient community. We may also ask if you are interested in joining other related studies. For instance, some participants may choose to be notified of opportunities to donate plasma and help those still fighting for survival from COVID-19.
+                    <p>If you are asked to provide a sample, we will return results of the antibody test approved by the New York State Department of Health and share information about what those results mean. As we learn more about the impact of COVID-19 across study participants, we will share regular updates with the broader scientific and patient community. We may also ask if you are interested in joining other related studies. For instance, some participants may choose to be notified of opportunities to donate plasma and help those still fighting for survival from COVID-19.</p>
                   </div>
                 </Grid>
                 <Grid item xs={12} sm={3}>
