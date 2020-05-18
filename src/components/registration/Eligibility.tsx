@@ -86,7 +86,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
       </p>
       <BlueSeparator></BlueSeparator>
       <form onSubmit={handleOnSubmit}>
-      <div className="form-group">
+      <div className="form-group  checkbox--nopad">
           <div className="form-group checkbox" style={{}}>
             <FormControlLabel
                   control={

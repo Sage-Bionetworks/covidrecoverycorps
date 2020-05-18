@@ -17,7 +17,7 @@ import TextField from '@material-ui/core/TextField/TextField'
 
 import { RouteComponentProps } from 'react-router-dom'
 import Alert from '@material-ui/lab/Alert/Alert'
-import { Tabs, Tab, Card, CardContent } from '@material-ui/core'
+import { Tabs, Tab, Card, CardContent, CircularProgress } from '@material-ui/core'
 import BlueSeparator from '../static/BlueSeparator'
 
 export interface OwnLoginProps {
@@ -70,6 +70,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
   React.useEffect(() => {
     let isSubscribed = true
     const signInWithEmail = async (email: string, token: string) => {
+      setIsLoading(true)
       const postData = {
         study: STUDY_ID,
         email: email,
@@ -144,6 +145,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
     clickEvent.preventDefault() // avoid page refresh
 
     try {
+      setIsLoading(true)
       setError('')
       if (loginType === 'PHONE' && phone) {
         result = await sendSignInRequest(
@@ -163,13 +165,17 @@ export const Login: React.FunctionComponent<LoginProps> = ({
       setError(e.message)
       console.log('error ', result)
     }
+    finally {
+      setIsLoading(false)
+    }
   }
 
   return (
     <>
+    
       {isLoading && (
         <div className="text-center">
-          <span className="spinner"></span>
+          <CircularProgress color="primary" />
         </div>
       )}
       {!isLoading && (
