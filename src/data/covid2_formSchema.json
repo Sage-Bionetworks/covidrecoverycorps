@@ -24,7 +24,7 @@
       "properties": {
         "travel": {
           "type": "string",
-          "title": "1. Were you abroad just before getting sick / being exposed to or being suspected for COVID-19 infection?",
+          "title": "1. Were you abroad just before getting sick/being exposed to or being suspected for COVID-19 infection?",
           "enum": ["No", "Yes", "Prefer not to answer"]
         },
         "household_size": {
