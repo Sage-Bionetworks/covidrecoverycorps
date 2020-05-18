@@ -9,7 +9,8 @@ import LandingPageAboveFold2Mobile from '../../assets/LandingPageAboveFold2_mobi
 import LandingPageAboveFold3Mobile from '../../assets/LandingPageAboveFold3_mobile.png'
 
 import LandingPageLab from '../../assets/LandingPageLab.png'
-import {ReactComponent as Logos} from '../../assets/columbia_and_sage_logo.svg'
+import {ReactComponent as ColumbiaLogo} from '../../assets/columbia_logo.svg'
+import {ReactComponent as SageLogo} from '../../assets/sage_logo.svg'
 import {ReactComponent as Tablet} from '../../assets/tablet.svg'
 import {ReactComponent as TestTubes} from '../../assets/test_tubes.svg'
 import {ReactComponent as BooksApple} from '../../assets/books_apple.svg'
@@ -104,9 +105,18 @@ export const useIntroStyles = makeStyles(theme => ({
     },
   },
   logosDiv: {
-    padding: '50px 20px',
+    padding: '40px 30px',
     display: 'flex',
     justifyContent: 'center',
+  },
+  logosDivSeparator: {
+    width: '5px',
+    borderRight: '2px #EEEEEE solid',
+    margin: '0px 50px',
+    [theme.breakpoints.down('xs')]: {
+      margin: '0px 15px'
+    },
+    
   },
   labImageDiv: {
     maxWidth: '550px',
@@ -272,7 +282,9 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
           </div>
         </div>
         <div className={classes.logosDiv}>
-          <Logos />
+          <ColumbiaLogo />
+          <div className={classes.logosDivSeparator}></div>
+          <SageLogo />
         </div>
         <Grid
           container

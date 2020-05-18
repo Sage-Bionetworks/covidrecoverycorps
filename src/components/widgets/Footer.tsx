@@ -121,7 +121,7 @@ export const Footer: React.FunctionComponent<FooterProps> = (
         </div>
       </div>
       <div className={classes.cziLogoDiv}>
-        <CZILogo />
+        <a href="https://chanzuckerberg.com/"><CZILogo /></a>
       </div>
     </div>
   )
