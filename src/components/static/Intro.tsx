@@ -409,9 +409,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
         </Grid>
       </div>
       <div className={classes.fightTogetherDiv}>
-        <div className={classes.fightTogetherDivText}>
-          <h2>Together, we can fight COVID-19.</h2>
-        </div>
+        <h2 className={classes.fightTogetherDivText}>Together, we can fight COVID-19.</h2>
         <Grid
           container
           justify="center"
