@@ -28,7 +28,10 @@ export const useStyles = makeStyles(theme => ({
   },
   profileImage: {
     width: '100%',
-    padding: '20px 40px'
+    padding: '20px 0px',
+    [theme.breakpoints.up('sm')]: {
+      padding: '20px 40px'
+    },
   },
   paddingBottom20: {
     paddingBottom: '20px'
