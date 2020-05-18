@@ -13,23 +13,73 @@
 
 html {
   font-size: 62.5%; /* 62.5% of 16px = 10px */
-  font-family: 'Source Serif Pro', serif;
 }
 
 body {
   margin: 0;
-  font-family: 'Source Serif Pro', serif;
+  font-family: 'Open Sans',serif,'Lato','Roboto',Helvetica,Arial;
   background: #efefef;
 }
 
-h1 {
-  font-size: 4rem;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display',serif,'Lato','Roboto',Helvetica,Arial;
+  font-style: normal;
+  color: '#2a2a2a';
   font-weight: bold;
-  margin-bottom: 4rem;
 }
-h1:first-child,
-h2:first-child {
-  margin-top: 8rem;
+
+@media (min-width: 600px) {
+  h1, h2 {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  h3, h4 {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }  
+  h1 {
+    font-size: 40px;
+    line-height: 51px;
+  }
+  h2 {
+    font-size: 32px;
+    line-height: 37px;
+  }
+  h3 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  h4 {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  h5 {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 599px) {
+  h1, h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  h3, h4 {
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+  h1 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  h2 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
 }
 
 .MuiCardContent-root {
@@ -39,14 +89,10 @@ h2:first-child {
   }
 }
 
-h2 {
-  margin-bottom: 4rem;
-}
 p {
   color: #2a2a2a;
-  font-size: 1.8rem;
-  line-height: 2rem;
-  font-family: 'Source Serif Pro', serif;
+  font-size: 16px;
+  line-height: 25px;
 }
 
 a {

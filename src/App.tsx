@@ -42,15 +42,6 @@ import CookieNotificationBanner from './components/widgets/CookieNotificationBan
 import ScrollToTopOnRouteChange from './components/widgets/ScrollToTopOnRouteChange'
 import Footer from './components/widgets/Footer'
 
-export const sourceSerifProFont: string = [
-  'Source Serif Pro',
-  'serif',
-  'Lato',
-  'Roboto',
-  'Helvetica',
-  'Arial',
-].join(',')
-
 export const openSansFont = [
   'Open Sans',
   'serif',
@@ -74,7 +65,7 @@ const theme = createMuiTheme({
   typography: {
     // Tell Material-UI what's the font-size on the html element is.
     htmlFontSize: 10,
-    fontFamily: sourceSerifProFont,
+    fontFamily: openSansFont,
     button: {
       textTransform: 'none',
     },
