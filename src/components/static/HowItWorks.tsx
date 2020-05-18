@@ -10,7 +10,7 @@ type HowItWorksProps = {
 export const HowItWorks: React.FunctionComponent<HowItWorksProps> = ({}: HowItWorksProps) => {
   return (
  <div className="sdsHowItWorks">
-      <h1>How it works</h1>
+      <h2>How it works</h2>
 
       <div className="HowItWorkscontent">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -21,7 +21,7 @@ export const HowItWorks: React.FunctionComponent<HowItWorksProps> = ({}: HowItWo
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
       </div>
-      <h1>As COVID-19 makes a home in our communities </h1>
+      <h2>As COVID-19 makes a home in our communities </h2>
       <div className="HowItWorkscontent2">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim

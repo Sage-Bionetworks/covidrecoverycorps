@@ -28,7 +28,7 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
     <>
       {reason === 'AGE' && (
         <div>
-          <h1>Thank you for your interest</h1>
+          <h2>Thank you for your interest</h2>
           <p>
           Unfortunately, you have to be older than 18 years of age to be part of
           this study registry. [Text to be]
@@ -37,7 +37,7 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
       )}
       {reason === 'LOCATION' && (
         <div>
-          <h1>Thank you for your interest</h1>
+          <h2>Thank you for your interest</h2>
           { mailListJoined && (
             <p>
                 You have successfully joined the mailing list. We will notify you in the coming months
@@ -127,13 +127,13 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
       )}
       {reason === 'CONSENT' && (
         <div>
-          <h1>Thank you for your interest</h1>
+          <h2>Thank you for your interest</h2>
           Can't consent. [Need text]
         </div>
       )}
       {reason === 'COVID' && (
         <div>
-          <h1>Thank you for your interest</h1>
+          <h2>Thank you for your interest</h2>
           Didn't have covid
         </div>
       )}

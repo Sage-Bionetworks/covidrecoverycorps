@@ -222,7 +222,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
                <strong>{currentStep+1}/{totalSteps+1}</strong> 
               </div>
             )}
-           {currentStep === -1 && <div> <h1>Welcome!</h1>
+           {currentStep === -1 && <div> <h2>Welcome!</h2>
             { <ConsentCopy screen="INTRO" isEHR={false}></ConsentCopy>}
          
             
