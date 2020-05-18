@@ -49,8 +49,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
               <Grid item xs={12} md={8}>
                 <div>
                   <div className="FAQ__content1">
-                    <h2> What is the COVID Recovery Corps study? </h2>
-                    <LearnMore learnMoreText="" defaultIsShowing={true}>
+                    <LearnMore learnMoreText="" defaultIsShowing={true} clickableElement={<h2> What is the COVID Recovery Corps study? </h2>}>
                       <div>
                         <p>
                           COVID Recovery Corps is a research study. If you join, we will gather
@@ -73,8 +72,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                   </div>
 
                   <div className="FAQ__content2">
-                    <h2>What is the goal of this study?</h2>
-                    <LearnMore learnMoreText="">
+                    <LearnMore learnMoreText="" clickableElement={<h2>What is the goal of this study?</h2>}>
                       <div>
                         <p>
                           The goal of this study is collect data from people who have recovered
@@ -88,8 +86,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                   </div>
 
                   <div className="FAQ__content2">
-                    <h2>What is the goal of this study?</h2>
-                    <LearnMore learnMoreText="">
+                    <LearnMore learnMoreText="" clickableElement={<h2>What is the goal of this study?</h2>}>
                       <div>
                         <p>
                           The goal of this study is collect data from people who have recovered
@@ -103,8 +100,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                   </div>
 
                   <div className="FAQ__content3">
-                    <h2>Who is eligible to participate</h2>
-                    <LearnMore learnMoreText="">
+                    <LearnMore learnMoreText="" clickableElement={<h2>Who is eligible to participate?</h2>}>
                       <div>
                         <p>
                           You are eligible to participate in the study, if you: Over the age of
@@ -118,10 +114,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                   </div>
 
                   <div className="FAQ__content4">
-                    <h2>
-                      I have never been diagnosed with coronavirus. Can I participate?
-                    </h2>
-                    <LearnMore learnMoreText="">
+                    <LearnMore learnMoreText="" clickableElement={<h2>I have never been diagnosed with coronavirus. Can I participate?</h2>}>
                       <div>
                         <p>
                           At this time we are only enrolling participants who have been
@@ -132,8 +125,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                   </div>
 
                   <div className="FAQ__content5">
-                    <h2>Are there any costs for me to participate?</h2>
-                    <LearnMore learnMoreText="">
+                    <LearnMore learnMoreText="" clickableElement={<h2>Are there any costs for me to participate?</h2>}>
                       <div>
                         <p>
                           There are no direct costs to taking part in the COVID Recovery Corps.
@@ -142,8 +134,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                     </LearnMore>
                   </div>
                   <div className="FAQ__content6">
-                    <h2>Who is running the COVID Recovery Corps study?</h2>
-                    <LearnMore learnMoreText="">
+                    <LearnMore learnMoreText="" clickableElement={<h2>Who is running the COVID Recovery Corps study?</h2>}>
                       <div>
                         <p>
                           The COVID Recovery Corps study is being led by Columbia University and
@@ -156,8 +147,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                     </LearnMore>
                   </div>
                   <div className="FAQ__content7">
-                    <h2>Who else will have access to my study data?</h2>
-                    <LearnMore learnMoreText="">
+                    <LearnMore learnMoreText="" clickableElement={<h2>Who else will have access to my study data?</h2>}>
                       <div>
                         <p>
                           We will create a scientific database and a biobank for the COVID
@@ -186,8 +176,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                     
                   </div>
                   <div className="FAQ__content8">
-                    <h2>How is my privacy protected?</h2>
-                    <LearnMore learnMoreText="">
+                    <LearnMore learnMoreText="" clickableElement={<h2>How is my privacy protected?</h2>}>
                       <div>
                         <p>
                           We are committed to protecting your privacy. Except as required by
@@ -208,11 +197,8 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                     </LearnMore>
                   </div>
                   <div className="FAQ__content9">
-                    <h2>
-                      Will participating in this study affect my insurance or medical
-                      services?
-                    </h2>
-                    <LearnMore learnMoreText="">
+                    <LearnMore learnMoreText="" clickableElement={<h2>Will participating in this study affect my insurance or medical
+                      services?</h2>}>
                       <div>
                         <p>
                           The COVID Recovery Corps is an observational study and not a clinical
@@ -224,10 +210,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                       </LearnMore>
                   </div>
                   <div className="FAQ__content10">
-                    <h2>
-                      I have a question that isn't answered in this FAQ. Who do I contact?
-                    </h2>
-                    <LearnMore learnMoreText="">
+                    <LearnMore learnMoreText="" clickableElement={<h2>I have a question that isn't answered in this FAQ. Who do I contact?</h2>}>
                       <div>
                         <p>
                           If you have any questions or need assistance, you can call 212-305-5700 or email <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">COVIDRecoveryCorps@cumc.columbia.edu</a>.
