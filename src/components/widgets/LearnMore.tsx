@@ -4,17 +4,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type LearnMoreProps = {
   learnMoreText: string,
+  clickableElement?: JSX.Element,
   defaultIsShowing?: boolean
 }
 
 export const LearnMore: React.FunctionComponent<LearnMoreProps> = (
   props
 ) => {
-  const {defaultIsShowing} = props
+  const {defaultIsShowing, clickableElement} = props
   const [isShowingLearnMore, setIsShowingLearnMore] = useState<boolean>(defaultIsShowing ? defaultIsShowing : false)
-
+  
   return (
     <div>
+      <div
+        onClick={() => setIsShowingLearnMore(!isShowingLearnMore)}
+        className="learnMoreClickableElement"
+      >
+        {clickableElement}
+      </div>
       <div
         onClick={() => setIsShowingLearnMore(true)}
         className="learnMoreToggle"
