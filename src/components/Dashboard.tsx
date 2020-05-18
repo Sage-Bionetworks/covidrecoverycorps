@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import testTubeImg from '../assets/icon_testtube.svg'
-import saveProgressIconImg from '../assets/icon_savedprogress.svg'
-import pencilImg from '../assets/icon_pencil.svg'
+import testTubeImg from '../assets/dashboard/icon_testtubes.svg'
+import saveProgressIconImg from '../assets/dashboard/icon_savedprogress.svg'
+import pencilIconImg from '../assets/dashboard/icon_editingpencil.svg'
+import clockIconImg from '../assets/dashboard/icon_timer.svg'
+import completeIconImg from '../assets/dashboard/icon_complete.svg'
+import emptyIconImg from '../assets/dashboard/icon_empty.svg'
 import { makeStyles } from '@material-ui/core/styles'
 
-import {
-  faCircle,
-  faClock,
-  faCheckCircle,
-  faDotCircle,
-  IconDefinition,
-} from '@fortawesome/free-solid-svg-icons'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { Typography } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
@@ -43,8 +37,8 @@ const useStyles = makeStyles({
 const surveys: UISurvey[] = [
   {
     type: 'CONTACT',
-    title: 'Contact Information',
-    description: 'Contact',
+    title: 'profile',
+    description: 'Contact Information',
     time: 2,
     link: '/contactinfo',
   },
@@ -58,7 +52,7 @@ const surveys: UISurvey[] = [
   {
     type: 'COVID_EXPERIENCE',
     title: 'Survey 2',
-    description: 'Recent COVID-19 Experience',
+    description: 'Recent COVID Experience',
     time: 5,
     link: '/survey2',
   },
@@ -72,7 +66,7 @@ const surveys: UISurvey[] = [
   {
     type: 'MORE',
     title: 'Survey 4',
-    description: 'More COVID-19 Experience',
+    description: 'More COVID Experience',
     time: 15,
     link: '/survey4',
   },
@@ -116,19 +110,19 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     }
     const isInProgress = (survey: UISurvey): boolean => {
       const savedSurvey = getSavedSurvey(survey)
-      const progress = <img src={testTubeImg}></img>
+
       return !!savedSurvey?.updatedDate && !isDone(survey)
     }
 
     const getIcon = (survey: UISurvey): JSX.Element => {
-      const iconDef = isDone(survey) ? faCheckCircle : faCircle
-      const notProgress = <FontAwesomeIcon icon={iconDef} />
-      return notProgress
+      const image= isDone(survey) ? <img src={completeIconImg} alt="done"></img> : <img src={emptyIconImg} alt="done"></img> 
+
+      return image
     }
 
     const getIconImage = (survey: UISurvey): JSX.Element => {
       if (survey.type === 'CONTACT') {
-        return <img src={pencilImg}></img>
+        return <img src={pencilIconImg}></img>
       }
       return isInProgress(survey) ? (
         <img src={saveProgressIconImg}></img>
@@ -148,12 +142,13 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
             {isTier1 && <div className="rect"></div>}
           </div>
           <div>
-            <strong>{survey.title}</strong>
-            <br />
-            {survey.description}
-          </div>
+            <div className="title">{survey.title}</div>
+            
+            <div className="description">{survey.description}</div>
+            </div>
+       
           <div className="time">
-            <FontAwesomeIcon icon={faClock} />
+            <img src={clockIconImg}></img>
             <span>{survey.time}&nbsp;min</span>
           </div>
         </>
@@ -191,8 +186,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         </p>
         <p>
           {' '}
-          To be invited for a lab test, you will need to complete surveys 1-3. Surveys 4 and 5 are optional but still provide us this with important information. Please consider completing them if you have the time.
-        </p>
+          To be invited for a lab test, you will need to complete your Profile and Surveys 1-2. Surveys 3 and 4 are optional but still provide important information. Please consider completing them if you have the time. </p>
       </div>
 
       <Card className={classes.root}>
