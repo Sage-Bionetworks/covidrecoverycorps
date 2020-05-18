@@ -25,6 +25,7 @@ export const useIntroStyles = makeStyles(theme => ({
   heroContainer: {
     position: 'relative',
     overflow: 'hidden',
+    minHeight: '215px',
   },
   heroTextGradiant: {
     zIndex: 1,
@@ -50,32 +51,28 @@ export const useIntroStyles = makeStyles(theme => ({
     zIndex: 2,
     position: 'relative',
     color: '#F2F2F2',
-    fontFamily: playfairDisplayFont,
     maxWidth: '650px',
-    lineHeight: '127%',
     [theme.breakpoints.up('xs')]: {
-      fontSize: '30px',
-      padding: '15px 20px 0px 30px'
+      padding: '0px 20px 0px 30px'
     },
     [theme.breakpoints.up('sm')]: {
-      padding: '50px 20px 80px 40px'
+      padding: '20px 20px 80px 40px'
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: '40px',
-      padding: '150px 20px 100px 40px'
+      padding: '120px 20px 100px 40px'
     },
     [theme.breakpoints.up('lg')]: {
-      padding: '200px 20px 130px 40px'
+      padding: '180px 20px 130px 40px'
     }
   },
   joinButton: {
     height: '36px',
     width: '100px',
-    marginTop: '10px',
+    marginBottom: '5px',
     [theme.breakpoints.up('sm')]: {
-      marginTop: '40px',
+      marginTop: '20px',
+      marginBottom: '10px'
     },
-    marginBottom: '10px'
   },
   navLink: {
     '&:hover': {
@@ -120,7 +117,6 @@ export const useIntroStyles = makeStyles(theme => ({
     },
   },
   labTextDiv: {
-    paddingTop: '40px',
     paddingRight: '25px',
     paddingBottom: '40px',
     [theme.breakpoints.up('md')]: {
@@ -132,18 +128,11 @@ export const useIntroStyles = makeStyles(theme => ({
 
     maxWidth: '500px',
   },
-  labTextTitleDiv: {
-    fontFamily: playfairDisplayFont,
-    fontWeight: 'bold',
-    color: '#2a2a2a',
-    lineHeight: '37px',
-    fontSize: '32px'
+  labTextTitle: {
+    paddingTop: '0px'
   },
   labTextBodyDiv: {
-    fontFamily: openSansFont,
-    lineHeight: '25px',
     padding: '20px 0px',
-    fontSize: '16px',
   },
   photographyNote: {
     fontSize: '12px',
@@ -160,11 +149,8 @@ export const useIntroStyles = makeStyles(theme => ({
     color: '#ffffff',
     maxWidth: '700px',
     textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: '24px',
     marginLeft: 'auto',
     marginRight: 'auto',
-    fontFamily: playfairDisplayFont,
   },
   paperPanelWrapper: {
     padding: '20px 20px 90px 20px',
@@ -193,17 +179,10 @@ export const useIntroStyles = makeStyles(theme => ({
     paddingBottom: '5px'
   },
   paperPanelStepTitle: {
-    fontFamily: playfairDisplayFont, 
-    fontWeight: 'bold',
-    fontSize: '24px',
-    lineHeight: '2.75rem',
     color: '#2A2A2A',
-    paddingBottom: '17px'
+    marginTop: '0px'
   },
   paperPanelStepBody: {
-    fontFamily: openSansFont, 
-    fontSize: '16px',
-    lineHeight: '2rem',
     color: '#3A3A3A',
     paddingBottom: '50px'
   },
@@ -219,12 +198,9 @@ export const useIntroStyles = makeStyles(theme => ({
     padding: '40px 0px',
   },
   fightTogetherDivText: {
-    fontFamily: playfairDisplayFont,
-    fontWeight: 'bold',
     textAlign: 'center',
     color: '#FFFFFF',
     padding: '0px 25px 0px 25px',
-    fontSize: '32px',
   },
 
 }))
@@ -257,7 +233,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
 
   const heroTextContent = 
     <div className={classes.heroText}>
-      A citizen-powered movement to drive scientific breakthroughs and save lives in the <br></br>fight against COVID-19.
+      <h1>A citizen-powered movement to drive scientific breakthroughs and save lives in the fight against COVID-19.</h1>
       <div>
         <NavLink
           to="/eligibility"
@@ -293,7 +269,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
          </div>
         <div className={classes.content1}>
           <div className={classes.content1TextDiv}>
-            If you live in the New York City metro area and have recovered from COVID-19, you can help scientists make progress in the global fight against this disease.
+            <h3>If you live in the New York City metro area and have recovered from COVID-19, you can help scientists make progress in the global fight against this disease.</h3>            
           </div>
         </div>
         <div className={classes.logosDiv}>
@@ -313,18 +289,16 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
           </Grid>
           <Grid item xs={12} md={6}>
             <div className={classes.labTextDiv}>
-              <div className={classes.labTextTitleDiv}>
-                There is an urgent need to come together as a survivor community to rapidly advance our understanding of COVID-19.
-              </div>
+              <h2 className={classes.labTextTitle}>There is an urgent need to come together as a survivor community to rapidly advance our understanding of COVID-19.</h2>
               <div className={classes.labTextBodyDiv}>
-                You recovered. So have thousands of others. Your experiences could help unlock the mysteries behind this disease. Our mission is to learn more about COVID-19 by bringing your experiences together. 
+                <p>You recovered. So have thousands of others. Your experiences could help unlock the mysteries behind this disease. Our mission is to learn more about COVID-19 by bringing your experiences together. </p>                
               </div>
             </div>
           </Grid>
         </Grid>
         <div className={classes.paperHeaderDiv}>
           <div className={classes.paperHeaderText}>
-            By sharing your experience in recovering from COVID-19, you can help answer critical questions. 
+            <h3>By sharing your experience in recovering from COVID-19, you can help answer critical questions. </h3>
           </div>
         </div>
         <Grid
@@ -362,11 +336,9 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
                   <div className={classes.paperPanelStepNumber}>
                     STEP ONE
                   </div>
-                  <div className={classes.paperPanelStepTitle}>
-                    Register and take the survey
-                  </div>
+                  <h3 className={classes.paperPanelStepTitle}>Register and take the survey</h3>
                   <div className={classes.paperPanelStepBody}>
-                    To get started, click <Link to="/eligibility" style={{fontWeight: 'bold'}}>Join Us</Link> and review information about what will happen in the study. After registering, you will be invited to take brief surveys that may help scientists begin to answer questions like: Why do some people experience very mild symptoms while others get very sick? How does recovering from COVID-19 impact your health over time?
+                    <p>To get started, click <Link to="/eligibility" style={{fontWeight: 'bold'}}>Join Us</Link> and review information about what will happen in the study. After registering, you will be invited to take brief surveys that may help scientists begin to answer questions like: Why do some people experience very mild symptoms while others get very sick? How does recovering from COVID-19 impact your health over time?</p>
                   </div>
                 </Grid>
                 <Grid item xs={12} sm={3}>
@@ -393,9 +365,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
                   <div className={classes.paperPanelStepNumber}>
                     STEP TWO
                   </div>
-                  <div className={classes.paperPanelStepTitle}>
-                    Share your samples
-                  </div>
+                  <h3 className={classes.paperPanelStepTitle}>Share your samples</h3>
                   <div className={classes.paperPanelStepBody}>
                     We will invite some participants to visit clinical sites in New York City to donate a sample.  In the future, other participants will be invited to donate a sample from home.  Sharing your samples will help researchers develop more reliable antibody tests that can make antibody testing accessible to more people, and in turn, may help answer important questions  including: Who was really infected with COVID-19?  What levels of antibodies are needed to protect us from reinfection? Is it possible for people to develop full immunity to COVID-19?
                   </div>
@@ -424,9 +394,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
                   <div className={classes.paperPanelStepNumber}>
                     STEP THREE
                   </div>
-                  <div className={classes.paperPanelStepTitle}>
-                    Learn with us along the way
-                  </div>
+                  <h3 className={classes.paperPanelStepTitle}>Learn with us along the way</h3>
                   <div className={classes.paperPanelStepBody}>
                     If you are asked to provide a sample, we will return results of the antibody test approved by the New York State Department of Health and share information about what those results mean. As we learn more about the impact of COVID-19 across study participants, we will share regular updates with the broader scientific and patient community. We may also ask if you are interested in joining other related studies. For instance, some participants may choose to be notified of opportunities to donate plasma and help those still fighting for survival from COVID-19.
                   </div>
@@ -445,7 +413,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
       </div>
       <div className={classes.fightTogetherDiv}>
         <div className={classes.fightTogetherDivText}>
-          Together, we can fight COVID-19.
+          <h2>Together, we can fight COVID-19.</h2>
         </div>
         <Grid
           container
