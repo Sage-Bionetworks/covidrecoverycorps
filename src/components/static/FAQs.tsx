@@ -35,7 +35,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
         <Grid item xs={12} md={10} lg={8}>
           <div className={introClasses.paperPanel}>
             <div className={introClasses.paperPanelTitle}>
-              <span>FAQs</span>
+              <h2>FAQs</h2>
             </div>
             <Hidden xsDown>
               <BlueSeparator />
