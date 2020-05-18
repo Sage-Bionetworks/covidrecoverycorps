@@ -325,7 +325,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                (staging push  Sun 4:30)
+                (staging push  Mon 7:50am)
               </nav>
               <TopNav
                 token={token}
