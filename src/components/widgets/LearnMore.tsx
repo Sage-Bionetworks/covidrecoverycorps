@@ -3,13 +3,15 @@ import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type LearnMoreProps = {
-  learnMoreText: string
+  learnMoreText: string,
+  defaultIsShowing?: boolean
 }
 
 export const LearnMore: React.FunctionComponent<LearnMoreProps> = (
   props
 ) => {
-  const [isShowingLearnMore, setIsShowingLearnMore] = useState<boolean>(false)
+  const {defaultIsShowing} = props
+  const [isShowingLearnMore, setIsShowingLearnMore] = useState<boolean>(defaultIsShowing ? defaultIsShowing : false)
 
   return (
     <div>
