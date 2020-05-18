@@ -8,7 +8,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom'
-import Collaborators from './components/static/Collaborators'
+
 
 import EligibilityRegistration from './components/registration/EligibilityRegistration'
 import SurveyWrapper from './components/surveys/SurveyWrapper'
@@ -325,9 +325,7 @@ function App() {
                 {/* A <Switch> looks through its children <Route>s and
         renders the first one that matches the current URL. */}{' '}
                 <Switch>
-                  <Route path="/collaborators">
-                    {renderWithGridLayout(<Collaborators />)}
-                  </Route>
+             
 
                   <Route
                     exact={true}
