@@ -11,7 +11,10 @@
 }
 
 .tabbedField {
-  border: 1px solid #000;
+  background: #f8f8f8;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  padding-bottom: 3.2rem;
+  margin-bottom: 0;
 }
 
 .buttons--action {
@@ -31,6 +34,13 @@
   }
 }
 
+.checkbox--nopad {
+  .checkbox label {
+    padding-left: 0;
+  }
+
+}
+
 .checkbox--indented {
   display: flex;
   align-items: flex-start;
@@ -43,15 +53,18 @@
 }
 
 label.block--dark {
-  display: block;
-  color: #FFF;
-  background-color: #000;
+  background: #efefef;
+  color: #0084ff;
+
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
   text-align: center;
   padding: 1rem;
+  border-bottom: 1px solid #0084ff;
+  width: 100%;
 }
 
 .error {
-  color:  #ff6d6d;
+  color: #ff6d6d;
 }
 .modal-body {
   padding: 100px 50px;

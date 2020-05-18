@@ -43,9 +43,9 @@ const signupIntro = {
       <h2>Getting Started</h2>
       <p>
         {' '}
-        To access the consent and surveys, you will need to create an account.</p>
-       <p> You will use your email to log into your account in the future.
+        To access the consent and surveys, you will need to create an account.
       </p>
+      <p> You will use your email to log into your account in the future.</p>
     </>
   ),
 }
@@ -137,13 +137,14 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
     <div>
       {signupIntro[state.registrationType.value as LoginType]}
       <BlueSeparator></BlueSeparator>
-      <form className="demoForm" onSubmit={handleOnSubmit}>
-        <div className="form-group" style={{ marginBottom: 0 }}>
-          <div className="tabbedField">
-            {state.registrationType.value === 'EMAIL' && (
+
+      {state.registrationType.value === 'EMAIL' && (
+        <form className="demoForm" onSubmit={handleOnSubmit}>
+          <div className="form-group" style={{ marginBottom: 0 }}>
+            <div className="tabbedField">
               <div>
                 <label htmlFor="email" className="block--dark">
-                  EMAIL
+                  Email
                 </label>
                 <div className="input--padded">
                   <TextField
@@ -169,82 +170,92 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                     disabled={!state.email.value}
                   >
                     Create account
-                  </Button><br/>
-                  <Button
-                    variant="text"
-                    onClick={() => {
-                      handleOnChange({
-                        target: { name: 'registrationType', value: 'PHONE' },
-                      })
-                      handleOnChange({
-                        target: { name: 'email', value: '' },
-                      })
-                    }}
-                  >
-                    I don't have email address
                   </Button>
+                  <br />
                 </div>
               </div>
-            )}
-
-            {state.registrationType.value === 'PHONE' && (
-              <div>
-                <label htmlFor="phone" className="block--dark">
-                  Phone
-                </label>
-                <div className="input--padded">
-                  <TextField
-                    name="phone"
-                    type="phone"
-                    value={state.phone.value}
-                    placeholder="phone"
-                    aria-label="phone"
-                    label="phone"
-                    variant="outlined"
-                    fullWidth
-                    onChange={handleOnChange}
-                  />
-                </div>
-                {Object.keys(state).map(
-                  (key) =>
-                    state[key].error && (
-                      <p
-                        className="error"
-                        style={{ marginLeft: '2rem', fontSize: '1.4rem' }}
-                      >
-                        {state[key].error}
-                      </p>
-                    )
-                )}
-                <div className="text-center">
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    size="large"
-                    type="submit"
-                    disabled={!state.phone.value}
-                  >
-                    Create account
-                  </Button><br/>
-                  <Button
-                    variant="text"
-                    onClick={() => {
-                      handleOnChange({
-                        target: { name: 'registrationType', value: 'EMAIL' },
-                      })
-                      handleOnChange({
-                        target: { name: 'phone', value: '' },
-                      })
-                    }}
-                  >
-                    I want to sign up with email
-                  </Button>
-                </div>
-              </div>
-            )}
+            </div>
+            <div style={{ margin: '0 auto', textAlign: 'center' }}>
+              <Button
+                variant="text"
+                onClick={() => {
+                  handleOnChange({
+                    target: { name: 'registrationType', value: 'PHONE' },
+                  })
+                  handleOnChange({
+                    target: { name: 'email', value: '' },
+                  })
+                }}
+              >
+                I don't have an email account
+              </Button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      )}
+
+      {state.registrationType.value === 'PHONE' && (
+        <form className="demoForm" onSubmit={handleOnSubmit}>
+          <div className="form-group" style={{ marginBottom: 0 }}>
+            <div className="tabbedField">
+              <label htmlFor="phone" className="block--dark">
+                Phone
+              </label>
+              <div className="input--padded">
+                <TextField
+                  name="phone"
+                  type="phone"
+                  value={state.phone.value}
+                  placeholder="Phone"
+                  aria-label="phone"
+                  label="phone"
+                  variant="outlined"
+                  fullWidth
+                  onChange={handleOnChange}
+                />
+              </div>
+              {Object.keys(state).map(
+                (key) =>
+                  state[key].error && (
+                    <p
+                      className="error"
+                      style={{ marginLeft: '2rem', fontSize: '1.4rem' }}
+                    >
+                      {state[key].error}
+                    </p>
+                  )
+              )}
+              <div className="text-center">
+                <Button
+                  color="primary"
+                  variant="contained"
+                  size="large"
+                  type="submit"
+                  disabled={!state.phone.value}
+                >
+                  Create account
+                </Button>
+              </div>
+            </div>
+
+            <div style={{ margin: '0 auto', textAlign: 'center' }}>
+              <Button
+                variant="text"
+                onClick={() => {
+                  handleOnChange({
+                    target: { name: 'registrationType', value: 'EMAIL' },
+                  })
+                  handleOnChange({
+                    target: { name: 'phone', value: '' },
+                  })
+                }}
+              >
+                I want to sign up with email
+              </Button>
+            </div>
+          </div>
+        </form>
+      )}
     </div>
   )
 }
