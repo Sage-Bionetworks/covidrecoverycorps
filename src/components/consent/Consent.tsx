@@ -38,7 +38,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   const [isConsentConfirmationShown, setConsentConfirmationShown] = useState(
     false
   )
-  const [doHIPAAConsent, setDoHIPAAConsent] = useState<boolean | undefined>(
+  const [doHIPAAConsent, setDoHIPAAConsent] = useState<string | undefined>(
     undefined
   )
 
@@ -95,36 +95,63 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     const element = (
       <div>
         <h2> Do you want to share your electronic health records with us?</h2>
-        <p>Sharing your EHR (electronic health records) is optional </p>
+        <p>
+          Sharing your EHR (electronic health records) is{' '}
+          <strong>optional</strong>{' '}
+        </p>
 
         <LearnMore learnMoreText="Review what it means">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            accumsan accumsan vehicula. Donec porttitor ullamcorper dolor at
-            accumsan. Pellentesque id libero blandit, porttitor lectus
-            elementum, rutrum risus. Vivamus at malesuada mi. Suspendisse
-            potenti. Phasellus eget enim porttitor, sagittis massa ac, semper
-            lorem. Integer tortor tortor, volutpat id eros a, mattis tincidunt
-            nisl. Praesent efficitur leo quis ornare mattis.
-          </p>
+          <div>
+            <p>
+              Your electronic health record (EHR) is a digital version of your
+              medical health record (which may include information like your
+              doctor’s notes from visits, diagnosis information and
+              medications).{' '}
+            </p>
+            <p>
+              If you say yes to sharing, we will see data about your health
+              problems, test results, medical procedures, images (such as
+              X-rays), and medicines you take.
+            </p>
+            <p>
+              It may tell us about your mental health, genetic conditions, or
+              use of alcohol or drugs. EHR may contain sexual or infection data,
+              including HIV status. You can say no to sharing your health
+              records and still take part in COVID Recovery Corps.
+            </p>
+            <p>
+              There will be a separate form called a HIPAA Authorization for you
+              to sign if you decide to give us access to your health records.
+            </p>
+          </div>
         </LearnMore>
 
-        <ToggleButtonGroup
-          value={doHIPAAConsent}
-          exclusive
-          className="verticalToggle"
-          style={{ marginTop: '20px', marginBottom: '20px' }}
-          onChange={(_event: any, val: boolean) => setDoHIPAAConsent(val)}
-          aria-label="are you over 18"
-        >
-          ><ToggleButton value={true}>Yes</ToggleButton>
-          <ToggleButton value={false}>No</ToggleButton>
-        </ToggleButtonGroup>
+        <div className="radiobuttons">
+          <RadioGroup
+            aria-label="start HIPAA consent"
+            name="startHIPAAConsent"
+            onChange={(_event: any, val: string) => setDoHIPAAConsent(val)}
+          >
+            <FormControlLabel
+              value={'true'}
+              control={<Radio color="primary" />}
+              label="Yes, share"
+            />
+
+            <FormControlLabel
+              value={'false'}
+              control={<Radio color="primary" />}
+              label="No, don't share"
+            />
+          </RadioGroup>
+        </div>
 
         <Button
           className="pull-right"
           type="button"
+          fullWidth
           disabled={doHIPAAConsent === undefined}
+          style={{ margin: '30px 0' }}
           variant="contained"
           color="primary"
           onClick={() => setIsConsentDone(true)}
@@ -137,10 +164,10 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   }
 
   if (isConsentDone) {
-    if (doHIPAAConsent) {
+    if (doHIPAAConsent === 'true') {
       return <Redirect to="consentehr"></Redirect>
     }
-    if (doHIPAAConsent === false) {
+    if (doHIPAAConsent === 'false') {
       return <Redirect to="dashboard?consented=true"></Redirect>
     }
   }
@@ -149,6 +176,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     <Card>
       <CardContent>
         <div className="Consent">
+  
           {!isInfoDone && (
             <ConsentInfo onDone={() => setIsInfoDone(true)}></ConsentInfo>
           )}
