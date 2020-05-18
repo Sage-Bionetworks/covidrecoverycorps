@@ -716,17 +716,21 @@ const ehrScreens = [
 
   <div>
     <h2>What is an EHR?</h2>
-   <p className="Consent__copy">Health records are the data collected when you get healthcare. Electronic
-    health records, or EHR, are when these data are kept in secure electronic
-    systems.</p> 
+    <p className="Consent__copy">
+      Health records are the data collected when you get healthcare. Electronic
+      health records, or EHR, are when these data are kept in secure electronic
+      systems.
+    </p>
   </div>,
   <div>
     <h2>What data is in my EHR?</h2>
-    <p className="Consent__copy">The information in your EHR depends on what kinds of healthcare providers
-    you see. Your EHR tells about the health problems and care you have
-    received. It might list the medicines you take. It might have test results.
-    It might have images, like X-rays. If you have had a medical procedure,
-    notes about it will probably be in your EHR.</p>
+    <p className="Consent__copy">
+      The information in your EHR depends on what kinds of healthcare providers
+      you see. Your EHR tells about the health problems and care you have
+      received. It might list the medicines you take. It might have test
+      results. It might have images, like X-rays. If you have had a medical
+      procedure, notes about it will probably be in your EHR.
+    </p>
   </div>,
   <div>
     <h2>Are there sensitive data in my EHR?</h2>
@@ -754,26 +758,34 @@ const ehrScreens = [
   <div>
     {' '}
     <h2>What exactly will you access in my EHR? </h2>
-   <p className="Consent__copy"> We will access your whole EHR. That means we will take a copy of all the
-    tests, results, and images in your EHR. This includes data about your
-    diagnoses, medications, symptoms, allergies, and treatments.</p>
+    <p className="Consent__copy">
+      {' '}
+      We will access your whole EHR. That means we will take a copy of all the
+      tests, results, and images in your EHR. This includes data about your
+      diagnoses, medications, symptoms, allergies, and treatments.
+    </p>
   </div>,
   <div>
     <h2>Why do you want access to my EHR?</h2>
-    <p className="Consent__copy">Your EHR contains important data about your health. We will add your EHR to
-    your COVID Recovery Corps record. Your record will be part of the COVID
-    Recovery Corps scientific database. In order to use this database,
-    researchers will have to be approved by COVID Recovery Corps. Researchers
-    will use this database to look for patterns related to the COVID-19
-    infection.</p>
+    <p className="Consent__copy">
+      Your EHR contains important data about your health. We will add your EHR
+      to your COVID Recovery Corps record. Your record will be part of the COVID
+      Recovery Corps scientific database. In order to use this database,
+      researchers will have to be approved by COVID Recovery Corps. Researchers
+      will use this database to look for patterns related to the COVID-19
+      infection.
+    </p>
   </div>,
   <div>
     <h2>Who will be sending you my EHR?</h2>
-    <p className="Consent__copy">We will request your EHR from all of your healthcare providers. This
-    includes your regular healthcare providers. It also includes specialists.</p>
-    <p className="Consent__copy">We
-    may ask for your EHR from many different places. This may include hospitals
-    where you have gotten care.</p> 
+    <p className="Consent__copy">
+      We will request your EHR from all of your healthcare providers. This
+      includes your regular healthcare providers. It also includes specialists.
+    </p>
+    <p className="Consent__copy">
+      We may ask for your EHR from many different places. This may include
+      hospitals where you have gotten care.
+    </p>
   </div>,
   <div>
     <h2>Who will be getting access to my EHR?</h2>
@@ -830,9 +842,9 @@ const ehrScreens = [
   <div>
     <h2>When will my consent expire</h2>
     <p className="Consent__copy">
-    Unless you tell us to stop, we will access your EHR until the COVID Recovery
-    Corps study ends to check what has happened to your health after your
-    COVID-19 infection.
+      Unless you tell us to stop, we will access your EHR until the COVID
+      Recovery Corps study ends to check what has happened to your health after
+      your COVID-19 infection.
     </p>
   </div>,
   <div>
@@ -858,12 +870,12 @@ const screens: { [key: string]: JSX.Element } = {
   INTRO: (
     <div className="Consent__copy">
       <p className="Consent__copy">
-        Before you decide if you want to join the study, let's learn more about
-        the COVID Recover Corps Study.
+        Before you decide to join the study, let's learn more about COVID
+        Recovery Corps.
       </p>
       <p className="Consent__copy">
-        The next screens will tell you about what we will ask you to do,
-        benefits and risks of taking part in the study.
+        The next screens will tell you about the purpose of the study, what we
+        will ask you to do, the benefits and risks of participation.
       </p>
 
       <p className="Consent__copy">Let's get started!</p>
