@@ -289,7 +289,7 @@ const fullScreenNavBar = <div>
 
       {/* global alert area */}
       {alertCode &&
-        <Alert severity="info" variant="filled" icon={false} classes={{
+        <Alert severity="error" variant="filled" icon={false} classes={{
           message: classes.globalAlertMessage}}>
           <Grid
             container

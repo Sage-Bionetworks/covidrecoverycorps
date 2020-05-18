@@ -154,6 +154,13 @@ div.intro {
 
 // material ui "lab" component override is challenging: https://github.com/mui-org/material-ui/issues/19427
 // overriding the style here:
+
+#root .MuiAlert-filledError {
+  border-radius: 0;
+  background-color: #FC9090;
+  color: #000000;
+  padding: 20px 30px;
+}
 #root .MuiAlert-filledInfo {
   border-radius: 0;
   background-color: #0084ff;
