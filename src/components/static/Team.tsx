@@ -21,6 +21,7 @@ export const useStyles = makeStyles(theme => ({
     height: 'auto',
   },
   paperHeaderText: {
+    color: '#ffffff',
     maxWidth: '850px'
   },
   profile: {
@@ -64,9 +65,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({
             </Hidden>
          </div>
          <div className={introClasses.paperHeaderDiv}>
-          <div className={`${classes.paperHeaderText} ${introClasses.paperHeaderText}`}>
-            <h3>The COVID Recovery Corps is a citizen-powered research study to learn more about COVID-19 and make progress in the global fight.</h3>            
-          </div>
+          <h3 className={`${classes.paperHeaderText} ${introClasses.paperHeaderText}`}>The COVID Recovery Corps is a citizen-powered research study to learn more about COVID-19 and make progress in the global fight.</h3>            
         </div>
         <Grid
           container
@@ -78,7 +77,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({
           <Grid item xs={12} md={10} lg={8}>
             <div className={introClasses.paperPanel}>
               <div className={introClasses.paperPanelTitle}>
-                <span>Study leadership&nbsp;</span>
+                <h2>Study leadership</h2>
               </div>
               <Hidden xsDown>
                 <BlueSeparator />
