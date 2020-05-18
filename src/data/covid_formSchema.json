@@ -5,7 +5,6 @@
       "properties": {
         "symptoms_list": {
           "type": "object",
-
           "title": "1. Please describe your symptoms (check all that apply):",
           "properties": {
             "cough": {
@@ -102,7 +101,7 @@
             },
             "prefer_not_answer": {
               "type": "boolean",
-              "title": "Prefer not To Answer"
+              "title": "Prefer not to answer"
             },
             "other": {
               "type": "boolean",
@@ -115,14 +114,18 @@
                 {
                   "properties": {
                     "cough": {
-                      "enum": [false]
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "cough": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "cough_duration": {
                       "title": "How Many Days?",
@@ -138,14 +141,18 @@
                 {
                   "properties": {
                     "fever": {
-                      "enum": [null]
+                      "enum": [
+                        null
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "fever": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "fever_duration": {
                       "title": "How Many Days?",
@@ -166,14 +173,18 @@
                 {
                   "properties": {
                     "shortness_breath": {
-                      "enum": [null]
+                      "enum": [
+                        null
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "shortness_breath": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "shortness_breath_duration": {
                       "title": "How Many Days?",
@@ -189,14 +200,18 @@
                 {
                   "properties": {
                     "chest_pain": {
-                      "enum": [null]
+                      "enum": [
+                        null
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "chest_pain": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "chest_pain_duration": {
                       "title": "How Many Days?",
@@ -212,14 +227,18 @@
                 {
                   "properties": {
                     "night_sweats": {
-                      "enum": [null]
+                      "enum": [
+                        null
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "night_sweats": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "night_sweats_duration": {
                       "title": "How Many Days?",
@@ -235,14 +254,18 @@
                 {
                   "properties": {
                     "chills": {
-                      "enum": [null]
+                      "enum": [
+                        null
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "chills": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "chills_duration": {
                       "title": "How Many Days?",
@@ -258,14 +281,18 @@
                 {
                   "properties": {
                     "rash": {
-                      "enum": [null]
+                      "enum": [
+                        null
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "rash": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "rash_duration": {
                       "title": "How Many Days?",
@@ -281,14 +308,18 @@
                 {
                   "properties": {
                     "foamy_urine": {
-                      "enum": [null]
+                      "enum": [
+                        null
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "foamy_urine": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "foamy_urine_duration": {
                       "title": "How Many Days?",
@@ -304,14 +335,18 @@
                 {
                   "properties": {
                     "red_urine": {
-                      "enum": [null]
+                      "enum": [
+                        null
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "red_urine": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "red_urine_duration": {
                       "title": "How Many Days?",
@@ -327,14 +362,18 @@
                 {
                   "properties": {
                     "loss_of_smell": {
-                      "enum": [null]
+                      "enum": [
+                        null
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "loss_of_smell": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "loss_of_smell_duration": {
                       "title": "How Many Days?",
@@ -350,14 +389,18 @@
                 {
                   "properties": {
                     "loss_of_taste": {
-                      "enum": [null]
+                      "enum": [
+                        null
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "loss_of_taste": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "loss_of_taste_duration": {
                       "title": "How Many Days?",
@@ -374,7 +417,11 @@
     },
     "symptoms2": {
       "type": "object",
-      "required": ["symptoms_start", "kind_of_testing", "how_was_it_treated"],
+      "required": [
+        "symptoms_start",
+        "kind_of_testing",
+        "how_was_it_treated"
+      ],
       "properties": {
         "symptoms_start": {
           "type": "string",
@@ -439,7 +486,9 @@
             {
               "properties": {
                 "symptoms_start": {
-                  "enum": ["Yes"]
+                  "enum": [
+                    "Yes"
+                  ]
                 },
                 "symptoms_dates": {
                   "type": "object",
@@ -457,10 +506,14 @@
                       "title": "I still have symptoms",
                       "type": "boolean"
                     }
-
-                  }
+                  },
+                  "required": [
+                    "first_day",
+                    "last_day"
+                  ]
                 }
               }
+             
             }
           ]
         },
@@ -481,7 +534,9 @@
             {
               "properties": {
                 "kind_of_testing": {
-                  "enum": ["Nasal Swab"]
+                  "enum": [
+                    "Nasal Swab"
+                  ]
                 },
                 "result": {
                   "type": "object",
@@ -495,8 +550,14 @@
                       "title": "Result of the test?",
                       "type": "string",
                       "uniqueItems": true,
-                      "enum": ["positive", "negative"],
-                      "enumNames": ["COVID-19 Positive", "COVID-19 Negative"]
+                      "enum": [
+                        "positive",
+                        "negative"
+                      ],
+                      "enumNames": [
+                        "COVID-19 Positive",
+                        "COVID-19 Negative"
+                      ]
                     }
                   }
                 }
@@ -505,7 +566,9 @@
             {
               "properties": {
                 "kind_of_testing": {
-                  "enum": ["Serum Antibody Tests"]
+                  "enum": [
+                    "Serum Antibody Tests"
+                  ]
                 },
                 "result": {
                   "title": "3a. When was your test and what was the result? ",
@@ -519,8 +582,14 @@
                       "title": "Result of the test?",
                       "type": "string",
                       "uniqueItems": true,
-                      "enum": ["positive", "negative"],
-                      "enumNames": ["COVID-19 Positive", "COVID-19 Negative"]
+                      "enum": [
+                        "positive",
+                        "negative"
+                      ],
+                      "enumNames": [
+                        "COVID-19 Positive",
+                        "COVID-19 Negative"
+                      ]
                     }
                   }
                 }
@@ -532,7 +601,10 @@
     },
     "hospitalization": {
       "type": "object",
-      "required": ["hospitals", "hospitalization_treatment"],
+      "required": [
+        "hospitals",
+        "hospitalization_treatment"
+      ],
       "properties": {
         "hospitals": {
           "type": "array",
@@ -583,62 +655,98 @@
             "oxigen": {
               "type": "boolean",
               "title": "Oxygen through prongs in your nose",
-              "enum": [true, false]
+              "enum": [
+                true,
+                false
+              ]
             },
             "oxigen_mask": {
               "type": "boolean",
               "title": "Oxygen mask, BIPAP, or CPAP (mask on the face to help you breathe)",
-              "enum": [true, false]
+              "enum": [
+                true,
+                false
+              ]
             },
             "ventilator": {
               "type": "boolean",
               "title": "On a ventilator",
-              "enum": [true, false]
+              "enum": [
+                true,
+                false
+              ]
             },
             "kidney_dialysis": {
               "type": "boolean",
               "title": "Kidney problems requiring dialysis of any kind",
-              "enum": [true, false]
+              "enum": [
+                true,
+                false
+              ]
             },
             "heart_cathetirization": {
               "type": "boolean",
               "title": "Heart problem requiring cardiac catheterization",
-              "enum": [true, false]
+              "enum": [
+                true,
+                false
+              ]
             },
             "liver_problem": {
               "type": "boolean",
               "title": "Liver problem or hepatitis",
-              "enum": [true, false]
+              "enum": [
+                true,
+                false
+              ]
             },
             "blood_clots": {
               "type": "boolean",
               "title": "Blood clots in legs or lungs",
-              "enum": [true, false]
+              "enum": [
+                true,
+                false
+              ]
             },
             "septic_shock": {
               "type": "boolean",
               "title": "Septic shock requiring blood pressure support with pressor medicines given through an IV",
-              "enum": [true, false]
+              "enum": [
+                true,
+                false
+              ]
             },
             "stroke": {
               "type": "boolean",
               "title": "Stroke",
-              "enum": [true, false]
+              "enum": [
+                true,
+                false
+              ]
             },
             "encepalitis": {
               "type": "boolean",
               "title": "Encephalitis",
-              "enum": [true, false]
+              "enum": [
+                true,
+                false
+              ]
             },
             "other": {
               "type": "boolean",
               "title": "Other complications",
-              "enum": [true, false]
+              "enum": [
+                true,
+                false
+              ]
             },
             "prefer_not_answer": {
               "type": "boolean",
               "title": "Prefer not to answer",
-              "enum": [true, false]
+              "enum": [
+                true,
+                false
+              ]
             }
           },
           "dependencies": {
@@ -647,7 +755,9 @@
                 {
                   "properties": {
                     "oxigen": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "oxigen_days": {
                       "type": "number",
@@ -659,7 +769,9 @@
                 {
                   "properties": {
                     "oxigen": {
-                      "enum": [false]
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 }
@@ -670,7 +782,9 @@
                 {
                   "properties": {
                     "oxigen_mask": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "oxigen_mask_days": {
                       "type": "number",
@@ -682,7 +796,9 @@
                 {
                   "properties": {
                     "oxigen_mask": {
-                      "enum": [false]
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 }
@@ -693,7 +809,9 @@
                 {
                   "properties": {
                     "ventilator": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "ventilator_days": {
                       "type": "number",
@@ -705,7 +823,9 @@
                 {
                   "properties": {
                     "ventilator": {
-                      "enum": [false]
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 }
@@ -716,7 +836,9 @@
                 {
                   "properties": {
                     "kidney_dialysis": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "kidney_dialysis_days": {
                       "type": "number",
@@ -728,7 +850,9 @@
                 {
                   "properties": {
                     "kidney_dialysis": {
-                      "enum": [false]
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 }
@@ -739,7 +863,9 @@
                 {
                   "properties": {
                     "other": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "other_answer": {
                       "type": "string",
@@ -750,7 +876,9 @@
                 {
                   "properties": {
                     "other": {
-                      "enum": [false]
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 }
@@ -767,7 +895,11 @@
     },
     "habits": {
       "type": "object",
-      "required": ["smoking", "vaping", "alcohol"],
+      "required": [
+        "smoking",
+        "vaping",
+        "alcohol"
+      ],
       "title": "",
       "properties": {
         "smoking": {
@@ -779,7 +911,7 @@
             "I used to smoke, but I quit.",
             "I smoke only rarely.",
             "I smoke every day.",
-            "Prefer not To Answer"
+            "Prefer not to answer"
           ]
         },
         "vaping": {
@@ -791,7 +923,7 @@
             "I used to vape, but I quit.",
             "I vape only rarely.",
             "I vape every day.",
-            "Prefer not To Answer"
+            "Prefer not to answer"
           ]
         },
         "alcohol": {
@@ -814,7 +946,9 @@
             {
               "properties": {
                 "smoking": {
-                  "enum": ["I smoke every day."]
+                  "enum": [
+                    "I smoke every day."
+                  ]
                 },
                 "smoking_how_many_cigarettes": {
                   "type": "string",
@@ -829,7 +963,7 @@
                     "I have never smoked regularly.",
                     "I used to smoke, but I quit.",
                     "I smoke only rarely.",
-                    "Prefer not To Answer"
+                    "Prefer not to answer"
                   ]
                 }
               }
@@ -840,7 +974,11 @@
     },
     "habits2": {
       "type": "object",
-      "required": ["anxiety", "worry", "loneliness"],
+      "required": [
+        "anxiety",
+        "worry",
+        "loneliness"
+      ],
       "title": "",
       "properties": {
         "anxiety": {
@@ -882,7 +1020,9 @@
       }
     },
     "medications": {
-      "required": ["regular_medications"],
+      "required": [
+        "regular_medications"
+      ],
       "type": "object",
       "title": "",
       "properties": {
@@ -918,14 +1058,16 @@
               "Antibiotics",
               "HIV medication (lopinavir/ritonavir, darunavir/ritonavir, tenofovir disoproxil fumarate (TDF), tenofovir alafenamide fumarate (TAF), and combination medications containing these agents)",
               "None",
-              "Prefer not To Answer"
+              "Prefer not to answer"
             ]
           }
         }
       }
     },
     "medications2": {
-      "required": ["covid_medications"],
+      "required": [
+        "covid_medications"
+      ],
       "type": "object",
       "title": "",
       "properties": {
@@ -959,9 +1101,10 @@
         }
       }
     },
-
     "medications3": {
-      "required": ["hydroxychloroquine_side_effects"],
+      "required": [
+        "hydroxychloroquine_side_effects"
+      ],
       "type": "object",
       "title": "",
       "properties": {
