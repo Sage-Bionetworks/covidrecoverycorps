@@ -106,15 +106,21 @@
 }
 
 .learnLessToggle {
+  margin-bottom: 4rem;
   margin-top: 2rem;
   border-bottom: 1px solid #ddd;
+  
 
   justify-content: space-between;
   align-items: flex-end;
+  div{
+    padding-bottom: 2.4rem;
+  }
   button {
     padding: 5px 0 5px 0;
     border: none;
     background: transparent;
+ 
   }
 }
 
