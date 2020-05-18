@@ -80,7 +80,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
 
   return (
     <div id="Questions">
-      <h1>Eligibility</h1>
+      <h2 className="text-center">Eligibility</h2>
       <p>
         To be eligible to take part in the COVID Recovery Corps Study, you must fulfill the following:
       </p>

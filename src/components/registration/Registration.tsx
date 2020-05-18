@@ -28,20 +28,19 @@ const PHONE_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/phone'
 const signupIntro = {
   PHONE: (
     <>
-      <h1>Don't have email?</h1>
+      <h2>Don't have email?</h2>
       <p>
-        At this time, we are only able to invite participants to lab draws with
-        an email account.</p>
+        We are working on this issue. We hope to support scheduling appointments with your phone number in the near future.
+      </p>
         <p>We are working on this issue. We hope to support
         scheduling appointments with your phone number in the near future.</p>
-        <p>You can still provide important information to our researchers by filling
-        out surveys.
+        <p>You can still join the COVID Recovery Corps and provide important information to our researchers by filling out surveys with your phone number.
       </p>
     </>
   ),
   EMAIL: (
     <>
-      <h1>Getting Started</h1>
+      <h2>Getting Started</h2>
       <p>
         {' '}
         To access the consent and surveys, you will need to create an account.</p>

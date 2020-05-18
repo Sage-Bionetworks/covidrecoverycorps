@@ -176,7 +176,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         <Card><CardContent>
           {(!isLinkSent || error) && (
             <div>
-              <h1 className="text-center margin-top-std">Log in</h1>
+              <h2 className="text-center">Log in</h2>
               <BlueSeparator></BlueSeparator>
               <form onSubmit={handleLogin} >
                 <div >

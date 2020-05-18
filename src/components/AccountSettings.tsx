@@ -131,7 +131,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (pro
           <FloatingToolbar closeLinkDestination='/dashboard' closeIcon={faAngleLeft} closeLinkText='Dashboard' />
       </div>
       <Card><CardContent>
-      <h1 className="text-center margin-top-std">Account Settings</h1>
+      <h2 className="text-center margin-top-std">Account Settings</h2>
       {error && <Alert severity="error">{error}</Alert>}
       <Link to='/contactinfo'>
           Update contact information
