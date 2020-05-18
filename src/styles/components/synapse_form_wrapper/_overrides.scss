@@ -13,6 +13,7 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 18px;
+    color: #2e2e2e;
   }
 
   @mixin subfield_inverted {
@@ -76,6 +77,15 @@
 
   .form-group.field-boolean {
     margin-right: -1.5rem;
+  }
+  .notification-area {
+    margin-left: 1.5rem;
+    color: $primary-blue;
+  }
+
+  .btn-clear {
+    background-color: $primary-blue;
+    border: none;
   }
 
   .paging {
@@ -348,6 +358,7 @@
   $margin-from-dot: 5px;
   $negative-offset-from-dot: 19px;
   $extra-label-padding: 20px;
+  $extra-label-padding-sm: 2px;
   $checkbox-width: 18px;
 
   .checkbox,
@@ -380,6 +391,39 @@
     margin-right: calc(
       #{$margin-from-dot+ $extra-label-padding}
     ); //offset to label
+  }
+
+  .subcheckbox {
+    .checkbox > label::before {
+      margin-right: calc(
+        #{$margin-from-dot+ $extra-label-padding-sm}
+      ); //offset to label
+    }
+
+    input[type='checkbox']:checked + label::before,
+    input[type='checkbox']:checked + span::before {
+      margin-left: calc(-4px - #{$checkbox-width+ + $extra-label-padding-sm});
+      margin-right: calc(8px + #{$extra-label-padding-sm});
+    }
+
+    .radio input[type='radio']:checked + label::before,
+    .radio input[type='radio']:checked + span::before,
+    .radio-inline input[type='radio']:checked + label::before,
+    .radio-inline input[type='radio']:checked + span::before {
+      margin-left: calc(
+        (-1 * #{$negative-offset-from-dot + $extra-label-padding-sm})
+      );
+      margin-right: calc(8px + #{$extra-label-padding-sm});
+    }
+
+    .radio input[type='radio'] + label,
+    .radio input[type='radio'] + span,
+    .radio-inline input[type='radio'] + label,
+    .radio-inline input[type='radio'] + span {
+      padding-left: calc(
+        #{$margin-from-dot + $negative-offset-from-dot+ $extra-label-padding-sm}
+      );
+    }
   }
 
   .radio::before {
@@ -606,6 +650,17 @@
       &.wide {
         input {
           width: 100%;
+        }
+      }
+    }
+    .form-group.subcheckbox {
+      @include subfield_inverted;
+      margin-left: -1.5rem;
+      margin-top: -2rem;
+      .checkbox {
+        padding-bottom: 0;
+        span {
+          @include label_level2;
         }
       }
     }

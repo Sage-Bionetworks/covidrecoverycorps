@@ -6,38 +6,71 @@
       "ui:order": [
         "cough",
         "cough_duration",
+        "cough_still_present",
         "fever",
         "fever_duration",
         "fever_highest",
+        "fever_still_present",
         "shortness_breath",
         "shortness_breath_duration",
+        "shortness_breath_still_present",
         "chest_pain",
         "chest_pain_duration",
+        "chest_pain_still_present",
         "night_sweats",
         "night_sweats_duration",
+        "night_sweats_still_present",
         "chills",
         "chills_duration",
+        "chills_still_present",
         "rash",
         "rash_duration",
+        "rash_still_present",
         "fatigue",
+        "fatigue_duration",
+        "fatigue_still_present",
         "headache",
+        "headache_duration",
+        "headache_still_present",
         "muscle_pain",
+        "muscle_pain_duration",
+        "muscle_pain_still_present",
         "runny_nose",
+        "runny_nose_duration",
+        "runny_nose_still_present",
         "sore_throat",
+        "sore_throat_duration",
+        "sore_throat_still_present",
         "diarrhea",
+        "diarrhea_duration",
+        "diarrhea_still_present",
         "nausea_vomiting",
+        "nausea_vomiting_duration",
+        "nausea_vomiting_still_present",
         "abdominal_pain",
+        "abdominal_pain_duration",
+        "abdominal_pain_still_present",
         "foamy_urine",
         "foamy_urine_duration",
+        "foamy_urine_still_present",
         "red_urine",
         "red_urine_duration",
+        "red_urine_still_present",
         "loss_of_smell",
         "loss_of_smell_duration",
+        "loss_of_smell_still_present",
         "loss_of_taste",
         "loss_of_taste_duration",
+        "loss_of_taste_still_present",
         "hallucinations",
+        "hallucinations_duration",
+        "hallucinations_still_present",
         "loss_of_consciousness",
+        "loss_of_consciousness_duration",
+        "loss_of_consciousness_still_present",
         "seizures",
+        "seizures_duration",
+        "seizures_still_present",
         "no_symptoms",
         "prefer_not_answer",
         "other"
@@ -46,13 +79,85 @@
       "ui:options": {
         "inline": false
       },
-
-      "cough_duration": {
-
+      "cough_still_present": {
+        "classNames": "subcheckbox"
+      },
+      "fever_still_present": {
+        "classNames": "subcheckbox"
+      },
+      "shortness_breath_still_present": {
+        "classNames": "subcheckbox"
       },
 
-      "fever_duration": {
-      
+      "chest_pain_still_present": {
+        "classNames": "subcheckbox"
+      },
+      "night_sweats_still_present": {
+        "classNames": "subcheckbox"
+      },
+      "chills_still_present": {
+        "classNames": "subcheckbox"
+      },
+
+      "rash_still_present": {
+        "classNames": "subcheckbox"
+      },
+
+      "fatigue_still_present": {
+        "classNames": "subcheckbox"
+      },
+
+      "headache_still_present": {
+        "classNames": "subcheckbox"
+      },
+
+      "muscle_pain_still_present": {
+        "classNames": "subcheckbox"
+      },
+
+      "runny_nose_still_present": {
+        "classNames": "subcheckbox"
+      },
+
+      "sore_throat_still_present": {
+        "classNames": "subcheckbox"
+      },
+
+      "diarrhea_still_present": {
+        "classNames": "subcheckbox"
+      },
+
+      "nausea_vomiting_still_present": {
+        "classNames": "subcheckbox"
+      },
+
+      "abdominal_pain_still_present": {
+        "classNames": "subcheckbox"
+      },
+
+      "foamy_urine_still_present": {
+        "classNames": "subcheckbox"
+      },
+      "red_urine_still_present": {
+        "classNames": "subcheckbox"
+      },
+      "loss_of_smell_still_present": {
+        "classNames": "subcheckbox"
+      },
+      "loss_of_taste_still_present": {
+        "classNames": "subcheckbox"
+      },
+
+      "hallucinations_still_present": {
+        "classNames": "subcheckbox"
+      },
+
+      "loss_of_consciousness_still_present": {
+        "classNames": "subcheckbox"
+      },
+
+      "seizures_still_present": {
+        "classNames": "subcheckbox"
       }
     }
   },
@@ -98,7 +203,6 @@
       "still_have_symptoms": {
         "classNames": "still_symptoms"
       }
-
     },
 
     "kind_of_testing": {
@@ -260,8 +364,8 @@
     }
   },
   "medications_hydroxy": {
-  "hydroxychloroquine_side_effects": {
-    "ui:widget": "checkboxes"
+    "hydroxychloroquine_side_effects": {
+      "ui:widget": "checkboxes"
+    }
   }
-}
 }

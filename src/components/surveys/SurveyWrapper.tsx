@@ -14,6 +14,7 @@ import { SURVEYS } from '../../data/surveys'
 import { SurveyService } from '../../services/survey.service'
 import { UserService } from '../../services/user.service'
 import { Redirect } from 'react-router-dom'
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
 
 export interface SurveyWrapperProps {
   formTitle: string //for UI customization
@@ -247,7 +248,7 @@ export default class SurveyWrapper extends React.Component<
     ) {
       return (
         <div className="text-center">
-          <span className={'spinner'} />
+            <CircularProgress color="primary" />
         </div>
       )
     } else {
@@ -347,7 +348,7 @@ export default class SurveyWrapper extends React.Component<
           {this.state.status === StatusEnum.SUBMIT_SUCCESS && (
             <div>
               {' '}
-              You have registered succesfully. You will need to verify your
+              You have registered successfully. You will need to verify your
               email before you can log in{' '}
             </div>
           )}
