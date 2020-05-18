@@ -36,7 +36,7 @@ export const Contact: React.FunctionComponent<ContactProps> = ({}: ContactProps)
         <Grid item xs={12} md={10} lg={8}>
           <div className={introClasses.paperPanel}>
             <div className={introClasses.paperPanelTitle}>
-              <h2>Contact Us</h2>
+              <h1>Contact Us</h1>
             </div>
             <Hidden xsDown>
               <BlueSeparator />
