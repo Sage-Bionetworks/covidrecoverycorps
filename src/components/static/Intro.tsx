@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles, Button, Grid, Hidden } from '@material-ui/core'
-import {playfairDisplayFont, openSansFont} from '../../App'
+import { playfairDisplayFont, openSansFont } from '../../App'
 import LandingPageAboveFold from '../../assets/LandingPageAboveFold.png'
 import LandingPageAboveFold2 from '../../assets/LandingPageAboveFold2.png'
 import LandingPageAboveFold3 from '../../assets/LandingPageAboveFold3.png'
@@ -9,11 +9,11 @@ import LandingPageAboveFold2Mobile from '../../assets/LandingPageAboveFold2_mobi
 import LandingPageAboveFold3Mobile from '../../assets/LandingPageAboveFold3_mobile.png'
 
 import LandingPageLab from '../../assets/LandingPageLab.png'
-import {ReactComponent as ColumbiaLogo} from '../../assets/columbia_logo.svg'
-import {ReactComponent as SageLogo} from '../../assets/sage_logo.svg'
-import {ReactComponent as Tablet} from '../../assets/tablet.svg'
-import {ReactComponent as TestTubes} from '../../assets/test_tubes.svg'
-import {ReactComponent as BooksApple} from '../../assets/books_apple.svg'
+import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
+import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
+import { ReactComponent as Tablet } from '../../assets/tablet.svg'
+import { ReactComponent as TestTubes } from '../../assets/test_tubes.svg'
+import { ReactComponent as BooksApple } from '../../assets/books_apple.svg'
 
 import { NavLink, Link } from 'react-router-dom'
 import BlueSeparator from './BlueSeparator'
@@ -37,8 +37,9 @@ export const useIntroStyles = makeStyles(theme => ({
     width: '100%',
     height: '100%',
     [theme.breakpoints.down('xs')]: {
-      background: 'linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,1,0) 90%)',
-    }
+      background:
+        'linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,1,0) 90%)',
+    },
   },
   heroImage: {
     transition: 'opacity 2s ease-in-out',
@@ -56,17 +57,17 @@ export const useIntroStyles = makeStyles(theme => ({
     position: 'relative',
     maxWidth: '650px',
     [theme.breakpoints.up('xs')]: {
-      padding: '0px 20px 0px 30px'
+      padding: '0px 20px 0px 30px',
     },
     [theme.breakpoints.up('sm')]: {
-      padding: '20px 20px 80px 40px'
+      padding: '20px 20px 80px 40px',
     },
     [theme.breakpoints.up('md')]: {
-      padding: '120px 20px 100px 40px'
+      padding: '120px 20px 100px 40px',
     },
     [theme.breakpoints.up('lg')]: {
-      padding: '180px 20px 130px 40px'
-    }
+      padding: '180px 20px 130px 40px',
+    },
   },
   joinButton: {
     height: '36px',
@@ -74,7 +75,7 @@ export const useIntroStyles = makeStyles(theme => ({
     marginBottom: '5px',
     [theme.breakpoints.up('sm')]: {
       marginTop: '20px',
-      marginBottom: '10px'
+      marginBottom: '10px',
     },
   },
   navLink: {
@@ -93,7 +94,7 @@ export const useIntroStyles = makeStyles(theme => ({
     paddingTop: '50px',
     paddingBottom: '50px',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   content1TextDiv: {
     maxWidth: '940px',
@@ -114,9 +115,8 @@ export const useIntroStyles = makeStyles(theme => ({
     borderRight: '2px #EEEEEE solid',
     margin: '0px 50px',
     [theme.breakpoints.down('xs')]: {
-      margin: '0px 15px'
+      margin: '0px 15px',
     },
-    
   },
   labImageDiv: {
     maxWidth: '550px',
@@ -125,7 +125,7 @@ export const useIntroStyles = makeStyles(theme => ({
       float: 'right',
     },
     [theme.breakpoints.up('sm')]: {
-      paddingLeft: '25px'
+      paddingLeft: '25px',
     },
   },
   labTextDiv: {
@@ -141,7 +141,7 @@ export const useIntroStyles = makeStyles(theme => ({
     maxWidth: '500px',
   },
   labTextTitle: {
-    paddingTop: '0px'
+    paddingTop: '0px',
   },
   labTextBodyDiv: {
     padding: '20px 0px',
@@ -151,7 +151,7 @@ export const useIntroStyles = makeStyles(theme => ({
     fontFamily: openSansFont,
     fontStyle: 'italic',
     float: 'right',
-    paddingTop: '3px'
+    paddingTop: '3px',
   },
   paperHeaderDiv: {
     backgroundColor: '#3A3A3A',
@@ -166,7 +166,7 @@ export const useIntroStyles = makeStyles(theme => ({
   },
   paperPanelWrapper: {
     padding: '20px 20px 90px 20px',
-    marginTop: '-170px'
+    marginTop: '-170px',
   },
   paperPanel: {
     backgroundColor: '#FCFCFC',
@@ -175,7 +175,7 @@ export const useIntroStyles = makeStyles(theme => ({
   },
   paperPanelTitle: {
     textAlign: 'center',
-    padding: '20px 20px 0px 20px'
+    padding: '20px 20px 0px 20px',
   },
   pink: {
     color: '#FC9090',
@@ -185,22 +185,22 @@ export const useIntroStyles = makeStyles(theme => ({
     fontFamily: openSansFont,
     fontSize: '12px',
     fontWeight: 'bold',
-    paddingBottom: '5px'
+    paddingBottom: '5px',
   },
   paperPanelStepTitle: {
     color: '#2A2A2A',
-    marginTop: '0px'
+    marginTop: '0px',
   },
   paperPanelStepBody: {
     color: '#3A3A3A',
-    paddingBottom: '50px'
+    paddingBottom: '50px',
   },
   paperPanelStepIconDiv: {
-    paddingLeft: '50px'
+    paddingLeft: '50px',
   },
   paperPanelStepIconMobileDiv: {
     textAlign: 'center',
-    padding: '20px'
+    padding: '20px',
   },
   fightTogetherDiv: {
     backgroundColor: '#3A3A3A',
@@ -211,11 +211,8 @@ export const useIntroStyles = makeStyles(theme => ({
     color: '#FFFFFF',
     padding: '0px 25px 0px 25px',
   },
-
 }))
-export const Intro: React.FunctionComponent<IntroProps> = ({
-
-}: IntroProps) => {
+export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
   const classes = useIntroStyles()
   const [heroImage1Opacity, setHeroImage1Opacity] = useState(1)
   const [heroImage2Opacity, setHeroImage2Opacity] = useState(0)
@@ -223,7 +220,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
 
   const selectNextHeroBackground = () => {
     // get next image
-    let nextHeroBackgroundImage:string
+    let nextHeroBackgroundImage: string
     if (heroImage1Opacity > 0) {
       setHeroImage1Opacity(0)
       setHeroImage2Opacity(1)
@@ -236,49 +233,78 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
     }
   }
   useEffect(() => {
-    const interval = setInterval(selectNextHeroBackground, 8000);
-    return () => clearInterval(interval);
-  }, [heroImage1Opacity, heroImage2Opacity, heroImage3Opacity]);
+    const interval = setInterval(selectNextHeroBackground, 8000)
+    return () => clearInterval(interval)
+  }, [heroImage1Opacity, heroImage2Opacity, heroImage3Opacity])
 
-  const heroTextContent = 
+  const heroTextContent = (
     <div className={classes.heroTextDiv}>
-      <h1 className={classes.heroText}>A citizen-powered movement to drive scientific breakthroughs and save lives in the fight against COVID-19.</h1>
+      <h1 className={classes.heroText}>
+        A citizen-powered movement to drive scientific breakthroughs and save
+        lives in the fight against COVID-19.
+      </h1>
       <div>
-        <NavLink
-          to="/eligibility"
-          className={classes.navLink}
-        >
+        <NavLink to="/eligibility" className={classes.navLink}>
           <Button
             color="primary"
             variant="contained"
             className={classes.joinButton}
           >
-          Join us
+            Join us
           </Button>
         </NavLink>
       </div>
     </div>
+  )
   return (
     <div className="Intro">
-       <div>
-         <div className={classes.heroContainer}>
-            <div className={classes.heroTextGradiant}></div>
-            <Hidden smUp>
-              <img className={classes.heroImage} src={LandingPageAboveFoldMobile} style={{opacity: heroImage1Opacity}}/>
-              <img className={classes.heroImage} src={LandingPageAboveFold2Mobile} style={{opacity: heroImage2Opacity}}/>
-              <img className={classes.heroImage} src={LandingPageAboveFold3Mobile} style={{opacity: heroImage3Opacity}}/>       
-            </Hidden>
-            <Hidden xsDown>
-              <img className={classes.heroImage} src={LandingPageAboveFold} style={{opacity: heroImage1Opacity}}/>
-              <img className={classes.heroImage} src={LandingPageAboveFold2} style={{opacity: heroImage2Opacity}}/>
-              <img className={classes.heroImage} src={LandingPageAboveFold3} style={{opacity: heroImage3Opacity}}/>       
-            </Hidden>
-           
-            {heroTextContent}
-         </div>
+      <div>
+        <div className={classes.heroContainer}>
+          <div className={classes.heroTextGradiant}></div>
+          <Hidden smUp>
+            <img
+              className={classes.heroImage}
+              src={LandingPageAboveFoldMobile}
+              style={{ opacity: heroImage1Opacity }}
+            />
+            <img
+              className={classes.heroImage}
+              src={LandingPageAboveFold2Mobile}
+              style={{ opacity: heroImage2Opacity }}
+            />
+            <img
+              className={classes.heroImage}
+              src={LandingPageAboveFold3Mobile}
+              style={{ opacity: heroImage3Opacity }}
+            />
+          </Hidden>
+          <Hidden xsDown>
+            <img
+              className={classes.heroImage}
+              src={LandingPageAboveFold}
+              style={{ opacity: heroImage1Opacity }}
+            />
+            <img
+              className={classes.heroImage}
+              src={LandingPageAboveFold2}
+              style={{ opacity: heroImage2Opacity }}
+            />
+            <img
+              className={classes.heroImage}
+              src={LandingPageAboveFold3}
+              style={{ opacity: heroImage3Opacity }}
+            />
+          </Hidden>
+
+          {heroTextContent}
+        </div>
         <div className={classes.content1}>
           <div className={classes.content1TextDiv}>
-            <h3>If you live in the New York City metro area and have recovered from COVID-19, you can help scientists make progress in the global fight against this disease.</h3>            
+            <h3>
+              If you live in the New York City metro area and have recovered
+              from COVID-19, you can help scientists make progress in the global
+              fight against this disease.
+            </h3>
           </div>
         </div>
         <div className={classes.logosDiv}>
@@ -286,29 +312,37 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
           <div className={classes.logosDivSeparator}></div>
           <SageLogo />
         </div>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
+        <Grid container direction="row" justify="center" alignItems="center">
           <Grid item xs={12} md={6}>
             <div className={classes.labImageDiv}>
               <img src={LandingPageLab} alt="Lab" width="100%" />
-              <p className={classes.photographyNote}>Photography by Noah Berger</p>
+              <p className={classes.photographyNote}>
+                Photography by Noah Berger
+              </p>
             </div>
           </Grid>
           <Grid item xs={12} md={6}>
             <div className={classes.labTextDiv}>
-              <h2 className={classes.labTextTitle}>There is an urgent need to come together as a survivor community to rapidly advance our understanding of COVID-19.</h2>
+              <h2 className={classes.labTextTitle}>
+                There is an urgent need to come together as a survivor community
+                to rapidly advance our understanding of COVID-19.
+              </h2>
               <div className={classes.labTextBodyDiv}>
-                <p>You recovered. So have thousands of others. Your experiences could help unlock the mysteries behind this disease. Our mission is to learn more about COVID-19 by bringing your experiences together. </p>                
+                <p>
+                  You recovered. So have thousands of others. Your experiences
+                  could help unlock the mysteries behind this disease. Our
+                  mission is to learn more about COVID-19 by bringing your
+                  experiences together.{' '}
+                </p>
               </div>
             </div>
           </Grid>
         </Grid>
         <div className={classes.paperHeaderDiv}>
-          <h3 className={classes.paperHeaderText}>By sharing your experience in recovering from COVID-19, you can help answer critical questions. </h3>
+          <h3 className={classes.paperHeaderText}>
+            By sharing your experience in recovering from COVID-19, you can help
+            answer critical questions.{' '}
+          </h3>
         </div>
         <Grid
           container
@@ -336,18 +370,25 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
                   <Tablet />
                 </div>
               </Hidden>
-              <Grid
-                container
-                justify="center"
-                alignItems="center"
-              >
+              <Grid container justify="center" alignItems="center">
                 <Grid item xs={12} sm={9}>
-                  <div className={classes.paperPanelStepNumber}>
-                    STEP ONE
-                  </div>
-                  <h3 className={classes.paperPanelStepTitle}>Register and take the survey</h3>
+                  <div className={classes.paperPanelStepNumber}>STEP ONE</div>
+                  <h3 className={classes.paperPanelStepTitle}>
+                    Register and take the survey
+                  </h3>
                   <div className={classes.paperPanelStepBody}>
-                    <p>To get started, click <Link to="/eligibility" style={{fontWeight: 'bold'}}>Join Us</Link> and review information about what will happen in the study. After registering, you will be invited to take brief surveys that may help scientists begin to answer questions like: Why do some people experience very mild symptoms while others get very sick? How does recovering from COVID-19 impact your health over time?</p>
+                    <p>
+                      To get started, click{' '}
+                      <Link to="/eligibility" style={{ fontWeight: 'bold' }}>
+                        Join Us
+                      </Link>{' '}
+                      and review information about what will happen in the
+                      study. After registering, you will be invited to take
+                      brief surveys that may help scientists begin to answer
+                      questions like: Why do some people experience very mild
+                      symptoms while others get very sick? How does recovering
+                      from COVID-19 impact your health over time?
+                    </p>
                   </div>
                 </Grid>
                 <Grid item xs={12} sm={3}>
@@ -365,18 +406,25 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
                   <TestTubes />
                 </div>
               </Hidden>
-              <Grid
-                container
-                justify="center"
-                alignItems="center"
-              >
+              <Grid container justify="center" alignItems="center">
                 <Grid item xs={12} sm={9}>
-                  <div className={classes.paperPanelStepNumber}>
-                    STEP TWO
-                  </div>
-                  <h3 className={classes.paperPanelStepTitle}>Share your samples</h3>
+                  <div className={classes.paperPanelStepNumber}>STEP TWO</div>
+                  <h3 className={classes.paperPanelStepTitle}>
+                    Share your samples
+                  </h3>
                   <div className={classes.paperPanelStepBody}>
-                    <p>We will invite some participants to visit clinical sites in New York City to donate a sample.  In the future, other participants will be invited to donate a sample from home.  Sharing your samples will help researchers develop more reliable antibody tests that can make antibody testing accessible to more people, and in turn, may help answer important questions  including: Who was really infected with COVID-19?  What levels of antibodies are needed to protect us from reinfection? Is it possible for people to develop full immunity to COVID-19?</p>
+                    <p>
+                      We will invite some participants to visit clinical sites
+                      in New York City to donate a sample. In the future, other
+                      participants will be invited to donate a sample from home.
+                      Sharing your samples will help researchers develop more
+                      reliable antibody tests that can make antibody testing
+                      accessible to more people, and in turn, may help answer
+                      important questions including: Who was really infected
+                      with COVID-19? What levels of antibodies are needed to
+                      protect us from reinfection? Is it possible for people to
+                      develop full immunity to COVID-19?
+                    </p>
                   </div>
                 </Grid>
                 <Grid item xs={12} sm={3}>
@@ -394,18 +442,26 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
                   <BooksApple />
                 </div>
               </Hidden>
-              <Grid
-                container
-                justify="center"
-                alignItems="center"
-              >
+              <Grid container justify="center" alignItems="center">
                 <Grid item xs={12} sm={9}>
-                  <div className={classes.paperPanelStepNumber}>
-                    STEP THREE
-                  </div>
-                  <h3 className={classes.paperPanelStepTitle}>Learn with us along the way</h3>
+                  <div className={classes.paperPanelStepNumber}>STEP THREE</div>
+                  <h3 className={classes.paperPanelStepTitle}>
+                    Learn with us along the way
+                  </h3>
                   <div className={classes.paperPanelStepBody}>
-                    <p>If you are asked to provide a sample, we will return results of the antibody test approved by the New York State Department of Health and share information about what those results mean. As we learn more about the impact of COVID-19 across study participants, we will share regular updates with the broader scientific and patient community. We may also ask if you are interested in joining other related studies. For instance, some participants may choose to be notified of opportunities to donate plasma and help those still fighting for survival from COVID-19.</p>
+                    <p>
+                      If you are asked to provide a sample, we will return
+                      results of the antibody test approved by the New York
+                      State Department of Health and share information about
+                      what those results mean. As we learn more about the impact
+                      of COVID-19 across study participants, we will share
+                      regular updates with the broader scientific and patient
+                      community. We may also ask if you are interested in
+                      joining other related studies. For instance, some
+                      participants may choose to be notified of opportunities to
+                      donate plasma and help those still fighting for survival
+                      from COVID-19.
+                    </p>
                   </div>
                 </Grid>
                 <Grid item xs={12} sm={3}>
@@ -421,22 +477,17 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
         </Grid>
       </div>
       <div className={classes.fightTogetherDiv}>
-        <h2 className={classes.fightTogetherDivText}>Together, we can fight COVID-19.</h2>
-        <Grid
-          container
-          justify="center"
-          alignItems="center"
-        >
-          <NavLink
-              to="/eligibility"
-              className={classes.navLink}
-          >
+        <h2 className={classes.fightTogetherDivText}>
+          Together, we can fight COVID-19.
+        </h2>
+        <Grid container justify="center" alignItems="center">
+          <NavLink to="/eligibility" className={classes.navLink}>
             <Button
               color="primary"
               variant="contained"
               className={classes.joinButton}
             >
-            Join us
+              Join us
             </Button>
           </NavLink>
         </Grid>

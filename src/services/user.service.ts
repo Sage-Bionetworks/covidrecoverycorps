@@ -13,7 +13,7 @@ const SUBPOP_GUID = 'czi-coronavirus'
 export const UserService = {
   getUserInfo,
   updateUserAttributes,
-  updateUserData
+  updateUserData,
 }
 
 async function getUserInfo(token: string): Promise<Response<LoggedInUserData>> {
@@ -21,14 +21,14 @@ async function getUserInfo(token: string): Promise<Response<LoggedInUserData>> {
     `${ENDPOINT}/v3/participants/self`,
     'GET',
     {},
-    token
+    token,
   )
   return result
 }
 
 async function updateUserAttributes(
   token: string,
-  attributes: UserAttributes
+  attributes: UserAttributes,
 ): Promise<Response<LoggedInUserData>> {
   const result = await callEndpoint<LoggedInUserData>(
     `${ENDPOINT}/v3/participants/self`,
@@ -36,25 +36,25 @@ async function updateUserAttributes(
     {
       attributes,
     },
-    token
+    token,
   )
   return result
 }
 
 async function updateUserData(
   token: string,
-  data: LoggedInUserData
+  data: LoggedInUserData,
 ): Promise<Response<LoggedInUserData>> {
   const payload = {
     firstName: data.firstName,
     lastName: data.lastName,
-    attributes: data.attributes
+    attributes: data.attributes,
   }
   const result = await callEndpoint<LoggedInUserData>(
     `${ENDPOINT}/v3/participants/self`,
     'POST',
-   payload,
-    token
+    payload,
+    token,
   )
   return result
 }

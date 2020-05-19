@@ -1,5 +1,4 @@
-
-$font-size:  1.4rem default;
+$font-size: 1.4rem default;
 
 /* MODAL OVERWRITE! */
 .modal-backdrop {
@@ -157,13 +156,13 @@ $font-size:  1.4rem default;
   $b: 35rem;
 
   .wrap {
-     //CRC @include calc(height, #{$a} - #{$b});
+    //CRC @include calc(height, #{$a} - #{$b});
     //CRC overflow: hidden;
     width: 100%;
     clear: both;
-     //CRC padding: $space-unit 0 1rem $space-unit;
+    //CRC padding: $space-unit 0 1rem $space-unit;
 
-     //CRC background-color: $gray-light;
+    //CRC background-color: $gray-light;
 
     h4 {
       margin-top: 0;
@@ -232,7 +231,6 @@ $font-size:  1.4rem default;
 
     vertical-align: middle;
 
-
     button.btn-link {
       @include themify($themes) {
         color: themed('action-color');
@@ -278,13 +276,12 @@ $font-size:  1.4rem default;
     margin-right: 10rem;
   }
   .submissionInputForm {
-     //CRC margin-right: 10rem;
+    //CRC margin-right: 10rem;
 
-     >.form-group,   #root >.form-group {
-       margin-bottom: 0;
-     }
-
-   
+    > .form-group,
+    #root > .form-group {
+      margin-bottom: 0;
+    }
 
     .help-block {
       font-style: italic;
@@ -342,11 +339,13 @@ $font-size:  1.4rem default;
     height: 1.5rem;
   }
 
-  .radio input[type='radio'] + label, .radio input[type='radio'] + span {
+  .radio input[type='radio'] + label,
+  .radio input[type='radio'] + span {
     padding-left: 24px;
   }
 
-  .radio input[type='radio']:checked + label, .radio input[type='radio']:checked + span {
+  .radio input[type='radio']:checked + label,
+  .radio input[type='radio']:checked + span {
     padding-left: 23px;
   }
 
@@ -557,4 +556,3 @@ $font-size:  1.4rem default;
     }
   }
 }
-

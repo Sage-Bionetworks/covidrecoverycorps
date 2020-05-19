@@ -19,7 +19,6 @@ import { ConsentService } from '../../services/consent.service'
 import ConsentIcons from './ConsentIcons'
 import ConsentSentConfirmation from './ConsentSentConfirmation'
 
-
 export type ConsentEHRProps = {
   setConsentEHRFn?: Function
   token: string
@@ -32,15 +31,14 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   const [currentStep, setCurrentStep] = useState(0)
   const [isConsentEHRDone, setIsConsentEHRDone] = useState<boolean>(false)
   const [isHIPAAConsented, setIsHIPAAConsented] = useState<boolean | undefined>(
-    undefined
+    undefined,
   )
   const [name, setName] = useState('')
   const [error, setError] = useState('')
   const [isConsentConfirmationShown, setConsentConfirmationShown] = useState(
-    false
+    false,
   )
   const totalSteps = 10
-  
 
   if (isConsentConfirmationShown) {
     return <Redirect to="/dashboard?consented=true"></Redirect>
@@ -56,7 +54,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           fullWidth
           color="primary"
           style={{ marginTop: '20px' }}
-          onClick={() => setCurrentStep((_prev) => _prev + 1)}
+          onClick={() => setCurrentStep(_prev => _prev + 1)}
         >
           Start HIPAA
         </Button>
@@ -73,7 +71,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
             color="primary"
             variant="contained"
             size="large"
-            onClick={() => setCurrentStep((prev) => prev - 1)}
+            onClick={() => setCurrentStep(prev => prev - 1)}
           >
             <FontAwesomeIcon icon={faArrowLeft} />
             &nbsp;
@@ -86,7 +84,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
             size="large"
             onClick={() => {
               //  if (currentStep < totalSteps) {
-              setCurrentStep((prev) => prev + 1)
+              setCurrentStep(prev => prev + 1)
               //  } else {
               //    onDone()
               //  }
@@ -124,7 +122,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   }
 
   const handleSubmit = async (
-    clickEvent: React.FormEvent<HTMLElement>
+    clickEvent: React.FormEvent<HTMLElement>,
   ): Promise<any> => {
     clickEvent.preventDefault() // avoid page refresh
 
@@ -133,7 +131,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
       const result = await ConsentService.signEhrConsent(
         name,
         ConsentService.SHARE_SCOPE_PARTNERS,
-        token
+        token,
       )
       setIsConsentEHRDone(true)
       // if (setConsentFn) {
@@ -172,7 +170,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
                   shrink: true,
                 }}
                 fullWidth
-                onChange={(e) => setName(e.target.value)}
+                onChange={e => setName(e.target.value)}
                 value={name}
                 name="fullName"
                 variant="outlined"
@@ -222,8 +220,11 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           )}
           {currentStep === 0 && renderStep0()}
           {currentStep > 0 && currentStep <= totalSteps && renderInfoStep()}
-          {(currentStep === totalSteps + 1 && !isConsentEHRDone) && <div>{renderSignatureStep()}</div>}
-          {(isConsentEHRDone && ! isConsentConfirmationShown) && (<ConsentSentConfirmation
+          {currentStep === totalSteps + 1 && !isConsentEHRDone && (
+            <div>{renderSignatureStep()}</div>
+          )}
+          {isConsentEHRDone && !isConsentConfirmationShown && (
+            <ConsentSentConfirmation
               type="EHR"
               doneCallbackFn={() => setConsentConfirmationShown(true)}
             ></ConsentSentConfirmation>

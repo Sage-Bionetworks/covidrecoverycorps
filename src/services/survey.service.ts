@@ -1,14 +1,11 @@
 //import { authHeader } from '../_helpers';
 import {
-
   ENDPOINT,
-
   SURVEY_TIME_CONSTANT,
   SURVEY_IDENTIFIER,
 } from '../types/types'
 import { SavedSurveysObject, Response } from '../types/types'
 import { callEndpoint } from '../helpers/utility'
-
 
 export const SurveyService = {
   postToHealthData,
@@ -31,12 +28,15 @@ async function postToHealthData(surveyData: any, token: string): Promise<any> {
     `${ENDPOINT}/v3/healthdata`,
     'POST',
     postData,
-    token
+    token,
   )
   return result
 }
 
-async function postUserSurvey(data: SavedSurveysObject, token: string): Promise<any> {
+async function postUserSurvey(
+  data: SavedSurveysObject,
+  token: string,
+): Promise<any> {
   const postData = {
     dateTime: SURVEY_TIME_CONSTANT,
     data: data,
@@ -46,20 +46,22 @@ async function postUserSurvey(data: SavedSurveysObject, token: string): Promise<
     `${ENDPOINT}${SURVEY_ENDPOINT}`,
     'POST',
     postData,
-    token
+    token,
   )
   return result
 }
 
-async function getUserSurveys(token: string): Promise<Response<{items: {data: SavedSurveysObject}[]}>> {
+async function getUserSurveys(
+  token: string,
+): Promise<Response<{ items: { data: SavedSurveysObject }[] }>> {
   const getData = {
     startTime: SURVEY_TIME_CONSTANT,
     endTime: SURVEY_TIME_CONSTANT,
   }
-  return await callEndpoint<{items: {data: SavedSurveysObject}[]}>(
+  return await callEndpoint<{ items: { data: SavedSurveysObject }[] }>(
     `${ENDPOINT}${SURVEY_ENDPOINT}`,
     'GET',
     getData,
-    token
+    token,
   )
 }

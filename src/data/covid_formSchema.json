@@ -43,7 +43,7 @@
               "type": "boolean",
               "title": "Conjunctivitis"
             },
-            
+
             "fatigue": {
               "type": "boolean",
               "title": "Fatigue"
@@ -56,7 +56,7 @@
               "type": "boolean",
               "title": "Confusion/inability to think clearly"
             },
-            
+
             "muscle_pain": {
               "type": "boolean",
               "title": "Muscle pain"
@@ -114,7 +114,6 @@
               "title": "Inability to move part of your body (paralysis)"
             },
 
-            
             "no_symptoms": {
               "type": "boolean",
               "title": "I never had symptoms"
@@ -377,8 +376,6 @@
                 }
               ]
             },
-
-           
 
             "fatigue": {
               "oneOf": [
@@ -738,7 +735,6 @@
               ]
             },
 
-            
             "foamy_urine": {
               "oneOf": [
                 {

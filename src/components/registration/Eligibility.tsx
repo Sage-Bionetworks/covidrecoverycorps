@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import useForm from '../useForm'
-import { zipcodes }  from '../../data/zips.json'
+import { zipcodes } from '../../data/zips.json'
 import { IneligibilityReason } from '../../types/types'
 
 import ToggleButton from '@material-ui/lab/ToggleButton'
@@ -75,61 +75,71 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
   const { state, handleOnChange, handleOnSubmit, disable } = useForm(
     stateSchema,
     validationStateSchema,
-    onSubmitForm
+    onSubmitForm,
   )
 
   return (
     <div id="Questions">
       <h2 className="text-center">Eligibility</h2>
       <p>
-        To be eligible to take part in the COVID Recovery Corps Study, you must fulfill the following:
+        To be eligible to take part in the COVID Recovery Corps Study, you must
+        fulfill the following:
       </p>
       <BlueSeparator></BlueSeparator>
       <form onSubmit={handleOnSubmit}>
-      <div className="form-group  checkbox--nopad">
+        <div className="form-group  checkbox--nopad">
           <div className="form-group checkbox" style={{}}>
             <FormControlLabel
-                  control={
-                    <Checkbox
-                      color="primary"
-                      value={state.over18.value}
-                      onChange={(evt) =>
-                        handleOnChange({
-                          target: { name: 'over18', value: evt.target.checked? "yes":"no" },
-                        })
-                      }
-                    />
+              control={
+                <Checkbox
+                  color="primary"
+                  value={state.over18.value}
+                  onChange={evt =>
+                    handleOnChange({
+                      target: {
+                        name: 'over18',
+                        value: evt.target.checked ? 'yes' : 'no',
+                      },
+                    })
                   }
-                  label="I am 18 years of age or older"
                 />
+              }
+              label="I am 18 years of age or older"
+            />
           </div>
-         
+
           <div className="form-group checkbox">
             <FormControlLabel
-                control={
-                  <Checkbox
-                    color="primary"
-                    value={state.cons.value}
-                    onChange={(evtd) =>
-                      handleOnChange({
-                        target: { name: 'cons', value: evtd.target.checked? "yes":"no"},
-                      })
-                    }
-                  />
-                }
-                label="I am able to provide consent for myself"
-              />
+              control={
+                <Checkbox
+                  color="primary"
+                  value={state.cons.value}
+                  onChange={evtd =>
+                    handleOnChange({
+                      target: {
+                        name: 'cons',
+                        value: evtd.target.checked ? 'yes' : 'no',
+                      },
+                    })
+                  }
+                />
+              }
+              label="I am able to provide consent for myself"
+            />
           </div>
-       
+
           <div className="form-group checkbox">
             <FormControlLabel
               control={
                 <Checkbox
                   color="primary"
                   value={state.hadCovid.value}
-                  onChange={(evt) =>
+                  onChange={evt =>
                     handleOnChange({
-                      target: { name: 'hadCovid', value: evt.target.checked? "yes":"no" },
+                      target: {
+                        name: 'hadCovid',
+                        value: evt.target.checked ? 'yes' : 'no',
+                      },
                     })
                   }
                 />
@@ -137,9 +147,8 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
               label="I think I’ve had COVID-19"
             />
           </div>
-        
-          </div>
-        
+        </div>
+
         <div className="form-group">
           <div>
             <label>Please enter your zip code</label>
@@ -161,15 +170,17 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
             size="medium"
             type="submit"
             disabled={disable}
-            className='wideButton'
+            className="wideButton"
           >
             Submit
           </Button>
         </div>
       </form>
       {Object.keys(state).map(
-        (key) =>
-          state[key].error && <Alert severity="error">{state[key].error}</Alert>
+        key =>
+          state[key].error && (
+            <Alert severity="error">{state[key].error}</Alert>
+          ),
       )}
     </div>
   )

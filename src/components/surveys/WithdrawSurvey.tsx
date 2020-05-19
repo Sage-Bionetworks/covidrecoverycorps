@@ -8,7 +8,9 @@ type WithdrawSurveyProps = {
 type QuestionOptions = {
   [key: string]: boolean
 }
-const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({surveyUpdatedCallbackFn}:WithdrawSurveyProps) => { 
+const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
+  surveyUpdatedCallbackFn,
+}: WithdrawSurveyProps) => {
   const [result, setResult] = useState<QuestionOptions>({})
 
   const handleChange = (event: any) => {
@@ -16,12 +18,10 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({surveyUpd
     const value = target.checked
     const name = target.name
     setResult(prev => {
-      const newValue = {...prev, [name]: value}
+      const newValue = { ...prev, [name]: value }
       surveyUpdatedCallbackFn(newValue)
-      return newValue}
-      
-      )
-
+      return newValue
+    })
   }
 
   return (
@@ -38,9 +38,8 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({surveyUpd
                   Please help us make the COVID Recovery Corps study better by
                   telling us about your reasons for withdrawing. (Check all that
                   apply)
-             
                 </label>
-                <div className="checkboxes" >
+                <div className="checkboxes">
                   <div className="checkbox ">
                     <label>
                       <span>
@@ -60,7 +59,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({surveyUpd
                         <input
                           type="checkbox"
                           name="not_enough_benefit"
-                         // checked={result.not_enough_benefit}
+                          // checked={result.not_enough_benefit}
                           onChange={handleChange}
                         />
                         <span>Not enough benefit for me to continue</span>
@@ -73,7 +72,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({surveyUpd
                         <input
                           type="checkbox"
                           name="privacy "
-                         // checked={result.privacy}
+                          // checked={result.privacy}
                           onChange={handleChange}
                         />
                         <span> I am concerned about my privacy </span>
@@ -86,7 +85,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({surveyUpd
                         <input
                           type="checkbox"
                           name="data_use"
-                         // checked={result.data_use}
+                          // checked={result.data_use}
                           onChange={handleChange}
                         />
                         <span>I am concerned about the use of my data</span>
@@ -99,7 +98,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({surveyUpd
                         <input
                           type="checkbox"
                           name="personal_reasons"
-                         // checked={result.personal_reasons}
+                          // checked={result.personal_reasons}
                           onChange={handleChange}
                         />
                         <span>

@@ -172,7 +172,7 @@ export default class SynapseForm extends React.Component<
 
   getFirstStep = (steps: Step[], formData: IFormData): Step => {
     if (!this.isNewForm(formData)) {
-      return steps.find((step) => step.final === true) || steps[0]
+      return steps.find(step => step.final === true) || steps[0]
     } else {
       return steps[0]
     }
@@ -184,7 +184,7 @@ export default class SynapseForm extends React.Component<
     //will modify the ui:help to render html vs text
     this.uiSchema = stringToElementForProp(
       _.cloneDeep(props.uiSchema),
-      'ui:help'
+      'ui:help',
     )
     //create steps array from the navSchema
     const steps = props.navSchema.steps
@@ -244,7 +244,7 @@ export default class SynapseForm extends React.Component<
 
   _setIncludedPropInFormDataNonWizard = (
     currentState: SynapseFormState,
-    schemaScreens: any
+    schemaScreens: any,
   ): IFormData => {
     const result = {}
     const currentStateFormData = currentState.formData
@@ -258,7 +258,7 @@ export default class SynapseForm extends React.Component<
   }
 
   _setIncludedPropInFormDataWizard = (
-    currentState: SynapseFormState
+    currentState: SynapseFormState,
   ): IFormData => {
     const firstStepId = currentState.currentStep.id
     const newStateData = _.cloneDeep(currentState.formData)
@@ -274,12 +274,12 @@ export default class SynapseForm extends React.Component<
       this.triggerAction(NavActionEnum.VALIDATE)
     } else {
       // for validation of optional forms. Validation is enforced only if included property is set.
-      this.setState((prevState) => {
+      this.setState(prevState => {
         const newFormData = this.props.isWizardMode
           ? this._setIncludedPropInFormDataWizard(prevState)
           : this._setIncludedPropInFormDataNonWizard(
               prevState,
-              this.props.schema
+              this.props.schema,
             )
         return {
           formData: newFormData,
@@ -307,7 +307,7 @@ export default class SynapseForm extends React.Component<
   getNextStepId = async (
     currentStep: Step,
     formData: any,
-    nextStepId?: string
+    nextStepId?: string,
   ): Promise<string> => {
     if (nextStepId) {
       return nextStepId
@@ -336,7 +336,7 @@ export default class SynapseForm extends React.Component<
     formData: any,
     nextStepId: string | undefined,
     isError: boolean,
-    previousStack = [...this.state.previousStepIds]
+    previousStack = [...this.state.previousStepIds],
   ) => {
     const currentStep = this.state.currentStep
     let currentStepState: StepStateEnum
@@ -364,7 +364,7 @@ export default class SynapseForm extends React.Component<
     // determine next step
     nextStepId = await this.getNextStepId(currentStep, formData, nextStepId)
 
-    const steps = this.state.steps.map((step) => {
+    const steps = this.state.steps.map(step => {
       if (step.id === currentStep.id) {
         return {
           ...step,
@@ -381,10 +381,10 @@ export default class SynapseForm extends React.Component<
     }
 
     //at this point the form is valid and submitted and the data reflects the latest
-    const nextStep = this.state.steps.find((step) => step.id === nextStepId)!
+    const nextStep = this.state.steps.find(step => step.id === nextStepId)!
     // clean up unused screens in wizard before getting to submit
     if (this.props.isWizardMode && nextStep.final) {
-      Object.keys(formData).forEach((key) => {
+      Object.keys(formData).forEach(key => {
         if (formData[key].included === undefined) {
           formData[key] = {}
         }
@@ -393,7 +393,7 @@ export default class SynapseForm extends React.Component<
     window.history.replaceState(
       null,
       nextStep.title,
-      `${window.location.pathname}?step=${nextStepId}`
+      `${window.location.pathname}?step=${nextStepId}`,
     )
     GoogleService.sendPageView()
     this.saveStepState(previousStack, steps, nextStep!, formData)
@@ -404,7 +404,7 @@ export default class SynapseForm extends React.Component<
     previousStepIds: string[],
     steps: Step[],
     currentStep: Step,
-    formData: any
+    formData: any,
   ) => {
     this.setState({
       previousStepIds,
@@ -451,7 +451,7 @@ export default class SynapseForm extends React.Component<
       if (navAction === NavActionEnum.PREVIOUS) {
         this.performAction(
           this.navAction,
-          this.state.currentStep.state === StepStateEnum.ERROR
+          this.state.currentStep.state === StepStateEnum.ERROR,
         )
       } else {
         //this.navAction = navAction
@@ -459,7 +459,7 @@ export default class SynapseForm extends React.Component<
         this.extraErrors = await this.runCustomValidation(
           this.state.formData,
           this.state.currentStep,
-          this.state.steps
+          this.state.steps,
         )
         if (this.formRef.current) {
           this.formRef.current.submit()
@@ -486,7 +486,7 @@ export default class SynapseForm extends React.Component<
         !!this.props.isWizardMode,
         this.state.formData,
         this.getSchema(this.state.currentStep).properties ||
-          this.getSchema(this.state.currentStep)
+          this.getSchema(this.state.currentStep),
       )
       this.setState({ steps: modifiedSteps })
       this.formDivRef.current.scrollTo(0, 0)
@@ -502,16 +502,16 @@ export default class SynapseForm extends React.Component<
     steps: Step[],
     isWizard: boolean,
     formData: IFormData,
-    currentSchemaProperties: any
+    currentSchemaProperties: any,
   ): Step[] => {
     //error property is in the format: step.somevalue.etc  .welcome.submission_name example
     //find all the steps where there is an error
     const stepsWithError = errors.map(
-      (error) => _.trimStart(error.property, '.').split('.')[0]
+      error => _.trimStart(error.property, '.').split('.')[0],
     )
     //find all steps in current schema
     const stepsInCurrentSchema = Object.keys(currentSchemaProperties)
-    const updatedSteps: Step[] = steps.map((step) => {
+    const updatedSteps: Step[] = steps.map(step => {
       //if there is an error in this step
       if (stepsWithError.indexOf(step.id) > -1) {
         return {
@@ -577,7 +577,7 @@ export default class SynapseForm extends React.Component<
           !!this.props.isWizardMode,
           this.state.formData,
           this.getSchema(this.state.currentStep).properties ||
-            this.getSchema(this.state.currentStep)
+            this.getSchema(this.state.currentStep),
         )
         const currentStep = {
           ...this.state.currentStep,
@@ -601,7 +601,7 @@ export default class SynapseForm extends React.Component<
   onSubmit = (): any => {
     this.performAction(
       this.navAction,
-      this.state.currentStep.state === StepStateEnum.ERROR
+      this.state.currentStep.state === StepStateEnum.ERROR,
     )
   }
 
@@ -611,7 +611,7 @@ export default class SynapseForm extends React.Component<
 
   showExcludeStateWarningModal = (
     stepId: string,
-    isUpdateFlattenedData: boolean = false
+    isUpdateFlattenedData: boolean = false,
   ): void => {
     this.setState({
       modalContext: {
@@ -623,7 +623,7 @@ export default class SynapseForm extends React.Component<
 
   toggleExcludeStep = (stepId: string, isExclude: boolean): void => {
     this.setState((prevState, props) => {
-      const steps = prevState.steps.map((stp) => {
+      const steps = prevState.steps.map(stp => {
         if (stp.id === stepId) {
           return { ...stp, ...{ excluded: isExclude } }
         }
@@ -721,7 +721,7 @@ export default class SynapseForm extends React.Component<
   renderHelpToggle = (
     currentStep: Step,
     showHelp: boolean,
-    callbackFn: Function
+    callbackFn: Function,
   ): JSX.Element => {
     if (currentStep.static || currentStep.final) {
       return <></>
@@ -749,7 +749,7 @@ export default class SynapseForm extends React.Component<
   runCustomValidation = async (
     formData: IFormData,
     currentStep: Step,
-    allSteps: Step[]
+    allSteps: Step[],
   ): Promise<AjvError[]> => {
     const errors: AjvError[] = []
 
@@ -776,7 +776,7 @@ export default class SynapseForm extends React.Component<
     //this is a workaround for inability to define a rule to run on all members of the data array
     // we define the generic rule with path e.g."path": ".experiments[*].dose_range.dose_range_min",
     const allRules: any[] = []
-    rules.forEach((rule) => {
+    rules.forEach(rule => {
       //take a rule
 
       const paramProp = rule.event.params.property
@@ -791,7 +791,7 @@ export default class SynapseForm extends React.Component<
         if (Array.isArray(data) && typeof data !== 'string') {
           for (let i = 0; i < data.length; i++) {
             const newRule = JSON.parse(
-              JSON.stringify(rule).replace(/\[\*\]/g, `[${i}]`)
+              JSON.stringify(rule).replace(/\[\*\]/g, `[${i}]`),
             )
             allRules.push(newRule)
           }
@@ -807,7 +807,7 @@ export default class SynapseForm extends React.Component<
       if (!factValue) {
         return true
       }
-      const vals = Object.values(factValue).filter((fv) => fv === value)
+      const vals = Object.values(factValue).filter(fv => fv === value)
       return vals.length === 0
     })
 
@@ -819,7 +819,7 @@ export default class SynapseForm extends React.Component<
       return vals.length < value
     })
 
-    allRules.forEach((rule) => {
+    allRules.forEach(rule => {
       engine.addRule(rule)
     })
 
@@ -827,7 +827,7 @@ export default class SynapseForm extends React.Component<
       const result: RulesResult = await engine.run(data)
       const validationEvents = result.events as IRulesValidationEvent[]
       console.log(result)
-      validationEvents.forEach((event) => {
+      validationEvents.forEach(event => {
         const err: AjvError = {
           ...event.params,
           ...{
@@ -848,8 +848,8 @@ export default class SynapseForm extends React.Component<
     // if we are not in wizard mode and not trying to submit or validate we just want to skip
     // over the errors and just set the step status
     // https://github.com/rjsf-team/react-jsonschema-form/issues/1263
-    this.extraErrors.forEach((extraError) => {
-      if (!errors.find((error) => error.stack === extraError.stack)) {
+    this.extraErrors.forEach(extraError => {
+      if (!errors.find(error => error.stack === extraError.stack)) {
         errors.push(extraError)
       }
     })
@@ -878,22 +878,23 @@ export default class SynapseForm extends React.Component<
     // so if there is an error Oneof on a parent - ignore it and enum on a child. and just output 'required'
     // if there is an enum error and there is required with the same prefix remove it
 
-    const reqErrors = errors.filter((error) => error.name === 'required')
-    reqErrors.forEach((error) => {
+    const reqErrors = errors.filter(error => error.name === 'required')
+    reqErrors.forEach(error => {
       const parentPath = error.property.substring(
         0,
-        error.property.lastIndexOf('.')
+        error.property.lastIndexOf('.'),
       )
       _.remove(errors, (error: AjvError) => {
         //trying to get around the cryptic error with required dependent fields
         return (
-          (error.property.indexOf(parentPath) > -1 || parentPath.indexOf(error.property) > -1 ) &&
+          (error.property.indexOf(parentPath) > -1 ||
+            parentPath.indexOf(error.property) > -1) &&
           (error.name === 'enum' || error.name === 'oneOf')
         )
       })
     })
 
-    return errors.map((error) => {
+    return errors.map(error => {
       error.message = error.message.replace('property', 'field')
 
       return error
@@ -909,11 +910,11 @@ export default class SynapseForm extends React.Component<
           error,
           this.uiSchema,
           i,
-          this.props.schema
+          this.props.schema,
         )
       })
       .sort((a, b) => a.order - b.order)
-      .map((li) => li.element)
+      .map(li => li.element)
 
     return (
       <div className="form-error-summary">
@@ -952,7 +953,7 @@ export default class SynapseForm extends React.Component<
             )}
             {this.state.isLoadingSaved && (
               <div className="text-center">
-                  <CircularProgress color="primary" />
+                <CircularProgress color="primary" />
               </div>
             )}
             <div className="form-wrap">
@@ -985,7 +986,7 @@ export default class SynapseForm extends React.Component<
                     () =>
                       this.setState({
                         doShowHelp: !this.state.doShowHelp,
-                      })
+                      }),
                   )
                 ) : (
                   <></>
@@ -1032,8 +1033,8 @@ export default class SynapseForm extends React.Component<
                     schema={this.getSchema(this.state.currentStep)}
                     uiSchema={this.uiSchema}
                     onSubmit={this.onSubmit}
-                    onChange={(args) => this.handleOnChange(args)}
-                    onError={(args) =>
+                    onChange={args => this.handleOnChange(args)}
+                    onError={args =>
                       this.onError({
                         props: args,
                         form: this.formRef,
@@ -1122,7 +1123,7 @@ function renderTransformedErrorObject(
   error: AjvError,
   uiSchema: UiSchema,
   i: number,
-  schema: any
+  schema: any,
 ): { order: number; element: JSX.Element } {
   const propPath = _.trimStart(error.property, '.')
   const propArr = propPath.split('.')
@@ -1173,7 +1174,7 @@ function renderTransformedErrorObject(
 
 //recursively sets property value to dangerouslySetInnerHTML of that value
 function stringToElementForProp(srcObject: any, key: string): object {
-  _.keys(srcObject).some((k) => {
+  _.keys(srcObject).some(k => {
     if (k === key) {
       const value = srcObject[k]
       srcObject[k] = <span dangerouslySetInnerHTML={{ __html: value }}></span>

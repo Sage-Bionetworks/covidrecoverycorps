@@ -6,23 +6,17 @@
       "anyOf": [
         {
           "type": "string",
-          "enum": [
-            "blood"
-          ],
+          "enum": ["blood"],
           "title": "Blood Donation"
         },
         {
           "type": "string",
-          "enum": [
-            "shopping"
-          ],
+          "enum": ["shopping"],
           "title": "Shopping for people at risk"
         },
         {
           "type": "string",
-          "enum": [
-            "other"
-          ],
+          "enum": ["other"],
           "title": "Other"
         }
       ]
@@ -33,16 +27,12 @@
       "anyOf": [
         {
           "type": "string",
-          "enum": [
-            "human"
-          ],
+          "enum": ["human"],
           "title": "Human"
         },
         {
           "type": "string",
-          "enum": [
-            "model_system"
-          ],
+          "enum": ["model_system"],
           "title": "Model System"
         }
       ]
@@ -53,37 +43,27 @@
       "anyOf": [
         {
           "type": "string",
-          "enum": [
-            "mouse"
-          ],
+          "enum": ["mouse"],
           "title": "Mouse"
         },
         {
           "type": "string",
-          "enum": [
-            "rat"
-          ],
+          "enum": ["rat"],
           "title": "Rat"
         },
         {
           "type": "string",
-          "enum": [
-            "drosophila"
-          ],
+          "enum": ["drosophila"],
           "title": "Drosophila"
         },
         {
           "type": "string",
-          "enum": [
-            "cell_culture"
-          ],
+          "enum": ["cell_culture"],
           "title": "Cell Culture"
         },
         {
           "type": "string",
-          "enum": [
-            "other"
-          ],
+          "enum": ["other"],
           "title": "Other"
         }
       ]
@@ -128,12 +108,7 @@
           "uniqueItems": true,
           "items": {
             "type": "string",
-            "enum": [
-              "Cognition",
-              "Behavioral",
-              "Imaging",
-              "Other"
-            ]
+            "enum": ["Cognition", "Behavioral", "Imaging", "Other"]
           }
         },
         "assesments_list_other": {
@@ -144,28 +119,17 @@
     },
     "contact": {
       "type": "object",
-      "required": [
-        "firstName",
-        "lastName"
-      ],
+      "required": ["firstName", "lastName"],
       "properties": {
         "numberEnumRadio": {
           "type": "number",
           "title": "Number enum",
-          "enum": [
-            1,
-            2,
-            3
-          ]
+          "enum": [1, 2, 3]
         },
         "binding_affinity_constant": {
           "type": "string",
           "title": "Binding Affinity Constant",
-          "enum": [
-            "Ki",
-            "Kd",
-            "Km"
-          ],
+          "enum": ["Ki", "Kd", "Km"],
           "uniqueItems": true
         },
         "firstName": {

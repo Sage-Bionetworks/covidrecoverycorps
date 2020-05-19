@@ -1,6 +1,4 @@
-import {
-  ENDPOINT, LoggedInUserData
-} from '../types/types'
+import { ENDPOINT, LoggedInUserData } from '../types/types'
 import { SavedSurveysObject, Response } from '../types/types'
 import { callEndpoint } from '../helpers/utility'
 import moment from 'moment'
@@ -19,10 +17,13 @@ export const ConsentService = {
   SHARE_SCOPE_PARTNERS,
   SHARE_SCOPE_ALL,
   SUBPOP_GUID,
-  HIPAA_SUBPOP_GUID
+  HIPAA_SUBPOP_GUID,
 }
 
-async function updateMySharingScope(scope: string, token: string): Promise<Response<LoggedInUserData>> {
+async function updateMySharingScope(
+  scope: string,
+  token: string,
+): Promise<Response<LoggedInUserData>> {
   const data = {
     sharingScope: scope,
   }
@@ -31,7 +32,7 @@ async function updateMySharingScope(scope: string, token: string): Promise<Respo
     `${ENDPOINT}/v3/participants/self`,
     'POST',
     data,
-    token
+    token,
   )
   return result
 }
@@ -39,7 +40,7 @@ async function updateMySharingScope(scope: string, token: string): Promise<Respo
 async function signGeneralConsent(
   name: string,
   scope: string,
-  token: string
+  token: string,
 ): Promise<any> {
   const data = {
     name,
@@ -51,7 +52,7 @@ async function signGeneralConsent(
     `${ENDPOINT}/v3/subpopulations/${SUBPOP_GUID}/consents/signature`,
     'POST',
     data,
-    token
+    token,
   )
   return result
 }
@@ -59,7 +60,7 @@ async function signGeneralConsent(
 async function signEhrConsent(
   name: string,
   scope: string,
-  token: string
+  token: string,
 ): Promise<any> {
   const data = {
     name,
@@ -72,14 +73,12 @@ async function signEhrConsent(
     `${ENDPOINT}/v3/subpopulations/${HIPAA_SUBPOP_GUID}/consents/signature`,
     'POST',
     data,
-    token
+    token,
   )
   return result
 }
 
-async function withdrawEhrConsent(
-  token: string
-): Promise<any> {
+async function withdrawEhrConsent(token: string): Promise<any> {
   const data = {
     // could add a reason
   }
@@ -88,15 +87,12 @@ async function withdrawEhrConsent(
     `${ENDPOINT}/v3/subpopulations/${HIPAA_SUBPOP_GUID}/consents/signature/withdraw`,
     'POST',
     data,
-    token
+    token,
   )
   return result
 }
 
-async function withdrawFromStudy(
-  userId: string,
-  token: string
-): Promise<any> {
+async function withdrawFromStudy(userId: string, token: string): Promise<any> {
   const data = {
     // could add a reason
   }
@@ -105,7 +101,7 @@ async function withdrawFromStudy(
     `${ENDPOINT}/v3/consents/withdraw`,
     'POST',
     data,
-    token
+    token,
   )
   return result
 }

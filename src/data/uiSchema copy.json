@@ -24,27 +24,20 @@
       "ui:placeholder": "Please enter a password",
       "ui:widget": "password"
     }
-   
   },
   "eligibility": {
     "test": {
       "ui:help": "Help about test",
       "ui:description": "some description",
       "ui:placeholder": "some placeholder"
-    }},
-  "consent": {
-   
-  },
-  "quiz": {
-    
-  },
-  "sign": {
-    "name" : {
-      "ui:description": "Please review and sign below if you want to join. I have read and understand the above information. All of my questions have been answered. I freely and willingly choose to take part in the mPower Progression Study. By signing this consent I have not given up any of my legal rights."
-
     }
   },
-  "registration": {
-    
-  }
+  "consent": {},
+  "quiz": {},
+  "sign": {
+    "name": {
+      "ui:description": "Please review and sign below if you want to join. I have read and understand the above information. All of my questions have been answered. I freely and willingly choose to take part in the mPower Progression Study. By signing this consent I have not given up any of my legal rights."
+    }
+  },
+  "registration": {}
 }

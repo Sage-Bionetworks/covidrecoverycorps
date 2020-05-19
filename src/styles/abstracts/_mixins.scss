@@ -20,7 +20,6 @@
   #{$property}: calc(#{$expression});
 }
 
-
 /* create classes prefixed with the theme for properties for classes using themify */
 @mixin themify($themes: $themes) {
   @each $theme, $map in $themes {
@@ -41,7 +40,3 @@
     }
   }
 }
-
-
-
-

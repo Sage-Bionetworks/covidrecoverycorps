@@ -1,6 +1,5 @@
 {
   "data": {
-
     "classNames": "contact",
     "firstName": {
       "ui:placeholder": "First Name",
@@ -12,47 +11,45 @@
     },
 
     "attributes": {
-     
-    "address1": {
-      "ui:placeholder": "Street Address",
-      "classNames": "address1 text"
-    },
-    "address2": {
-      "classNames": "address2 text",
-      "ui:placeholder": "Apt/Suite/Other"
-     
-    },
-    "zip_code": {
-      "classNames": "zip",
-      "ui:placeholder": "Zip code"
-    },
-    "state": {
-      "classNames": "state text",
-      "ui:placeholder": "State"
-    },
-    "city": {
-      "classNames": "city text",
-      "ui:placeholder": "City"
-    },
+      "address1": {
+        "ui:placeholder": "Street Address",
+        "classNames": "address1 text"
+      },
+      "address2": {
+        "classNames": "address2 text",
+        "ui:placeholder": "Apt/Suite/Other"
+      },
+      "zip_code": {
+        "classNames": "zip",
+        "ui:placeholder": "Zip code"
+      },
+      "state": {
+        "classNames": "state text",
+        "ui:placeholder": "State"
+      },
+      "city": {
+        "classNames": "city text",
+        "ui:placeholder": "City"
+      },
 
-    "gender": {
-      "classNames": "gender",
-      "ui:widget": "radio",
-      "ui:options": {
-        "inline": false
-      }
-    },
+      "gender": {
+        "classNames": "gender",
+        "ui:widget": "radio",
+        "ui:options": {
+          "inline": false
+        }
+      },
 
-    "dob": {
-      "classNames": "birthdate text",
-      "ui:description": "Your birthdate helps us ensure we match the biosamples to the right person.",
-      "ui:widget": "alt-date",
-      "ui:options": {
-        "yearsRange": [1910, 2001],
-        "hideNowButton": true,
-        "hideClearButton": true
+      "dob": {
+        "classNames": "birthdate text",
+        "ui:description": "Your birthdate helps us ensure we match the biosamples to the right person.",
+        "ui:widget": "alt-date",
+        "ui:options": {
+          "yearsRange": [1910, 2001],
+          "hideNowButton": true,
+          "hideClearButton": true
+        }
       }
     }
   }
-}
 }

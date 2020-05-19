@@ -10,27 +10,24 @@ $primary-action-color: #c94281 !default;
 $secondary-action-color: #5960a5 !default;
 $secondary-action-color-dark: #5660e5 !default;
 
-
 $gray-formtext: #515359 !default;
 $gray-regular: #515359 !default;
-$gray-deemphasized: #ABABAC !default;
-$red-error: #FF6D6D  !default;
-$red-error2: #FF6D6D !default;
+$gray-deemphasized: #ababac !default;
+$red-error: #ff6d6d !default;
+$red-error2: #ff6d6d !default;
 $space-unit: 2.1rem;
 
 $themes: (
   drug-upload-tool: (
     action-color: #5960a5,
-   
   ),
   contribution-request: (
     action-color: rgb(12, 141, 22),
   ),
   crc: (
-    action-color: #000
+    action-color: #000,
   ),
 );
-
 
 /// Breakpoints map
 /// @prop {String} keys - Keys are identifiers mapped to a given length

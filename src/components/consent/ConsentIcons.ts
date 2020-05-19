@@ -20,7 +20,6 @@ import ehr_08 from '../../assets/ehr_icons/_7.png'
 import ehr_09 from '../../assets/ehr_icons/_8.png'
 import ehr_10 from '../../assets/ehr_icons/_9.png'
 
-
 const ConsentIcons = {
   consent: [
     _01,

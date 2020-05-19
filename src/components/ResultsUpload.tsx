@@ -9,10 +9,8 @@ type ResultsUploadProps = {
   token?: string
 }
 
-export const ResultsUpload: React.FunctionComponent<ResultsUploadProps> = (
-  props
-) => {
-    return <>UploadM</>
+export const ResultsUpload: React.FunctionComponent<ResultsUploadProps> = props => {
+  return <>UploadM</>
 }
 
 export default ResultsUpload

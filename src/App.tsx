@@ -9,7 +9,6 @@ import {
   Redirect,
 } from 'react-router-dom'
 
-
 import EligibilityRegistration from './components/registration/EligibilityRegistration'
 import SurveyWrapper from './components/surveys/SurveyWrapper'
 import Login from './components/login/Login'
@@ -133,22 +132,21 @@ const theme = createMuiTheme({
     },
     MuiCardContent: {
       root: {
-      [defaultTheme.breakpoints.up('md')]: {
-        padding: '46px',
-      },
-
-      '&:last-child': {
         [defaultTheme.breakpoints.up('md')]: {
-          paddingBottom: '46px',
+          padding: '46px',
         },
-      }
 
-    },
+        '&:last-child': {
+          [defaultTheme.breakpoints.up('md')]: {
+            paddingBottom: '46px',
+          },
+        },
+      },
     },
   },
 })
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     height: '100%',
   },
@@ -181,7 +179,7 @@ function App() {
   const [name, setName] = useState(getSession()?.name)
   const [consented, setConsented] = useState(getSession()?.consented)
   const [currentLocation, setCurrentLocation] = useState(
-    window.location.pathname
+    window.location.pathname,
   )
 
   useEffect(() => {
@@ -194,7 +192,7 @@ function App() {
           setUserSession(
             token,
             userInfo.data.firstName,
-            userInfo.data.consented
+            userInfo.data.consented,
           )
         } catch (e) {
           setUserSession(undefined, '', false)
@@ -261,7 +259,7 @@ function App() {
   const setUserSession = (
     token: string | undefined,
     name: string,
-    consented: boolean
+    consented: boolean,
   ) => {
     const data = {
       token,
@@ -285,7 +283,7 @@ function App() {
 
   const getTopClass = (location: string) => {
     const specialPages = ['dashboard', 'survey', 'contactinfo']
-    if (specialPages.find((page) => location.toLowerCase().includes(page))) {
+    if (specialPages.find(page => location.toLowerCase().includes(page))) {
       return 'partialGreen'
     } else {
       return ''
@@ -316,7 +314,7 @@ function App() {
                   position: 'fixed',
                 }}
               >
-                (staging push  Tue 9:50am)
+                (staging push Tue 9:50am)
               </nav>
               <TopNav
                 token={token}
@@ -325,14 +323,12 @@ function App() {
                 {/* A <Switch> looks through its children <Route>s and
         renders the first one that matches the current URL. */}{' '}
                 <Switch>
-             
-
                   <Route
                     exact={true}
                     path="/login"
-                    render={(props) => {
+                    render={props => {
                       const searchParamsProps = getSearchParams(
-                        props.location.search
+                        props.location.search,
                       )
                       // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
                       return renderWithGridLayout(
@@ -343,17 +339,17 @@ function App() {
                           callbackFn={(
                             token: string,
                             name: string,
-                            consented: boolean
+                            consented: boolean,
                           ) => setUserSession(token, name, consented)}
-                        />
+                        />,
                       )
                     }}
                   ></Route>
                   <Route
                     path="/eligibility"
-                    render={(props) => {
+                    render={props => {
                       const searchParamsProps = getSearchParams(
-                        props.location.search
+                        props.location.search,
                       )
                       // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
                       return renderWithGridLayout(
@@ -362,7 +358,7 @@ function App() {
                           callbackFn={(token: string, name: string) =>
                             setUserSession(token, name, false)
                           }
-                        />
+                        />,
                       )
                     }}
                   ></Route>
@@ -386,7 +382,7 @@ function App() {
                         token={token || ''}
                         surveyName={'CONTACT'}
                         formClass="crc"
-                      ></SurveyWrapper>
+                      ></SurveyWrapper>,
                     )}
                   </ConsentedRoute>
                   <ConsentedRoute exact={true} path="/survey1">
@@ -396,7 +392,7 @@ function App() {
                         token={token || ''}
                         surveyName={'DEMOGRAPHIC'}
                         formClass="crc"
-                      ></SurveyWrapper>
+                      ></SurveyWrapper>,
                     )}
                   </ConsentedRoute>
                   <ConsentedRoute exact={true} path="/survey2">
@@ -406,7 +402,7 @@ function App() {
                         token={token || ''}
                         surveyName={'COVID_EXPERIENCE'}
                         formClass="crc"
-                      ></SurveyWrapper>
+                      ></SurveyWrapper>,
                     )}
                   </ConsentedRoute>
                   <ConsentedRoute exact={true} path="/survey3">
@@ -416,7 +412,7 @@ function App() {
                         token={token || ''}
                         surveyName={'HISTORY'}
                         formClass="crc"
-                      ></SurveyWrapper>
+                      ></SurveyWrapper>,
                     )}
                   </ConsentedRoute>
                   <ConsentedRoute exact={true} path="/survey4">
@@ -426,7 +422,7 @@ function App() {
                         token={token || ''}
                         surveyName={'MORE'}
                         formClass="crc"
-                      ></SurveyWrapper>
+                      ></SurveyWrapper>,
                     )}
                   </ConsentedRoute>
 
@@ -441,7 +437,7 @@ function App() {
                   </Route>
                   <Route path="/settings">
                     {renderWithGridLayout(
-                      <AcountSettings token={token!}></AcountSettings>
+                      <AcountSettings token={token!}></AcountSettings>,
                     )}
                   </Route>
                   <Route path="/home">

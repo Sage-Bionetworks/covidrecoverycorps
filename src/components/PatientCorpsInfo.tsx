@@ -8,7 +8,6 @@ type PatientCorpsInfoProps = {
 }
 
 export const PatientCorpsInfo: React.FunctionComponent<PatientCorpsInfoProps> = ({
-
   token,
   callback,
 }: PatientCorpsInfoProps) => {
@@ -30,7 +29,7 @@ export const PatientCorpsInfo: React.FunctionComponent<PatientCorpsInfoProps> = 
           const result = await response.json()
           console.log(result)
           setData(result)
-          if (callback){
+          if (callback) {
             callback(result)
           }
         }
@@ -48,8 +47,7 @@ export const PatientCorpsInfo: React.FunctionComponent<PatientCorpsInfoProps> = 
   return (
     <div>
       <div>{errorMessage}</div>
-      <pre>{JSON.stringify(data, null, 2) }</pre>
-
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   )
 }

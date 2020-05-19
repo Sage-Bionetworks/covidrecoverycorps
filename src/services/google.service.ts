@@ -1,5 +1,5 @@
 export const GoogleService = {
-  sendPageView
+  sendPageView,
 }
 
 function sendPageView() {
@@ -13,15 +13,19 @@ function sendPageView() {
   }
 }
 
-function sendEvent(action:string, category:string, label:string, value:string) {
+function sendEvent(
+  action: string,
+  category: string,
+  label: string,
+  value: string,
+) {
   const windowAny: any = window
   const gtag = windowAny.gtag
   if (gtag) {
     gtag('event', action, {
-      'event_category': category,
-      'event_label': label,
-      'value': value
+      event_category: category,
+      event_label: label,
+      value: value,
     })
   }
 }
-

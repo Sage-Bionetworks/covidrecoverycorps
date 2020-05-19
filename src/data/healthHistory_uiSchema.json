@@ -235,8 +235,8 @@
   "women3": {
     "ui:order": ["children_birth", "breastfeeding"],
     "classNames": "women",
-    "children_birth":{
-        "classNames": "text short"
+    "children_birth": {
+      "classNames": "text short"
     },
     "breastfeeding": {
       "ui:widget": "radio",
