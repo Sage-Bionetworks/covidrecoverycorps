@@ -15,8 +15,8 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
-    "@types/react-router-dom": "^5.1.5",
     "@types/react-mailchimp-subscribe": "^2.0.2",
+    "@types/react-router-dom": "^5.1.5",
     "bootstrap": "^4.4.1",
     "history": "^4.10.1",
     "json-rules-engine": "^5.0.3",
@@ -27,6 +27,7 @@
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-jsonschema-form": "^1.8.1",
+    "react-mailchimp-subscribe": "^2.1.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
@@ -34,14 +35,14 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "synapse-react-client": "^1.14.8",
-    "typescript": "~3.7.2",
-    "react-mailchimp-subscribe": "^2.1.0"
+    "typescript": "~3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write '**/*.{ts,js,scss,html,tsx,json}'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -72,6 +73,7 @@
     "markdown-it-synapse-heading": "^1.0.1",
     "markdown-it-synapse-math": "^3.0.4",
     "markdown-it-synapse-table": "^1.0.6",
+    "prettier": "2.0.5",
     "sanitize-html": "^1.18.4"
   }
 }
