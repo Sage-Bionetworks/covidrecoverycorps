@@ -175,7 +175,7 @@ export const useIntroStyles = makeStyles(theme => ({
   },
   paperPanelTitle: {
     textAlign: 'center',
-    padding: '40px 20px 0px 20px'
+    padding: '20px 20px 0px 20px'
   },
   pink: {
     color: '#FC9090',
@@ -319,13 +319,13 @@ export const Intro: React.FunctionComponent<IntroProps> = ({
         >
           <Grid item xs={12} md={10} lg={8}>
             <div className={classes.paperPanel}>
-              <div className={classes.paperPanelTitle}>
+              <h2 className={classes.paperPanelTitle}>
                 <span>Participation is simple.&nbsp;</span>
                 <Hidden smUp>
                   <br></br>
                 </Hidden>
                 <span className={classes.pink}>Here’s how it works.</span>
-              </div>
+              </h2>
               <Hidden xsDown>
                 <BlueSeparator />
               </Hidden>
