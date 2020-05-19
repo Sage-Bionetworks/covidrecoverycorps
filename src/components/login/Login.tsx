@@ -269,14 +269,16 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                 loginType={loginType!}
               ></SignInWithCode>
             )}
-<div style={{margin: "0px auto", textAlign: "center"}}>
-            <Button
-              variant="text"
-              onClick={() => (window.location.href = 'eligibility')}
-            >
-              Sign up for an account
-            </Button>
-            </div>
+            {!isLinkSent && (
+              <div style={{ margin: '0px auto', textAlign: 'center' }}>
+                <Button
+                  variant="text"
+                  onClick={() => (window.location.href = 'eligibility')}
+                >
+                  Sign up for an account
+                </Button>
+              </div>
+            )}
           </CardContent>
         </Card>
       )}

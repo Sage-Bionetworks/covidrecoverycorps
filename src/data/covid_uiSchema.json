@@ -26,12 +26,23 @@
         "rash",
         "rash_duration",
         "rash_still_present",
+        "swollen_fingers_toes",
+        "swollen_fingers_toes_duration",
+        "swollen_fingers_toes_present",
+
+        "conjunctivitis",
+        "conjunctivitis_duration",
+        "conjunctivitis_present",
+
         "fatigue",
         "fatigue_duration",
         "fatigue_still_present",
         "headache",
         "headache_duration",
         "headache_still_present",
+        "confusion",
+        "confusion_duration",
+        "confusion_still_present",
         "muscle_pain",
         "muscle_pain_duration",
         "muscle_pain_still_present",
@@ -71,6 +82,9 @@
         "seizures",
         "seizures_duration",
         "seizures_still_present",
+        "paralysis",
+        "paralysis_duration",
+        "paralysis_still_present",
         "no_symptoms",
         "prefer_not_answer",
         "other"
@@ -102,12 +116,21 @@
       "rash_still_present": {
         "classNames": "subcheckbox"
       },
+      "swollen_fingers_toes_still_present": {
+        "classNames": "subcheckbox"
+      },
+      "conjunctivitis_still_present": {
+        "classNames": "subcheckbox"
+      },
 
       "fatigue_still_present": {
         "classNames": "subcheckbox"
       },
 
       "headache_still_present": {
+        "classNames": "subcheckbox"
+      },
+      "confusion_still_present": {
         "classNames": "subcheckbox"
       },
 
@@ -156,6 +179,9 @@
         "classNames": "subcheckbox"
       },
 
+      "paralysis_still_present": {
+        "classNames": "subcheckbox"
+      },
       "seizures_still_present": {
         "classNames": "subcheckbox"
       }

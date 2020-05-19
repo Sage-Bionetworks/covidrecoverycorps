@@ -35,6 +35,15 @@
               "type": "boolean",
               "title": "Rash"
             },
+            "swollen_fingers_toes": {
+              "type": "boolean",
+              "title": "Swollen red fingers/swollen red toes"
+            },
+            "conjunctivitis": {
+              "type": "boolean",
+              "title": "Conjunctivitis"
+            },
+            
             "fatigue": {
               "type": "boolean",
               "title": "Fatigue"
@@ -43,6 +52,11 @@
               "type": "boolean",
               "title": "Headache"
             },
+            "confusion": {
+              "type": "boolean",
+              "title": "Confusion/inability to think clearly"
+            },
+            
             "muscle_pain": {
               "type": "boolean",
               "title": "Muscle pain"
@@ -95,6 +109,12 @@
               "type": "boolean",
               "title": "Seizures"
             },
+            "paralysis": {
+              "type": "boolean",
+              "title": "Inability to move part of your body (paralysis)"
+            },
+
+            
             "no_symptoms": {
               "type": "boolean",
               "title": "I never had symptoms"
@@ -303,6 +323,63 @@
                 }
               ]
             },
+            "swollen_fingers_toes": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "swollen_fingers_toes": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "swollen_fingers_toes": {
+                      "enum": [true]
+                    },
+                    "swollen_fingers_toes_duration": {
+                      "title": "How Many Days?",
+                      "type": "number",
+                      "minimum": 1
+                    },
+                    "swollen_fingers_toes_still_present": {
+                      "title": "Still Present",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              ]
+            },
+            " conjunctivitis": {
+              "oneOf": [
+                {
+                  "properties": {
+                    " conjunctivitis": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    " conjunctivitis": {
+                      "enum": [true]
+                    },
+                    "conjunctivitis_duration": {
+                      "title": "How Many Days?",
+                      "type": "number",
+                      "minimum": 1
+                    },
+                    " conjunctivitis_still_present": {
+                      "title": "Still Present",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              ]
+            },
+
+           
+
             "fatigue": {
               "oneOf": [
                 {
@@ -357,6 +434,35 @@
                 }
               ]
             },
+
+            "confusion": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "confusion": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "confusion": {
+                      "enum": [true]
+                    },
+                    "confusion_duration": {
+                      "title": "How Many Days?",
+                      "type": "number",
+                      "minimum": 1
+                    },
+                    "confusion_still_present": {
+                      "title": "Still Present",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              ]
+            },
+
             "muscle_pain": {
               "oneOf": [
                 {
@@ -604,6 +710,35 @@
                 }
               ]
             },
+            "paralysis": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "paralysis": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "paralysiss": {
+                      "enum": [true]
+                    },
+                    "paralysis_duration": {
+                      "title": "How Many Days?",
+                      "type": "number",
+                      "minimum": 1
+                    },
+                    "paralysis_still_present": {
+                      "title": "Still Present",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              ]
+            },
+
+            
             "foamy_urine": {
               "oneOf": [
                 {
