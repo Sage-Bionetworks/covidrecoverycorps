@@ -29,13 +29,9 @@ const signupIntro = {
   PHONE: (
     <>
       <h2>Don't have email?</h2>
-      <p>
-        We are working on this issue. We hope to support scheduling appointments with your phone number in the near future.
-      </p>
-        <p>We are working on this issue. We hope to support
-        scheduling appointments with your phone number in the near future.</p>
-        <p>You can still join the COVID Recovery Corps and provide important information to our researchers by filling out surveys with your phone number.
-      </p>
+      <p>At this time, we are only able to invite participants to lab draws with an email account.</p>
+      <p>We are working on this issue. We hope to support scheduling appointments with your phone number in the near future.</p>
+      <p>You can still join the COVID Recovery Corps and provide important information to our researchers by filling out surveys with your phone number.</p>
     </>
   ),
   EMAIL: (
