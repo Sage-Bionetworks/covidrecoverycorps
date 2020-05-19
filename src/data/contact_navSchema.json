@@ -3,7 +3,8 @@
     {
       "id": "data",
       "order": 5,
-      "title": "Contact Information"
+      "title": "Contact Information",
+      "description": "This information is only used to manage your interactions with the study team, and will not be distributed to third parties."
     }
   ]
 }
