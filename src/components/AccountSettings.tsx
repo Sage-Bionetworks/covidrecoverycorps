@@ -181,14 +181,29 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
                 />
                 <LearnMore learnMoreText="Learn more">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Curabitur accumsan accumsan vehicula. Donec porttitor
-                    ullamcorper dolor at accumsan. Pellentesque id libero
-                    blandit, porttitor lectus elementum, rutrum risus. Vivamus
-                    at malesuada mi. Suspendisse potenti. Phasellus eget enim
-                    porttitor, sagittis massa ac, semper lorem. Integer tortor
-                    tortor, volutpat id eros a, mattis tincidunt nisl. Praesent
-                    efficitur leo quis ornare mattis.
+                    You will have the opportunity to share your data with
+                    qualified researchers outside of the COVID Recovery Corps.
+                  </p>
+                  <p>
+                    All qualified researchers must be approved by the COVID
+                    Recovery Corps study team and will only use de-identified
+                    data. This de-identified data does not contain identifiers
+                    like name, date of birth, or zip code.
+                  </p>
+                  <p>
+                    These researchers may be from outside the United States and
+                    may work for a non-profit institution, commercial drug or
+                    medical device companies, or be a private citizen.
+                  </p>
+                  <p>
+                    Sharing your data with qualified researchers is optional and
+                    you can change your mind at any time by updating your data
+                    sharing options in your profile.
+                  </p>
+                  <p>
+                    But once we share your data we cannot get it back. If you
+                    decide to end data sharing, we will not share your future
+                    data.
                   </p>
                 </LearnMore>
               </>
@@ -208,14 +223,30 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
                 />
                 <LearnMore learnMoreText="Learn more">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Curabitur accumsan accumsan vehicula. Donec porttitor
-                    ullamcorper dolor at accumsan. Pellentesque id libero
-                    blandit, porttitor lectus elementum, rutrum risus. Vivamus
-                    at malesuada mi. Suspendisse potenti. Phasellus eget enim
-                    porttitor, sagittis massa ac, semper lorem. Integer tortor
-                    tortor, volutpat id eros a, mattis tincidunt nisl. Praesent
-                    efficitur leo quis ornare mattis.
+                    Sharing your EHR (electronic health records) is optional.
+                  </p>
+                  <p>
+                    Your electronic health record (EHR) is a digital version of
+                    your medical health record (which may include information
+                    like your doctor's notes from visits, diagnosis information
+                    and medications).
+                  </p>
+                  <p>
+                    If you say yes to sharing, we will see data about your
+                    health problems, test results, medical procedures, images
+                    (such as X-rays), and medicines you take.
+                  </p>
+                  <p>
+                    It may tell us about your mental health, genetic conditions,
+                    or use of alcohol or drugs. EHR may contain sexual or
+                    infection data, including HIV status. You can say no to
+                    sharing your health records and still take part in COVID
+                    Recovery Corps.
+                  </p>
+                  <p>
+                    There will be a separate form called a HIPAA Authorization
+                    for you to sign if you decide to give us access to your
+                    health records.
                   </p>
                 </LearnMore>
               </>
