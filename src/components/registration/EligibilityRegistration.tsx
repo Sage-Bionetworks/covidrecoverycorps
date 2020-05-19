@@ -59,6 +59,7 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
           ) => {
             setEligible(isEligible)
             setIneligibilityReason(reason)
+            window.scrollTo(0,0)
           }}
         ></Eligiblity>
       )}
