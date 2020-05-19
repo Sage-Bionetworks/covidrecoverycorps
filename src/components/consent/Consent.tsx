@@ -36,10 +36,10 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   const [isInfoDone, setIsInfoDone] = useState(false)
   const [isConsentDone, setIsConsentDone] = useState(false)
   const [isConsentConfirmationShown, setConsentConfirmationShown] = useState(
-    false
+    false,
   )
   const [doHIPAAConsent, setDoHIPAAConsent] = useState<string | undefined>(
-    undefined
+    undefined,
   )
 
   const [error, setError] = useState('')
@@ -70,7 +70,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       const result = await ConsentService.signGeneralConsent(
         state.fullName.value,
         state.shareScope.value,
-        token
+        token,
       )
       setSession(token, getSession()?.name || '', true)
       setIsConsentDone(true)
@@ -82,7 +82,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   const { state, handleOnChange, handleOnSubmit, disable } = useForm(
     stateSchema,
     validationStateSchema,
-    onSubmitForm
+    onSubmitForm,
   )
 
   const checkboxChange = (_name: string, checked: boolean) => {
@@ -176,7 +176,6 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     <Card>
       <CardContent>
         <div className="Consent">
-  
           {!isInfoDone && (
             <ConsentInfo onDone={() => setIsInfoDone(true)}></ConsentInfo>
           )}
@@ -301,10 +300,10 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 </div>
                 {error && <Alert severity="error">{error}</Alert>}
                 {Object.keys(state).map(
-                  (key) =>
+                  key =>
                     state[key].error && (
                       <Alert severity="error">{state[key].error}</Alert>
-                    )
+                    ),
                 )}
                 <div className="buttons--action">
                   <Button

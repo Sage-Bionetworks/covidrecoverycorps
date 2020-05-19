@@ -36,8 +36,6 @@
           "priority:": 1
         }
       ]
-
-
     },
     {
       "id": "covid11",
@@ -83,10 +81,7 @@
                 "fact": "covid11",
                 "operator": "in",
                 "path": ".antibiotics_covid_prior",
-                "value": [
-                  "Never",
-                  "Prefer not to answer"
-                ]
+                "value": ["Never", "Prefer not to answer"]
               }
             ]
           },
@@ -122,20 +117,20 @@
       "default": "life_pets"
     },
     {
-        "id": "life_pets",
-        "orderDisplay": "5/6",
-        "order":30,
-        "title": "",
-        "validationRules": [],
-        "default": "job_commute"
-      },
-      {
-        "id": "job_commute",
-        "orderDisplay": "6/6",
-        "order": 35,
-        "title": "",
-        "validationRules": [],
-        "default": "done"
-      }
+      "id": "life_pets",
+      "orderDisplay": "5/6",
+      "order": 30,
+      "title": "",
+      "validationRules": [],
+      "default": "job_commute"
+    },
+    {
+      "id": "job_commute",
+      "orderDisplay": "6/6",
+      "order": 35,
+      "title": "",
+      "validationRules": [],
+      "default": "done"
+    }
   ]
 }

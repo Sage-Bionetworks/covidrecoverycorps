@@ -1,19 +1,19 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type LearnMoreProps = {
-  learnMoreText: string,
-  clickableElement?: JSX.Element,
+  learnMoreText: string
+  clickableElement?: JSX.Element
   defaultIsShowing?: boolean
 }
 
-export const LearnMore: React.FunctionComponent<LearnMoreProps> = (
-  props
-) => {
-  const {defaultIsShowing, clickableElement} = props
-  const [isShowingLearnMore, setIsShowingLearnMore] = useState<boolean>(defaultIsShowing ? defaultIsShowing : false)
-  
+export const LearnMore: React.FunctionComponent<LearnMoreProps> = props => {
+  const { defaultIsShowing, clickableElement } = props
+  const [isShowingLearnMore, setIsShowingLearnMore] = useState<boolean>(
+    defaultIsShowing ? defaultIsShowing : false,
+  )
+
   return (
     <div>
       <div
@@ -30,7 +30,7 @@ export const LearnMore: React.FunctionComponent<LearnMoreProps> = (
         }}
       >
         <div>
-          <span style={{ paddingRight: "10px" }}>{props.learnMoreText}</span>
+          <span style={{ paddingRight: '10px' }}>{props.learnMoreText}</span>
           <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon>
         </div>
       </div>

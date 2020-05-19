@@ -7,9 +7,8 @@
       "id": "about",
       "order": 1,
       "default": "about2"
-   
     },
-  
+
     {
       "title": "",
       "orderDisplay": "2/2",

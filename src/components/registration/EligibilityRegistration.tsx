@@ -8,10 +8,9 @@ import SignInWithCode from '../login/SignInWithCode'
 import { IneligibilityReason, SESSION_NAME } from '../../types/types'
 import Registration from './Registration'
 import { RouteComponentProps } from 'react-router-dom'
-import Card from '@material-ui/core/Card';
+import Card from '@material-ui/core/Card'
 
-import CardContent from '@material-ui/core/CardContent';
-
+import CardContent from '@material-ui/core/CardContent'
 
 export type EligibilityRegistrationOwnProps = {
   callbackFn: Function
@@ -51,46 +50,46 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
   return (
     <Card>
       <CardContent>
-      {eligible === undefined && (
-        <Eligiblity
-          setEligibilityFn={(
-            isEligible: boolean,
-            reason: IneligibilityReason
-          ) => {
-            setEligible(isEligible)
-            setIneligibilityReason(reason)
-            window.scrollTo(0,0)
-          }}
-        ></Eligiblity>
-      )}
-      {eligible === false && (
-        <Ineligible reason={ineligibilityReason!}></Ineligible>
-      )}
-      {eligible && !loginType && (
-        <Registration
-          onSuccessFn={(
-            type: LoginType,
-            status: number,
-            data: object,
-            phoneOrEmail: string
-          ) => {
-            setLoginType(type)
-            setPhoneOrEmail(phoneOrEmail)
-          }}
-          onErrorFn={(status: number) => {
-            setError(status + '')
-          }}
-        ></Registration>
-      )}
-      {eligible && loginType && (
-        <SignInWithCode
-          loginType={loginType}
-          phoneOrEmail={phoneOrEmail}
-          loggedInByPhoneFn={(result: Response<LoggedInUserData>) =>
-            handleLoggedIn(result)
-          }
-        ></SignInWithCode>
-      )}
+        {eligible === undefined && (
+          <Eligiblity
+            setEligibilityFn={(
+              isEligible: boolean,
+              reason: IneligibilityReason,
+            ) => {
+              setEligible(isEligible)
+              setIneligibilityReason(reason)
+              window.scrollTo(0, 0)
+            }}
+          ></Eligiblity>
+        )}
+        {eligible === false && (
+          <Ineligible reason={ineligibilityReason!}></Ineligible>
+        )}
+        {eligible && !loginType && (
+          <Registration
+            onSuccessFn={(
+              type: LoginType,
+              status: number,
+              data: object,
+              phoneOrEmail: string,
+            ) => {
+              setLoginType(type)
+              setPhoneOrEmail(phoneOrEmail)
+            }}
+            onErrorFn={(status: number) => {
+              setError(status + '')
+            }}
+          ></Registration>
+        )}
+        {eligible && loginType && (
+          <SignInWithCode
+            loginType={loginType}
+            phoneOrEmail={phoneOrEmail}
+            loggedInByPhoneFn={(result: Response<LoggedInUserData>) =>
+              handleLoggedIn(result)
+            }
+          ></SignInWithCode>
+        )}
       </CardContent>
     </Card>
   )

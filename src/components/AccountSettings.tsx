@@ -39,7 +39,7 @@ const BlueSwitch = withStyles({
 })(Switch)
 
 export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
-  props: AcountSettingsProps
+  props: AcountSettingsProps,
 ) => {
   const [isShareScopeAll, setIsShareScopeAll] = useState<boolean | undefined>()
   const [isEhrConsented, setIsEhrConsented] = useState<boolean | undefined>()
@@ -68,11 +68,11 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
           const userData: LoggedInUserData = userInfoResponse.data
           const isCurrentlySharingAll =
             ConsentService.SHARE_SCOPE_ALL == userData.sharingScope
-          setIsShareScopeAll((_prev) => isCurrentlySharingAll)
+          setIsShareScopeAll(_prev => isCurrentlySharingAll)
           const isEhrConsented =
             userData.dataGroups &&
             userData.dataGroups.includes('hipaa_consented')
-          setIsEhrConsented((_prev) => isEhrConsented)
+          setIsEhrConsented(_prev => isEhrConsented)
           setUserId(userData.id)
         } catch (e) {
           setError(e.message)
@@ -87,7 +87,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
 
   const handleConsentChange = (
     event: React.ChangeEvent<HTMLInputElement>,
-    checked: boolean
+    checked: boolean,
   ) => {
     setError('')
     const newScope = checked
@@ -99,15 +99,15 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
         const isCurrentlySharingAll =
           ConsentService.SHARE_SCOPE_ALL ==
           participantRecordResponse.data.sharingScope
-        setIsShareScopeAll((_prev) => isCurrentlySharingAll)
+        setIsShareScopeAll(_prev => isCurrentlySharingAll)
       })
-      .catch((err) => {
+      .catch(err => {
         setError(err.message)
       })
   }
   const handleEhrConsentChange = (
     event: React.ChangeEvent<HTMLInputElement>,
-    checked: boolean
+    checked: boolean,
   ) => {
     setError('')
     if (checked) {
@@ -121,9 +121,9 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
       //unsign
       ConsentService.withdrawEhrConsent(props.token)
         .then(() => {
-          setIsEhrConsented((_prev) => false)
+          setIsEhrConsented(_prev => false)
         })
-        .catch((err) => {
+        .catch(err => {
           setError(err.message)
         })
     }
@@ -137,7 +137,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
     // return <Redirect to='/home' />
   }
 
-  const handleOnWithdrawFromStudyClick = async() => {
+  const handleOnWithdrawFromStudyClick = async () => {
     setError('')
     try {
       await SurveyService.postToHealthData(withdrawlSurveyData, props.token)
@@ -254,7 +254,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
                 <WithdrawSurvey
                   surveyUpdatedCallbackFn={(surveyData: object) => {
                     console.log(surveyData)
-                    setWithdrawlSurveyData((_pre) => surveyData)
+                    setWithdrawlSurveyData(_pre => surveyData)
                   }}
                 ></WithdrawSurvey>
               </div>
@@ -266,7 +266,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
           }
           onOK={handleOnWithdrawFromStudyClick}
           isOKDisabled={
-            !Object.values(withdrawlSurveyData).find((value) => value === true)
+            !Object.values(withdrawlSurveyData).find(value => value === true)
           }
           confirmCopy={'Yes, withdraw study'}
           cancelCopy={'No, keep me in the study'}

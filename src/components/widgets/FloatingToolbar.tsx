@@ -12,9 +12,7 @@ type FloatingToolbarProps = {
   closeConfirmationText?: string
 }
 
-export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
-  props
-) => {
+export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = props => {
   const [top, setTop] = useState('0px')
   const [prevScrollpos, setPrevScrollpos] = useState(0)
 
@@ -39,7 +37,7 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = (
     } else {
       setTop('-50px')
     }
-    setPrevScrollpos((_prev) => currentScrollPos)
+    setPrevScrollpos(_prev => currentScrollPos)
   }
 
   if (isCanceled) {

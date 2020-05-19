@@ -61,19 +61,19 @@ function useForm(
         validationSchema[name].validator !== null &&
         typeof validationSchema[name].validator === 'object'
       ) {
-       if (validationSchema[name].validator.regEx !== undefined) {
+        if (validationSchema[name].validator.regEx !== undefined) {
           if (value && !validationSchema[name].validator.regEx.test(value)) {
             error = validationSchema[name].validator.error
           }
         }
-            
-            if (validationSchema[name].validator.fn !== undefined) {
-            const result = validationSchema[name].validator.fn(value)
-            if (value && !validationSchema[name].validator.fn(value)) {
-                error = validationSchema[name].validator.error
-              
-                console.log('validation for' +value+ ' ' + result)
-              }
+
+        if (validationSchema[name].validator.fn !== undefined) {
+          const result = validationSchema[name].validator.fn(value)
+          if (value && !validationSchema[name].validator.fn(value)) {
+            error = validationSchema[name].validator.error
+
+            console.log('validation for' + value + ' ' + result)
+          }
         }
       }
 

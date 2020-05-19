@@ -2,10 +2,7 @@
   "definitions": {
     "history1": {
       "type": "object",
-      "required": [
-        "general_health_status",
-        "physical_activity_level"
-      ],
+      "required": ["general_health_status", "physical_activity_level"],
       "properties": {
         "general_health_status": {
           "type": "string",
@@ -119,10 +116,7 @@
     },
     "history2": {
       "type": "object",
-      "required": [
-        "blood_type",
-        "diabetes_diagnosis"
-      ],
+      "required": ["blood_type", "diabetes_diagnosis"],
       "properties": {
         "blood_type": {
           "type": "string",
@@ -220,12 +214,7 @@
         "blood_pressure_medication": {
           "type": "string",
           "title": "12. Have you ever used blood pressure medication?",
-          "enum": [
-            "No",
-            "Yes",
-            "I Don't Remember",
-            "Prefer not to answer"
-          ]
+          "enum": ["No", "Yes", "I Don't Remember", "Prefer not to answer"]
         },
         "health_conditions": {
           "title": "13. Which of the following health conditions have you had? (Check all that apply)",
@@ -262,18 +251,14 @@
                 {
                   "properties": {
                     "heart_attack": {
-                      "enum": [
-                        false
-                      ]
+                      "enum": [false]
                     }
                   }
                 },
                 {
                   "properties": {
                     "heart_attack": {
-                      "enum": [
-                        true
-                      ]
+                      "enum": [true]
                     },
                     "heart_attack_age": {
                       "title": "What was your age",
@@ -281,9 +266,7 @@
                       "minimum": 1
                     }
                   },
-                  "required": [
-                    "heart_attack_age"
-                  ]
+                  "required": ["heart_attack_age"]
                 }
               ]
             },
@@ -292,18 +275,14 @@
                 {
                   "properties": {
                     "stroke": {
-                      "enum": [
-                        false
-                      ]
+                      "enum": [false]
                     }
                   }
                 },
                 {
                   "properties": {
                     "stroke": {
-                      "enum": [
-                        true
-                      ]
+                      "enum": [true]
                     },
                     "stroke_age": {
                       "title": "What was your age",
@@ -311,9 +290,7 @@
                       "minimum": 1
                     }
                   },
-                  "required": [
-                    "stroke_age"
-                  ]
+                  "required": ["stroke_age"]
                 }
               ]
             },
@@ -322,18 +299,14 @@
                 {
                   "properties": {
                     "head_hemorrhage": {
-                      "enum": [
-                        false
-                      ]
+                      "enum": [false]
                     }
                   }
                 },
                 {
                   "properties": {
                     "head_hemorrhage": {
-                      "enum": [
-                        true
-                      ]
+                      "enum": [true]
                     },
                     "head_hemorrhage_age": {
                       "title": "What was your age",
@@ -341,9 +314,7 @@
                       "minimum": 1
                     }
                   },
-                  "required": [
-                    "head_hemorrhage_age"
-                  ]
+                  "required": ["head_hemorrhage_age"]
                 }
               ]
             },
@@ -352,18 +323,14 @@
                 {
                   "properties": {
                     "coronary_bypass_surgery": {
-                      "enum": [
-                        false
-                      ]
+                      "enum": [false]
                     }
                   }
                 },
                 {
                   "properties": {
                     "coronary_bypass_surgery": {
-                      "enum": [
-                        true
-                      ]
+                      "enum": [true]
                     },
                     "coronary_bypass_surgery_age": {
                       "title": "What was your age",
@@ -371,9 +338,7 @@
                       "minimum": 1
                     }
                   },
-                  "required": [
-                    "coronary_bypass_surgery_age"
-                  ]
+                  "required": ["coronary_bypass_surgery_age"]
                 }
               ]
             },
@@ -382,18 +347,14 @@
                 {
                   "properties": {
                     "cardiac_catheterization": {
-                      "enum": [
-                        false
-                      ]
+                      "enum": [false]
                     }
                   }
                 },
                 {
                   "properties": {
                     "cardiac_catheterization": {
-                      "enum": [
-                        true
-                      ]
+                      "enum": [true]
                     },
                     "cardiac_catheterization_age": {
                       "title": "What was your age",
@@ -401,9 +362,7 @@
                       "minimum": 1
                     }
                   },
-                  "required": [
-                    "cardiac_catheterization_age"
-                  ]
+                  "required": ["cardiac_catheterization_age"]
                 }
               ]
             }
@@ -416,45 +375,35 @@
             {
               "properties": {
                 "blood_pressure_medication": {
-                  "enum": [
-                    "No"
-                  ]
+                  "enum": ["No"]
                 }
               }
             },
             {
               "properties": {
                 "blood_pressure_medication": {
-                  "enum": [
-                    "I Don't Remember"
-                  ]
+                  "enum": ["I Don't Remember"]
                 }
               }
             },
             {
               "properties": {
                 "blood_pressure_medication": {
-                  "enum": [
-                    "Prefer not to answer"
-                  ]
+                  "enum": ["Prefer not to answer"]
                 }
               }
             },
             {
               "properties": {
                 "blood_pressure_medication": {
-                  "enum": [
-                    "Yes"
-                  ]
+                  "enum": ["Yes"]
                 },
                 "what_bp_medication": {
                   "title": "12a. What blood pressure medication have you used?",
                   "type": "string"
                 }
               },
-              "required": [
-                "what_bp_medication"
-              ]
+              "required": ["what_bp_medication"]
             }
           ]
         }
@@ -462,9 +411,7 @@
     },
     "history3": {
       "type": "object",
-      "required": [
-        "diseases_history"
-      ],
+      "required": ["diseases_history"],
       "properties": {
         "diseases_history": {
           "title": "14. Have you ever had any of the following diseases diagnosed or treated? (check all that apply)",
@@ -567,18 +514,14 @@
                 {
                   "properties": {
                     "other_lung_disorder": {
-                      "enum": [
-                        false
-                      ]
+                      "enum": [false]
                     }
                   }
                 },
                 {
                   "properties": {
                     "other_lung_disorder": {
-                      "enum": [
-                        true
-                      ]
+                      "enum": [true]
                     },
                     "other_lung_disorder_specify": {
                       "title": "Please specify:",
@@ -593,18 +536,14 @@
                 {
                   "properties": {
                     "other_inflammatory_arthritis": {
-                      "enum": [
-                        false
-                      ]
+                      "enum": [false]
                     }
                   }
                 },
                 {
                   "properties": {
                     "other_inflammatory_arthritis": {
-                      "enum": [
-                        true
-                      ]
+                      "enum": [true]
                     },
                     "other_inflammatory_arthritis_specify": {
                       "title": "Please specify:",
@@ -619,11 +558,7 @@
         "immune_deficiency": {
           "type": "string",
           "title": "16. Do any of your family members have an immune deficiency or immune-related condition?",
-          "enum": [
-            "Yes",
-            "No",
-            "Prefer not to answer"
-          ]
+          "enum": ["Yes", "No", "Prefer not to answer"]
         },
         "family_diseases": {
           "type": "object",
@@ -664,18 +599,14 @@
                 {
                   "properties": {
                     "cancer": {
-                      "enum": [
-                        false
-                      ]
+                      "enum": [false]
                     }
                   }
                 },
                 {
                   "properties": {
                     "cancer": {
-                      "enum": [
-                        true
-                      ]
+                      "enum": [true]
                     },
                     "cancer_specify": {
                       "title": "Please specify:",
@@ -690,18 +621,14 @@
                 {
                   "properties": {
                     "kidney_disease": {
-                      "enum": [
-                        false
-                      ]
+                      "enum": [false]
                     }
                   }
                 },
                 {
                   "properties": {
                     "kidney_disease": {
-                      "enum": [
-                        true
-                      ]
+                      "enum": [true]
                     },
                     "kidney_disease_specify": {
                       "title": "Please specify:",
@@ -716,18 +643,14 @@
                 {
                   "properties": {
                     "other": {
-                      "enum": [
-                        false
-                      ]
+                      "enum": [false]
                     }
                   }
                 },
                 {
                   "properties": {
                     "other": {
-                      "enum": [
-                        true
-                      ]
+                      "enum": [true]
                     },
                     "other_disease_specify": {
                       "title": "Please specify:",
@@ -758,9 +681,7 @@
     },
     "women": {
       "type": "object",
-      "required": [
-        "pregnant"
-      ],
+      "required": ["pregnant"],
       "properties": {
         "pregnant": {
           "type": "string",
@@ -780,9 +701,7 @@
             {
               "properties": {
                 "pregnant": {
-                  "enum": [
-                    "I delivered within the last 6 months"
-                  ]
+                  "enum": ["I delivered within the last 6 months"]
                 }
               }
             },
@@ -798,18 +717,14 @@
             {
               "properties": {
                 "pregnant": {
-                  "enum": [
-                    "Prefer not to answer"
-                  ]
+                  "enum": ["Prefer not to answer"]
                 }
               }
             },
             {
               "properties": {
                 "pregnant": {
-                  "enum": [
-                    "I am currently pregnant"
-                  ]
+                  "enum": ["I am currently pregnant"]
                 },
                 "due_date": {
                   "type": "string",
@@ -823,19 +738,13 @@
     },
     "women2": {
       "type": "object",
-      "required": [
-        "complications_q"
-      ],
+      "required": ["complications_q"],
       "properties": {
         "complications_q": {
           "type": "string",
           "title": "Did you have any complications with the pregnancy since having the COVID-19 infection?",
           "uniqueItems": true,
-          "enum": [
-            "Yes",
-            "No",
-            "Prefer not to answer"
-          ]
+          "enum": ["Yes", "No", "Prefer not to answer"]
         }
       },
       "dependencies": {
@@ -844,27 +753,21 @@
             {
               "properties": {
                 "complications_q": {
-                  "enum": [
-                    "No"
-                  ]
+                  "enum": ["No"]
                 }
               }
             },
             {
               "properties": {
                 "complications_q": {
-                  "enum": [
-                    "Prefer not to answer"
-                  ]
+                  "enum": ["Prefer not to answer"]
                 }
               }
             },
             {
               "properties": {
                 "complications_q": {
-                  "enum": [
-                    "Yes"
-                  ]
+                  "enum": ["Yes"]
                 },
                 "complications": {
                   "type": "object",
@@ -873,50 +776,32 @@
                     "miscarriage": {
                       "type": "boolean",
                       "title": "Miscarriage",
-                      "enum": [
-                        true,
-                        false
-                      ]
+                      "enum": [true, false]
                     },
                     "stillborn": {
                       "type": "boolean",
                       "title": "Stillborn",
-                      "enum": [
-                        true,
-                        false
-                      ]
+                      "enum": [true, false]
                     },
                     "premature_labor": {
                       "type": "boolean",
                       "title": "Premature labor",
-                      "enum": [
-                        true,
-                        false
-                      ]
+                      "enum": [true, false]
                     },
                     "pre_eclampsia": {
                       "type": "boolean",
                       "title": "Pre-eclampsia",
-                      "enum": [
-                        true,
-                        false
-                      ]
+                      "enum": [true, false]
                     },
                     "other": {
                       "type": "boolean",
                       "title": "Other",
-                      "enum": [
-                        true,
-                        false
-                      ]
+                      "enum": [true, false]
                     },
                     "no_answer": {
                       "type": "boolean",
                       "title": "Prefer not to answer",
-                      "enum": [
-                        true,
-                        false
-                      ]
+                      "enum": [true, false]
                     }
                   },
                   "dependencies": {
@@ -925,18 +810,14 @@
                         {
                           "properties": {
                             "miscarriage": {
-                              "enum": [
-                                false
-                              ]
+                              "enum": [false]
                             }
                           }
                         },
                         {
                           "properties": {
                             "miscarriage": {
-                              "enum": [
-                                true
-                              ]
+                              "enum": [true]
                             },
                             "miscarriage_number": {
                               "title": "If so, how many times",
@@ -952,18 +833,14 @@
                         {
                           "properties": {
                             "other": {
-                              "enum": [
-                                false
-                              ]
+                              "enum": [false]
                             }
                           }
                         },
                         {
                           "properties": {
                             "other": {
-                              "enum": [
-                                true
-                              ]
+                              "enum": [true]
                             },
                             "other_specify": {
                               "title": "Please specify:",
@@ -983,19 +860,13 @@
     },
     "women3": {
       "type": "object",
-      "required": [
-        "breastfeeding"
-      ],
+      "required": ["breastfeeding"],
       "properties": {
         "breastfeeding": {
           "type": "string",
           "title": "Are you currently breastfeeding?",
           "uniqueItems": true,
-          "enum": [
-            "Yes",
-            "No",
-            "Prefer not to answer"
-          ]
+          "enum": ["Yes", "No", "Prefer not to answer"]
         },
         "children_birth": {
           "type": "number",

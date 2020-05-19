@@ -49,8 +49,7 @@ interface Notification extends Error {
 const extraUIProps: ExtraUIProps = {
   isLeftNavHidden: true,
   isValidateHidden: true,
-  onNextCallback: () => {
-  },
+  onNextCallback: () => {},
   isHelpHidden: true,
   isNoSaveButton: false,
 }
@@ -74,20 +73,20 @@ export default class SurveyWrapper extends React.Component<
   getData = async (): Promise<void> => {
     try {
       const jsonFormSchemaDeref = (await $RefParser.dereference(
-        JSON.parse(JSON.stringify(SURVEYS[this.props.surveyName].formSchema))
+        JSON.parse(JSON.stringify(SURVEYS[this.props.surveyName].formSchema)),
       )) as JSON
       let formData = { metadata: {} }
       const userInfoResponse = await UserService.getUserInfo(this.props.token)
 
       if (this.props.surveyName !== 'CONTACT') {
         const savedSurveysResponse = await SurveyService.getUserSurveys(
-          this.props.token
+          this.props.token,
         )
         const savedData = _.first(savedSurveysResponse.data.items)
         const surveyData = savedData?.data
         this.setState({ savedSurveys: surveyData })
         const currentSurvey = surveyData?.surveys?.find(
-          (survey) => survey.type === this.props.surveyName
+          survey => survey.type === this.props.surveyName,
         )
         if (currentSurvey) {
           formData = { ...currentSurvey.data, metadata: {} }
@@ -157,7 +156,7 @@ export default class SurveyWrapper extends React.Component<
     try {
       const result = await UserService.updateUserData(
         this.props.token,
-        data.data
+        data.data,
       )
 
       this.setState({ isFormSubmitted: true })
@@ -187,7 +186,7 @@ export default class SurveyWrapper extends React.Component<
       }
     } else {
       const ourSurveyIndex: number | undefined = savedSurveys.surveys.findIndex(
-        (survey) => survey.type === updatedSurvey.type
+        survey => survey.type === updatedSurvey.type,
       )
       if (ourSurveyIndex === -1) {
         savedSurveys.surveys.push(updatedSurvey)
@@ -214,11 +213,11 @@ export default class SurveyWrapper extends React.Component<
     try {
       const result = await SurveyService.postToHealthData(
         data,
-        this.props.token
+        this.props.token,
       )
-  
+
       if (result.ok) {
-       // await SurveyService.postUserSurvey(savedSurveys, this.props.token)
+        // await SurveyService.postUserSurvey(savedSurveys, this.props.token)
         await this.saveSurvey(rawData, new Date())
         this.setState({ isFormSubmitted: true })
       }
@@ -240,7 +239,7 @@ export default class SurveyWrapper extends React.Component<
 
   renderLoader = (
     state: SurveyWrapperState,
-    props: SurveyWrapperProps
+    props: SurveyWrapperProps,
   ): JSX.Element => {
     if (
       includes([StatusEnum.ERROR, StatusEnum.ERROR_CRITICAL], state.status) &&
@@ -248,7 +247,7 @@ export default class SurveyWrapper extends React.Component<
     ) {
       return (
         <div className="text-center">
-            <CircularProgress color="primary" />
+          <CircularProgress color="primary" />
         </div>
       )
     } else {

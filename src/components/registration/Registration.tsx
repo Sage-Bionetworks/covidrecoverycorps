@@ -29,9 +29,19 @@ const signupIntro = {
   PHONE: (
     <>
       <h2>Don't have email?</h2>
-      <p>At this time, we are only able to invite participants to lab draws with an email account.</p>
-      <p>We are working on this issue. We hope to support scheduling appointments with your phone number in the near future.</p>
-      <p>You can still join the COVID Recovery Corps and provide important information to our researchers by filling out surveys with your phone number.</p>
+      <p>
+        At this time, we are only able to invite participants to lab draws with
+        an email account.
+      </p>
+      <p>
+        We are working on this issue. We hope to support scheduling appointments
+        with your phone number in the near future.
+      </p>
+      <p>
+        You can still join the COVID Recovery Corps and provide important
+        information to our researchers by filling out surveys with your phone
+        number.
+      </p>
     </>
   ),
   EMAIL: (
@@ -72,7 +82,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
     const result = await callEndpoint(
       `${ENDPOINT}/v3/auth/signUp`,
       'POST',
-      registrationData
+      registrationData,
     )
     //alert(JSON.stringify(result, null, 2))
     return result
@@ -103,10 +113,10 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
       loginType = 'PHONE'
     }
 
-    const hostname:string = window.location.hostname
+    const hostname: string = window.location.hostname
     if (hostname.includes('localhost') || hostname.includes('staging')) {
       // issue 145: current hostname includes 'localhost' or 'staging', mark this as a test user account
-      data.dataGroups = ["test_user"]
+      data.dataGroups = ['test_user']
     }
 
     //send signinRequest
@@ -116,14 +126,14 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
       const sentSigninRequest = await sendSignInRequest(
         loginType,
         phoneOrEmail,
-        endPoint[loginType]
+        endPoint[loginType],
       )
 
       onSuccessFn(
         loginType,
         sentSigninRequest.status,
         sentSigninRequest.data,
-        phoneOrEmail
+        phoneOrEmail,
       )
     } else {
       onErrorFn(result.status)
@@ -133,7 +143,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
   const { state, handleOnChange, handleOnSubmit, disable } = useForm(
     stateSchema,
     validationStateSchema,
-    onSubmitForm
+    onSubmitForm,
   )
 
   return (
@@ -171,7 +181,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                     size="large"
                     type="submit"
                     disabled={!state.email.value}
-                    className='wideButton'
+                    className="wideButton"
                   >
                     Create account
                   </Button>
@@ -219,7 +229,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                 />
               </div>
               {Object.keys(state).map(
-                (key) =>
+                key =>
                   state[key].error && (
                     <p
                       className="error"
@@ -227,7 +237,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                     >
                       {state[key].error}
                     </p>
-                  )
+                  ),
               )}
               <div className="text-center">
                 <Button

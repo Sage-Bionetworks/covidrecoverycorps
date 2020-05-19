@@ -45,11 +45,7 @@
                 "fact": "symptoms2",
                 "operator": "in",
                 "path": ".how_was_it_treated",
-                "value": [
-                  "icu",
-                  "hospital",
-                  "emergency_room"
-                ]
+                "value": ["icu", "hospital", "emergency_room"]
               }
             ]
           },
@@ -63,7 +59,7 @@
         }
       ]
     },
-  
+
     {
       "id": "hospitalization",
       "orderDisplay": "2a/6",
@@ -71,7 +67,7 @@
       "title": "",
       "default": "medications"
     },
-  
+
     {
       "id": "medications",
       "orderDisplay": "3/6",

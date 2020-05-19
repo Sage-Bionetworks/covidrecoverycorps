@@ -17,10 +17,9 @@ export const callEndpoint = async <T>(
   endpoint: string,
   method: 'POST' | 'GET' = 'POST',
   data: StringDictionary,
-  token?: string
+  token?: string,
 ): Promise<Response<T>> => {
   const headers: HeadersInit = new Headers()
-
 
   headers.set('Content-Type', 'application/json')
   if (token) {
@@ -35,7 +34,7 @@ export const callEndpoint = async <T>(
 
   if (method === 'GET') {
     const queryString = Object.keys(data)
-      .map((key) => key + '=' + data[key])
+      .map(key => key + '=' + data[key])
       .join('&')
     endpoint = queryString ? `${endpoint}?${queryString}` : endpoint
     delete config.body
@@ -45,8 +44,8 @@ export const callEndpoint = async <T>(
 
   const result = await response.json()
   if (!response.ok && response.status !== 412) {
-   //alert(JSON.stringify(result, null, 2))
-    throw(result)
+    //alert(JSON.stringify(result, null, 2))
+    throw result
   }
   return { status: response.status, data: result, ok: response.ok }
 }
@@ -62,10 +61,10 @@ export const makePhone = (phone: string): Phone => {
 export const getMomentDate = (
   year: string,
   monthStart1: string,
-  day: string
+  day: string,
 ): moment.Moment | undefined => {
   let date = [Number(year), Number(monthStart1) - 1, Number(day)]
-  const anyNaN = date.find((item) => isNaN(item))
+  const anyNaN = date.find(item => isNaN(item))
   if (anyNaN) {
     return undefined
   }
@@ -76,15 +75,17 @@ export const getMomentDate = (
 export const getAge = (
   year: string,
   monthStart1: string,
-  day: string
+  day: string,
 ): number => {
   const birthday = getMomentDate(year, monthStart1, day)
   const age = moment().diff(birthday, 'years')
   return age
 }
 
-export const getSession = ():{token: string, name: string, consented: boolean} | undefined => {
-  const item =  sessionStorage.getItem(SESSION_NAME) || ''
+export const getSession = ():
+  | { token: string; name: string; consented: boolean }
+  | undefined => {
+  const item = sessionStorage.getItem(SESSION_NAME) || ''
   try {
     const json = JSON.parse(item)
     return json
@@ -92,8 +93,6 @@ export const getSession = ():{token: string, name: string, consented: boolean} |
     return undefined
   }
 }
-
-
 
 export const setSession = (token: string, name: string, consented: boolean) => {
   const data = {
@@ -107,7 +106,7 @@ export const setSession = (token: string, name: string, consented: boolean) => {
 export const sendSignInRequest = async (
   loginType: LoginType,
   phoneOrEmail: string,
-  endpoint: string
+  endpoint: string,
 ): Promise<any> => {
   let postData: SignInData
   // setLoginType(_loginType)
@@ -126,7 +125,6 @@ export const sendSignInRequest = async (
   try {
     return callEndpoint<LoggedInUserData>(endpoint, 'POST', postData)
   } catch (e) {
-  
     console.log(e)
 
     throw e

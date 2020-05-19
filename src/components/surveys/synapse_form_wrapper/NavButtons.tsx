@@ -35,30 +35,31 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
   }
 
   const previousButton = canGoBack(props) ? (
-    <Button 
+    <Button
       onClick={e => props.onNavAction(NavActionEnum.PREVIOUS)}
-     color = "primary"
-     variant="contained"
-     
+      color="primary"
+      variant="contained"
     >
-      <FontAwesomeIcon icon={faChevronLeft} />&nbsp;
-      </Button>
-   
+      <FontAwesomeIcon icon={faChevronLeft} />
+      &nbsp;
+    </Button>
   ) : (
     <></>
   )
 
   const nextButton = props.currentStep.default ? (
-    <Button 
+    <Button
       onClick={e => props.onNavAction(NavActionEnum.NEXT)}
-     color="primary"
-     variant="contained"
+      color="primary"
+      variant="contained"
     >
-      &nbsp;<FontAwesomeIcon icon={faChevronRight} />
-      </Button>
+      &nbsp;
+      <FontAwesomeIcon icon={faChevronRight} />
+    </Button>
   ) : (
-   /* props.isNoSaveButton?*/ 
-      <Button 
+    /* props.isNoSaveButton?*/
+
+    <Button
       color="primary"
       className="submit"
       variant="contained"
@@ -67,31 +68,32 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
     >
       Submit
     </Button>
-  
   )
 
-  const saveButton = (!props.currentStep.final && !props.isNoSaveButton && props.steps.length > 1) ?(
-    <Button 
-    color="primary"
-    className="save"
-    variant="text"
-    
-      disabled={props.isFormSubmitted}
-      onClick={e => props.onNavAction(NavActionEnum.SAVE)}
-    >
-      Save progress
+  const saveButton =
+    !props.currentStep.final &&
+    !props.isNoSaveButton &&
+    props.steps.length > 1 ? (
+      <Button
+        color="primary"
+        className="save"
+        variant="text"
+        disabled={props.isFormSubmitted}
+        onClick={e => props.onNavAction(NavActionEnum.SAVE)}
+      >
+        Save progress
       </Button>
-  ): (
-    <></>
-  )
+    ) : (
+      <></>
+    )
 
   return (
     <div className="padded-panel">
-      <div className="buttonWrapper" style={{overflow:'visible'}}>
+      <div className="buttonWrapper" style={{ overflow: 'visible' }}>
         {previousButton} {nextButton}
       </div>
-      <div  className="text-right" style={{clear:'both'}}>
-      {saveButton}
+      <div className="text-right" style={{ clear: 'both' }}>
+        {saveButton}
       </div>
     </div>
   )
@@ -104,7 +106,9 @@ export function NextStepLink(props: NextStepLinkProps): JSX.Element {
   }
   return (
     <span className="nav-link">
-      <a href="#" onClick={e => props.onNavAction(nextStep)}>{nextStep.title}</a>
+      <a href="#" onClick={e => props.onNavAction(nextStep)}>
+        {nextStep.title}
+      </a>
       &nbsp;<FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
     </span>
   )

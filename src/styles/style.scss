@@ -17,26 +17,33 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Open Sans',serif,'Lato','Roboto',Helvetica,Arial;
+  font-family: 'Open Sans', serif, 'Lato', 'Roboto', Helvetica, Arial;
   background: #efefef;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display',serif,'Lato','Roboto',Helvetica,Arial;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', serif, 'Lato', 'Roboto', Helvetica, Arial;
   font-style: normal;
-  color: #2A2A2A;
+  color: #2a2a2a;
   font-weight: bold;
 }
 
 @media (min-width: 600px) {
-  h1, h2 {
+  h1,
+  h2 {
     margin-top: 32px;
     margin-bottom: 32px;
   }
-  h3, h4 {
+  h3,
+  h4 {
     margin-top: 24px;
     margin-bottom: 24px;
-  }  
+  }
   h1 {
     font-size: 40px;
     line-height: 51px;
@@ -60,11 +67,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 599px) {
-  h1, h2 {
+  h1,
+  h2 {
     margin-top: 10px;
     margin-bottom: 10px;
   }
-  h3, h4 {
+  h3,
+  h4 {
     margin-top: 7px;
     margin-bottom: 7px;
   }
@@ -161,7 +170,7 @@ div.intro {
 
 #root .MuiAlert-filledError {
   border-radius: 0;
-  background-color: #FC9090;
+  background-color: #fc9090;
   color: #000000;
   padding: 20px 30px;
 }

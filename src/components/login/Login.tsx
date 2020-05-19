@@ -63,7 +63,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
       callbackFn(
         loggedIn.data.sessionToken,
         loggedIn.data.firstName,
-        loggedIn.data.consented
+        loggedIn.data.consented,
       )
 
       if (consented) {
@@ -90,7 +90,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         const loggedIn = await callEndpoint<LoggedInUserData>(
           `${ENDPOINT}${EMAIL_SIGN_IN_ENDPOINT}`,
           'POST',
-          postData
+          postData,
         )
         if (isSubscribed) {
           handleLoggedIn(loggedIn)
@@ -123,7 +123,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
   const sendSignInRequest = async (
     _loginType: 'PHONE' | 'EMAIL',
     phoneOrEmail: string,
-    endpoint: string
+    endpoint: string,
   ): Promise<any> => {
     let postData: SignInData
     setLoginType(_loginType)
@@ -148,7 +148,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
   }
 
   const handleLogin = async (
-    clickEvent: React.FormEvent<HTMLElement>
+    clickEvent: React.FormEvent<HTMLElement>,
   ): Promise<any> => {
     let result
     clickEvent.preventDefault() // avoid page refresh
@@ -160,13 +160,13 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         result = await sendSignInRequest(
           'PHONE',
           phone,
-          `${ENDPOINT}${PHONE_SIGN_IN_TRIGGER_ENDPOINT}`
+          `${ENDPOINT}${PHONE_SIGN_IN_TRIGGER_ENDPOINT}`,
         )
       } else if (loginType === 'EMAIL' && email) {
         result = await sendSignInRequest(
           'EMAIL',
           email,
-          `${ENDPOINT}${EMAIL_SIGN_IN_TRIGGER_ENDPOINT}`
+          `${ENDPOINT}${EMAIL_SIGN_IN_TRIGGER_ENDPOINT}`,
         )
       }
       setIsLinkSent(true)
@@ -220,7 +220,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                             name="email"
                             type="email"
                             value={email}
-                            onChange={(e) => setEmail(e.currentTarget.value)}
+                            onChange={e => setEmail(e.currentTarget.value)}
                           />
                         </div>
                       )}
@@ -237,7 +237,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                             name="phone"
                             type="phone"
                             value={phone}
-                            onChange={(e) => setPhone(e.currentTarget.value)}
+                            onChange={e => setPhone(e.currentTarget.value)}
                           />
                         </div>
                       )}
@@ -249,7 +249,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                           type="submit"
                           disabled={!loginType}
                           onSubmit={handleLogin}
-                          className='wideButton'
+                          className="wideButton"
                         >
                           Log in
                         </Button>

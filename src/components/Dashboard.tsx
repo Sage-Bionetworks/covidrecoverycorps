@@ -7,7 +7,6 @@ import completeIconImg from '../assets/dashboard/icon_complete.svg'
 import emptyIconImg from '../assets/dashboard/icon_empty.svg'
 import { makeStyles } from '@material-ui/core/styles'
 
-
 import { Typography } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 
@@ -79,7 +78,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   const [savedSurveys, setSavedSurveys] = useState<SavedSurveysObject>()
   const [isFromConsent, setIsFromConsent] = useState(
     //get url param
-    urlParams.get('consented')
+    urlParams.get('consented'),
   )
 
   const classes = useStyles()
@@ -100,9 +99,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
   const renderSurveyItems = (savedSurveys: SavedSurvey[], isTier1: boolean) => {
     const getSavedSurvey = (survey: UISurvey): SavedSurvey | undefined => {
-      return savedSurveys.find(
-        (savedSurvey) => survey.type === savedSurvey.type
-      )
+      return savedSurveys.find(savedSurvey => survey.type === savedSurvey.type)
     }
     const isDone = (survey: UISurvey): boolean => {
       const savedSurvey = getSavedSurvey(survey)
@@ -115,7 +112,11 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     }
 
     const getIcon = (survey: UISurvey): JSX.Element => {
-      const image= isDone(survey) ? <img src={completeIconImg} alt="done"></img> : <img src={emptyIconImg} alt="done"></img> 
+      const image = isDone(survey) ? (
+        <img src={completeIconImg} alt="done"></img>
+      ) : (
+        <img src={emptyIconImg} alt="done"></img>
+      )
 
       return image
     }
@@ -133,7 +134,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
     const renderSurveyInfo = (
       survey: UISurvey,
-      isTier1: boolean
+      isTier1: boolean,
     ): JSX.Element => {
       const innerElement = (
         <>
@@ -143,10 +144,10 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
           </div>
           <div>
             <div className="title">{survey.title}</div>
-            
+
             <div className="description">{survey.description}</div>
-            </div>
-       
+          </div>
+
           <div className="time">
             <img src={clockIconImg}></img>
             <span>{survey.time}&nbsp;min</span>
@@ -186,21 +187,23 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         </p>
         <p>
           {' '}
-          To be invited for a lab test, you will need to complete your Profile and Surveys 1-2. Surveys 3 and 4 are optional but still provide important information. Please consider completing them if you have the time. </p>
+          To be invited for a lab test, you will need to complete your Profile
+          and Surveys 1-2. Surveys 3 and 4 are optional but still provide
+          important information. Please consider completing them if you have the
+          time.{' '}
+        </p>
       </div>
 
       <Card className={classes.root}>
-     
-          <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
-          <div className="separator">
-            <img src={testTubeImg}></img>
-            <div className="small">
-              {' '}
-              Minimum surveys required for lab invites{' '}
-            </div>
+        <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
+        <div className="separator">
+          <img src={testTubeImg}></img>
+          <div className="small">
+            {' '}
+            Minimum surveys required for lab invites{' '}
           </div>
-          <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
-        
+        </div>
+        <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
       </Card>
     </div>
   )

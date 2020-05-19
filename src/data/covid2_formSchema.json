@@ -125,7 +125,7 @@
     "covid11": {
       "type": "object",
       "title": "",
-      "required": [ "people_diagnosed",  "antibiotics_covid_prior"],
+      "required": ["people_diagnosed", "antibiotics_covid_prior"],
       "properties": {
         "people_infected": {
           "type": "number",
@@ -317,31 +317,24 @@
           ]
         },
         "leave_house_frequency": {
-            "title": "14. In the 2 weeks prior to becoming ill, how often did you leave your apartment or house?",
-            "type": "string",
-            "uniqueItems": true,
-            "enum": [
-              "Never",
-              "3 to 4 times a week",
-              "Daily",
-              "Multiple times per day",
-              "Prefer not to answer"
-            ]
-          }
+          "title": "14. In the 2 weeks prior to becoming ill, how often did you leave your apartment or house?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "Never",
+            "3 to 4 times a week",
+            "Daily",
+            "Multiple times per day",
+            "Prefer not to answer"
+          ]
+        }
       }
     },
     "life_pets": {
       "type": "object",
       "title": "",
-      "required": [
-     
-        "pets",
-        "last_time_pet_dog_cat",
-        "how_purchased_groceries"
-   
-      ],
+      "required": ["pets", "last_time_pet_dog_cat", "how_purchased_groceries"],
       "properties": {
-     
         "pets": {
           "type": "array",
           "uniqueItems": true,
@@ -391,7 +384,6 @@
             ]
           }
         }
-      
       },
       "dependencies": {}
     },
@@ -399,7 +391,7 @@
       "type": "object",
       "title": "",
       "required": [
-          "transportation",
+        "transportation",
         "telecommute",
         "job_title",
         "were_healthcare_worker",
@@ -410,23 +402,23 @@
       ],
       "properties": {
         "transportation": {
-            "title": "18. What transportation did you take in the two weeks prior to becoming ill? (check all that apply)",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "type": "string",
-              "enum": [
-                "Subway",
-                "Bus",
-                "Uber/Lyft/Taxi cab or similar",
-                "Airplane",
-                "Train",
-                "Ferry",
-                "Car",
-                "Prefer not to answer"
-              ]
-            }
-          },
+          "title": "18. What transportation did you take in the two weeks prior to becoming ill? (check all that apply)",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Subway",
+              "Bus",
+              "Uber/Lyft/Taxi cab or similar",
+              "Airplane",
+              "Train",
+              "Ferry",
+              "Car",
+              "Prefer not to answer"
+            ]
+          }
+        },
         "telecommute": {
           "title": "19. Were you able to telecommute to work in the two weeks prior to becoming ill?",
           "type": "string",

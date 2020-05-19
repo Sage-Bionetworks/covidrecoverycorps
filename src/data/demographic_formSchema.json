@@ -40,8 +40,6 @@
         "enthnicity_other": {
           "type": "string",
           "title": "2a. If you selected 'other', please specify."
-       
-       
         },
 
         "education": {
@@ -62,7 +60,6 @@
           "uniqueItems": true
         }
       }
-    
     },
     "about2": {
       "type": "object",

@@ -107,11 +107,11 @@ export function getFlatData(
     .map(key => {
       // @ts-ignore
       let val = flatData[key]
-       // @ts-ignore
+      // @ts-ignore
       if (flatData[key] === false) {
         val = 'false'
       }
-       // @ts-ignore
+      // @ts-ignore
       if (flatData[key] === true) {
         val = 'true'
       }
@@ -151,7 +151,7 @@ export default function SummaryTable(props: SummaryTableProps): JSX.Element {
   let prevScreenId = ''
   const table = (
     <>
-     {/* <table className="table summary-table-header">
+      {/* <table className="table summary-table-header">
         <thead>
           <tr>
             <th>Step</th>
@@ -167,7 +167,7 @@ export default function SummaryTable(props: SummaryTableProps): JSX.Element {
             {flatFormData.map((line: SummaryFormat, i: number) => {
               return (
                 <tr key={i + line.screen.id + line.label}>
-                 {/* <td>
+                  {/* <td>
                     {prevScreenId !== line.screen.id &&
                       (prevScreenId = line.screen.id) && (
                         <span>{line.screen.title}</span>
@@ -190,7 +190,7 @@ export default function SummaryTable(props: SummaryTableProps): JSX.Element {
       <p className="step-exclude-directions">
         Below is all of the data you have entered.
       </p>
-     {/*<button className="nav-link pull-right" onClick={() => window.print()}>
+      {/*<button className="nav-link pull-right" onClick={() => window.print()}>
         Print this data
   </button> */}
       <div className="panel panel-default padding-full wrap">
