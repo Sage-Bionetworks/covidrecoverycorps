@@ -102,6 +102,13 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
       delete data.email
       loginType = 'PHONE'
     }
+
+    const hostname:string = window.location.hostname
+    if (hostname.includes('localhost') || hostname.includes('staging')) {
+      // issue 145: current hostname includes 'localhost' or 'staging', mark this as a test user account
+      data.dataGroups = ["test_user"]
+    }
+
     //send signinRequest
     const phoneOrEmail = data.email || data.phone?.number || ''
     const result = await submitRegistration(data)

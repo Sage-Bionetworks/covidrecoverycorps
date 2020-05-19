@@ -68,6 +68,7 @@ export interface RegistrationData {
   email?: string
   phone?: Phone
   clientData: object
+  dataGroups?: string[]
 }
 
 export interface Response<T> {
