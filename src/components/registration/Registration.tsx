@@ -171,6 +171,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                     size="large"
                     type="submit"
                     disabled={!state.email.value}
+                    className='wideButton'
                   >
                     Create account
                   </Button>

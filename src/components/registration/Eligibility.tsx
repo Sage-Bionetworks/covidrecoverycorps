@@ -161,7 +161,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
             size="medium"
             type="submit"
             disabled={disable}
-            fullWidth
+            className='wideButton'
           >
             Submit
           </Button>
