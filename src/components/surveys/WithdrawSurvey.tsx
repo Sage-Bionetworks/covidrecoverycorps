@@ -5,11 +5,11 @@ type WithdrawSurveyProps = {
   surveyUpdatedCallbackFn: Function
 }
 
-type QuestionOoptions = {
+type QuestionOptions = {
   [key: string]: boolean
 }
 const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({surveyUpdatedCallbackFn}:WithdrawSurveyProps) => { 
-  const [result, setResult] = useState<QuestionOoptions>({})
+  const [result, setResult] = useState<QuestionOptions>({})
 
   const handleChange = (event: any) => {
     const target = event.target
