@@ -35,17 +35,13 @@
 }
 
 .MuiTabs-root {
-  border-bottom: 1px solid black;
+  background-color: #efefef;
   .MuiTab-root {
     min-width: 110px;
   }
 
   .MuiTab-textColorPrimary {
-    color: #000;
-
     &.Mui-selected {
-      color: #fff;
-      background-color: #000;
     }
   }
 }

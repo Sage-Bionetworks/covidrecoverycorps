@@ -17,8 +17,13 @@ import TextField from '@material-ui/core/TextField/TextField'
 
 import { RouteComponentProps } from 'react-router-dom'
 import Alert from '@material-ui/lab/Alert/Alert'
-import { Tabs, Tab, Card, CardContent, CircularProgress } from '@material-ui/core'
-import BlueSeparator from '../static/BlueSeparator'
+import {
+  Tabs,
+  Tab,
+  Card,
+  CardContent,
+  CircularProgress,
+} from '@material-ui/core'
 
 export interface OwnLoginProps {
   redirectUrl?: string // will redirect here after a successful login. if unset, reload the current page url.
@@ -55,8 +60,12 @@ export const Login: React.FunctionComponent<LoginProps> = ({
   const handleLoggedIn = (loggedIn: Response<LoggedInUserData>) => {
     const consented = loggedIn.status !== 412
     if (loggedIn.ok || !consented) {
-      callbackFn(loggedIn.data.sessionToken, loggedIn.data.firstName, loggedIn.data.consented)
-     
+      callbackFn(
+        loggedIn.data.sessionToken,
+        loggedIn.data.firstName,
+        loggedIn.data.consented
+      )
+
       if (consented) {
         history.push('/dashboard')
       } else {
@@ -164,108 +173,112 @@ export const Login: React.FunctionComponent<LoginProps> = ({
     } catch (e) {
       setError(e.message)
       console.log('error ', result)
-    }
-    finally {
+    } finally {
       setIsLoading(false)
     }
   }
 
   return (
     <>
-    
       {isLoading && (
         <div className="text-center">
           <CircularProgress color="primary" />
         </div>
       )}
       {!isLoading && (
-        <Card><CardContent>
-          {(!isLinkSent || error) && (
-            <div>
-              <h2 className="text-center">Log in</h2>
-              <BlueSeparator></BlueSeparator>
-              <form onSubmit={handleLogin} >
-                <div >
-                  <label htmlFor="registrationType">
-                    How would you like to log in?
-                  </label>
-                  <div className="tabbedField">
-                    <Tabs
-                      value={loginType}
-                      indicatorColor="primary"
-                      textColor="primary"
-                      variant="fullWidth"
-                      onChange={(_e, value) => setLoginType(value)}
-                      aria-label="disabled tabs example"
-                    >
-                      <Tab label="EMAIL" value="EMAIL" />
+        <Card>
+          <CardContent>
+            {(!isLinkSent || error) && (
+              <div>
+                <h2 className="text-center">Log in</h2>
 
-                      <Tab label="PHONE" value="PHONE" />
-                    </Tabs>
-
-                    {loginType === 'EMAIL' && (
-                      <div className="input--padded">
-                        <TextField
-                          id="outlined-basic"
-                          variant="outlined"
-                          label="Email"
-                          fullWidth
-                          autoComplete="email address"
-                          placeholder="email address"
-                          name="email"
-                          type="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.currentTarget.value)}
-                        />
-                      </div>
-                    )}
-
-                    {loginType === 'PHONE' && (
-                      <div className="input--padded">
-                        <TextField
-                          id="outlined-basic"
-                          variant="outlined"
-                          autoComplete="phone"
-                          placeholder="phone"
-                          label="Phone"
-                          fullWidth
-                          name="phone"
-                          type="phone"
-                          value={phone}
-                          onChange={(e) => setPhone(e.currentTarget.value)}
-                        />
-                      </div>
-                    )}
-                    <div className="input--padded">
-                      <Button
-                        color="primary"
-                        variant="contained"
-                        size="large"
-                        type="submit"
-                        fullWidth
-                        disabled={!loginType}
-                        onSubmit={handleLogin}
+                <form onSubmit={handleLogin}>
+                  <div>
+                    <div className="tabbedField">
+                      <Tabs
+                        value={loginType}
+                        indicatorColor="primary"
+                        textColor="primary"
+                        variant="fullWidth"
+                        onChange={(_e, value) => setLoginType(value)}
+                        aria-label="disabled tabs example"
                       >
-                        Log in
-                      </Button>
+                        <Tab label="Email" value="EMAIL" />
+
+                        <Tab label="Phone" value="PHONE" />
+                      </Tabs>
+
+                      {loginType === 'EMAIL' && (
+                        <div className="input--padded">
+                          <TextField
+                            id="outlined-basic"
+                            variant="outlined"
+                            label="Email address"
+                            fullWidth
+                            autoComplete="email address"
+                            placeholder="Email address"
+                            name="email"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.currentTarget.value)}
+                          />
+                        </div>
+                      )}
+
+                      {loginType === 'PHONE' && (
+                        <div className="input--padded">
+                          <TextField
+                            id="outlined-basic"
+                            variant="outlined"
+                            autoComplete="phone"
+                            placeholder="phone"
+                            label="Phone"
+                            fullWidth
+                            name="phone"
+                            type="phone"
+                            value={phone}
+                            onChange={(e) => setPhone(e.currentTarget.value)}
+                          />
+                        </div>
+                      )}
+                      <div className="text-center">
+                        <Button
+                          color="primary"
+                          variant="contained"
+                          size="large"
+                          type="submit"
+                          disabled={!loginType}
+                          onSubmit={handleLogin}
+                        >
+                          Log in
+                        </Button>
+                      </div>
                     </div>
                   </div>
-                </div>
-                {error && <Alert severity="error">{error}</Alert>}
-              </form>
-            </div>
-          )}
+                  {error && <Alert severity="error">{error}</Alert>}
+                </form>
+              </div>
+            )}
 
-          {isLinkSent && (
-            <SignInWithCode
-              loggedInByPhoneFn={(result: Response<LoggedInUserData>) =>
-                handleLoggedIn(result)
-              }
-              phoneOrEmail={loginType === 'PHONE' ? phone : email}
-              loginType={loginType!}
-            ></SignInWithCode>
-          )}
-        </CardContent></Card>
+            {isLinkSent && (
+              <SignInWithCode
+                loggedInByPhoneFn={(result: Response<LoggedInUserData>) =>
+                  handleLoggedIn(result)
+                }
+                phoneOrEmail={loginType === 'PHONE' ? phone : email}
+                loginType={loginType!}
+              ></SignInWithCode>
+            )}
+<div style={{margin: "0px auto", textAlign: "center"}}>
+            <Button
+              variant="text"
+              onClick={() => (window.location.href = 'eligibility')}
+            >
+              Sign up for an account
+            </Button>
+            </div>
+          </CardContent>
+        </Card>
       )}
     </>
   )

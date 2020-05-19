@@ -32,6 +32,7 @@ import { GoogleService } from '../../../services/google.service'
 import Card from '@material-ui/core/Card'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import FloatingToolbar from '../../widgets/FloatingToolbar'
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
 
 export interface IFormData {
   [key: string]: {
@@ -884,8 +885,9 @@ export default class SynapseForm extends React.Component<
         error.property.lastIndexOf('.')
       )
       _.remove(errors, (error: AjvError) => {
+        //trying to get around the cryptic error with required dependent fields
         return (
-          error.property.indexOf(parentPath) > -1 &&
+          (error.property.indexOf(parentPath) > -1 || parentPath.indexOf(error.property) > -1 ) &&
           (error.name === 'enum' || error.name === 'oneOf')
         )
       })
@@ -950,7 +952,7 @@ export default class SynapseForm extends React.Component<
             )}
             {this.state.isLoadingSaved && (
               <div className="text-center">
-                <span className={'spinner'} />
+                  <CircularProgress color="primary" />
               </div>
             )}
             <div className="form-wrap">
