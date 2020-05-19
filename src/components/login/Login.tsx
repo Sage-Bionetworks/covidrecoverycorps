@@ -249,6 +249,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                           type="submit"
                           disabled={!loginType}
                           onSubmit={handleLogin}
+                          className='wideButton'
                         >
                           Log in
                         </Button>
