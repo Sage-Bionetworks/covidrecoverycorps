@@ -84,21 +84,6 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                       </div>
                     </LearnMore>
                   </div>
-
-                  <div className="FAQ__content2">
-                    <LearnMore learnMoreText="" clickableElement={<h3>What is the goal of this study?</h3>}>
-                      <div>
-                        <p>
-                          The goal of this study is collect data from people who have recovered
-                          from COVID-19 to learn more about how the body fights this disease.
-                          Researchers also want to collect information on how other diseases
-                          like high blood pressure, diabetes, and lung diseases may be connected
-                          to how the body responds to COVID-19.
-                        </p>
-                      </div>
-                    </LearnMore>
-                  </div>
-
                   <div className="FAQ__content3">
                     <LearnMore learnMoreText="" clickableElement={<h3>Who is eligible to participate?</h3>}>
                       <div>
