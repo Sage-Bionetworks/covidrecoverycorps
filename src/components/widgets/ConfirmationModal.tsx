@@ -10,6 +10,7 @@ export type ConfirmationModalProps = {
   show: boolean
   onOK: Function
   onCancel: Function
+  isOKDisabled?: boolean
 }
 
 export default function ConfirmationModal(props: ConfirmationModalProps) {
@@ -23,6 +24,7 @@ export default function ConfirmationModal(props: ConfirmationModalProps) {
             variant="contained"
             color="primary"
             fullWidth
+            disabled={props.isOKDisabled}
           >
             <span>{props.confirmCopy || 'OK'}</span>
           </Button>
