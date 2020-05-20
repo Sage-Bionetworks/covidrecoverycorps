@@ -41,7 +41,7 @@
             },
             "conjunctivitis": {
               "type": "boolean",
-              "title": "Conjunctivitis"
+              "title": "Conjunctivitis (red eyes)"
             },
 
             "fatigue": {
