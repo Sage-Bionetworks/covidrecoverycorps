@@ -448,17 +448,18 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
                   </h3>
                   <div className={classes.paperPanelStepBody}>
                     <p>
-                      If you are asked to provide a sample, we will return
-                      results of the antibody test approved by the New York
-                      State Department of Health and share information about
-                      what those results mean. As we learn more about the impact
-                      of COVID-19 across study participants, we will share
-                      regular updates with the broader scientific and patient
-                      community. We may also ask if you are interested in
-                      joining other related studies. For instance, some
-                      participants may choose to be notified of opportunities to
-                      donate plasma and help those still fighting for survival
-                      from COVID-19.
+                      If you are asked to provide a sample, we will test the
+                      sample for antibodies related to COVID-19 infection, using
+                      an antibody test approved by the New York State Department
+                      of Health. We will share your test results with you, along
+                      with information about what those results may mean. As we
+                      learn more about the impact of COVID-19 across study
+                      participants, we will share regular updates with the
+                      broader scientific and patient community. We may also ask
+                      if you are interested in joining other related studies.
+                      For instance, some participants may choose to be notified
+                      of opportunities to donate plasma and help those still
+                      fighting for survival from COVID-19.
                     </p>
                   </div>
                 </Grid>
