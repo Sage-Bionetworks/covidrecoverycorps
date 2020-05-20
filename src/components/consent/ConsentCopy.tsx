@@ -29,8 +29,12 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      The goal of the study is to collect information from participants who have
-      been diagnosed or believe they have had COVID-19.{' '}
+      The goal of the study is to{' '}
+      <strong>
+        collect information from participants who have been diagnosed or believe
+        they have had COVID-19
+      </strong>
+      .{' '}
     </p>
 
     <p className="Consent__copy">
@@ -65,15 +69,18 @@ const summaryScreens = [
         <b>Fill out surveys</b> on your experience with COVID-19, your past and
         current health conditions, and lifestyle.{' '}
       </p>
-
       <p className="Consent__copy">
-        The first 4 surveys may take up to 30-60 minutes total. On a monthly
-        basis, we will contact you to complete a 15-minute survey.{' '}
+        The <strong>first 4 surveys</strong> may take up to{' '}
+        <strong>30-60 minutes total</strong>. On a{' '}
+        <strong>monthly basis</strong>, we will contact you to complete a{' '}
+        <strong>15-minute survey</strong>.{' '}
       </p>
-
       <p className="Consent__copy">
         It is ok, if you don't remember or know the answer to some of the
-        questions. You can pick "Prefer not to answer" for any of the questions.{' '}
+        questions.{' '}
+      </p>{' '}
+      <p className="Consent__copy">
+        You can pick "Prefer not to answer" for any of the questions.{' '}
       </p>
     </div>
 
@@ -105,7 +112,7 @@ const summaryScreens = [
       </p>
 
       <p className="Consent__copy">
-        We also <b>contact</b> you to invite you to participate in other
+        We also may contact you to invite you to participate in other
         COVID-related research studies.
       </p>
     </div>
@@ -143,8 +150,9 @@ const summaryScreens = [
 
     <p className="Consent__copy">
       We take great care to <b> protect your information</b>. However, if there
-      is a data breach it may be possible to identify you and your sensitive
-      information may be seen by someone without your permission. This risk is{' '}
+      is a <strong>data breach</strong> it may be possible to{' '}
+      <strong>identify you and your sensitive information</strong> may be seen
+      by someone without your permission. This risk is{' '}
       <b> low but it is not zero</b>.
     </p>
 
@@ -208,9 +216,8 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      All qualified researchers must be{' '}
-      <b>approved by the COVID Recovery Corps study team</b> and will only use
-      <b>de-identified data</b>.{' '}
+      All qualified researchers must be approved by the COVID Recovery Corps
+      study team and will only use de-identified data.
     </p>
 
     <p className="Consent__copy">
@@ -220,15 +227,18 @@ const summaryScreens = [
 
     <p className="Consent__copy">
       These researchers may be from <b>outside the United States</b> and may
-      work for a non-profit institution,
-      <b>commercial drug or medical</b> device companies, or be a private
-      citizen.{' '}
+      work for a{' '}
+      <strong>
+        non-profit institution, commercial drug or medical device companies, or
+        be a private citizen
+      </strong>
+      .
     </p>
 
     <p className="Consent__copy">
-      Sharing your data with qualified researchers is<b> optional </b> and you
-      can change your mind at any time by updating your data sharing options in
-      your profile.{' '}
+      Sharing your data with qualified researchers is optional and you can
+      change your mind at any time by updating your data sharing options in
+      account settings.
     </p>
 
     <p className="Consent__copy">
@@ -251,8 +261,8 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      If you have questions or concerns related to your health, you should
-      contact your doctor.{' '}
+      If you have <strong>questions or concerns</strong> related to your health,
+      you should <strong>contact your doctor</strong>.
     </p>
   </div>,
   <div>
@@ -266,32 +276,29 @@ const summaryScreens = [
       No matter what you decide, now or in the future, it will
       <b> not affect how your doctor treats you</b>.
     </p>
-
     <p className="Consent__copy">
       If you decide to withdraw (quit) the study, you can tell us by{' '}
       <b>
-        going to the website and by clicking the "Withdraw Study" section in
-        your profile setting. You can also use our contact information to email
-        or write to us.{' '}
+        going to the website and by clicking the{' '}
+        <strong>"Withdraw from study" in account setting</strong>. You can also
+        also <strong>email or write to us</strong>.{' '}
       </b>
     </p>
 
     <p className="Consent__copy">
-      If you withdraw, your samples will be destroyed. Your data will not be
-      distributed any more.{' '}
+      If you withdraw, <strong>your samples will be destroyed</strong>. Your{' '}
+      <strong>data will not be distributed any more</strong>.{' '}
     </p>
 
     <p className="Consent__copy">
-      However, if researchers <b>already have your data or samples </b>for their
-      studies, the COVID Recovery Corps study
-      <b>cannot</b> get it back.{' '}
+      However, if researchers already have your data or samples for their
+      studies, the COVID Recovery Corps study cannot get it back.{' '}
     </p>
   </div>,
   <div>
     <h2>Things you should consider before you say yes</h2>
     <p className="Consent__copy">
-      <b>Before you say yes</b> to joining the study, <b>please consider </b>the
-      following:{' '}
+      Before you say yes to joining the study, please consider the following:{' '}
     </p>
 
     <div className="list">
@@ -319,21 +326,21 @@ const summaryScreens = [
   <div>
     <h2>How to contact us?</h2>
     <p className="Consent__copy">
-      For <b>general questions</b>, please contact the COVID Recovery Corps
-      study at [TODO: Wendy to provide - columbia point of contact]{' '}
+      <strong> For general questions, concerns, or complaints</strong>, please
+      contact the COVID Recovery Corps study at 212-305-5700 (24 hours) or{' '}
+      <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
+        COVIDRecoveryCorps@cumc.columbia.edu
+      </a>
+      .
     </p>
-
-    <p className="Consent__copy">
-      For{' '}
-      <b>
-        questions related to the website, your account, or other technology
-        issues
-      </b>
-      , please contact Sage Bionetworks at [TODO: John to provide]
-    </p>
-    <p className="Consent__copy">
-      For your<b> rights as a research participant</b>, please contact [TODO:
-      contact information at WIRB]
+    <p>
+      <strong>
+        For questions about your rights as a research participant, concerns or
+        complaints,
+      </strong>{' '}
+      please contact Western IRB (WIRB) at{' '}
+      <a href="mailto:help@WIRB.com">help@WIRB.com</a> at 360-252-2500 or
+      toll-free 800-562-4789
     </p>
   </div>,
 ]
