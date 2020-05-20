@@ -58,7 +58,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
 
     if (state.cons.value !== 'yes') {
       isValid = false
-      reason = 'CONCENT' as IneligibilityReason
+      reason = 'CONSENT' as IneligibilityReason
     }
     if (state.hadCovid.value !== 'yes') {
       isValid = false

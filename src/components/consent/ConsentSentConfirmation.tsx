@@ -14,7 +14,7 @@ type ConsentSentConfirmationProps = {
 }
 
 const text = {
-  CONSENT: 'We just sent you a copy of your study concent',
+  CONSENT: 'We just sent you a copy of your study consent',
   EHR: 'We just sent you a copy of your HIPAA Authorization',
 }
 
@@ -62,7 +62,7 @@ export const ConsentSentConfirmation: React.FunctionComponent<ConsentSentConfirm
   }
 
   return (
-    <div>
+    <div style={{textAlign: 'center'}} >
       {type === 'CONSENT' && (
         <h2>Thank you for joining the COVID Recovery Corps !</h2>
       )}
