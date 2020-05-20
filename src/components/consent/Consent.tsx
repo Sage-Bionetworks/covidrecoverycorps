@@ -240,7 +240,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     <FormControlLabel
                       value={ConsentService.SHARE_SCOPE_ALL}
                       control={<Radio color="primary" />}
-                      style={{marginBottom: "4rem"}}
+                      style={{ marginBottom: '4rem' }}
                       label="Yes, share my study data with qualified researchers for future COVID related work."
                     />
 
@@ -278,7 +278,13 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     }
                   />
                   <p>
-                 <strong> I have read this consent form (or someone read it to me). I understand the information in this form. All of my questions have been answered. I freely and willingly choose to take part in COVID Recovery Corps study.</strong>
+                    <strong>
+                      {' '}
+                      I have read this consent form (or someone read it to me).
+                      I understand the information in this form. All of my
+                      questions have been answered. I freely and willingly
+                      choose to take part in COVID Recovery Corps study.
+                    </strong>
                   </p>
                 </div>
                 <p>{moment().format('MMMM Do, YYYY')}</p>

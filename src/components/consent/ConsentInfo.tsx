@@ -266,10 +266,12 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
         {currentStep > -1 && (
           <div>
             <div className="icon-top">
-            {ConsentIcons.consent[currentStep] && <img
-                className="consentIcon"
-                src={ConsentIcons.consent[currentStep]}
-              ></img>}
+              {ConsentIcons.consent[currentStep] && (
+                <img
+                  className="consentIcon"
+                  src={ConsentIcons.consent[currentStep]}
+                ></img>
+              )}
             </div>
             {getStatic(currentStep, isFullText)}
 

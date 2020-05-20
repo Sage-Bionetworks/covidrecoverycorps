@@ -66,8 +66,8 @@ const summaryScreens = [
 
     <div className="list">
       <p className="Consent__copy">
-        <strong>Fill out surveys</strong> on your experience with COVID-19, your past and
-        current health conditions, and lifestyle.{' '}
+        <strong>Fill out surveys</strong> on your experience with COVID-19, your
+        past and current health conditions, and lifestyle.{' '}
       </p>
       <p className="Consent__copy">
         The <strong>first 4 surveys</strong> may take up to{' '}
@@ -88,22 +88,23 @@ const summaryScreens = [
 
     <div className="list">
       <p className="Consent__copy">
-        A <strong>biosample </strong>such as blood, pee, spit, sample from a nose or
-        rectal swab. We may contact you to schedule a blood draw or we may mail
-        you an at-home testing kit. We will provide you with instructions and
-        postage to mail the kit back to our lab.{' '}
+        A <strong>biosample </strong>such as blood, pee, spit, sample from a
+        nose or rectal swab. We may contact you to schedule a blood draw or we
+        may mail you an at-home testing kit. We will provide you with
+        instructions and postage to mail the kit back to our lab.{' '}
       </p>
       <p className="Consent__copy">
-        If you have a <strong>positive test result for COVID-19</strong>, we may ask you
-        to upload a picture or a scanned copy of the document to the study
-        website. This is<strong> optional</strong>.
+        If you have a <strong>positive test result for COVID-19</strong>, we may
+        ask you to upload a picture or a scanned copy of the document to the
+        study website. This is<strong> optional</strong>.
       </p>
 
       <p className="Consent__copy">
-        Access to your <strong>electronic health record (EHR)</strong>. Your EHR contains{' '}
-        <strong>sensitive information </strong>on your health problems, test results,
-        visits to the doctor and medications. This is <strong>optional </strong>and you
-        can still take part in the study without sharing your EHR.{' '}
+        Access to your <strong>electronic health record (EHR)</strong>. Your EHR
+        contains <strong>sensitive information </strong>on your health problems,
+        test results, visits to the doctor and medications. This is{' '}
+        <strong>optional </strong>and you can still take part in the study
+        without sharing your EHR.{' '}
       </p>
 
       <p className="Consent__copy">
@@ -141,7 +142,8 @@ const summaryScreens = [
   <div>
     <h2>What are the risks?</h2>
     <p className="Consent__copy">
-      The main risk of participating in this study is to your <strong> privacy</strong>.
+      The main risk of participating in this study is to your{' '}
+      <strong> privacy</strong>.
     </p>
     <p className="Consent__copy">
       We understand you are sharing and allowing us to collect sensitive health
@@ -149,8 +151,8 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      We take great care to <strong> protect your information</strong>. However, if there
-      is a <strong>data breach</strong> it may be possible to{' '}
+      We take great care to <strong> protect your information</strong>. However,
+      if there is a <strong>data breach</strong> it may be possible to{' '}
       <strong>identify you and your sensitive information</strong> may be seen
       by someone without your permission. This risk is{' '}
       <strong> low but it is not zero</strong>.
@@ -165,13 +167,14 @@ const summaryScreens = [
     </p>
     <p className="Consent__copy">
       If you give a <strong>blood sample</strong>, the most common risks are{' '}
-      <strong>brief pain and bruising</strong>. Some people may become dizzy or feel
-      faint. There is also a small risk of infection.
+      <strong>brief pain and bruising</strong>. Some people may become dizzy or
+      feel faint. There is also a small risk of infection.
     </p>
 
     <p className="Consent__copy">
-      If you are asked to provide a sample from a <strong> nose or fecal swab </strong>you
-      may feel <strong> brief discomfort</strong>.{' '}
+      If you are asked to provide a sample from a{' '}
+      <strong> nose or fecal swab </strong>you may feel{' '}
+      <strong> brief discomfort</strong>.{' '}
     </p>
   </div>,
 
@@ -190,20 +193,24 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      To protect your data, we will <strong> use a code to identify your data </strong>{' '}
-      and samples rather than your name or other personal information. This{' '}
+      To protect your data, we will{' '}
+      <strong> use a code to identify your data </strong> and samples rather
+      than your name or other personal information. This{' '}
       <strong>code cannot be used to directly identify you</strong>.{' '}
     </p>
 
     <p className="Consent__copy">
-      This coded data is known as <strong> de-identified data</strong>. Only key people
-      from our study team can link your identity to your study data.{' '}
+      This coded data is known as <strong> de-identified data</strong>. Only key
+      people from our study team can link your identity to your study data.{' '}
     </p>
 
     <p className="Consent__copy">
       Your data and samples will be{' '}
-      <strong> securely stored and controlled by the COVID Recovery Corps study</strong>.
-      Your data will be stored in the COVID Recovery Corps study database and
+      <strong>
+        {' '}
+        securely stored and controlled by the COVID Recovery Corps study
+      </strong>
+      . Your data will be stored in the COVID Recovery Corps study database and
       your samples will be stored in the study's biobank.
     </p>
   </div>,
@@ -211,8 +218,11 @@ const summaryScreens = [
     <h2>Sharing your data with future researchers</h2>
     <p className="Consent__copy">
       You will have the{' '}
-      <strong> opportunity to share your data with qualified researchers </strong>outside
-      of the COVID Recovery Corps.{' '}
+      <strong>
+        {' '}
+        opportunity to share your data with qualified researchers{' '}
+      </strong>
+      outside of the COVID Recovery Corps.{' '}
     </p>
 
     <p className="Consent__copy">
@@ -226,8 +236,8 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      These researchers may be from <strong>outside the United States</strong> and may
-      work for a{' '}
+      These researchers may be from <strong>outside the United States</strong>{' '}
+      and may work for a{' '}
       <strong>
         non-profit institution, commercial drug or medical device companies, or
         be a private citizen
@@ -242,8 +252,9 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      But once we <strong>share your data we cannot get it back</strong>. If you decide to
-      end data sharing, we will not share your <strong>future data</strong>.
+      But once we <strong>share your data we cannot get it back</strong>. If you
+      decide to end data sharing, we will not share your{' '}
+      <strong>future data</strong>.
     </p>
   </div>,
 
@@ -256,7 +267,8 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      The study does <strong>not</strong> provide <strong> medical care, medical advice</strong> or
+      The study does <strong>not</strong> provide{' '}
+      <strong> medical care, medical advice</strong> or
       <strong> treatment</strong>.{' '}
     </p>
 
@@ -268,8 +280,8 @@ const summaryScreens = [
   <div>
     <h2>Leaving the study</h2>
     <p className="Consent__copy">
-      Taking part in COVID Recovery Corps is <strong> voluntary</strong>. You can choose
-      to join or not.
+      Taking part in COVID Recovery Corps is <strong> voluntary</strong>. You
+      can choose to join or not.
     </p>
 
     <p className="Consent__copy">
@@ -307,7 +319,8 @@ const summaryScreens = [
       </p>
 
       <p className="Consent__copy">
-        You will<strong> not receive any profit</strong> from this or future research.
+        You will<strong> not receive any profit</strong> from this or future
+        research.
       </p>
       <p className="Consent__copy">
         Your study information{' '}
@@ -326,8 +339,8 @@ const summaryScreens = [
   <div>
     <h2>How to contact us?</h2>
     <p className="Consent__copy">
-      <strong> For general questions, concerns, or complaints</strong>, please
-      contact the COVID Recovery Corps study at 212-305-5700 (24 hours) or{' '}
+      <strong>For general questions,</strong>, please contact the COVID Recovery
+      Corps study at 212-305-5700 (24 hours) or{' '}
       <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
         COVIDRecoveryCorps@cumc.columbia.edu
       </a>
@@ -338,9 +351,9 @@ const summaryScreens = [
         For questions about your rights as a research participant, concerns or
         complaints,
       </strong>{' '}
-      please contact Western IRB (WIRB) at{' '}
+      please contact Western IRB (WIRB) at
       <a href="mailto:help@WIRB.com">help@WIRB.com</a> at 360-252-2500 or
-      toll-free 800-562-4789
+      toll-free 800-562-478.
     </p>
   </div>,
 ]
@@ -940,37 +953,29 @@ const screens: { [key: string]: JSX.Element } = {
   HIPAA_LAST_TERMS: (
     <p className="Consent__copy">
       <ul>
-        <li>My data will be stored in the COVID Recovery Corps databases.</li>
         <li>
-          If I give a biosample, it will be stored at the COVID Recovery Corps
-          biobank. This includes my DNA or genetic material. Information that
-          researchers learn by studying my samples will be stored in the COVID
-          Recovery Corps databases.
+          All health information pertaining to my medical history, mental or
+          physical condition, and treatment received
         </li>
+        <li>Mental health diagnosis or treatment information</li>
+        <li>HIV/AIDS testing information</li>
+        <li>Alcohol/drug abuse, diagnosis or treatment information</li>
+        <li>Genetic testing information</li>
         <li>
-          Researchers will do COVID-19 studies using the COVID Recovery Corps
-          databases and biobank. They may also do research on other health
-          conditions that are related to how the body responds to COVID-19.
-        </li>
-        <li>
-          If my sample is used up, I may be asked to give another biosample. I
-          can say yes or no.
-        </li>
-        <li>
-          My contact information may be used to tell me about other
-          COVID-related studies.
-        </li>
-        <li>
-          I can withdraw (quit) at any time. There is no penalty if I withdraw.
+          Information about domestic violence and sexual assault counseling
         </li>
       </ul>
     </p>
   ),
   HIPAA_LAST_CHECKBOX: (
     <>
-      I have read this consent form (or someone read it to me). I understand the
-      information in this form. All of my questions have been answered. I freely
-      and willingly choose to take part in COVID Recovery Corps study.
+      <strong>
+        {' '}
+        By signing this form, I voluntarily authorize my healthcare providers
+        and organizations to share my EHR with the COVID Recovery Corps Research
+        Study, led by Dr. Wendy Chung, and its partner organization Sage
+        Bionetworks.
+      </strong>
     </>
   ),
 }
