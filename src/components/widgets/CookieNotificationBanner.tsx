@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '@material-ui/core'
 
-export const privacyPolicyLink: string = '/PrivacyPolicy_v1.0-04.May.2020.pdf'
+export const privacyPolicyLink: string = '/PrivacyPolicy.pdf'
 
 export default function CookieNotificationBanner() {
   const isCookiePolicyPreviouslyAccepted: boolean =
