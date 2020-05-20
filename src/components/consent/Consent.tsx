@@ -240,6 +240,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     <FormControlLabel
                       value={ConsentService.SHARE_SCOPE_ALL}
                       control={<Radio color="primary" />}
+                      style={{marginBottom: "4rem"}}
                       label="Yes, share my study data with qualified researchers for future COVID related work."
                     />
 

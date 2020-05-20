@@ -25,17 +25,21 @@ const summaryScreens = [
     <h2>About the Study</h2>
 
     <p className="Consent__copy">
-      COVID Recovery Corps is a <b> research study</b>.{' '}
+      COVID Recovery Corps is a <strong> research study</strong>.{' '}
     </p>
 
     <p className="Consent__copy">
-      The goal of the study is to collect information from participants who have
-      been diagnosed or believe they have had COVID-19.{' '}
+      The goal of the study is to{' '}
+      <strong>
+        collect information from participants who have been diagnosed or believe
+        they have had COVID-19
+      </strong>
+      .{' '}
     </p>
 
     <p className="Consent__copy">
       Researchers will use this information to{' '}
-      <b>better understand how the body fights COVID-19 </b>.
+      <strong>better understand how the body fights COVID-19 </strong>.
     </p>
 
     <p className="Consent__copy">
@@ -44,11 +48,11 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      This study will <b> last for 12 months</b>.{' '}
+      This study will <strong> last for 12 months</strong>.{' '}
     </p>
     <p className="Consent__copy">
-      This study will <b> not provide medical care </b> for COVID-19.
-      Participation in this study is <b> voluntary </b>
+      This study will <strong> not provide medical care </strong> for COVID-19.
+      Participation in this study is <strong> voluntary </strong>
       and you may leave the study at any time.
     </p>
   </div>,
@@ -62,18 +66,21 @@ const summaryScreens = [
 
     <div className="list">
       <p className="Consent__copy">
-        <b>Fill out surveys</b> on your experience with COVID-19, your past and
+        <strong>Fill out surveys</strong> on your experience with COVID-19, your past and
         current health conditions, and lifestyle.{' '}
       </p>
-
       <p className="Consent__copy">
-        The first 4 surveys may take up to 30-60 minutes total. On a monthly
-        basis, we will contact you to complete a 15-minute survey.{' '}
+        The <strong>first 4 surveys</strong> may take up to{' '}
+        <strong>30-60 minutes total</strong>. On a{' '}
+        <strong>monthly basis</strong>, we will contact you to complete a{' '}
+        <strong>15-minute survey</strong>.{' '}
       </p>
-
       <p className="Consent__copy">
         It is ok, if you don't remember or know the answer to some of the
-        questions. You can pick "Prefer not to answer" for any of the questions.{' '}
+        questions.{' '}
+      </p>{' '}
+      <p className="Consent__copy">
+        You can pick "Prefer not to answer" for any of the questions.{' '}
       </p>
     </div>
 
@@ -81,21 +88,21 @@ const summaryScreens = [
 
     <div className="list">
       <p className="Consent__copy">
-        A <b>biosample </b>such as blood, pee, spit, sample from a nose or
+        A <strong>biosample </strong>such as blood, pee, spit, sample from a nose or
         rectal swab. We may contact you to schedule a blood draw or we may mail
         you an at-home testing kit. We will provide you with instructions and
         postage to mail the kit back to our lab.{' '}
       </p>
       <p className="Consent__copy">
-        If you have a <b>positive test result for COVID-19</b>, we may ask you
+        If you have a <strong>positive test result for COVID-19</strong>, we may ask you
         to upload a picture or a scanned copy of the document to the study
-        website. This is<b> optional</b>.
+        website. This is<strong> optional</strong>.
       </p>
 
       <p className="Consent__copy">
-        Access to your <b>electronic health record (EHR)</b>. Your EHR contains{' '}
-        <b>sensitive information </b>on your health problems, test results,
-        visits to the doctor and medications. This is <b>optional </b>and you
+        Access to your <strong>electronic health record (EHR)</strong>. Your EHR contains{' '}
+        <strong>sensitive information </strong>on your health problems, test results,
+        visits to the doctor and medications. This is <strong>optional </strong>and you
         can still take part in the study without sharing your EHR.{' '}
       </p>
 
@@ -105,7 +112,7 @@ const summaryScreens = [
       </p>
 
       <p className="Consent__copy">
-        We also <b>contact</b> you to invite you to participate in other
+        We also may contact you to invite you to participate in other
         COVID-related research studies.
       </p>
     </div>
@@ -116,7 +123,7 @@ const summaryScreens = [
     <h2>What are the benefits?</h2>
     <p className="Consent__copy">
       You may or may not benefit from volunteering for this research study. This
-      study is<b> not medical treatment</b>.
+      study is<strong> not medical treatment</strong>.
     </p>
 
     <p className="Consent__copy">
@@ -127,14 +134,14 @@ const summaryScreens = [
 
     <p className="Consent__copy">
       The primary benefit of this study is helping researchers{' '}
-      <b> better understand COVID-19 </b>and help future generations.
+      <strong> better understand COVID-19 </strong>and help future generations.
     </p>
   </div>,
 
   <div>
     <h2>What are the risks?</h2>
     <p className="Consent__copy">
-      The main risk of participating in this study is to your <b> privacy</b>.
+      The main risk of participating in this study is to your <strong> privacy</strong>.
     </p>
     <p className="Consent__copy">
       We understand you are sharing and allowing us to collect sensitive health
@@ -142,28 +149,29 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      We take great care to <b> protect your information</b>. However, if there
-      is a data breach it may be possible to identify you and your sensitive
-      information may be seen by someone without your permission. This risk is{' '}
-      <b> low but it is not zero</b>.
+      We take great care to <strong> protect your information</strong>. However, if there
+      is a <strong>data breach</strong> it may be possible to{' '}
+      <strong>identify you and your sensitive information</strong> may be seen
+      by someone without your permission. This risk is{' '}
+      <strong> low but it is not zero</strong>.
     </p>
 
     <p className="Consent__copy">
       COVID-19 is also a risk to public health.{' '}
-      <b>
+      <strong>
         Thus we may have to give out your data if public health authorities
         demand it.
-      </b>
+      </strong>
     </p>
     <p className="Consent__copy">
-      If you give a <b>blood sample</b>, the most common risks are{' '}
-      <b>brief pain and bruising</b>. Some people may become dizzy or feel
+      If you give a <strong>blood sample</strong>, the most common risks are{' '}
+      <strong>brief pain and bruising</strong>. Some people may become dizzy or feel
       faint. There is also a small risk of infection.
     </p>
 
     <p className="Consent__copy">
-      If you are asked to provide a sample from a <b> nose or fecal swab </b>you
-      may feel <b> brief discomfort</b>.{' '}
+      If you are asked to provide a sample from a <strong> nose or fecal swab </strong>you
+      may feel <strong> brief discomfort</strong>.{' '}
     </p>
   </div>,
 
@@ -173,7 +181,7 @@ const summaryScreens = [
     <h2>What will you do with my data and samples?</h2>
     <p className="Consent__copy">
       We will use the data and samples to{' '}
-      <b> make discoveries about COVID-19</b>.
+      <strong> make discoveries about COVID-19</strong>.
     </p>
 
     <p className="Consent__copy">
@@ -182,19 +190,19 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      To protect your data, we will <b> use a code to identify your data </b>{' '}
+      To protect your data, we will <strong> use a code to identify your data </strong>{' '}
       and samples rather than your name or other personal information. This{' '}
-      <b>code cannot be used to directly identify you</b>.{' '}
+      <strong>code cannot be used to directly identify you</strong>.{' '}
     </p>
 
     <p className="Consent__copy">
-      This coded data is known as <b> de-identified data</b>. Only key people
+      This coded data is known as <strong> de-identified data</strong>. Only key people
       from our study team can link your identity to your study data.{' '}
     </p>
 
     <p className="Consent__copy">
       Your data and samples will be{' '}
-      <b> securely stored and controlled by the COVID Recovery Corps study</b>.
+      <strong> securely stored and controlled by the COVID Recovery Corps study</strong>.
       Your data will be stored in the COVID Recovery Corps study database and
       your samples will be stored in the study's biobank.
     </p>
@@ -203,14 +211,13 @@ const summaryScreens = [
     <h2>Sharing your data with future researchers</h2>
     <p className="Consent__copy">
       You will have the{' '}
-      <b> opportunity to share your data with qualified researchers </b>outside
+      <strong> opportunity to share your data with qualified researchers </strong>outside
       of the COVID Recovery Corps.{' '}
     </p>
 
     <p className="Consent__copy">
-      All qualified researchers must be{' '}
-      <b>approved by the COVID Recovery Corps study team</b> and will only use
-      <b>de-identified data</b>.{' '}
+      All qualified researchers must be approved by the COVID Recovery Corps
+      study team and will only use de-identified data.
     </p>
 
     <p className="Consent__copy">
@@ -219,21 +226,24 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      These researchers may be from <b>outside the United States</b> and may
-      work for a non-profit institution,
-      <b>commercial drug or medical</b> device companies, or be a private
-      citizen.{' '}
+      These researchers may be from <strong>outside the United States</strong> and may
+      work for a{' '}
+      <strong>
+        non-profit institution, commercial drug or medical device companies, or
+        be a private citizen
+      </strong>
+      .
     </p>
 
     <p className="Consent__copy">
-      Sharing your data with qualified researchers is<b> optional </b> and you
-      can change your mind at any time by updating your data sharing options in
-      your profile.{' '}
+      Sharing your data with qualified researchers is optional and you can
+      change your mind at any time by updating your data sharing options in
+      account settings.
     </p>
 
     <p className="Consent__copy">
-      But once we <b>share your data we cannot get it back</b>. If you decide to
-      end data sharing, we will not share your <b>future data</b>.
+      But once we <strong>share your data we cannot get it back</strong>. If you decide to
+      end data sharing, we will not share your <strong>future data</strong>.
     </p>
   </div>,
 
@@ -242,98 +252,95 @@ const summaryScreens = [
   <div>
     <h2>Not Medical Care</h2>
     <p className="Consent__copy">
-      The COVID Recovery Corps is a <b>research study</b>.{' '}
+      The COVID Recovery Corps is a <strong>research study</strong>.{' '}
     </p>
 
     <p className="Consent__copy">
-      The study does <b>not</b> provide <b> medical care, medical advice</b> or
-      <b> treatment</b>.{' '}
+      The study does <strong>not</strong> provide <strong> medical care, medical advice</strong> or
+      <strong> treatment</strong>.{' '}
     </p>
 
     <p className="Consent__copy">
-      If you have questions or concerns related to your health, you should
-      contact your doctor.{' '}
+      If you have <strong>questions or concerns</strong> related to your health,
+      you should <strong>contact your doctor</strong>.
     </p>
   </div>,
   <div>
     <h2>Leaving the study</h2>
     <p className="Consent__copy">
-      Taking part in COVID Recovery Corps is <b> voluntary</b>. You can choose
+      Taking part in COVID Recovery Corps is <strong> voluntary</strong>. You can choose
       to join or not.
     </p>
 
     <p className="Consent__copy">
       No matter what you decide, now or in the future, it will
-      <b> not affect how your doctor treats you</b>.
+      <strong> not affect how your doctor treats you</strong>.
     </p>
-
     <p className="Consent__copy">
       If you decide to withdraw (quit) the study, you can tell us by{' '}
-      <b>
-        going to the website and by clicking the "Withdraw Study" section in
-        your profile setting. You can also use our contact information to email
-        or write to us.{' '}
-      </b>
+      <strong>
+        going to the website and by clicking the{' '}
+        <strong>"Withdraw from study" in account setting</strong>. You can also
+        also <strong>email or write to us</strong>.{' '}
+      </strong>
     </p>
 
     <p className="Consent__copy">
-      If you withdraw, your samples will be destroyed. Your data will not be
-      distributed any more.{' '}
+      If you withdraw, <strong>your samples will be destroyed</strong>. Your{' '}
+      <strong>data will not be distributed any more</strong>.{' '}
     </p>
 
     <p className="Consent__copy">
-      However, if researchers <b>already have your data or samples </b>for their
-      studies, the COVID Recovery Corps study
-      <b>cannot</b> get it back.{' '}
+      However, if researchers already have your data or samples for their
+      studies, the COVID Recovery Corps study cannot get it back.{' '}
     </p>
   </div>,
   <div>
     <h2>Things you should consider before you say yes</h2>
     <p className="Consent__copy">
-      <b>Before you say yes</b> to joining the study, <b>please consider </b>the
-      following:{' '}
+      Before you say yes to joining the study, please consider the following:{' '}
     </p>
 
     <div className="list">
       <p className="Consent__copy">
-        You will<b> not be paid </b>for participating in this study.{' '}
+        You will<strong> not be paid </strong>for participating in this study.{' '}
       </p>
 
       <p className="Consent__copy">
-        You will<b> not receive any profit</b> from this or future research.
+        You will<strong> not receive any profit</strong> from this or future research.
       </p>
       <p className="Consent__copy">
         Your study information{' '}
-        <b>
+        <strong>
           will not be shared with insurance companies or your doctor without
           your permission.
-        </b>
+        </strong>
       </p>
 
       <p className="Consent__copy">
         The risk of injury is low in this study. You will
-        <b> not be compensated for injury</b>.
+        <strong> not be compensated for injury</strong>.
       </p>
     </div>
   </div>,
   <div>
     <h2>How to contact us?</h2>
     <p className="Consent__copy">
-      For <b>general questions</b>, please contact the COVID Recovery Corps
-      study at [TODO: Wendy to provide - columbia point of contact]{' '}
+      <strong> For general questions, concerns, or complaints</strong>, please
+      contact the COVID Recovery Corps study at 212-305-5700 (24 hours) or{' '}
+      <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
+        COVIDRecoveryCorps@cumc.columbia.edu
+      </a>
+      .
     </p>
-
-    <p className="Consent__copy">
-      For{' '}
-      <b>
-        questions related to the website, your account, or other technology
-        issues
-      </b>
-      , please contact Sage Bionetworks at [TODO: John to provide]
-    </p>
-    <p className="Consent__copy">
-      For your<b> rights as a research participant</b>, please contact [TODO:
-      contact information at WIRB]
+    <p>
+      <strong>
+        For questions about your rights as a research participant, concerns or
+        complaints,
+      </strong>{' '}
+      please contact Western IRB (WIRB) at{' '}
+      <a href="mailto:help@WIRB.com">help@WIRB.com</a> at 360-252-2500 or
+      toll-free 800-562-4789
     </p>
   </div>,
 ]
@@ -343,7 +350,7 @@ const fullTextScreens = [
     <h2>About the Study</h2>
 
     <p className="Consent__copy">
-      COVID Recovery Corps is a <b> research study</b>.{' '}
+      COVID Recovery Corps is a <strong> research study</strong>.{' '}
     </p>
 
     <p className="Consent__copy">
@@ -353,7 +360,7 @@ const fullTextScreens = [
 
     <p className="Consent__copy">
       Researchers will use this information to{' '}
-      <b>better understand how the body fights COVID-19 </b>.
+      <strong>better understand how the body fights COVID-19 </strong>.
     </p>
 
     <p className="Consent__copy">
@@ -362,11 +369,11 @@ const fullTextScreens = [
     </p>
 
     <p className="Consent__copy">
-      This study will <b> last for 12 months</b>.{' '}
+      This study will <strong> last for 12 months</strong>.{' '}
     </p>
     <p className="Consent__copy">
-      This study will <b> not provide medical care </b> for COVID-19.
-      Participation in this study is <b> voluntary </b>
+      This study will <strong> not provide medical care </strong> for COVID-19.
+      Participation in this study is <strong> voluntary </strong>
       and you may leave the study at any time.
     </p>
   </div>,
@@ -682,19 +689,19 @@ const fullTextScreens = [
   <div>
     <h2>How to contact us?</h2>
     <p className="Consent__copy">
-      COVID Recovery Corps is a <b>research study.</b>
+      COVID Recovery Corps is a <strong>research study.</strong>
     </p>
     <p className="Consent__copy">
       The goal of the study is to collect information from participants on how
-      the <b> body fights COVID-19</b>.
+      the <strong> body fights COVID-19</strong>.
     </p>
     <p className="Consent__copy">
       If you decide to join this study, we will ask you to complete a
-      <b> survey</b>.
+      <strong> survey</strong>.
     </p>
     <p className="Consent__copy">
       We may also ask you to provide a spit, blood, nasal or fecal swab sample.
-      This study will last at least for <b>12 months</b>
+      This study will last at least for <strong>12 months</strong>
     </p>
   </div>,
 ]
