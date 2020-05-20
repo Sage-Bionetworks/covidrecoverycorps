@@ -278,11 +278,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     }
                   />
                   <p>
-                    I have <b>read</b> this consent form (or someone read it to
-                    me). I understand the information in this form. All of my
-                    questions have been answered. I{' '}
-                    <strong>freely and willingly</strong> choose to take part in
-                    COVID Recovery Corps study."
+                 <strong> I have read this consent form (or someone read it to me). I understand the information in this form. All of my questions have been answered. I freely and willingly choose to take part in COVID Recovery Corps study.</strong>
                   </p>
                 </div>
                 <p>{moment().format('MMMM Do, YYYY')}</p>
