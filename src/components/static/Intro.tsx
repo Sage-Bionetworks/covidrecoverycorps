@@ -417,13 +417,11 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
                       We will invite some participants to visit clinical sites
                       in New York City to donate a sample. In the future, other
                       participants will be invited to donate a sample from home.
-                      Sharing your samples will help researchers develop more
-                      reliable antibody tests that can make antibody testing
-                      accessible to more people, and in turn, may help answer
-                      important questions including: Who was really infected
-                      with COVID-19? What levels of antibodies are needed to
-                      protect us from reinfection? Is it possible for people to
-                      develop full immunity to COVID-19?
+                      Sharing your samples will help answer important questions
+                      including: Who was really infected with COVID-19? What
+                      levels of antibodies are needed to protect us from
+                      reinfection? Is it possible for people to develop full
+                      immunity to COVID-19?
                     </p>
                   </div>
                 </Grid>
