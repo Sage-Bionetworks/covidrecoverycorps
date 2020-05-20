@@ -180,6 +180,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
                   label="Share my study data with qualified researchers for future COVID related work"
                 />
                 <LearnMore learnMoreText="Learn more">
+                  <div>
                   <p>
                     You will have the opportunity to share your data with
                     qualified researchers outside of the COVID Recovery Corps.
@@ -205,6 +206,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
                     decide to end data sharing, we will not share your future
                     data.
                   </p>
+                  </div>
                 </LearnMore>
               </>
             )}
@@ -222,6 +224,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
                   label="Share my electronic health records"
                 />
                 <LearnMore learnMoreText="Learn more">
+                  <div>
                   <p>
                     Sharing your EHR (electronic health records) is optional.
                   </p>
@@ -248,6 +251,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
                     for you to sign if you decide to give us access to your
                     health records.
                   </p>
+                  </div>
                 </LearnMore>
               </>
             )}
