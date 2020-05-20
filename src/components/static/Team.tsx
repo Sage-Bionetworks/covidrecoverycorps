@@ -5,10 +5,9 @@ import AboutPageAboveFold from '../../assets/AboutPageAboveFold.png'
 import AboutPageAboveFoldMobile from '../../assets/AboutPageAboveFold_mobile.png'
 import Wendy from '../../assets/Wendy.png'
 import Lara from '../../assets/Lara.jpg'
+import SurvivorCorps from '../../assets/TeamPageSurvivorCorps.png'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
-
-import { NavLink, Link } from 'react-router-dom'
 import BlueSeparator from './BlueSeparator'
 import { useIntroStyles } from './Intro'
 
@@ -36,9 +35,6 @@ export const useStyles = makeStyles(theme => ({
   paddingBottom20: {
     paddingBottom: '20px',
   },
-  quoteTextContainer: {
-    padding: '0px 20px 60px 20px',
-  },
   greenBox: {
     backgroundColor: '#90CCCC',
     padding: '50px 30px 50px 30px',
@@ -46,7 +42,7 @@ export const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
 }))
-export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
+export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
   const introClasses = useIntroStyles()
   const classes = useStyles()
   return (
@@ -112,11 +108,9 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
                   </h3>
                   <div className={introClasses.paperPanelStepBody}>
                     <p>
-                      <strong>
-                        Dr. Wendy Chung is a co-Principal Investigator based at
-                        Columbia University with oversight over clinical
-                        operations.
-                      </strong>{' '}
+                      Dr. Wendy Chung is a co-Principal Investigator based at
+                      Columbia University with oversight over clinical
+                      operations.
                       Dr Chung is an ABMG board certified clinical and molecular
                       geneticist with 20 years of experience in clinical
                       research, largely for rare diseases. She leads the
@@ -159,51 +153,80 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
                   </h3>
                   <div className={introClasses.paperPanelStepBody}>
                     <div className={classes.paddingBottom20}>
-                      <strong>
+                      <p>
                         Dr. Lara Mangravite is a co-Principal Investigator with
                         oversight over technology, governance, and data commons.
-                      </strong>
-                      Dr. Mangravite has extensive experience leading projects
-                      at Sage Bionetworks. She favors applying collaborative
-                      approaches to advance understanding of disease biology and
-                      treatment outcomes at a systems level with the overriding
-                      goal of improving clinical care.{' '}
+                        Dr. Mangravite has extensive experience leading projects
+                        at Sage Bionetworks. She favors applying collaborative
+                        approaches to advance understanding of disease biology and
+                        treatment outcomes at a systems level with the overriding
+                        goal of improving clinical care.{' '}
+                      </p>
                     </div>
                     <div className={classes.paddingBottom20}>
-                      Dr. Mangravite obtained a BS in Physics from the
-                      Pennsylvania State University and a PhD in Pharmaceutical
-                      Chemistry from the University of California, San
-                      Francisco. She completed a postdoctoral fellowship in
-                      cardiovascular pharmacogenomics at the Children’s Hospital
-                      Oakland Research Institute.
+                      <p>
+                        Dr. Mangravite obtained a BS in Physics from the
+                        Pennsylvania State University and a PhD in Pharmaceutical
+                        Chemistry from the University of California, San
+                        Francisco. She completed a postdoctoral fellowship in
+                        cardiovascular pharmacogenomics at the Children’s Hospital
+                        Oakland Research Institute.
+                      </p>
                     </div>
                     <div>
-                      For more information, please visit{' '}
-                      <a href="https://www.sagebionetworks.org">
-                        www.sagebionetworks.org
-                      </a>
-                      .
+                      <p>
+                        For more information, please visit{' '}
+                        <a href="https://www.sagebionetworks.org">
+                          www.sagebionetworks.org
+                        </a>
+                        .
+                      </p>
                     </div>
                   </div>
                   <SageLogo />
                 </Grid>
               </Grid>
-            </div>
-          </Grid>
-        </Grid>
-        <Grid container justify="center" alignItems="center">
-          <Grid item xs={12} sm={8} lg={6}>
-            <div className={classes.quoteTextContainer}>
-              <h3 className={introClasses.paperPanelStepTitle}>
-                “As a COVID-19 survivor community, we can give researchers a
-                real shot at understanding - and beating - this disease. Own
-                your recovery. Give back, support science, and save lives!”
-              </h3>
-              <div>Diana Berrent, Founder, Survivor Corps</div>
-            </div>
-          </Grid>
-        </Grid>
 
+              {/* Survivor Corps callout */}
+              <Grid
+                container
+                justify="center"
+                alignItems="flex-start"
+              >
+                <div className={introClasses.paperPanelTitle}>
+                  <h2>In partnership with Survivor Corps</h2>
+                </div>
+                <Hidden xsDown>
+                  <BlueSeparator />
+                </Hidden>
+
+                <Grid
+                  container
+                  justify="center"
+                  alignItems="flex-start"
+                >
+                  <Grid item xs={12} sm={6}>
+                    <img className={classes.profileImage} src={SurvivorCorps} />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <div className={classes.paddingBottom20}>
+                      <p>
+                        Survivor Corps is a rapidly growing grassroots network of more than 45,000 COVID-19 survivors and family members who have first-hand experience with the virus. They are motivated to help others navigate the illness and find a pathway to recovery. Founded by Diana Berrent, Survivor Corps is mobilizing these survivors to donate plasma and to support ongoing scientific, medical and academic research to identify and improve treatments, understand the disease, and develop a vaccine.
+                      </p>
+                    </div>
+                    <p>
+                      For more information, please visit <br></br>
+                      <a href="https://www.survivorcorps.com">
+                        www.survivorcorps.com
+                      </a>
+                      .
+                    </p>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </div>
+          </Grid>
+        </Grid>
         <div className={classes.greenBox}>
           <Grid item xs={12} md={10} lg={8}>
             <h2>With support from the Chan Zuckerberg Initiative</h2>
