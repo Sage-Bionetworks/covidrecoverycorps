@@ -88,7 +88,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
       if (quizIndex === -1) {
         return false
       } else {
-        //find idf quiz has an answer
+        //find if quiz has an answer
         if (quizAnswers[quizIndex] !== undefined) {
           return false
         }
@@ -106,6 +106,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
             onClick={() => {
               window.scrollTo(0, 0)
               setCurrentStep(prev => prev - 1)
+              setQuizAnswers(new Array(2))
             }}
           >
             <FontAwesomeIcon icon={faArrowLeft} />
@@ -122,6 +123,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
               window.scrollTo(0, 0)
               if (currentStep < totalSteps) {
                 setCurrentStep(prev => prev + 1)
+                setQuizAnswers(new Array(2))
               } else {
                 onDone()
               }
@@ -176,11 +178,9 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
         <RadioGroup
           aria-label="can consent"
           name="quizQuestion"
-          value={quizAnswers[quizIndex]}
           onChange={(_event: any, value: string) =>
             setQuizAnswers(prev => {
               const newAnswers = [...prev]
-              // const correct = value === quiz.correctAnser
               newAnswers[quizIndex] = parseInt(value, 10)
               console.log(newAnswers)
               return newAnswers
