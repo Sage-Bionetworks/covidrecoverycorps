@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'space-between',
     color: '#2E2E2E', // dark
-    backgroundColor: '#F2F2F2', // light
+    backgroundColor: '#FCFCFC', // light
     height: '80px',
   },
   menuButton: {
@@ -70,7 +70,7 @@ const useStyles = makeStyles(theme => ({
     color: '#2E2E2E',
     marginLeft: 30,
     paddingBottom: 7,
-    fontWeight: 'bold',
+    fontWeight: 400,
     '&:hover': {
       textDecoration: 'none',
       color: '#2E2E2E',

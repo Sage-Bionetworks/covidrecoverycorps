@@ -314,7 +314,7 @@ function App() {
                   border: '1px solid black',
 
                   bottom: '10px',
-                  right: '10px',
+                  right: '50px',
                   fontSize: '.5rem',
                   position: 'fixed',
                 }}
