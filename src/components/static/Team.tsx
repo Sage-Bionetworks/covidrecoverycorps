@@ -86,13 +86,14 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
               <div className={introClasses.paperPanelStepBody}>
                 <p>
                   Led by Columbia University and Sage Bionetworks, the study
-                  aims to enable those who have recovered from COVID-19 to help
-                  scientists answer key questions - about how the body fights
-                  coronavirus and whether and how often infection affords
-                  immunity. Starting in the New York metropolitan area - the
-                  epicenter of the pandemic in the United States - participants
-                  will be part of a powerful dataset that may lead to scientific
-                  advances to help save lives.{' '}
+                  aims to enable those who have recovered from COVID-19 to
+                  partner with scientists to answer key questions - about how
+                  the body fights coronavirus and whether and how often
+                  infection affords immunity. Starting in the New York
+                  metropolitan area - the epicenter of the pandemic in the
+                  United States - participants will help build a powerful
+                  dataset that may significantly advance science and help save
+                  lives.
                 </p>
               </div>
               {/* Wendy's profile */}
@@ -111,12 +112,15 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
                   </h3>
                   <div className={introClasses.paperPanelStepBody}>
                     <p>
-                      Dr. Wendy Chung is a co-Principal Investigator based at
-                      Columbia University with oversight over clinical
-                      operations. Dr Chung is an ABMG board certified clinical
-                      and molecular geneticist with 20 years of experience in
-                      clinical research, largely for rare diseases. She leads
-                      the Precision Medicine Resource of the Irving Institute at
+                      <strong>
+                        Dr. Wendy Chung is a co-Principal Investigator based at
+                        Columbia University with oversight over clinical
+                        operations.
+                      </strong>{' '}
+                      Dr Chung is an ABMG board certified clinical and molecular
+                      geneticist with 20 years of experience in clinical
+                      research, largely for rare diseases. She leads the
+                      Precision Medicine Resource of the Irving Institute at
                       Columbia University and is the principal investigator of
                       the large U.S. study of autism, SPARK.
                     </p>
@@ -125,8 +129,10 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
                       to develop better supports and treatments for rare
                       diseases and was recognized by the National Organization
                       of Rare Disorders with the Rare Impact Award in 2019. She
-                      was recently featured in the documentary, The Gene: An
-                      Intimate History.
+                      was recently featured in the documentary,{' '}
+                      <a href="https://www.pbs.org/show/gene/" target="_blank">
+                        The Gene: An Intimate History.
+                      </a>
                     </p>
                     <p>
                       For more information, please visit{' '}
@@ -153,8 +159,10 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
                   </h3>
                   <div className={introClasses.paperPanelStepBody}>
                     <div className={classes.paddingBottom20}>
-                      Dr. Lara Mangravite is a co-Principal Investigator with
-                      oversight over technology, governance, and data commons.
+                      <strong>
+                        Dr. Lara Mangravite is a co-Principal Investigator with
+                        oversight over technology, governance, and data commons.
+                      </strong>
                       Dr. Mangravite has extensive experience leading projects
                       at Sage Bionetworks. She favors applying collaborative
                       approaches to advance understanding of disease biology and
@@ -201,13 +209,13 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
             <h2>With support from the Chan Zuckerberg Initiative</h2>
             <div className={introClasses.labTextBodyDiv}>
               <p>
-                Founded by Dr. Priscilla Chan and Mark Zuckerberg <br></br>in
-                2015, the Chan Zuckerberg Initiative (CZI) is a new kind of
-                philanthropy that’s leveraging technology to help solve some of
-                the world’s toughest challenges — from eradicating disease, to
-                improving education, to reforming the criminal justice system.
-                Across three core Initiative focus areas of Science, Education,
-                and Justice & Opportunity, we’re pairing engineering with
+                Founded by Dr. Priscilla Chan and Mark Zuckerberg in 2015, the
+                Chan Zuckerberg Initiative (CZI) is a new kind of philanthropy
+                that’s leveraging technology to help solve some of the world’s
+                toughest challenges — from eradicating disease, to improving
+                education, to reforming the criminal justice system. Across
+                three core Initiative focus areas of Science, Education, and
+                Justice &amp; Opportunity, we’re pairing engineering with
                 grant-making, impact investing, and policy and advocacy work to
                 help build an inclusive, just and healthy future for everyone.
               </p>
