@@ -62,7 +62,7 @@ export const ConsentSentConfirmation: React.FunctionComponent<ConsentSentConfirm
   }
 
   return (
-    <div style={{textAlign: 'center'}} >
+    <div style={{ textAlign: 'center' }}>
       {type === 'CONSENT' && (
         <h2>Thank you for joining the COVID Recovery Corps !</h2>
       )}

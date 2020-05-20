@@ -76,15 +76,17 @@ const summaryScreens = [
         <strong>15-minute survey</strong>.{' '}
       </p>
       <p className="Consent__copy">
-        It is ok, if you don't remember or know the answer to some of the
+        It is ok if you don't remember or know the answer to some of the
         questions.{' '}
       </p>{' '}
       <p className="Consent__copy">
-        You can pick "Prefer not to answer" for any of the questions.{' '}
+        You can pick "Prefer not to answer" for any of the questions.
       </p>
     </div>
 
-    <p className="Consent__copy">We may ask you to provide the following:</p>
+    <p className="Consent__copy">
+      <strong>We may ask you to provide the following:</strong>
+    </p>
 
     <div className="list">
       <p className="Consent__copy">
@@ -232,7 +234,7 @@ const summaryScreens = [
 
     <p className="Consent__copy">
       This de-identified data does not contain identifiers like name, date of
-      birth, or zip code.{' '}
+      birth, or email address.{' '}
     </p>
 
     <p className="Consent__copy">

@@ -329,10 +329,10 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               </h2>
               <div className={classes.labTextBodyDiv}>
                 <p>
-                  You recovered. So have thousands of others. Your experiences
+                  You recovered. So have thousands of others. Your experience
                   could help unlock the mysteries behind this disease. Our
-                  mission is to learn more about COVID-19 by bringing your
-                  experiences together.{' '}
+                  mission is to learn more about COVID-19 by bringing together
+                  the collective experiences of thousands of recovered patients.
                 </p>
               </div>
             </div>
@@ -417,13 +417,11 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
                       We will invite some participants to visit clinical sites
                       in New York City to donate a sample. In the future, other
                       participants will be invited to donate a sample from home.
-                      Sharing your samples will help researchers develop more
-                      reliable antibody tests that can make antibody testing
-                      accessible to more people, and in turn, may help answer
-                      important questions including: Who was really infected
-                      with COVID-19? What levels of antibodies are needed to
-                      protect us from reinfection? Is it possible for people to
-                      develop full immunity to COVID-19?
+                      Sharing your samples will help answer important questions
+                      including: Who was really infected with COVID-19? What
+                      levels of antibodies are needed to protect us from
+                      reinfection? Is it possible for people to develop full
+                      immunity to COVID-19?
                     </p>
                   </div>
                 </Grid>
@@ -450,17 +448,18 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
                   </h3>
                   <div className={classes.paperPanelStepBody}>
                     <p>
-                      If you are asked to provide a sample, we will return
-                      results of the antibody test approved by the New York
-                      State Department of Health and share information about
-                      what those results mean. As we learn more about the impact
-                      of COVID-19 across study participants, we will share
-                      regular updates with the broader scientific and patient
-                      community. We may also ask if you are interested in
-                      joining other related studies. For instance, some
-                      participants may choose to be notified of opportunities to
-                      donate plasma and help those still fighting for survival
-                      from COVID-19.
+                      If you are asked to provide a sample, we will test the
+                      sample for antibodies related to COVID-19 infection, using
+                      an antibody test approved by the New York State Department
+                      of Health. We will share your test results with you, along
+                      with information about what those results may mean. As we
+                      learn more about the impact of COVID-19 across study
+                      participants, we will share regular updates with the
+                      broader scientific and patient community. We may also ask
+                      if you are interested in joining other related studies.
+                      For instance, some participants may choose to be notified
+                      of opportunities to donate plasma and help those still
+                      fighting for survival from COVID-19.
                     </p>
                   </div>
                 </Grid>
