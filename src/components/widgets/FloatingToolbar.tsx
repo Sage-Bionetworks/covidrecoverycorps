@@ -49,7 +49,7 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = pr
   return (
     <div
       className="FloatingToolbar"
-      style={{ top: top, width: '100%', height: '78px' }}
+      style={{ top: top, width: '100%', height: '80px' }}
     >
       <div className="row" style={{ position: 'relative', marginTop: '17px' }}>
         {
