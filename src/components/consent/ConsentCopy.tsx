@@ -76,15 +76,14 @@ const summaryScreens = [
         <strong>15-minute survey</strong>.{' '}
       </p>
       <p className="Consent__copy">
-        It is ok, if you don't remember or know the answer to some of the
-        questions.{' '}
+      It is ok if you don't remember or know the answer to some of the questions.{' '}
       </p>{' '}
       <p className="Consent__copy">
-        You can pick "Prefer not to answer" for any of the questions.{' '}
+      You can pick "Prefer not to answer" for any of the questions.
       </p>
     </div>
 
-    <p className="Consent__copy">We may ask you to provide the following:</p>
+    <p className="Consent__copy"><strong>We may ask you to provide the following:</strong></p>
 
     <div className="list">
       <p className="Consent__copy">
