@@ -71,7 +71,10 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
             color="primary"
             variant="contained"
             size="large"
-            onClick={() => setCurrentStep(prev => prev - 1)}
+            onClick={() => {
+              window.scrollTo(0, 0)
+              setCurrentStep(prev => prev - 1)
+            }}
           >
             <FontAwesomeIcon icon={faArrowLeft} />
             &nbsp;
@@ -84,6 +87,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
             size="large"
             onClick={() => {
               //  if (currentStep < totalSteps) {
+              window.scrollTo(0, 0)
               setCurrentStep(prev => prev + 1)
               //  } else {
               //    onDone()
@@ -147,7 +151,12 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
       <div>
         <ConsentCopy screen="HIPAA_LAST_INTRO" isEHR={true}></ConsentCopy>
         <div className="Consent__inset">
-          <p>I understand and agree to the following:</p>
+          <p>
+            <strong>
+              I know the following information may be gathered from my EHR:
+            </strong>
+          </p>
+
           <ConsentCopy screen="HIPAA_LAST_TERMS" isEHR={true}></ConsentCopy>
           <p>Please check the box below if you agree to take part:</p>
           <form className="Consent__form" onSubmit={handleSubmit}>
@@ -199,18 +208,15 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
     <Card>
       <CardContent>
         <div className="Consent">
-          {currentStep < 10 && (
-            <>
-              <FloatingToolbar
-                closeLinkDestination="/dashboard"
-                closeLinkText=""
-                closeConfirmationText="Are you sure you want to leave the HIPPA Authorization process?"
-              >
-                HIPAA Authorization
-              </FloatingToolbar>
-            </>
-          )}
-
+          <>
+            <FloatingToolbar
+              closeLinkDestination="/dashboard"
+              closeLinkText=""
+              closeConfirmationText="Are you sure you want to leave the HIPPA Authorization process?"
+            >
+              HIPAA Authorization
+            </FloatingToolbar>
+          </>
           {currentStep > 0 && currentStep <= totalSteps && (
             <div className="text-right page-numbers">
               <strong>
