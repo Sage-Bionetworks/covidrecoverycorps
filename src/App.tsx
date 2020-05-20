@@ -290,9 +290,12 @@ function App() {
     }
   }
 
-  const shouldShowFooter =  (location: string): boolean => {
+  const shouldShowFooter = (location: string): boolean => {
     const specialPages = ['dashboard', 'survey', 'contactinfo', 'consent']
-    return  (specialPages.find(page => location.toLowerCase().includes(page))=== undefined) 
+    return (
+      specialPages.find(page => location.toLowerCase().includes(page)) ===
+      undefined
+    )
   }
 
   return (
@@ -453,7 +456,7 @@ function App() {
                   </Route>
                 </Switch>
               </TopNav>
-             {shouldShowFooter(currentLocation) && <Footer token={token} />}
+              {shouldShowFooter(currentLocation) && <Footer token={token} />}
             </div>
           </Router>
         </div>
