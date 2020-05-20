@@ -28,11 +28,11 @@
         "rash_still_present",
         "swollen_fingers_toes",
         "swollen_fingers_toes_duration",
-        "swollen_fingers_toes_present",
+        "swollen_fingers_toes_still_present",
 
         "conjunctivitis",
         "conjunctivitis_duration",
-        "conjunctivitis_present",
+        "conjunctivitis_still_present",
 
         "fatigue",
         "fatigue_duration",
@@ -87,7 +87,10 @@
         "paralysis_still_present",
         "no_symptoms",
         "prefer_not_answer",
-        "other"
+        "other",
+        "other_specify",
+        "other_duration",
+        "other_still_present"
       ],
       "ui:widget": "checkboxes",
       "ui:options": {
@@ -183,6 +186,12 @@
         "classNames": "subcheckbox"
       },
       "seizures_still_present": {
+        "classNames": "subcheckbox"
+      },
+      "other_specify": {
+        "classNames": "wide"
+      },
+      "other_still_present": {
         "classNames": "subcheckbox"
       }
     }

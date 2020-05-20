@@ -349,18 +349,18 @@
                 }
               ]
             },
-            " conjunctivitis": {
+            "conjunctivitis": {
               "oneOf": [
                 {
                   "properties": {
-                    " conjunctivitis": {
+                    "conjunctivitis": {
                       "enum": [null]
                     }
                   }
                 },
                 {
                   "properties": {
-                    " conjunctivitis": {
+                    "conjunctivitis": {
                       "enum": [true]
                     },
                     "conjunctivitis_duration": {
@@ -368,7 +368,7 @@
                       "type": "number",
                       "minimum": 1
                     },
-                    " conjunctivitis_still_present": {
+                    "conjunctivitis_still_present": {
                       "title": "Still Present",
                       "type": "boolean"
                     }
@@ -718,7 +718,7 @@
                 },
                 {
                   "properties": {
-                    "paralysiss": {
+                    "paralysis": {
                       "enum": [true]
                     },
                     "paralysis_duration": {
@@ -836,6 +836,37 @@
                       "minimum": 1
                     },
                     "loss_of_taste_still_present": {
+                      "title": "Still Present",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              ]
+            },
+            "other": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [true]
+                    },
+                    "other_specify": {
+                      "title": "Please Specify",
+                      "type": "string"
+                    },
+                    "other_duration": {
+                      "title": "How Many Days?",
+                      "type": "number",
+                      "minimum": 1
+                    },
+                    "other_still_present": {
                       "title": "Still Present",
                       "type": "boolean"
                     }
@@ -1292,7 +1323,7 @@
                   "enum": ["I smoke every day."]
                 },
                 "smoking_how_many_cigarettes": {
-                  "type": "string",
+                  "type": "number",
                   "title": "7a. How many cigarettes on average do you smoke per day?"
                 }
               }
