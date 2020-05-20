@@ -290,6 +290,11 @@ function App() {
     }
   }
 
+  const shouldShowFooter =  (location: string): boolean => {
+    const specialPages = ['dashboard', 'survey', 'contactinfo', 'consent']
+    return  (specialPages.find(page => location.toLowerCase().includes(page))=== undefined) 
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Typography component={'div'}>
@@ -448,7 +453,7 @@ function App() {
                   </Route>
                 </Switch>
               </TopNav>
-              <Footer token={token} />
+             {shouldShowFooter(currentLocation) && <Footer token={token} />}
             </div>
           </Router>
         </div>
