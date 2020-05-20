@@ -944,12 +944,7 @@ const screens: { [key: string]: JSX.Element } = {
       </p>
     </div>
   ),
-  HIPAA_LAST_INTRO: (
-    <p className="Consent__copy">
-      If you understand and agree to the benefits &amp; risk of participating in
-      this study. Please sign below.
-    </p>
-  ),
+  HIPAA_LAST_INTRO: <></>,
   HIPAA_LAST_TERMS: (
     <p className="Consent__copy">
       <ul>
