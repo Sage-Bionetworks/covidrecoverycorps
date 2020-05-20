@@ -130,7 +130,7 @@
       "order": 35,
       "title": "",
       "validationRules": [],
-      "default": "done"
+      "default": ""
     }
   ]
 }
