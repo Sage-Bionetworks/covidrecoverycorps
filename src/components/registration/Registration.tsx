@@ -199,6 +199,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                   handleOnChange({
                     target: { name: 'email', value: '' },
                   })
+                  window.scrollTo(0,0)
                 }}
               >
                 I don't have an email account
