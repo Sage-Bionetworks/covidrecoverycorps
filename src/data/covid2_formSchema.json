@@ -29,42 +29,48 @@
         },
         "household_size": {
           "type": "object",
-          "title": "2.How many people live with you in your apartment/house in each age category? Include yourself. (Fill in 0 if none are)",
+          "title": "2. How many people live with you in your apartment/house in each age category? Include yourself. (Fill in 0 if none are)",
 
           "properties": {
             "under3": {
               "type": "number",
               "minimum": 0,
+              "default": 0,
               "title": "under 3 years old"
             },
             "3-6": {
               "type": "number",
               "minimum": 0,
+              "default": 0,
               "title": "3-6 years old"
             },
             "7–17": {
               "type": "number",
               "minimum": 0,
+              "default": 0,
               "title": "7–17 years old"
             },
             "18–64": {
               "type": "number",
               "minimum": 0,
+              "default": 0,
               "title": "18–64 years old"
             },
             "65–79": {
               "type": "number",
               "minimum": 0,
+              "default": 0,
               "title": "65–79 years old"
             },
             "80+": {
               "type": "number",
               "minimum": 0,
+              "default": 0,
               "title": "80 years old or older"
             },
             "no_answer": {
               "type": "boolean",
-              "minimum": 0,
+   
               "title": "Prefer not to answer"
             }
           }
@@ -138,19 +144,23 @@
           "properties": {
             "covid_diagnosed": {
               "type": "number",
-              "title": "Been diagnosed with COVID-19?"
+              "title": "Been diagnosed (have a positive lab test result) with COVID-19?",
+              "default": 0
             },
             "covid_suspected": {
               "type": "number",
-              "title": "Been suspected to have COVID-19?"
+              "title": "Had symptoms but no positive test result for COVID-19?",
+              "default": 0
             },
             "covid_hospitalized": {
               "type": "number",
-              "title": "Been hospitalized due to COVID-19?"
+              "title": "Been hospitalized due to COVID-19?",
+              "default": 0
             },
             "covid_died": {
               "type": "number",
-              "title": "Died due to COVID-19? "
+              "title": "Died due to COVID-19?",
+              "default": 0
             },
             "no_answer": {
               "type": "boolean",
@@ -359,10 +369,10 @@
           "type": "string",
           "uniqueItems": true,
           "enum": [
-            "One day",
-            "One week",
-            "One month",
-            "More than one month",
+            "One day ago",
+            "One week ago",
+            "One month ago",
+            "More than one month ago",
             "Don’t remember",
             "Prefer not to answer"
           ]
@@ -391,8 +401,7 @@
       "title": "",
       "required": [
         "transportation",
-        "telecommute",
-        "job_title",
+        "work_from_home",
         "were_healthcare_worker",
         "were_teacher_childcare",
         "were_foodservice",
@@ -418,8 +427,8 @@
             ]
           }
         },
-        "telecommute": {
-          "title": "19. Were you able to telecommute to work in the two weeks prior to becoming ill?",
+        "work_from_home": {
+          "title": "19. Were you able to work from home in the two weeks prior to becoming ill?",
           "type": "string",
           "uniqueItems": true,
           "enum": [

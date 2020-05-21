@@ -37,7 +37,7 @@
             ]
           }
         },
-        "enthnicity_other": {
+        "ethnicity_other": {
           "type": "string",
           "title": "2a. If you selected 'other', please specify."
         },
