@@ -97,6 +97,9 @@
     },
     "social_distance_household": {
       "ui:widget": "radio"
+    },
+    "leave_house_frequency": {
+      "ui:widget": "radio"
     }
   },
   "life_pets": {
@@ -131,7 +134,7 @@
         "inline": false
       }
     },
-    "telecommute": {
+    "work_from_home": {
       "ui:widget": "radio"
     },
     "job_title": {

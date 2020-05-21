@@ -127,7 +127,7 @@
   }
   .field-array {
     legend {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       margin-bottom: 2rem;
     }
     .array-item {
@@ -553,7 +553,7 @@
   .show_fieldSet {
     legend {
       display: block !important;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
     .form-group.field-boolean {
       margin-bottom: 0;
@@ -695,6 +695,13 @@
   .covid2 {
     &_covid1 {
       .countries {
+        .row.array-item-list {
+          margin-left: 0;
+          margin-right: 0;
+          .array-item {
+            overflow: hidden;
+          }
+        }
         .country-name {
           input[type='text'] {
             width: 75%;
@@ -798,7 +805,7 @@
         display: flex;
         flex-wrap: wrap;
         legend {
-          font-size: 1.8rem;
+          font-size: 1.6rem;
           width: 100%;
           margin-bottom: 5px;
         }
