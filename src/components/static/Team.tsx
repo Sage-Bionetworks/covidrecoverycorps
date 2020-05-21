@@ -70,19 +70,21 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
             <Hidden xsDown>
               <BlueSeparator />
             </Hidden>
-            <div className={introClasses.paperPanelStepBody}>
-              <p>
-                Led by Columbia University and Sage Bionetworks, the study
-                aims to enable those who have recovered from COVID-19 to
-                partner with scientists to answer key questions - about how
-                the body fights coronavirus and whether and how often
-                infection affords immunity. Starting in the New York
-                metropolitan area - the epicenter of the pandemic in the
-                United States - participants will help build a powerful
-                dataset that may significantly advance science and help save
-                lives.
-              </p>
-            </div>
+            <div className={introClasses.paperPanelStepContainer}>
+              <div className={introClasses.paperPanelStepBody}>
+                <p>
+                  Led by Columbia University and Sage Bionetworks, the study
+                  aims to enable those who have recovered from COVID-19 to
+                  partner with scientists to answer key questions - about how
+                  the body fights coronavirus and whether and how often
+                  infection affords immunity. Starting in the New York
+                  metropolitan area - the epicenter of the pandemic in the
+                  United States - participants will help build a powerful
+                  dataset that may significantly advance science and help save
+                  lives.
+                </p>
+              </div>
+            </div>            
             {/* Wendy's profile */}
             <Grid
               className={classes.profile}

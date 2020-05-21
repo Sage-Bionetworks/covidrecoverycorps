@@ -183,6 +183,12 @@ export const useIntroStyles = makeStyles(theme => ({
   pink: {
     color: '#FC9090',
   },
+  paperPanelStepContainer: {
+    paddingLeft: '0px',
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: '25px',
+    }    
+  },  
   paperPanelStepNumber: {
     color: '#FC9090',
     fontFamily: openSansFont,
@@ -375,7 +381,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
                   </div>
                 </Hidden>
                 <Grid container justify="center" alignItems="center">
-                  <Grid item xs={12} sm={9}>
+                  <Grid item xs={12} sm={9} className={classes.paperPanelStepContainer}>
                     <div className={classes.paperPanelStepNumber}>STEP ONE</div>
                     <h3 className={classes.paperPanelStepTitle}>
                       Register and take the survey
@@ -411,7 +417,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
                   </div>
                 </Hidden>
                 <Grid container justify="center" alignItems="center">
-                  <Grid item xs={12} sm={9}>
+                  <Grid item xs={12} sm={9} className={classes.paperPanelStepContainer}>
                     <div className={classes.paperPanelStepNumber}>STEP TWO</div>
                     <h3 className={classes.paperPanelStepTitle}>
                       Share your samples
@@ -445,7 +451,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
                   </div>
                 </Hidden>
                 <Grid container justify="center" alignItems="center">
-                  <Grid item xs={12} sm={9}>
+                  <Grid item xs={12} sm={9} className={classes.paperPanelStepContainer}>
                     <div className={classes.paperPanelStepNumber}>STEP THREE</div>
                     <h3 className={classes.paperPanelStepTitle}>
                       Learn with us along the way

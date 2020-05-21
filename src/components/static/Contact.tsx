@@ -41,7 +41,7 @@ export const Contact: React.FunctionComponent<ContactProps> = ({}: ContactProps)
             justify="center"
             alignItems="flex-start"
           >
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={8} className={introClasses.paperPanelStepContainer}>
               <div className="Contact__content1">
                 <p>
                   For information about participating and questions related to
