@@ -44,6 +44,20 @@
     li {
       overflow-y: hidden;
 
+      &.disabled {
+        opacity: 0.6;
+      }
+      &.disabled,
+      &.done {
+        .btn-container {
+          cursor: default;
+
+          &:hover {
+            background: transparent;
+          }
+        }
+      }
+
       &:first-child {
         .btn-container > .graphics > div.rect {
           top: 50%;
@@ -73,10 +87,6 @@
         margin-left: 0px;
         padding-right: 10%;
         justify-content: space-between;
-
-        &.done {
-          cursor: default;
-        }
 
         .title {
           font-family: 'Open Sans';
