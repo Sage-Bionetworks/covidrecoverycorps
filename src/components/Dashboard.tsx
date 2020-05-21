@@ -7,7 +7,7 @@ import completeIconImg from '../assets/dashboard/icon_complete.svg'
 import emptyIconImg from '../assets/dashboard/icon_empty.svg'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { Typography } from '@material-ui/core'
+import { Typography, CircularProgress } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 
 import CardContent from '@material-ui/core/CardContent'
@@ -15,6 +15,8 @@ import { SurveyService } from '../services/survey.service'
 import { SavedSurveysObject, SurveyType, SavedSurvey } from '../types/types'
 import _ from 'lodash'
 import PatientCorpsInfo from './PatientCorpsInfo'
+import { UserService } from '../services/user.service'
+import Alert from '@material-ui/lab/Alert/Alert'
 
 type DashboardProps = {
   token: string
@@ -36,7 +38,7 @@ const useStyles = makeStyles({
 const surveys: UISurvey[] = [
   {
     type: 'CONTACT',
-    title: 'profile',
+    title: 'step 1: profile',
     description: 'Contact Information',
     time: 2,
     link: '/contactinfo',
@@ -76,6 +78,9 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 }: DashboardProps) => {
   const urlParams = new URLSearchParams(window.location.search)
   const [savedSurveys, setSavedSurveys] = useState<SavedSurveysObject>()
+  const [error, setError] = useState()
+  const [isLoading, setIsLoading] = useState(false)
+  const [isContactInfoDone, setIsContactInfoDone] = useState(false)
   const [isFromConsent, setIsFromConsent] = useState(
     //get url param
     urlParams.get('consented'),
@@ -84,16 +89,27 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   const classes = useStyles()
 
   useEffect(() => {
-    const getSurveys = async () => {
-      try {
-        const response = await SurveyService.getUserSurveys(token)
-        setSavedSurveys(_.first(response.data.items)?.data)
-      } catch (e) {
-        alert(e)
+    let isSubscribed = true
+    const getInfo = async () => {
+      if (token && isSubscribed) {
+        try {
+          setIsLoading(true)
+          const userInfo = await UserService.getUserInfo(token)
+          setIsContactInfoDone(!!userInfo.data.attributes?.gender)
+          const response = await SurveyService.getUserSurveys(token)
+          setSavedSurveys(_.first(response.data.items)?.data)
+        } catch (e) {
+          setError(e)
+        } finally {
+          setIsLoading(false)
+        }
       }
     }
-    if (token) {
-      getSurveys()
+
+    getInfo()
+
+    return () => {
+      isSubscribed = false
     }
   }, [token])
 
@@ -111,27 +127,41 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       return !!savedSurvey?.updatedDate && !isDone(survey)
     }
 
-    const getIcon = (survey: UISurvey): JSX.Element => {
-      const image = isDone(survey) ? (
-        <img src={completeIconImg} alt="done"></img>
+    const getIconImageForContact = (): JSX.Element => {
+      return isContactInfoDone ? (
+        <img src={pencilIconImg} alt="edit contact information"></img>
       ) : (
-        <img src={emptyIconImg} alt="done"></img>
+        <img src={emptyIconImg} alt="to do"></img>
       )
-
-      return image
     }
 
     const getIconImage = (survey: UISurvey): JSX.Element => {
       if (survey.type === 'CONTACT') {
-        return <img src={pencilIconImg}></img>
+        return getIconImageForContact()
       }
-      return isInProgress(survey) ? (
-        <img src={saveProgressIconImg}></img>
-      ) : (
-        getIcon(survey)
-      )
+      if (isInProgress(survey)) {
+        return <img src={saveProgressIconImg}></img>
+      } else {
+        const image = isDone(survey) ? (
+          <img src={completeIconImg} alt="done"></img>
+        ) : (
+          <img src={emptyIconImg} alt="to do"></img>
+        )
+        return image
+      }
     }
 
+    const getClassNameForSurveyItem = (survey: UISurvey): string => {
+      if ((!isDone(survey) && isContactInfoDone) || survey.type === 'CONTACT') {
+        return 'item-wrap'
+      } else {
+        if (!isContactInfoDone) {
+          return 'item-wrap disabled'
+        } else {
+          return 'item-wrap done'
+        }
+      }
+    }
     const renderSurveyInfo = (
       survey: UISurvey,
       isTier1: boolean,
@@ -155,8 +185,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         </>
       )
 
-      if (isDone(survey)) {
-        return <div className="btn-container done">{innerElement}</div>
+      if (isDone(survey) || (!isContactInfoDone && survey.type !== 'CONTACT')) {
+        return <div className="btn-container">{innerElement}</div>
       } else {
         return (
           <a className="btn-container" href={survey.link}>
@@ -169,7 +199,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     const _surveys = isTier1 ? surveys.slice(0, 3) : surveys.slice(3)
 
     const items = _surveys.map((survey: UISurvey, index) => (
-      <li className="item-wrap" key={survey.title}>
+      <li className={getClassNameForSurveyItem(survey)} key={survey.title}>
         <div className="item">{renderSurveyInfo(survey, isTier1)}</div>
       </li>
     ))
@@ -181,6 +211,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         {/* isFromConsent && (
           <Typography variant="h2">Yay, the legal is done!</Typography>
         )*/}
+
         <p>
           The information you provide will help researchers learn more about
           COVID-19.
@@ -195,6 +226,12 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       </div>
 
       <Card className={classes.root}>
+        {error && <Alert severity="error">{error}</Alert>}
+        {isLoading && (
+          <div className="text-center">
+            <CircularProgress color="primary" />
+          </div>
+        )}
         <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
         <div className="separator">
           <img src={testTubeImg}></img>
