@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { makeStyles, Button, Grid, Hidden } from '@material-ui/core'
+import { makeStyles, Button, Grid, Hidden, Container } from '@material-ui/core'
 import { playfairDisplayFont, openSansFont } from '../../App'
 import AboutPageAboveFold from '../../assets/AboutPageAboveFold.png'
 import AboutPageAboveFoldMobile from '../../assets/AboutPageAboveFold_mobile.png'
@@ -17,10 +17,6 @@ export const useStyles = makeStyles(theme => ({
   heroImage: {
     width: '100%',
     height: 'auto',
-  },
-  paperHeaderText: {
-    color: '#ffffff',
-    maxWidth: '850px',
   },
   profile: {
     padding: '50px 10px',
@@ -57,28 +53,24 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
           </Hidden>
         </div>
         <div className={introClasses.paperHeaderDiv}>
-          <h3
-            className={`${classes.paperHeaderText} ${introClasses.paperHeaderText}`}
-          >
-            The COVID Recovery Corps is a citizen-powered research study to
-            learn more about COVID-19 and make progress in the global fight.
-          </h3>
+          <Container maxWidth="md">
+            <h3
+              className={introClasses.paperHeaderText}
+            >
+              The COVID Recovery Corps is a citizen-powered research study to
+              learn more about COVID-19 and make progress in the global fight.
+            </h3>
+          </Container>
         </div>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          className={introClasses.paperPanelWrapper}
-        >
-          <Grid item xs={12} md={10} lg={8}>
-            <div className={introClasses.paperPanel}>
-              <div className={introClasses.paperPanelTitle}>
-                <h2>Study leadership</h2>
-              </div>
-              <Hidden xsDown>
-                <BlueSeparator />
-              </Hidden>
+        <Container maxWidth="md" className={introClasses.paperPanelWrapper}>
+          <div className={introClasses.paperPanel}>
+            <div className={introClasses.paperPanelTitle}>
+              <h2>Study leadership</h2>
+            </div>
+            <Hidden xsDown>
+              <BlueSeparator />
+            </Hidden>
+            <div className={introClasses.paperPanelStepContainer}>
               <div className={introClasses.paperPanelStepBody}>
                 <p>
                   Led by Columbia University and Sage Bionetworks, the study
@@ -92,143 +84,144 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                   lives.
                 </p>
               </div>
-              {/* Wendy's profile */}
-              <Grid
-                className={classes.profile}
-                container
-                justify="center"
-                alignItems="flex-start"
-              >
-                <Grid item xs={12} sm={6}>
-                  <img className={classes.profileImage} src={Wendy} />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <h3 className={introClasses.paperPanelStepTitle}>
-                    Dr. Wendy Chung
-                  </h3>
-                  <div className={introClasses.paperPanelStepBody}>
+            </div>            
+            {/* Wendy's profile */}
+            <Grid
+              className={classes.profile}
+              container
+              justify="center"
+              alignItems="flex-start"
+            >
+              <Grid item xs={12} sm={6}>
+                <img className={classes.profileImage} src={Wendy} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <h3 className={introClasses.paperPanelStepTitle}>
+                  Dr. Wendy Chung
+                </h3>
+                <div className={introClasses.paperPanelStepBody}>
+                  <p>
+                    Dr. Wendy Chung is a co-Principal Investigator based at
+                    Columbia University with oversight over clinical
+                    operations.
+                    Dr Chung is an ABMG board certified clinical and molecular
+                    geneticist with 20 years of experience in clinical
+                    research, largely for rare diseases. She leads the
+                    Precision Medicine Resource of the Irving Institute at
+                    Columbia University and is the principal investigator of
+                    the large U.S. study of autism, SPARK.
+                  </p>
+                  <p>
+                    She works with many patient and family led organizations
+                    to develop better supports and treatments for rare
+                    diseases and was recognized by the National Organization
+                    of Rare Disorders with the Rare Impact Award in 2019. She
+                    was recently featured in the documentary,{' '}
+                    <a href="https://www.pbs.org/show/gene/" target="_blank">
+                      The Gene: An Intimate History.
+                    </a>
+                  </p>
+                  <p>
+                    For more information, please visit{' '}
+                    <a href="https://www.columbia.edu">www.columbia.edu</a>.
+                  </p>
+                </div>
+                <ColumbiaLogo />
+              </Grid>
+            </Grid>
+
+            {/* Lara's profile */}
+            <Grid
+              className={classes.profile}
+              container
+              justify="center"
+              alignItems="flex-start"
+            >
+              <Grid item xs={12} sm={6}>
+                <img className={classes.profileImage} src={Lara} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <h3 className={introClasses.paperPanelStepTitle}>
+                  Dr. Lara Mangravite
+                </h3>
+                <div className={introClasses.paperPanelStepBody}>
+                  <div className={classes.paddingBottom20}>
                     <p>
-                      Dr. Wendy Chung is a co-Principal Investigator based at
-                      Columbia University with oversight over clinical
-                      operations.
-                      Dr Chung is an ABMG board certified clinical and molecular
-                      geneticist with 20 years of experience in clinical
-                      research, largely for rare diseases. She leads the
-                      Precision Medicine Resource of the Irving Institute at
-                      Columbia University and is the principal investigator of
-                      the large U.S. study of autism, SPARK.
+                      Dr. Lara Mangravite is a co-Principal Investigator with
+                      oversight over technology, governance, and data commons.
+                      Dr. Mangravite has extensive experience leading projects
+                      at Sage Bionetworks. She favors applying collaborative
+                      approaches to advance understanding of disease biology and
+                      treatment outcomes at a systems level with the overriding
+                      goal of improving clinical care.{' '}
                     </p>
+                  </div>
+                  <div className={classes.paddingBottom20}>
                     <p>
-                      She works with many patient and family led organizations
-                      to develop better supports and treatments for rare
-                      diseases and was recognized by the National Organization
-                      of Rare Disorders with the Rare Impact Award in 2019. She
-                      was recently featured in the documentary,{' '}
-                      <a href="https://www.pbs.org/show/gene/" target="_blank">
-                        The Gene: An Intimate History.
-                      </a>
+                      Dr. Mangravite obtained a BS in Physics from the
+                      Pennsylvania State University and a PhD in Pharmaceutical
+                      Chemistry from the University of California, San
+                      Francisco. She completed a postdoctoral fellowship in
+                      cardiovascular pharmacogenomics at the Children’s Hospital
+                      Oakland Research Institute.
                     </p>
+                  </div>
+                  <div>
                     <p>
                       For more information, please visit{' '}
-                      <a href="https://www.columbia.edu">www.columbia.edu</a>.
-                    </p>
-                  </div>
-                  <ColumbiaLogo />
-                </Grid>
-              </Grid>
-
-              {/* Lara's profile */}
-              <Grid
-                className={classes.profile}
-                container
-                justify="center"
-                alignItems="flex-start"
-              >
-                <Grid item xs={12} sm={6}>
-                  <img className={classes.profileImage} src={Lara} />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <h3 className={introClasses.paperPanelStepTitle}>
-                    Dr. Lara Mangravite
-                  </h3>
-                  <div className={introClasses.paperPanelStepBody}>
-                    <div className={classes.paddingBottom20}>
-                      <p>
-                        Dr. Lara Mangravite is a co-Principal Investigator with
-                        oversight over technology, governance, and data commons.
-                        Dr. Mangravite has extensive experience leading projects
-                        at Sage Bionetworks. She favors applying collaborative
-                        approaches to advance understanding of disease biology and
-                        treatment outcomes at a systems level with the overriding
-                        goal of improving clinical care.{' '}
-                      </p>
-                    </div>
-                    <div className={classes.paddingBottom20}>
-                      <p>
-                        Dr. Mangravite obtained a BS in Physics from the
-                        Pennsylvania State University and a PhD in Pharmaceutical
-                        Chemistry from the University of California, San
-                        Francisco. She completed a postdoctoral fellowship in
-                        cardiovascular pharmacogenomics at the Children’s Hospital
-                        Oakland Research Institute.
-                      </p>
-                    </div>
-                    <div>
-                      <p>
-                        For more information, please visit{' '}
-                        <a href="https://www.sagebionetworks.org">
-                          www.sagebionetworks.org
-                        </a>
-                        .
-                      </p>
-                    </div>
-                  </div>
-                  <SageLogo />
-                </Grid>
-              </Grid>
-
-              {/* Survivor Corps callout */}
-              <Grid
-                container
-                justify="center"
-                alignItems="flex-start"
-              >
-                <div className={introClasses.paperPanelTitle}>
-                  <h2>In partnership with Survivor Corps</h2>
-                </div>
-                <Hidden xsDown>
-                  <BlueSeparator />
-                </Hidden>
-
-                <Grid
-                  container
-                  justify="center"
-                  alignItems="flex-start"
-                >
-                  <Grid item xs={12} sm={6}>
-                    <img className={classes.profileImage} src={SurvivorCorps} />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <div className={classes.paddingBottom20}>
-                      <p>
-                        Survivor Corps is a rapidly growing grassroots network of more than 45,000 COVID-19 survivors and family members who have first-hand experience with the virus. They are motivated to help others navigate the illness and find a pathway to recovery. Founded by Diana Berrent, Survivor Corps is mobilizing these survivors to donate plasma and to support ongoing scientific, medical and academic research to identify and improve treatments, understand the disease, and develop a vaccine.
-                      </p>
-                    </div>
-                    <p>
-                      For more information, please visit <br></br>
-                      <a href="https://www.survivorcorps.com">
-                        www.survivorcorps.com
+                      <a href="https://www.sagebionetworks.org">
+                        www.sagebionetworks.org
                       </a>
                       .
                     </p>
-                  </Grid>
+                  </div>
+                </div>
+                <SageLogo />
+              </Grid>
+            </Grid>
+
+            {/* Survivor Corps callout */}
+            <Grid
+              container
+              justify="center"
+              alignItems="flex-start"
+            >
+              <div className={introClasses.paperPanelTitle}>
+                <h2>In partnership with Survivor Corps</h2>
+              </div>
+              <Hidden xsDown>
+                <BlueSeparator />
+              </Hidden>
+
+              <Grid
+                container
+                justify="center"
+                alignItems="flex-start"
+              >
+                <Grid item xs={12} sm={6}>
+                  <img className={classes.profileImage} src={SurvivorCorps} />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <div className={classes.paddingBottom20}>
+                    <p>
+                      Survivor Corps is a rapidly growing grassroots network of more than 45,000 COVID-19 survivors and family members who have first-hand experience with the virus. They are motivated to help others navigate the illness and find a pathway to recovery. Founded by Diana Berrent, Survivor Corps is mobilizing these survivors to donate plasma and to support ongoing scientific, medical and academic research to identify and improve treatments, understand the disease, and develop a vaccine.
+                    </p>
+                  </div>
+                  <p>
+                    For more information, please visit <br></br>
+                    <a href="https://www.survivorcorps.com">
+                      www.survivorcorps.com
+                    </a>
+                    .
+                  </p>
                 </Grid>
               </Grid>
-            </div>
-          </Grid>
-        </Grid>
+            </Grid>
+          </div>
+        </Container>
+
         <div className={classes.greenBox}>
-          <Grid item xs={12} md={10} lg={8}>
+          <Container maxWidth="md">
             <h2>With support from the Chan Zuckerberg Initiative</h2>
             <div className={introClasses.labTextBodyDiv}>
               <p>
@@ -250,7 +243,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
               </a>
               .
             </p>
-          </Grid>
+          </Container>
         </div>
       </div>
     </div>
