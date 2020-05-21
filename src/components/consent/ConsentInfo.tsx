@@ -31,7 +31,7 @@ const quizes = [
     ],
     explanation:
       'This study is a research study to understand COVID-19 better. The study does not provide medical treatment.',
-    correctAnser: 1,
+    correctAnswer: 1,
   },
   {
     screen: 5,
@@ -39,7 +39,7 @@ const quizes = [
     options: ['Privacy', 'There is no risk in participating in this study'],
     explanation:
       'We will do our best to protect your privacy. But we can’t guarantee your privacy. It is possible that public health authorities will ask to see the data.',
-    correctAnser: 0,
+    correctAnswer: 0,
   },
   {
     screen: 8,
@@ -52,7 +52,7 @@ const quizes = [
     ],
     explanation:
       'If you decide to end your data sharing with qualified researchers, we will not share your future data. But the data we have already shared with qualified researchers, we unfortunately cannot get back.',
-    correctAnser: 1,
+    correctAnswer: 1,
   },
 ]
 
@@ -145,11 +145,13 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     if (quizIndex == -1) {
       return <></>
     }
-    const getQuizButtonClass = (correctAnswer: number, quizAnswer: number) => {
-      if (quizAnswers[quizIndex] === undefined) {
+    const getQuizButtonClass = (correctAnswer: number, buttonValue: number) => {
+      const currentAnswer = quizAnswers[quizIndex]
+      if (currentAnswer === undefined || currentAnswer !== buttonValue) {
+        // this button was not selected, do not style
         return ''
       }
-      return quizAnswer === correctAnswer ? 'success' : 'error'
+      return buttonValue === correctAnswer ? 'success' : 'error'
     }
 
     const quiz = quizes[quizIndex]
@@ -164,10 +166,10 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
               padding: '0px',
             }}
             severity={
-              quizAnswers[quizIndex] === quiz.correctAnser ? 'success' : 'error'
+              quizAnswers[quizIndex] === quiz.correctAnswer ? 'success' : 'error'
             }
             color={
-              quizAnswers[quizIndex] === quiz.correctAnser ? 'info' : 'error'
+              quizAnswers[quizIndex] === quiz.correctAnswer ? 'info' : 'error'
             }
           >
             {' '}
@@ -188,13 +190,13 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
           }
         >
           <FormControlLabel
-            className={getQuizButtonClass(quiz.correctAnser, 0)}
+            className={getQuizButtonClass(quiz.correctAnswer, 0)}
             value="0"
             control={<Radio />}
             label={quiz.options[0]}
           />
           <FormControlLabel
-            className={getQuizButtonClass(quiz.correctAnser, 1)}
+            className={getQuizButtonClass(quiz.correctAnswer, 1)}
             value="1"
             control={<Radio />}
             label={quiz.options[1]}
