@@ -105,6 +105,7 @@ const useStyles = makeStyles(theme => ({
     lineHeight: '30px',
     fontStyle: 'normal',
     padding: '10px 0px 10px 40px',
+    color: '#2A2A2A'
   },
   mobileMenuSeparator: {
     height: '2px',
