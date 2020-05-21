@@ -40,6 +40,7 @@ import GoogleAnalyticsPageTracker from './components/widgets/GoogleAnalyticsPage
 import CookieNotificationBanner from './components/widgets/CookieNotificationBanner'
 import ScrollToTopOnRouteChange from './components/widgets/ScrollToTopOnRouteChange'
 import Footer from './components/widgets/Footer'
+import PrivacyPolicy from './components/static/PrivacyPolicy'
 
 export const openSansFont = [
   'Open Sans',
@@ -443,6 +444,10 @@ function App() {
                   <Route path="/contact">
                     <Contact />
                   </Route>
+                  <Route path="/privacypolicy">
+                    <PrivacyPolicy />
+                  </Route>
+
                   <Route path="/settings">
                     {renderWithGridLayout(
                       <AcountSettings token={token!}></AcountSettings>,

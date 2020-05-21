@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '@material-ui/core'
-
-export const privacyPolicyLink: string = '/PrivacyPolicy.pdf'
+import { Link } from 'react-router-dom'
 
 export default function CookieNotificationBanner() {
   const isCookiePolicyPreviouslyAccepted: boolean =
@@ -29,10 +28,7 @@ export default function CookieNotificationBanner() {
           traffic. Using this website means that you agree with our cookie
           policy.
         </div>
-        <a target="_blank" rel="noopener noreferrer" href={privacyPolicyLink}>
-          {' '}
-          <u> Learn more</u>
-        </a>
+        <Link to="/privacypolicy">Learn more</Link>
       </div>
       <Button
         variant="contained"

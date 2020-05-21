@@ -1,10 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
-import { Link, Toolbar } from '@material-ui/core'
+import { Toolbar } from '@material-ui/core'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { openSansFont } from '../../App'
-import { privacyPolicyLink } from './CookieNotificationBanner'
 import { ReactComponent as CZILogo } from '../../assets/czi_logo.svg'
 
 type FooterProps = {
@@ -90,13 +89,9 @@ export const Footer: React.FunctionComponent<FooterProps> = props => {
           <NavLink to="/contact" className={classes.fullNavBarLink}>
             Contact Us
           </NavLink>
-          <Link
-            href={privacyPolicyLink}
-            className={classes.fullNavBarLink}
-            target="_blank"
-          >
+          <NavLink to="/privacypolicy" className={classes.fullNavBarLink}>
             Privacy Policy
-          </Link>
+          </NavLink>
           {props.token && (
             <NavLink to="/settings" className={classes.fullNavBarLink}>
               Account Settings

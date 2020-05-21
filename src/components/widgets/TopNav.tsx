@@ -22,7 +22,6 @@ import Alert from '@material-ui/lab/Alert'
 import { openSansFont } from '../../App'
 import { getSearchParams } from '../../helpers/utility'
 import GlobalAlertCopy from './GlobalAlertCopy'
-import { privacyPolicyLink } from './CookieNotificationBanner'
 
 type TopNavProps = {
   token: string | undefined
@@ -183,15 +182,11 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
         >
           <ListItem button className={classes.mobileMenuItem}>Contact Us</ListItem>
         </NavLink>
-        <Link
-          href={privacyPolicyLink}
+        <NavLink
+          to="/privacypolicy"
           onClick={handleDrawerToggle}
           className={classes.navBarLink}
-          target="_blank"
-        >
-          <ListItem button className={classes.mobileMenuItem}>Privacy Policy</ListItem>
-        </Link>
-
+        ></NavLink>
         <Divider className={classes.mobileMenuSeparator} />
         {props.token && (
           <NavLink
@@ -276,13 +271,13 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
       >
         Contact Us
       </NavLink>
-      <Link
-        href={privacyPolicyLink}
+      <NavLink
+        to="/privacypolicy"
         className={classes.fullNavBarLink}
-        target="_blank"
+        activeClassName={classes.fullNavBarLinkActive}
       >
         Privacy Policy
-      </Link>
+      </NavLink>
       {props.token && (
         <NavLink
           to="/settings"
