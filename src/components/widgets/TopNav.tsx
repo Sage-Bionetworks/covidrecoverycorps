@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { makeStyles } from '@material-ui/core/styles'
 import Logout from '../login/Logout'
@@ -28,7 +28,7 @@ type TopNavProps = {
   token: string | undefined
   logoutCallbackFn: Function
 }
-const drawerWidth = 240
+const drawerWidth = 275
 const useStyles = makeStyles(theme => ({
   drawer: {
     width: drawerWidth,
@@ -99,6 +99,33 @@ const useStyles = makeStyles(theme => ({
     paddingTop: '11px',
     paddingLeft: '15px',
   },
+  mobileMenuItem: {
+    fontSize: '18px',
+    fontWeight: 'bold',
+    lineHeight: '30px',
+    fontStyle: 'normal',
+    padding: '10px 0px 10px 40px',
+  },
+  mobileMenuSeparator: {
+    height: '2px',
+    margin: '20px 0px',
+    backgroundColor: '#2A2A2A',
+  },
+  drawerHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: theme.spacing(0, 1),
+    justifyContent: 'flex-end',
+    height: '72px',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    marginBottom: '10px',
+  },
+  drawerCloseButton: {
+    width: '48px',
+  },
+  drawerCloseIcon: {
+    color: '#2A2A2A',
+  },
 }))
 
 export const TopNav: React.FunctionComponent<TopNavProps> = props => {
@@ -112,6 +139,11 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
 
   const drawer = (
     <div>
+    <div className={classes.drawerHeader}>
+        <IconButton onClick={handleDrawerToggle} className={classes.drawerCloseButton}>
+          <FontAwesomeIcon icon={faTimes} className={classes.drawerCloseIcon}></FontAwesomeIcon>
+        </IconButton>
+      </div>
       <List>
         {props.token && (
           <NavLink
@@ -119,7 +151,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             onClick={handleDrawerToggle}
             className={classes.navBarLink}
           >
-            <ListItem button>Survey Dashboard</ListItem>
+            <ListItem button className={classes.mobileMenuItem}>Survey Dashboard</ListItem>
           </NavLink>
         )}
         <NavLink
@@ -127,28 +159,28 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           onClick={handleDrawerToggle}
           className={classes.navBarLink}
         >
-          <ListItem button>About</ListItem>
+          <ListItem button className={classes.mobileMenuItem}>About</ListItem>
         </NavLink>
         <NavLink
           to="/team"
           onClick={handleDrawerToggle}
           className={classes.navBarLink}
         >
-          <ListItem button>Meet the Researchers</ListItem>
+          <ListItem button className={classes.mobileMenuItem}>Meet the Researchers</ListItem>
         </NavLink>
         <NavLink
           to="/faqs"
           onClick={handleDrawerToggle}
           className={classes.navBarLink}
         >
-          <ListItem button>FAQs</ListItem>
+          <ListItem button className={classes.mobileMenuItem}>FAQs</ListItem>
         </NavLink>
         <NavLink
           to="/contact"
           onClick={handleDrawerToggle}
           className={classes.navBarLink}
         >
-          <ListItem button>Contact Us</ListItem>
+          <ListItem button className={classes.mobileMenuItem}>Contact Us</ListItem>
         </NavLink>
         <Link
           href={privacyPolicyLink}
@@ -156,17 +188,17 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.navBarLink}
           target="_blank"
         >
-          <ListItem button>Privacy Policy</ListItem>
+          <ListItem button className={classes.mobileMenuItem}>Privacy Policy</ListItem>
         </Link>
 
-        <Divider />
+        <Divider className={classes.mobileMenuSeparator} />
         {props.token && (
           <NavLink
             to="/settings"
             onClick={handleDrawerToggle}
             className={classes.navBarLink}
           >
-            <ListItem button>Account Settings</ListItem>
+            <ListItem button className={classes.mobileMenuItem}>Account Settings</ListItem>
           </NavLink>
         )}
         {props.token && (
@@ -175,7 +207,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             onClick={handleDrawerToggle}
             className={classes.navBarLink}
           >
-            <ListItem>
+            <ListItem button className={classes.mobileMenuItem}>
               <Logout
                 onLogout={() => props.logoutCallbackFn(undefined, '', false)}
               ></Logout>
@@ -188,7 +220,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             onClick={handleDrawerToggle}
             className={classes.navBarLink}
           >
-            <ListItem>Join Us</ListItem>
+            <ListItem button className={classes.mobileMenuItem}>Join Us</ListItem>
           </NavLink>
         )}
         {!props.token && (
@@ -197,7 +229,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             onClick={handleDrawerToggle}
             className={classes.navBarLink}
           >
-            <ListItem button>Log in</ListItem>
+            <ListItem button className={classes.mobileMenuItem}>Log in</ListItem>
           </NavLink>
         )}
       </List>
