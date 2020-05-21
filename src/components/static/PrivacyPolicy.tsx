@@ -274,7 +274,7 @@ export const PrivacyPolicy: React.FunctionComponent = ({}) => {
                         we can be reached at the following:
                       </p>
                       <p className={classes.address}>
-                        <b>Sage Bionetworks<b>
+                        <b>Sage Bionetworks</b><br />
                         Attention: Data Protection Officer <br />
                         2901 Third Avenue, Suite 330, <br />
                         Seattle, WA 98121 <br />
@@ -298,6 +298,65 @@ export const PrivacyPolicy: React.FunctionComponent = ({}) => {
                     </div>
                   </LearnMore>
 
+                  <LearnMore
+                    learnMoreText=""
+                    clickableElement={
+                      <h3> Cross-Border Transfer of Your Information </h3>
+                    }
+                  >
+                    <div>
+                      <p>
+                        Although you may access the website from a location
+                        outside of the United States, the website is primarily
+                        operated and managed within the United States. When we
+                        transfer information and data, we will protect the
+                        information and data as described in this Privacy Policy.
+                      </p>
+                    </div>
+                  </LearnMore>
+
+                  <LearnMore
+                    learnMoreText=""
+                    clickableElement={
+                      <h3> How to Contact Us </h3>
+                    }
+                  >
+                    <div>
+                      <p>
+                        Sage Bionetworks is the controller of your information when
+                        it is collected and processed in the context of our sites and
+                        services. Our Data Protection Officer (DPO) is responsible for
+                        overseeing what we do with your information and ensuring
+                        we comply with applicable data protection laws. Our Data
+                        Protection Officer may be contacted by emailing
+                        emailing <a href="mailto:privacyofficer@sagebionetworks.org">privacyofficer@sagebionetworks.org</a> or 
+                        by writing to:                        
+                      </p>
+                      <p className={classes.address}>
+                        <b>Sage Bionetworks</b><br />
+                        Attention: Data Protection Officer <br />
+                        2901 Third Avenue, Suite 330, <br />
+                        Seattle, WA 98121 <br />
+                        United States of America <br /> <br />
+                      </p>
+                    </div>
+                  </LearnMore>
+
+                  <LearnMore
+                    learnMoreText=""
+                    clickableElement={
+                      <h3> Updates </h3>
+                    }
+                  >
+                    <div>
+                      <p>
+                        We may update our Privacy Policy from time to time to
+                        clarify how we collect, process, store, use and disclose
+                        information. We want to be as transparent as possible about
+                        the changes we make to our Privacy Policy.                      
+                      </p>
+                    </div>
+                  </LearnMore>
                 </div>
 
               </div>
