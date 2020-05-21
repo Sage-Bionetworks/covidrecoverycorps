@@ -21,6 +21,7 @@
           "type": "array",
           "title": "2. What is your ethnicity/ancestry? (check all that apply)",
           "uniqueItems": true,
+          "minItems": 1,
           "items": {
             "type": "string",
 

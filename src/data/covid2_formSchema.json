@@ -346,6 +346,7 @@
       "properties": {
         "pets": {
           "type": "array",
+          "minItems":1,
           "uniqueItems": true,
           "title": "15. Do you have any the following pets in your home (check all that apply)",
           "items": {
@@ -380,6 +381,7 @@
         "how_purchased_groceries": {
           "title": "17. In the two weeks prior to becoming ill, how did you purchase groceries? (check all that apply)",
           "type": "array",
+          "minItems":1,
           "uniqueItems": true,
           "items": {
             "type": "string",
@@ -412,6 +414,7 @@
         "transportation": {
           "title": "18. What transportation did you take in the two weeks prior to becoming ill? (check all that apply)",
           "type": "array",
+          "minItems":1,
           "uniqueItems": true,
           "items": {
             "type": "string",
