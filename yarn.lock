@@ -1814,6 +1814,13 @@
     "@types/history" "*"
     "@types/react" "*"
 
+"@types/react-share@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@types/react-share/-/react-share-3.0.3.tgz#d75514902b0a3a77800b3bea0395f7add463b228"
+  integrity sha512-GpKAVNbwMBgad0995uVLkOdKWp3CjCrvIeUt4qZcsrgLtf7SMR7gIfMgC9X2rsfLgN6saT/nr2T4QLJE9cCZiA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-tooltip@^3.11.0":
   version "3.11.0"
   resolved "https://registry.yarnpkg.com/@types/react-tooltip/-/react-tooltip-3.11.0.tgz#e7e7e9c67629f2b6f75ea67752922c9de0b64468"
@@ -3445,7 +3452,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.6:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -10216,6 +10223,14 @@ react-scripts@3.4.1, react-scripts@^3.4.1:
   optionalDependencies:
     fsevents "2.1.2"
 
+react-share@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/react-share/-/react-share-4.1.0.tgz#45cbed5ddcbb24504143bcfc0e9b8a729ce274e0"
+  integrity sha512-4/XqVBC+hreniU08zkzAkOGC3FPdJhcLzt1QCdybsZPd5ieUS++iChEEptvNoksiJ5NxbI2VRoDY9ovLAGl7GQ==
+  dependencies:
+    classnames "^2.2.5"
+    jsonp "^0.2.1"
+
 react-sizeme@^2.6.12:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/react-sizeme/-/react-sizeme-2.6.12.tgz#ed207be5476f4a85bf364e92042520499455453e"
@@ -11691,10 +11706,10 @@ symbol-tree@^3.2.2:
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
 
-synapse-react-client@^1.14.8:
-  version "1.14.8"
-  resolved "https://registry.yarnpkg.com/synapse-react-client/-/synapse-react-client-1.14.8.tgz#c28bb7fedb7ad871a1e6b5c9e7ec5582150178b9"
-  integrity sha512-nFLrHogtbg1JK7kH8KnyP/jHkK5WV8WtdjRuJ9fG/w2vTlOMVEefWmaSS4BA/ix2sL5Qj3A9fbzwKCQntRHHcw==
+synapse-react-client@1.14.14:
+  version "1.14.14"
+  resolved "https://registry.yarnpkg.com/synapse-react-client/-/synapse-react-client-1.14.14.tgz#6b042b0699b1164a4f872d6dad79a7590640f051"
+  integrity sha512-T3V1ELFMvO8BNp1nVMb8Wp1vU5PXSSqwb3/tt/adSpdHz1fP69ErYyVg8t4dauszaLSw3RfTZC/bxtAjgk4wwA==
   dependencies:
     "@fortawesome/fontawesome-free" "^5.13.0"
     "@fortawesome/fontawesome-svg-core" "^1.2.4"

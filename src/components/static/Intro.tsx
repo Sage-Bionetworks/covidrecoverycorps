@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { makeStyles, Button, Grid, Hidden, Container } from '@material-ui/core'
+import { makeStyles, Button, Grid, Hidden, Container, IconButton } from '@material-ui/core'
 import { playfairDisplayFont, openSansFont } from '../../App'
 import LandingPageAboveFold from '../../assets/LandingPageAboveFold.png'
 import LandingPageAboveFold2 from '../../assets/LandingPageAboveFold2.png'
@@ -14,9 +14,11 @@ import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
 import { ReactComponent as Tablet } from '../../assets/tablet.svg'
 import { ReactComponent as TestTubes } from '../../assets/test_tubes.svg'
 import { ReactComponent as BooksApple } from '../../assets/books_apple.svg'
+import { ReactComponent as ShareIcon } from '../../assets/share_icon.svg'
 
 import { NavLink, Link } from 'react-router-dom'
 import BlueSeparator from './BlueSeparator'
+import ShareModal from '../widgets/ShareModal'
 
 type IntroProps = {
   token: string | null
@@ -63,7 +65,7 @@ export const useIntroStyles = makeStyles(theme => ({
       padding: '0px 20px 0px 30px',
     },
     [theme.breakpoints.up('sm')]: {
-      padding: '20px 20px 80px 40px',
+      padding: '20px 20px 10px 40px',
     },
     [theme.breakpoints.up('md')]: {
       padding: '120px 20px 100px 40px',
@@ -220,9 +222,28 @@ export const useIntroStyles = makeStyles(theme => ({
     color: '#FFFFFF',
     padding: '0px 25px 0px 25px',
   },
+  shareButtonContainer: {
+    height: '0px',
+  },
+  shareButtonDiv: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+  shareButton: {
+    width: '77px',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    backgroundColor: '#fff',
+    '&:hover': {
+      backgroundColor: 'rgba(242, 242, 242, 1)',
+    },
+    position: 'relative',
+    top: '-40px',
+    zIndex: 2
+  },
 }))
 export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
   const classes = useIntroStyles()
+  const [isShowingShareDialog, setIsShowingShareDialog] = useState(false)
   const [heroImage1Opacity, setHeroImage1Opacity] = useState(1)
   const [heroImage2Opacity, setHeroImage2Opacity] = useState(0)
   const [heroImage3Opacity, setHeroImage3Opacity] = useState(0)
@@ -309,6 +330,14 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
 
           {heroTextContent}
         </div>
+        <Container maxWidth="lg" className={classes.shareButtonContainer}>
+            <div className={classes.shareButtonDiv}>
+              <IconButton aria-label="share" className={classes.shareButton} onClick={() => {setIsShowingShareDialog(true)}}>
+                <ShareIcon />
+              </IconButton>
+            </div>
+        </Container>
+        <ShareModal show={isShowingShareDialog} onClose={() => {setIsShowingShareDialog(false)}}/>
         <div className={classes.content1}>
           <Container maxWidth="md">
             <div className={classes.content1TextDiv}>
