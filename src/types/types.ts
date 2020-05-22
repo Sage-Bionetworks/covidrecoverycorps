@@ -98,6 +98,7 @@ export type SurveyType =
   | 'COVID_EXPERIENCE'
   | 'HISTORY'
   | 'MORE'
+  | 'WITHDRAW'
 
 export type SurveyConfigObject = {
   [key in SurveyType]: {
