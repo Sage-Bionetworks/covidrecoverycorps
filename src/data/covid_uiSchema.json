@@ -217,21 +217,24 @@
     },
     "symptoms_dates": {
       "classNames": "subfields",
+      "ui:order": ["first_day", "last_day", "still_have_symptoms"],
       "first_day": {
-        "ui:widget": "alt-date",
+        "ui:widget": "CustomDateWidget",
         "ui:options": {
           "yearsRange": [2019, 2020],
           "hideNowButton": true,
-          "hideClearButton": true
+          "hideClearButton": true,
+          "lessThanNow": true
         },
         "classNames": ["symptom_day_first"]
       },
       "last_day": {
-        "ui:widget": "alt-date",
+        "ui:widget": "CustomDateWidget",
         "ui:options": {
           "yearsRange": [2019, 2020],
           "hideNowButton": true,
-          "hideClearButton": true
+          "hideClearButton": true,
+          "lessThanNow": true
         },
         "classNames": ["symptom_day_last"]
       },
@@ -250,11 +253,12 @@
       "classNames": "subfields",
       "nasal_swab_date": {
         "classNames": ["nasal_swab"],
-        "ui:widget": "alt-date",
+        "ui:widget": "CustomDateWidget",
         "ui:options": {
           "yearsRange": [2019, 2020],
           "hideNowButton": true,
-          "hideClearButton": true
+          "hideClearButton": true,
+          "lessThanNow":true
         }
       },
       "nasal_swab_result": {
@@ -266,11 +270,12 @@
       },
       "serum_test_date": {
         "classNames": ["antibody"],
-        "ui:widget": "alt-date",
+        "ui:widget": "CustomDateWidget",
         "ui:options": {
           "yearsRange": [2019, 2020],
           "hideNowButton": true,
-          "hideClearButton": true
+          "hideClearButton": true,
+          "lessThanNow": true
         }
       },
       "serum_test_result": {
@@ -338,13 +343,13 @@
     "ui:order": ["smoking", "smoking_how_many_cigarettes", "vaping", "alcohol"],
 
     "smoking": {
-      "ui:widget": "radio",
+     
       "ui:options": {
         "inline": false
       }
     },
     "smoking_how_many_cigarettes": {
-      "classNames": "text"
+      "classNames": "text short"
     },
     "vaping": {
       "ui:widget": "radio",

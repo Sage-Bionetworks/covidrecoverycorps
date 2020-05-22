@@ -6,6 +6,7 @@ import {
   UiSchema,
   AjvError,
   ErrorListProps,
+  Widget,
 } from 'react-jsonschema-form'
 
 import {
@@ -33,6 +34,7 @@ import Card from '@material-ui/core/Card'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import FloatingToolbar from '../../widgets/FloatingToolbar'
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
+import AltDateWidget from './AltDateWidget'
 
 export interface IFormData {
   [key: string]: {
@@ -57,6 +59,7 @@ export type SynapseFormProps = {
   }
   formData: IFormData
   onSubmit: Function
+
   onSave: Function
   formTitle: string
   formClass?: string
@@ -139,10 +142,18 @@ function ObjectFieldTemplate(props: any) {
   )
 }
 
+const widgets = {
+  CustomDateWidget: AltDateWidget as Widget
+};
+
+
 export default class SynapseForm extends React.Component<
   SynapseFormProps,
   SynapseFormState
 > {
+
+
+  
   excludeWarningText = (
     <div>
       <p>
@@ -853,6 +864,11 @@ export default class SynapseForm extends React.Component<
         errors.push(extraError)
       }
     })
+    errors.forEach(error => {
+      if (error.name === 'minItems' ) {
+        error.message="is a required field"
+      }
+    })
 
     if (
       this.navAction !== NavActionEnum.SUBMIT &&
@@ -1023,6 +1039,7 @@ export default class SynapseForm extends React.Component<
                   } `}
                 >
                   <Form
+                    widgets={widgets} 
                     className={
                       this.state.doShowHelp
                         ? 'submissionInputForm'
@@ -1030,6 +1047,7 @@ export default class SynapseForm extends React.Component<
                     }
                     liveValidate={false}
                     formData={this.state.formData}
+          
                     schema={this.getSchema(this.state.currentStep)}
                     uiSchema={this.uiSchema}
                     onSubmit={this.onSubmit}
