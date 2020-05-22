@@ -65,7 +65,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
         <Container maxWidth="md" className={introClasses.paperPanelWrapper}>
           <div className={introClasses.paperPanel}>
             <div className={introClasses.paperPanelTitle}>
-              <h2>Study leadership</h2>
+              <h2>Study Leadership</h2>
             </div>
             <Hidden xsDown>
               <BlueSeparator />
@@ -75,11 +75,11 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                 <p>
                   Led by Columbia University and Sage Bionetworks, the study
                   aims to enable those who have recovered from COVID-19 to
-                  partner with scientists to answer key questions - about how
+                  partner with scientists to answer key questions &mdash; about how
                   the body fights coronavirus and whether and how often
                   infection affords immunity. Starting in the New York
-                  metropolitan area - the epicenter of the pandemic in the
-                  United States - participants will help build a powerful
+                  metropolitan area &mdash; the epicenter of the pandemic in the
+                  United States &mdash; participants will help build a powerful
                   dataset that may significantly advance science and help save
                   lives.
                 </p>
