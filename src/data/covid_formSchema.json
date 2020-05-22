@@ -17,15 +17,15 @@
             },
             "shortness_breath": {
               "type": "boolean",
-              "title": "Shortness Of Breath"
+              "title": "Shortness of breath"
             },
             "chest_pain": {
               "type": "boolean",
-              "title": "Chest Pain"
+              "title": "Chest pain"
             },
             "night_sweats": {
               "type": "boolean",
-              "title": "Night Sweats"
+              "title": "Night sweats"
             },
             "chills": {
               "type": "boolean",
@@ -103,7 +103,7 @@
             },
             "loss_of_consciousness": {
               "type": "boolean",
-              "title": "Loss Of Consciousness"
+              "title": "Loss of consciousness"
             },
             "seizures": {
               "type": "boolean",
@@ -143,12 +143,12 @@
                       "enum": [true]
                     },
                     "cough_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "cough_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -170,7 +170,7 @@
                       "enum": [true]
                     },
                     "fever_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
@@ -180,7 +180,7 @@
                       "minimum": 90
                     },
                     "fever_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -202,12 +202,12 @@
                       "enum": [true]
                     },
                     "shortness_breath_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "shortness_breath_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -229,12 +229,12 @@
                       "enum": [true]
                     },
                     "chest_pain_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "chest_pain_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -256,12 +256,12 @@
                       "enum": [true]
                     },
                     "night_sweats_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "night_sweats_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -283,12 +283,12 @@
                       "enum": [true]
                     },
                     "chills_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "chills_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -310,12 +310,12 @@
                       "enum": [true]
                     },
                     "rash_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "rash_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -337,12 +337,12 @@
                       "enum": [true]
                     },
                     "swollen_fingers_toes_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "swollen_fingers_toes_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -364,12 +364,12 @@
                       "enum": [true]
                     },
                     "conjunctivitis_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "conjunctivitis_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -392,12 +392,12 @@
                       "enum": [true]
                     },
                     "fatigue_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "fatigue_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -419,12 +419,12 @@
                       "enum": [true]
                     },
                     "headache_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "headache_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -447,12 +447,12 @@
                       "enum": [true]
                     },
                     "confusion_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "confusion_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -475,12 +475,12 @@
                       "enum": [true]
                     },
                     "muscle_pain_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "muscle_pain_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -503,12 +503,12 @@
                       "enum": [true]
                     },
                     "runny_nose_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "runny_nose_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -530,12 +530,12 @@
                       "enum": [true]
                     },
                     "sore_throat_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "sore_throat_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -557,12 +557,12 @@
                       "enum": [true]
                     },
                     "diarrhea_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "diarrhea_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -584,12 +584,12 @@
                       "enum": [true]
                     },
                     "nausea_vomiting_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "nausea_vomiting_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -611,12 +611,12 @@
                       "enum": [true]
                     },
                     "abdominal_pain_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "abdominal_pain_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -639,12 +639,12 @@
                       "enum": [true]
                     },
                     "hallucinations_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "hallucinations_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -667,12 +667,12 @@
                       "enum": [true]
                     },
                     "loss_of_consciousness_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "loss_of_consciousness_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -695,12 +695,12 @@
                       "enum": [true]
                     },
                     "seizures_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "seizures_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -722,12 +722,12 @@
                       "enum": [true]
                     },
                     "paralysis_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "paralysis_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -750,12 +750,12 @@
                       "enum": [true]
                     },
                     "foamy_urine_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "foamy_urine_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -777,12 +777,12 @@
                       "enum": [true]
                     },
                     "red_urine_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "red_urine_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -804,12 +804,12 @@
                       "enum": [true]
                     },
                     "loss_of_smell_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "loss_of_smell_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -831,12 +831,12 @@
                       "enum": [true]
                     },
                     "loss_of_taste_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "loss_of_taste_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -862,12 +862,12 @@
                       "type": "string"
                     },
                     "other_duration": {
-                      "title": "How Many Days?",
+                      "title": "How many days?",
                       "type": "number",
                       "minimum": 1
                     },
                     "other_still_present": {
-                      "title": "Still Present",
+                      "title": "Still present",
                       "type": "boolean"
                     }
                   }
@@ -898,8 +898,8 @@
           "uniqueItems": true,
           "title": "3. What kind of COVID-19 testing have you had?",
           "enum": [
-            "Nasal Swab",
-            "Serum Antibody Tests",
+            "Nasal swab",
+            "Serum antibody tests",
             "I was not tested, but I had suspected COVID-19",
             "I was not tested and had no symptoms",
             "I don't know",
@@ -1175,7 +1175,7 @@
                     },
                     "oxigen_days": {
                       "type": "number",
-                      "title": "How many Days?",
+                      "title": "How many days?",
                       "minimum": 1
                     }
                   }
@@ -1198,7 +1198,7 @@
                     },
                     "oxigen_mask_days": {
                       "type": "number",
-                      "title": "How many Days?",
+                      "title": "How many days?",
                       "minimum": 1
                     }
                   }
@@ -1221,7 +1221,7 @@
                     },
                     "ventilator_days": {
                       "type": "number",
-                      "title": "How many Days?",
+                      "title": "How many days?",
                       "minimum": 1
                     }
                   }
@@ -1244,7 +1244,7 @@
                     },
                     "kidney_dialysis_days": {
                       "type": "number",
-                      "title": "How many Days?",
+                      "title": "How many days?",
                       "minimum": 1
                     }
                   }

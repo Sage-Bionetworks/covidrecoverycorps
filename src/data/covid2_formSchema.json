@@ -197,7 +197,7 @@
             "Respiratory infection (E.G. Strep throat, sinusitis, bronchitis, pneumonia)",
             "Gastroenteritis, which caused diarrhea and/or vomiting",
             "Urinary tract infection",
-            "Infection ff the skin or a wound infection",
+            "Infection of the skin or a wound infection",
             "Other purpose",
             "Don’t know",
             "Prefer not to answer"
@@ -237,7 +237,7 @@
             "Never",
             "Once every 2 years",
             "Once a year",
-            "Twice a year of more",
+            "Twice a year or more",
             "Prefer not to answer"
           ]
         },
@@ -444,7 +444,7 @@
         },
         "job_title": {
           "type": "string",
-          "title": "20. What is your job title"
+          "title": "20. What is your job title?"
         },
         "were_healthcare_worker": {
           "title": "21. Over the last year, were you a health care worker?",
