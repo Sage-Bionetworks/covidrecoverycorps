@@ -380,7 +380,7 @@ const fullTextScreens = [
 
     <p className="Consent__copy">
       This study is being led by Columbia University and Sage Bionetworks. The
-      study is being funded by the .{' '}
+      study is being funded by the Chan Zuckerberg Initiative.{' '}
     </p>
 
     <p className="Consent__copy">
