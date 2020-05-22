@@ -955,16 +955,34 @@
                       "title": "First day of symptoms:",
                       "type": "string"
                     },
-                    "last_day": {
-                      "title": "Last day of symptoms:",
-                      "type": "string"
-                    },
+             
                     "still_have_symptoms": {
                       "title": "I still have symptoms",
-                      "type": "boolean"
+                      "type": "boolean",
+                      "default": false
                     }
                   },
-                  "required": ["first_day", "last_day"]
+                  "dependencies": {
+                    "still_have_symptoms": {
+                      "oneOf": [
+                        {
+                          "properties": {
+                            "still_have_symptoms": { "enum": [false] },
+                            "last_day": {
+                              "title": "Last day of symptoms:",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        {
+                          "properties": {
+                            "still_have_symptoms": { "enum": [true] }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "required": ["first_day"]
                 }
               }
             }
