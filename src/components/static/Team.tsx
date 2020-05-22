@@ -113,14 +113,14 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                     the large U.S. study of autism, SPARK.
                   </p>
                   <p>
-                    She works with many patient- and family-led organizations
-                    to develop better supports and treatments for rare
-                    diseases and was recognized by the National Organization
-                    of Rare Disorders with the Rare Impact Award in 2019. She
-                    was recently featured in the documentary,{' '}
+                    She works with many organizations to improve the support and 
+                    treatment of rare disease for patients and family members. 
+                    Dr. Chung was recognized by the National Organization of 
+                    Rare Disorders with the Rare Impact Award in 2019.
+                    She was recently featured in the documentary,{' '}
                     <a href="https://www.pbs.org/show/gene/" target="_blank">
-                      The Gene: An Intimate History.
-                    </a>
+                      The Gene: An Intimate History
+                    </a>.
                   </p>
                   <p>
                     For more information, please visit{' '}
