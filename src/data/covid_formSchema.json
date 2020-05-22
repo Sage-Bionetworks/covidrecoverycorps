@@ -1395,6 +1395,7 @@
         "regular_medications": {
           "type": "array",
           "uniqueItems": true,
+          "minItems": 1,
           "title": "5. Which of the following medications were you taking on a regular basis before you got sick with COVID-19? (check all that apply)",
           "items": {
             "type": "string",
@@ -1437,6 +1438,7 @@
       "properties": {
         "covid_medications": {
           "type": "array",
+          "minItems": 1,
           "title": "6. Which of the following medications did you take/were you given to treat your COVID-19 illness? (check all that apply):",
           "items": {
             "type": "string",
@@ -1472,6 +1474,7 @@
       "properties": {
         "hydroxychloroquine_side_effects": {
           "type": "array",
+          "minItems": 1,
           "title": "6a. If you were treated with hydroxychloroquine (Plaquenil), please describe if you experienced any of the following? (check all that apply):",
           "uniqueItems": true,
           "items": {

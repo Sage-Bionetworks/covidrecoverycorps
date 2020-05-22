@@ -61,6 +61,7 @@
           "type": "array",
           "uniqueItems": true,
           "title": "5. When you are sick, where do you usually go for care?",
+          "minItems":1,
           "items": {
             "type": "string",
             "enum": [
@@ -86,6 +87,7 @@
         "vaccinations": {
           "type": "array",
           "uniqueItems": true,
+          "minItems":1,
           "title": "7. Have you received a vaccination in 2019/2020 against any of the following? (check all that apply)",
           "items": {
             "type": "string",
@@ -416,7 +418,7 @@
         "diseases_history": {
           "title": "14. Have you ever had any of the following diseases diagnosed or treated? (check all that apply)",
           "type": "array",
-          "minLength": 1,
+          "minItems": 1,
           "uniqueItems": true,
           "items": {
             "type": "string",
@@ -822,7 +824,7 @@
                             "miscarriage_number": {
                               "title": "If so, how many times",
                               "type": "number",
-                              "minimum": 1
+                              "minimum": 0
                             }
                           }
                         }
@@ -871,7 +873,7 @@
         "children_birth": {
           "type": "number",
           "title": "How many children have you given birth to?",
-          "minimum": 1
+          "minimum": 0
         }
       }
     }
