@@ -8,6 +8,7 @@ import Lara from '../../assets/Lara.jpg'
 import SurvivorCorps from '../../assets/TeamPageSurvivorCorps.png'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
+import { ReactComponent as CZILogo } from '../../assets/czi_logo_dark.svg'
 import BlueSeparator from './BlueSeparator'
 import { useIntroStyles } from './Intro'
 
@@ -112,7 +113,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                     the large U.S. study of autism, SPARK.
                   </p>
                   <p>
-                    She works with many patient and family led organizations
+                    She works with many patient- and family-led organizations
                     to develop better supports and treatments for rare
                     diseases and was recognized by the National Organization
                     of Rare Disorders with the Rare Impact Award in 2019. She
@@ -123,7 +124,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                   </p>
                   <p>
                     For more information, please visit{' '}
-                    <a href="https://www.columbia.edu">www.columbia.edu</a>.
+                    <a href="https://www.columbia.edu" target="_blank">www.columbia.edu</a>.
                   </p>
                 </div>
                 <ColumbiaLogo />
@@ -169,7 +170,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                   <div>
                     <p>
                       For more information, please visit{' '}
-                      <a href="https://www.sagebionetworks.org">
+                      <a href="https://www.sagebionetworks.org" target="_blank">
                         www.sagebionetworks.org
                       </a>
                       .
@@ -209,7 +210,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                   </div>
                   <p>
                     For more information, please visit <br></br>
-                    <a href="https://www.survivorcorps.com">
+                    <a href="https://www.survivorcorps.com" target="_blank">
                       www.survivorcorps.com
                     </a>
                     .
@@ -236,13 +237,14 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                 help build an inclusive, just and healthy future for everyone.
               </p>
             </div>
-            <p>
+            <p className={classes.paddingBottom20}>
               For more information, please visit <br></br>
-              <a href="https://www.chanzuckerberg.com">
+              <a href="https://www.chanzuckerberg.com" target="_blank">
                 www.chanzuckerberg.com
               </a>
               .
             </p>
+            <CZILogo />
           </Container>
         </div>
       </div>

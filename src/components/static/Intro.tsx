@@ -331,7 +331,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               <div className={classes.labImageDiv}>
                 <img src={LandingPageLab} alt="Lab" width="100%" />
                 <p className={classes.photographyNote}>
-                  Photography by Noah Berger
+                  Photo by Noah Berger
                 </p>
               </div>
             </Grid>
