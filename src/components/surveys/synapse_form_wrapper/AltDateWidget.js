@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+// Alina 5/22 this copies an existing alt date widget to allow for only date in the past.
+// if .options.lessThanNow is set and the date is in the future the date resets to today.
+
+
 import {
   shouldRender,
   parseDateString,
