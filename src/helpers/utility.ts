@@ -5,7 +5,7 @@ import {
   LoggedInUserData,
   SignInDataEmail,
   SignInDataPhone,
-  STUDY_ID,
+  APP_ID,
   LoginType,
   StringDictionary,
   SESSION_NAME,
@@ -112,12 +112,12 @@ export const sendSignInRequest = async (
   // setLoginType(_loginType)
   if (loginType === 'PHONE') {
     postData = {
-      study: STUDY_ID,
+      appId: APP_ID,
       phone: makePhone(phoneOrEmail),
     } as SignInDataPhone
   } else {
     postData = {
-      study: STUDY_ID,
+      appId: APP_ID,
       email: phoneOrEmail,
     } as SignInDataEmail
   }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {
+  APP_ID,
   EmailSigninParams,
   LoggedInUserData,
   SignInData,
@@ -37,7 +38,6 @@ export interface OwnLoginProps {
 
 export type LoginProps = OwnLoginProps & RouteComponentProps
 
-const STUDY_ID = 'czi-coronavirus'
 const EMAIL_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/email'
 const PHONE_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/phone'
 const EMAIL_SIGN_IN_ENDPOINT = '/v3/auth/email/signIn'
@@ -81,7 +81,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
     const signInWithEmail = async (email: string, token: string) => {
       setIsLoading(true)
       const postData = {
-        study: STUDY_ID,
+        appId: APP_ID,
         email: email,
         token: token,
       }
@@ -129,12 +129,12 @@ export const Login: React.FunctionComponent<LoginProps> = ({
     setLoginType(_loginType)
     if (_loginType === 'PHONE') {
       postData = {
-        study: STUDY_ID,
+        appId: APP_ID,
         phone: makePhone(phoneOrEmail),
       } as SignInDataPhone
     } else {
       postData = {
-        study: STUDY_ID,
+        appId: APP_ID,
         email: email,
       } as SignInDataEmail
     }

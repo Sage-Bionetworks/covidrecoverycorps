@@ -3,7 +3,7 @@ import BlueSeparator from '../static/BlueSeparator'
 
 import useForm from '../useForm'
 import {
-  STUDY_ID,
+  APP_ID,
   ENDPOINT,
   RegistrationData,
   LoginType,
@@ -96,7 +96,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
       email: state.email.value,
       phone: state.phone.value ? makePhone(state.phone.value) : undefined,
       clientData: {},
-      study: STUDY_ID,
+      appId: APP_ID,
       substudyIds: ['columbia'],
     }
     let loginType: LoginType = 'EMAIL'
