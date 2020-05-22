@@ -44,7 +44,7 @@ const summaryScreens = [
 
     <p className="Consent__copy">
       This study is being led by Columbia University and Sage Bionetworks. The
-      study is being funded by the Chan Zuckerberg Institute.{' '}
+      study is being funded by the Chan Zuckerberg Initiative.{' '}
     </p>
 
     <p className="Consent__copy">
@@ -85,6 +85,7 @@ const summaryScreens = [
     </div>
 
     <p className="Consent__copy">
+      <br/>
       <strong>We may ask you to provide the following:</strong>
     </p>
 
@@ -341,7 +342,7 @@ const summaryScreens = [
   <div>
     <h2>How to contact us?</h2>
     <p className="Consent__copy">
-      <strong>For general questions,</strong>, please contact the COVID Recovery
+      <strong>For general questions,</strong> please contact the COVID Recovery
       Corps study at 212-305-5700 (24 hours) or{' '}
       <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
         COVIDRecoveryCorps@cumc.columbia.edu
@@ -353,9 +354,8 @@ const summaryScreens = [
         For questions about your rights as a research participant, concerns or
         complaints,
       </strong>{' '}
-      please contact Western IRB (WIRB) at
-      <a href="mailto:help@WIRB.com">help@WIRB.com</a> at 360-252-2500 or
-      toll-free 800-562-478.
+      please contact Western IRB (WIRB) at <a href="mailto:help@WIRB.com">help@WIRB.com</a> at 360-252-2500 or
+      toll-free at 800-562-478.
     </p>
   </div>,
 ]
@@ -380,7 +380,7 @@ const fullTextScreens = [
 
     <p className="Consent__copy">
       This study is being led by Columbia University and Sage Bionetworks. The
-      study is being funded by the Chan Zuckerberg Institute.{' '}
+      study is being funded by the Chan Zuckerberg Initiative.{' '}
     </p>
 
     <p className="Consent__copy">
@@ -862,7 +862,7 @@ const ehrScreens = [
     </p>
   </div>,
   <div>
-    <h2>When will my consent expire</h2>
+    <h2>When will my consent expire?</h2>
     <p className="Consent__copy">
       Unless you tell us to stop, we will access your EHR until the COVID
       Recovery Corps study ends to check what has happened to your health after
@@ -880,9 +880,8 @@ const ehrScreens = [
         </a>{' '}
       </li>
       <li>
-        For your rights as a research participant, please contact Western IRB
-        (WIRB) at <a href="mailto:help@WIRB.com">help@WIRB.com</a> at
-        360-252-2500 or toll-free 800-562-4789.
+        For your rights as a research participant, please contact Western IRB (WIRB) at <a href="mailto:help@WIRB.com">help@WIRB.com</a> at
+        360-252-2500 or toll-free at 800-562-4789.
       </li>
     </ul>
   </div>,
@@ -905,8 +904,8 @@ const screens: { [key: string]: JSX.Element } = {
   ),
   CONSENT_SIGNATURE1: (
     <p className="Consent__copy">
-      If you understand and agree to the benefits &amp; risk of participating in
-      this study. Please sign below.
+      If you understand and agree to the benefits and risk of participating in
+      this study, please sign below.
     </p>
   ),
   CONSENT_SIGNATURE2: (

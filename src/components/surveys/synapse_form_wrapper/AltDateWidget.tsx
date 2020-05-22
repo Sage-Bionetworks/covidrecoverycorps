@@ -1,18 +1,44 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-// Alina 5/22 this copies an existing alt date widget to allow for only date in the past.
-// if .options.lessThanNow is set and the date is in the future the date resets to today.
-
-
 import {
   shouldRender,
   parseDateString,
   toDateString,
   pad,
 } from 'react-jsonschema-form/lib/utils'
+import { WidgetProps } from 'react-jsonschema-form'
 
-function rangeOptions(start, stop) {
+// Alina 5/22 this copies an existing alt date widget to allow for only date in the past.
+// if .options.lessThanNow is set and the date is in the future the date resets to today.
+
+type AltDateWidgetState = {
+  year: number
+  month: number
+  day: number
+  hour: number
+  minute: number
+  second: number
+}
+
+type AltDateOwnWidgetProps = {
+  time: boolean
+  disabled: boolean
+  readonly: boolean
+  autofocus: boolean
+  options: object
+  schema: object
+  id: string
+  value: string
+  required: boolean
+  registry: any
+  onChange: Function
+  onBlur: Function
+}
+
+type AltDateWidgetProps = AltDateOwnWidgetProps & WidgetProps
+
+function rangeOptions(start: number, stop: number) {
   let options = []
   for (let i = start; i <= stop; i++) {
     options.push({ value: i, label: pad(i, 2) })
@@ -20,11 +46,13 @@ function rangeOptions(start, stop) {
   return options
 }
 
-function readyForChange(state) {
-  return Object.keys(state).every(key => state[key] !== -1)
+function readyForChange(state: AltDateWidgetState) {
+  return (Object.keys(state) as Array<keyof typeof state>).every(
+    key => state[key] !== -1,
+  )
 }
 
-function DateElement(props) {
+function DateElement(props: any) {
   const {
     type,
     range,
@@ -51,14 +79,14 @@ function DateElement(props) {
         disabled={disabled}
         readonly={readonly}
         autofocus={autofocus}
-        onChange={value => select(type, value)}
+        onChange={(value: number) => select(type, value)}
         onBlur={onBlur}
       />
     </>
   )
 }
 
-class AltDateWidget extends Component {
+class AltDateWidget extends Component<AltDateWidgetProps, AltDateWidgetState> {
   static defaultProps = {
     time: false,
     disabled: false,
@@ -69,30 +97,34 @@ class AltDateWidget extends Component {
     },
   }
 
-  constructor(props) {
+  constructor(props: AltDateWidgetProps) {
     super(props)
     this.state = parseDateString(props.value, props.time)
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps: AltDateWidgetProps) {
     this.setState(parseDateString(nextProps.value, nextProps.time))
   }
-
-  shouldComponentUpdate(nextProps, nextState) {
+  //@ts-ignore
+  shouldComponentUpdate(
+    nextProps: AltDateWidgetProps,
+    nextState: AltDateWidgetState,
+  ) {
     return shouldRender(this, nextProps, nextState)
   }
 
-  onChange = (property, value) => {
+  onChange = (property: any, value: any) => {
     this.setState(
+      //@ts-ignore
       { [property]: typeof value === 'undefined' ? -1 : value },
       () => {
         // Only propagate to parent state if we have a complete date{time}
         if (readyForChange(this.state)) {
-     
-          if (this.props.options.lessThanNow &&(
+          if (
+            this.props.options.lessThanNow &&
             new Date(toDateString(this.state, this.props.time)).getTime() >
-            new Date().getTime()
-          )) {
+              new Date().getTime()
+          ) {
             const nowDateObj = parseDateString(
               new Date().toLocaleDateString(),
               this.props.time,
@@ -109,17 +141,20 @@ class AltDateWidget extends Component {
     )
   }
 
-  setNow = event => {
+  setNow = (event: React.SyntheticEvent) => {
     event.preventDefault()
     const { time, disabled, readonly, onChange } = this.props
     if (disabled || readonly) {
       return
     }
-    const nowDateObj = parseDateString(new Date().toLocaleDateString()/*.toJSON()*/, time)
+    const nowDateObj = parseDateString(
+      new Date().toLocaleDateString() /*.toJSON()*/,
+      time,
+    )
     this.setState(nowDateObj, () => onChange(toDateString(this.state, time)))
   }
 
-  clear = event => {
+  clear = (event: React.SyntheticEvent) => {
     event.preventDefault()
     const { time, disabled, readonly, onChange } = this.props
     if (disabled || readonly) {
@@ -151,6 +186,7 @@ class AltDateWidget extends Component {
   }
 
   render() {
+    //ts-ignore
     const {
       id,
       disabled,
@@ -204,6 +240,7 @@ class AltDateWidget extends Component {
 }
 
 if (process.env.NODE_ENV !== 'production') {
+  //@ts-ignore
   AltDateWidget.propTypes = {
     schema: PropTypes.object.isRequired,
     id: PropTypes.string.isRequired,

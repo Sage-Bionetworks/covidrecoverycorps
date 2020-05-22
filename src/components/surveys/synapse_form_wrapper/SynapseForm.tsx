@@ -143,17 +143,16 @@ function ObjectFieldTemplate(props: any) {
 }
 
 const widgets = {
-  CustomDateWidget: AltDateWidget as Widget
-};
-
+  //@ts-ignore
+  CustomDateWidget: AltDateWidget as Widget,
+}
 
 export default class SynapseForm extends React.Component<
   SynapseFormProps,
   SynapseFormState
 > {
+  isDebugHidden = !window.location.search.includes('debug')
 
-
-  
   excludeWarningText = (
     <div>
       <p>
@@ -865,8 +864,8 @@ export default class SynapseForm extends React.Component<
       }
     })
     errors.forEach(error => {
-      if (error.name === 'minItems' ) {
-        error.message="is a required field"
+      if (error.name === 'minItems') {
+        error.message = 'is a required field'
       }
     })
 
@@ -1039,7 +1038,7 @@ export default class SynapseForm extends React.Component<
                   } `}
                 >
                   <Form
-                    widgets={widgets} 
+                    widgets={widgets}
                     className={
                       this.state.doShowHelp
                         ? 'submissionInputForm'
@@ -1047,7 +1046,6 @@ export default class SynapseForm extends React.Component<
                     }
                     liveValidate={false}
                     formData={this.state.formData}
-          
                     schema={this.getSchema(this.state.currentStep)}
                     uiSchema={this.uiSchema}
                     onSubmit={this.onSubmit}
@@ -1128,7 +1126,10 @@ export default class SynapseForm extends React.Component<
             }
           ></WarningModal>
         )}
-        <DataDebug formData={this.state.formData} hidden={false}></DataDebug>
+        <DataDebug
+          formData={this.state.formData}
+          hidden={this.isDebugHidden}
+        ></DataDebug>
       </div>
     )
   }
