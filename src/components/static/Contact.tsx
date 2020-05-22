@@ -58,7 +58,7 @@ export const Contact: React.FunctionComponent<ContactProps> = ({}: ContactProps)
                   from your healthcare team.
                 </p>
                 <p>
-                  Sage Bionetworks, Columbia University, and The Chan
+                  Sage Bionetworks, Columbia University, and the Chan
                   Zuckerberg Initiative are not liable or responsible for any
                   advice, course of treatment, diagnosis or any other
                   information, services, or products you obtain through the
@@ -69,7 +69,7 @@ export const Contact: React.FunctionComponent<ContactProps> = ({}: ContactProps)
                   after the study, contact:
                 </h3>
                 <p>
-                  Dr. Wendy Chung, MD, PhD, principal investigator of the
+                  Dr. Wendy Chung, MD, PhD, Principal Investigator of the
                   study. If you have any questions or need assistance, you can
                   call <b>212-305-5700</b> or email
                   <br></br>
@@ -80,9 +80,9 @@ export const Contact: React.FunctionComponent<ContactProps> = ({}: ContactProps)
                 </p>
                 <h3>Privacy</h3>
                 <p>
-                  For questions, comments, or requests regarding the privacy
-                  policy or our processing of your information, please
-                  contact:
+                  For questions, comments, or requests regarding 
+                  the <Link to='privacypolicy'>privacy policy</Link> or 
+                  our processing of your information, please contact:
                   <br></br>
                   <a href="mailto:privacypolicy@sagebionetworks.org">
                     privacypolicy@sagebionetworks.org

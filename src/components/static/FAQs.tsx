@@ -4,6 +4,7 @@ import { useIntroStyles } from './Intro'
 import BlueSeparator from './BlueSeparator'
 import LearnMore from '../widgets/LearnMore'
 import { ReactComponent as Graphic } from '../../assets/faqs_graphic.svg'
+import { Link } from 'react-router-dom'
 
 type FAQProps = {
   reason?: string
@@ -55,7 +56,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                         COVID Recovery Corps is a research study. If you join,
                         we will gather data about you. We will ask you to fill
                         out a survey. We might invite you to send us your
-                        electronic health data, this is optional. We might
+                        electronic health data &mdash; this is optional. We might
                         invite you to give a blood sample, have your nose or
                         rectum swabbed, to spit, or to pee in a cup.
                         Researchers will use this data to study how the body
@@ -103,12 +104,14 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                   >
                     <div>
                       <p>
-                        You are eligible to participate in the study, if you:
-                        Over the age of 18 years old and are able to consent
-                        to participate in the study Have access to email or
-                        able to receive text messages Have been diagnosed with
-                        or believe you have had COVID-19 Read or understand
-                        English or Spanish
+                        You are eligible to participate in the study, if you:                            
+                        <ul>
+                          <li> Are over the age of 18 years old and are able to consent to participate in the study </li>
+                          <li> Have access to email or are able to receive text messages </li>
+                          <li> Have been diagnosed with or believe you have had COVID-19 </li>
+                          <li> Read or understand English or Spanish </li>
+                        </ul>
+
                       </p>
                     </div>
                   </LearnMore>
@@ -160,8 +163,9 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                       <p>
                         The COVID Recovery Corps study is being led by
                         Columbia University and Sage Bionetworks in
-                        collaboration with the Chan Zuckerberg Initiative. The
-                        Principal Investigators on this study are Dr. Wendy
+                        collaboration with the Chan Zuckerberg Initiative.
+                        The <Link to='/team'>Principal Investigators</Link> on
+                        this study are Dr. Wendy
                         Chung at Columbia University and Dr. Lara Mangravite
                         at Sage Bionetworks. This study is funded by the Chan
                         Zuckerberg Initiative.
@@ -179,10 +183,8 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                     <div>
                       <p>
                         We will create a scientific database and a biobank for
-                        the COVID Recovery Corps study. The scientific
-                        database will have individual-level data and the
-                        biobank will store your samples like your blood, and
-                        pee.
+                        the COVID Recovery Corps study. The scientific database will have 
+                        individual-level data, and the biobank will store samples like your blood and pee.
                       </p>
                       <p>
                         Access to this database will be controlled.
@@ -190,11 +192,11 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                         Corps and will use only de-identified data.
                       </p>
                       <p>
-                        The US and state governments might demand access to
+                        The U.S. federal government and state governments might demand access to
                         the data so they can use it for public health
                         activity. This includes law enforcement. We might have
                         to give it to them if they ask, even though we have a
-                        Certificate of Confidentiality from the US government.
+                        Certificate of Confidentiality from the U.S. government.
                       </p>
                       <p>
                         We may offer you the chance to donate your data to
@@ -215,7 +217,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                         required by law, you will not be identified by your
                         name or by any other direct personal identifier. Your
                         contact information, including your name and e-mail
-                        address will be stored separately from the study data.
+                        address, will be stored separately from the study data.
                         We will use a random code number instead of your name
                         on all your study data. This code cannot be used to
                         directly re-identify you. Information about the code
@@ -224,7 +226,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                         coded study data to your name and account information.
                         Your coded study data (without your name) will be
                         encrypted and stored on a secure cloud server to
-                        prevent improper access. Sage, Columbia University or
+                        prevent improper access. Sage, Columbia University, or
                         anyone else affiliated with the COVID Recovery Corps
                         will never sell, rent, or lease your contact
                         information.

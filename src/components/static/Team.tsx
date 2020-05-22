@@ -8,6 +8,7 @@ import Lara from '../../assets/Lara.jpg'
 import SurvivorCorps from '../../assets/TeamPageSurvivorCorps.png'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
+import { ReactComponent as CZILogo } from '../../assets/czi_logo_dark.svg'
 import BlueSeparator from './BlueSeparator'
 import { useIntroStyles } from './Intro'
 
@@ -65,7 +66,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
         <Container maxWidth="md" className={introClasses.paperPanelWrapper}>
           <div className={introClasses.paperPanel}>
             <div className={introClasses.paperPanelTitle}>
-              <h2>Study leadership</h2>
+              <h2>Study Leadership</h2>
             </div>
             <Hidden xsDown>
               <BlueSeparator />
@@ -75,11 +76,11 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                 <p>
                   Led by Columbia University and Sage Bionetworks, the study
                   aims to enable those who have recovered from COVID-19 to
-                  partner with scientists to answer key questions - about how
+                  partner with scientists to answer key questions &mdash; about how
                   the body fights coronavirus and whether and how often
                   infection affords immunity. Starting in the New York
-                  metropolitan area - the epicenter of the pandemic in the
-                  United States - participants will help build a powerful
+                  metropolitan area &mdash; the epicenter of the pandemic in the
+                  United States &mdash; participants will help build a powerful
                   dataset that may significantly advance science and help save
                   lives.
                 </p>
@@ -112,18 +113,18 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                     the large U.S. study of autism, SPARK.
                   </p>
                   <p>
-                    She works with many patient and family led organizations
-                    to develop better supports and treatments for rare
-                    diseases and was recognized by the National Organization
-                    of Rare Disorders with the Rare Impact Award in 2019. She
-                    was recently featured in the documentary,{' '}
+                    She works with many organizations to improve the support and 
+                    treatment of rare disease for patients and family members. 
+                    Dr. Chung was recognized by the National Organization of 
+                    Rare Disorders with the Rare Impact Award in 2019.
+                    She was recently featured in the documentary,{' '}
                     <a href="https://www.pbs.org/show/gene/" target="_blank">
-                      The Gene: An Intimate History.
-                    </a>
+                      The Gene: An Intimate History
+                    </a>.
                   </p>
                   <p>
                     For more information, please visit{' '}
-                    <a href="https://www.columbia.edu">www.columbia.edu</a>.
+                    <a href="https://www.columbia.edu" target="_blank">www.columbia.edu</a>.
                   </p>
                 </div>
                 <ColumbiaLogo />
@@ -169,7 +170,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                   <div>
                     <p>
                       For more information, please visit{' '}
-                      <a href="https://www.sagebionetworks.org">
+                      <a href="https://www.sagebionetworks.org" target="_blank">
                         www.sagebionetworks.org
                       </a>
                       .
@@ -209,7 +210,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                   </div>
                   <p>
                     For more information, please visit <br></br>
-                    <a href="https://www.survivorcorps.com">
+                    <a href="https://www.survivorcorps.com" target="_blank">
                       www.survivorcorps.com
                     </a>
                     .
@@ -236,13 +237,14 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                 help build an inclusive, just and healthy future for everyone.
               </p>
             </div>
-            <p>
+            <p className={classes.paddingBottom20}>
               For more information, please visit <br></br>
-              <a href="https://www.chanzuckerberg.com">
+              <a href="https://www.chanzuckerberg.com" target="_blank">
                 www.chanzuckerberg.com
               </a>
               .
             </p>
+            <CZILogo />
           </Container>
         </div>
       </div>
