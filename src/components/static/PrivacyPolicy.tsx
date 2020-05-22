@@ -87,16 +87,16 @@ export const PrivacyPolicy: React.FunctionComponent = ({}) => {
                       <p className={classes.subHeading}>Who You Are (“User Information”)</p>
                       <p>
                         We collect information that you provide to us during the
-                        informed consent and account-creation process , and in any
-                        correspondence, you have with us. For example, this could
-                        include your name, email and any other contact information
+                        informed consent and account creation process, and in any
+                        correspondence you have with us. For example, this could
+                        include your name, email, and any other contact information
                         you share with us.
                       </p>
                       <p className={classes.subHeading}>Where you go on the Website (“Usage Data”)</p>
                       <p>
                         Whenever you use any online service, certain information
                         gets created and logged automatically; the same is true
-                        when you visit the Website. Technical data on the different
+                        when you visit the Website. We may collect technical data on the different
                         pages you visit on the Website. For example, we may collect
                         the date and time when you visit the Website.
                       </p>
