@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { STUDY_ID, ENDPOINT, LoginType } from '../../types/types'
+import { APP_ID, ENDPOINT, LoginType } from '../../types/types'
 import { callEndpoint, makePhone } from '../../helpers/utility'
 import Alert from '@material-ui/lab/Alert/Alert'
 import Button from '@material-ui/core/Button/Button'
@@ -27,7 +27,7 @@ export const SignInWithCode: React.FunctionComponent<SignInWithCodeProps> = ({
     clickEvent.preventDefault()
 
     const postData = {
-      study: STUDY_ID,
+      appId: APP_ID,
       phone: makePhone(phoneOrEmail),
       token: code,
     }

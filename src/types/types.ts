@@ -1,6 +1,6 @@
 import { EmailFormFields } from 'react-mailchimp-subscribe'
 
-export const STUDY_ID = 'czi-coronavirus'
+export const APP_ID = 'czi-coronavirus'
 
 export const SESSION_NAME = 'bridge-session-ny-strong'
 export const ENDPOINT = 'https://webservices.sagebridge.org'
@@ -62,7 +62,7 @@ export interface LoggedInUserData extends UserData {
 }
 
 export interface RegistrationData {
-  study: string
+  appId: string
   substudyIds: string[]
 
   email?: string
@@ -78,7 +78,7 @@ export interface Response<T> {
 }
 
 export type SignInData = {
-  study: string
+  appId: string
 }
 export interface SignInDataPhone extends SignInData {
   phone: {
