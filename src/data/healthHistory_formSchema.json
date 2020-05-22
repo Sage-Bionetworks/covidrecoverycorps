@@ -80,7 +80,7 @@
           "enum": [
             "Yes",
             "No",
-            "Not sure/Don't Remember",
+            "Not sure/don't Remember",
             "Prefer not to answer"
           ]
         },
@@ -216,7 +216,7 @@
         "blood_pressure_medication": {
           "type": "string",
           "title": "12. Have you ever used blood pressure medication?",
-          "enum": ["No", "Yes", "I Don't Remember", "Prefer not to answer"]
+          "enum": ["No", "Yes", "I don't Remember", "Prefer not to answer"]
         },
         "health_conditions": {
           "title": "13. Which of the following health conditions have you had? (Check all that apply)",
@@ -224,7 +224,7 @@
           "properties": {
             "heart_attack": {
               "type": "boolean",
-              "title": "Heart Attack"
+              "title": "Heart attack"
             },
             "stroke": {
               "type": "boolean",
@@ -384,7 +384,7 @@
             {
               "properties": {
                 "blood_pressure_medication": {
-                  "enum": ["I Don't Remember"]
+                  "enum": ["I don't Remember"]
                 }
               }
             },
@@ -431,11 +431,11 @@
               "Blood in the urine",
               "Bone marrow transplant",
               "Cancer",
-              "Celiac Disease",
+              "Celiac disease",
               "Chronic kidney disease",
               "Chronic obstructive pulmonary disease (COPD)",
               "Cold sores",
-              "Crohn’s Disease",
+              "Crohn’s disease",
               "Dementia",
               "Eczema",
               "Hay fever",
@@ -572,7 +572,7 @@
             },
             "heart_disease": {
               "type": "boolean",
-              "title": "Heart Disease"
+              "title": "Heart disease"
             },
             "hypertension": {
               "type": "boolean",
@@ -583,7 +583,7 @@
               "title": "Diabetes"
             },
             "kidney_disease": {
-              "title": "Kidney Disease",
+              "title": "Kidney disease",
               "type": "boolean"
             },
             "other": {
