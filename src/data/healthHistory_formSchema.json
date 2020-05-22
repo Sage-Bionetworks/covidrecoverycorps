@@ -873,7 +873,7 @@
         "children_birth": {
           "type": "number",
           "title": "How many children have you given birth to?",
-          "minimum": 1
+          "minimum": 0
         }
       }
     }
