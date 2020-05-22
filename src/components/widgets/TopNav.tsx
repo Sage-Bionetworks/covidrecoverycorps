@@ -11,7 +11,6 @@ import {
   Hidden,
   Grid,
   Button,
-  Link,
 } from '@material-ui/core'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Drawer from '@material-ui/core/Drawer'
@@ -186,7 +185,9 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           to="/privacypolicy"
           onClick={handleDrawerToggle}
           className={classes.navBarLink}
-        ></NavLink>
+        >
+          <ListItem button className={classes.mobileMenuItem}>Privacy Policy</ListItem>
+        </NavLink>
         <Divider className={classes.mobileMenuSeparator} />
         {props.token && (
           <NavLink
