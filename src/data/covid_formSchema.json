@@ -1393,7 +1393,7 @@
         },
         "loneliness": {
           "type": "string",
-          "title": "12. Many peoples may also feel loneliness during this time. How often have you felt lonely during the past week?",
+          "title": "12. Many people may also feel loneliness during this time. How often have you felt lonely during the past week?",
           "uniqueItems": true,
           "enum": [
             "Not at all",
