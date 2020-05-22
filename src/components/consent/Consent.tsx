@@ -125,7 +125,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
         <h2> Do you want to share your electronic health records with us?</h2>
         <p>
           Sharing your EHR (electronic health records) is{' '}
-          <strong>optional</strong>{' '}
+          <strong>optional</strong>.{' '}
         </p>
 
         <LearnMore learnMoreText="Review what it means">
