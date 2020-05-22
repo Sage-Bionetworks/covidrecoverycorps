@@ -140,7 +140,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
   const handleOnWithdrawFromStudyClick = async () => {
     setError('')
     try {
-      await SurveyService.postToHealthData(withdrawlSurveyData, props.token)
+      await SurveyService.postToHealthData('WITHDRAW', withdrawlSurveyData, props.token)
       await ConsentService.withdrawFromStudy(userId!, props.token)
       setSession(props.token, getSession()?.name || '', false)
       setIsRedirectingHome(true)

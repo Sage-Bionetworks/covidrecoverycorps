@@ -3,6 +3,7 @@ import {
   ENDPOINT,
   SURVEY_TIME_CONSTANT,
   SURVEY_IDENTIFIER,
+  SurveyType,
 } from '../types/types'
 import { SavedSurveysObject, Response } from '../types/types'
 import { callEndpoint } from '../helpers/utility'
@@ -15,12 +16,12 @@ export const SurveyService = {
 
 const SURVEY_ENDPOINT = `/v4/users/self/reports/${SURVEY_IDENTIFIER}`
 
-async function postToHealthData(surveyData: any, token: string): Promise<any> {
+async function postToHealthData(surveyType: SurveyType, surveyData: any, token: string): Promise<any> {
   const postData = {
     appVersion: 'v1',
     createdOn: new Date().toISOString(),
     data: surveyData,
-    metadata: {},
+    metadata: {type: surveyType},
     phoneInfo: navigator.userAgent,
   }
 
