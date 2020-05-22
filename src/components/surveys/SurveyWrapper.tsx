@@ -212,6 +212,7 @@ export default class SurveyWrapper extends React.Component<
 
     try {
       const result = await SurveyService.postToHealthData(
+        this.props.surveyName,
         data,
         this.props.token,
       )
