@@ -18,6 +18,7 @@ import { ReactComponent as ShareIcon } from '../../assets/share_icon.svg'
 
 import { NavLink, Link } from 'react-router-dom'
 import BlueSeparator from './BlueSeparator'
+import ShareModal from '../widgets/ShareModal'
 
 type IntroProps = {
   token: string | null
@@ -242,6 +243,7 @@ export const useIntroStyles = makeStyles(theme => ({
 }))
 export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
   const classes = useIntroStyles()
+  const [isShowingShareDialog, setIsShowingShareDialog] = useState(false)
   const [heroImage1Opacity, setHeroImage1Opacity] = useState(1)
   const [heroImage2Opacity, setHeroImage2Opacity] = useState(0)
   const [heroImage3Opacity, setHeroImage3Opacity] = useState(0)
@@ -330,11 +332,12 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
         </div>
         <Container maxWidth="lg" className={classes.shareButtonContainer}>
             <div className={classes.shareButtonDiv}>
-              <IconButton aria-label="share" className={classes.shareButton}>
+              <IconButton aria-label="share" className={classes.shareButton} onClick={() => {setIsShowingShareDialog(true)}}>
                 <ShareIcon />
               </IconButton>
             </div>
         </Container>
+        <ShareModal show={isShowingShareDialog} onClose={() => {setIsShowingShareDialog(false)}}/>
         <div className={classes.content1}>
           <Container maxWidth="md">
             <div className={classes.content1TextDiv}>
