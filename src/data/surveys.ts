@@ -50,4 +50,9 @@ export const SURVEYS: SurveyConfigObject = {
     uiSchema: covid2_UiSchema,
     navSchema: covid2_NavSchema,
   },
+  WITHDRAW: {
+    formSchema: {},
+    uiSchema: {},
+    navSchema: {},
+  }
 }
