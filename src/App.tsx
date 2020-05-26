@@ -313,18 +313,6 @@ function App() {
                   setCurrentLocation(location)
                 }
               />
-              <nav
-                style={{
-                  border: '1px solid black',
-
-                  bottom: '10px',
-                  right: '50px',
-                  fontSize: '.5rem',
-                  position: 'fixed',
-                }}
-              >
-                (staging push Thurds 6:40am)
-              </nav>
               <TopNav
                 token={token}
                 logoutCallbackFn={() => setUserSession(undefined, '', false)}
