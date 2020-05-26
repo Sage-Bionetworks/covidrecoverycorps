@@ -1002,10 +1002,10 @@
               "properties": {
                 "kind_of_testing": {
                   "enum": [
-                    "I was not tested, but I had suspected COVID-19",
-                    "I was not tested and had no symptoms",
-                    "I don't know",
-                    "Prefer not to answer"
+                    "no_test",
+                    "no_test_no_symptoms",
+                    "dont_know",
+                    "no_answer"
                   ]
                 }
               }

@@ -309,9 +309,10 @@
     ],
     "hospitals": {
       "classNames": "hospitals",
-      "ui:widget": "checkboxes",
+      "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
-        "inline": false
+        "inline": false,
+        "exclusive":[0]
       }
     },
 
@@ -338,6 +339,9 @@
         "other_answer",
         "prefer_not_answer"
       ],
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["prefer_not_answer"],
+           "ui:dependent_option_postfix": ["_days"],
       "classNames": "show_fieldSet hospitalization_treatment",
       "other_answer": {
         "ui:widget": "textarea"
@@ -394,15 +398,20 @@
   },
   "medications": {
     "regular_medications": {
-      "ui:widget": "checkboxes",
+      "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
-        "inline": false
+        "inline": false,
+        "exclusive":[0, 1]
       }
     }
   },
   "medications2": {
     "covid_medications": {
-      "ui:widget": "checkboxes"
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive":[0, 1]
+      }
     },
 
     "hydroxychloroquine": {
@@ -411,7 +420,11 @@
   },
   "medications_hydroxy": {
     "hydroxychloroquine_side_effects": {
-      "ui:widget": "checkboxes"
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive":[0, 1]
+      }
     }
   }
 }
