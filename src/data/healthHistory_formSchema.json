@@ -30,7 +30,8 @@
         "weight": {
           "type": "number",
           "title": "3. How much do you weigh? (lbs.)",
-          "minimum": 50
+          "minimum": 50,
+          "maximum": 500
         },
         "height": {
           "type": "object",
@@ -38,11 +39,13 @@
           "properties": {
             "feet": {
               "type": "number",
-              "minimum": 1
+              "minimum": 2,
+              "maximum": 8
             },
             "inches": {
               "type": "number",
-              "minimum": 0
+              "minimum": 0,
+              "maximum":11
             }
           }
         }
@@ -80,7 +83,7 @@
           "enum": [
             "Yes",
             "No",
-            "Not sure/don't Remember",
+            "Not sure/don't remember",
             "Prefer not to answer"
           ]
         },
@@ -216,7 +219,7 @@
         "blood_pressure_medication": {
           "type": "string",
           "title": "12. Have you ever used blood pressure medication?",
-          "enum": ["No", "Yes", "I don't Remember", "Prefer not to answer"]
+          "enum": ["No", "Yes", "I don't remember", "Prefer not to answer"]
         },
         "health_conditions": {
           "title": "13. Which of the following health conditions have you had? (Check all that apply)",
@@ -384,7 +387,7 @@
             {
               "properties": {
                 "blood_pressure_medication": {
-                  "enum": ["I don't Remember"]
+                  "enum": ["I don't remember"]
                 }
               }
             },

@@ -108,9 +108,10 @@
       "ui:widget": "radio"
     },
     "pets": {
-      "ui:widget": "checkboxes",
+      "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
-        "inline": false
+        "inline": false,
+        "exclusive":[0, 1]
       }
     },
     "pets_other": {
@@ -121,17 +122,19 @@
       "ui:widget": "radio"
     },
     "how_purchased_groceries": {
-      "ui:widget": "checkboxes",
+      "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
-        "inline": false
+        "inline": false,
+        "exclusive":[0,1]
       }
     }
   },
   "job_commute": {
     "transportation": {
-      "ui:widget": "checkboxes",
+      "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
-        "inline": false
+        "inline": false,
+        "exclusive":[0]
       }
     },
     "work_from_home": {
