@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { makeStyles, Button, Grid, Hidden, Container } from '@material-ui/core'
-import { playfairDisplayFont, openSansFont } from '../../App'
-import AboutPageAboveFold from '../../assets/AboutPageAboveFold.png'
-import AboutPageAboveFoldMobile from '../../assets/AboutPageAboveFold_mobile.png'
+import React from 'react'
+import { makeStyles, Grid, Hidden, Container } from '@material-ui/core'
+import TeamPageAboveFold from '../../assets/TeamPageAboveFold.jpg'
+import TeamPageAboveFoldMobile from '../../assets/TeamPageAboveFold_mobile.jpg'
 import Wendy from '../../assets/Wendy.png'
 import Lara from '../../assets/Lara.jpg'
 import SurvivorCorps from '../../assets/TeamPageSurvivorCorps.png'
@@ -47,10 +46,10 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
       <div>
         <div>
           <Hidden smUp>
-            <img className={classes.heroImage} src={AboutPageAboveFoldMobile} />
+            <img className={classes.heroImage} src={TeamPageAboveFoldMobile} />
           </Hidden>
           <Hidden xsDown>
-            <img className={classes.heroImage} src={AboutPageAboveFold} />
+            <img className={classes.heroImage} src={TeamPageAboveFold} />
           </Hidden>
         </div>
         <div className={introClasses.paperHeaderDiv}>
