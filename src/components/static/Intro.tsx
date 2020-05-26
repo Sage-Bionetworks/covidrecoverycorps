@@ -32,15 +32,14 @@ export const useIntroStyles = makeStyles(theme => ({
   },
   heroTextGradiant: {
     zIndex: 1,
-    background: 'linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,1,0) 70%)',
+    background: 'linear-gradient(90deg, rgba(17,17,17,0.4) -30%, rgba(255,255,255,0) 100%)',
     position: 'absolute',
     top: 0,
     left: 0,
     width: '100%',
     height: '100%',
-    [theme.breakpoints.down('xs')]: {
-      background:
-        'linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,1,0) 90%)',
+    [theme.breakpoints.down('sm')]: {
+      background: 'linear-gradient(90deg, rgba(17,17,17,0.4) -10%, rgba(255,255,255,0) 120%)',      
     },
   },
   heroImage: {
@@ -62,7 +61,7 @@ export const useIntroStyles = makeStyles(theme => ({
     position: 'relative',
     maxWidth: '650px',
     [theme.breakpoints.up('xs')]: {
-      padding: '0px 20px 0px 30px',
+      padding: '15px 20px 0px 30px',
     },
     [theme.breakpoints.up('sm')]: {
       padding: '20px 20px 10px 40px',
@@ -180,7 +179,7 @@ export const useIntroStyles = makeStyles(theme => ({
   },
   paperPanelTitle: {
     textAlign: 'center',
-    padding: '20px 20px 0px 20px',
+    padding: '10px 20px 0px 20px',
   },
   pink: {
     color: '#FC9090',
