@@ -14,31 +14,11 @@ type FloatingToolbarProps = {
 
 export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = props => {
   const [top, setTop] = useState('0px')
-  const [prevScrollpos, setPrevScrollpos] = useState(0)
-
   const [
     isShowingCancelConfirmation,
     setIsShowingCancelConfirmation,
   ] = useState(false)
   const [isCanceled, setIsCancelled] = useState(false)
-
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll)
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-    }
-  })
-
-  const onScroll = () => {
-    const currentScrollPos = window.scrollY
-
-    if (prevScrollpos >= currentScrollPos) {
-      setTop('0px')
-    } else {
-      setTop('-50px')
-    }
-    setPrevScrollpos(_prev => currentScrollPos)
-  }
 
   if (isCanceled) {
     // TopNav does not read the new search param when using the optimized react router redirect, so replacing for now :(
