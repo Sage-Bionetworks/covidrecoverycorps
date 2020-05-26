@@ -33,7 +33,10 @@
   },
   "history11": {
     "where_go_for_care": {
-      "ui:widget": "checkboxes"
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "exclusive": [0, 1]
+      }
     },
     "routine_exam_2019": {
       "ui:widget": "radio",
@@ -42,7 +45,10 @@
       }
     },
     "vaccinations": {
-      "ui:widget": "checkboxes"
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "exclusive": [0, 1, 2]
+      }
     },
     "travel_time_to_doctor": {
       "ui:widget": "radio",
@@ -74,7 +80,10 @@
     },
     "diabetes_drugs": {
       "classNames": "diabetes-drugs",
-      "ui:widget": "checkboxes"
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "exclusive": [0, 4]
+      }
     }
   },
   "history21": {
@@ -102,6 +111,9 @@
       "classNames": ["text"]
     },
     "health_conditions": {
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["no_answer"],
+      "ui:dependent_option_postfix": ["_age"],
       "classNames": "health-conditions show-fieldSet",
       "ui:order": [
         "heart_attack",
@@ -135,11 +147,18 @@
   },
   "history3": {
     "diseases_history": {
-      "ui:widget": "checkboxes"
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0]
+      }
     }
   },
   "history31": {
     "diseases_history_cont": {
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["no_answer"],
+      "ui:dependent_option_postfix": ["_specify"],
       "ui:order": [
         "diseases_history_cont",
         "pulmonary_hypertension",
@@ -167,6 +186,9 @@
       }
     },
     "family_diseases": {
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["no_answer"],
+      "ui:dependent_option_postfix": ["_specify"],
       "ui:order": [
         "cancer",
         "cancer_specify",
