@@ -2,7 +2,9 @@
   "symptoms": {
     "classNames": "symptoms",
 
+
     "symptoms_list": {
+      "ui:field": "checkboxExclusiveField",
       "ui:order": [
         "cough",
         "cough_duration",
@@ -92,12 +94,16 @@
         "other_duration",
         "other_still_present"
       ],
+      "ui:exclusive": ["no_symptoms",
+        "prefer_not_answer"],
+      "ui:dependent_option_postfix": ["_still_present", "_duration"],
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
       },
       "cough_still_present": {
         "classNames": "subcheckbox"
+      
       },
       "fever_still_present": {
         "classNames": "subcheckbox"
@@ -343,7 +349,7 @@
     "ui:order": ["smoking", "smoking_how_many_cigarettes", "vaping", "alcohol"],
 
     "smoking": {
-     
+      "ui:widget": "radio",
       "ui:options": {
         "inline": false
       }

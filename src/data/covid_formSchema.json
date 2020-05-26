@@ -897,13 +897,21 @@
           "type": "string",
           "uniqueItems": true,
           "title": "3. What kind of COVID-19 testing have you had?",
-          "enum": [
+          "enumNames": [
             "Nasal swab",
             "Serum antibody tests",
             "I was not tested, but I had suspected COVID-19",
             "I was not tested and had no symptoms",
             "I don't know",
             "Prefer not to answer"
+          ],
+          "enum": [
+            "nasal_swab",
+            "serum_antibody_tests",
+            "no_test",
+            "no_test_no_symptoms",
+            "dont_know",
+            "no_answer"
           ]
         },
         "how_was_it_treated": {
@@ -1005,7 +1013,8 @@
             {
               "properties": {
                 "kind_of_testing": {
-                  "enum": ["Nasal Swab"]
+                  "enum": ["nasal_swab"]
+         
                 },
                 "result": {
                   "type": "object",
@@ -1029,7 +1038,8 @@
             {
               "properties": {
                 "kind_of_testing": {
-                  "enum": ["Serum Antibody Tests"]
+                  "enum": ["serum_antibody_tests"]
+               
                 },
                 "result": {
                   "title": "3a. When was your test and what was the result? ",

@@ -7,6 +7,7 @@ import {
   AjvError,
   ErrorListProps,
   Widget,
+  Field,
 } from 'react-jsonschema-form'
 
 import {
@@ -35,6 +36,8 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import FloatingToolbar from '../../widgets/FloatingToolbar'
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
 import AltDateWidget from './AltDateWidget'
+import ExclusiveCheckboxesWidget from './ExclusiveCheckboxesWidget'
+import ExclusiveCheckboxesObjectField from './ExclusiveCheckboxesObjectField'
 
 export interface IFormData {
   [key: string]: {
@@ -88,6 +91,10 @@ export interface SummaryFormat {
   label: string
   value: string
 }
+
+/* The reason behind the custom implementation is to replace the 
+/ fieldset w/ div.fieldset since fieldset limits the display options we can have in css.
+/ This is purely representational and should not affect performance */
 
 function ObjectFieldTemplate(props: any) {
   const canExpand = function canExpand() {
@@ -145,7 +152,10 @@ function ObjectFieldTemplate(props: any) {
 const widgets = {
   //@ts-ignore
   CustomDateWidget: AltDateWidget as Widget,
+  ExclusiveCheckboxesWidget: ExclusiveCheckboxesWidget as Widget
 }
+
+const fields = {checkboxExclusiveField: ExclusiveCheckboxesObjectField as unknown as Field};
 
 export default class SynapseForm extends React.Component<
   SynapseFormProps,
@@ -1044,6 +1054,7 @@ export default class SynapseForm extends React.Component<
                         ? 'submissionInputForm'
                         : 'submissionInputForm no-help'
                     }
+                    fields={fields}
                     liveValidate={false}
                     formData={this.state.formData}
                     schema={this.getSchema(this.state.currentStep)}
