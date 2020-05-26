@@ -124,7 +124,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                   </p>
                   <p>
                     For more information, please visit{' '}
-                    <a href="https://www.columbia.edu" target="_blank">www.columbia.edu</a>.
+                    <a href="https://wchunglab.com/" target="_blank">wchunglab.com</a>.
                   </p>
                 </div>
                 <ColumbiaLogo />
@@ -232,17 +232,13 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                 toughest challenges — from eradicating disease, to improving
                 education, to reforming the criminal justice system. Across
                 three core Initiative focus areas of Science, Education, and
-                Justice &amp; Opportunity, we’re pairing engineering with
+                Justice &amp; Opportunity, CZI is pairing engineering with
                 grant-making, impact investing, and policy and advocacy work to
                 help build an inclusive, just and healthy future for everyone.
               </p>
             </div>
             <p className={classes.paddingBottom20}>
-              For more information, please visit <br></br>
-              <a href="https://www.chanzuckerberg.com" target="_blank">
-                www.chanzuckerberg.com
-              </a>
-              .
+              For more information, please visit <a href="https://www.chanzuckerberg.com" target="_blank">www.chanzuckerberg.com</a>.
             </p>
             <CZILogo />
           </Container>

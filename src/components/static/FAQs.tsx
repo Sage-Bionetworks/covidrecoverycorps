@@ -57,13 +57,12 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                         we will gather data about you. We will ask you to fill
                         out a survey. We might invite you to send us your
                         electronic health data &mdash; this is optional. We might
-                        invite you to give a blood sample, have your nose or
-                        rectum swabbed, to spit, or to pee in a cup.
+                        invite you to give a blood sample, have your nose swabbed, to spit, or to pee in a cup.
                         Researchers will use this data to study how the body
                         fights COVID-19. Researchers may also use it to study
                         other diseases like high blood pressure, diabetes, and
                         lung diseases that seem connected to how the body
-                        responds to COVID-19.
+                        responds to COVID-19, and how people do long term.
                       </p>
                       <p>
                         Researchers will have to be approved by COVID Recovery
@@ -85,9 +84,11 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                   >
                     <div>
                       <p>
-                        The goal of this study is collect data from people who
-                        have recovered from COVID-19 to learn more about how
-                        the body fights this disease. Researchers also want to
+                        The goal of this study is collect data from people who 
+                        have recovered from COVID-19 to learn more about how the
+                        body responds to the virus and how symptoms change while
+                        the body recovers.
+                        Researchers also want to
                         collect information on how other diseases like high
                         blood pressure, diabetes, and lung diseases may be
                         connected to how the body responds to COVID-19.

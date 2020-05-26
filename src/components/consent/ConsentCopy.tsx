@@ -48,7 +48,7 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      This study will <strong> last for 12 months</strong>.{' '}
+      This study will <strong> last for 12 months</strong> from the time you enroll.{' '}
     </p>
     <p className="Consent__copy">
       This study will <strong> not provide medical care </strong> for COVID-19.
@@ -91,8 +91,8 @@ const summaryScreens = [
 
     <div className="list">
       <p className="Consent__copy">
-        A <strong>biosample </strong>such as blood, pee, spit, sample from a
-        nose or rectal swab. We may contact you to schedule a blood draw or we
+        A <strong>biosample </strong>such as blood, pee, spit, or sample 
+        from a nose swab. We may contact you to schedule a blood draw or we
         may mail you an at-home testing kit. We will provide you with
         instructions and postage to mail the kit back to our lab.{' '}
       </p>
@@ -176,7 +176,7 @@ const summaryScreens = [
 
     <p className="Consent__copy">
       If you are asked to provide a sample from a{' '}
-      <strong> nose or fecal swab </strong>you may feel{' '}
+      <strong> nose swab </strong>you may feel{' '}
       <strong> brief discomfort</strong>.{' '}
     </p>
   </div>,
@@ -191,8 +191,8 @@ const summaryScreens = [
     </p>
 
     <p className="Consent__copy">
-      We will study who got infected with the virus and why some people
-      responded differently than others.{' '}
+      We will study the differences in symptoms people have over time 
+      and why some people responded differently than others.{' '}
     </p>
 
     <p className="Consent__copy">
@@ -384,7 +384,7 @@ const fullTextScreens = [
     </p>
 
     <p className="Consent__copy">
-      This study will <strong> last for 12 months</strong>.{' '}
+      This study will <strong> last for 12 months</strong> from the time you enroll.{' '}
     </p>
     <p className="Consent__copy">
       This study will <strong> not provide medical care </strong> for COVID-19.
@@ -399,7 +399,7 @@ const fullTextScreens = [
       If you decide to join COVID Recovery Corps, we will ask you to answer
       survey questions. We will use the answers you give us to guess when you
       might have been infected to decide if and when to ask you to give a
-      biosample such as blood, pee, spit, a sample from a nose or fecal swab.
+      biosample such as blood, pee, spit, or sample from a nose swab.
       You can say no to providing these samples and still take part in COVID
       Recovery Corps study.{' '}
     </p>
@@ -414,7 +414,7 @@ const fullTextScreens = [
       Some people might get a testing kit sent to their house. Those people
       might use a finger stick to provide a small blood sample on a card. The
       kit may also ask you to provide a sample by using a nose swab, peeing in a
-      cup, spit in a cup or by using a fecal swab. We will provide you with
+      cup, or spitting in a cup. We will provide you with
       instructions and postage to mail the kit back to our lab.
     </p>
 
@@ -543,7 +543,7 @@ const fullTextScreens = [
       If you give a blood sample, the most common risks are brief pain and
       bruising. Some people may become dizzy or feel faint. There is also a
       small risk of infection. If you are asked to provide a sample from a nose
-      or fecal swab you may feel brief discomfort.{' '}
+      swab you may feel brief discomfort.{' '}
     </p>
   </div>,
 
@@ -556,9 +556,10 @@ const fullTextScreens = [
       samples from all the other people who take part in COVID Recovery Corps.
       Your data will be stored in the COVID Recovery Corps database and the
       COVID Recovery Corps Biobank will store your biosamples. We will use the
-      data and samples to make discoveries about COVID-19. We will study who got
-      infected with the virus and why some people responded differently than
-      others. We will study how different people’s bodies fought the virus with
+      data and samples to make discoveries about COVID-19. We will study the 
+      differences in symptoms people have over time and why some people 
+      responded differently than others. We will study how different people’s 
+      bodies fought the virus with
       their immune system. We will also study changes in health after people
       have recovered from COVID-19.
     </p>
@@ -715,8 +716,8 @@ const fullTextScreens = [
       <strong> survey</strong>.
     </p>
     <p className="Consent__copy">
-      We may also ask you to provide a spit, blood, nasal or fecal swab sample.
-      This study will last at least for <strong>12 months</strong>
+      We may also ask you to provide a spit, blood, or nasal swab sample.
+      This study will last at least for <strong>12 months</strong> from the time you enroll
     </p>
   </div>,
 ]

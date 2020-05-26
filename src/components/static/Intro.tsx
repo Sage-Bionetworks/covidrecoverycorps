@@ -281,7 +281,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               variant="contained"
               className={classes.joinButton}
             >
-              Join us
+              Join Us
             </Button>
           </NavLink>
         </div>
@@ -524,7 +524,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               variant="contained"
               className={classes.joinButton}
             >
-              Join us
+              Join Us
             </Button>
           </NavLink>
         </Grid>
