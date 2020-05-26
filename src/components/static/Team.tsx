@@ -14,10 +14,6 @@ import { useIntroStyles } from './Intro'
 type TeamProps = {}
 
 export const useStyles = makeStyles(theme => ({
-  heroImage: {
-    width: '100%',
-    height: 'auto',
-  },
   profile: {
     padding: '50px 10px',
   },
@@ -37,32 +33,41 @@ export const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
   },
+  paperPanelWrapper: {
+    padding: '50px 20px 90px 20px',
+  },
+
 }))
 export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
   const introClasses = useIntroStyles()
   const classes = useStyles()
+
+  const heroTextContent = (
+    <Container maxWidth="lg">
+      <div className={introClasses.heroTextDiv}>
+        <h1 className={introClasses.heroText}>
+          The COVID Recovery Corps is a citizen-powered research study to
+          learn more about COVID-19 and make progress in the global fight.
+        </h1>
+      </div>
+    </Container>
+  )
+
   return (
     <div className="Intro">
       <div>
-        <div>
+        <div className={introClasses.heroContainer}>
+          <div className={introClasses.heroTextGradiant}></div>
           <Hidden smUp>
-            <img className={classes.heroImage} src={TeamPageAboveFoldMobile} />
+            <img className={introClasses.heroImage} src={TeamPageAboveFoldMobile} />
           </Hidden>
           <Hidden xsDown>
-            <img className={classes.heroImage} src={TeamPageAboveFold} />
+            <img className={introClasses.heroImage} src={TeamPageAboveFold} />
           </Hidden>
+          {heroTextContent}
         </div>
-        <div className={introClasses.paperHeaderDiv}>
-          <Container maxWidth="md">
-            <h3
-              className={introClasses.paperHeaderText}
-            >
-              The COVID Recovery Corps is a citizen-powered research study to
-              learn more about COVID-19 and make progress in the global fight.
-            </h3>
-          </Container>
-        </div>
-        <Container maxWidth="md" className={introClasses.paperPanelWrapper}>
+
+        <Container maxWidth="md" className={classes.paperPanelWrapper}>
           <div className={introClasses.paperPanel}>
             <div className={introClasses.paperPanelTitle}>
               <h2>Study Leadership</h2>
