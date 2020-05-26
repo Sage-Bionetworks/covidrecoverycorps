@@ -82,8 +82,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
     <div id="Questions">
       <h2 className="text-center">Eligibility</h2>
       <p>
-        To be eligible to take part in the COVID Recovery Corps Study, you must
-        fulfill the following:
+        To take part in the COVID Recovery Corps study, you must fulfill the following:
       </p>
       <BlueSeparator></BlueSeparator>
       <form onSubmit={handleOnSubmit}>
@@ -151,9 +150,12 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
 
         <div className="form-group">
           <div>
-            <label>Please enter your zip code</label>
+            <label>Please enter your zip code</label>            
           </div>
-
+          {/* <div>
+            <em>Note, we are only able to enroll participants who live within a 25 mile radius of the Columbia University Medical Center.</em>
+          </div> */}
+          
           <TextField
             variant="outlined"
             name="zipcode"
