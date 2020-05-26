@@ -178,6 +178,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
                     />
                   }
                   label="Share my study data with qualified researchers for future COVID related work"
+                  className="margin-bottom-std"
                 />
                 <LearnMore learnMoreText="Learn more">
                   <div>
@@ -222,6 +223,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
                     />
                   }
                   label="Share my electronic health records"
+                  className="margin-bottom-std"
                 />
                 <LearnMore learnMoreText="Learn more">
                   <div>
