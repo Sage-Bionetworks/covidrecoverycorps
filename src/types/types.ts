@@ -5,7 +5,7 @@ export const APP_ID = 'czi-coronavirus'
 export const SESSION_NAME = 'bridge-session-ny-strong'
 export const ENDPOINT = 'https://webservices.sagebridge.org'
 
-export const SURVEY_TIME_CONSTANT = '2020-05-07T00:14:04.322Z'
+export const SURVEY_TIME_CONSTANT = '2020-05-08T00:14:04.322Z'
 export const SURVEY_IDENTIFIER = 'ny-strong'
 
 export interface MailChimpFormFields extends EmailFormFields {
