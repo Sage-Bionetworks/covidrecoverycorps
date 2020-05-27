@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
-import btnClose from '../../assets/btn_close.png'
+import btnClose from '../../assets/btn_close.svg'
 import { Link } from '@material-ui/core'
 import ConfirmationModal from './ConfirmationModal'
 
@@ -45,7 +45,7 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = pr
             >
               {!props.closeIcon && (
                 <img
-                  style={{ top: '-12px', position: 'absolute' }}
+                  style={{ left: '10px', position: 'absolute' }}
                   src={btnClose}
                   alt={props.closeLinkText}
                 ></img>
