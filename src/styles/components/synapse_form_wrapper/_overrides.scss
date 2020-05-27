@@ -215,6 +215,8 @@
     legend {
       @include control_label;
       margin-bottom: 1rem;
+      display: inline-block;
+      max-width: 100%;
     }
     .form-group {
       padding-left: $left-pad;
@@ -673,6 +675,8 @@
   .symptoms2 {
     legend {
       @include control_label;
+      display: inline-block;
+       max-width: 100%;
     }
     .form-group.field-boolean {
       margin-bottom: 0;
