@@ -1306,7 +1306,7 @@
       "properties": {
         "smoking": {
           "type": "string",
-          "title": "7. Do you smoke?",
+          "title": "7. Do you smoke tobacco?",
           "uniqueItems": true,
           "enum": [
             "I have never smoked regularly.",
@@ -1452,7 +1452,7 @@
               "Anti-depressant (sertraline, fluoxetine, citalopram, trazodone, escitalopram)",
               "Antibiotics",
               "HIV medication (lopinavir/ritonavir, darunavir/ritonavir, tenofovir disoproxil fumarate (TDF), tenofovir alafenamide fumarate (TAF), and combination medications containing these agents)",
-              "None",
+              "None of the above",
               "Prefer not to answer"
             ]
           }
@@ -1488,6 +1488,7 @@
               "Plasma therapy (antibodies from someone else)",
               "Bronchodilators (asthma-like medications)",
               "Don’t know",
+              "None of the above",
               "Prefer not to answer"
             ]
           },
