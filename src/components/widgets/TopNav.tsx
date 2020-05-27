@@ -144,15 +144,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
         </IconButton>
       </div>
       <List>
-        {props.token && (
-          <NavLink
-            to="/dashboard"
-            onClick={handleDrawerToggle}
-            className={classes.navBarLink}
-          >
-            <ListItem button className={classes.mobileMenuItem}>Survey Dashboard</ListItem>
-          </NavLink>
-        )}
+      
         <NavLink
           to="/home"
           onClick={handleDrawerToggle}
@@ -189,6 +181,15 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           <ListItem button className={classes.mobileMenuItem}>Privacy Policy</ListItem>
         </NavLink>
         <Divider className={classes.mobileMenuSeparator} />
+        {props.token && (
+          <NavLink
+            to="/dashboard"
+            onClick={handleDrawerToggle}
+            className={classes.navBarLink}
+          >
+            <ListItem button className={classes.mobileMenuItem}>Survey Dashboard</ListItem>
+          </NavLink>
+        )}
         {props.token && (
           <NavLink
             to="/settings"
@@ -235,15 +236,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
 
   const fullScreenNavBar = (
     <div>
-      {props.token && (
-        <NavLink
-          to="/dashboard"
-          className={classes.fullNavBarLink}
-          activeClassName={classes.fullNavBarLinkActive}
-        >
-          Survey Dashboard
-        </NavLink>
-      )}
+     
       <NavLink
         to="/home"
         className={classes.fullNavBarLink}
@@ -279,6 +272,15 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
       >
         Privacy Policy
       </NavLink>
+      {props.token && (
+        <NavLink
+          to="/dashboard"
+          className={classes.fullNavBarLink}
+          activeClassName={classes.fullNavBarLinkActive}
+        >
+          Survey Dashboard
+        </NavLink>
+      )}
       {props.token && (
         <NavLink
           to="/settings"

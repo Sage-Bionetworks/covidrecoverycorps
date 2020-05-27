@@ -38,7 +38,7 @@ const useStyles = makeStyles({
 const surveys: UISurvey[] = [
   {
     type: 'CONTACT',
-    title: 'step 1: profile',
+    title: 'profile',
     description: 'Contact Information',
     time: 2,
     link: '/contactinfo',
@@ -129,7 +129,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
     const getIconImageForContact = (): JSX.Element => {
       return isContactInfoDone ? (
-        <img src={pencilIconImg} alt="edit contact information"></img>
+        <img src={completeIconImg} alt="done"></img>
       ) : (
         <img src={emptyIconImg} alt="to do"></img>
       )
@@ -152,16 +152,16 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     }
 
     const getClassNameForSurveyItem = (survey: UISurvey): string => {
-      if ((!isDone(survey) && isContactInfoDone) || survey.type === 'CONTACT') {
-        return 'item-wrap'
+      if (survey.type === 'CONTACT') {
+        return isContactInfoDone ? 'item-wrap disabled' : 'item-wrap'
       } else {
-        if (!isContactInfoDone) {
-          return 'item-wrap disabled'
-        } else {
-          return 'item-wrap done'
-        }
+        return !isDone(survey) && isContactInfoDone
+          ? 'item-wrap'
+          : 'item-wrap disabled'
       }
     }
+
+    
     const renderSurveyInfo = (
       survey: UISurvey,
       isTier1: boolean,
