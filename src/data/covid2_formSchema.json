@@ -29,7 +29,7 @@
         },
         "household_size": {
           "type": "object",
-          "title": "2. How many people live with you in your apartment/house in each age category? Include yourself. (Fill in 0 if none are)",
+          "title": "2. How many people (including yourself) live in your apartment/house in each age category? (Fill in 0 if none are)",
 
           "properties": {
             "under3": {
