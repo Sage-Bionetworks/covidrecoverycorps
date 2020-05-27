@@ -217,6 +217,7 @@
       margin-bottom: 1rem;
       display: inline-block;
       max-width: 100%;
+    
     }
     .form-group {
       padding-left: $left-pad;
@@ -558,7 +559,7 @@
 
   .show_fieldSet {
     legend {
-      display: block !important;
+      display: inline-block !important;
       font-size: 1.6rem;
     }
     .form-group.field-boolean {
@@ -636,6 +637,9 @@
   .countries {
     legend {
       @include control_label;
+      display: inline-block;
+      padding-right: 1rem;
+    
     }
     .form-group.field-boolean {
       margin-bottom: 0;
