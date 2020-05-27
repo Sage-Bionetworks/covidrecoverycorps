@@ -4,6 +4,7 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { makeStyles } from '@material-ui/core/styles'
 import Logout from '../login/Logout'
+import btnClose from '../../assets/btn_close_dark.svg'
 import {
   ListItem,
   List,
@@ -11,6 +12,7 @@ import {
   Hidden,
   Grid,
   Button,
+  Link,
 } from '@material-ui/core'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Drawer from '@material-ui/core/Drawer'
@@ -115,8 +117,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     padding: theme.spacing(0, 1),
     justifyContent: 'flex-end',
-    height: '72px',
-    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    height: '72px',    
     marginBottom: '10px',
   },
   drawerCloseButton: {
@@ -138,10 +139,13 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
 
   const drawer = (
     <div>
-    <div className={classes.drawerHeader}>
-        <IconButton onClick={handleDrawerToggle} className={classes.drawerCloseButton}>
-          <FontAwesomeIcon icon={faTimes} className={classes.drawerCloseIcon}></FontAwesomeIcon>
-        </IconButton>
+      <div className={classes.drawerHeader}>
+        <Link onClick={handleDrawerToggle} className={classes.drawerCloseButton}>
+          <img
+            className={classes.drawerCloseIcon}
+            src={btnClose}
+          ></img>
+        </Link>
       </div>
       <List>
       
