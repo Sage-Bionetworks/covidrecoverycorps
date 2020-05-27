@@ -245,6 +245,10 @@
               "type": "boolean",
               "title": "Cardiac catheterization or stent"
             },
+            "none": {
+              "type": "boolean",
+              "title": "None of the above"
+            },
             "no_answer": {
               "type": "boolean",
               "title": "Prefer not to answer"
@@ -469,6 +473,7 @@
               "Thyroid disease",
               "Ulcerative colitis",
               "Warts",
+              "None of the above",
               "Prefer not to answer"
             ]
           }
@@ -507,6 +512,10 @@
             "other_inflammatory_arthritis": {
               "title": "Other type of inflammatory arthritis",
               "type": "boolean"
+            },
+            "none": {
+              "type": "boolean",
+              "title": "None of the above"
             },
             "no_answer": {
               "title": "Prefer not to answer",
@@ -591,6 +600,10 @@
             },
             "other": {
               "title": "Other",
+              "type": "boolean"
+            },
+            "none": {
+              "title": "None of the above",
               "type": "boolean"
             },
             "no_answer": {
