@@ -82,7 +82,7 @@
       "classNames": "diabetes-drugs",
       "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
-        "exclusive": [0, 4]
+        "exclusive": [0,1, 5]
       }
     }
   },

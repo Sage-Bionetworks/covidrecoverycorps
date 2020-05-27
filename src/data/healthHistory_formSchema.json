@@ -188,6 +188,7 @@
                       "Insulin",
                       "Pills",
                       "Insulin And Pills",
+                      "None of the above",
                       "Prefer not to answer"
                     ]
                   }
@@ -708,7 +709,7 @@
           "enum": [
             "I am currently pregnant",
             "I delivered within the last 6 months",
-            "No, I am not currently pregnant and have not recently delivered a baby",
+            "No, I am not currently pregnant and have not delivered a baby in the last 6 months",
             "Prefer not to answer"
           ]
         }
@@ -727,7 +728,7 @@
               "properties": {
                 "pregnant": {
                   "enum": [
-                    "No, I am not currently pregnant and have not recently delivered a baby"
+                    "No, I am not currently pregnant and have not delivered a baby in the last 6 months"
                   ]
                 }
               }
