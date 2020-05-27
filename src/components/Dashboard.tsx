@@ -151,17 +151,18 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       }
     }
 
-    const getClassNameForSurveyItem = (survey: UISurvey): string => {
+    const isSurveyDisabled = (survey: UISurvey): boolean => {
       if (survey.type === 'CONTACT') {
-        return isContactInfoDone ? 'item-wrap disabled' : 'item-wrap'
+        return isContactInfoDone
       } else {
-        return !isDone(survey) && isContactInfoDone
-          ? 'item-wrap'
-          : 'item-wrap disabled'
+        return isDone(survey) || !isContactInfoDone
       }
     }
 
-    
+    const getClassNameForSurveyItem = (survey: UISurvey): string => {
+      return isSurveyDisabled(survey) ? 'item-wrap disabled' : 'item-wrap'
+    }
+
     const renderSurveyInfo = (
       survey: UISurvey,
       isTier1: boolean,
@@ -185,7 +186,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         </>
       )
 
-      if (isDone(survey) || (!isContactInfoDone && survey.type !== 'CONTACT')) {
+      if (isSurveyDisabled(survey)) {
         return <div className="btn-container">{innerElement}</div>
       } else {
         return (
