@@ -61,12 +61,10 @@
       ],
       "properties": {
         "where_go_for_care": {
-          "type": "array",
+          "type": "string",
           "uniqueItems": true,
           "title": "5. When you are sick, where do you usually go for care?",
-          "minItems":1,
-          "items": {
-            "type": "string",
+      
             "enum": [
               "Doctor’s office, Clinic, or Health center",
               "Urgent care or Minute clinic",
@@ -75,7 +73,7 @@
               "I don’t go to one place",
               "Prefer not to answer"
             ]
-          }
+         
         },
         "routine_exam_2019": {
           "type": "string",

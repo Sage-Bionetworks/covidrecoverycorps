@@ -33,10 +33,8 @@
   },
   "history11": {
     "where_go_for_care": {
-      "ui:widget": "ExclusiveCheckboxesWidget",
-      "ui:options": {
-        "exclusive": [0, 1]
-      }
+      "ui:widget": "radio"
+     
     },
     "routine_exam_2019": {
       "ui:widget": "radio",
