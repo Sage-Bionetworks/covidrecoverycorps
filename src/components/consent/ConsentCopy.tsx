@@ -874,14 +874,14 @@ const ehrScreens = [
     <h2>Who can answer my questions?</h2>
     <ul>
       <li>
-        For general questions, please contact the COVID Recovery Corps study at
-        212-305-5700 or{' '}
+        <strong>For general questions,</strong> please contact the COVID Recovery Corps study at
+        212-305-5700 (24 hours) or{' '}
         <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
           COVIDRecoveryCorps@cumc.columbia.edu
         </a>{' '}
       </li>
       <li>
-        For your rights as a research participant, please contact Western IRB (WIRB) at <a href="mailto:help@WIRB.com">help@WIRB.com</a> at
+      <strong>For questions about your rights as a research participant, concerns or complaints,</strong> please contact Western IRB (WIRB) at <a href="mailto:help@WIRB.com">help@WIRB.com</a> at
         360-252-2500 or toll-free at 800-562-4789.
       </li>
     </ul>
