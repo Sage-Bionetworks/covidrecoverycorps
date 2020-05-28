@@ -235,6 +235,7 @@ export default class SynapseForm extends React.Component<
   onUnload = (ev: any) => {
     if (this.state.hasUnsavedChanges) {
       ev.preventDefault()
+    
       return (ev.returnValue = this.unsavedDataWarning)
     }
     return
@@ -956,6 +957,8 @@ export default class SynapseForm extends React.Component<
             closeLinkDestination="/dashboard"
             closeIcon={faAngleLeft}
             closeLinkText="Dashboard"
+            closeConfirmationText="Exit Survey?"
+            closeConfirmationText2="Data you have entered may not be saved"
           />
         </div>
         <Prompt
