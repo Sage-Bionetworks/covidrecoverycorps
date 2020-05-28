@@ -10,6 +10,7 @@ type FloatingToolbarProps = {
   closeIcon?: IconProp
   closeLinkText: string
   closeConfirmationText?: string
+  closeConfirmationText2?: string
 }
 
 export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = props => {
@@ -69,6 +70,7 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = pr
           content={
             <div>
               <h2>{props.closeConfirmationText}</h2>
+             {props.closeConfirmationText2 && <div>{props.closeConfirmationText2}</div>}
             </div>
           }
           onCancel={() =>
