@@ -22,19 +22,21 @@
           "classNames": "country-name"
         },
         "travel_start": {
-          "ui:widget": "alt-date",
+          "ui:widget": "CustomDateWidget",
           "ui:options": {
             "yearsRange": [2019, 2020],
             "hideNowButton": true,
-            "hideClearButton": true
+            "hideClearButton": true,
+            "lessThanNow": true
           }
         },
         "travel_end": {
-          "ui:widget": "alt-date",
+          "ui:widget": "CustomDateWidget",
           "ui:options": {
             "yearsRange": [2019, 2020],
             "hideNowButton": true,
-            "hideClearButton": true
+            "hideClearButton": true,
+            "lessThanNow": true
           }
         }
       }
