@@ -63,7 +63,7 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
           ></Eligiblity>
         )}
         {eligible === false && (
-          <Ineligible reason={ineligibilityReason!}></Ineligible>
+          <Ineligible />
         )}
         {eligible && !loginType && (
           <Registration
