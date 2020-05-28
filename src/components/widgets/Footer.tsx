@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   footer: {
     color: '#FCFCFC',
     backgroundColor: '#2A2A2A',
-    minHeight: '80px',
+    minHeight: '175px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -67,60 +67,62 @@ const useStyles = makeStyles(theme => ({
 export const Footer: React.FunctionComponent<FooterProps> = props => {
   const classes = useStyles()
   return (
-    <div className={classes.footer}>
-      <CssBaseline />
-      <div></div>
-      <div>
-        <Toolbar className={classes.toolBar}>
-          {props.token && (
-            <NavLink to="/dashboard" className={classes.fullNavBarLink}>
-              Survey Dashboard
+    <div>
+      <div className={classes.footer}>
+        <CssBaseline />
+        <div></div>
+        <div>
+          <Toolbar className={classes.toolBar}>
+            {props.token && (
+              <NavLink to="/dashboard" className={classes.fullNavBarLink}>
+                Survey Dashboard
+              </NavLink>
+            )}
+            <NavLink to="/home" className={classes.fullNavBarLink}>
+              About
             </NavLink>
-          )}
-          <NavLink to="/home" className={classes.fullNavBarLink}>
-            About
-          </NavLink>
-          <NavLink to="/team" className={classes.fullNavBarLink}>
-            Meet the Researchers
-          </NavLink>
-          <NavLink to="/faqs" className={classes.fullNavBarLink}>
-            FAQs
-          </NavLink>
-          <NavLink to="/contact" className={classes.fullNavBarLink}>
-            Contact Us
-          </NavLink>
-          <NavLink to="/privacypolicy" className={classes.fullNavBarLink}>
-            Privacy Policy
-          </NavLink>
-          {props.token && (
-            <NavLink to="/settings" className={classes.fullNavBarLink}>
-              Account Settings
+            <NavLink to="/team" className={classes.fullNavBarLink}>
+              Meet the Researchers
             </NavLink>
-          )}
-          {/* the toolbar is a flex layout, whose flex direction changes on smaller devices.  add an empty element for correct spacing or newline */}
-          <div className={classes.fullNavBarLink}></div>
+            <NavLink to="/faqs" className={classes.fullNavBarLink}>
+              FAQs
+            </NavLink>
+            <NavLink to="/contact" className={classes.fullNavBarLink}>
+              Contact Us
+            </NavLink>
+            <NavLink to="/privacypolicy" className={classes.fullNavBarLink}>
+              Privacy Policy
+            </NavLink>
+            {props.token && (
+              <NavLink to="/settings" className={classes.fullNavBarLink}>
+                Account Settings
+              </NavLink>
+            )}
+            {/* the toolbar is a flex layout, whose flex direction changes on smaller devices.  add an empty element for correct spacing or newline */}
+            <div className={classes.fullNavBarLink}></div>
 
-          {!props.token && (
-            <NavLink to="/login" className={classes.fullNavBarLink}>
-              Log in
-            </NavLink>
-          )}
-          {!props.token && (
-            <NavLink to="/eligibility" className={classes.fullNavBarLink}>
-              Join Us
-            </NavLink>
-          )}
-        </Toolbar>
-        <div className={classes.questionsCommentsText}>
-          For questions, comments, or requests regarding the privacy policy or
-          our processing of your information, please contact:
-          privacypolicy@sagebionetworks.org.
+            {!props.token && (
+              <NavLink to="/login" className={classes.fullNavBarLink}>
+                Log in
+              </NavLink>
+            )}
+            {!props.token && (
+              <NavLink to="/eligibility" className={classes.fullNavBarLink}>
+                Join Us
+              </NavLink>
+            )}
+          </Toolbar>
+          <div className={classes.questionsCommentsText}>
+            For questions, comments, or requests regarding the privacy policy or
+            our processing of your information, please contact:
+            privacypolicy@sagebionetworks.org.
+          </div>
         </div>
-      </div>
-      <div className={classes.cziLogoDiv}>
-        <a href="https://chanzuckerberg.com/">
-          <CZILogo />
-        </a>
+        <div className={classes.cziLogoDiv}>
+          <a href="https://chanzuckerberg.com/">
+            <CZILogo />
+          </a>
+        </div>
       </div>
     </div>
   )
