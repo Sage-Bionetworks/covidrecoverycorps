@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import useForm from '../useForm'
 import { zipcodes } from '../../data/zips.json'
 import { IneligibilityReason } from '../../types/types'
-
-import ToggleButton from '@material-ui/lab/ToggleButton'
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
-
 import Button from '@material-ui/core/Button/Button'
-
 import { TextField, Checkbox, FormControlLabel } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert/Alert'
 import BlueSeparator from '../static/BlueSeparator'
@@ -30,18 +25,30 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
   const validationStateSchema = {
     over18: {
       required: true,
+      validator: {
+        error: 'To be eligible to take part in the COVID Recovery Corps study, you must be over 18.',
+        regEx: /yes/,
+      },
     },
 
     cons: {
       required: true,
+      validator: {
+        error: 'To be eligible to take part in the COVID Recovery Corps study, you must be able to provide consent for yourself.',
+        regEx: /yes/,
+      },
     },
     hadCovid: {
       required: true,
+      validator: {
+        error: 'To be eligible to take part in the COVID Recovery Corps study, you must think that you\'ve had COVID-19.',
+        regEx: /yes/,
+      },
     },
     zipcode: {
       required: true,
       validator: {
-        error: 'Invalid Zipcode',
+        error: 'Invalid zip code.',
         regEx: /^\d{5}$/,
       },
     },
@@ -50,20 +57,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
   function onSubmitForm(state: any) {
     let isValid = true
     let reason: IneligibilityReason = 'NONE'
-
-    if (state.over18.value !== 'yes') {
-      isValid = false
-      reason = 'AGE' as IneligibilityReason
-    }
-
-    if (state.cons.value !== 'yes') {
-      isValid = false
-      reason = 'CONSENT' as IneligibilityReason
-    }
-    if (state.hadCovid.value !== 'yes') {
-      isValid = false
-      reason = 'COVID' as IneligibilityReason
-    }
+    
     if (!zipcodes.includes(state.zipcode.value)) {
       isValid = false
       reason = 'LOCATION' as IneligibilityReason

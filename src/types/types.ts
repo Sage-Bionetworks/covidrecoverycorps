@@ -19,10 +19,7 @@ export type EmailSigninParams = {
 }
 
 export type IneligibilityReason =
-  | 'AGE'
-  | 'CONSENT'
   | 'LOCATION'
-  | 'COVID'
   | 'NONE'
 
 export interface StringDictionary {
