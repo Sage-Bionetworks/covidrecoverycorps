@@ -227,7 +227,7 @@
       "first_day": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2019, 2020],
+          "yearsRange": [2020, 2020],
           "hideNowButton": true,
           "hideClearButton": true,
           "lessThanNow": true
@@ -237,7 +237,7 @@
       "last_day": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2019, 2020],
+          "yearsRange": [2020, 2020],
           "hideNowButton": true,
           "hideClearButton": true,
           "lessThanNow": true
@@ -261,7 +261,7 @@
         "classNames": ["nasal_swab"],
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2019, 2020],
+          "yearsRange": [2020, 2020],
           "hideNowButton": true,
           "hideClearButton": true,
           "lessThanNow":true
@@ -278,7 +278,7 @@
         "classNames": ["antibody"],
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2019, 2020],
+          "yearsRange": [2020, 2020],
           "hideNowButton": true,
           "hideClearButton": true,
           "lessThanNow": true
