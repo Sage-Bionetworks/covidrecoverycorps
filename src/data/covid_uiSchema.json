@@ -337,10 +337,11 @@
         "encepalitis",
         "other",
         "other_answer",
+        "none",
         "prefer_not_answer"
       ],
       "ui:field": "checkboxExclusiveField",
-      "ui:exclusive": ["prefer_not_answer"],
+      "ui:exclusive": ["prefer_not_answer", "none"],
            "ui:dependent_option_postfix": ["_days"],
       "classNames": "show_fieldSet hospitalization_treatment",
       "other_answer": {

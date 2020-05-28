@@ -1106,6 +1106,7 @@
               "Weill Cornell/ NewYork-Presbyterian",
               "Woodhull Hospital",
               "Other",
+
               "Prefer not to answer"
             ]
           }
@@ -1169,6 +1170,12 @@
               "title": "Other complications",
               "enum": [true, false]
             },
+            "none": {
+              "type": "boolean",
+              "title": "None of the above",
+              "enum": [true, false]
+            },
+     
             "prefer_not_answer": {
               "type": "boolean",
               "title": "Prefer not to answer",
@@ -1309,10 +1316,10 @@
           "title": "7. Do you smoke tobacco?",
           "uniqueItems": true,
           "enum": [
-            "I have never smoked regularly.",
-            "I used to smoke, but I quit.",
-            "I smoke only rarely.",
-            "I smoke every day.",
+            "I have never smoked regularly",
+            "I used to smoke, but I quit",
+            "I smoke only rarely",
+            "I smoke every day",
             "Prefer not to answer"
           ]
         },
@@ -1360,9 +1367,9 @@
               "properties": {
                 "smoking": {
                   "enum": [
-                    "I have never smoked regularly.",
-                    "I used to smoke, but I quit.",
-                    "I smoke only rarely.",
+                    "I have never smoked regularly",
+                    "I used to smoke, but I quit",
+                    "I smoke only rarely",
                     "Prefer not to answer"
                   ]
                 }
