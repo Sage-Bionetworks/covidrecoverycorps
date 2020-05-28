@@ -1328,10 +1328,10 @@
           "title": "8. Do you vape?",
           "uniqueItems": true,
           "enum": [
-            "I have never vaped regularly.",
-            "I used to vape, but I quit.",
-            "I vape only rarely.",
-            "I vape every day.",
+            "I have never vaped regularly",
+            "I used to vape, but I quit",
+            "I vape only rarely",
+            "I vape every day",
             "Prefer not to answer"
           ]
         },
@@ -1355,7 +1355,7 @@
             {
               "properties": {
                 "smoking": {
-                  "enum": ["I smoke every day."]
+                  "enum": ["I smoke every day"]
                 },
                 "smoking_how_many_cigarettes": {
                   "type": "number",
@@ -1436,7 +1436,7 @@
             "type": "string",
             "enum": [
               "Nonsteroidal anti-inflammatory agents or NSAIDS (aspirin, celecoxib, diclofenac, Cambia, Cataflam, Voltaren, diflunisal, etodolac, ibuprofen, Motrin, Advil, indomethacin, Indocin, ketoprofen, ketorolac, nambumetone, naproxen, Aleve, Anaprox, Naprelan, Naprosyn, oxaprozin, Daypro,  piroxicam, Feldene, salsalate, Disalate, sulidnac, tolmetin)",
-              "Tylenol, Acetaminophen, Daquil, Nyquil, Excedrin, Sinutab.",
+              "Tylenol, Acetaminophen, Daquil, Nyquil, Excedrin, Sinutab",
               "Aspirin",
               "Asthma Medication (bronchodilator Ventolin, albuterol)",
               "Inhaled corticosteroids (Advair, beclomethasone, budesonide, ciclesonide, flunisolide, fluticasone, or mometasone)",
