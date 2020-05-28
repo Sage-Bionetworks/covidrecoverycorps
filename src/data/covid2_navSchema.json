@@ -34,6 +34,32 @@
             }
           },
           "priority:": 1
+        },
+
+        {
+          "conditions": {
+            "all": [
+              {
+                "fact": "covid1",
+                "operator": "greaterThan",
+                "path": ".travel_countries[*].travel_start",
+                "value": {
+                  "fact": "covid1",
+                  "path": ".travel_countries[*].travel_end"
+                }
+              }
+            ]
+          },
+          "event": {
+            "type": "validation",
+
+            "params": {
+              "message": "travel start date can not be before travel end date",
+              "name": "range",
+              "property": ".covid1.travel_countries[*]"
+            }
+          },
+          "priority:": 1
         }
       ]
     },
