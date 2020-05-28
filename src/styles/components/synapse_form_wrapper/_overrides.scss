@@ -155,8 +155,8 @@
       .col-xs-3 {
         width: auto;
         position: absolute;
-        top: 5px;
-        right: 10px;
+        top: -0.7rem;
+        right: -3%;
         padding: 0;
         margin: 0;
       }
@@ -217,7 +217,6 @@
       margin-bottom: 1rem;
       display: inline-block;
       max-width: 100%;
-    
     }
     .form-group {
       padding-left: $left-pad;
@@ -527,16 +526,16 @@
     height: 40px;
     border: 1px solid $primary-blue !important;
     border-radius: 0;
-    padding: .5rem 2.5rem .5rem 1rem;
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
     box-shadow: none;
     border-radius: 0;
     -webkit-appearance: none;
     -webkit-border-radius: 0px;
     font-size: 1.6rem;
     background-image: url('../../../assets/select_arrow.svg');
-	background-repeat: no-repeat, repeat;
-	background-position: right .4rem top 50%, 0 0;
-	background-size: .65em auto, 100%;
+    background-repeat: no-repeat, repeat;
+    background-position: right 0.4rem top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
   }
   /* select::-ms-expand {
       display: none;
@@ -639,7 +638,6 @@
       @include control_label;
       display: inline-block;
       padding-right: 1rem;
-    
     }
     .form-group.field-boolean {
       margin-bottom: 0;
@@ -680,7 +678,7 @@
     legend {
       @include control_label;
       display: inline-block;
-       max-width: 100%;
+      max-width: 100%;
     }
     .form-group.field-boolean {
       margin-bottom: 0;
@@ -715,8 +713,8 @@
           }
         }
         .country-name {
-          input[type='text'] {
-            width: 75%;
+          select {
+            width: 97%;
           }
         }
         .array-item-add {
