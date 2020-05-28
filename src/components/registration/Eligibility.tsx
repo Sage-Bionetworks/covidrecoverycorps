@@ -82,7 +82,8 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
     <div id="Questions">
       <h2 className="text-center">Eligibility</h2>
       <p>
-        To take part in the COVID Recovery Corps study, you must fulfill the following:
+        Currently we are looking for residents within a 25 mile radius of the Columbia University Medical Center.
+        To be eligible to take part in the COVID Recovery Corps study, you must fulfill the following:
       </p>
       <BlueSeparator></BlueSeparator>
       <form onSubmit={handleOnSubmit}>
