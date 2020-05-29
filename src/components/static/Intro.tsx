@@ -270,8 +270,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
     <Container maxWidth="lg">
       <div className={classes.heroTextDiv}>
         <h1 className={classes.heroText}>
-          Building a partnership between COVID-19 survivors and researchers 
-          to drive scientific breakthroughs in the fight against this disease.
+          Building a partnership between COVID-19 survivors and researchers.
         </h1>
         <div>
           <NavLink to="/eligibility" className={classes.navLink}>
