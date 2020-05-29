@@ -841,6 +841,25 @@ export default class SynapseForm extends React.Component<
       return vals.length < value
     })
 
+    console.log('tesgt')
+
+    engine.addOperator('symptomsDates', (factValue: any, value: any) => {
+      if (!factValue) {
+        return true
+      }
+      const datesArray = [factValue.symptoms_start.symptoms_start_date,
+        factValue.symptoms_worst?.symptoms_worst_date,
+        factValue.symptoms_recovery?.symptoms_recovery_date, 
+        factValue.symptoms_none?.symptoms_none_date]
+    const err1 = factValue.symptoms_start?.symptoms_start_date && _.min(datesArray) < factValue.symptoms_start?.symptoms_start_date
+    const err2 = factValue.symptoms_none?.symptoms_none_date && _.max(datesArray) > factValue.symptoms_none?.symptoms_none_date 
+const err3 = factValue.symptoms_worst?.symptoms_worst_date && factValue.symptoms_recovery?.symptoms_recovery_date && (
+  factValue.symptoms_recovery?.symptoms_recovery_date < factValue.symptoms_worst?.symptoms_worst_date)
+
+return err1 ||err2 || err3
+
+    } )
+
     allRules.forEach(rule => {
       engine.addRule(rule)
     })

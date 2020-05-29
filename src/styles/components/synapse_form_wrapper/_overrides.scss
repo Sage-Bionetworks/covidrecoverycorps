@@ -674,6 +674,36 @@
     }
   }
 
+  .symptoms {
+    .form-group.subcheckbox {
+      margin-top: -0.75rem;
+      .control-label {
+        padding-left: 1.2rem;
+      }
+    }
+  }
+  .symptom-dates {
+    .field-description {
+      margin-left: 1.5rem;
+    }
+    .list-inline {
+      display: flex;
+    }
+    .form-group.subcheckbox {
+      @include subfield_inverted;
+      margin-left: 0;
+      padding-left: 0;
+      margin-top: -4rem;
+      margin-top: -2rem;
+      .checkbox {
+        padding-bottom: 0;
+        span {
+          @include label_level2;
+        }
+      }
+    }
+  }
+
   .symptoms2 {
     legend {
       @include control_label;
@@ -688,7 +718,7 @@
       }
     }
 
-    .symptom_day_first,
+    /* .symptom_day_first,
     .symptom_day_last {
       label {
         @include label_level2;
@@ -699,7 +729,7 @@
       label {
         @include field-description;
       }
-    }
+    }*/
   }
 
   .covid2 {
