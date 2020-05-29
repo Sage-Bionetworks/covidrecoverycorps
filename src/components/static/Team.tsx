@@ -8,6 +8,7 @@ import SurvivorCorps from '../../assets/TeamPageSurvivorCorps.png'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
 import { ReactComponent as CZILogo } from '../../assets/czi_logo_dark.svg'
+import { ReactComponent as SurvivorCorpsLogo } from '../../assets/SurvivorCorpsLogo-Vertical.svg'
 import BlueSeparator from './BlueSeparator'
 import { useIntroStyles } from './Intro'
 
@@ -43,7 +44,10 @@ export const useStyles = makeStyles(theme => ({
   paperPanelWrapper: {
     padding: '50px 20px 90px 20px',
   },
-
+  survivorCorpsLogo: {
+    height: '80px',
+    maxWidth: '164px'
+  }
 }))
 export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
   const introClasses = useIntroStyles()
@@ -212,16 +216,24 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                 <Grid item xs={12} sm={6}>
                   <div className={classes.paddingBottom20}>
                     <p>
-                      Survivor Corps is a rapidly growing grassroots network of more than 45,000 COVID-19 survivors and family members who have first-hand experience with the virus. They are motivated to help others navigate the illness and find a pathway to recovery. Founded by Diana Berrent, Survivor Corps is mobilizing these survivors to donate plasma and to support ongoing scientific, medical and academic research to identify and improve treatments, understand the disease, and develop a vaccine.
+                      Survivor Corps is a rapidly growing grassroots network of more than 50,000 COVID-19 
+                      survivors and family members who have first-hand experience with the virus. They are 
+                      motivated to help others navigate the illness and find a pathway to recovery. 
+                      Founded by Diana Berrent, Survivor Corps is mobilizing these survivors to donate 
+                      plasma and to support ongoing scientific, medical and academic research to identify 
+                      and improve treatments, understand the disease and its long term effects, and develop a vaccine.
                     </p>
                   </div>
-                  <p>
+                  <p className={classes.paddingBottom20}>
                     For more information, please visit <br></br>
                     <a href="https://www.survivorcorps.com" target="_blank">
                       www.survivorcorps.com
                     </a>
                     .
                   </p>
+                  <div className={classes.paddingBottom20}>
+                    <SurvivorCorpsLogo className={classes.survivorCorpsLogo}/>
+                  </div>
                 </Grid>
               </Grid>
             </Grid>

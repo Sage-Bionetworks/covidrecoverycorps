@@ -15,6 +15,7 @@ import { ReactComponent as Tablet } from '../../assets/tablet.svg'
 import { ReactComponent as TestTubes } from '../../assets/test_tubes.svg'
 import { ReactComponent as BooksApple } from '../../assets/books_apple.svg'
 import { ReactComponent as ShareIcon } from '../../assets/share_icon.svg'
+import { ReactComponent as SurvivorCorpsLogo } from '../../assets/SurvivorCorpsLogo-Horizontal.svg'
 
 import { NavLink, Link } from 'react-router-dom'
 import BlueSeparator from './BlueSeparator'
@@ -112,13 +113,18 @@ export const useIntroStyles = makeStyles(theme => ({
     padding: '40px 30px',
     display: 'flex',
     justifyContent: 'center',
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+      alignItems: 'center'
+    }
   },
   logosDivSeparator: {
     width: '5px',
     borderRight: '2px #EEEEEE solid',
     margin: '0px 50px',
-    [theme.breakpoints.down('xs')]: {
-      margin: '0px 15px',
+    [theme.breakpoints.down('sm')]: {
+      borderRight: '0px #EEEEEE solid',
+      margin: '10px 5px',
     },
   },
   labImageDiv: {
@@ -239,6 +245,10 @@ export const useIntroStyles = makeStyles(theme => ({
     top: '-40px',
     zIndex: 2
   },
+  logo: {
+    height: '50px',
+    maxWidth: '200px',
+  },
 }))
 export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
   const classes = useIntroStyles()
@@ -347,9 +357,11 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
         </div>
         <Container maxWidth="lg">
           <div className={classes.logosDiv}>
-            <ColumbiaLogo />
+            <ColumbiaLogo className={classes.logo} />
             <div className={classes.logosDivSeparator}></div>
-            <SageLogo />
+            <SageLogo className={classes.logo} />
+            <div className={classes.logosDivSeparator}></div>
+            <SurvivorCorpsLogo className={classes.logo} />
           </div>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={12} md={6}>
