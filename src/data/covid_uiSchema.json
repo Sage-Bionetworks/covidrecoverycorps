@@ -1,204 +1,250 @@
 {
   "symptoms": {
+    "classNames": "symptom-dates",
+    "symptoms_start": {
+      "classNames": "subfields",
+      "ui:description": "If you are unsure of the exact date, please just provide your best guess.",
+      "symptoms_start_date": {
+        "ui:widget": "CustomDateWidget",
+        "ui:options": {
+          "yearsRange": [2020, 2020],
+          "hideNowButton": true,
+          "hideClearButton": false,
+          "lessThanNow": true
+        },
+        "classNames": ["symptom_day"]
+      }
+    },
+    "symptoms_worst": {
+      "classNames": "subfields",
+      "ui:description": "If you are unsure of the exact date, please just provide your best guess.",
+      "symptoms_worst_date": {
+        "ui:widget": "CustomDateWidget",
+        "ui:options": {
+          "yearsRange": [2020, 2020],
+          "hideNowButton": true,
+          "hideClearButton": false,
+          "lessThanNow": true
+        },
+        "classNames": ["symptom_day"]
+      }
+    },
+    "symptoms_recovery": {
+      "classNames": "subfields",
+      "ui:description": "If you are unsure of the exact date, please just provide your best guess.",
+      "symptoms_recovery_date": {
+        "ui:widget": "CustomDateWidget",
+        "ui:options": {
+          "yearsRange": [2020, 2020],
+          "hideNowButton": true,
+          "hideClearButton": false,
+          "lessThanNow": true
+        },
+        "classNames": ["symptom_day"]
+      },
+      "dont_feel_better": {
+        "classNames": "subcheckbox"
+      }
+    },
+    "symptoms_none": {
+      "classNames": "subfields",
+      "ui:description": "If you are unsure of the exact date, please just provide your best guess.",
+      "symptoms_none_date": {
+        "ui:widget": "CustomDateWidget",
+        "ui:options": {
+          "yearsRange": [2019, 2020],
+          "hideNowButton": true,
+          "hideClearButton": false,
+          "lessThanNow": true
+        },
+        "classNames": ["symptom_day"]
+      },
+      "still_have_symptoms": {
+        "classNames": "subcheckbox"
+      }
+    }
+  },
+  "symptoms1": {
     "classNames": "symptoms",
-
-
     "symptoms_list": {
       "ui:field": "checkboxExclusiveField",
       "ui:order": [
         "cough",
         "cough_duration",
-        "cough_still_present",
         "fever",
         "fever_duration",
         "fever_highest",
-        "fever_still_present",
         "shortness_breath",
         "shortness_breath_duration",
-        "shortness_breath_still_present",
         "chest_pain",
         "chest_pain_duration",
-        "chest_pain_still_present",
         "night_sweats",
         "night_sweats_duration",
-        "night_sweats_still_present",
         "chills",
         "chills_duration",
-        "chills_still_present",
         "rash",
         "rash_duration",
-        "rash_still_present",
+
         "swollen_fingers_toes",
         "swollen_fingers_toes_duration",
-        "swollen_fingers_toes_still_present",
-
         "conjunctivitis",
         "conjunctivitis_duration",
-        "conjunctivitis_still_present",
-
         "fatigue",
         "fatigue_duration",
-        "fatigue_still_present",
         "headache",
         "headache_duration",
-        "headache_still_present",
         "confusion",
         "confusion_duration",
-        "confusion_still_present",
         "muscle_pain",
         "muscle_pain_duration",
-        "muscle_pain_still_present",
         "runny_nose",
         "runny_nose_duration",
-        "runny_nose_still_present",
         "sore_throat",
         "sore_throat_duration",
-        "sore_throat_still_present",
         "diarrhea",
         "diarrhea_duration",
-        "diarrhea_still_present",
         "nausea_vomiting",
         "nausea_vomiting_duration",
-        "nausea_vomiting_still_present",
         "abdominal_pain",
         "abdominal_pain_duration",
-        "abdominal_pain_still_present",
         "foamy_urine",
         "foamy_urine_duration",
-        "foamy_urine_still_present",
         "red_urine",
         "red_urine_duration",
-        "red_urine_still_present",
         "loss_of_smell",
         "loss_of_smell_duration",
-        "loss_of_smell_still_present",
         "loss_of_taste",
         "loss_of_taste_duration",
-        "loss_of_taste_still_present",
         "hallucinations",
         "hallucinations_duration",
-        "hallucinations_still_present",
         "loss_of_consciousness",
         "loss_of_consciousness_duration",
-        "loss_of_consciousness_still_present",
         "seizures",
         "seizures_duration",
-        "seizures_still_present",
         "paralysis",
         "paralysis_duration",
-        "paralysis_still_present",
         "no_symptoms",
         "prefer_not_answer",
         "other",
         "other_specify",
-        "other_duration",
-        "other_still_present"
+        "other_duration"
       ],
-      "ui:exclusive": ["no_symptoms",
-        "prefer_not_answer"],
-      "ui:dependent_option_postfix": ["_still_present", "_duration"],
+      "ui:exclusive": ["no_symptoms", "prefer_not_answer"],
+      "ui:dependent_option_postfix": ["_duration"],
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
       },
-      "cough_still_present": {
-        "classNames": "subcheckbox"
-      
+      "cough_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-      "fever_still_present": {
-        "classNames": "subcheckbox"
+      "fever_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-      "shortness_breath_still_present": {
-        "classNames": "subcheckbox"
+      "shortness_breath_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "chest_pain_still_present": {
-        "classNames": "subcheckbox"
+      "chest_pain_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-      "night_sweats_still_present": {
-        "classNames": "subcheckbox"
+      "night_sweats_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-      "chills_still_present": {
-        "classNames": "subcheckbox"
+      "chills_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "rash_still_present": {
-        "classNames": "subcheckbox"
+      "rash_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-      "swollen_fingers_toes_still_present": {
-        "classNames": "subcheckbox"
+      "swollen_fingers_toes_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-      "conjunctivitis_still_present": {
-        "classNames": "subcheckbox"
+      "conjunctivitis_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "fatigue_still_present": {
-        "classNames": "subcheckbox"
+      "fatigue_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "headache_still_present": {
-        "classNames": "subcheckbox"
+      "headache_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-      "confusion_still_present": {
-        "classNames": "subcheckbox"
+      "confusion_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "muscle_pain_still_present": {
-        "classNames": "subcheckbox"
+      "muscle_pain_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "runny_nose_still_present": {
-        "classNames": "subcheckbox"
+      "runny_nose_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "sore_throat_still_present": {
-        "classNames": "subcheckbox"
+      "sore_throat_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "diarrhea_still_present": {
-        "classNames": "subcheckbox"
+      "diarrhea_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "nausea_vomiting_still_present": {
-        "classNames": "subcheckbox"
+      "nausea_vomiting_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "abdominal_pain_still_present": {
-        "classNames": "subcheckbox"
+      "abdominal_pain_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "foamy_urine_still_present": {
-        "classNames": "subcheckbox"
+      "foamy_urine_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-      "red_urine_still_present": {
-        "classNames": "subcheckbox"
+      "red_urine_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-      "loss_of_smell_still_present": {
-        "classNames": "subcheckbox"
+      "loss_of_smell_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-      "loss_of_taste_still_present": {
-        "classNames": "subcheckbox"
+      "loss_of_taste_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "hallucinations_still_present": {
-        "classNames": "subcheckbox"
+      "hallucinations_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "loss_of_consciousness_still_present": {
-        "classNames": "subcheckbox"
+      "loss_of_consciousness_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-
-      "paralysis_still_present": {
-        "classNames": "subcheckbox"
+      "paralysis_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
-      "seizures_still_present": {
-        "classNames": "subcheckbox"
+      "seizures_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       },
       "other_specify": {
         "classNames": "wide"
       },
-      "other_still_present": {
-        "classNames": "subcheckbox"
+      "other_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
       }
     }
   },
@@ -248,7 +294,6 @@
         "classNames": "still_symptoms"
       }
     },
-
     "kind_of_testing": {
       "ui:widget": "radio",
       "ui:options": {
@@ -264,7 +309,7 @@
           "yearsRange": [2020, 2020],
           "hideNowButton": true,
           "hideClearButton": true,
-          "lessThanNow":true
+          "lessThanNow": true
         }
       },
       "nasal_swab_result": {
@@ -303,7 +348,6 @@
     "ui:order": [
       "hospitals",
       "hospitals_other",
-
       "hospitalization_treatment",
       "*"
     ],
@@ -312,10 +356,9 @@
       "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
         "inline": false,
-        "exclusive":[0]
+        "exclusive": [0]
       }
     },
-
     "hospitals_other": {
       "classNames": "hospitals_other_name text"
     },
@@ -342,7 +385,7 @@
       ],
       "ui:field": "checkboxExclusiveField",
       "ui:exclusive": ["prefer_not_answer", "none"],
-           "ui:dependent_option_postfix": ["_days"],
+      "ui:dependent_option_postfix": ["_days"],
       "classNames": "show_fieldSet hospitalization_treatment",
       "other_answer": {
         "ui:widget": "textarea"
@@ -352,7 +395,6 @@
   "habits": {
     "classNames": "habits",
     "ui:order": ["smoking", "smoking_how_many_cigarettes", "vaping", "alcohol"],
-
     "smoking": {
       "ui:widget": "radio",
       "ui:options": {
@@ -402,7 +444,7 @@
       "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
         "inline": false,
-        "exclusive":[0, 1]
+        "exclusive": [0, 1]
       }
     }
   },
@@ -411,10 +453,9 @@
       "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
         "inline": false,
-        "exclusive":[0, 1]
+        "exclusive": [0, 1, 2]
       }
     },
-
     "hydroxychloroquine": {
       "ui:widget": "radio"
     }
@@ -424,7 +465,7 @@
       "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
         "inline": false,
-        "exclusive":[0, 1]
+        "exclusive": [0, 1]
       }
     }
   }

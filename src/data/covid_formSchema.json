@@ -1,11 +1,85 @@
 {
   "definitions": {
+    "symptomDuration": {
+      "title": "When did you notice this symptom? (Check all that apply)",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enumNames": [
+          "First 2 weeks",
+          "2-4 weeks",
+          "More than 4 weeks",
+          "I still have this symptom"
+        ],
+        "enum": ["first_2_weeks", "2_4_weeks", ">4_weeks", "still_symptom"]
+      }
+    },
+
+ 
     "symptoms": {
+      "type": "object",
+      "properties": {
+        "symptoms_start": {
+          "type": "object",
+          "title": "1. When did you first notice symptoms related to COVID-19?",
+          "properties": {
+            "symptoms_start_date": {
+              "type": "string",
+              "title": "First day of symptoms:"
+            }
+          }
+        },
+        "symptoms_worst": {
+          "type": "object",
+          "title": "2. When did you feel your symptoms were at their worst?",
+          "properties": {
+            "symptoms_worst_date": {
+              "type": "string",
+              "title": "Worst day of symptoms:"
+            }
+          }
+        },
+
+        "symptoms_recovery": {
+          "type": "object",
+          "title": "3. When did you feel your symptoms were getting much better?",
+          "properties": {
+            "symptoms_recovery_date": {
+              "type": "string",
+              "title": "Started to feel better"
+            },
+            "dont_feel_better": {
+              "title": "I don't feel better",
+              "type": "boolean",
+              "default": false
+            }
+          }
+        },
+
+        "symptoms_none": {
+          "type": "object",
+          "title": "4. When did you feel you no longer had symptoms?",
+          "properties": {
+            "symptoms_none_date": {
+              "type": "string",
+              "title": "Last day of symptoms"
+            },
+            "still_have_symptoms": {
+              "title": "I still have symptoms",
+              "type": "boolean"
+       
+            }
+          }
+        }
+      }
+    },
+    "symptoms1": {
       "type": "object",
       "properties": {
         "symptoms_list": {
           "type": "object",
-          "title": "1. Please describe your symptoms (check all that apply):",
+          "title": "5. Please describe your symptoms (check all that apply):",
           "properties": {
             "cough": {
               "type": "boolean",
@@ -143,13 +217,7 @@
                       "enum": [true]
                     },
                     "cough_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "cough_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -170,19 +238,14 @@
                       "enum": [true]
                     },
                     "fever_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
+                      "$ref": "#/definitions/symptomDuration"
                     },
                     "fever_highest": {
                       "title": "What was the highest temperature?(\u00B0 F) ",
                       "type": "number",
                       "minimum": 90
-                    },
-                    "fever_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
                     }
+                   
                   }
                 }
               ]
@@ -202,14 +265,9 @@
                       "enum": [true]
                     },
                     "shortness_breath_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "shortness_breath_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
+                  
                   }
                 }
               ]
@@ -229,14 +287,9 @@
                       "enum": [true]
                     },
                     "chest_pain_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "chest_pain_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
+                   
                   }
                 }
               ]
@@ -256,14 +309,9 @@
                       "enum": [true]
                     },
                     "night_sweats_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "night_sweats_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
+                   
                   }
                 }
               ]
@@ -283,13 +331,7 @@
                       "enum": [true]
                     },
                     "chills_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "chills_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -310,14 +352,9 @@
                       "enum": [true]
                     },
                     "rash_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "rash_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
+                   
                   }
                 }
               ]
@@ -337,13 +374,7 @@
                       "enum": [true]
                     },
                     "swollen_fingers_toes_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "swollen_fingers_toes_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -364,13 +395,7 @@
                       "enum": [true]
                     },
                     "conjunctivitis_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "conjunctivitis_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -392,13 +417,7 @@
                       "enum": [true]
                     },
                     "fatigue_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "fatigue_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -419,13 +438,7 @@
                       "enum": [true]
                     },
                     "headache_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "headache_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -447,13 +460,7 @@
                       "enum": [true]
                     },
                     "confusion_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "confusion_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -475,13 +482,7 @@
                       "enum": [true]
                     },
                     "muscle_pain_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "muscle_pain_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -503,13 +504,7 @@
                       "enum": [true]
                     },
                     "runny_nose_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "runny_nose_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -530,13 +525,7 @@
                       "enum": [true]
                     },
                     "sore_throat_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "sore_throat_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -557,13 +546,7 @@
                       "enum": [true]
                     },
                     "diarrhea_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "diarrhea_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -584,13 +567,7 @@
                       "enum": [true]
                     },
                     "nausea_vomiting_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "nausea_vomiting_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -611,13 +588,7 @@
                       "enum": [true]
                     },
                     "abdominal_pain_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "abdominal_pain_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -639,13 +610,7 @@
                       "enum": [true]
                     },
                     "hallucinations_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "hallucinations_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -667,13 +632,7 @@
                       "enum": [true]
                     },
                     "loss_of_consciousness_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "loss_of_consciousness_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -695,13 +654,7 @@
                       "enum": [true]
                     },
                     "seizures_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "seizures_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -722,13 +675,7 @@
                       "enum": [true]
                     },
                     "paralysis_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "paralysis_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -750,13 +697,7 @@
                       "enum": [true]
                     },
                     "foamy_urine_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "foamy_urine_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -777,13 +718,7 @@
                       "enum": [true]
                     },
                     "red_urine_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "red_urine_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -804,13 +739,7 @@
                       "enum": [true]
                     },
                     "loss_of_smell_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "loss_of_smell_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -831,13 +760,7 @@
                       "enum": [true]
                     },
                     "loss_of_taste_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "loss_of_taste_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -862,13 +785,7 @@
                       "type": "string"
                     },
                     "other_duration": {
-                      "title": "How many days?",
-                      "type": "number",
-                      "minimum": 1
-                    },
-                    "other_still_present": {
-                      "title": "Still present",
-                      "type": "boolean"
+                      "$ref": "#/definitions/symptomDuration"
                     }
                   }
                 }
@@ -880,23 +797,12 @@
     },
     "symptoms2": {
       "type": "object",
-      "required": ["symptoms_start", "kind_of_testing", "how_was_it_treated"],
+      "required": ["kind_of_testing", "how_was_it_treated"],
       "properties": {
-        "symptoms_start": {
-          "type": "string",
-          "uniqueItems": true,
-          "title": "2. Do you remember the dates of your symptoms?",
-          "enum": [
-            "Yes",
-            "Do not know/do not remember",
-            "I never had symptoms",
-            "Prefer not to answer"
-          ]
-        },
         "kind_of_testing": {
           "type": "string",
           "uniqueItems": true,
-          "title": "3. What kind of COVID-19 testing have you had?",
+          "title": "6. What kind of COVID-19 testing have you had?",
           "enumNames": [
             "Nasal swab",
             "Serum antibody tests",
@@ -916,7 +822,7 @@
         },
         "how_was_it_treated": {
           "type": "string",
-          "title": "4. How was your COVID-19 treated? (pick single response reflecting your most intensive level of care)",
+          "title": "7. How was your COVID-19 treated? (pick single response reflecting your most intensive level of care)",
           "enum": [
             "at_home",
             "doctor's office",
@@ -937,65 +843,7 @@
         }
       },
       "dependencies": {
-        "symptoms_start": {
-          "oneOf": [
-            {
-              "properties": {
-                "symptoms_start": {
-                  "enum": [
-                    "Do not know/do not remember",
-                    "I never had symptoms",
-                    "Prefer not to answer"
-                  ]
-                }
-              }
-            },
-            {
-              "properties": {
-                "symptoms_start": {
-                  "enum": ["Yes"]
-                },
-                "symptoms_dates": {
-                  "type": "object",
-                  "title": "2a. When were your first and last day of your symptoms?",
-                  "properties": {
-                    "first_day": {
-                      "title": "First day of symptoms:",
-                      "type": "string"
-                    },
-             
-                    "still_have_symptoms": {
-                      "title": "I still have symptoms",
-                      "type": "boolean",
-                      "default": false
-                    }
-                  },
-                  "dependencies": {
-                    "still_have_symptoms": {
-                      "oneOf": [
-                        {
-                          "properties": {
-                            "still_have_symptoms": { "enum": [false] },
-                            "last_day": {
-                              "title": "Last day of symptoms:",
-                              "type": "string"
-                            }
-                          }
-                        },
-                        {
-                          "properties": {
-                            "still_have_symptoms": { "enum": [true] }
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  "required": ["first_day"]
-                }
-              }
-            }
-          ]
-        },
+     
         "kind_of_testing": {
           "oneOf": [
             {
@@ -1014,11 +862,10 @@
               "properties": {
                 "kind_of_testing": {
                   "enum": ["nasal_swab"]
-         
                 },
                 "result": {
                   "type": "object",
-                  "title": "3a. When was your test and what was the result?",
+                  "title": "6a. When was your test and what was the result?",
                   "properties": {
                     "nasal_swab_date": {
                       "title": "Date of test:",
@@ -1039,10 +886,9 @@
               "properties": {
                 "kind_of_testing": {
                   "enum": ["serum_antibody_tests"]
-               
                 },
                 "result": {
-                  "title": "3a. When was your test and what was the result? ",
+                  "title": "6a. When was your test and what was the result? ",
                   "type": "object",
                   "properties": {
                     "serum_test_date": {
@@ -1070,7 +916,7 @@
       "properties": {
         "hospitals": {
           "type": "array",
-          "title": "4a. Please indicate any of the hospitals at which you were treated for COVID-19. (check all that apply)",
+          "title": "7a. Please indicate any of the hospitals at which you were treated for COVID-19. (check all that apply)",
           "uniqueItems": true,
           "items": {
             "type": "string",
@@ -1113,7 +959,7 @@
         },
         "hospitalization_treatment": {
           "type": "object",
-          "title": "4b. If you were hospitalized, did you have the following? (check all that apply)",
+          "title": "7b. If you were hospitalized, did you have the following? (check all that apply)",
           "properties": {
             "oxigen": {
               "type": "boolean",
@@ -1175,7 +1021,7 @@
               "title": "None of the above",
               "enum": [true, false]
             },
-     
+
             "prefer_not_answer": {
               "type": "boolean",
               "title": "Prefer not to answer",
@@ -1313,7 +1159,7 @@
       "properties": {
         "smoking": {
           "type": "string",
-          "title": "7. Do you smoke tobacco?",
+          "title": "10. Do you smoke tobacco?",
           "uniqueItems": true,
           "enum": [
             "I have never smoked regularly",
@@ -1325,7 +1171,7 @@
         },
         "vaping": {
           "type": "string",
-          "title": "8. Do you vape?",
+          "title": "11. Do you vape?",
           "uniqueItems": true,
           "enum": [
             "I have never vaped regularly",
@@ -1337,7 +1183,7 @@
         },
         "alcohol": {
           "type": "string",
-          "title": "9. How often do you consume alcoholic beverages?",
+          "title": "12. How often do you consume alcoholic beverages?",
           "uniqueItems": true,
           "enum": [
             "Never",
@@ -1359,7 +1205,7 @@
                 },
                 "smoking_how_many_cigarettes": {
                   "type": "number",
-                  "title": "7a. How many cigarettes on average do you smoke per day?"
+                  "title": "10a. How many cigarettes on average do you smoke per day?"
                 }
               }
             },
@@ -1386,7 +1232,7 @@
       "properties": {
         "anxiety": {
           "type": "string",
-          "title": "10. Over the past week, how often have you been feeling nervous, anxious, or on edge?",
+          "title": "13. Over the past week, how often have you been feeling nervous, anxious, or on edge?",
           "uniqueItems": true,
           "enum": [
             "Not at all",
@@ -1398,7 +1244,7 @@
         },
         "worry": {
           "type": "string",
-          "title": "11. Over the past week, how often have you not been able to stop worrying?",
+          "title": "14. Over the past week, how often have you not been able to stop worrying?",
           "uniqueItems": true,
           "enum": [
             "Not at all",
@@ -1410,7 +1256,7 @@
         },
         "loneliness": {
           "type": "string",
-          "title": "12. Many people may also feel loneliness during this time. How often have you felt lonely during the past week?",
+          "title": "15. Many people may also feel loneliness during this time. How often have you felt lonely during the past week?",
           "uniqueItems": true,
           "enum": [
             "Not at all",
@@ -1431,7 +1277,7 @@
           "type": "array",
           "uniqueItems": true,
           "minItems": 1,
-          "title": "5. Which of the following medications were you taking on a regular basis before you got sick with COVID-19? (check all that apply)",
+          "title": "8. Which of the following medications were you taking on a regular basis before you got sick with COVID-19? (check all that apply)",
           "items": {
             "type": "string",
             "enum": [
@@ -1474,7 +1320,7 @@
         "covid_medications": {
           "type": "array",
           "minItems": 1,
-          "title": "6. Which of the following medications did you take/were you given to treat your COVID-19 illness? (check all that apply):",
+          "title": "9. Which of the following medications did you take/were you given to treat your COVID-19 illness? (check all that apply):",
           "items": {
             "type": "string",
             "enum": [
@@ -1511,7 +1357,7 @@
         "hydroxychloroquine_side_effects": {
           "type": "array",
           "minItems": 1,
-          "title": "6a. If you were treated with hydroxychloroquine (Plaquenil), please describe if you experienced any of the following? (check all that apply):",
+          "title": "9a. If you were treated with hydroxychloroquine (Plaquenil), please describe if you experienced any of the following? (check all that apply):",
           "uniqueItems": true,
           "items": {
             "type": "string",
@@ -1544,6 +1390,10 @@
     "symptoms": {
       "title": "",
       "$ref": "#/definitions/symptoms"
+    },
+    "symptoms1": {
+      "title": "",
+      "$ref": "#/definitions/symptoms1"
     },
     "symptoms2": {
       "title": "",

@@ -2,10 +2,45 @@
   "steps": [
     {
       "id": "symptoms",
-      "order": 5,
+      "order": 1,
       "title": "Recent COVID-19 Experience",
-      "orderDisplay": "1/6",
+      "orderDisplay": "1/7",
       "description": "Please fill out the following survey questions to the best of your ability. If you do not remember or would not like to answer, please click \"Prefer not to answer\" ",
+     
+      "default": "symptoms1",
+      "validationRules": [
+      {
+        "conditions": {
+          "all": [
+            {
+              "fact": "symptoms",
+              "operator": "symptomsDates",
+             
+              "value": {
+                "fact": "symptoms",
+                "path": ".symptoms_start.symptoms_start_date"
+              }
+            }
+          ]
+        },
+        "event": {
+          "type": "validation",
+
+          "params": {
+            "message": "please check that your symptoms dates are in the right sequence",
+            "name": "range",
+            "property": ".symptoms"
+          }
+        },
+        "priority:": 1
+      }
+    ]
+    },
+    {
+      "id": "symptoms1",
+      "order": 5,
+      "title": "",
+      "orderDisplay": "2/7",
       "validationRules": [
         {
           "conditions": {
@@ -33,7 +68,7 @@
     },
     {
       "id": "symptoms2",
-      "orderDisplay": "2/6",
+      "orderDisplay": "3/7",
       "order": 10,
       "title": "",
       "default": "medications",
@@ -62,7 +97,7 @@
 
     {
       "id": "hospitalization",
-      "orderDisplay": "2a/6",
+      "orderDisplay": "3a/7",
       "order": 15,
       "title": "",
       "default": "medications"
@@ -70,7 +105,7 @@
 
     {
       "id": "medications",
-      "orderDisplay": "3/6",
+      "orderDisplay": "4/7",
       "order": 30,
       "title": "",
       "default": "medications2"
@@ -78,7 +113,7 @@
 
     {
       "id": "medications2",
-      "orderDisplay": "4/6",
+      "orderDisplay": "5/7",
       "order": 35,
       "title": "",
       "default": "habits",
@@ -106,14 +141,14 @@
     },
     {
       "id": "medications_hydroxy",
-      "orderDisplay": "4a/6",
+      "orderDisplay": "5a/7",
       "order": 40,
       "title": "",
       "default": "habits"
     },
 
     {
-      "orderDisplay": "5/6",
+      "orderDisplay": "6/7",
       "id": "habits",
       "order": 45,
       "title": "",
@@ -121,7 +156,7 @@
     },
     {
       "id": "habits2",
-      "orderDisplay": "6/6",
+      "orderDisplay": "7/7",
       "order": 50,
       "title": "",
       "default": ""
