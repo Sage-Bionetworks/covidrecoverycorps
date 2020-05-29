@@ -368,10 +368,8 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
                 </h2>
                 <div className={classes.labTextBodyDiv}>
                   <p>
-                    You recovered. So have thousands of others. Your experience
-                    could help unlock the mysteries behind this disease. Our
-                    mission is to learn more about COVID-19 by bringing together
-                    the collective experiences of thousands of recovered patients.
+                    You recovered. Your experience could help unlock the mysteries behind this disease. 
+                    Our mission is to learn more about COVID-19 by bringing together the collective experiences of thousands of recovered patients.
                   </p>
                 </div>
               </div>
