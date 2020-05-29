@@ -270,8 +270,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
     <Container maxWidth="lg">
       <div className={classes.heroTextDiv}>
         <h1 className={classes.heroText}>
-          Building a partnership between COVID-19 survivors and researchers 
-          to drive scientific breakthroughs in the fight against this disease.
+          Building a partnership between COVID-19 survivors and researchers.
         </h1>
         <div>
           <NavLink to="/eligibility" className={classes.navLink}>
@@ -341,9 +340,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
           <Container maxWidth="md">
             <div className={classes.content1TextDiv}>
               <h3>
-                If you live in the New York City metro area and have recovered
-                from COVID-19, you can help scientists make progress in the global
-                fight against this disease.
+              If you live in the New York City metro area and have recovered from COVID-19 - or think you have - you can partner with scientists to better understand the recovery process and long term effects from this disease.
               </h3>
             </div>
           </Container>
@@ -371,10 +368,8 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
                 </h2>
                 <div className={classes.labTextBodyDiv}>
                   <p>
-                    You recovered. So have thousands of others. Your experience
-                    could help unlock the mysteries behind this disease. Our
-                    mission is to learn more about COVID-19 by bringing together
-                    the collective experiences of thousands of recovered patients.
+                    You recovered. Your experience could help unlock the mysteries behind this disease. 
+                    Our mission is to learn more about COVID-19 by bringing together the collective experiences of thousands of recovered patients.
                   </p>
                 </div>
               </div>
