@@ -152,10 +152,12 @@ function ObjectFieldTemplate(props: any) {
 const widgets = {
   //@ts-ignore
   CustomDateWidget: AltDateWidget as Widget,
-  ExclusiveCheckboxesWidget: ExclusiveCheckboxesWidget as Widget
+  ExclusiveCheckboxesWidget: ExclusiveCheckboxesWidget as Widget,
 }
 
-const fields = {checkboxExclusiveField: ExclusiveCheckboxesObjectField as unknown as Field};
+const fields = {
+  checkboxExclusiveField: (ExclusiveCheckboxesObjectField as unknown) as Field,
+}
 
 export default class SynapseForm extends React.Component<
   SynapseFormProps,
@@ -231,7 +233,7 @@ export default class SynapseForm extends React.Component<
       isLoadingSaved: !this.isNewForm(this.props.formData),
     }
   }
-/* Agendel - replaced by Dashboard return 
+  /* Agendel - replaced by Dashboard return 
   onUnload = (ev: any) => {
     if (this.state.hasUnsavedChanges) {
       ev.preventDefault()
@@ -841,24 +843,30 @@ export default class SynapseForm extends React.Component<
       return vals.length < value
     })
 
-    console.log('tesgt')
-
     engine.addOperator('symptomsDates', (factValue: any, value: any) => {
       if (!factValue) {
         return true
       }
-      const datesArray = [factValue.symptoms_start.symptoms_start_date,
+      const datesArray = [
+        factValue.symptoms_start.symptoms_start_date,
         factValue.symptoms_worst?.symptoms_worst_date,
-        factValue.symptoms_recovery?.symptoms_recovery_date, 
-        factValue.symptoms_none?.symptoms_none_date]
-    const err1 = factValue.symptoms_start?.symptoms_start_date && _.min(datesArray) < factValue.symptoms_start?.symptoms_start_date
-    const err2 = factValue.symptoms_none?.symptoms_none_date && _.max(datesArray) > factValue.symptoms_none?.symptoms_none_date 
-const err3 = factValue.symptoms_worst?.symptoms_worst_date && factValue.symptoms_recovery?.symptoms_recovery_date && (
-  factValue.symptoms_recovery?.symptoms_recovery_date < factValue.symptoms_worst?.symptoms_worst_date)
+        factValue.symptoms_recovery?.symptoms_recovery_date,
+        factValue.symptoms_none?.symptoms_none_date,
+      ]
+      const err1 =
+        factValue.symptoms_start?.symptoms_start_date &&
+        _.min(datesArray) < factValue.symptoms_start?.symptoms_start_date
+      const err2 =
+        factValue.symptoms_none?.symptoms_none_date &&
+        _.max(datesArray) > factValue.symptoms_none?.symptoms_none_date
+      const err3 =
+        factValue.symptoms_worst?.symptoms_worst_date &&
+        factValue.symptoms_recovery?.symptoms_recovery_date &&
+        factValue.symptoms_recovery?.symptoms_recovery_date <
+          factValue.symptoms_worst?.symptoms_worst_date
 
-return err1 ||err2 || err3
-
-    } )
+      return err1 || err2 || err3
+    })
 
     allRules.forEach(rule => {
       engine.addRule(rule)
