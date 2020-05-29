@@ -340,9 +340,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
           <Container maxWidth="md">
             <div className={classes.content1TextDiv}>
               <h3>
-                If you live in the New York City metro area and have recovered
-                from COVID-19, you can help scientists make progress in the global
-                fight against this disease.
+              If you live in the New York City metro area and have recovered from COVID-19 - or think you have - you can partner with scientists to better understand the recovery process and long term effects from this disease.
               </h3>
             </div>
           </Container>
