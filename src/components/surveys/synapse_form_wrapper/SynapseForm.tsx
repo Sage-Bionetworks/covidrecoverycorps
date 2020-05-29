@@ -231,7 +231,7 @@ export default class SynapseForm extends React.Component<
       isLoadingSaved: !this.isNewForm(this.props.formData),
     }
   }
-
+/* Agendel - replaced by Dashboard return 
   onUnload = (ev: any) => {
     if (this.state.hasUnsavedChanges) {
       ev.preventDefault()
@@ -248,6 +248,7 @@ export default class SynapseForm extends React.Component<
   componentWillUnmount() {
     window.removeEventListener('beforeunload', this.onUnload)
   }
+  */
 
   componentDidUpdate(prevProps: SynapseFormProps) {
     const shouldUpdate = this.props.callbackStatus !== prevProps.callbackStatus
@@ -288,7 +289,7 @@ export default class SynapseForm extends React.Component<
   }
 
   componentDidMount() {
-    this.setupBeforeUnloadListener()
+    //this.setupBeforeUnloadListener()
     const isNewForm = this.isNewForm(this.state.formData)
     if (!isNewForm) {
       //when loading saved form - validate to see the steps status
