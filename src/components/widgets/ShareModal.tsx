@@ -22,6 +22,8 @@ import {
   ViberIcon,
   LineIcon,
   PocketIcon,
+  FacebookMessengerShareButton,
+  FacebookMessengerIcon,
 } from 'react-share';
 import classes from '*.module.css';
 
@@ -58,7 +60,9 @@ const useStyles = makeStyles(theme => ({
 export default function ShareModal(props: ShareModalProps) {
   const shareUrl = window.location.href
   const title = 'Covid Recovery Corps'
+  const facebookAppId = '789053391920204'
   const classes = useStyles()
+
   return (
     <Modal show={props.show} animation={false} onHide={props.onClose} size='lg'>
       <Modal.Header closeButton={true}>
@@ -77,6 +81,18 @@ export default function ShareModal(props: ShareModalProps) {
 
             <div>
               <p>Facebook</p>              
+            </div>
+          </div>
+          <div className={classes.shareButtonDiv}>
+            <FacebookMessengerShareButton
+              url={shareUrl}
+              appId={facebookAppId}
+              className={classes.shareButton}
+            >
+              <FacebookMessengerIcon size={64} round />
+            </FacebookMessengerShareButton>
+            <div>
+              <p>Facebook Messenger</p>
             </div>
           </div>
           <div className={classes.shareButtonDiv}>
