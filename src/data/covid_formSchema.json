@@ -1236,9 +1236,9 @@
           "uniqueItems": true,
           "enum": [
             "Not at all",
-            "Several days",
-            "More than half the days",
-            "Nearly every day",
+            "1-2 days",
+            "3-4 days",
+            "5-7 days",
             "Prefer not to answer"
           ]
         },
@@ -1248,9 +1248,9 @@
           "uniqueItems": true,
           "enum": [
             "Not at all",
-            "Several days",
-            "More than half the days",
-            "Nearly every day",
+            "1-2 days",
+            "3-4 days",
+            "5-7 days",
             "Prefer not to answer"
           ]
         },
@@ -1260,9 +1260,9 @@
           "uniqueItems": true,
           "enum": [
             "Not at all",
-            "Several days",
-            "More than half the days",
-            "Nearly every day",
+            "1-2 days",
+            "3-4 days",
+            "5-7 days",
             "Prefer not to answer"
           ]
         }
