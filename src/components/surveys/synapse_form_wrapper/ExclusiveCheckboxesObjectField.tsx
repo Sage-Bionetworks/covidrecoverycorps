@@ -111,7 +111,6 @@ class ExclusiveCheckboxesObjectField extends Component {
       }
       let newFormData
       // only the boolean fields get the new handling
-      if (this.props.schema.properties[name].type === 'boolean') {
         const exclusives = this.props.uiSchema['ui:exclusive']
         const dependentFields = this.props.uiSchema[
           'ui:dependent_option_postfix'
@@ -122,7 +121,7 @@ class ExclusiveCheckboxesObjectField extends Component {
         if (exclusives.indexOf(name) > -1) {
           newFormData = { [name]: value }
         } else {
-          if (value === true) {
+          if (value) {
             // selecting non exclusive field
             //set the field value
             newFormData[name] = value //{ ...this.props.formData, [name]: value }
@@ -138,10 +137,7 @@ class ExclusiveCheckboxesObjectField extends Component {
             })
           }
         }
-        // non-boolean fields just get updated
-      } else {
-        newFormData = { ...this.props.formData, [name]: value }
-      }
+      
       this.props.onChange(
         newFormData,
         errorSchema &&
