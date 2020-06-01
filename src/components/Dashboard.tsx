@@ -61,14 +61,14 @@ const surveys: UISurvey[] = [
     type: 'HISTORY',
     title: 'Survey 3',
     description: 'Medical History',
-    time: 10,
+    time: 5-10,
     link: '/survey3',
   },
   {
     type: 'MORE',
     title: 'Survey 4',
     description: 'More COVID Experience',
-    time: 15,
+    time: 5-10,
     link: '/survey4',
   },
 ]
