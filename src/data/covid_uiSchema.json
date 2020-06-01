@@ -31,9 +31,12 @@
     },
     "symptoms_recovery": {
       "classNames": "subfields",
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["dont_feel_better"],
       "ui:description": "If you are unsure of the exact date, please just provide your best guess.",
       "symptoms_recovery_date": {
         "ui:widget": "CustomDateWidget",
+    
         "ui:options": {
           "yearsRange": [2020, 2020],
           "hideNowButton": true,
@@ -48,6 +51,8 @@
     },
     "symptoms_none": {
       "classNames": "subfields",
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["still_have_symptoms"],
       "ui:description": "If you are unsure of the exact date, please just provide your best guess.",
       "symptoms_none_date": {
         "ui:widget": "CustomDateWidget",
