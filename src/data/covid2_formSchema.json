@@ -587,8 +587,10 @@
           "uniqueItems": true,
           "enum": [
             "Never",
-            "3 to 4 times a week",
-            "Daily",
+            "1-2 times a week",
+            "3-4 times a week",
+            "5-6 times a week",
+            "Once a day",
             "Multiple times per day",
             "Prefer not to answer"
           ]
