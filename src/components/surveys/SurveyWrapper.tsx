@@ -315,7 +315,7 @@ export default class SurveyWrapper extends React.Component<
 
   render() {
     if (this.state.isFormSubmitted) {
-      return <Redirect to="/Dashboard" />
+      return <Redirect to="/done" />
     }
     return (
       <div className={`theme-${this.props.formClass}`}>

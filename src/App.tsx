@@ -11,6 +11,7 @@ import {
 
 import EligibilityRegistration from './components/registration/EligibilityRegistration'
 import SurveyWrapper from './components/surveys/SurveyWrapper'
+import Done from './components/surveys/Done'
 import Login from './components/login/Login'
 import Consent from './components/consent/Consent'
 
@@ -440,6 +441,9 @@ function App() {
                     {renderWithGridLayout(
                       <AcountSettings token={token!}></AcountSettings>,
                     )}
+                  </Route>
+                  <Route path="/done">
+                    {renderWithGridLayout(<Done />)}
                   </Route>
                   <Route path="/home">
                     <Intro token={token || null}></Intro>
