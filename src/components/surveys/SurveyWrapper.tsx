@@ -170,7 +170,7 @@ export default class SurveyWrapper extends React.Component<
         // matched an address, but something is wrong
         invalidAddressText = returnTextElement.childNodes[0].textContent!
       } else if (zipCodeElement.childNodes[0].textContent! != attributes.zip_code) {
-        // usps can return a validated address it automatically "fixes" the zip code provided in the request!
+        // USPS sometimes returns a validated address, but it automatically "fixes" the zip code that was provided in the request!
         invalidAddressText = 'The zip code entered does not correspond to this address.'
         console.log(`User entered zip code ${attributes.zip_code} but USPS indicates zip code ${zipCodeElement.childNodes[0].textContent} for this address.`)
       }
