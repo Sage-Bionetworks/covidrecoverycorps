@@ -182,7 +182,6 @@
                   "items": {
                     "type": "string",
                     "enum": [
-                      "No Drugs",
                       "Insulin",
                       "Pills",
                       "Insulin And Pills",
