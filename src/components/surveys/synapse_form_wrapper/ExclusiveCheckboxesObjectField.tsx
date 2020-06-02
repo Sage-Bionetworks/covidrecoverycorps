@@ -132,7 +132,7 @@ class ExclusiveCheckboxesObjectField extends Component {
           } else {
             //if deselected -- clear out dependent fields
             delete newFormData[name]
-            dependentFields.forEach(item => {
+            dependentFields?.forEach(item => {
               delete newFormData[item]
             })
           }
