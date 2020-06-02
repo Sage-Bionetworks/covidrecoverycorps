@@ -47,7 +47,7 @@
           "properties": {
             "symptoms_recovery_date": {
               "type": "string",
-              "title": "Started to feel better"
+              "title": "I started to feel much better on:"
             },
             "dont_feel_better": {
               "title": "I don't feel better",
@@ -63,7 +63,7 @@
           "properties": {
             "symptoms_none_date": {
               "type": "string",
-              "title": "Last day of symptoms"
+              "title": "My last day of any symptoms was:"
             },
             "still_have_symptoms": {
               "title": "I still have symptoms",
