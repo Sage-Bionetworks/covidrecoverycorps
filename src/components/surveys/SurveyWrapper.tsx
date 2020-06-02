@@ -174,7 +174,7 @@ export default class SurveyWrapper extends React.Component<
         // USPS sometimes returns a validated address, but it automatically "fixes" the zip code that was provided in the request!
         invalidAddressText = 'The zip code entered does not correspond to this address.'
         console.log(`User entered zip code ${attributes.zip_code} but USPS indicates zip code ${zipCodeElement.childNodes[0].textContent} for this address.`)
-      } else if (cityElement.childNodes[0].textContent! != attributes.city) {
+      } else if (cityElement.childNodes[0].textContent!.toUpperCase() != attributes.city.toUpperCase()) {
         // USPS sometimes returns a validated address, but it automatically "fixes" the city that was provided in the request!
         invalidAddressText = 'The city entered does not correspond to this address.'
         console.log(`User entered city ${attributes.city} but USPS indicates city ${cityElement.childNodes[0].textContent!} for this address.`)
