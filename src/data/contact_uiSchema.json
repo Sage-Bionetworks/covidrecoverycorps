@@ -21,7 +21,7 @@
       },
       "zip_code": {
         "classNames": "zip",
-        "ui:placeholder": "Zip code"
+        "ui:placeholder": "Zip code (5-digit)"
       },
       "state": {
         "classNames": "state text",
