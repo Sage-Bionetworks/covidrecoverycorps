@@ -26,7 +26,7 @@ type UISurvey = {
   title: string
   link: string
   description: string
-  time: number
+  time: string
 }
 
 const useStyles = makeStyles({
@@ -40,35 +40,35 @@ const surveys: UISurvey[] = [
     type: 'CONTACT',
     title: 'profile',
     description: 'Contact Information',
-    time: 2,
+    time: '2',
     link: '/contactinfo',
   },
   {
     type: 'DEMOGRAPHIC',
     title: 'Survey 1',
     description: 'Tell us about yourself',
-    time: 2,
+    time: '2',
     link: '/survey1',
   },
   {
     type: 'COVID_EXPERIENCE',
     title: 'Survey 2',
     description: 'Recent COVID Experience',
-    time: 5,
+    time: '5',
     link: '/survey2',
   },
   {
     type: 'HISTORY',
     title: 'Survey 3',
     description: 'Medical History',
-    time: 5-10,
+    time: '5-10',
     link: '/survey3',
   },
   {
     type: 'MORE',
     title: 'Survey 4',
     description: 'More COVID Experience',
-    time: 5-10,
+    time: '5-10',
     link: '/survey4',
   },
 ]
