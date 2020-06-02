@@ -13,6 +13,7 @@ import { SurveyType, SavedSurveysObject, SavedSurvey } from '../../types/types'
 import { SURVEYS } from '../../data/surveys'
 import { SurveyService } from '../../services/survey.service'
 import { UserService } from '../../services/user.service'
+import { USPSService } from '../../services/usps.service'
 import { Redirect } from 'react-router-dom'
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
 
@@ -150,10 +151,35 @@ export default class SurveyWrapper extends React.Component<
       status: StatusEnum.ERROR,
       isLoading: false,
     })
+    // scroll to top to show error
+    window.scrollTo(0,0)
   }
 
   updateUserContactInfo = async (_rawData: any, data: any) => {
     try {
+      // 348: verify the address that has been entered is valid
+      const attributes = data.data.attributes
+      const uspsResponseDoc: Document = await USPSService.validateAddress(attributes.address1, attributes.address2, attributes.city, attributes.state, attributes.zip_code)
+      let invalidAddressText = undefined
+      const returnTextElement: Element = uspsResponseDoc.getElementsByTagName('ReturnText')[0]
+      const zipCodeElement: Element = uspsResponseDoc.getElementsByTagName('Zip5')[0]
+      const errorElement: Element = uspsResponseDoc.getElementsByTagName('Error')[0]
+      if (errorElement) {
+        invalidAddressText = errorElement.getElementsByTagName('Description')[0].childNodes[0].textContent!
+      } else if (returnTextElement) {
+        // matched an address, but something is wrong
+        invalidAddressText = returnTextElement.childNodes[0].textContent!
+      } else if (zipCodeElement.childNodes[0].textContent! != attributes.zip_code) {
+        // USPS sometimes returns a validated address, but it automatically "fixes" the zip code that was provided in the request!
+        invalidAddressText = 'The zip code entered does not correspond to this address.'
+        console.log(`User entered zip code ${attributes.zip_code} but USPS indicates zip code ${zipCodeElement.childNodes[0].textContent} for this address.`)
+      }
+
+      if (invalidAddressText) {
+        this.onError({ name: '', message: invalidAddressText })
+        return
+      }
+      
       const result = await UserService.updateUserData(
         this.props.token,
         data.data,
