@@ -162,6 +162,7 @@ export default class SurveyWrapper extends React.Component<
       const uspsResponseDoc: Document = await USPSService.validateAddress(attributes.address1, attributes.address2, attributes.city, attributes.state, attributes.zip_code)
       let invalidAddressText = undefined
       const returnTextElement: Element = uspsResponseDoc.getElementsByTagName('ReturnText')[0]
+      const cityElement: Element = uspsResponseDoc.getElementsByTagName('City')[0]
       const zipCodeElement: Element = uspsResponseDoc.getElementsByTagName('Zip5')[0]
       const errorElement: Element = uspsResponseDoc.getElementsByTagName('Error')[0]
       if (errorElement) {
@@ -173,6 +174,10 @@ export default class SurveyWrapper extends React.Component<
         // USPS sometimes returns a validated address, but it automatically "fixes" the zip code that was provided in the request!
         invalidAddressText = 'The zip code entered does not correspond to this address.'
         console.log(`User entered zip code ${attributes.zip_code} but USPS indicates zip code ${zipCodeElement.childNodes[0].textContent} for this address.`)
+      } else if (cityElement.childNodes[0].textContent! != attributes.city) {
+        // USPS sometimes returns a validated address, but it automatically "fixes" the city that was provided in the request!
+        invalidAddressText = 'The city entered does not correspond to this address.'
+        console.log(`User entered city ${attributes.city} but USPS indicates city ${cityElement.childNodes[0].textContent!} for this address.`)
       }
 
       if (invalidAddressText) {
