@@ -60,15 +60,18 @@ export const useIntroStyles = makeStyles(theme => ({
   heroTextDiv: {
     zIndex: 2,
     position: 'relative',
-    maxWidth: '650px',
+  
     [theme.breakpoints.up('xs')]: {
-      padding: '15px 20px 0px 30px',
+      padding: '25px 20px 30px 30px',
+      maxWidth: '250px',
     },
     [theme.breakpoints.up('sm')]: {
-      padding: '20px 20px 10px 40px',
+      padding: '30px 20px 45px 40px',
+      maxWidth: '450px',
     },
     [theme.breakpoints.up('md')]: {
       padding: '120px 20px 100px 40px',
+      maxWidth: '650px',
     },
     [theme.breakpoints.up('lg')]: {
       padding: '180px 20px 130px 40px',
