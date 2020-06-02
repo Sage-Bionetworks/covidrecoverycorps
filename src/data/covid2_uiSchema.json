@@ -42,7 +42,9 @@
       }
     },
     "household_size": {
-      "classNames": "show_fieldSet household_size"
+      "classNames": "show_fieldSet household_size",
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["no_answer"]
     },
     "housing_type": {
       "ui:widget": "radio",
@@ -62,7 +64,9 @@
       "classNames": "text short"
     },
     "people_diagnosed": {
-      "classNames": "show_fieldSet people_diagnosed"
+      "classNames": "show_fieldSet people_diagnosed",
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["no_answer"]
     },
     "antibiotics_covid_prior": {
       "ui:widget": "radio"

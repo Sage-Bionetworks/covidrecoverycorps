@@ -401,22 +401,26 @@
             "covid_diagnosed": {
               "type": "number",
               "title": "Been diagnosed (have a positive lab test result) with COVID-19?",
-              "default": 0
+              "default": 0,
+              "minimum": 0
             },
             "covid_suspected": {
               "type": "number",
               "title": "Had symptoms but no positive test result for COVID-19?",
-              "default": 0
+              "default": 0,
+              "minimum": 0
             },
             "covid_hospitalized": {
               "type": "number",
               "title": "Been hospitalized due to COVID-19?",
-              "default": 0
+              "default": 0,
+              "minimum": 0
             },
             "covid_died": {
               "type": "number",
               "title": "Died due to COVID-19?",
-              "default": 0
+              "default": 0,
+              "minimum": 0
             },
             "no_answer": {
               "type": "boolean",
