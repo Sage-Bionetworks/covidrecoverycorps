@@ -64,7 +64,7 @@
     },
     "about2": {
       "type": "object",
-      "required": ["income", "healthcare_pay"],
+      "required": ["income", "healthcare_pay", "how_heard"],
       "properties": {
         "income": {
           "type": "string",
@@ -100,6 +100,35 @@
             "Prefer not to answer"
           ],
           "uniqueItems": true
+        },
+        "how_heard": {
+          "type": "array",
+          "title": "6. How did you hear about this study? (check all that apply)",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+
+            "enum": [
+              "Newspaper",
+              "Radio",
+              "Television",
+              "Facebook",
+              "Twitter",
+              "Online search",
+              "Flier/poster",
+              "Recruit Me website",
+              "Email from Columbia University",
+              "Allianca Dominicana",
+              "Survivor Corps",
+              "Friend/family",
+              "Prefer not to answer"
+            ]
+          }
+        },
+        "how_heard_other": {
+          "type": "string",
+          "title": "6a. If you selected 'other', please specify."
         }
       }
     }
