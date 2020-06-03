@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import testTubeImg from '../assets/dashboard/icon_testtubes.svg'
 import saveProgressIconImg from '../assets/dashboard/icon_savedprogress.svg'
-import pencilIconImg from '../assets/dashboard/icon_editingpencil.svg'
 import clockIconImg from '../assets/dashboard/icon_timer.svg'
 import completeIconImg from '../assets/dashboard/icon_complete.svg'
 import emptyIconImg from '../assets/dashboard/icon_empty.svg'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { Typography, CircularProgress } from '@material-ui/core'
+import { CircularProgress } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 
-import CardContent from '@material-ui/core/CardContent'
 import { SurveyService } from '../services/survey.service'
-import { SavedSurveysObject, SurveyType, SavedSurvey } from '../types/types'
+import { SavedSurveysObject, SurveyType, SavedSurvey, ReportDataList } from '../types/types'
 import _ from 'lodash'
-import PatientCorpsInfo from './PatientCorpsInfo'
 import { UserService } from '../services/user.service'
 import Alert from '@material-ui/lab/Alert/Alert'
 
@@ -76,15 +73,11 @@ const surveys: UISurvey[] = [
 export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   token,
 }: DashboardProps) => {
-  const urlParams = new URLSearchParams(window.location.search)
   const [savedSurveys, setSavedSurveys] = useState<SavedSurveysObject>()
   const [error, setError] = useState()
   const [isLoading, setIsLoading] = useState(false)
   const [isContactInfoDone, setIsContactInfoDone] = useState(false)
-  const [isFromConsent, setIsFromConsent] = useState(
-    //get url param
-    urlParams.get('consented'),
-  )
+  const [appointments, setAppointments] = useState<ReportDataList>()
 
   const classes = useStyles()
 
@@ -98,6 +91,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
           setIsContactInfoDone(!!userInfo.data.attributes?.gender)
           const response = await SurveyService.getUserSurveys(token)
           setSavedSurveys(_.first(response.data.items)?.data)
+          const appointmentsResponse = await UserService.getAppointments(token, userInfo.data)
+          setAppointments(appointmentsResponse.data)
         } catch (e) {
           setError(e)
         } finally {
@@ -209,10 +204,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   return (
     <div className="Dashboard">
       <div className="dashboard-intro">
-        {/* isFromConsent && (
-          <Typography variant="h2">Yay, the legal is done!</Typography>
-        )*/}
-
         <p>
           The information you provide will help researchers learn more about
           COVID-19.

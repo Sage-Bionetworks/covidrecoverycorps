@@ -3,17 +3,16 @@ import {
   LoggedInUserData,
   Response,
   UserAttributes,
+  ReportDataList,
 } from '../types/types'
 
 import { callEndpoint } from '../helpers/utility'
-import { result } from 'lodash-es'
-
-const SUBPOP_GUID = 'czi-coronavirus'
 
 export const UserService = {
   getUserInfo,
   updateUserAttributes,
   updateUserData,
+  getAppointments,
 }
 
 async function getUserInfo(token: string): Promise<Response<LoggedInUserData>> {
@@ -57,4 +56,16 @@ async function updateUserData(
     token,
   )
   return result
+}
+
+async function getAppointments(
+  token: string,
+  data: LoggedInUserData,): Promise<Response<ReportDataList>> {
+    const result = await callEndpoint<ReportDataList>(
+      `${ENDPOINT}/v3/participants/${data.id}/reports/appointment?startDate=1970-01-01&endDate=1970-01-01`,
+      'GET',
+      {},
+      token,
+    )
+    return result
 }
