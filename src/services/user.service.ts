@@ -59,10 +59,9 @@ async function updateUserData(
 }
 
 async function getAppointments(
-  token: string,
-  data: LoggedInUserData,): Promise<Response<ReportDataList>> {
-    const result = await callEndpoint<ReportDataList>(
-      `${ENDPOINT}/v3/participants/${data.id}/reports/appointment?startDate=1970-01-01&endDate=1970-01-01`,
+  token: string): Promise<Response<ReportDataList>> {
+    const result = await callEndpoint<ReportDataList>(      
+      `${ENDPOINT}/v3/users/self/reports/appointment?startDate=1970-01-01&endDate=1970-01-01`,
       'GET',
       {},
       token,
