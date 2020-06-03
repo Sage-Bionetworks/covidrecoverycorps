@@ -5,16 +5,17 @@ import pencilIconImg from '../assets/dashboard/icon_editingpencil.svg'
 import clockIconImg from '../assets/dashboard/icon_timer.svg'
 import completeIconImg from '../assets/dashboard/icon_complete.svg'
 import emptyIconImg from '../assets/dashboard/icon_empty.svg'
+import iconThankYou from '../assets/dashboard/icon_thankyou.svg'
+import iconWooHoo from '../assets/dashboard/icon_whoohoo.svg'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { Typography, CircularProgress } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 
-import CardContent from '@material-ui/core/CardContent'
 import { SurveyService } from '../services/survey.service'
 import { SavedSurveysObject, SurveyType, SavedSurvey } from '../types/types'
 import _ from 'lodash'
-import PatientCorpsInfo from './PatientCorpsInfo'
+
 import { UserService } from '../services/user.service'
 import Alert from '@material-ui/lab/Alert/Alert'
 
@@ -79,6 +80,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   const urlParams = new URLSearchParams(window.location.search)
   const [savedSurveys, setSavedSurveys] = useState<SavedSurveysObject>()
   const [error, setError] = useState()
+
   const [isLoading, setIsLoading] = useState(false)
   const [isContactInfoDone, setIsContactInfoDone] = useState(false)
   const [isFromConsent, setIsFromConsent] = useState(
@@ -206,13 +208,53 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     ))
     return <ul className="items">{items}</ul>
   }
+
+  const getIntro = (savedSurveys: SavedSurvey[]): JSX.Element => {
+    const completedSurveyNames = savedSurveys
+      .filter(survey => survey && survey.completedDate)
+      .map(survey => survey?.type)
+
+    const doneMain =
+      isContactInfoDone &&
+      completedSurveyNames.includes('DEMOGRAPHIC') &&
+      completedSurveyNames.includes('COVID_EXPERIENCE')
+    const doneAll =
+      doneMain &&
+      completedSurveyNames.includes('HISTORY') &&
+      completedSurveyNames.includes('MORE')
+    const doneMainEl = (
+      <>
+        <img src={iconWooHoo} alt="woo hoo!"></img>
+        <h2>Whoo hoo!</h2>
+        <p>
+          We’ve added you to the waiting list for an antibody test. If you are
+          selected, you will receive an email.
+        </p>
+        <p>
+          {' '}
+          Please consider completing the rest of the surveys if you have time.
+        </p>
+      </>
+    )
+
+    const doneAllEl = (
+      <>
+        <img src={iconThankYou} alt="thank you!"></img>
+        <h2>
+          Thank you for your contribution to the COVID Recovery Corps Study!
+        </h2>{' '}
+      </>
+    )
+    if (!doneAll && !doneMain) {
+      return <></>
+    }
+    return (
+      <div className="finished-status">{doneAll ? doneAllEl : doneMainEl}</div>
+    )
+  }
   return (
     <div className="Dashboard">
       <div className="dashboard-intro">
-        {/* isFromConsent && (
-          <Typography variant="h2">Yay, the legal is done!</Typography>
-        )*/}
-
         <p>
           The information you provide will help researchers learn more about
           COVID-19.
@@ -233,6 +275,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
             <CircularProgress color="primary" />
           </div>
         )}
+        {getIntro(savedSurveys?.surveys || [])}
         <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
         <div className="separator">
           <img src={testTubeImg}></img>
