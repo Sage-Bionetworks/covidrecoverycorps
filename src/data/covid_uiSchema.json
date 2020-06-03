@@ -57,7 +57,7 @@
       "symptoms_none_date": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2019, 2020],
+          "yearsRange": [2020, 2020],
           "hideNowButton": true,
           "hideClearButton": false,
           "lessThanNow": true
