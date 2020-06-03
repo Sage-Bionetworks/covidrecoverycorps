@@ -64,7 +64,7 @@
     },
     "about2": {
       "type": "object",
-      "required": ["income", "healthcare_pay", "how_heard"],
+      "required": ["income", "healthcare_pay", "how_heardq"],
       "properties": {
         "income": {
           "type": "string",
@@ -122,6 +122,7 @@
               "Allianca Dominicana",
               "Survivor Corps",
               "Friend/family",
+              "Other",
               "Prefer not to answer"
             ]
           }
