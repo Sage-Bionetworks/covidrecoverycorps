@@ -185,7 +185,8 @@
                       "Insulin",
                       "Pills",
                       "Insulin And Pills",
-                      "None of the above",
+                      "Prescribed other medication",
+                      "No prescribed medication",
                       "Prefer not to answer"
                     ]
                   }
