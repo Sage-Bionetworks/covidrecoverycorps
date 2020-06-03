@@ -20,6 +20,9 @@ export const useStyles = makeStyles(theme => ({
   },
   address: {
     paddingLeft: '30px'
+  },
+  version: {
+    padding: '30px 0px'
   }
 }))
 export const PrivacyPolicy: React.FunctionComponent = ({}) => {
@@ -357,6 +360,8 @@ export const PrivacyPolicy: React.FunctionComponent = ({}) => {
                       </p>
                     </div>
                   </LearnMore>
+
+                  <div><p className={classes.version}>Version 1: May 04, 2020</p></div>
                 </div>
 
               </div>
