@@ -64,7 +64,7 @@
     },
     "about2": {
       "type": "object",
-      "required": ["income", "healthcare_pay", "how_heardq"],
+      "required": ["income", "healthcare_pay", "how_heard"],
       "properties": {
         "income": {
           "type": "string",
