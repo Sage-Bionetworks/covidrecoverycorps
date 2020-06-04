@@ -111,7 +111,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
             const appt = appointmentsResponse.data.items[0]
             if (appt.data.status == 'booked')
               setAppointment(appt)
-          }          
+          }
         } catch (e) {
           setError(e)
         } finally {
@@ -151,7 +151,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
               <div><strong>{friendlyAppointmentTimeStart} - {friendlyAppointmentTimeEnd}</strong></div>
             </Grid>
           </Grid>
-                
+
           <div className={classes.appointmentInstructions}>
             <p>You will stop at the main information desk in the lobby and will be directed to the proper location.</p>
             <p>If you have a fever, cough, sore throat, shortness of breath, diarrhea, or body aches, you should not come to have your blood drawn.</p>
@@ -182,8 +182,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       return isContactInfoDone ? (
         <img src={completeIconImg} alt="done"></img>
       ) : (
-        <img src={emptyIconImg} alt="to do"></img>
-      )
+          <img src={emptyIconImg} alt="to do"></img>
+        )
     }
 
     const getIconImage = (survey: UISurvey): JSX.Element => {
@@ -196,8 +196,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         const image = isDone(survey) ? (
           <img src={completeIconImg} alt="done"></img>
         ) : (
-          <img src={emptyIconImg} alt="to do"></img>
-        )
+            <img src={emptyIconImg} alt="to do"></img>
+          )
         return image
       }
     }
@@ -303,42 +303,42 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   }
   return (
     <div className="Dashboard">
-			{!appointment && (
-			<>
-        <div className="dashboard-intro">
-          <p>
-            The information you provide will help researchers learn more about
-            COVID-19.
+      {!appointment && (
+        <>
+          <div className="dashboard-intro">
+            <p>
+              The information you provide will help researchers learn more about
+              COVID-19.
           </p>
-          <p>
-            {' '}
+            <p>
+              {' '}
             To be invited for a lab test, you will need to complete your Profile
             and Surveys 1-2. Surveys 3 and 4 are optional but still provide
             important information. Please consider completing them if you have the
             time.{' '}
-          </p>
-        </div>
-
-        <Card className={classes.root}>
-          {error && <Alert severity="error">{error}</Alert>}
-          {isLoading && (
-            <div className="text-center">
-              <CircularProgress color="primary" />
-            </div>
-          )}
-          {getIntro(savedSurveys?.surveys || [])}
-          <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
-          <div className="separator">
-            <img src={testTubeImg}></img>
-            <div className="small">
-              {' '}
-              Minimum surveys required for lab invites{' '}
-            </div>
+            </p>
           </div>
-          <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
-        </Card>
-			</>)}
-			{appointment && (
+
+          <Card className={classes.root}>
+            {error && <Alert severity="error">{error}</Alert>}
+            {isLoading && (
+              <div className="text-center">
+                <CircularProgress color="primary" />
+              </div>
+            )}
+            {getIntro(savedSurveys?.surveys || [])}
+            <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
+            <div className="separator">
+              <img src={testTubeImg}></img>
+              <div className="small">
+                {' '}
+              Minimum surveys required for lab invites{' '}
+              </div>
+            </div>
+            <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
+          </Card>
+        </>)}
+      {appointment && (
         <div>{renderAppointment(appointment)}</div>
       )}
     </div>
