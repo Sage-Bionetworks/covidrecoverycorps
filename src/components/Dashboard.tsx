@@ -107,9 +107,9 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
           const response = await SurveyService.getUserSurveys(token)
           setSavedSurveys(_.first(response.data.items)?.data)
           const appointmentsResponse = await UserService.getAppointments(token)
-          if (appointmentsResponse && appointmentsResponse.data && appointmentsResponse.data.items.length > 0) {
+          if (appointmentsResponse?.data?.items?.length > 0) {
             const appt = appointmentsResponse.data.items[0]
-            if (appt.data.status == 'booked')
+            if (appt.data.status === 'booked')
               setAppointment(appt)
           }
         } catch (e) {
