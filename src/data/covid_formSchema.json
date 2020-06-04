@@ -12,7 +12,7 @@
           "Occurred even after I started to feel much better",
           "I still have this symptom"
         ],
-        "enum": ["first_2_weeks", "2_4_weeks", ">4_weeks", "still_symptom"]
+        "enum": ["first_symptom", "occured_when_worst", "occured_when_better", "still_symptom"]
       }
     },
 
