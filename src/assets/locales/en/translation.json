@@ -1,0 +1,29 @@
+{
+"common": {
+    "joinUs":  "Join Us"
+},
+  "home": {
+    "title": "Building a partnership between COVID-19 survivors and researchers.",
+    "text1": "If you live in the New York City metro area and have recovered from COVID-19 - or think you have - you can partner with scientists to better understand the recovery process and long term effects from this disease.",
+    "text2": "Photo by Noah Berger",
+    "text3": "There is an urgent need to come together as a survivor community to rapidly advance our understanding of COVID-19.",
+    "text4": "You recovered. Your experience could help unlock the mysteries behind this disease. Our mission is to learn more about COVID-19 by bringing together the collective experiences of thousands of recovered patients.",
+    "text5": "By sharing your experience in recovering from COVID-19, you can help answer critical questions.",
+    "text6": "Participation is simple.",
+    "text7": "Here’s how it works.",
+    "text8": "STEP ONE",
+    "text9": "Register and take the survey",
+    "text10": "To get started, click",
+    "text11": "and review information about what will happen in the study. After registering, you will be invited to take brief surveys that may help scientists begin to answer questions like: Why do some people experience very mild symptoms while others get very sick? How does recovering from COVID-19 impact your health over time?",
+    "text12": "STEP TWO",
+    "text13": "Share your samples",
+    "text14": "We will invite some participants to visit clinical sites in New York City to donate a sample. In the future, other participants will be invited to donate a sample from home. Sharing your samples will help answer important questions including: Who was really infected with COVID-19? What levels of antibodies are needed to protect us from reinfection? Is it possible for people to develop full immunity to COVID-19?",
+    "text15": "STEP THREE",
+    "text16": "Learn with us along the way",
+    "text17": "If you are asked to provide a sample, we will test the sample for antibodies related to COVID-19 infection, using an antibody test approved by the New York State Department of Health. We will share your test results with you, along with information about what those results may mean. As we learn more about the impact of COVID-19 across study participants, we will share regular updates with the broader scientific and patient community. We may also ask if you are interested in joining other related studies. For instance, some participants may choose to be notified of opportunities to donate plasma and help those still fighting for survival from COVID-19.",
+    "text18": "Together, we can fight COVID-19."
+  },
+  "team": {
+    "title": "The COVID Recovery Corps is a citizen-powered research study to learn more about COVID-19 and make progress in the global fight."
+  }
+}
