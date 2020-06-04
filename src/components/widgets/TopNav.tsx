@@ -161,6 +161,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
 
   const changeLanguage = () => {
     const newLanguage = i18n.language === 'es' ? 'en' : 'es'
+    window.localStorage.setItem('appUILang', newLanguage);
 
     i18n.changeLanguage(newLanguage)
     setLanguage(newLanguage)

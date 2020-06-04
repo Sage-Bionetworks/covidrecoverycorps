@@ -14,11 +14,13 @@ const resources = {
   }
 };
 
+const savedLanguage = window.localStorage.getItem('appUILang') || 'en'
+
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
-    lng: "en",
+    lng:  savedLanguage ,
     fallbackLng: 'en',
     whitelist: ['en', 'es'],
 
