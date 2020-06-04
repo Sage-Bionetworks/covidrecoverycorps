@@ -18,6 +18,19 @@
       }
     }
   }
+  .finished-status {
+    text-align: center;
+    padding-left: 46px;
+    padding-top: 28px;
+    padding-right: 10%;
+    p {
+      text-align: left;
+    }
+    @media only screen and (max-width: 768px) {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
   div.separator {
     background-image: url('../../assets/dashboard/dashboard-separator.svg');
     background-repeat: repeat-x;
@@ -45,8 +58,11 @@
       overflow-y: hidden;
 
       &.disabled {
-        .circle, .time, .title, .description {
-        opacity: 0.5;
+        .circle,
+        .time,
+        .title,
+        .description {
+          opacity: 0.5;
         }
       }
       &.disabled,
@@ -81,7 +97,7 @@
 
       .btn-container {
         padding-left: 46px;
-        padding-right: 46px;
+
         padding-top: 28px;
         display: flex;
         cursor: pointer;
@@ -154,6 +170,8 @@
 
         .time {
           text-align: right;
+          flex-shrink: 0;
+
           span {
             font-size: 10px;
             font-style: italic;

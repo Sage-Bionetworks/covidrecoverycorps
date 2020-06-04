@@ -184,7 +184,7 @@
                     "enum": [
                       "Insulin",
                       "Pills",
-                      "Insulin And Pills",
+                      "Insulin and pills",
                       "Prescribed other medication",
                       "No prescribed medication",
                       "Prefer not to answer"

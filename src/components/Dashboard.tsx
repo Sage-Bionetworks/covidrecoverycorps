@@ -4,6 +4,8 @@ import saveProgressIconImg from '../assets/dashboard/icon_savedprogress.svg'
 import clockIconImg from '../assets/dashboard/icon_timer.svg'
 import completeIconImg from '../assets/dashboard/icon_complete.svg'
 import emptyIconImg from '../assets/dashboard/icon_empty.svg'
+import iconThankYou from '../assets/dashboard/icon_thankyou.svg'
+import iconWooHoo from '../assets/dashboard/icon_whoohoo.svg'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { CircularProgress, Grid } from '@material-ui/core'
@@ -87,6 +89,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 }: DashboardProps) => {
   const [savedSurveys, setSavedSurveys] = useState<SavedSurveysObject>()
   const [error, setError] = useState()
+
   const [isLoading, setIsLoading] = useState(false)
   const [isContactInfoDone, setIsContactInfoDone] = useState(false)
   const [appointment, setAppointment] = useState<ReportData>()
@@ -131,37 +134,33 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     const friendlyAppointmentTimeEnd = appointmentDateTimeEnd.format('h:mm a')
 
     return (
-      <div className="Dashboard">
-        <Card className={classes.root}>
-          <div className={classes.appointmentContainerDiv}>
-            <h2 className="text-center">Appointment confirmation</h2>
-            <p>Your lab appointment to get your blood drawn has been confirmed for:</p>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-            >
-              <Grid item>
-                <div className={classes.appointmentDateHeader}>DATE</div>
-                <div>{appointmentDateTime.format('dddd')}</div>
-                <div><strong>{appointmentDateTime.format('MMMM Do, YYYY')}</strong></div>
-                <div><strong>{friendlyAppointmentTimeStart} - {friendlyAppointmentTimeEnd}</strong></div>
-              </Grid>
+      <Card className={classes.root}>
+        <div className={classes.appointmentContainerDiv}>
+          <h2 className="text-center">Appointment confirmation</h2>
+          <p>Your lab appointment to get your blood drawn has been confirmed for:</p>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
+            <Grid item>
+              <div className={classes.appointmentDateHeader}>DATE</div>
+              <div>{appointmentDateTime.format('dddd')}</div>
+              <div><strong>{appointmentDateTime.format('MMMM Do, YYYY')}</strong></div>
+              <div><strong>{friendlyAppointmentTimeStart} - {friendlyAppointmentTimeEnd}</strong></div>
             </Grid>
-                  
-            <div className={classes.appointmentInstructions}>
-              <p>You will stop at the main information desk in the lobby and will be directed to the proper location.</p>
-              <p>If you have a fever, cough, sore throat, shortness of breath, diarrhea, or body aches, you should not come to have your blood drawn.</p>
-              <p>
-                If you need to reschedule your appointment or need assistance, call 212-305-5700 or email <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">COVIDRecoveryCorps@cumc.columbia.edu</a>
-              </p>
-
-
-            </div>
+          </Grid>
+                
+          <div className={classes.appointmentInstructions}>
+            <p>You will stop at the main information desk in the lobby and will be directed to the proper location.</p>
+            <p>If you have a fever, cough, sore throat, shortness of breath, diarrhea, or body aches, you should not come to have your blood drawn.</p>
+            <p>
+              If you need to reschedule your appointment or need assistance, call 212-305-5700 or email <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">COVIDRecoveryCorps@cumc.columbia.edu</a>
+            </p>
           </div>
-        </Card>
-      </div>
+        </div>
+      </Card>
     )
   }
 
@@ -258,10 +257,54 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     ))
     return <ul className="items">{items}</ul>
   }
+
+  const getIntro = (savedSurveys: SavedSurvey[]): JSX.Element => {
+    const completedSurveyNames = savedSurveys
+      .filter(survey => survey && survey.completedDate)
+      .map(survey => survey?.type)
+
+    const doneMain =
+      isContactInfoDone &&
+      completedSurveyNames.includes('DEMOGRAPHIC') &&
+      completedSurveyNames.includes('COVID_EXPERIENCE')
+    const doneAll =
+      doneMain &&
+      completedSurveyNames.includes('HISTORY') &&
+      completedSurveyNames.includes('MORE')
+    const doneMainEl = (
+      <>
+        <img src={iconWooHoo} alt="woo hoo!"></img>
+        <h2>Whoo hoo!</h2>
+        <p>
+          We’ve added you to the waiting list for an antibody test. If you are
+          selected, you will receive an email.
+        </p>
+        <p>
+          {' '}
+          Please consider completing the rest of the surveys if you have time.
+        </p>
+      </>
+    )
+
+    const doneAllEl = (
+      <>
+        <img src={iconThankYou} alt="thank you!"></img>
+        <h2>
+          Thank you for your contribution to the COVID Recovery Corps Study!
+        </h2>{' '}
+      </>
+    )
+    if (!doneAll && !doneMain) {
+      return <></>
+    }
+    return (
+      <div className="finished-status">{doneAll ? doneAllEl : doneMainEl}</div>
+    )
+  }
   return (
-    <>
-      {!appointment && (
-      <div className="Dashboard">
+    <div className="Dashboard">
+			{!appointment && (
+			<>
         <div className="dashboard-intro">
           <p>
             The information you provide will help researchers learn more about
@@ -283,6 +326,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
               <CircularProgress color="primary" />
             </div>
           )}
+          {getIntro(savedSurveys?.surveys || [])}
           <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
           <div className="separator">
             <img src={testTubeImg}></img>
@@ -293,12 +337,11 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
           </div>
           <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
         </Card>
-      </div>)}
-
-      {appointment && (
+			</>)}
+			{appointment && (
         <div>{renderAppointment(appointment)}</div>
       )}
-    </>
+    </div>
   )
 }
 
