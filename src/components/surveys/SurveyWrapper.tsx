@@ -73,8 +73,12 @@ export default class SurveyWrapper extends React.Component<
 
   getData = async (): Promise<void> => {
     try {
+      const {default: formSchema} =  await SURVEYS[this.props.surveyName].formSchema()
+      const {default: formUiSchema} = await SURVEYS[this.props.surveyName].uiSchema()
+      const {default: formNavSchema} = await  SURVEYS[this.props.surveyName].navSchema()
+
       const jsonFormSchemaDeref = (await $RefParser.dereference(
-        JSON.parse(JSON.stringify(SURVEYS[this.props.surveyName].formSchema)),
+        JSON.parse(JSON.stringify(formSchema)),
       )) as JSON
       let formData = { metadata: {} }
       const userInfoResponse = await UserService.getUserInfo(this.props.token)
@@ -116,8 +120,8 @@ export default class SurveyWrapper extends React.Component<
       this.setState({
         formData,
         formSchema: jsonFormSchemaDeref,
-        formUiSchema: SURVEYS[this.props.surveyName].uiSchema,
-        formNavSchema: SURVEYS[this.props.surveyName].navSchema,
+        formUiSchema,
+        formNavSchema,
         isLoading: false,
       })
     } catch (e) {

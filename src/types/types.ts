@@ -99,9 +99,9 @@ export type SurveyType =
 
 export type SurveyConfigObject = {
   [key in SurveyType]: {
-    formSchema: any
-    uiSchema: any
-    navSchema: any
+    formSchema: Function
+    uiSchema: Function
+    navSchema: Function
   }
 }
 
