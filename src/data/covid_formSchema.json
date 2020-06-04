@@ -8,7 +8,7 @@
         "type": "string",
         "enumNames": [
           "Was one of my first symptoms",
-          "Occurred when I was at my worst!",
+          "Occurred when I was at my worst",
           "Occurred even after I started to feel much better",
           "I still have this symptom"
         ],
