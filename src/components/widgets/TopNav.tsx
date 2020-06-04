@@ -222,15 +222,14 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             Privacy Policy
           </ListItem>
         </NavLink>
-        <div
-          onClick={() =>
+        <ListItem button className={classes.mobileMenuItem} 
+          onClick={() => {
+            handleDrawerToggle()
             i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')
-          }
-          className="MuiButtonBase-root MuiListItem-root makeStyles-mobileMenuItem-77 MuiListItem-gutters MuiListItem-button"
-        >
-          {language === 'es' ? 'in English' : 'en español'}
-        </div>
-
+          }}
+          >
+            {language === 'es' ? 'in English' : 'en español'}
+        </ListItem>
         <Divider className={classes.mobileMenuSeparator} />
         {props.token && (
           <NavLink
@@ -352,8 +351,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
         </NavLink>
       )}
       <a
-        className="makeStyles-fullNavBarLink-72"
-        href="#"
+        className={classes.fullNavBarLink}
         onClick={() => changeLanguage()}
       >
         {language === 'es' ? 'in English' : 'en español'}
