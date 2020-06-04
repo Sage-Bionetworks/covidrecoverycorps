@@ -24,6 +24,7 @@ import { openSansFont } from '../../App'
 import { getSearchParams } from '../../helpers/utility'
 import GlobalAlertCopy from './GlobalAlertCopy'
 import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
+import i18n from '../../i18n'
 
 type TopNavProps = {
   token: string | undefined
@@ -106,7 +107,7 @@ const useStyles = makeStyles(theme => ({
     lineHeight: '30px',
     fontStyle: 'normal',
     padding: '10px 0px 10px 40px',
-    color: '#2A2A2A'
+    color: '#2A2A2A',
   },
   mobileMenuSeparator: {
     height: '2px',
@@ -118,7 +119,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     padding: theme.spacing(0, 1),
     justifyContent: 'flex-end',
-    height: '72px',    
+    height: '72px',
     marginBottom: '10px',
   },
   drawerCloseButton: {
@@ -131,6 +132,7 @@ const useStyles = makeStyles(theme => ({
 
 export const TopNav: React.FunctionComponent<TopNavProps> = props => {
   const [mobileOpen, setMobileOpen] = React.useState(false)
+  const [language, setLanguage] = React.useState(i18n.language)
   const classes = useStyles()
   const searchParamsProps = getSearchParams(window.location.search)
   const alertCode: string = searchParamsProps['alert']
@@ -138,53 +140,78 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
     setMobileOpen(!mobileOpen)
   }
 
+  const changeLanguage = () => {
+    const newLanguage = i18n.language === 'es' ? 'en' : 'es'
+
+    i18n.changeLanguage(newLanguage)
+    setLanguage(newLanguage)
+  }
+
   const drawer = (
     <div>
       <div className={classes.drawerHeader}>
-        <Link onClick={handleDrawerToggle} className={classes.drawerCloseButton}>
-          <img
-            className={classes.drawerCloseIcon}
-            src={btnClose}
-          ></img>
+        <Link
+          onClick={handleDrawerToggle}
+          className={classes.drawerCloseButton}
+        >
+          <img className={classes.drawerCloseIcon} src={btnClose}></img>
         </Link>
       </div>
       <List>
-      
         <NavLink
           to="/home"
           onClick={handleDrawerToggle}
           className={classes.navBarLink}
         >
-          <ListItem button className={classes.mobileMenuItem}>About</ListItem>
+          <ListItem button className={classes.mobileMenuItem}>
+            About
+          </ListItem>
         </NavLink>
         <NavLink
           to="/team"
           onClick={handleDrawerToggle}
           className={classes.navBarLink}
         >
-          <ListItem button className={classes.mobileMenuItem}>Meet the Researchers</ListItem>
+          <ListItem button className={classes.mobileMenuItem}>
+            Meet the Researchers
+          </ListItem>
         </NavLink>
         <NavLink
           to="/faqs"
           onClick={handleDrawerToggle}
           className={classes.navBarLink}
         >
-          <ListItem button className={classes.mobileMenuItem}>FAQs</ListItem>
+          <ListItem button className={classes.mobileMenuItem}>
+            FAQs
+          </ListItem>
         </NavLink>
         <NavLink
           to="/contact"
           onClick={handleDrawerToggle}
           className={classes.navBarLink}
         >
-          <ListItem button className={classes.mobileMenuItem}>Contact Us</ListItem>
+          <ListItem button className={classes.mobileMenuItem}>
+            Contact Us
+          </ListItem>
         </NavLink>
         <NavLink
           to="/privacypolicy"
           onClick={handleDrawerToggle}
           className={classes.navBarLink}
         >
-          <ListItem button className={classes.mobileMenuItem}>Privacy Policy</ListItem>
+          <ListItem button className={classes.mobileMenuItem}>
+            Privacy Policy
+          </ListItem>
         </NavLink>
+        <div
+          onClick={() =>
+            i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')
+          }
+          className="MuiButtonBase-root MuiListItem-root makeStyles-mobileMenuItem-77 MuiListItem-gutters MuiListItem-button"
+        >
+          {language === 'es' ? 'in English' : 'en español'}
+        </div>
+
         <Divider className={classes.mobileMenuSeparator} />
         {props.token && (
           <NavLink
@@ -192,7 +219,9 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             onClick={handleDrawerToggle}
             className={classes.navBarLink}
           >
-            <ListItem button className={classes.mobileMenuItem}>Survey Dashboard</ListItem>
+            <ListItem button className={classes.mobileMenuItem}>
+              Survey Dashboard
+            </ListItem>
           </NavLink>
         )}
         {props.token && (
@@ -201,7 +230,9 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             onClick={handleDrawerToggle}
             className={classes.navBarLink}
           >
-            <ListItem button className={classes.mobileMenuItem}>Account Settings</ListItem>
+            <ListItem button className={classes.mobileMenuItem}>
+              Account Settings
+            </ListItem>
           </NavLink>
         )}
         {props.token && (
@@ -223,7 +254,9 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             onClick={handleDrawerToggle}
             className={classes.navBarLink}
           >
-            <ListItem button className={classes.mobileMenuItem}>Join Us</ListItem>
+            <ListItem button className={classes.mobileMenuItem}>
+              Join Us
+            </ListItem>
           </NavLink>
         )}
         {!props.token && (
@@ -232,7 +265,9 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             onClick={handleDrawerToggle}
             className={classes.navBarLink}
           >
-            <ListItem button className={classes.mobileMenuItem}>Log in</ListItem>
+            <ListItem button className={classes.mobileMenuItem}>
+              Log in
+            </ListItem>
           </NavLink>
         )}
       </List>
@@ -241,7 +276,6 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
 
   const fullScreenNavBar = (
     <div>
-     
       <NavLink
         to="/home"
         className={classes.fullNavBarLink}
@@ -295,6 +329,14 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           Account Settings
         </NavLink>
       )}
+      <a
+        className="makeStyles-fullNavBarLink-72"
+        href="#"
+        onClick={() => changeLanguage()}
+      >
+        {language === 'es' ? 'in English' : 'en español'}
+      </a>
+
       {props.token && (
         <NavLink
           to="/logout"
@@ -344,19 +386,19 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             </Typography>
           </div>
 
-            {/* show hamburger menu on xs and sm, but full nav bar on md and up */}
-            <Hidden lgUp>
-              <IconButton
-                color="inherit"
-                aria-label="Open drawer"
-                edge="end"
-                onClick={handleDrawerToggle}
-                className={classes.menuButton}
-              >
-                <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
-              </IconButton>
-            </Hidden>
-            <Hidden mdDown>{fullScreenNavBar}</Hidden>
+          {/* show hamburger menu on xs and sm, but full nav bar on md and up */}
+          <Hidden lgUp>
+            <IconButton
+              color="inherit"
+              aria-label="Open drawer"
+              edge="end"
+              onClick={handleDrawerToggle}
+              className={classes.menuButton}
+            >
+              <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
+            </IconButton>
+          </Hidden>
+          <Hidden mdDown>{fullScreenNavBar}</Hidden>
         </Toolbar>
       </div>
 

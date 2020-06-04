@@ -12,6 +12,8 @@ import { ReactComponent as SurvivorCorpsLogo } from '../../assets/SurvivorCorpsL
 import BlueSeparator from './BlueSeparator'
 import { useIntroStyles } from './Intro'
 
+import { useTranslation } from 'react-i18next'
+
 type TeamProps = {}
 
 export const useStyles = makeStyles(theme => ({
@@ -46,12 +48,13 @@ export const useStyles = makeStyles(theme => ({
   },
   survivorCorpsLogo: {
     height: '80px',
-    maxWidth: '164px'
-  }
+    maxWidth: '164px',
+  },
 }))
-export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
+export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
   const introClasses = useIntroStyles()
   const classes = useStyles()
+  const { t } = useTranslation()
   return (
     <div className="Intro">
       <div>
@@ -66,12 +69,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
 
         <div className={introClasses.paperHeaderDiv}>
           <Container maxWidth="md">
-            <h3
-              className={introClasses.paperHeaderText}
-            >
-              The COVID Recovery Corps is a citizen-powered research study to
-              learn more about COVID-19 and make progress in the global fight.
-            </h3>
+            <h3 className={introClasses.paperHeaderText}>{t('team.title')}</h3>
           </Container>
         </div>
         <Container maxWidth="md" className={introClasses.paperPanelWrapper}>
@@ -87,8 +85,8 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                 <p>
                   Led by Columbia University and Sage Bionetworks, the study
                   aims to enable those who have recovered from COVID-19 to
-                  partner with scientists to answer key questions &mdash; about how
-                  the body fights coronavirus and whether and how often
+                  partner with scientists to answer key questions &mdash; about
+                  how the body fights coronavirus and whether and how often
                   infection affords immunity. Starting in the New York
                   metropolitan area &mdash; the epicenter of the pandemic in the
                   United States &mdash; participants will help build a powerful
@@ -96,7 +94,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                   lives.
                 </p>
               </div>
-            </div>            
+            </div>
             {/* Wendy's profile */}
             <Grid
               className={classes.profile}
@@ -114,28 +112,31 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                 <div className={introClasses.paperPanelStepBody}>
                   <p>
                     Dr. Wendy Chung is a co-Principal Investigator based at
-                    Columbia University with oversight over clinical
-                    operations.
+                    Columbia University with oversight over clinical operations.
                     Dr Chung is an ABMG board certified clinical and molecular
-                    geneticist with 20 years of experience in clinical
-                    research, largely for rare diseases. She leads the
-                    Precision Medicine Resource of the Irving Institute at
-                    Columbia University and is the principal investigator of
-                    the large U.S. study of autism, SPARK.
+                    geneticist with 20 years of experience in clinical research,
+                    largely for rare diseases. She leads the Precision Medicine
+                    Resource of the Irving Institute at Columbia University and
+                    is the principal investigator of the large U.S. study of
+                    autism, SPARK.
                   </p>
                   <p>
-                    She works with many organizations to improve the support and 
-                    treatment of rare disease for patients and family members. 
-                    Dr. Chung was recognized by the National Organization of 
-                    Rare Disorders with the Rare Impact Award in 2019.
-                    She was recently featured in the documentary,{' '}
+                    She works with many organizations to improve the support and
+                    treatment of rare disease for patients and family members.
+                    Dr. Chung was recognized by the National Organization of
+                    Rare Disorders with the Rare Impact Award in 2019. She was
+                    recently featured in the documentary,{' '}
                     <a href="https://www.pbs.org/show/gene/" target="_blank">
                       The Gene: An Intimate History
-                    </a>.
+                    </a>
+                    .
                   </p>
                   <p>
                     For more information, please visit{' '}
-                    <a href="https://wchunglab.com/" target="_blank">wchunglab.com</a>.
+                    <a href="https://wchunglab.com/" target="_blank">
+                      wchunglab.com
+                    </a>
+                    .
                   </p>
                 </div>
                 <ColumbiaLogo />
@@ -193,11 +194,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
             </Grid>
 
             {/* Survivor Corps callout */}
-            <Grid
-              container
-              justify="center"
-              alignItems="flex-start"
-            >
+            <Grid container justify="center" alignItems="flex-start">
               <div className={introClasses.paperPanelTitle}>
                 <h2>In partnership with Survivor Corps</h2>
               </div>
@@ -205,23 +202,23 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                 <BlueSeparator />
               </Hidden>
 
-              <Grid
-                container
-                justify="center"
-                alignItems="flex-start"
-              >
+              <Grid container justify="center" alignItems="flex-start">
                 <Grid item xs={12} sm={6}>
                   <img className={classes.profileImage} src={SurvivorCorps} />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <div className={classes.paddingBottom20}>
                     <p>
-                      Survivor Corps is a rapidly growing grassroots network of more than 50,000 COVID-19 
-                      survivors and family members who have first-hand experience with the virus. They are 
-                      motivated to help others navigate the illness and find a pathway to recovery. 
-                      Founded by Diana Berrent, Survivor Corps is mobilizing these survivors to donate 
-                      plasma and to support ongoing scientific, medical and academic research to identify 
-                      and improve treatments, understand the disease and its long term effects, and develop a vaccine.
+                      Survivor Corps is a rapidly growing grassroots network of
+                      more than 50,000 COVID-19 survivors and family members who
+                      have first-hand experience with the virus. They are
+                      motivated to help others navigate the illness and find a
+                      pathway to recovery. Founded by Diana Berrent, Survivor
+                      Corps is mobilizing these survivors to donate plasma and
+                      to support ongoing scientific, medical and academic
+                      research to identify and improve treatments, understand
+                      the disease and its long term effects, and develop a
+                      vaccine.
                     </p>
                   </div>
                   <p className={classes.paddingBottom20}>
@@ -232,7 +229,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
                     .
                   </p>
                   <div className={classes.paddingBottom20}>
-                    <SurvivorCorpsLogo className={classes.survivorCorpsLogo}/>
+                    <SurvivorCorpsLogo className={classes.survivorCorpsLogo} />
                   </div>
                 </Grid>
               </Grid>
@@ -257,7 +254,11 @@ export const Team: React.FunctionComponent<TeamProps> = ({ }: TeamProps) => {
               </p>
             </div>
             <p className={classes.paddingBottom20}>
-              For more information, please visit <a href="https://www.chanzuckerberg.com" target="_blank">www.chanzuckerberg.com</a>.
+              For more information, please visit{' '}
+              <a href="https://www.chanzuckerberg.com" target="_blank">
+                www.chanzuckerberg.com
+              </a>
+              .
             </p>
             <CZILogo />
           </Container>

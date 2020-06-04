@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { makeStyles, Button, Grid, Hidden, Container, IconButton } from '@material-ui/core'
+import {
+  makeStyles,
+  Button,
+  Grid,
+  Hidden,
+  Container,
+  IconButton,
+} from '@material-ui/core'
 import { playfairDisplayFont, openSansFont } from '../../App'
 import LandingPageAboveFold from '../../assets/LandingPageAboveFold.png'
 import LandingPageAboveFold2 from '../../assets/LandingPageAboveFold2.png'
@@ -21,6 +28,8 @@ import { NavLink, Link } from 'react-router-dom'
 import BlueSeparator from './BlueSeparator'
 import ShareModal from '../widgets/ShareModal'
 
+import { useTranslation } from 'react-i18next'
+
 type IntroProps = {
   token: string | null
 }
@@ -33,14 +42,16 @@ export const useIntroStyles = makeStyles(theme => ({
   },
   heroTextGradiant: {
     zIndex: 1,
-    background: 'linear-gradient(90deg, rgba(17,17,17,0.4) -30%, rgba(255,255,255,0) 100%)',
+    background:
+      'linear-gradient(90deg, rgba(17,17,17,0.4) -30%, rgba(255,255,255,0) 100%)',
     position: 'absolute',
     top: 0,
     left: 0,
     width: '100%',
     height: '100%',
     [theme.breakpoints.down('sm')]: {
-      background: 'linear-gradient(90deg, rgba(17,17,17,0.4) -10%, rgba(255,255,255,0) 120%)',      
+      background:
+        'linear-gradient(90deg, rgba(17,17,17,0.4) -10%, rgba(255,255,255,0) 120%)',
     },
   },
   heroImage: {
@@ -52,7 +63,7 @@ export const useIntroStyles = makeStyles(theme => ({
     height: 'auto',
     [theme.breakpoints.up('xl')]: {
       top: -250,
-    }
+    },
   },
   heroText: {
     color: '#F2F2F2',
@@ -60,7 +71,7 @@ export const useIntroStyles = makeStyles(theme => ({
   heroTextDiv: {
     zIndex: 2,
     position: 'relative',
-  
+
     [theme.breakpoints.up('xs')]: {
       padding: '25px 20px 30px 30px',
       maxWidth: '250px',
@@ -118,8 +129,8 @@ export const useIntroStyles = makeStyles(theme => ({
     justifyContent: 'center',
     [theme.breakpoints.down('xs')]: {
       flexDirection: 'column',
-      alignItems: 'center'
-    }
+      alignItems: 'center',
+    },
   },
   logosDivSeparator: {
     width: '5px',
@@ -197,8 +208,8 @@ export const useIntroStyles = makeStyles(theme => ({
     paddingLeft: '0px',
     [theme.breakpoints.up('md')]: {
       paddingLeft: '25px',
-    }    
-  },  
+    },
+  },
   paperPanelStepNumber: {
     color: '#FC9090',
     fontFamily: openSansFont,
@@ -246,7 +257,7 @@ export const useIntroStyles = makeStyles(theme => ({
     },
     position: 'relative',
     top: '-40px',
-    zIndex: 2
+    zIndex: 2,
   },
   logo: {
     height: '50px',
@@ -254,6 +265,8 @@ export const useIntroStyles = makeStyles(theme => ({
   },
 }))
 export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
+  const { t } = useTranslation()
+
   const classes = useIntroStyles()
   const [isShowingShareDialog, setIsShowingShareDialog] = useState(false)
   const [heroImage1Opacity, setHeroImage1Opacity] = useState(1)
@@ -282,9 +295,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
   const heroTextContent = (
     <Container maxWidth="lg">
       <div className={classes.heroTextDiv}>
-        <h1 className={classes.heroText}>
-          Building a partnership between COVID-19 survivors and researchers.
-        </h1>
+        <h1 className={classes.heroText}>{t('home.title')}</h1>
         <div>
           <NavLink to="/eligibility" className={classes.navLink}>
             <Button
@@ -292,7 +303,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               variant="contained"
               className={classes.joinButton}
             >
-              Join Us
+             {t('common.joinUs')}
             </Button>
           </NavLink>
         </div>
@@ -342,19 +353,28 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
           {heroTextContent}
         </div>
         <Container maxWidth="lg" className={classes.shareButtonContainer}>
-            <div className={classes.shareButtonDiv}>
-              <IconButton aria-label="share" className={classes.shareButton} onClick={() => {setIsShowingShareDialog(true)}}>
-                <ShareIcon />
-              </IconButton>
-            </div>
+          <div className={classes.shareButtonDiv}>
+            <IconButton
+              aria-label="share"
+              className={classes.shareButton}
+              onClick={() => {
+                setIsShowingShareDialog(true)
+              }}
+            >
+              <ShareIcon />
+            </IconButton>
+          </div>
         </Container>
-        <ShareModal show={isShowingShareDialog} onClose={() => {setIsShowingShareDialog(false)}}/>
+        <ShareModal
+          show={isShowingShareDialog}
+          onClose={() => {
+            setIsShowingShareDialog(false)
+          }}
+        />
         <div className={classes.content1}>
           <Container maxWidth="md">
             <div className={classes.content1TextDiv}>
-              <h3>
-              If you live in the New York City metro area and have recovered from COVID-19 - or think you have - you can partner with scientists to better understand the recovery process and long term effects from this disease.
-              </h3>
+              <h3>{t('home.text1')}</h3>
             </div>
           </Container>
         </div>
@@ -370,22 +390,14 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
             <Grid item xs={12} md={6}>
               <div className={classes.labImageDiv}>
                 <img src={LandingPageLab} alt="Lab" width="100%" />
-                <p className={classes.photographyNote}>
-                  Photo by Noah Berger
-                </p>
+                <p className={classes.photographyNote}>{t('home.text2')}</p>
               </div>
             </Grid>
             <Grid item xs={12} md={6}>
               <div className={classes.labTextDiv}>
-                <h2 className={classes.labTextTitle}>
-                  There is an urgent need to come together as a survivor community
-                  to rapidly advance our understanding of COVID-19.
-                </h2>
+                <h2 className={classes.labTextTitle}>{t('home.text3')}</h2>
                 <div className={classes.labTextBodyDiv}>
-                  <p>
-                    You recovered. Your experience could help unlock the mysteries behind this disease. 
-                    Our mission is to learn more about COVID-19 by bringing together the collective experiences of thousands of recovered patients.
-                  </p>
+                  <p>{t('home.text4')}</p>
                 </div>
               </div>
             </Grid>
@@ -393,147 +405,138 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
         </Container>
         <div className={classes.paperHeaderDiv}>
           <Container maxWidth="md">
-            <h3 className={classes.paperHeaderText}>
-              By sharing your experience in recovering from COVID-19, you can help
-              answer critical questions.{' '}
-            </h3>
+            <h3 className={classes.paperHeaderText}>{t('home.text5')}</h3>
           </Container>
         </div>
         <Container maxWidth="md" className={classes.paperPanelWrapper}>
-              <div className={classes.paperPanel}>
-                <h2 className={classes.paperPanelTitle}>
-                  <span>Participation is simple.&nbsp;</span>
-                  <Hidden smUp>
-                    <br></br>
-                  </Hidden>
-                  <span className={classes.pink}>Here’s how it works.</span>
-                </h2>
-                <Hidden xsDown>
-                  <BlueSeparator />
-                </Hidden>
+          <div className={classes.paperPanel}>
+            <h2 className={classes.paperPanelTitle}>
+              <span>{t('home.text6')}&nbsp;</span>
+              <Hidden smUp>
+                <br></br>
+              </Hidden>
+              <span className={classes.pink}>{t('home.text7')}</span>
+            </h2>
+            <Hidden xsDown>
+              <BlueSeparator />
+            </Hidden>
 
-                {/* Step one               */}
-                <Hidden smUp>
-                  <div className={classes.paperPanelStepIconMobileDiv}>
-                    <Tablet />
-                  </div>
-                </Hidden>
-                <Grid container justify="center" alignItems="center">
-                  <Grid item xs={12} sm={9} className={classes.paperPanelStepContainer}>
-                    <div className={classes.paperPanelStepNumber}>STEP ONE</div>
-                    <h3 className={classes.paperPanelStepTitle}>
-                      Register and take the survey
-                    </h3>
-                    <div className={classes.paperPanelStepBody}>
-                      <p>
-                        To get started, click{' '}
-                        <Link to="/eligibility" style={{ fontWeight: 'bold' }}>
-                          Join Us
-                        </Link>{' '}
-                        and review information about what will happen in the
-                        study. After registering, you will be invited to take
-                        brief surveys that may help scientists begin to answer
-                        questions like: Why do some people experience very mild
-                        symptoms while others get very sick? How does recovering
-                        from COVID-19 impact your health over time?
-                      </p>
-                    </div>
-                  </Grid>
-                  <Grid item xs={12} sm={3}>
-                    <div className={classes.paperPanelStepIconDiv}>
-                      <Hidden xsDown>
-                        <Tablet />
-                      </Hidden>
-                    </div>
-                  </Grid>
-                </Grid>
-
-                {/* Step two               */}
-                <Hidden smUp>
-                  <div className={classes.paperPanelStepIconMobileDiv}>
-                    <TestTubes />
-                  </div>
-                </Hidden>
-                <Grid container justify="center" alignItems="center">
-                  <Grid item xs={12} sm={9} className={classes.paperPanelStepContainer}>
-                    <div className={classes.paperPanelStepNumber}>STEP TWO</div>
-                    <h3 className={classes.paperPanelStepTitle}>
-                      Share your samples
-                    </h3>
-                    <div className={classes.paperPanelStepBody}>
-                      <p>
-                        We will invite some participants to visit clinical sites
-                        in New York City to donate a sample. In the future, other
-                        participants will be invited to donate a sample from home.
-                        Sharing your samples will help answer important questions
-                        including: Who was really infected with COVID-19? What
-                        levels of antibodies are needed to protect us from
-                        reinfection? Is it possible for people to develop full
-                        immunity to COVID-19?
-                      </p>
-                    </div>
-                  </Grid>
-                  <Grid item xs={12} sm={3}>
-                    <div className={classes.paperPanelStepIconDiv}>
-                      <Hidden xsDown>
-                        <TestTubes />
-                      </Hidden>
-                    </div>
-                  </Grid>
-                </Grid>
-
-                {/* Step three               */}
-                <Hidden smUp>
-                  <div className={classes.paperPanelStepIconMobileDiv}>
-                    <BooksApple />
-                  </div>
-                </Hidden>
-                <Grid container justify="center" alignItems="center">
-                  <Grid item xs={12} sm={9} className={classes.paperPanelStepContainer}>
-                    <div className={classes.paperPanelStepNumber}>STEP THREE</div>
-                    <h3 className={classes.paperPanelStepTitle}>
-                      Learn with us along the way
-                    </h3>
-                    <div className={classes.paperPanelStepBody}>
-                      <p>
-                        If you are asked to provide a sample, we will test the
-                        sample for antibodies related to COVID-19 infection, using
-                        an antibody test approved by the New York State Department
-                        of Health. We will share your test results with you, along
-                        with information about what those results may mean. As we
-                        learn more about the impact of COVID-19 across study
-                        participants, we will share regular updates with the
-                        broader scientific and patient community. We may also ask
-                        if you are interested in joining other related studies.
-                        For instance, some participants may choose to be notified
-                        of opportunities to donate plasma and help those still
-                        fighting for survival from COVID-19.
-                      </p>
-                    </div>
-                  </Grid>
-                  <Grid item xs={12} sm={3}>
-                    <div className={classes.paperPanelStepIconDiv}>
-                      <Hidden xsDown>
-                        <BooksApple />
-                      </Hidden>
-                    </div>
-                  </Grid>
-                </Grid>
+            {/* Step one               */}
+            <Hidden smUp>
+              <div className={classes.paperPanelStepIconMobileDiv}>
+                <Tablet />
               </div>
+            </Hidden>
+            <Grid container justify="center" alignItems="center">
+              <Grid
+                item
+                xs={12}
+                sm={9}
+                className={classes.paperPanelStepContainer}
+              >
+                <div className={classes.paperPanelStepNumber}>
+                  {t('home.text8')}
+                </div>
+                <h3 className={classes.paperPanelStepTitle}>
+                  {t('home.text9')}
+                </h3>
+                <div className={classes.paperPanelStepBody}>
+                  <p>
+                    {t('home.text10')}&nbsp;
+                    <Link to="/eligibility" style={{ fontWeight: 'bold' }}>
+                      {t('common.joinUs')}
+                    </Link>{' '}
+                    {t('home.text11')}
+                  </p>
+                </div>
+              </Grid>
+              <Grid item xs={12} sm={3}>
+                <div className={classes.paperPanelStepIconDiv}>
+                  <Hidden xsDown>
+                    <Tablet />
+                  </Hidden>
+                </div>
+              </Grid>
+            </Grid>
+
+            {/* Step two               */}
+            <Hidden smUp>
+              <div className={classes.paperPanelStepIconMobileDiv}>
+                <TestTubes />
+              </div>
+            </Hidden>
+            <Grid container justify="center" alignItems="center">
+              <Grid
+                item
+                xs={12}
+                sm={9}
+                className={classes.paperPanelStepContainer}
+              >
+                <div className={classes.paperPanelStepNumber}>
+                  {' '}
+                  {t('home.text12')}
+                </div>
+                <h3 className={classes.paperPanelStepTitle}>
+                  {t('home.text13')}
+                </h3>
+                <div className={classes.paperPanelStepBody}>
+                  <p>{t('home.text14')}</p>
+                </div>
+              </Grid>
+              <Grid item xs={12} sm={3}>
+                <div className={classes.paperPanelStepIconDiv}>
+                  <Hidden xsDown>
+                    <TestTubes />
+                  </Hidden>
+                </div>
+              </Grid>
+            </Grid>
+
+            {/* Step three               */}
+            <Hidden smUp>
+              <div className={classes.paperPanelStepIconMobileDiv}>
+                <BooksApple />
+              </div>
+            </Hidden>
+            <Grid container justify="center" alignItems="center">
+              <Grid
+                item
+                xs={12}
+                sm={9}
+                className={classes.paperPanelStepContainer}
+              >
+                <div className={classes.paperPanelStepNumber}>
+                  {' '}
+                  {t('home.text15')}
+                </div>
+                <h3 className={classes.paperPanelStepTitle}>
+                  {t('home.text16')}
+                </h3>
+                <div className={classes.paperPanelStepBody}>
+                  <p>{t('home.text17')}</p>
+                </div>
+              </Grid>
+              <Grid item xs={12} sm={3}>
+                <div className={classes.paperPanelStepIconDiv}>
+                  <Hidden xsDown>
+                    <BooksApple />
+                  </Hidden>
+                </div>
+              </Grid>
+            </Grid>
+          </div>
         </Container>
       </div>
       <div className={classes.fightTogetherDiv}>
-        <h2 className={classes.fightTogetherDivText}>
-          Together, we can fight COVID-19.
-        </h2>
+        <h2 className={classes.fightTogetherDivText}>{t('home.text18')}</h2>
         <Grid container justify="center" alignItems="center">
           <NavLink to="/eligibility" className={classes.navLink}>
             <Button
               color="primary"
               variant="contained"
               className={classes.joinButton}
-            >
-              Join Us
+            >{t('common.joinUs')}
+       
             </Button>
           </NavLink>
         </Grid>
