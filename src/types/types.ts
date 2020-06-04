@@ -115,3 +115,16 @@ export type SavedSurvey = {
 export type SavedSurveysObject = {
   surveys: SavedSurvey[]
 }
+export type ColumbiaAppointment = {
+  start: string, // date/time when appointment will start
+  status: string
+}
+
+export type ReportData = {
+  localDate: string,
+  date: string,
+  data: ColumbiaAppointment
+}
+export type ReportDataList = {
+  items: ReportData[]
+}
