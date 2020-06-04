@@ -172,11 +172,13 @@ div.intro {
   background-color: #fc9090;
   color: #000000;
   padding: 20px 30px;
+  border-bottom: 1px rgb(46, 46, 46) solid;
 }
 #root .MuiAlert-filledInfo {
   border-radius: 0;
   background-color: #0084ff;
   padding: 20px 30px;
+  border-bottom: 1px rgb(46, 46, 46) solid;
 }
 
 // if a button is in a link, do not decorate the text on hover

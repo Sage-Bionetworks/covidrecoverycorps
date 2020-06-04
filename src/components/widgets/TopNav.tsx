@@ -21,7 +21,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Alert from '@material-ui/lab/Alert'
 import { openSansFont } from '../../App'
-import { getSearchParams } from '../../helpers/utility'
+import { getSearchParams, useSessionStorage } from '../../helpers/utility'
 import GlobalAlertCopy from './GlobalAlertCopy'
 import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
 import i18n from '../../i18n'
@@ -134,8 +134,27 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
   const [mobileOpen, setMobileOpen] = React.useState(false)
   const [language, setLanguage] = React.useState(i18n.language)
   const classes = useStyles()
-  const searchParamsProps = getSearchParams(window.location.search)
-  const alertCode: string = searchParamsProps['alert']
+  const [alertCode, setAlertCode] = useSessionStorage('alert', undefined)
+  
+  const clearAlertCode = () => {
+    setAlertCode(undefined)
+  }
+  const isGlobalNotificationAlertHidden = (location: string): boolean => {
+    const specialPages = ['settings', 'appointment']
+    return (
+      specialPages.find(page => location.toLowerCase().includes(page)) !==
+      undefined
+    )
+  }
+  const isGlobalNotificationAlertHiddenFlag = isGlobalNotificationAlertHidden(window.location.pathname)
+  if (!isGlobalNotificationAlertHiddenFlag) {
+    const searchParamsProps = getSearchParams(window.location.search)
+    const searchParamAlertCode: string = searchParamsProps['alert']
+    if (searchParamAlertCode && searchParamAlertCode !== alertCode) {
+      setAlertCode(searchParamAlertCode)
+    }
+  }
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
   }
@@ -243,7 +262,10 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           >
             <ListItem button className={classes.mobileMenuItem}>
               <Logout
-                onLogout={() => props.logoutCallbackFn(undefined, '', false)}
+                onLogout={() => {
+                  clearAlertCode()
+                  props.logoutCallbackFn(undefined, '', false)
+                }}
               ></Logout>
             </ListItem>
           </NavLink>
@@ -344,7 +366,10 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           activeClassName={classes.fullNavBarLinkActive}
         >
           <Logout
-            onLogout={() => props.logoutCallbackFn(undefined, '', false)}
+            onLogout={() => {
+              clearAlertCode()
+              props.logoutCallbackFn(undefined, '', false)
+            }}
           ></Logout>
         </NavLink>
       )}
@@ -420,7 +445,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
       </nav>
 
       {/* global alert area */}
-      {alertCode && (
+      {alertCode && !isGlobalNotificationAlertHiddenFlag && (
         <Alert
           severity="error"
           variant="filled"

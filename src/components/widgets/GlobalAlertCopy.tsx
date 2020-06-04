@@ -34,6 +34,26 @@ const codes: { [key: string]: JSX.Element } = {
       </Button>
     </div>
   ),
+  APPOINTMENT_BOOKED: (
+    <div>
+      <div>
+        Your lab appointment to get your blood drawn has been confirmed.
+      </div>
+      <br></br>
+      <Button
+        // override standard secondary button color for the global alert
+        style={{ backgroundColor: '#2E2E2E', color: '#F2F2F2' }}
+        color="secondary"
+        variant="contained"
+        size="large"
+        type="submit"
+        fullWidth
+        href="/appointment"
+      >
+        View details
+      </Button>
+    </div>
+  ),
 }
 
 export const GlobalAlertCopy: React.FunctionComponent<GlobalAlertCopyProps> = ({
