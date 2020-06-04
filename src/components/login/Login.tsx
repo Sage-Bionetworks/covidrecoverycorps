@@ -25,6 +25,7 @@ import {
   CardContent,
   CircularProgress,
 } from '@material-ui/core'
+import { UserService } from '../../services/user.service'
 
 export interface OwnLoginProps {
   redirectUrl?: string // will redirect here after a successful login. if unset, reload the current page url.
@@ -57,7 +58,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
 
   //detect if they are bck on the page
 
-  const handleLoggedIn = (loggedIn: Response<LoggedInUserData>) => {
+  const handleLoggedIn = async (loggedIn: Response<LoggedInUserData>) => {
     const consented = loggedIn.status !== 412
     if (loggedIn.ok || !consented) {
       callbackFn(
@@ -65,8 +66,18 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         loggedIn.data.firstName,
         loggedIn.data.consented,
       )
-
-      if (consented) {
+      // if user is already booked for an appointment, then go home and show the global alert
+      let isAppointmentBooked: boolean = false
+      const appointmentsResponse = await UserService.getAppointments(loggedIn.data.sessionToken)
+      if (appointmentsResponse?.data?.items?.length > 0) {
+        const appt = appointmentsResponse.data.items[0]
+        if (appt.data.status === 'booked') {
+          isAppointmentBooked = true
+        }
+      }
+      if (isAppointmentBooked) {
+        history.push('/home?alert=APPOINTMENT_BOOKED')
+      } else if (consented) {
         history.push('/dashboard')
       } else {
         history.push('/consent')

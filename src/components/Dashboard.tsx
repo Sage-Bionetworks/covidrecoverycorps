@@ -16,7 +16,6 @@ import { SavedSurveysObject, SurveyType, SavedSurvey, ReportData } from '../type
 import _ from 'lodash'
 import { UserService } from '../services/user.service'
 import Alert from '@material-ui/lab/Alert/Alert'
-import moment from 'moment'
 
 type DashboardProps = {
   token: string
@@ -33,17 +32,6 @@ const useStyles = makeStyles({
   root: {
     backgroundColor: '#f5f5f5',
   },
-  appointmentContainerDiv: {
-    margin: '0px 30px 70px 30px'
-  },
-  appointmentDateHeader: {
-    color: '#FC9090',
-    fontWeight: 'bold',
-    marginTop: '30px'
-  },
-  appointmentInstructions: {
-    marginTop: '30px'
-  }
 })
 
 const surveys: UISurvey[] = [
@@ -92,7 +80,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
   const [isLoading, setIsLoading] = useState(false)
   const [isContactInfoDone, setIsContactInfoDone] = useState(false)
-  const [appointment, setAppointment] = useState<ReportData>()
 
   const classes = useStyles()
 
@@ -106,12 +93,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
           setIsContactInfoDone(!!userInfo.data.attributes?.gender)
           const response = await SurveyService.getUserSurveys(token)
           setSavedSurveys(_.first(response.data.items)?.data)
-          const appointmentsResponse = await UserService.getAppointments(token)
-          if (appointmentsResponse?.data?.items?.length > 0) {
-            const appt = appointmentsResponse.data.items[0]
-            if (appt.data.status === 'booked')
-              setAppointment(appt)
-          }
         } catch (e) {
           setError(e)
         } finally {
@@ -126,43 +107,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       isSubscribed = false
     }
   }, [token])
-
-  const renderAppointment = (appointment: ReportData) => {
-    const appointmentDateTime = moment(appointment.data.start)
-    const friendlyAppointmentTimeStart = appointmentDateTime.format('h:mm a')
-    const appointmentDateTimeEnd = moment(appointment.data.start).add(30, 'minutes')
-    const friendlyAppointmentTimeEnd = appointmentDateTimeEnd.format('h:mm a')
-
-    return (
-      <Card className={classes.root}>
-        <div className={classes.appointmentContainerDiv}>
-          <h2 className="text-center">Appointment confirmation</h2>
-          <p>Your lab appointment to get your blood drawn has been confirmed for:</p>
-          <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-          >
-            <Grid item>
-              <div className={classes.appointmentDateHeader}>DATE</div>
-              <div>{appointmentDateTime.format('dddd')}</div>
-              <div><strong>{appointmentDateTime.format('MMMM Do, YYYY')}</strong></div>
-              <div><strong>{friendlyAppointmentTimeStart} - {friendlyAppointmentTimeEnd}</strong></div>
-            </Grid>
-          </Grid>
-
-          <div className={classes.appointmentInstructions}>
-            <p>You will stop at the main information desk in the lobby and will be directed to the proper location.</p>
-            <p>If you have a fever, cough, sore throat, shortness of breath, diarrhea, or body aches, you should not come to have your blood drawn.</p>
-            <p>
-              If you need to reschedule your appointment or need assistance, call 212-305-5700 or email <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">COVIDRecoveryCorps@cumc.columbia.edu</a>
-            </p>
-          </div>
-        </div>
-      </Card>
-    )
-  }
 
   const renderSurveyItems = (savedSurveys: SavedSurvey[], isTier1: boolean) => {
     const getSavedSurvey = (survey: UISurvey): SavedSurvey | undefined => {
@@ -303,44 +247,38 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   }
   return (
     <div className="Dashboard">
-      {!appointment && (
-        <>
-          <div className="dashboard-intro">
-            <p>
-              The information you provide will help researchers learn more about
-              COVID-19.
-          </p>
-            <p>
-              {' '}
-            To be invited for a lab test, you will need to complete your Profile
-            and Surveys 1-2. Surveys 3 and 4 are optional but still provide
-            important information. Please consider completing them if you have the
-            time.{' '}
-            </p>
-          </div>
+      <div className="dashboard-intro">
+        <p>
+          The information you provide will help researchers learn more about
+          COVID-19.
+      </p>
+        <p>
+          {' '}
+        To be invited for a lab test, you will need to complete your Profile
+        and Surveys 1-2. Surveys 3 and 4 are optional but still provide
+        important information. Please consider completing them if you have the
+        time.{' '}
+        </p>
+      </div>
 
-          <Card className={classes.root}>
-            {error && <Alert severity="error">{error}</Alert>}
-            {isLoading && (
-              <div className="text-center">
-                <CircularProgress color="primary" />
-              </div>
-            )}
-            {getIntro(savedSurveys?.surveys || [])}
-            <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
-            <div className="separator">
-              <img src={testTubeImg}></img>
-              <div className="small">
-                {' '}
-              Minimum surveys required for lab invites{' '}
-              </div>
-            </div>
-            <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
-          </Card>
-        </>)}
-      {appointment && (
-        <div>{renderAppointment(appointment)}</div>
-      )}
+      <Card className={classes.root}>
+        {error && <Alert severity="error">{error}</Alert>}
+        {isLoading && (
+          <div className="text-center">
+            <CircularProgress color="primary" />
+          </div>
+        )}
+        {getIntro(savedSurveys?.surveys || [])}
+        <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
+        <div className="separator">
+          <img src={testTubeImg}></img>
+          <div className="small">
+            {' '}
+          Minimum surveys required for lab invites{' '}
+          </div>
+        </div>
+        <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
+      </Card>
     </div>
   )
 }

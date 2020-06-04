@@ -42,6 +42,7 @@ import CookieNotificationBanner from './components/widgets/CookieNotificationBan
 import ScrollToTopOnRouteChange from './components/widgets/ScrollToTopOnRouteChange'
 import Footer from './components/widgets/Footer'
 import PrivacyPolicy from './components/static/PrivacyPolicy'
+import Appointment from './components/static/Appointment'
 
 export const openSansFont = [
   'Open Sans',
@@ -284,7 +285,7 @@ function App() {
   const classes = useStyles()
 
   const getTopClass = (location: string) => {
-    const specialPages = ['dashboard', 'survey', 'contactinfo']
+    const specialPages = ['dashboard', 'survey', 'contactinfo', 'appointment']
     if (specialPages.find(page => location.toLowerCase().includes(page))) {
       return 'partialGreen'
     } else {
@@ -422,6 +423,9 @@ function App() {
                         formClass="crc"
                       ></SurveyWrapper>,
                     )}
+                  </ConsentedRoute>
+                  <ConsentedRoute exact={true} path="/appointment">
+                    {renderWithGridLayout(<Appointment token={token || ''} />)}
                   </ConsentedRoute>
 
                   <Route path="/faqs">

@@ -12,6 +12,7 @@ import {
 } from '../types/types'
 
 import moment from 'moment'
+import { useState } from 'react'
 
 export const callEndpoint = async <T>(
   endpoint: string,
@@ -139,4 +140,38 @@ export const getSearchParams = (search: string): { [key: string]: string } => {
     searchParamsProps[key] = value
   })
   return searchParamsProps
+}
+
+// function to use session storage (react hooks)
+export const useSessionStorage = (key:string, initialValue:string|undefined): [string|undefined, (value: string|undefined) => void] => {
+  // Pass initial state function to useState so logic is only executed once
+  const [storedValue, setStoredValue] = useState(() => {
+    try {
+      const item = window.sessionStorage.getItem(key)
+      // Parse stored json or if none return initialValue
+      const value = item ? item : initialValue
+      if (value) {
+        window.sessionStorage.setItem(key, value)
+      }      
+      return value
+    } catch (error) {
+      // If error also return initialValue
+      console.log(error)
+      return initialValue
+    }
+  })
+  // persist value to session storage
+  const setValue = (value:string|undefined) => {
+    try {
+      setStoredValue(value)
+      if (value) {
+        window.sessionStorage.setItem(key, value)
+      } else {
+        window.sessionStorage.removeItem(key)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  return [storedValue, setValue]
 }
