@@ -1,15 +1,15 @@
 {
   "definitions": {
     "symptomDuration": {
-      "title": "When did you notice this symptom? (Check all that apply)",
+      "title": "When did you have this symptom? (Check all that apply)",
       "type": "array",
       "uniqueItems": true,
       "items": {
         "type": "string",
         "enumNames": [
-          "First 2 weeks",
-          "2-4 weeks",
-          "More than 4 weeks",
+          "Was one of my first symptoms",
+          "Occurred when I was at my worst",
+          "Occurred even after I started to feel much better",
           "I still have this symptom"
         ],
         "enum": ["first_2_weeks", "2_4_weeks", ">4_weeks", "still_symptom"]
