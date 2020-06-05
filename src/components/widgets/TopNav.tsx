@@ -25,6 +25,7 @@ import { getSearchParams, useSessionStorage } from '../../helpers/utility'
 import GlobalAlertCopy from './GlobalAlertCopy'
 import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
 import i18n from '../../i18n'
+import { useTranslation } from 'react-i18next'
 
 type TopNavProps = {
   token: string | undefined
@@ -135,6 +136,8 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
   const [language, setLanguage] = React.useState(i18n.language)
   const classes = useStyles()
   const [alertCode, setAlertCode] = useSessionStorage('alert', undefined)
+
+  const { t } = useTranslation()
   
   const clearAlertCode = () => {
     setAlertCode(undefined)
@@ -184,7 +187,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.navBarLink}
         >
           <ListItem button className={classes.mobileMenuItem}>
-            About
+          {t('topnav.text1')}
           </ListItem>
         </NavLink>
         <NavLink
@@ -193,7 +196,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.navBarLink}
         >
           <ListItem button className={classes.mobileMenuItem}>
-            Meet the Researchers
+          {t('topnav.text2')}
           </ListItem>
         </NavLink>
         <NavLink
@@ -202,7 +205,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.navBarLink}
         >
           <ListItem button className={classes.mobileMenuItem}>
-            FAQs
+          {t('topnav.text3')}
           </ListItem>
         </NavLink>
         <NavLink
@@ -211,7 +214,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.navBarLink}
         >
           <ListItem button className={classes.mobileMenuItem}>
-            Contact Us
+          {t('topnav.text4')}
           </ListItem>
         </NavLink>
         <NavLink
@@ -220,7 +223,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.navBarLink}
         >
           <ListItem button className={classes.mobileMenuItem}>
-            Privacy Policy
+          {t('topnav.text5')}
           </ListItem>
         </NavLink>
         <ListItem button className={classes.mobileMenuItem} 
@@ -239,7 +242,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             className={classes.navBarLink}
           >
             <ListItem button className={classes.mobileMenuItem}>
-              Survey Dashboard
+            {t('topnav.text6')}
             </ListItem>
           </NavLink>
         )}
@@ -250,7 +253,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             className={classes.navBarLink}
           >
             <ListItem button className={classes.mobileMenuItem}>
-              Account Settings
+            {t('topnav.text7')}
             </ListItem>
           </NavLink>
         )}
@@ -277,7 +280,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             className={classes.navBarLink}
           >
             <ListItem button className={classes.mobileMenuItem}>
-              Join Us
+            {t('common.joinUs')}
             </ListItem>
           </NavLink>
         )}
@@ -288,7 +291,8 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             className={classes.navBarLink}
           >
             <ListItem button className={classes.mobileMenuItem}>
-              Log in
+             
+              {t('topnav.text8')}
             </ListItem>
           </NavLink>
         )}
@@ -303,35 +307,35 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
         className={classes.fullNavBarLink}
         activeClassName={classes.fullNavBarLinkActive}
       >
-        About
+         {t('topnav.text1')}
       </NavLink>
       <NavLink
         to="/team"
         className={classes.fullNavBarLink}
         activeClassName={classes.fullNavBarLinkActive}
       >
-        Meet the Researchers
+        {t('topnav.text2')}
       </NavLink>
       <NavLink
         to="/faqs"
         className={classes.fullNavBarLink}
         activeClassName={classes.fullNavBarLinkActive}
       >
-        FAQs
+        {t('topnav.text3')}
       </NavLink>
       <NavLink
         to="/contact"
         className={classes.fullNavBarLink}
         activeClassName={classes.fullNavBarLinkActive}
       >
-        Contact Us
+        {t('topnav.text4')}
       </NavLink>
       <NavLink
         to="/privacypolicy"
         className={classes.fullNavBarLink}
         activeClassName={classes.fullNavBarLinkActive}
       >
-        Privacy Policy
+        {t('topnav.text5')}
       </NavLink>
       {props.token && (
         <NavLink
@@ -339,7 +343,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.fullNavBarLink}
           activeClassName={classes.fullNavBarLinkActive}
         >
-          Survey Dashboard
+          {t('topnav.text6')}
         </NavLink>
       )}
       {props.token && (
@@ -348,7 +352,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.fullNavBarLink}
           activeClassName={classes.fullNavBarLinkActive}
         >
-          Account Settings
+           {t('topnav.text7')}
         </NavLink>
       )}
       <a
@@ -379,7 +383,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.fullNavBarLink}
         >
           <Button variant="outlined" className={classes.fullNavBarButton}>
-            Log in
+          {t('topnav.text8')}
           </Button>
         </NavLink>
       )}
@@ -390,7 +394,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             variant="outlined"
             className={classes.fullNavBarButton}
           >
-            Join Us
+            {t('common.joinUs')}
           </Button>
         </NavLink>
       )}
