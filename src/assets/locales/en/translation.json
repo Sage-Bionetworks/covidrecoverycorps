@@ -77,5 +77,17 @@
     "text19": "The COVID Recovery Corps is an observational study and not a clinical trial. We will not be asking you to change what you do or take a specific medication. This study will not affect your medical insurance or healthcare.",
     "text20": "I have a question that isn't answered in this FAQ. Who do I contact?",
     "text21": "If you have any questions or need assistance, you can call 212-305-5700 or email <1>COVIDRecoveryCorps\u0040cumc.columbia.edu</1>."
+  },
+  "contact": {
+    "title":"Contact Us",
+    "text1":"For information about participating and questions related to the study, visit the <1>FAQ</1> section of the site. If you have additional questions, please send us a message.",
+    "text2":"<0> COVID-19 Recovery Corps is a research study. This study does not provide medical advice, diagnosis, or treatment of any kind. If you have questions about your health, talk to your healthcare team. Do not use the information provided on the study website or email correspondence in place of advice from your healthcare team. </0> <1> Sage Bionetworks, Columbia University, and the Chan Zuckerberg Initiative are not liable or responsible for any advice, course of treatment, diagnosis or any other information, services, or products you obtain through the study. </1> <2> If you have any questions at any time before, during, or after the study, contact: </2>",
+    "text3":"Dr. Wendy Chung, MD, PhD, Principal Investigator of the study. If you have any questions or need assistance, you can call <1>212-305-5700</1> or email <3></3> <4> COVIDRecoveryCorps@cumc.columbia.edu </4> .",
+    "text4":"Privacy",
+    "text5":"For questions, comments, or requests regarding the <1>privacy policy</1> or our processing of your information, please contact: <3></3> <4> privacypolicy@sagebionetworks.org </4> .",
+    "text6":"Independent Review",
+    "text7":"The Western Institutional Review Board (WIRB) oversees the COVID Recovery Corps study. Contact WIRB if you have questions or concerns about your rights as a participant in this study.",
+    "text8":"<0>Western Institutional Review Board® (WIRB®)</0> <1></1> 1019 39th Avenue SE<3></3> Suite 120<5></5> Puyallup, WA 98374-2115<7></7> <8>800-562-4789</8> or <10>360-252-2500</10> <11></11><12></12> <13>Help@wirb.com</13>"
+
   }
 }

@@ -4,6 +4,7 @@ import { useIntroStyles } from './Intro'
 import BlueSeparator from './BlueSeparator'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Graphic } from '../../assets/contact_us_graphic.svg'
+import { useTranslation, Trans } from 'react-i18next'
 
 type ContactProps = {
   reason?: string
@@ -22,6 +23,7 @@ export const useStyles = makeStyles(theme => ({
 export const Contact: React.FunctionComponent<ContactProps> = ({}: ContactProps) => {
   const introClasses = useIntroStyles()
   const classes = useStyles()
+  const { t } = useTranslation()
   return (
     <div>
       <div
@@ -30,7 +32,7 @@ export const Contact: React.FunctionComponent<ContactProps> = ({}: ContactProps)
       <Container maxWidth="md" className={introClasses.paperPanelWrapper}>
         <div className={introClasses.paperPanel}>
           <div className={introClasses.paperPanelTitle}>
-            <h1>Contact Us</h1>
+            <h1>{t('contact.title')}</h1>
           </div>
           <Hidden xsDown>
             <BlueSeparator />
@@ -41,70 +43,59 @@ export const Contact: React.FunctionComponent<ContactProps> = ({}: ContactProps)
             justify="center"
             alignItems="flex-start"
           >
-            <Grid item xs={12} md={8} className={introClasses.paperPanelStepContainer}>
+            <Grid
+              item
+              xs={12}
+              md={8}
+              className={introClasses.paperPanelStepContainer}
+            >
               <div className="Contact__content1">
                 <p>
-                  For information about participating and questions related to
-                  the study, visit the <Link to="/faqs">FAQ</Link> section of
-                  the site. If you have additional questions, please send us a
-                  message.
+                  <Trans i18nKey="contact.text1">
+                    [translate]<Link to="/faqs">[translate]</Link>[translate]
+                  </Trans>
                 </p>
+                <Trans i18nKey="contact.text2">
+                  <p>[translate]</p>
+                  <p>[translate]</p>
+                  <h3>[translate]</h3>
+                </Trans>
                 <p>
-                  COVID-19 Recovery Corps is a research study. This study does
-                  not provide medical advice, diagnosis, or treatment of any
-                  kind. If you have questions about your health, talk to your
-                  healthcare team. Do not use the information provided on the
-                  study website or email correspondence in place of advice
-                  from your healthcare team.
-                </p>
-                <p>
-                  Sage Bionetworks, Columbia University, and the Chan
-                  Zuckerberg Initiative are not liable or responsible for any
-                  advice, course of treatment, diagnosis or any other
-                  information, services, or products you obtain through the
-                  study.
-                </p>
-                <h3>
-                  If you have any questions at any time before, during, or
-                  after the study, contact:
-                </h3>
-                <p>
-                  Dr. Wendy Chung, MD, PhD, Principal Investigator of the
-                  study. If you have any questions or need assistance, you can
-                  call <b>212-305-5700</b> or email
-                  <br></br>
-                  <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
-                    COVIDRecoveryCorps@cumc.columbia.edu
-                  </a>
-                  .
-                </p>
-                <h3>Privacy</h3>
-                <p>
-                  For questions, comments, or requests regarding 
-                  the <Link to='privacypolicy'>privacy policy</Link> or 
-                  our processing of your information, please contact:
-                  <br></br>
-                  <a href="mailto:privacypolicy@sagebionetworks.org">
-                    privacypolicy@sagebionetworks.org
-                  </a>
-                  .
-                </p>
-                <h3>Independent Review</h3>
-                <p>
-                  The Western Institutional Review Board (WIRB) oversees the
-                  COVID Recovery Corps study. Contact WIRB if you have
-                  questions or concerns about your rights as a participant in
-                  this study.{' '}
+                  <Trans i18nKey="contact.text3">
+                    [translate]<b>[translate]</b>[translate]
+                    <br></br>
+                    <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
+                      [translate]
+                    </a>
+                    .
+                  </Trans>
                 </p>
 
+                <h3>{t('contact.text4')}</h3>
                 <p>
-                  <b>Western Institutional Review Board® (WIRB®)</b>
-                  <br></br>
-                  1019 39th Avenue SE<br></br>
-                  Suite 120<br></br>
-                  Puyallup, WA 98374-2115<br></br>
-                  <b>800-562-4789</b> or <b>360-252-2500</b> <br></br>
-                  <a href="mailto:Help@wirb.com">Help@wirb.com</a>
+                  <Trans i18nKey="contact.text5">
+                    [translate]
+                    <Link to="privacypolicy">[translate]</Link>&nbsp;[translate]
+                    <br></br>
+                    <a href="mailto:privacypolicy@sagebionetworks.org">
+                      [translate]
+                    </a>
+                    .
+                  </Trans>
+                </p>
+                <h3>{t('contact.text6')}</h3>
+                <p>{t('contact.text7')}</p>
+
+                <p>
+                  <Trans i18nKey="contact.text8">
+                    <b>[translate]</b>
+                    <br></br>
+                    [translate]<br></br>
+                    [translate]<br></br>
+                    [translate]<br></br>
+                    <b>[translate]</b> or <b>[translate]</b> <br></br>
+                    <a href="mailto:Help@wirb.com">  [translate]</a>
+                  </Trans>
                 </p>
               </div>
             </Grid>
@@ -117,7 +108,7 @@ export const Contact: React.FunctionComponent<ContactProps> = ({}: ContactProps)
             </Grid>
           </Grid>
         </div>
-      </Container>      
+      </Container>
     </div>
   )
 }
