@@ -954,6 +954,41 @@
               "Other",
 
               "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Brookdale Hospital",
+              "Calvary Hospital",
+              "Columbia/NewYork-Presbyterian",
+              "Elmhurst Hospital",
+              "Flushing Hospital",
+              "Gracie Square Hospital",
+              "Harlem Hospital",
+              "Hudson Valley Hospital",
+              "Jacobi Hospital",
+              "Kings County Hospital",
+              "Lawrence Hospital",
+              "Lenox Hill Hospital",
+              "Lower Manhattan Hospital",
+              "Maimonides",
+              "Metropolitan Hospital",
+              "Montefiore",
+              "Mount Sinai Beth Israel",
+              "Mount Sinai Hospital",
+              "Mount Sinai St. Luke’s Hospital",
+              "Mount Sinai West",
+              "New York Downtown Hospital",
+              "NewYork-Presbyterian Allen Hospital",
+              "NewYork-Presbyterian Brooklyn Methodist Hospital",
+              "NewYork-Presbyterian Medical Center-Queens",
+              "New York City Health and Hospital",
+              "North General Hospital",
+              "NYU Langone/Bellevue Hospital",
+              "St. Barnabas",
+              "Weill Cornell/ NewYork-Presbyterian",
+              "Woodhull Hospital",
+              "Other",
+
+              "Prefer not to answer"
             ]
           }
         },
@@ -1167,6 +1202,13 @@
             "I smoke only rarely",
             "I smoke every day",
             "Prefer not to answer"
+          ],
+          "enumNames": [
+            "I have never smoked regularly",
+            "I used to smoke, but I quit",
+            "I smoke only rarely",
+            "I smoke every day",
+            "Prefer not to answer"
           ]
         },
         "vaping": {
@@ -1179,6 +1221,13 @@
             "I vape only rarely",
             "I vape every day",
             "Prefer not to answer"
+          ],
+          "enumNames": [
+            "I have never vaped regularly",
+            "I used to vape, but I quit",
+            "I vape only rarely",
+            "I vape every day",
+            "Prefer not to answer"
           ]
         },
         "alcohol": {
@@ -1186,6 +1235,14 @@
           "title": "12. How often do you consume alcoholic beverages?",
           "uniqueItems": true,
           "enum": [
+            "Never",
+            "Once a month or less often",
+            "2-4 times a month",
+            "2-3 times a week",
+            "4 times a week or more often",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
             "Never",
             "Once a month or less often",
             "2-4 times a month",
@@ -1240,6 +1297,13 @@
             "3-4 days",
             "5-7 days",
             "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Not at all",
+            "1-2 days",
+            "3-4 days",
+            "5-7 days",
+            "Prefer not to answer"
           ]
         },
         "worry": {
@@ -1252,6 +1316,13 @@
             "3-4 days",
             "5-7 days",
             "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Not at all",
+            "1-2 days",
+            "3-4 days",
+            "5-7 days",
+            "Prefer not to answer"
           ]
         },
         "loneliness": {
@@ -1259,6 +1330,13 @@
           "title": "15. Many people may also feel loneliness during this time. How often have you felt lonely during the past week?",
           "uniqueItems": true,
           "enum": [
+            "Not at all",
+            "1-2 days",
+            "3-4 days",
+            "5-7 days",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
             "Not at all",
             "1-2 days",
             "3-4 days",
@@ -1281,6 +1359,34 @@
           "items": {
             "type": "string",
             "enum": [
+              "Nonsteroidal anti-inflammatory agents or NSAIDS (aspirin, celecoxib, diclofenac, Cambia, Cataflam, Voltaren, diflunisal, etodolac, ibuprofen, Motrin, Advil, indomethacin, Indocin, ketoprofen, ketorolac, nambumetone, naproxen, Aleve, Anaprox, Naprelan, Naprosyn, oxaprozin, Daypro,  piroxicam, Feldene, salsalate, Disalate, sulidnac, tolmetin)",
+              "Tylenol, Acetaminophen, Daquil, Nyquil, Excedrin, Sinutab",
+              "Aspirin",
+              "Asthma Medication (bronchodilator Ventolin, albuterol)",
+              "Inhaled corticosteroids (Advair, beclomethasone, budesonide, ciclesonide, flunisolide, fluticasone, or mometasone)",
+              "Oral or injected steroids (prednisone, methylprednisolone, dexamethasone, hydrocortisone)",
+              "Antihistamines (Benadryl, Clarithin, Zyrtec)",
+              "High blood pressure medication- ACE inhibitors (Benazepril, Captopril, Fosinopril, Lisinpril)",
+              "High blood pressure medication-angiotensin receptor blockers (Edarbi, Atacand, Eprosartan, Avapro)",
+              "High blood pressure medication- beta blockers (metoprolol, atenolol, tramadol)",
+              "Cholesterol lowering statins (such as atorvastatin or simvastatin)",
+              "Diabetic medication metformin",
+              "Blood thinning medications (Eliquis, Xarelto, Coumadin, Warfarin)",
+              "Antiplatelet medications to prevent a heart attack or stroke (clopidogrel, Plavix, prasugrel, ticagrelor, cilostazol)",
+              "Thyroid medication (levothryroxyne)",
+              "Heart burn medication (Pepcid, omeprazole)",
+              "Cancer drugs or chemotherapy",
+              "Pill to dampen the immune system (azathioprine)",
+              "Injectable medication to dampen the immune system (Enbrel, humira, actemra, anakinra, Xolair, dupixent)",
+              "IV medications for immune conditions (infliximab/Remicade, rituximab, abatacept/Orencia, and belimumab/Benlysta",
+              "Medications after organ transplant (tacrolimus, cyclosporin, Mycophenolate)",
+              "Anti-depressant (sertraline, fluoxetine, citalopram, trazodone, escitalopram)",
+              "Antibiotics",
+              "HIV medication (lopinavir/ritonavir, darunavir/ritonavir, tenofovir disoproxil fumarate (TDF), tenofovir alafenamide fumarate (TAF), and combination medications containing these agents)",
+              "None of the above",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
               "Nonsteroidal anti-inflammatory agents or NSAIDS (aspirin, celecoxib, diclofenac, Cambia, Cataflam, Voltaren, diflunisal, etodolac, ibuprofen, Motrin, Advil, indomethacin, Indocin, ketoprofen, ketorolac, nambumetone, naproxen, Aleve, Anaprox, Naprelan, Naprosyn, oxaprozin, Daypro,  piroxicam, Feldene, salsalate, Disalate, sulidnac, tolmetin)",
               "Tylenol, Acetaminophen, Daquil, Nyquil, Excedrin, Sinutab",
               "Aspirin",
@@ -1343,6 +1449,27 @@
               "Don’t know",
               "None of the above",
               "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Tylenol (acetaminophen)",
+              "NSAIDs (ibuprofen, aspirin, naproxen, celecoxib, diclofenac, indomethacin, piroxicam)",
+              "Hydroxychloroquine (Plaquenil) or Chloroquine",
+              "Azithromycin (Z-pack)",
+              "Pepcid or Famotidine",
+              "Corticosteroids (prednisone, methylprednisolone, dexamethasone, hydrocortisone)",
+              "IL-6 pathway blockers (sarilumab, tocilizumab, siltuximab)",
+              "JAK inhibitors (baricitinib, ruxolitinib, fedratinib, tofacitinib)",
+              "Remdesivir (GS-5735) or another protease inhibitor",
+              "Tamiflu (oseltamivir) or Xofluza (baloxavir marboxil)",
+              "HIV medications [lopinavir/ritonavir, tenofovir (TDF, TAF)]",
+              "Sofosbuvir",
+              "Ribavirin",
+              "Interferon alpha",
+              "Plasma therapy (antibodies from someone else)",
+              "Bronchodilators (asthma-like medications)",
+              "Don’t know",
+              "None of the above",
+              "Prefer not to answer"
             ]
           },
           "uniqueItems": true
@@ -1362,6 +1489,25 @@
           "items": {
             "type": "string",
             "enum": [
+              "Nausea or vomiting",
+              "Red skin rash",
+              "Severe necrotizing skin rash",
+              "Headaches or migraines",
+              "Vision problems or blindness",
+              "Night sweats",
+              "Insomnia",
+              "Heart problems",
+              "Abnormal heartbeat, or arrhythmia",
+              "Ringing in my ears",
+              "Tingling sensation",
+              "Loss of sensation in hands or feet",
+              "Seizures",
+              "Loss of consciousness or passing out",
+              "Hearing or seeing things that do not exist",
+              "None of the above",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
               "Nausea or vomiting",
               "Red skin rash",
               "Severe necrotizing skin rash",

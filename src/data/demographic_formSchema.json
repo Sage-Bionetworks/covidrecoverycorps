@@ -15,6 +15,14 @@
             "Other",
             "Prefer not to answer"
           ],
+          "enumNames": [
+            "Woman",
+            "Man",
+            "Non-binary",
+            "Transgender",
+            "Other",
+            "Prefer not to answer"
+          ],
           "uniqueItems": true
         },
         "ethnicity": {
@@ -26,6 +34,17 @@
             "type": "string",
 
             "enum": [
+              "Hispanic or Latinx",
+              "White - European",
+              "Asian ",
+              "Black",
+              "Native American",
+              "Pacific Islander",
+              "Other",
+              "Don't know/Not sure",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
               "Hispanic or Latinx",
               "White - European",
               "Asian ",
@@ -58,6 +77,19 @@
             "Don’t know/Not sure",
             "Prefer not to answer"
           ],
+          "enumNames": [
+            "Never attended school or only attended kindergarten",
+            "Grades 1 through 4 (Primary school)",
+            "Grades 5 through 8 (Middle school)",
+            "Grades 9 through 11 (some High school)",
+            "Grade 12 or GED (High school graduate)",
+            "1 to 3 years after high school (some college, Associate’s degree or Technical school)",
+            "College graduate (4 years or more)",
+            "Advanced degree (Master’s, Doctorate, etc.)",
+            "Don’t know/Not sure",
+            "Prefer not to answer"
+          ],
+
           "uniqueItems": true
         }
       }
@@ -70,6 +102,19 @@
           "type": "string",
           "title": "4. Thinking about members of your daily living in this household, what is your combined annual income, meaning the total pre-tax income from all sources earned in the last year? ",
           "enum": [
+            "$0 to $9,999",
+            "$10,000 to $14,999",
+            "$15,000 to $19,999",
+            "$20,000 to $34,999",
+            "$35,000 to $49,999",
+            "$50,000 to $74,999",
+            "$75,000 to $99,999",
+            "$100,000 to $199,999",
+            "$200,000 or more",
+            "Don’t know/Not sure",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
             "$0 to $9,999",
             "$10,000 to $14,999",
             "$15,000 to $19,999",
@@ -99,6 +144,18 @@
             "I don’t know",
             "Prefer not to answer"
           ],
+          "enumNames": [
+            "Insurance purchased directly from an insurance company (by you or another family member)",
+            "Insurance through a current or former employer or union (by you or another family member)",
+            "Medicare, for people 65 and older or people with certain disabilities",
+            "Medicaid, Medical Assistance, or any kind of government- assistance plan for those with low incomes or disability",
+            "TRICARE or other military health care",
+            "Veterans Affairs (VA) (including those who have ever used or enrolled for VA health care)",
+            "Indian Health Service",
+            "I don’ t have health insurance, self-pay",
+            "I don’t know",
+            "Prefer not to answer"
+          ],
           "uniqueItems": true
         },
         "how_heard": {
@@ -108,8 +165,23 @@
           "minItems": 1,
           "items": {
             "type": "string",
-
             "enum": [
+              "Newspaper",
+              "Radio",
+              "Television",
+              "Facebook",
+              "Twitter",
+              "Online search",
+              "Flier/poster",
+              "Recruit Me website",
+              "Email from Columbia University",
+              "Allianca Dominicana",
+              "Survivor Corps",
+              "Friend/family",
+              "Other",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
               "Newspaper",
               "Radio",
               "Television",
