@@ -23,7 +23,7 @@ i18n
     lng:  savedLanguage ,
     fallbackLng: 'en',
     whitelist: ['en', 'es'],
-
+    debug: true,
     keySeparator: '.', // we do not use keys in form messages.welcome
    
     interpolation: {
