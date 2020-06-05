@@ -75,24 +75,14 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
         <Container maxWidth="md" className={introClasses.paperPanelWrapper}>
           <div className={introClasses.paperPanel}>
             <div className={introClasses.paperPanelTitle}>
-              <h2>Study Leadership</h2>
+              <h2>{t('team.text1')}</h2>
             </div>
             <Hidden xsDown>
               <BlueSeparator />
             </Hidden>
             <div className={introClasses.paperPanelStepContainer}>
               <div className={introClasses.paperPanelStepBody}>
-                <p>
-                  Led by Columbia University and Sage Bionetworks, the study
-                  aims to enable those who have recovered from COVID-19 to
-                  partner with scientists to answer key questions &mdash; about
-                  how the body fights coronavirus and whether and how often
-                  infection affords immunity. Starting in the New York
-                  metropolitan area &mdash; the epicenter of the pandemic in the
-                  United States &mdash; participants will help build a powerful
-                  dataset that may significantly advance science and help save
-                  lives.
-                </p>
+                <p>{t('team.text2')}</p>
               </div>
             </div>
             {/* Wendy's profile */}
@@ -107,34 +97,21 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <h3 className={introClasses.paperPanelStepTitle}>
-                  Dr. Wendy Chung
+                  {t('team.text3')}
                 </h3>
                 <div className={introClasses.paperPanelStepBody}>
+                  <p>{t('team.text4')}</p>
                   <p>
-                    Dr. Wendy Chung is a co-Principal Investigator based at
-                    Columbia University with oversight over clinical operations.
-                    Dr Chung is an ABMG board certified clinical and molecular
-                    geneticist with 20 years of experience in clinical research,
-                    largely for rare diseases. She leads the Precision Medicine
-                    Resource of the Irving Institute at Columbia University and
-                    is the principal investigator of the large U.S. study of
-                    autism, SPARK.
-                  </p>
-                  <p>
-                    She works with many organizations to improve the support and
-                    treatment of rare disease for patients and family members.
-                    Dr. Chung was recognized by the National Organization of
-                    Rare Disorders with the Rare Impact Award in 2019. She was
-                    recently featured in the documentary,{' '}
+                    {t('team.text5')}&nbsp;
                     <a href="https://www.pbs.org/show/gene/" target="_blank">
-                      The Gene: An Intimate History
+                      {t('team.text6')}
                     </a>
                     .
                   </p>
                   <p>
-                    For more information, please visit{' '}
+                    {t('common.moreInfoVisit')}&nbsp;
                     <a href="https://wchunglab.com/" target="_blank">
-                      wchunglab.com
+                      {t('team.text61')}
                     </a>
                     .
                   </p>
@@ -155,35 +132,21 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <h3 className={introClasses.paperPanelStepTitle}>
-                  Dr. Lara Mangravite
+                  {t('team.text7')}
                 </h3>
                 <div className={introClasses.paperPanelStepBody}>
                   <div className={classes.paddingBottom20}>
-                    <p>
-                      Dr. Lara Mangravite is a co-Principal Investigator with
-                      oversight over technology, governance, and data commons.
-                      Dr. Mangravite has extensive experience leading projects
-                      at Sage Bionetworks. She favors applying collaborative
-                      approaches to advance understanding of disease biology and
-                      treatment outcomes at a systems level with the overriding
-                      goal of improving clinical care.{' '}
-                    </p>
+                    <p>{t('team.text8')}</p>
                   </div>
                   <div className={classes.paddingBottom20}>
-                    <p>
-                      Dr. Mangravite obtained a BS in Physics from the
-                      Pennsylvania State University and a PhD in Pharmaceutical
-                      Chemistry from the University of California, San
-                      Francisco. She completed a postdoctoral fellowship in
-                      cardiovascular pharmacogenomics at the Children’s Hospital
-                      Oakland Research Institute.
-                    </p>
+                    <p>{t('team.text9')}</p>
                   </div>
                   <div>
                     <p>
-                      For more information, please visit{' '}
+                      {t('common.moreInfoVisit')} For more information, please
+                      visit{' '}
                       <a href="https://www.sagebionetworks.org" target="_blank">
-                        www.sagebionetworks.org
+                        {t('team.text10')}
                       </a>
                       .
                     </p>
@@ -196,7 +159,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
             {/* Survivor Corps callout */}
             <Grid container justify="center" alignItems="flex-start">
               <div className={introClasses.paperPanelTitle}>
-                <h2>In partnership with Survivor Corps</h2>
+                <h2>{t('team.text11')}</h2>
               </div>
               <Hidden xsDown>
                 <BlueSeparator />
@@ -208,23 +171,12 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <div className={classes.paddingBottom20}>
-                    <p>
-                      Survivor Corps is a rapidly growing grassroots network of
-                      more than 50,000 COVID-19 survivors and family members who
-                      have first-hand experience with the virus. They are
-                      motivated to help others navigate the illness and find a
-                      pathway to recovery. Founded by Diana Berrent, Survivor
-                      Corps is mobilizing these survivors to donate plasma and
-                      to support ongoing scientific, medical and academic
-                      research to identify and improve treatments, understand
-                      the disease and its long term effects, and develop a
-                      vaccine.
-                    </p>
+                    <p>{t('team.text12')}</p>
                   </div>
                   <p className={classes.paddingBottom20}>
-                    For more information, please visit <br></br>
+                    {t('common.moreInfoVisit')} <br></br>
                     <a href="https://www.survivorcorps.com" target="_blank">
-                      www.survivorcorps.com
+                      {t('team.text13')}
                     </a>
                     .
                   </p>
@@ -239,24 +191,14 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
 
         <div className={classes.greenBox}>
           <Container maxWidth="md">
-            <h2>With support from the Chan Zuckerberg Initiative</h2>
+            <h2>{t('team.text14')}</h2>
             <div className={introClasses.labTextBodyDiv}>
-              <p>
-                Founded by Dr. Priscilla Chan and Mark Zuckerberg in 2015, the
-                Chan Zuckerberg Initiative (CZI) is a new kind of philanthropy
-                that’s leveraging technology to help solve some of the world’s
-                toughest challenges — from eradicating disease, to improving
-                education, to reforming the criminal justice system. Across
-                three core Initiative focus areas of Science, Education, and
-                Justice &amp; Opportunity, CZI is pairing engineering with
-                grant-making, impact investing, and policy and advocacy work to
-                help build an inclusive, just and healthy future for everyone.
-              </p>
+              <p>{t('team.text15')}</p>
             </div>
             <p className={classes.paddingBottom20}>
-              For more information, please visit{' '}
+              {t('common.moreInfoVisit')}{' '}
               <a href="https://www.chanzuckerberg.com" target="_blank">
-                www.chanzuckerberg.com
+                {t('team.text16')}
               </a>
               .
             </p>
