@@ -14,7 +14,7 @@ import {
   CircularProgress,
 } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert/Alert'
-import ConsentCopy from './ConsentCopy'
+import ConsentCopy, { SCREENS_ENUM } from './ConsentCopy'
 import { Redirect } from 'react-router-dom'
 import FloatingToolbar from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
@@ -221,13 +221,13 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   </FloatingToolbar>
                 </div>
 
-                <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>
+                <ConsentCopy screen={SCREENS_ENUM.CONSENT_SIGNATURE1}></ConsentCopy>
                 <p>I understand and agree to the following:</p>
                 <div
                   className="margin-top-std"
                   style={{ marginLeft: '4rem', marginBottom: '4rem' }}
                 >
-                  <ConsentCopy screen={'CONSENT_SIGNATURE2'}></ConsentCopy>
+                  <ConsentCopy screen={SCREENS_ENUM.CONSENT_SIGNATURE2}></ConsentCopy>
                 </div>
 
                 <div
@@ -235,7 +235,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     marginTop: '2rem',
                   }}
                 >
-                  <ConsentCopy screen={'CONSENT_SHARING'}></ConsentCopy>
+                  <ConsentCopy screen={SCREENS_ENUM.CONSENT_SHARING}></ConsentCopy>
                 </div>
                 <LearnMore learnMoreText="Learn more">
                   <div>

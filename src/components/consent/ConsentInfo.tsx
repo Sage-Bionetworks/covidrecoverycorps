@@ -8,7 +8,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Alert from '@material-ui/lab/Alert'
 import Switch from '@material-ui/core/Switch/Switch'
-import ConsentCopy, { StepInfo } from './ConsentCopy'
+import ConsentCopy, { StepInfo, SCREENS_ENUM } from './ConsentCopy'
 import BlueSeparator from '../static/BlueSeparator'
 import { RadioGroup, FormControlLabel, Radio } from '@material-ui/core'
 import ConsentIcons from './ConsentIcons'
@@ -256,7 +256,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
         {currentStep === -1 && (
           <div>
             <h2>Welcome!</h2>
-            <ConsentCopy screen="INTRO" isEHR={false}></ConsentCopy>
+            <ConsentCopy screen={SCREENS_ENUM.INTRO} isEHR={false}></ConsentCopy>
           </div>
         )}
         {currentStep > -1 && (

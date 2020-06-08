@@ -1,10 +1,9 @@
-import React, { useState, ChangeEvent } from 'react'
+import React, { useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faArrowRight,
   faArrowLeft,
-  faTimes,
 } from '@fortawesome/free-solid-svg-icons'
 
 import moment from 'moment'
@@ -13,7 +12,7 @@ import { Redirect } from 'react-router'
 import Button from '@material-ui/core/Button/Button'
 import { Checkbox, TextField, CardContent, Card } from '@material-ui/core'
 
-import ConsentCopy from './ConsentCopy'
+import ConsentCopy, { SCREENS_ENUM } from './ConsentCopy'
 import { FloatingToolbar } from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
 import ConsentIcons from './ConsentIcons'
@@ -108,11 +107,11 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   const renderInfoStep = () => {
     const element = (
       <>
-        {' '}
         <div className="icon-top">
           <img
             className="consentIcon"
             src={ConsentIcons.enr[currentStep - 1]}
+            alt="Current step"
           ></img>
         </div>
         <ConsentCopy
@@ -149,7 +148,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   const renderSignatureStep = (): JSX.Element => {
     const element = (
       <div>
-        <ConsentCopy screen="HIPAA_LAST_INTRO" isEHR={true}></ConsentCopy>
+        <ConsentCopy screen={SCREENS_ENUM.HIPAA_LAST_INTRO} isEHR={true}></ConsentCopy>
         <div className="Consent__inset">
           <p>
             <strong>
@@ -157,7 +156,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
             </strong>
           </p>
 
-          <ConsentCopy screen="HIPAA_LAST_TERMS" isEHR={true}></ConsentCopy>
+          <ConsentCopy screen={SCREENS_ENUM.HIPAA_LAST_TERMS} isEHR={true}></ConsentCopy>
 
           <form className="Consent__form" onSubmit={handleSubmit}>
             <div className="form-group checkbox--indented" style={{}}>
@@ -168,7 +167,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
                 onChange={(_val, isChecked) => setIsHIPAAConsented(isChecked)}
               />
               <p>
-                <ConsentCopy screen="HIPAA_LAST_CHECKBOX"></ConsentCopy>
+                <ConsentCopy screen={SCREENS_ENUM.HIPAA_LAST_CHECKBOX}></ConsentCopy>
               </p>
             </div>
             <p>{moment().format('MMMM Do, YYYY')}</p>
