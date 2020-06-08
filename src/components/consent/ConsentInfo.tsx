@@ -12,6 +12,7 @@ import ConsentCopy, { StepInfo, SCREENS_ENUM } from './ConsentCopy'
 import BlueSeparator from '../static/BlueSeparator'
 import { RadioGroup, FormControlLabel, Radio } from '@material-ui/core'
 import ConsentIcons from './ConsentIcons'
+import { useTranslation } from 'react-i18next'
 
 type ConsentInfoProps = {
   onDone: Function
@@ -57,8 +58,9 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   onDone,
 }: ConsentInfoProps) => {
   const [isFullText, setIsFullText] = useState(false)
-  const [currentStep, setCurrentStep] = useState(-1)
+  const [currentStep, setCurrentStep] = useState(0)
   const [quizAnswers, setQuizAnswers] = useState(new Array(2))
+  const { t } = useTranslation()
 
   const getText = (step: number, fullText: boolean): JSX.Element => {
     const stepInfo: StepInfo = {
@@ -83,15 +85,12 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
       if (quizIndex === -1) {
         return false
       } else {
-        //find if quiz has an answer
-        if (quizAnswers[quizIndex] !== undefined) {
-          return false
-        }
+        // find if quiz has an answer 
+        return quizAnswers[quizIndex] === undefined
       }
-      return true
     }
 
-    const buttonDiv = (
+    const navBtn = (
       <>
         {currentStep > -1 && (
           <Button
@@ -131,7 +130,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
       </>
     )
 
-    const result = <div className="navButtons">{buttonDiv}</div>
+    const result = <div className="navButtons">{navBtn}</div>
     return result
   }
 
@@ -241,7 +240,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
       <FloatingToolbar
         closeLinkDestination="/home?alert=CANCELLED_CONSENT"
         closeLinkText=""
-        closeConfirmationText="Are you sure you want to leave the consent process?"
+        closeConfirmationText={t('consentinfo.closeconfirmationtext')}
       >
         {renderNavChildren(currentStep)}
       </FloatingToolbar>
@@ -255,8 +254,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
         )}
         {currentStep === -1 && (
           <div>
-            <h2>Welcome!</h2>
-            <ConsentCopy screen={SCREENS_ENUM.INTRO} isEHR={false}></ConsentCopy>
+            <ConsentCopy screen={SCREENS_ENUM.CONSENT_INTRO} isEHR={false}></ConsentCopy>
           </div>
         )}
         {currentStep > -1 && (

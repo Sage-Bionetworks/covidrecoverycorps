@@ -113,5 +113,23 @@
     "text20": " Updates",
     "text21": "We may update our Privacy Policy from time to time to clarify how we collect, process, store, use and disclose information. We want to be as transparent as possible about the changes we make to our Privacy Policy.",
     "text22": "Version 1: May 04, 2020"
+  },
+  "consentinfo": {
+    "closeconfirmationtext": "Are you sure you want to leave the consent process?",
+    "welcome": {
+      "text1": "Welcome!",
+      "text2": "Before you decide to join the study, let's learn more about COVID Recovery Corps.",
+      "text3": "The next screens will tell you about the purpose of the study, what we will ask you to do, the benefits and risks of participation.",
+      "text4": "Let's get started!"
+    },
+    "summaryScreen1": {
+      "text1": "About the Study",
+      "text2": "<0> COVID Recovery Corps is a <1> research study</1>.</0>",
+      "text3": "<0> The goal of the study is to <1> collect information from participants who have been diagnosed or believe they have had COVID-19</1>.</0>",
+      "text4": "<0>Researchers will use this information to <1> better understand how the body fights COVID-19</1>.</0>",
+      "text5": "This study is being led by Columbia University and Sage Bionetworks. The study is being funded by the Chan Zuckerberg Initiative.",
+      "text6": "<0>This study will <1> last for 12 months </1> from the time you enroll.</0>",
+      "text7": "<0> This study will <1>  not provide medical care </1> for COVID-19. Participation in this study is <1> voluntary </1> and you may leave the study at any time.</0>"
+    }
   }
 }
