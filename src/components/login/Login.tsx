@@ -26,6 +26,7 @@ import {
   CircularProgress,
 } from '@material-ui/core'
 import { UserService } from '../../services/user.service'
+import { useTranslation } from 'react-i18next'
 
 export interface OwnLoginProps {
   redirectUrl?: string // will redirect here after a successful login. if unset, reload the current page url.
@@ -56,6 +57,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
   const [loginType, setLoginType] = useState<LoginType>('EMAIL')
   const [isLoading, setIsLoading] = useState(true)
 
+  const { t } = useTranslation()
   //detect if they are bck on the page
 
   const handleLoggedIn = async (loggedIn: Response<LoggedInUserData>) => {
@@ -201,7 +203,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
           <CardContent>
             {(!isLinkSent || error) && (
               <div>
-                <h2 className="text-center">Log in</h2>
+                <h2 className="text-center">{t('common.logIn')}</h2>
 
                 <form onSubmit={handleLogin}>
                   <div>
@@ -214,9 +216,9 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                         onChange={(_e, value) => setLoginType(value)}
                         aria-label="disabled tabs example"
                       >
-                        <Tab label="Email" value="EMAIL" />
+                        <Tab label={t('common.email')} value="EMAIL" />
 
-                        <Tab label="Phone" value="PHONE" />
+                        <Tab label={t('common.phone')} value="PHONE" />
                       </Tabs>
 
                       {loginType === 'EMAIL' && (
@@ -224,10 +226,10 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                           <TextField
                             id="outlined-basic"
                             variant="outlined"
-                            label="Email address"
+                            label={t('common.emailAddress')}
                             fullWidth
-                            autoComplete="email address"
-                            placeholder="Email address"
+                            autoComplete={t('common.emailAddress')}
+                            placeholder={t('common.emailAddress')}
                             name="email"
                             type="email"
                             value={email}
@@ -242,8 +244,8 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                             id="outlined-basic"
                             variant="outlined"
                             autoComplete="phone"
-                            placeholder="phone"
-                            label="Phone"
+                            placeholder={t('common.phone')}
+                            label={t('common.phone')}
                             fullWidth
                             name="phone"
                             type="phone"
@@ -262,7 +264,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                           onSubmit={handleLogin}
                           className="wideButton"
                         >
-                          Log in
+                          {t('common.logIn')}
                         </Button>
                       </div>
                     </div>
@@ -287,7 +289,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                   variant="text"
                   onClick={() => (window.location.href = 'eligibility')}
                 >
-                  Sign up for an account
+                   {t('common.signUpForAccount')}
                 </Button>
               </div>
             )}
