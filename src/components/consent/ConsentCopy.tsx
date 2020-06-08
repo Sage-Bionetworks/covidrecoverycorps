@@ -16,8 +16,18 @@ export type StepInfo = {
 
 export type ConsentCopyProps = {
   stepInfo?: StepInfo
-  screen?: string
+  screen?: SCREENS_ENUM
   isEHR?: boolean
+}
+
+export enum SCREENS_ENUM {
+  INTRO='INTRO',
+  CONSENT_SIGNATURE1='CONSENT_SIGNATURE1',
+  CONSENT_SIGNATURE2='CONSENT_SIGNATURE2',
+  CONSENT_SHARING='CONSENT_SHARING',
+  HIPAA_LAST_INTRO='HIPAA_LAST_INTRO',
+  HIPAA_LAST_TERMS='HIPAA_LAST_TERMS',
+  HIPAA_LAST_CHECKBOX='HIPAA_LAST_CHECKBOX',
 }
 
 const summaryScreens = [
@@ -888,7 +898,7 @@ const ehrScreens = [
   </div>,
 ]
 
-const screens: { [key: string]: JSX.Element } = {
+const screens: { [key in SCREENS_ENUM]: JSX.Element } = {
   INTRO: (
     <div className="Consent__copy">
       <p className="Consent__copy">

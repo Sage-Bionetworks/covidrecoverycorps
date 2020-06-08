@@ -1,5 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from 'react'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import React, { useState, useEffect } from 'react'
 import ConsentInfo from './ConsentInfo'
 import useForm from '../useForm'
 import moment from 'moment'
@@ -15,13 +14,10 @@ import {
   CircularProgress,
 } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert/Alert'
-import ConsentCopy from './ConsentCopy'
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
-import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
+import ConsentCopy, { SCREENS_ENUM } from './ConsentCopy'
 import { Redirect } from 'react-router-dom'
 import FloatingToolbar from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
-import ConfirmationModal from '../widgets/ConfirmationModal'
 import LearnMore from '../widgets/LearnMore'
 import { setSession, getSession } from '../../helpers/utility'
 import ConsentSentConfirmation from './ConsentSentConfirmation'
@@ -41,7 +37,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   const [isConsentConfirmationShown, setConsentConfirmationShown] = useState(
     false,
   )
-  const [doHIPAAConsent, setDoHIPAAConsent] = useState<string | undefined>(
+  const [doHIPAAConsent, setDoHIPAAConsent] = useState<boolean | undefined>(
     undefined,
   )
 
@@ -76,7 +72,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           setIsLoading(true)
           const userInfo = await UserService.getUserInfo(token)
           if (userInfo.data.consented) {
-            setDoHIPAAConsent('false')
+            setDoHIPAAConsent(false)
             setIsConsentDone(true)
           }
         } catch (e) {
@@ -158,7 +154,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           <RadioGroup
             aria-label="start HIPAA consent"
             name="startHIPAAConsent"
-            onChange={(_event: any, val: string) => setDoHIPAAConsent(val)}
+            onChange={(_event: any, val: string) => setDoHIPAAConsent(val === 'true')}
           >
             <FormControlLabel
               value={'true'}
@@ -192,10 +188,10 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   }
 
   if (isConsentDone) {
-    if (doHIPAAConsent === 'true') {
+    if (doHIPAAConsent === true) {
       return <Redirect to="consentehr"></Redirect>
     }
-    if (doHIPAAConsent === 'false') {
+    if (doHIPAAConsent === false) {
       return <Redirect to="dashboard?consented=true"></Redirect>
     }
   }
@@ -225,13 +221,13 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   </FloatingToolbar>
                 </div>
 
-                <ConsentCopy screen={'CONSENT_SIGNATURE1'}></ConsentCopy>
+                <ConsentCopy screen={SCREENS_ENUM.CONSENT_SIGNATURE1}></ConsentCopy>
                 <p>I understand and agree to the following:</p>
                 <div
                   className="margin-top-std"
                   style={{ marginLeft: '4rem', marginBottom: '4rem' }}
                 >
-                  <ConsentCopy screen={'CONSENT_SIGNATURE2'}></ConsentCopy>
+                  <ConsentCopy screen={SCREENS_ENUM.CONSENT_SIGNATURE2}></ConsentCopy>
                 </div>
 
                 <div
@@ -239,7 +235,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     marginTop: '2rem',
                   }}
                 >
-                  <ConsentCopy screen={'CONSENT_SHARING'}></ConsentCopy>
+                  <ConsentCopy screen={SCREENS_ENUM.CONSENT_SHARING}></ConsentCopy>
                 </div>
                 <LearnMore learnMoreText="Learn more">
                   <div>
