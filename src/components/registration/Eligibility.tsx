@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button/Button'
 import { TextField, Checkbox, FormControlLabel } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert/Alert'
 import BlueSeparator from '../static/BlueSeparator'
+import { useTranslation } from 'react-i18next'
 
 type EligibilityProps = {
   setEligibilityFn: Function
@@ -15,6 +16,8 @@ type EligibilityProps = {
 export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
   setEligibilityFn,
 }: EligibilityProps) => {
+  const { t } = useTranslation()
+
   const stateSchema = {
     over18: { value: '', error: '' },
     cons: { value: '', error: '' },
@@ -26,7 +29,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
     over18: {
       required: true,
       validator: {
-        error: 'To be eligible to take part in the COVID Recovery Corps study, you must be over 18.',
+        error: t('eligibility.error18'),
         regEx: /yes/,
       },
     },
@@ -34,21 +37,21 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
     cons: {
       required: true,
       validator: {
-        error: 'To be eligible to take part in the COVID Recovery Corps study, you must be able to provide consent for yourself.',
+        error: t('eligibility.errorCons'),
         regEx: /yes/,
       },
     },
     hadCovid: {
       required: true,
       validator: {
-        error: 'To be eligible to take part in the COVID Recovery Corps study, you must think that you\'ve had COVID-19.',
+        error: t('eligibility.errorCovid'),
         regEx: /yes/,
       },
     },
     zipcode: {
       required: true,
       validator: {
-        error: 'Invalid zip code.',
+        error: t('eligibility.errorZip'),
         regEx: /^\d{5}$/,
       },
     },
@@ -57,7 +60,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
   function onSubmitForm(state: any) {
     let isValid = true
     let reason: IneligibilityReason = 'NONE'
-    
+
     if (!zipcodes.includes(state.zipcode.value)) {
       isValid = false
       reason = 'LOCATION' as IneligibilityReason
@@ -74,11 +77,8 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
 
   return (
     <div id="Questions">
-      <h2 className="text-center">Eligibility</h2>
-      <p>
-        Currently we are looking for residents within a 25 mile radius of the Columbia University Medical Center.
-        To be eligible to take part in the COVID Recovery Corps study, you must fulfill the following:
-      </p>
+      <h2 className="text-center">{t('eligibility.title')}</h2>
+      <p>{t('eligibility.text1')}</p>
       <BlueSeparator></BlueSeparator>
       <form onSubmit={handleOnSubmit}>
         <div className="form-group  checkbox--nopad">
@@ -98,7 +98,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
                   }
                 />
               }
-              label="I am 18 years of age or older"
+              label={t('eligibility.text2')}
             />
           </div>
 
@@ -118,7 +118,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
                   }
                 />
               }
-              label="I am able to provide consent for myself"
+              label={t('eligibility.text3')}
             />
           </div>
 
@@ -138,25 +138,25 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
                   }
                 />
               }
-              label="I think I’ve had COVID-19"
+              label={t('eligibility.text4')}
             />
           </div>
         </div>
 
         <div className="form-group">
           <div>
-            <label>Please enter your zip code</label>            
+            <label>{t('eligibility.text5')}</label>
           </div>
           {/* <div>
             <em>Note, we are only able to enroll participants who live within a 25 mile radius of the Columbia University Medical Center.</em>
           </div> */}
-          
+
           <TextField
             variant="outlined"
             name="zipcode"
-            placeholder="zipcode"
-            aria-label="zipcode"
-            label="Zip code"
+            placeholder={t('eligibility.zipCode')}
+            aria-label={t('eligibility.zipCode')}
+            label= {t('eligibility.zipCode')}
             onChange={handleOnChange}
           />
         </div>
@@ -169,7 +169,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
             disabled={disable}
             className="wideButton"
           >
-            Submit
+            {t('common.submit')}
           </Button>
         </div>
       </form>
