@@ -6,9 +6,10 @@
     "logIn": "Log in",
     "moreInfoVisit": "For more information, please visit",
     "phone": "Phone",
-
+    "fullName": "Full name",
     "signUpForAccount": "Sign up for an account",
-    "submit": "Submit"
+    "submit": "Submit",
+    "zipCode": "Zip code"
   },
   "home": {
     "title": "Building a partnership between COVID-19 survivors and researchers.",
@@ -133,5 +134,14 @@
     "text20": " Updates",
     "text21": "We may update our Privacy Policy from time to time to clarify how we collect, process, store, use and disclose information. We want to be as transparent as possible about the changes we make to our Privacy Policy.",
     "text22": "Version 1: May 04, 2020"
+  },
+  "ineligible": {
+    "text1": "Thank you for your interest",
+    "text2": "You have successfully joined the mailing list. We will notify you in the coming months if the program expands into your area.",
+    "text3": "Unfortunately, we are only able to enroll participants who live within a 25 mile radius of the Columbia University Medical Center.",
+    "text4": "We are hoping to expand the study in the coming months.",
+    "text5": "You can sign up for our mailing list here:",
+    "text6": "Join mailing list",
+    "text7": "Joining mailing list..."
   }
 }
