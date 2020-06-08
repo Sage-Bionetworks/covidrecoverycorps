@@ -1,5 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from 'react'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import React, { useState, useEffect } from 'react'
 import ConsentInfo from './ConsentInfo'
 import useForm from '../useForm'
 import moment from 'moment'
@@ -16,12 +15,9 @@ import {
 } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert/Alert'
 import ConsentCopy from './ConsentCopy'
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
-import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
 import { Redirect } from 'react-router-dom'
 import FloatingToolbar from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
-import ConfirmationModal from '../widgets/ConfirmationModal'
 import LearnMore from '../widgets/LearnMore'
 import { setSession, getSession } from '../../helpers/utility'
 import ConsentSentConfirmation from './ConsentSentConfirmation'
@@ -41,7 +37,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   const [isConsentConfirmationShown, setConsentConfirmationShown] = useState(
     false,
   )
-  const [doHIPAAConsent, setDoHIPAAConsent] = useState<string | undefined>(
+  const [doHIPAAConsent, setDoHIPAAConsent] = useState<boolean | undefined>(
     undefined,
   )
 
@@ -76,7 +72,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           setIsLoading(true)
           const userInfo = await UserService.getUserInfo(token)
           if (userInfo.data.consented) {
-            setDoHIPAAConsent('false')
+            setDoHIPAAConsent(false)
             setIsConsentDone(true)
           }
         } catch (e) {
@@ -158,7 +154,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           <RadioGroup
             aria-label="start HIPAA consent"
             name="startHIPAAConsent"
-            onChange={(_event: any, val: string) => setDoHIPAAConsent(val)}
+            onChange={(_event: any, val: string) => setDoHIPAAConsent(val === 'true')}
           >
             <FormControlLabel
               value={'true'}
@@ -192,10 +188,10 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   }
 
   if (isConsentDone) {
-    if (doHIPAAConsent === 'true') {
+    if (doHIPAAConsent === true) {
       return <Redirect to="consentehr"></Redirect>
     }
-    if (doHIPAAConsent === 'false') {
+    if (doHIPAAConsent === false) {
       return <Redirect to="dashboard?consented=true"></Redirect>
     }
   }

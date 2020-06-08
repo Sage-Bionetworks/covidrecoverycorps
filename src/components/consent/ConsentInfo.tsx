@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import FloatingToolbar from '../widgets/FloatingToolbar'
 import Button from '@material-ui/core/Button/Button'
 import {
-  faTimes,
   faArrowRight,
   faArrowLeft,
 } from '@fortawesome/free-solid-svg-icons'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Alert from '@material-ui/lab/Alert'
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup/ToggleButtonGroup'
-import ToggleButton from '@material-ui/lab/ToggleButton/ToggleButton'
-
 import Switch from '@material-ui/core/Switch/Switch'
 import ConsentCopy, { StepInfo } from './ConsentCopy'
 import BlueSeparator from '../static/BlueSeparator'
@@ -142,7 +137,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
 
   const getQuiz = (step: number) => {
     const quizIndex = quizes.findIndex(quiz => quiz.screen === step)
-    if (quizIndex == -1) {
+    if (quizIndex === -1) {
       return <></>
     }
     const getQuizButtonClass = (correctAnswer: number, buttonValue: number) => {
@@ -260,9 +255,8 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
         )}
         {currentStep === -1 && (
           <div>
-            {' '}
             <h2>Welcome!</h2>
-            {<ConsentCopy screen="INTRO" isEHR={false}></ConsentCopy>}
+            <ConsentCopy screen="INTRO" isEHR={false}></ConsentCopy>
           </div>
         )}
         {currentStep > -1 && (
@@ -271,12 +265,12 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
               {ConsentIcons.consent[currentStep] && (
                 <img
                   className="consentIcon"
+                  alt="Current Status"
                   src={ConsentIcons.consent[currentStep]}
                 ></img>
               )}
             </div>
             {getStatic(currentStep, isFullText)}
-
             {getQuiz(currentStep)}
             {getNavButtons(currentStep)}
           </div>
@@ -293,7 +287,6 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
               style={{ margin: '30px 0' }}
               onClick={() => setCurrentStep(prev => prev + 1)}
             >
-              {' '}
               Start Consent
             </Button>
           </div>
