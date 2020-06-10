@@ -8,7 +8,6 @@ import SurvivorCorps from '../../assets/TeamPageSurvivorCorps.png'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
 import { ReactComponent as CZILogo } from '../../assets/czi_logo_dark.svg'
-import { ReactComponent as SurvivorCorpsLogo } from '../../assets/SurvivorCorpsLogo-Vertical.svg'
 import BlueSeparator from './BlueSeparator'
 import { useIntroStyles } from './Intro'
 

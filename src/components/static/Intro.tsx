@@ -22,7 +22,6 @@ import { ReactComponent as Tablet } from '../../assets/tablet.svg'
 import { ReactComponent as TestTubes } from '../../assets/test_tubes.svg'
 import { ReactComponent as BooksApple } from '../../assets/books_apple.svg'
 import { ReactComponent as ShareIcon } from '../../assets/share_icon.svg'
-import { ReactComponent as SurvivorCorpsLogo } from '../../assets/SurvivorCorpsLogo-Horizontal.svg'
 
 import { NavLink, Link } from 'react-router-dom'
 import BlueSeparator from './BlueSeparator'
@@ -383,8 +382,6 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
             <ColumbiaLogo className={classes.logo} />
             <div className={classes.logosDivSeparator}></div>
             <SageLogo className={classes.logo} />
-            <div className={classes.logosDivSeparator}></div>
-            <SurvivorCorpsLogo className={classes.logo} />
           </div>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={12} md={6}>
