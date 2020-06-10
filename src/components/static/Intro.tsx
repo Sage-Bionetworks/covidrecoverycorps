@@ -18,7 +18,7 @@ import LandingPageAboveFold1Mobile from '../../assets/LandingPageAboveFold1_mobi
 import LandingPageAboveFold2Mobile from '../../assets/LandingPageAboveFold2_mobile.png'
 import LandingPageAboveFold3Mobile from '../../assets/LandingPageAboveFold3_mobile.png'
 
-import LandingPageLab from '../../assets/LandingPageLab.png'
+import LandingPageWalk from '../../assets/LandingPageWalk.png'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
 import { ReactComponent as Tablet } from '../../assets/tablet.svg'
@@ -409,7 +409,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={12} md={6}>
               <div className={classes.labImageDiv}>
-                <img src={LandingPageLab} alt="Lab" width="100%" />
+                <img src={LandingPageWalk} alt="Lab" width="100%" />
                 <p className={classes.photographyNote}>{t('home.text2')}</p>
               </div>
             </Grid>
