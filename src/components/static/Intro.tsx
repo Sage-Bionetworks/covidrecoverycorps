@@ -291,7 +291,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
       setHeroImage3Opacity(1)
     } else {
       setHeroImage3Opacity(0)
-      setHeroImage1Opacity(1)
+      setHeroImage0Opacity(1)
     }
   }
   useEffect(() => {
