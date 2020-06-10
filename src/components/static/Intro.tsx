@@ -8,10 +8,13 @@ import {
   IconButton,
 } from '@material-ui/core'
 import { playfairDisplayFont, openSansFont } from '../../App'
-import LandingPageAboveFold from '../../assets/LandingPageAboveFold.png'
+//import LandingPageAboveFold from '../../assets/LandingPageAboveFold0.png'
+import LandingPageAboveFold0 from '../../assets/LandingPageAboveFold0.png'
+import LandingPageAboveFold1 from '../../assets/LandingPageAboveFold1.png'
 import LandingPageAboveFold2 from '../../assets/LandingPageAboveFold2.png'
 import LandingPageAboveFold3 from '../../assets/LandingPageAboveFold3.png'
-import LandingPageAboveFoldMobile from '../../assets/LandingPageAboveFold_mobile.png'
+import LandingPageAboveFold0Mobile from '../../assets/LandingPageAboveFold0_mobile.png'
+import LandingPageAboveFold1Mobile from '../../assets/LandingPageAboveFold1_mobile.png'
 import LandingPageAboveFold2Mobile from '../../assets/LandingPageAboveFold2_mobile.png'
 import LandingPageAboveFold3Mobile from '../../assets/LandingPageAboveFold3_mobile.png'
 
@@ -268,13 +271,18 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
 
   const classes = useIntroStyles()
   const [isShowingShareDialog, setIsShowingShareDialog] = useState(false)
-  const [heroImage1Opacity, setHeroImage1Opacity] = useState(1)
+  const [heroImage0Opacity, setHeroImage0Opacity] = useState(1)
+  const [heroImage1Opacity, setHeroImage1Opacity] = useState(0)
   const [heroImage2Opacity, setHeroImage2Opacity] = useState(0)
   const [heroImage3Opacity, setHeroImage3Opacity] = useState(0)
 
   const selectNextHeroBackground = () => {
     // get next image
     let nextHeroBackgroundImage: string
+    if (heroImage0Opacity > 0) {
+      setHeroImage0Opacity(0)
+      setHeroImage1Opacity(1)
+    } else 
     if (heroImage1Opacity > 0) {
       setHeroImage1Opacity(0)
       setHeroImage2Opacity(1)
@@ -289,7 +297,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
   useEffect(() => {
     const interval = setInterval(selectNextHeroBackground, 8000)
     return () => clearInterval(interval)
-  }, [heroImage1Opacity, heroImage2Opacity, heroImage3Opacity])
+  }, [heroImage0Opacity,heroImage1Opacity, heroImage2Opacity, heroImage3Opacity])
 
   const heroTextContent = (
     <Container maxWidth="lg">
@@ -311,13 +319,22 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
   )
   return (
     <div className="Intro">
+    
+
+
       <div>
         <div className={classes.heroContainer}>
           <div className={classes.heroTextGradiant}></div>
           <Hidden smUp>
+          <img
+              className={classes.heroImage}
+              src={LandingPageAboveFold0Mobile}
+              style={{ opacity: heroImage0Opacity }}
+            />
+        
             <img
               className={classes.heroImage}
-              src={LandingPageAboveFoldMobile}
+              src={LandingPageAboveFold1Mobile}
               style={{ opacity: heroImage1Opacity }}
             />
             <img
@@ -332,9 +349,15 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
             />
           </Hidden>
           <Hidden xsDown>
-            <img
+          
+             <img
               className={classes.heroImage}
-              src={LandingPageAboveFold}
+              src={LandingPageAboveFold0}
+              style={{ opacity: heroImage0Opacity }}
+            />
+             <img
+              className={classes.heroImage}
+              src={LandingPageAboveFold1}
               style={{ opacity: heroImage1Opacity }}
             />
             <img
@@ -395,6 +418,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
                 <h2 className={classes.labTextTitle}>{t('home.text3')}</h2>
                 <div className={classes.labTextBodyDiv}>
                   <p>{t('home.text4')}</p>
+                  <p>{t('home.text41')}</p>
                 </div>
               </div>
             </Grid>
