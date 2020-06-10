@@ -405,9 +405,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
         </div>
         <Container maxWidth="md" className={classes.paperPanelWrapper}>
           <div className={classes.paperPanel}>
-            <h2 className={classes.paperPanelTitle}>
-              <span className={classes.pink}>{t('home.text7')}</span>
-            </h2>
+            <h2 className={classes.paperPanelTitle}>{t('home.text7')}</h2>
             <Hidden xsDown>
               <BlueSeparator />
             </Hidden>
