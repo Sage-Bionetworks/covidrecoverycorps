@@ -401,17 +401,11 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
           </Grid>
         </Container>
         <div className={classes.paperHeaderDiv}>
-          <Container maxWidth="md">
-            <h3 className={classes.paperHeaderText}>{t('home.text5')}</h3>
-          </Container>
+          
         </div>
         <Container maxWidth="md" className={classes.paperPanelWrapper}>
           <div className={classes.paperPanel}>
             <h2 className={classes.paperPanelTitle}>
-              <span>{t('home.text6')}&nbsp;</span>
-              <Hidden smUp>
-                <br></br>
-              </Hidden>
               <span className={classes.pink}>{t('home.text7')}</span>
             </h2>
             <Hidden xsDown>
