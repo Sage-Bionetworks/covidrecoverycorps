@@ -59,10 +59,9 @@ export const PrivacyPolicy: React.FunctionComponent = ({}) => {
                 <div>
                   <Trans i18nKey="privacy.text1">
                     <p>[translate]</p>
-                    <p> [translate]</p>
+                    <p>[translate]</p>
                     <p>
-                      {' '}
-                      [translate]{' '}
+                      [translate]
                       <a href="www.covidrecoverycorps.org"> [translate]</a>
                       [translate]
                     </p>
