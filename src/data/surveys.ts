@@ -41,5 +41,10 @@ export const SURVEYS: SurveyConfigObject = {
     formSchema: ()=>{},
     uiSchema:  ()=>{},
     navSchema:  ()=>{},
+  },
+  TEST_LOCATION: {
+    formSchema: ()=>{},
+    uiSchema:  ()=>{},
+    navSchema:  ()=>{},
   }
 }

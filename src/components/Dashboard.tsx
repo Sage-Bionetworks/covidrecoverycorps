@@ -12,10 +12,16 @@ import { CircularProgress, Grid } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 
 import { SurveyService } from '../services/survey.service'
-import { SavedSurveysObject, SurveyType, SavedSurvey, ReportData } from '../types/types'
+import {
+  SavedSurveysObject,
+  SurveyType,
+  SavedSurvey,
+  ReportData,
+} from '../types/types'
 import _ from 'lodash'
 import { UserService } from '../services/user.service'
 import Alert from '@material-ui/lab/Alert/Alert'
+import TestLocationSurvey from './surveys/TestLocationSurvey'
 
 type DashboardProps = {
   token: string
@@ -72,6 +78,8 @@ const surveys: UISurvey[] = [
   },
 ]
 
+type CompletionStatus = 'NOT_DONE' | 'MAIN_DONE' | 'ALL_DONE'
+
 export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   token,
 }: DashboardProps) => {
@@ -80,6 +88,11 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
   const [isLoading, setIsLoading] = useState(false)
   const [isContactInfoDone, setIsContactInfoDone] = useState(false)
+
+  const [
+    isTestLocationSurveySubmitted,
+    setIsTestLocationSurveySubmitted,
+  ] = useState(false)
 
   const classes = useStyles()
 
@@ -106,56 +119,70 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     return () => {
       isSubscribed = false
     }
-  }, [token])
+  }, [token, isTestLocationSurveySubmitted])
+
+  /* POSSIBLE SCENARIOS:
+- minimum surveys not completed
+- minimum surveys completed 
+  - test location not completed -- > show test location question
+  - test location completed 
+- all suverys completed
+*/
+
+  const getSavedSurvey = (surveyType: SurveyType): SavedSurvey | undefined => {
+    if (!savedSurveys) {
+      return undefined
+    }
+    return savedSurveys.surveys.find(
+      savedSurvey => surveyType === savedSurvey.type,
+    )
+  }
+
+  const isDone = (surveyType: SurveyType): boolean => {
+    const savedSurvey = getSavedSurvey(surveyType)
+    return !!savedSurvey?.completedDate
+  }
+  const isInProgress = (surveyType: SurveyType): boolean => {
+    const savedSurvey = getSavedSurvey(surveyType)
+
+    return !!savedSurvey?.updatedDate && !isDone(surveyType)
+  }
 
   const renderSurveyItems = (savedSurveys: SavedSurvey[], isTier1: boolean) => {
-    const getSavedSurvey = (survey: UISurvey): SavedSurvey | undefined => {
-      return savedSurveys.find(savedSurvey => survey.type === savedSurvey.type)
-    }
-    const isDone = (survey: UISurvey): boolean => {
-      const savedSurvey = getSavedSurvey(survey)
-      return !!savedSurvey?.completedDate
-    }
-    const isInProgress = (survey: UISurvey): boolean => {
-      const savedSurvey = getSavedSurvey(survey)
-
-      return !!savedSurvey?.updatedDate && !isDone(survey)
-    }
-
     const getIconImageForContact = (): JSX.Element => {
       return isContactInfoDone ? (
         <img src={completeIconImg} alt="done"></img>
       ) : (
-          <img src={emptyIconImg} alt="to do"></img>
-        )
+        <img src={emptyIconImg} alt="to do"></img>
+      )
     }
 
     const getIconImage = (survey: UISurvey): JSX.Element => {
       if (survey.type === 'CONTACT') {
         return getIconImageForContact()
       }
-      if (isInProgress(survey)) {
+      if (isInProgress(survey.type)) {
         return <img src={saveProgressIconImg}></img>
       } else {
-        const image = isDone(survey) ? (
+        const image = isDone(survey.type) ? (
           <img src={completeIconImg} alt="done"></img>
         ) : (
-            <img src={emptyIconImg} alt="to do"></img>
-          )
+          <img src={emptyIconImg} alt="to do"></img>
+        )
         return image
       }
     }
 
-    const isSurveyDisabled = (survey: UISurvey): boolean => {
-      if (survey.type === 'CONTACT') {
+    const isSurveyDisabled = (surveyType: SurveyType): boolean => {
+      if (surveyType === 'CONTACT') {
         return isContactInfoDone
       } else {
-        return isDone(survey) || !isContactInfoDone
+        return isDone(surveyType) || !isContactInfoDone
       }
     }
 
-    const getClassNameForSurveyItem = (survey: UISurvey): string => {
-      return isSurveyDisabled(survey) ? 'item-wrap disabled' : 'item-wrap'
+    const getClassNameForSurveyItem = (surveyType: SurveyType): string => {
+      return isSurveyDisabled(surveyType) ? 'item-wrap disabled' : 'item-wrap'
     }
 
     const renderSurveyInfo = (
@@ -181,7 +208,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         </>
       )
 
-      if (isSurveyDisabled(survey)) {
+      if (isSurveyDisabled(survey.type)) {
         return <div className="btn-container">{innerElement}</div>
       } else {
         return (
@@ -195,15 +222,18 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     const _surveys = isTier1 ? surveys.slice(0, 3) : surveys.slice(3)
 
     const items = _surveys.map((survey: UISurvey, index) => (
-      <li className={getClassNameForSurveyItem(survey)} key={survey.title}>
+      <li className={getClassNameForSurveyItem(survey.type)} key={survey.title}>
         <div className="item">{renderSurveyInfo(survey, isTier1)}</div>
       </li>
     ))
     return <ul className="items">{items}</ul>
   }
 
-  const getIntro = (savedSurveys: SavedSurvey[]): JSX.Element => {
-    const completedSurveyNames = savedSurveys
+  const getCompletionStatus = (): CompletionStatus => {
+    if (!savedSurveys) {
+      return 'NOT_DONE'
+    }
+    const completedSurveyNames = (savedSurveys.surveys || [])
       .filter(survey => survey && survey.completedDate)
       .map(survey => survey?.type)
 
@@ -215,6 +245,14 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       doneMain &&
       completedSurveyNames.includes('HISTORY') &&
       completedSurveyNames.includes('MORE')
+
+    if (doneAll) {
+      return 'ALL_DONE'
+    } else {
+      return doneMain ? 'MAIN_DONE' : 'NOT_DONE'
+    }
+  }
+  const getIntro = (): JSX.Element => {
     const doneMainEl = (
       <>
         <img src={iconWooHoo} alt="woo hoo!"></img>
@@ -238,46 +276,80 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         </h2>{' '}
       </>
     )
-    if (!doneAll && !doneMain) {
+    const completionStatus = getCompletionStatus()
+    if (completionStatus === 'NOT_DONE') {
       return <></>
     }
     return (
-      <div className="finished-status">{doneAll ? doneAllEl : doneMainEl}</div>
+      <div className="finished-status text-center">
+        {completionStatus === 'ALL_DONE' ? doneAllEl : doneMainEl}
+      </div>
+    )
+  }
+
+  if (isLoading) {
+    return (
+      <div className="text-center">
+        <CircularProgress color="primary" />
+      </div>
     )
   }
   return (
     <div className="Dashboard">
-      <div className="dashboard-intro">
-        <p>
-          The information you provide will help researchers learn more about
-          COVID-19.
-      </p>
-        <p>
-          {' '}
-        To be invited for a lab test, you will need to complete your Profile
-        and Surveys 1-2. Surveys 3 and 4 are optional but still provide
-        important information. Please consider completing them if you have the
-        time.{' '}
-        </p>
-      </div>
-
+      {getCompletionStatus() === 'NOT_DONE' && (
+        <div className="dashboard-intro">
+          <p>
+            The information you provide will help researchers learn more about
+            COVID-19.
+          </p>
+          <p>
+            {' '}
+            To be invited for a lab test, you will need to complete your Profile
+            and Surveys 1-2. Surveys 3 and 4 are optional but still provide
+            important information. Please consider completing them if you have
+            the time.{' '}
+          </p>
+        </div>
+      )}
       <Card className={classes.root}>
         {error && <Alert severity="error">{error}</Alert>}
-        {isLoading && (
-          <div className="text-center">
-            <CircularProgress color="primary" />
-          </div>
+
+        {getIntro()}
+        {
+          //if they fininshed main surveys and didn't pick location
+          !isDone('TEST_LOCATION') && getCompletionStatus() !== 'NOT_DONE' && (
+            <div
+              className="finished-status"
+              style={{ marginBottom: '2.4rem', clear: 'both' }}
+            >
+              <p>
+                <strong>
+                  Would you prefer to go to a lab draw or wait until home test
+                  kits are available?{' '}
+                </strong>
+              </p>
+              <TestLocationSurvey
+                surveyUpdatedCallbackFn={() =>
+                  setIsTestLocationSurveySubmitted(true)
+                }
+                token={token}
+              ></TestLocationSurvey>{' '}
+            </div>
+          )
+        }
+        {(isDone('TEST_LOCATION') || getCompletionStatus() == 'NOT_DONE') && (
+          <>
+            <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
+            <div className="separator">
+              <img src={testTubeImg}></img>
+              <div className="small">
+                {' '}
+                Minimum surveys required for lab invites{' '}
+              </div>
+            </div>
+            <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
+          </>
         )}
-        {getIntro(savedSurveys?.surveys || [])}
-        <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
-        <div className="separator">
-          <img src={testTubeImg}></img>
-          <div className="small">
-            {' '}
-          Minimum surveys required for lab invites{' '}
-          </div>
-        </div>
-        <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
       </Card>
     </div>
   )
