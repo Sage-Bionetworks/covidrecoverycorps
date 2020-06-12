@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { BsPrefixProps } from 'react-bootstrap/helpers'
 
 type WithdrawSurveyProps = {
   surveyUpdatedCallbackFn: Function
@@ -46,7 +45,6 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                         <input
                           type="checkbox"
                           name="too_much_time"
-                          //checked={result.too_much_time}
                           onChange={handleChange}
                         />
                         <span>Study was taking too much of my time </span>
@@ -59,7 +57,6 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                         <input
                           type="checkbox"
                           name="not_enough_benefit"
-                          // checked={result.not_enough_benefit}
                           onChange={handleChange}
                         />
                         <span>Not enough benefit for me to continue</span>
@@ -72,7 +69,6 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                         <input
                           type="checkbox"
                           name="privacy "
-                          // checked={result.privacy}
                           onChange={handleChange}
                         />
                         <span> I am concerned about my privacy </span>
@@ -85,7 +81,6 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                         <input
                           type="checkbox"
                           name="data_use"
-                          // checked={result.data_use}
                           onChange={handleChange}
                         />
                         <span>I am concerned about the use of my data</span>
@@ -98,7 +93,6 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                         <input
                           type="checkbox"
                           name="personal_reasons"
-                          // checked={result.personal_reasons}
                           onChange={handleChange}
                         />
                         <span>

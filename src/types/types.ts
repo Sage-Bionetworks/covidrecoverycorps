@@ -96,6 +96,7 @@ export type SurveyType =
   | 'HISTORY'
   | 'MORE'
   | 'WITHDRAW'
+  | 'TEST_LOCATION'
 
 export type SurveyConfigObject = {
   [key in SurveyType]: {
