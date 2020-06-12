@@ -6,8 +6,16 @@
       "properties": {
         "gender_identity": {
           "type": "string",
-          "title": "1. ¿Qué término describe mejor tu identidad de género?",
+          "title": "1. ¿Qué término describe mejor su identificación de género?",
           "enum": [
+            "Woman",
+            "Man",
+            "Non-binary",
+            "Transgender",
+            "Other",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
             "Mujer",
             "Hombre",
             "No binario",
@@ -19,7 +27,7 @@
         },
         "ethnicity": {
           "type": "array",
-          "title": "2. What is your ethnicity/ancestry? (check all that apply)",
+          "title": "2. ¿Cuál es su origen étnico / ascendencia? (Marque todo lo que le corresponda a usted)",
           "uniqueItems": true,
           "minItems": 1,
           "items": {
@@ -35,17 +43,28 @@
               "Other",
               "Don't know/Not sure",
               "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Hispano o Latino",
+              "Europeo - Blanco",
+              "Asiático",
+              "Afroamericano",
+              "Americano Indígena",
+              "Isleño del Pacífico",
+              "Otro",
+              "No lo sé o no estoy segur",
+              "Prefiero no responder"
             ]
           }
         },
         "ethnicity_other": {
           "type": "string",
-          "title": "2a. If you selected 'other', please specify."
+          "title": "2a. Si ha seleccionado 'otro', por favor especifique."
         },
 
         "education": {
           "type": "string",
-          "title": "3. What is the highest grade or level of schooling you completed?",
+          "title": "3. ¿Cuál es el grado o nivel de educación escolar más alto que usted haya completado?",
           "enum": [
             "Never attended school or only attended kindergarten",
             "Grades 1 through 4 (Primary school)",
@@ -58,6 +77,19 @@
             "Don’t know/Not sure",
             "Prefer not to answer"
           ],
+          "enumNames": [
+            "Nunca asistí a la escuela o solamente asistí al jardín de infantes",
+            "(Primaria) Grados 1 hasta 4",
+            "(Secundaria) Grados 5 hasta 8",
+            "(Algo de Preparatoria) Grados 9 hasta 11 ",
+            "(Graduado de Preparatoria) hasta el grado 12 o GED",
+            "(Algo de Universidad, Grado de estudiante asociado o escuela técnica)1 o 3 años después de preparatoria.",
+            "Graduado Universitario (4 años o más)",
+            "Título avanzado (maestría, doctorado, etc.)",
+            "No se / No estoy seguro",
+            "Prefiero no responder "
+          ],
+
           "uniqueItems": true
         }
       }
@@ -68,7 +100,7 @@
       "properties": {
         "income": {
           "type": "string",
-          "title": "4. Thinking about members of your daily living in this household, what is your combined annual income, meaning the total pre-tax income from all sources earned in the last year? ",
+          "title": "4. Tomando en cuenta los miembros que viven diariamente en su casa, ¿cuál es su ingreso anual combinado, es decir, el ingreso total antes de impuestos de todas las fuentes obtenidas en el último año?",
           "enum": [
             "$0 to $9,999",
             "$10,000 to $14,999",
@@ -82,11 +114,24 @@
             "Don’t know/Not sure",
             "Prefer not to answer"
           ],
+          "enumNames": [
+            "$0 hasta $9,999",
+            "$10,000 hasta $14,999",
+            "$15,000 hasta $19,999",
+            "$20,000 hasta $34,999",
+            "$35,000 hasta $49,999",
+            "$50,000 hasta $74,999",
+            "$75,000 hasta $99,999",
+            "$100,000 hasta $199,999",
+            "$200,000 o más",
+            "No se / No estoy seguro",
+            "Prefiero no responder"
+          ],
           "uniqueItems": true
         },
         "healthcare_pay": {
           "type": "string",
-          "title": "5. How do you normally pay for your healthcare?",
+          "title": "5. ¿Cómo paga normalmente su atención médica?",
           "enum": [
             "Insurance purchased directly from an insurance company (by you or another family member)",
             "Insurance through a current or former employer or union (by you or another family member)",
@@ -99,16 +144,27 @@
             "I don’t know",
             "Prefer not to answer"
           ],
+          "enumNames": [
+            "Seguro comprado directamente de una compañía de seguros (por usted u otro miembro de su familia)",
+            "Seguro a través de su empleador actual, empleador anterior o su sindicato (Mediante usted u otro miembro de la familia)",
+            "Medicare, para personas mayores de 65 años o personas con ciertas discapacidades",
+            "Medicaid, asistencia médica o cualquier tipo de plan de asistencia gubernamental para personas con bajos ingresos o discapacidades",
+            "TRICARE u otra atención médica militar",
+            "Administración de Veteranos (VA) (incluidos los que han utilizado alguna vez o está inscrito para el cuidado de la salud del VA)",
+            "Servicio de salud indio",
+            "No tengo seguro de salud, pago por mi cuenta",
+            "No lo sé",
+            "Prefiero no responder"
+          ],
           "uniqueItems": true
         },
         "how_heard": {
           "type": "array",
-          "title": "6. How did you hear about this study? (check all that apply)",
+          "title": "6. ¿Cómo usted se enteró de este estudio? (marque todos los que corresponda)",
           "uniqueItems": true,
           "minItems": 1,
           "items": {
             "type": "string",
-
             "enum": [
               "Newspaper",
               "Radio",
@@ -124,12 +180,28 @@
               "Friend/family",
               "Other",
               "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Periódico",
+              "Radio",
+              "Televisión",
+              "Facebook",
+              "Twitter",
+              "búsqueda en línea",
+              "Folleto / póster",
+              "Sitio web llamado Recluta a Mi",
+              "Mediante correo electrónico de la Universidad de Columbia",
+              "Alianza Dominicana",
+              "Grupo público - Survivor Corps",
+              "Familia/Amistades",
+              "Otro",
+              "Prefiero no responder"
             ]
           }
         },
         "how_heard_other": {
           "type": "string",
-          "title": "6a. If you selected 'other', please specify."
+          "title": "6a. Si ha seleccionado 'otro', por favor especifique."
         }
       }
     }
