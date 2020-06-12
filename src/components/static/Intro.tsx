@@ -410,7 +410,6 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
             <Grid item xs={12} md={6}>
               <div className={classes.labImageDiv}>
                 <img src={LandingPageWalk} alt="Lab" width="100%" />
-                <p className={classes.photographyNote}>{t('home.text2')}</p>
               </div>
             </Grid>
             <Grid item xs={12} md={6}>
