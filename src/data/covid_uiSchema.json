@@ -259,11 +259,8 @@
       "symptoms_start",
       "symptoms_dates",
       "kind_of_testing",
-      "result",
-      "nasal_swab_date",
-      "nasal_swab_result",
-      "serum_test_date",
-      "serum_test_result",
+
+   
       "how_was_it_treated"
     ],
     "symptoms_start": {
@@ -300,13 +297,29 @@
       }
     },
     "kind_of_testing": {
-      "ui:widget": "radio",
+      "classNames": "symptoms",
+      "ui:field": "checkboxExclusiveField",
+      "ui:order": [
+        "nasal_swab",
+        "nasal_swab_date",
+        "nasal_swab_result",
+        "serum_test",
+        "serum_test_date",
+        "serum_test_result",
+        "no_test",
+        "no_test_no_symptoms",
+        "dont_know",
+        "no_answer"
+      ],
+      "ui:exclusive": [ "no_test",
+        "no_test_no_symptoms",
+        "dont_know",
+        "no_answer"],
+      "ui:dependent_option_postfix": ["_date, _result"],
+      "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
-      }
-    },
-    "result": {
-      "classNames": "subfields",
+      },
       "nasal_swab_date": {
         "classNames": ["nasal_swab"],
         "ui:widget": "CustomDateWidget",
@@ -319,13 +332,13 @@
       },
       "nasal_swab_result": {
         "ui:widget": "radio",
-        "classNames": ["secondary_radio nasal_swab"],
+        "classNames":  ["secondary_radio test_result subcheckbox"],
         "ui:options": {
           "inline": false
         }
       },
       "serum_test_date": {
-        "classNames": ["antibody"],
+        "classNames": ["nasal_swab"],
         "ui:widget": "CustomDateWidget",
         "ui:options": {
           "yearsRange": [2020, 2020],
@@ -335,13 +348,16 @@
         }
       },
       "serum_test_result": {
-        "classNames": ["secondary_radio antibody"],
         "ui:widget": "radio",
+        "classNames": ["secondary_radio test_result subcheckbox"],
         "ui:options": {
           "inline": false
         }
       }
+
+    
     },
+   
     "how_was_it_treated": {
       "ui:widget": "radio",
       "ui:options": {
