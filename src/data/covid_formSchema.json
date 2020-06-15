@@ -12,11 +12,15 @@
           "Occurred even after I started to feel much better",
           "I still have this symptom"
         ],
-        "enum": ["first_symptom", "occured_when_worst", "occured_when_better", "still_symptom"]
+        "enum": [
+          "first_symptom",
+          "occured_when_worst",
+          "occured_when_better",
+          "still_symptom"
+        ]
       }
     },
 
- 
     "symptoms": {
       "type": "object",
       "properties": {
@@ -68,7 +72,6 @@
             "still_have_symptoms": {
               "title": "I still have symptoms",
               "type": "boolean"
-       
             }
           }
         }
@@ -76,6 +79,7 @@
     },
     "symptoms1": {
       "type": "object",
+      "required":["symptoms_list"],
       "properties": {
         "symptoms_list": {
           "type": "object",
@@ -245,7 +249,6 @@
                       "type": "number",
                       "minimum": 90
                     }
-                   
                   }
                 }
               ]
@@ -267,7 +270,6 @@
                     "shortness_breath_duration": {
                       "$ref": "#/definitions/symptomDuration"
                     }
-                  
                   }
                 }
               ]
@@ -289,7 +291,6 @@
                     "chest_pain_duration": {
                       "$ref": "#/definitions/symptomDuration"
                     }
-                   
                   }
                 }
               ]
@@ -311,7 +312,6 @@
                     "night_sweats_duration": {
                       "$ref": "#/definitions/symptomDuration"
                     }
-                   
                   }
                 }
               ]
@@ -354,7 +354,6 @@
                     "rash_duration": {
                       "$ref": "#/definitions/symptomDuration"
                     }
-                   
                   }
                 }
               ]
@@ -800,25 +799,101 @@
       "required": ["kind_of_testing", "how_was_it_treated"],
       "properties": {
         "kind_of_testing": {
-          "type": "string",
-          "uniqueItems": true,
+          "type": "object",
+
           "title": "6. What kind of COVID-19 testing have you had?",
-          "enumNames": [
-            "Nasal swab",
-            "Serum antibody tests",
-            "I was not tested, but I had suspected COVID-19",
-            "I was not tested and had no symptoms",
-            "I don't know",
-            "Prefer not to answer"
-          ],
-          "enum": [
-            "nasal_swab",
-            "serum_antibody_tests",
-            "no_test",
-            "no_test_no_symptoms",
-            "dont_know",
-            "no_answer"
-          ]
+          "properties": {
+            "nasal_swab": {
+              "type": "boolean",
+              "title": "Nasal swab"
+            },
+            "serum_test": {
+              "type": "boolean",
+              "title": "Serum antibody tests"
+            },
+            "no_test": {
+              "type": "boolean",
+              "title": "I was not tested, but I had suspected COVID-19"
+            },
+            "no_test_no_symptoms": {
+              "type": "boolean",
+              "title": "I was not tested and had no symptoms"
+            },
+            "dont_know": {
+              "type": "boolean",
+              "title": "I don't know"
+            },
+            "no_answer": {
+              "type": "boolean",
+              "title": "Prefer not to answer"
+            }
+          },
+          "dependencies": {
+
+
+            "nasal_swab": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "nasal_swab": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "nasal_swab": {
+                      "enum": [true]
+                    },
+                    "nasal_swab_date": {
+                      "title": "Date of test:",
+                      "type": "string"
+                    },
+                    "nasal_swab_result": {
+                      "title": "Result of the test?",
+                      "type": "string",
+                      "uniqueItems": true,
+                      "enum": ["positive", "negative"],
+                      "enumNames": ["COVID-19 Positive", "COVID-19 Negative"]
+                    }
+                  }
+                }
+              ]
+            },
+            "serum_test": {
+
+              "oneOf": [
+                {
+                  "properties": {
+                    "serum_test": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "serum_test": {
+                      "enum": [true]
+                    },
+                    "serum_test_date": {
+                      "title": "Date of test:",
+                      "type": "string"
+                    },
+                    "serum_test_result": {
+                      "title": "Result of the test?",
+                      "type": "string",
+                      "uniqueItems": true,
+                      "enum": ["positive", "negative"],
+                      "enumNames": ["COVID-19 Positive", "COVID-19 Negative"]
+                    }
+                  }
+                }
+              ]
+
+            }
+            
+
+          }
         },
         "how_was_it_treated": {
           "type": "string",
@@ -841,74 +916,8 @@
           ],
           "uniqueItems": true
         }
-      },
-      "dependencies": {
-     
-        "kind_of_testing": {
-          "oneOf": [
-            {
-              "properties": {
-                "kind_of_testing": {
-                  "enum": [
-                    "no_test",
-                    "no_test_no_symptoms",
-                    "dont_know",
-                    "no_answer"
-                  ]
-                }
-              }
-            },
-            {
-              "properties": {
-                "kind_of_testing": {
-                  "enum": ["nasal_swab"]
-                },
-                "result": {
-                  "type": "object",
-                  "title": "6a. When was your test and what was the result?",
-                  "properties": {
-                    "nasal_swab_date": {
-                      "title": "Date of test:",
-                      "type": "string"
-                    },
-                    "nasal_swab_result": {
-                      "title": "Result of the test?",
-                      "type": "string",
-                      "uniqueItems": true,
-                      "enum": ["positive", "negative"],
-                      "enumNames": ["COVID-19 Positive", "COVID-19 Negative"]
-                    }
-                  }
-                }
-              }
-            },
-            {
-              "properties": {
-                "kind_of_testing": {
-                  "enum": ["serum_antibody_tests"]
-                },
-                "result": {
-                  "title": "6a. When was your test and what was the result? ",
-                  "type": "object",
-                  "properties": {
-                    "serum_test_date": {
-                      "title": "Date of test",
-                      "type": "string"
-                    },
-                    "serum_test_result": {
-                      "title": "Result of the test?",
-                      "type": "string",
-                      "uniqueItems": true,
-                      "enum": ["positive", "negative"],
-                      "enumNames": ["COVID-19 Positive", "COVID-19 Negative"]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
       }
+     
     },
     "hospitalization": {
       "type": "object",

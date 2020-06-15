@@ -46,7 +46,7 @@
           "conditions": {
             "all": [
               {
-                "fact": "symptoms",
+                "fact": "symptoms1",
                 "operator": "notHasChecked",
                 "path": ".symptoms_list",
                 "value": true
@@ -58,7 +58,7 @@
             "params": {
               "message": "   ",
               "name": "required",
-              "property": "symptoms.symptoms_list"
+              "property": "symptoms1.symptoms_list"
             }
           },
           "priority:": 1
@@ -88,6 +88,29 @@
             "type": "next",
             "params": {
               "next": "hospitalization"
+            }
+          },
+          "priority:": 1
+        }
+      ],
+      "validationRules": [
+        {
+          "conditions": {
+            "all": [
+              {
+                "fact": "symptoms2",
+                "operator": "notHasChecked",
+                "path": ".kind_of_testing",
+                "value": true
+              }
+            ]
+          },
+          "event": {
+            "type": "validation",
+            "params": {
+              "message": "   ",
+              "name": "required",
+              "property": "symptoms2.kind_of_testing"
             }
           },
           "priority:": 1
