@@ -229,7 +229,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
         <ListItem button className={classes.mobileMenuItem} 
           onClick={() => {
             handleDrawerToggle()
-            i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')
+            changeLanguage()
           }}
           >
             {language === 'es' ? 'in English' : 'en español'}

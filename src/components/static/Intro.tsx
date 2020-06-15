@@ -8,7 +8,6 @@ import {
   IconButton,
 } from '@material-ui/core'
 import { playfairDisplayFont, openSansFont } from '../../App'
-//import LandingPageAboveFold from '../../assets/LandingPageAboveFold0.png'
 import LandingPageAboveFold0 from '../../assets/LandingPageAboveFold0.png'
 import LandingPageAboveFold1 from '../../assets/LandingPageAboveFold1.png'
 import LandingPageAboveFold2 from '../../assets/LandingPageAboveFold2.png'
@@ -325,7 +324,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
       <div>
         <div className={classes.heroContainer}>
           <div className={classes.heroTextGradiant}></div>
-          <Hidden smUp>
+          <Hidden mdUp>
           <img
               className={classes.heroImage}
               src={LandingPageAboveFold0Mobile}
@@ -348,7 +347,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               style={{ opacity: heroImage3Opacity }}
             />
           </Hidden>
-          <Hidden xsDown>
+          <Hidden smDown>
           
              <img
               className={classes.heroImage}
