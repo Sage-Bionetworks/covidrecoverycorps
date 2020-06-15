@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button } from '@material-ui/core'
 import _ from 'lodash'
 import { SurveyService } from '../../services/survey.service'
+import {TestLocationEnum }from '../../types/types'
 
 type TestLoctionSurveyProps = {
   surveyUpdatedCallbackFn: Function,
@@ -15,12 +16,12 @@ const TestLoctionSurvey: React.FunctionComponent<TestLoctionSurveyProps> = ({
   surveyUpdatedCallbackFn,
   token
 }: TestLoctionSurveyProps) => {
-  const [location, setLocation] = useState<string | undefined>(undefined)
+  const [location, setLocation] = useState<TestLocationEnum| undefined>(undefined)
 
 const postSurvey = async () => {
   await SurveyService.postToHealthData('TEST_LOCATION', {location: location}, token)
   await SurveyService.saveSurvey('TEST_LOCATION', {location: location}, token, new Date())
-  surveyUpdatedCallbackFn()
+  surveyUpdatedCallbackFn(location)
 }
 
   return (
@@ -36,9 +37,9 @@ const postSurvey = async () => {
                       <span>
                         <input
                           type="radio"
-                          onChange={() => setLocation('lab')}
-                          value="lab"
-                          checked={location === 'lab'}
+                          onChange={() => setLocation(TestLocationEnum.LAB)}
+                          value={TestLocationEnum.LAB}
+                          checked={location === TestLocationEnum.LAB}
                         />
                         <span>Go to a lab draw</span>
                       </span>
@@ -49,22 +50,22 @@ const postSurvey = async () => {
                       <span>
                         <input
                           type="radio"
-                          onChange={() => setLocation('home')}
-                          value="home"
-                          checked={location === 'home'}
+                          onChange={() => setLocation(TestLocationEnum.HOME)}
+                          value={TestLocationEnum.HOME}
+                          checked={location === TestLocationEnum.HOME}
                         />
                         <span>Wait for a home test kit</span>
                       </span>
                     </label>
                   </div>
-                  <div className="radio ">
+                  <div className="radio">
                     <label>
                       <span>
                         <input
                           type="radio"
-                          onChange={() => setLocation('noTest')}
-                          value="noTest"
-                          checked={location === 'noTest'}
+                          onChange={() => setLocation(TestLocationEnum.NO_TEST)}
+                          value={TestLocationEnum.NO_TEST}
+                          checked={location === TestLocationEnum.NO_TEST}
                         />
                         <span>Not interested in testing</span>
                       </span>

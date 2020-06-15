@@ -17,6 +17,7 @@ import {
   SurveyType,
   SavedSurvey,
   ReportData,
+  TestLocationEnum,
 } from '../types/types'
 import _ from 'lodash'
 import { UserService } from '../services/user.service'
@@ -92,7 +93,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   const [
     isTestLocationSurveySubmitted,
     setIsTestLocationSurveySubmitted,
-  ] = useState(false)
+  ] = useState<TestLocationEnum | undefined>(undefined)
 
   const classes = useStyles()
 
@@ -257,13 +258,31 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       <>
         <img src={iconWooHoo} alt="woo hoo!"></img>
         <h2>Whoo hoo!</h2>
-        <p>
-          We’ve added you to the waiting list for an antibody test. If you are
-          selected, you will receive an email.
-        </p>
+        {(isTestLocationSurveySubmitted === TestLocationEnum.LAB ||
+          isTestLocationSurveySubmitted === TestLocationEnum.HOME) && (
+          <p>
+            We’ve added you to the waiting list for an antibody test. If you are
+            selected, you will receive an email.
+          </p>
+        )}
         <p>
           {' '}
           Please consider completing the rest of the surveys if you have time.
+        </p>
+      </>
+    )
+
+    const doneMainNoLocationSurveyEl = (
+      <>
+        <img src={iconWooHoo} alt="woo hoo!"></img>
+        <h2>Whoo hoo!</h2>
+        <p>
+          You’ve completed the minimum surveys to qualify for an antibody test!
+        </p>
+        <p>
+          {' '}
+          Although we cannot guarantee testing for everyone, we will do our best
+          to accomodate based on availability.
         </p>
       </>
     )
@@ -280,11 +299,16 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     if (completionStatus === 'NOT_DONE') {
       return <></>
     }
-    return (
-      <div className="finished-status text-center">
-        {completionStatus === 'ALL_DONE' ? doneAllEl : doneMainEl}
-      </div>
-    )
+
+    if (completionStatus === 'MAIN_DONE') {
+      return (
+        <div className="finished-status text-center">
+          {isDone('TEST_LOCATION') ? doneMainEl : doneMainNoLocationSurveyEl}
+        </div>
+      )
+    }
+
+    return <div className="finished-status text-center">{doneAllEl}</div>
   }
 
   if (isLoading) {
@@ -329,8 +353,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
                 </strong>
               </p>
               <TestLocationSurvey
-                surveyUpdatedCallbackFn={() =>
-                  setIsTestLocationSurveySubmitted(true)
+                surveyUpdatedCallbackFn={(location: TestLocationEnum) =>
+                  setIsTestLocationSurveySubmitted(location)
                 }
                 token={token}
               ></TestLocationSurvey>{' '}

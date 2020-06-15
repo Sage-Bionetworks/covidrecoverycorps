@@ -32,6 +32,7 @@ export type Phone = {
   regionCode: string
 }
 
+
 export type UserAttributes = {
   address: string
   city: string
@@ -128,4 +129,10 @@ export type ReportData = {
 }
 export type ReportDataList = {
   items: ReportData[]
+}
+
+export enum TestLocationEnum  {
+  'HOME',
+  'LAB' ,
+  'NO_TEST'
 }
