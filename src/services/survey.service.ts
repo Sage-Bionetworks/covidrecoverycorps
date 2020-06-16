@@ -19,12 +19,16 @@ export const SurveyService = {
 
 const SURVEY_ENDPOINT = `/v4/users/self/reports/${SURVEY_IDENTIFIER}`
 
-async function postToHealthData(surveyType: SurveyType, surveyData: any, token: string): Promise<any> {
+async function postToHealthData(
+  surveyType: SurveyType,
+  surveyData: any,
+  token: string,
+): Promise<any> {
   const postData = {
     appVersion: 'v1',
     createdOn: new Date().toISOString(),
     data: surveyData,
-    metadata: {type: surveyType},
+    metadata: { type: surveyType },
     phoneInfo: navigator.userAgent,
   }
 
@@ -71,11 +75,12 @@ async function getUserSurveys(
 }
 
 async function saveSurvey(
-  surveyType: SurveyType, surveyData: any, token: string, completedDate: Date) {
-
-  const savedSurveysResponse = await getUserSurveys(
-    token,
-  )
+  surveyType: SurveyType,
+  surveyData: any,
+  token: string,
+  completedDate: Date,
+) {
+  const savedSurveysResponse = await getUserSurveys(token)
   const savedData = _.first(savedSurveysResponse.data.items)
   // all surveys
   const savedSuveysData = savedData?.data
@@ -103,8 +108,7 @@ async function saveSurvey(
     }
   }
 
+  await SurveyService.postUserSurvey(savedSurveys, token)
 
-    await SurveyService.postUserSurvey(savedSurveys, token)
-  
-return
+  return
 }
