@@ -1,0 +1,1573 @@
+{
+  "definitions": {
+    "symptomDuration": {
+      "title": "¿Cuándo tuviste este síntoma? (Marque todo lo que corresponda)",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enumNames": [
+          "Fue uno de mis primeros síntomas",
+          "Ocurrió cuando estaba en mi peor condición",
+          "Ocurrió aun después de que comencé a sentirme mucho mejor",
+          "Yo aún tengo este síntoma"
+        ],
+        "enum": [
+          "first_symptom",
+          "occured_when_worst",
+          "occured_when_better",
+          "still_symptom"
+        ]
+      }
+    },
+
+    "symptoms": {
+      "type": "object",
+      "properties": {
+        "symptoms_start": {
+          "type": "object",
+          "title": "1. ¿Cuándo fue la primera vez que usted noto síntomas relacionados con COVID-19?",
+          "properties": {
+            "symptoms_start_date": {
+              "type": "string",
+              "title": "Primer día de los síntomas:"
+            }
+          }
+        },
+        "symptoms_worst": {
+          "type": "object",
+          "title": "2. ¿Cuándo usted sintió que sus síntomas estuvieron en su peor estado?",
+          "properties": {
+            "symptoms_worst_date": {
+              "type": "string",
+              "title": "El peor día de los síntomas:"
+            }
+          }
+        },
+
+        "symptoms_recovery": {
+          "type": "object",
+          "title": "3. ¿Cuándo sintió usted que sus síntomas estaban mejorando?",
+          "properties": {
+            "symptoms_recovery_date": {
+              "type": "string",
+              "title": "Yo empecé a sentirme mucho mejor en:"
+            },
+            "dont_feel_better": {
+              "title": "Yo no me siento mejor",
+              "type": "boolean",
+              "default": false
+            }
+          }
+        },
+
+        "symptoms_none": {
+          "type": "object",
+          "title": "4. ¿Cuándo sintió usted que ya no tenía síntomas?",
+          "properties": {
+            "symptoms_none_date": {
+              "type": "string",
+              "title": "El último día de cualesquiera de mis síntomas fue:"
+            },
+            "still_have_symptoms": {
+              "title": "Yo sigo teniendo síntomas",
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "symptoms1": {
+      "type": "object",
+      "properties": {
+        "symptoms_list": {
+          "type": "object",
+          "title": "5. Por favor describa sus síntomas (marque todos los que correspondan):",
+          "properties": {
+            "cough": {
+              "type": "boolean",
+              "title": "Tos"
+            },
+            "fever": {
+              "type": "boolean",
+              "title": "Fiebre"
+            },
+            "shortness_breath": {
+              "type": "boolean",
+              "title": "Insuficiencia respiratoria"
+            },
+            "chest_pain": {
+              "type": "boolean",
+              "title": "Dolor de pecho"
+            },
+            "night_sweats": {
+              "type": "boolean",
+              "title": "Sudores nocturnos"
+            },
+            "chills": {
+              "type": "boolean",
+              "title": "Escalofríos"
+            },
+            "rash": {
+              "type": "boolean",
+              "title": "Erupción"
+            },
+            "swollen_fingers_toes": {
+              "type": "boolean",
+              "title": "Dedos hinchados y rojos/Dedos de pies rojos e hinchados"
+            },
+            "conjunctivitis": {
+              "type": "boolean",
+              "title": "Conjuntivitis (ojos rojos)"
+            },
+
+            "fatigue": {
+              "type": "boolean",
+              "title": "Fatiga"
+            },
+            "headache": {
+              "type": "boolean",
+              "title": "dolor de cabeza"
+            },
+            "confusion": {
+              "type": "boolean",
+              "title": "Confusión / inhabilidad para pensar con claridad"
+            },
+
+            "muscle_pain": {
+              "type": "boolean",
+              "title": "Dolor muscular"
+            },
+            "runny_nose": {
+              "type": "boolean",
+              "title": "Goteo nasal"
+            },
+            "sore_throat": {
+              "type": "boolean",
+              "title": "Dolor de garganta"
+            },
+            "diarrhea": {
+              "type": "boolean",
+              "title": "Diarrea"
+            },
+            "nausea_vomiting": {
+              "type": "boolean",
+              "title": "Náuseas o vómitos"
+            },
+            "abdominal_pain": {
+              "type": "boolean",
+              "title": "Dolor abdominal"
+            },
+            "foamy_urine": {
+              "type": "boolean",
+              "title": "Orina espumosa"
+            },
+            "red_urine": {
+              "type": "boolean",
+              "title": "Orina Roja"
+            },
+            "loss_of_smell": {
+              "type": "boolean",
+              "title": "Pérdida de sentido del olfato parcial o total"
+            },
+            "loss_of_taste": {
+              "type": "boolean",
+              "title": "Pérdida de sentido del gusto parcial o total"
+            },
+            "hallucinations": {
+              "type": "boolean",
+              "title": "Alucinaciones"
+            },
+            "loss_of_consciousness": {
+              "type": "boolean",
+              "title": "Pérdida de consciencia"
+            },
+            "seizures": {
+              "type": "boolean",
+              "title": "Convulsiones"
+            },
+            "paralysis": {
+              "type": "boolean",
+              "title": "Inhabilidad de mover parte de su cuerpo (parálisis)"
+            },
+
+            "no_symptoms": {
+              "type": "boolean",
+              "title": "Yo nunca tuve síntomas"
+            },
+            "prefer_not_answer": {
+              "type": "boolean",
+              "title": "Prefiero no responder"
+            },
+            "other": {
+              "type": "boolean",
+              "title": "Otro"
+            }
+          },
+          "dependencies": {
+            "cough": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "cough": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "cough": {
+                      "enum": [true]
+                    },
+                    "cough_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "fever": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "fever": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "fever": {
+                      "enum": [true]
+                    },
+                    "fever_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    },
+                    "fever_highest": {
+                      "title": "¿Cuál fue la temperatura más alta? (\u00B0 F) ",
+                      "type": "number",
+                      "minimum": 90
+                    }
+                  }
+                }
+              ]
+            },
+            "shortness_breath": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "shortness_breath": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "shortness_breath": {
+                      "enum": [true]
+                    },
+                    "shortness_breath_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "chest_pain": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "chest_pain": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "chest_pain": {
+                      "enum": [true]
+                    },
+                    "chest_pain_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "night_sweats": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "night_sweats": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "night_sweats": {
+                      "enum": [true]
+                    },
+                    "night_sweats_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "chills": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "chills": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "chills": {
+                      "enum": [true]
+                    },
+                    "chills_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "rash": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "rash": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "rash": {
+                      "enum": [true]
+                    },
+                    "rash_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "swollen_fingers_toes": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "swollen_fingers_toes": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "swollen_fingers_toes": {
+                      "enum": [true]
+                    },
+                    "swollen_fingers_toes_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "conjunctivitis": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "conjunctivitis": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "conjunctivitis": {
+                      "enum": [true]
+                    },
+                    "conjunctivitis_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+
+            "fatigue": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "fatigue": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "fatigue": {
+                      "enum": [true]
+                    },
+                    "fatigue_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "headache": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "headache": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "headache": {
+                      "enum": [true]
+                    },
+                    "headache_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+
+            "confusion": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "confusion": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "confusion": {
+                      "enum": [true]
+                    },
+                    "confusion_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+
+            "muscle_pain": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "muscle_pain": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "muscle_pain": {
+                      "enum": [true]
+                    },
+                    "muscle_pain_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+
+            "runny_nose": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "runny_nose": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "runny_nose": {
+                      "enum": [true]
+                    },
+                    "runny_nose_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "sore_throat": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "sore_throat": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "sore_throat": {
+                      "enum": [true]
+                    },
+                    "sore_throat_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "diarrhea": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "diarrhea": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "diarrhea": {
+                      "enum": [true]
+                    },
+                    "diarrhea_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "nausea_vomiting": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "nausea_vomiting": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "nausea_vomiting": {
+                      "enum": [true]
+                    },
+                    "nausea_vomiting_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "abdominal_pain": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "abdominal_pain": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "abdominal_pain": {
+                      "enum": [true]
+                    },
+                    "abdominal_pain_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+
+            "hallucinations": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "hallucinations": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "hallucinations": {
+                      "enum": [true]
+                    },
+                    "hallucinations_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+
+            "loss_of_consciousness": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "loss_of_consciousness": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "loss_of_consciousness": {
+                      "enum": [true]
+                    },
+                    "loss_of_consciousness_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+
+            "seizures": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "seizures": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "seizures": {
+                      "enum": [true]
+                    },
+                    "seizures_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "paralysis": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "paralysis": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "paralysis": {
+                      "enum": [true]
+                    },
+                    "paralysis_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+
+            "foamy_urine": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "foamy_urine": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "foamy_urine": {
+                      "enum": [true]
+                    },
+                    "foamy_urine_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "red_urine": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "red_urine": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "red_urine": {
+                      "enum": [true]
+                    },
+                    "red_urine_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "loss_of_smell": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "loss_of_smell": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "loss_of_smell": {
+                      "enum": [true]
+                    },
+                    "loss_of_smell_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "loss_of_taste": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "loss_of_taste": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "loss_of_taste": {
+                      "enum": [true]
+                    },
+                    "loss_of_taste_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            },
+            "other": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [true]
+                    },
+                    "other_specify": {
+                      "title": "Por favor especificar",
+                      "type": "string"
+                    },
+                    "other_duration": {
+                      "$ref": "#/definitions/symptomDuration"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "symptoms2": {
+      "type": "object",
+      "required": ["kind_of_testing", "how_was_it_treated"],
+      "properties": {
+        "kind_of_testing": {
+          "type": "object",
+          "title": "6. ¿Qué tipo de prueba COVID-19 tuvo usted?",
+          "properties": {
+            "nasal_swab": {
+              "type": "boolean",
+              "title": "Hisopo nasal"
+            },
+            "serum_test": {
+              "type": "boolean",
+              "title": "Pruebas de anticuerpos en suero"
+            },
+            "no_test": {
+              "type": "boolean",
+              "title": "No me hicieron la prueba, pero yo sospechaba que tenía el COVID-19"
+            },
+            "no_test_no_symptoms": {
+              "type": "boolean",
+              "title": "Yo no tuve síntomas ni me hicieron la prueba"
+            },
+            "dont_know": {
+              "type": "boolean",
+              "title": "Yo no lo sé"
+            },
+            "no_answer": {
+              "type": "boolean",
+              "title": "Prefiero no responder"
+            }
+          },
+          "dependencies": {
+            "nasal_swab": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "nasal_swab": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "nasal_swab": {
+                      "enum": [true]
+                    },
+                    "nasal_swab_date": {
+                      "title": "Fecha de la prueba:",
+                      "type": "string"
+                    },
+                    "nasal_swab_result": {
+                      "title": "Resultado de la prueba?",
+                      "type": "string",
+                      "uniqueItems": true,
+                      "enum": ["positive", "negative"],
+                      "enumNames": ["COVID-19 Positivo", "COVID-19 Negativo"]
+                    }
+                  }
+                }
+              ]
+            },
+            "serum_test": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "serum_test": {
+                      "enum": [null]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "serum_test": {
+                      "enum": [true]
+                    },
+                    "serum_test_date": {
+                      "title": "Fecha de la prueba:",
+                      "type": "string"
+                    },
+                    "serum_test_result": {
+                      "title": "Resultado de la prueba?",
+                      "type": "string",
+                      "uniqueItems": true,
+                      "enum": ["positive", "negative"],
+                      "enumNames": ["COVID-19 Positivo", "COVID-19 Negativo"]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "how_was_it_treated": {
+          "type": "string",
+          "title": "7. ¿Como fue su tratamiento de COVID-19? (Escoja una sola respuesta que refleje el nivel de su cuidado médico más intensivo)",
+          "enum": [
+            "at_home",
+            "doctor's office",
+            "emergency_room",
+            "hospital",
+            "icu",
+            "no answer"
+          ],
+          "enumNames": [
+            "Mi COVID-19 fue manejado en casa",
+            "Yo fui visto en un consultorio médico, clínica o carpa de detección, y despuse fui enviado a casa",
+            "Yo fui visto en la sala de emergencias y despuse me enviaron a casa",
+            "Yo fui internado en el hospital",
+            "Yo estaba en la unidad de cuidados intensivos",
+            "Prefiero no responder"
+          ],
+          "uniqueItems": true
+        }
+      }
+    },
+    "hospitalization": {
+      "type": "object",
+      "required": ["hospitals", "hospitalization_treatment"],
+      "properties": {
+        "hospitals": {
+          "type": "array",
+          "title": "7a. Por favor indique todos los hospitales en los que recibió tratamiento para COVID-19. (Marque todo lo que corresponda)",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Brookdale Hospital",
+              "Calvary Hospital",
+              "Columbia/NewYork-Presbyterian",
+              "Elmhurst Hospital",
+              "Flushing Hospital",
+              "Gracie Square Hospital",
+              "Harlem Hospital",
+              "Hudson Valley Hospital",
+              "Jacobi Hospital",
+              "Kings County Hospital",
+              "Lawrence Hospital",
+              "Lenox Hill Hospital",
+              "Lower Manhattan Hospital",
+              "Maimonides",
+              "Metropolitan Hospital",
+              "Montefiore",
+              "Mount Sinai Beth Israel",
+              "Mount Sinai Hospital",
+              "Mount Sinai St. Luke’s Hospital",
+              "Mount Sinai West",
+              "New York Downtown Hospital",
+              "NewYork-Presbyterian Allen Hospital",
+              "NewYork-Presbyterian Brooklyn Methodist Hospital",
+              "NewYork-Presbyterian Medical Center-Queens",
+              "New York City Health and Hospital",
+              "North General Hospital",
+              "NYU Langone/Bellevue Hospital",
+              "St. Barnabas",
+              "Weill Cornell/ NewYork-Presbyterian",
+              "Woodhull Hospital",
+              "Other",
+
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Brookdale Hospital",
+              "Calvary Hospital",
+              "Columbia/NewYork-Presbyterian",
+              "Elmhurst Hospital",
+              "Flushing Hospital",
+              "Gracie Square Hospital",
+              "Harlem Hospital",
+              "Hudson Valley Hospital",
+              "Jacobi Hospital",
+              "Kings County Hospital",
+              "Lawrence Hospital",
+              "Lenox Hill Hospital",
+              "Lower Manhattan Hospital",
+              "Maimonides",
+              "Metropolitan Hospital",
+              "Montefiore",
+              "Mount Sinai Beth Israel",
+              "Mount Sinai Hospital",
+              "Mount Sinai St. Luke’s Hospital",
+              "Mount Sinai West",
+              "New York Downtown Hospital",
+              "NewYork-Presbyterian Allen Hospital",
+              "NewYork-Presbyterian Brooklyn Methodist Hospital",
+              "NewYork-Presbyterian Medical Center-Queens",
+              "New York City Health and Hospital",
+              "North General Hospital",
+              "NYU Langone/Bellevue Hospital",
+              "St. Barnabas",
+              "Weill Cornell/ NewYork-Presbyterian",
+              "Woodhull Hospital",
+              "Otro",
+
+              "Prefiero no responder"
+            ]
+          }
+        },
+        "hospitalization_treatment": {
+          "type": "object",
+          "title": "7b. Si fue hospitalizado, ¿tuvo usted lo siguiente? (marque todo lo que corresponda)",
+          "properties": {
+            "oxigen": {
+              "type": "boolean",
+              "title": "Suplementación de oxígeno a través de la cánula nasal",
+              "enum": [true, false]
+            },
+            "oxigen_mask": {
+              "type": "boolean",
+              "title": "Máscara de oxígeno, BIPAP, o CPAP (mascara de cara para ayúdate a respirar)",
+              "enum": [true, false]
+            },
+            "ventilator": {
+              "type": "boolean",
+              "title": "En ventilador pulmonar",
+              "enum": [true, false]
+            },
+            "kidney_dialysis": {
+              "type": "boolean",
+              "title": "Problemas de riñón requiriendo cualquier tipo de diálisis",
+              "enum": [true, false]
+            },
+            "heart_cathetirization": {
+              "type": "boolean",
+              "title": "Problemas del corazón requiriendo cateterización cardíaca",
+              "enum": [true, false]
+            },
+            "liver_problem": {
+              "type": "boolean",
+              "title": "Problemas del hígado o hepatitis",
+              "enum": [true, false]
+            },
+            "blood_clots": {
+              "type": "boolean",
+              "title": "Coágulos de sangre en las piernas o pulmones",
+              "enum": [true, false]
+            },
+            "septic_shock": {
+              "type": "boolean",
+              "title": "Shock séptico requiriendo soporte de la presión arterial con medicamentos para la presión administrados por vía intravenosa",
+              "enum": [true, false]
+            },
+            "stroke": {
+              "type": "boolean",
+              "title": "Ataque cardíaco o un accidente cerebrovascular (ACV)",
+              "enum": [true, false]
+            },
+            "encepalitis": {
+              "type": "boolean",
+              "title": "Encefalitis",
+              "enum": [true, false]
+            },
+            "other": {
+              "type": "boolean",
+              "title": "Otras complicaciones",
+              "enum": [true, false]
+            },
+            "none": {
+              "type": "boolean",
+              "title": "Ninguna anteriormente sugerida",
+              "enum": [true, false]
+            },
+
+            "prefer_not_answer": {
+              "type": "boolean",
+              "title": "Prefiero no responder",
+              "enum": [true, false]
+            }
+          },
+          "dependencies": {
+            "oxigen": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "oxigen": {
+                      "enum": [true]
+                    },
+                    "oxigen_days": {
+                      "type": "number",
+                      "title": "¿Cuántos días?",
+                      "minimum": 1
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "oxigen": {
+                      "enum": [false]
+                    }
+                  }
+                }
+              ]
+            },
+            "oxigen_mask": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "oxigen_mask": {
+                      "enum": [true]
+                    },
+                    "oxigen_mask_days": {
+                      "type": "number",
+                      "title": "¿Cuántos días?",
+                      "minimum": 1
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "oxigen_mask": {
+                      "enum": [false]
+                    }
+                  }
+                }
+              ]
+            },
+            "ventilator": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "ventilator": {
+                      "enum": [true]
+                    },
+                    "ventilator_days": {
+                      "type": "number",
+                      "title": "¿Cuántos días?",
+                      "minimum": 1
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "ventilator": {
+                      "enum": [false]
+                    }
+                  }
+                }
+              ]
+            },
+            "kidney_dialysis": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "kidney_dialysis": {
+                      "enum": [true]
+                    },
+                    "kidney_dialysis_days": {
+                      "type": "number",
+                      "title": "¿Cuántos días?",
+                      "minimum": 1
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "kidney_dialysis": {
+                      "enum": [false]
+                    }
+                  }
+                }
+              ]
+            },
+            "other": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [true]
+                    },
+                    "other_answer": {
+                      "type": "string",
+                      "title": "Por favor detalle:"
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [false]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "hospitals_other": {
+          "title": "Si usted fue tratado en un hospital diferente, ¿cuál fue el nombre?",
+          "type": "string"
+        }
+      },
+      "dependencies": {}
+    },
+    "habits": {
+      "type": "object",
+      "required": ["smoking", "vaping", "alcohol"],
+      "title": "",
+      "properties": {
+        "smoking": {
+          "type": "string",
+          "title": "10. ¿Usted fuma tabaco?",
+          "uniqueItems": true,
+          "enum": [
+            "I have never smoked regularly",
+            "I used to smoke, but I quit",
+            "I smoke only rarely",
+            "I smoke every day",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Yo nunca he fumado regularmente",
+            "Yo solía fumar, pero deje",
+            "Yo solamente rara vez fumo",
+            "Yo fumo todos los días",
+            "Prefiero no responder"
+          ]
+        },
+        "vaping": {
+          "type": "string",
+          "title": "11. ¿Tu vapeas?",
+          "uniqueItems": true,
+          "enum": [
+            "I have never vaped regularly",
+            "I used to vape, but I quit",
+            "I vape only rarely",
+            "I vape every day",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Yo nunca he vapeado regularmente",
+            "Yo solía vapear, pero lo deje",
+            "Yo solamente rara vez vapeo",
+            "Yo vapeo todos los días",
+            "Prefiero no responder"
+          ]
+        },
+        "alcohol": {
+          "type": "string",
+          "title": "12. ¿Con que frecuencia consume bebidas alcohólicas?",
+          "uniqueItems": true,
+          "enum": [
+            "Never",
+            "Once a month or less often",
+            "2-4 times a month",
+            "2-3 times a week",
+            "4 times a week or more often",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Nunca",
+            "Una vez al mes o con menos frecuencia",
+            "2-4 veces al mes",
+            "2-3 veces a la semana",
+            "4 veces a la semana o más seguido",
+            "Prefiero no responder"
+          ]
+        }
+      },
+      "dependencies": {
+        "smoking": {
+          "oneOf": [
+            {
+              "properties": {
+                "smoking": {
+                  "enum": ["I smoke every day"]
+                },
+                "smoking_how_many_cigarettes": {
+                  "type": "number",
+                  "title": "10a. ¿Cuántos cigarrillos fuma en promedio por día?"
+                }
+              }
+            },
+            {
+              "properties": {
+                "smoking": {
+                  "enum": [
+                    "I have never smoked regularly",
+                    "I used to smoke, but I quit",
+                    "I smoke only rarely",
+                    "Prefer not to answer"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "habits2": {
+      "type": "object",
+      "required": ["anxiety", "worry", "loneliness"],
+      "title": "",
+      "properties": {
+        "anxiety": {
+          "type": "string",
+          "title": "13. Durante la semana pasada, ¿con qué frecuencia se ha sentido nervioso, ansiedad o al borde de angustia?",
+          "uniqueItems": true,
+          "enum": [
+            "Not at all",
+            "1-2 days",
+            "3-4 days",
+            "5-7 days",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "En ningún momento",
+            "1-2 días",
+            "3-4 días",
+            "5-7 días",
+            "Prefiero no responder"
+          ]
+        },
+        "worry": {
+          "type": "string",
+          "title": "14. Durante la semana pasada, ¿con qué frecuencia usted no ha podido dejar de preocuparse?",
+          "uniqueItems": true,
+          "enum": [
+            "Not at all",
+            "1-2 days",
+            "3-4 days",
+            "5-7 days",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "En ningún momento",
+            "1-2 días",
+            "3-4 días",
+            "5-7 días",
+            "Prefiero no responder"
+          ]
+        },
+        "loneliness": {
+          "type": "string",
+          "title": "15. Hay muchas personas que también puede que hayan sentido soledad durante este tiempo. ¿Con qué frecuencia usted ha sentido soledad durante la semana pasada?",
+          "uniqueItems": true,
+          "enum": [
+            "Not at all",
+            "1-2 days",
+            "3-4 days",
+            "5-7 days",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "En ningún momento",
+            "1-2 días",
+            "3-4 días",
+            "5-7 días",
+            "Prefiero no responder"
+          ]
+        }
+      }
+    },
+    "medications": {
+      "required": ["regular_medications"],
+      "type": "object",
+      "title": "",
+      "properties": {
+        "regular_medications": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "title": "8. ¿Cuál de los siguientes medicamentos estaba usted tomando regularmente antes de enfermarse con COVID-19? (marque todo lo que corresponda)",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Nonsteroidal anti-inflammatory agents or NSAIDS (aspirin, celecoxib, diclofenac, Cambia, Cataflam, Voltaren, diflunisal, etodolac, ibuprofen, Motrin, Advil, indomethacin, Indocin, ketoprofen, ketorolac, nambumetone, naproxen, Aleve, Anaprox, Naprelan, Naprosyn, oxaprozin, Daypro,  piroxicam, Feldene, salsalate, Disalate, sulidnac, tolmetin)",
+              "Tylenol, Acetaminophen, Daquil, Nyquil, Excedrin, Sinutab",
+              "Aspirin",
+              "Asthma Medication (bronchodilator Ventolin, albuterol)",
+              "Inhaled corticosteroids (Advair, beclomethasone, budesonide, ciclesonide, flunisolide, fluticasone, or mometasone)",
+              "Oral or injected steroids (prednisone, methylprednisolone, dexamethasone, hydrocortisone)",
+              "Antihistamines (Benadryl, Clarithin, Zyrtec)",
+              "High blood pressure medication- ACE inhibitors (Benazepril, Captopril, Fosinopril, Lisinpril)",
+              "High blood pressure medication-angiotensin receptor blockers (Edarbi, Atacand, Eprosartan, Avapro)",
+              "High blood pressure medication- beta blockers (metoprolol, atenolol, tramadol)",
+              "Cholesterol lowering statins (such as atorvastatin or simvastatin)",
+              "Diabetic medication metformin",
+              "Blood thinning medications (Eliquis, Xarelto, Coumadin, Warfarin)",
+              "Antiplatelet medications to prevent a heart attack or stroke (clopidogrel, Plavix, prasugrel, ticagrelor, cilostazol)",
+              "Thyroid medication (levothryroxyne)",
+              "Heart burn medication (Pepcid, omeprazole)",
+              "Cancer drugs or chemotherapy",
+              "Pill to dampen the immune system (azathioprine)",
+              "Injectable medication to dampen the immune system (Enbrel, humira, actemra, anakinra, Xolair, dupixent)",
+              "IV medications for immune conditions (infliximab/Remicade, rituximab, abatacept/Orencia, and belimumab/Benlysta",
+              "Medications after organ transplant (tacrolimus, cyclosporin, Mycophenolate)",
+              "Anti-depressant (sertraline, fluoxetine, citalopram, trazodone, escitalopram)",
+              "Antibiotics",
+              "HIV medication (lopinavir/ritonavir, darunavir/ritonavir, tenofovir disoproxil fumarate (TDF), tenofovir alafenamide fumarate (TAF), and combination medications containing these agents)",
+              "None of the above",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Agentes antiinflamatorios no esteroides o AINE (aspirin, celecoxib, diclofenac, Cambia, Cataflam, Voltaren, diflunisal, etodolac, ibuprofen, Motrin, Advil, indomethacin, Indocin, ketoprofen, ketorolac, nambumetone, naproxen, Aleve, Anaprox, Naprelan, Naprosyn, oxaprozin, Daypro,  piroxicam, Feldene, salsalate, Disalate, sulidnac, tolmetin)",
+              "Tylenol, Acetaminophen, Daquil, Nyquil, Excedrin, Sinutab",
+              "Aspirin",
+              "Medicamentos para el Asma (broncodilatador Ventolin, albuterol)",
+              "Inhaled corticosteroids (Advair, beclomethasone, budesonide, ciclesonide, flunisolide, fluticasone, or mometasone)",
+              "Esteroides orales o inyectables (prednisone, methylprednisolone, dexamethasone, hydrocortisone)",
+              "Antihistamínicos (Benadryl, Clarithin, Zyrtec)",
+              "Medicamentos para la presión alta- inhibidores de la ECA (Benazepril, Captopril, Fosinopril, Lisinpril)",
+              "Medicación para la presión arterial alta- bloqueadores de los receptores de angiotensina (Edarbi, Atacand, Eprosartan, Avapro)",
+              "Medicación para la presión arterial alta – Betabloqueadores (metoprolol, atenolol, tramadol)",
+              "Estatinas para reducir el colesterol (tal como atorvastatin o simvastatin)",
+              "Medicamentos para diabéticos metformina",
+              "Medicamentos anticoagulantes (Eliquis, Xarelto, Coumadin, Warfarin)",
+              "Medicamentos antiplaquetarios para prevenir un ataque al corazón o un derrame cerebral (clopidogrel, Plavix, prasugrel, ticagrelor, cilostazol)",
+              "Medicamentos para la tiroides (levothryroxyne)",
+              "Medicamentos para la acidez estomacal (Pepcid, omeprazole)",
+              "Medicamentos contra el cáncer o quimioterapia",
+              "Píldora para suprimir el sistema inmunitario (azathioprine)",
+              "Medicamentos inyectables para suprimir el sistema inmunitario (Enbrel, humira, actemra, anakinra, Xolair, dupixent)",
+              "Medicamentos intravenosos para tratar enfermedades inmunológicas (infliximab/Remicade, rituximab, abatacept/Orencia, and belimumab/Benlysta",
+              "Medicamentos después del trasplante de órganos (tacrolimus, cyclosporin, Mycophenolate)",
+              "Antidepresivo (sertraline, fluoxetine, citalopram, trazodone, escitalopram)",
+              "Antibióticos",
+              "Medicamentos para el VIH (lopinavir/ritonavir, darunavir/ritonavir, tenofovir disoproxil fumarate (TDF), tenofovir alafenamide fumarate (TAF), and combination medications containing these agents)",
+              "Ninguna de las anteriores",
+              "Prefiero no responder"
+            ]
+          }
+        }
+      }
+    },
+    "medications2": {
+      "required": ["covid_medications"],
+      "type": "object",
+      "title": "",
+      "properties": {
+        "covid_medications": {
+          "type": "array",
+          "minItems": 1,
+          "title": "9. ¿Cuál de los siguientes medicamentos tomó / recibió para tratar su enfermedad de COVID-19? (marque todo lo que corresponda):",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Tylenol (acetaminophen)",
+              "NSAIDs (ibuprofen, aspirin, naproxen, celecoxib, diclofenac, indomethacin, piroxicam)",
+              "Hydroxychloroquine (Plaquenil) or Chloroquine",
+              "Azithromycin (Z-pack)",
+              "Pepcid or Famotidine",
+              "Corticosteroids (prednisone, methylprednisolone, dexamethasone, hydrocortisone)",
+              "IL-6 pathway blockers (sarilumab, tocilizumab, siltuximab)",
+              "JAK inhibitors (baricitinib, ruxolitinib, fedratinib, tofacitinib)",
+              "Remdesivir (GS-5735) or another protease inhibitor",
+              "Tamiflu (oseltamivir) or Xofluza (baloxavir marboxil)",
+              "HIV medications [lopinavir/ritonavir, tenofovir (TDF, TAF)]",
+              "Sofosbuvir",
+              "Ribavirin",
+              "Interferon alpha",
+              "Plasma therapy (antibodies from someone else)",
+              "Bronchodilators (asthma-like medications)",
+              "Don’t know",
+              "None of the above",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Tylenol (acetaminophen)",
+              "NSAIDs (ibuprofen, aspirin, naproxen, celecoxib, diclofenac, indomethacin, piroxicam)",
+              "Hydroxychloroquine (Plaquenil) o Chloroquine",
+              "Azithromycin (Z-pack)",
+              "Pepcid o Famotidine",
+              "Corticosteroides (prednisone, methylprednisolone, dexamethasone, hydrocortisone)",
+              "Bloqueadores en la ruta de interleucina-6 (sarilumab, tocilizumab, siltuximab)",
+              "Inhibidores de JAK (baricitinib, ruxolitinib, fedratinib, tofacitinib)",
+              "Remdesivir (GS-5735) or another protease inhibitor",
+              "Tamiflu (oseltamivir) or Xofluza (baloxavir marboxil)",
+              "Medicamentos para el VIH [lopinavir/ritonavir, tenofovir (TDF, TAF)]",
+              "Sofosbuvir",
+              "Ribavirin",
+              "Interferon alpha",
+              "Terapia con plasma (anticuerpos de otra persona)",
+              "Broncodilatadores (Medicamentos como para el asma)",
+              "No sé",
+              "Ninguna de las anteriores",
+              "Prefiero no responder"
+            ]
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "medications3": {
+      "required": ["hydroxychloroquine_side_effects"],
+      "type": "object",
+      "title": "",
+      "properties": {
+        "hydroxychloroquine_side_effects": {
+          "type": "array",
+          "minItems": 1,
+          "title": "9a. Si usted recibió tratamiento con hidroxicloroquina (Plaquenil), describa si ha tenido algunos de los siguientes síntomas. (marque todo lo que corresponda):",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Nausea or vomiting",
+              "Red skin rash",
+              "Severe necrotizing skin rash",
+              "Headaches or migraines",
+              "Vision problems or blindness",
+              "Night sweats",
+              "Insomnia",
+              "Heart problems",
+              "Abnormal heartbeat, or arrhythmia",
+              "Ringing in my ears",
+              "Tingling sensation",
+              "Loss of sensation in hands or feet",
+              "Seizures",
+              "Loss of consciousness or passing out",
+              "Hearing or seeing things that do not exist",
+              "None of the above",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Nauseas o vómitos",
+              "Erupciones rojas en la piel",
+              "Erupciones necrotizantes severas de la piel",
+              "Dolores de cabeza o migrañas",
+              "Problemas con la visión o ceguera",
+              "Sudores nocturnos",
+              "Insomnio",
+              "Problemas del corazón",
+              "Palpitaciones anormales del corazón o arritmia",
+              "Zumbido en mis oídos",
+              "Sensación de adormecimiento",
+              "Perdida de sensación en las manos o pies",
+              "Convulsiones",
+              "Pérdida de consciencia o desmayo",
+              "Escuchando o viendo cosas que no existe",
+              "Ninguna de las anteriores",
+              "Prefiero no responder"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "symptoms": {
+      "title": "",
+      "$ref": "#/definitions/symptoms"
+    },
+    "symptoms1": {
+      "title": "",
+      "$ref": "#/definitions/symptoms1"
+    },
+    "symptoms2": {
+      "title": "",
+      "$ref": "#/definitions/symptoms2"
+    },
+    "hospitalization": {
+      "title": "",
+      "$ref": "#/definitions/hospitalization"
+    },
+    "habits": {
+      "title": "",
+      "$ref": "#/definitions/habits"
+    },
+    "habits2": {
+      "title": "",
+      "$ref": "#/definitions/habits2"
+    },
+    "medications": {
+      "title": "",
+      "$ref": "#/definitions/medications"
+    },
+    "medications2": {
+      "title": "",
+      "$ref": "#/definitions/medications2"
+    },
+    "medications_hydroxy": {
+      "title": "",
+      "$ref": "#/definitions/medications3"
+    }
+  }
+}
