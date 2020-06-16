@@ -91,8 +91,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   const [isContactInfoDone, setIsContactInfoDone] = useState(false)
 
   const [
-    isTestLocationSurveySubmitted,
-    setIsTestLocationSurveySubmitted,
+    testLocationSurveySubmitted,
+    setTestLocationSurveySubmitted,
   ] = useState<TestLocationEnum | undefined>(undefined)
 
   const classes = useStyles()
@@ -120,7 +120,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     return () => {
       isSubscribed = false
     }
-  }, [token, isTestLocationSurveySubmitted])
+  }, [token, testLocationSurveySubmitted])
 
   /* POSSIBLE SCENARIOS:
 - minimum surveys not completed
@@ -258,8 +258,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       <>
         <img src={iconWooHoo} alt="woo hoo!"></img>
         <h2>Whoo hoo!</h2>
-        {(isTestLocationSurveySubmitted === TestLocationEnum.LAB ||
-          isTestLocationSurveySubmitted === TestLocationEnum.HOME) && (
+        {(testLocationSurveySubmitted === TestLocationEnum.LAB ||
+          testLocationSurveySubmitted === TestLocationEnum.HOME) && (
           <p>
             We’ve added you to the waiting list for an antibody test. If you are
             selected, you will receive an email.
@@ -318,6 +318,10 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       </div>
     )
   }
+  if (error !== undefined) {
+    return <Alert severity="error">{error['message'] || error}</Alert>
+  }
+
   return (
     <div className="Dashboard">
       {getCompletionStatus() === 'NOT_DONE' && (
@@ -336,8 +340,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         </div>
       )}
       <Card className={classes.root}>
-        {error && <Alert severity="error">{error}</Alert>}
-
         {getIntro()}
         {
           //if they fininshed main surveys and didn't pick location
@@ -354,7 +356,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
               </p>
               <TestLocationSurvey
                 surveyUpdatedCallbackFn={(location: TestLocationEnum) =>
-                  setIsTestLocationSurveySubmitted(location)
+                  setTestLocationSurveySubmitted(location)
                 }
                 token={token}
               ></TestLocationSurvey>{' '}
