@@ -23,7 +23,7 @@ export type ConsentCopyProps = {
 }
 
 export enum SCREENS_ENUM {
-  CONSENT_INTRO='INTRO',
+  CONSENT_INTRO='CONSENT_INTRO',
   CONSENT_SIGNATURE1='CONSENT_SIGNATURE1',
   CONSENT_SIGNATURE2='CONSENT_SIGNATURE2',
   CONSENT_SHARING='CONSENT_SHARING',
@@ -908,7 +908,7 @@ const ehrScreens = [
 ]
 
 const screens: {[key in SCREENS_ENUM]: JSX.Element} = {
-  INTRO: (
+  CONSENT_INTRO: (
     <>
     <h2>{i18next.t('consentinfo.welcome.text1')}</h2>
     <div className="Consent__copy">
