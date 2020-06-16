@@ -1,0 +1,493 @@
+{
+  "symptoms": {
+    "classNames": "symptom-dates",
+    "symptoms_start": {
+      "classNames": "subfields",
+      "ui:description": "Si usted no está seguro de la fecha exacta, por favor denos una fecha aproximada.",
+      "symptoms_start_date": {
+        "ui:widget": "CustomDateWidget",
+        "ui:options": {
+          "yearsRange": [2020, 2020],
+          "hideNowButton": true,
+          "hideClearButton": false,
+          "lessThanNow": true
+        },
+        "classNames": ["symptom_day"]
+      }
+    },
+    "symptoms_worst": {
+      "classNames": "subfields",
+      "ui:description": "Si usted no está seguro de la fecha exacta, por favor denos una fecha aproximada.",
+      "symptoms_worst_date": {
+        "ui:widget": "CustomDateWidget",
+        "ui:options": {
+          "yearsRange": [2020, 2020],
+          "hideNowButton": true,
+          "hideClearButton": false,
+          "lessThanNow": true
+        },
+        "classNames": ["symptom_day"]
+      }
+    },
+    "symptoms_recovery": {
+      "classNames": "subfields",
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["dont_feel_better"],
+      "ui:description": "Si usted no está seguro de la fecha exacta, por favor denos una fecha aproximada.",
+      "symptoms_recovery_date": {
+        "ui:widget": "CustomDateWidget",
+    
+        "ui:options": {
+          "yearsRange": [2020, 2020],
+          "hideNowButton": true,
+          "hideClearButton": false,
+          "lessThanNow": true
+        },
+        "classNames": ["symptom_day"]
+      },
+      "dont_feel_better": {
+        "classNames": "subcheckbox"
+      }
+    },
+    "symptoms_none": {
+      "classNames": "subfields",
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["still_have_symptoms"],
+      "ui:description": "Si usted no está seguro de la fecha exacta, por favor denos una fecha aproximada.",
+      "symptoms_none_date": {
+        "ui:widget": "CustomDateWidget",
+        "ui:options": {
+          "yearsRange": [2020, 2020],
+          "hideNowButton": true,
+          "hideClearButton": false,
+          "lessThanNow": true
+        },
+        "classNames": ["symptom_day"]
+      },
+      "still_have_symptoms": {
+        "classNames": "subcheckbox"
+      }
+    }
+  },
+  "symptoms1": {
+    "classNames": "symptoms",
+    "symptoms_list": {
+      "ui:field": "checkboxExclusiveField",
+      "ui:order": [
+        "cough",
+        "cough_duration",
+        "fever",
+        "fever_duration",
+        "fever_highest",
+        "shortness_breath",
+        "shortness_breath_duration",
+        "chest_pain",
+        "chest_pain_duration",
+        "night_sweats",
+        "night_sweats_duration",
+        "chills",
+        "chills_duration",
+        "rash",
+        "rash_duration",
+
+        "swollen_fingers_toes",
+        "swollen_fingers_toes_duration",
+        "conjunctivitis",
+        "conjunctivitis_duration",
+        "fatigue",
+        "fatigue_duration",
+        "headache",
+        "headache_duration",
+        "confusion",
+        "confusion_duration",
+        "muscle_pain",
+        "muscle_pain_duration",
+        "runny_nose",
+        "runny_nose_duration",
+        "sore_throat",
+        "sore_throat_duration",
+        "diarrhea",
+        "diarrhea_duration",
+        "nausea_vomiting",
+        "nausea_vomiting_duration",
+        "abdominal_pain",
+        "abdominal_pain_duration",
+        "foamy_urine",
+        "foamy_urine_duration",
+        "red_urine",
+        "red_urine_duration",
+        "loss_of_smell",
+        "loss_of_smell_duration",
+        "loss_of_taste",
+        "loss_of_taste_duration",
+        "hallucinations",
+        "hallucinations_duration",
+        "loss_of_consciousness",
+        "loss_of_consciousness_duration",
+        "seizures",
+        "seizures_duration",
+        "paralysis",
+        "paralysis_duration",
+        "no_symptoms",
+        "prefer_not_answer",
+        "other",
+        "other_specify",
+        "other_duration"
+      ],
+      "ui:exclusive": ["no_symptoms", "prefer_not_answer"],
+      "ui:dependent_option_postfix": ["_duration"],
+      "ui:widget": "checkboxes",
+      "ui:options": {
+        "inline": false
+      },
+      "cough_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "fever_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "shortness_breath_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "chest_pain_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "night_sweats_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "chills_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "rash_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "swollen_fingers_toes_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "conjunctivitis_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "fatigue_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "headache_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "confusion_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "muscle_pain_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "runny_nose_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "sore_throat_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "diarrhea_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "nausea_vomiting_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "abdominal_pain_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "foamy_urine_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "red_urine_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "loss_of_smell_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "loss_of_taste_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "hallucinations_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "loss_of_consciousness_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "paralysis_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "seizures_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      },
+      "other_specify": {
+        "classNames": "wide"
+      },
+      "other_duration": {
+        "classNames": "subcheckbox",
+        "ui:widget": "checkboxes"
+      }
+    }
+  },
+  "symptoms2": {
+    "classNames": "symptoms2",
+    "ui:order": [
+      "symptoms_start",
+      "symptoms_dates",
+      "kind_of_testing",
+
+   
+      "how_was_it_treated"
+    ],
+    "symptoms_start": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "symptoms_dates": {
+      "classNames": "subfields",
+      "ui:order": ["first_day", "last_day", "still_have_symptoms"],
+      "first_day": {
+        "ui:widget": "CustomDateWidget",
+        "ui:options": {
+          "yearsRange": [2020, 2020],
+          "hideNowButton": true,
+          "hideClearButton": true,
+          "lessThanNow": true
+        },
+        "classNames": ["symptom_day_first"]
+      },
+      "last_day": {
+        "ui:widget": "CustomDateWidget",
+        "ui:options": {
+          "yearsRange": [2020, 2020],
+          "hideNowButton": true,
+          "hideClearButton": true,
+          "lessThanNow": true
+        },
+        "classNames": ["symptom_day_last"]
+      },
+      "still_have_symptoms": {
+        "classNames": "still_symptoms"
+      }
+    },
+    "kind_of_testing": {
+      "classNames": "symptoms",
+      "ui:field": "checkboxExclusiveField",
+      "ui:order": [
+        "nasal_swab",
+        "nasal_swab_date",
+        "nasal_swab_result",
+        "serum_test",
+        "serum_test_date",
+        "serum_test_result",
+        "no_test",
+        "no_test_no_symptoms",
+        "dont_know",
+        "no_answer"
+      ],
+      "ui:exclusive": [ "no_test",
+        "no_test_no_symptoms",
+        "dont_know",
+        "no_answer"],
+      "ui:dependent_option_postfix": ["_date, _result"],
+      "ui:widget": "checkboxes",
+      "ui:options": {
+        "inline": false
+      },
+      "nasal_swab_date": {
+        "classNames": ["nasal_swab"],
+        "ui:widget": "CustomDateWidget",
+        "ui:options": {
+          "yearsRange": [2020, 2020],
+          "hideNowButton": true,
+          "hideClearButton": true,
+          "lessThanNow": true
+        }
+      },
+      "nasal_swab_result": {
+        "ui:widget": "radio",
+        "classNames":  ["secondary_radio test_result subcheckbox"],
+        "ui:options": {
+          "inline": false
+        }
+      },
+      "serum_test_date": {
+        "classNames": ["nasal_swab"],
+        "ui:widget": "CustomDateWidget",
+        "ui:options": {
+          "yearsRange": [2020, 2020],
+          "hideNowButton": true,
+          "hideClearButton": true,
+          "lessThanNow": true
+        }
+      },
+      "serum_test_result": {
+        "ui:widget": "radio",
+        "classNames": ["secondary_radio test_result subcheckbox"],
+        "ui:options": {
+          "inline": false
+        }
+      }
+
+    
+    },
+   
+    "how_was_it_treated": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    }
+  },
+  "hospitalization": {
+    "ui:order": [
+      "hospitals",
+      "hospitals_other",
+      "hospitalization_treatment",
+      "*"
+    ],
+    "hospitals": {
+      "classNames": "hospitals",
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0]
+      }
+    },
+    "hospitals_other": {
+      "classNames": "hospitals_other_name text"
+    },
+    "hospitalization_treatment": {
+      "ui:order": [
+        "oxigen",
+        "oxigen_days",
+        "oxigen_mask",
+        "oxigen_mask_days",
+        "ventilator",
+        "ventilator_days",
+        "kidney_dialysis",
+        "kidney_dialysis_days",
+        "heart_cathetirization",
+        "liver_problem",
+        "blood_clots",
+        "septic_shock",
+        "stroke",
+        "encepalitis",
+        "other",
+        "other_answer",
+        "none",
+        "prefer_not_answer"
+      ],
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["prefer_not_answer", "none"],
+      "ui:dependent_option_postfix": ["_days"],
+      "classNames": "show_fieldSet hospitalization_treatment",
+      "other_answer": {
+        "ui:widget": "textarea"
+      }
+    }
+  },
+  "habits": {
+    "classNames": "habits",
+    "ui:order": ["smoking", "smoking_how_many_cigarettes", "vaping", "alcohol"],
+    "smoking": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "smoking_how_many_cigarettes": {
+      "classNames": "text short"
+    },
+    "vaping": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "alcohol": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    }
+  },
+  "habits2": {
+    "classNames": "habits",
+    "ui:order": ["anxiety", "worry", "loneliness"],
+    "anxiety": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "worry": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    },
+    "loneliness": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    }
+  },
+  "medications": {
+    "regular_medications": {
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0, 1]
+      }
+    }
+  },
+  "medications2": {
+    "covid_medications": {
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0, 1, 2]
+      }
+    },
+    "hydroxychloroquine": {
+      "ui:widget": "radio"
+    }
+  },
+  "medications_hydroxy": {
+    "hydroxychloroquine_side_effects": {
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0, 1]
+      }
+    }
+  }
+}
