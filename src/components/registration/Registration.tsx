@@ -15,7 +15,7 @@ import {
 } from '../../helpers/utility'
 import Button from '@material-ui/core/Button/Button'
 import TextField from '@material-ui/core/TextField/TextField'
-import { Tabs, Tab } from '@material-ui/core'
+import { useTranslation, Trans } from 'react-i18next'
 
 type RegistrationProps = {
   onSuccessFn: Function
@@ -27,32 +27,19 @@ const PHONE_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/phone'
 
 const signupIntro = {
   PHONE: (
-    <>
-      <h2>Don't have email?</h2>
-      <p>
-        At this time, we are only able to invite participants to lab draws with
-        an email account.
-      </p>
-      <p>
-        We are working on this issue. We hope to support scheduling appointments
-        with your phone number in the near future.
-      </p>
-      <p>
-        You can still join the COVID Recovery Corps and provide important
-        information to our researchers by filling out surveys with your phone
-        number.
-      </p>
-    </>
+    <Trans i18nKey="registration.intro1">
+      <h2>[translate]</h2>
+      <p>[translate]</p>
+      <p>[translate]</p>
+      <p>[translate]</p>
+    </Trans>
   ),
   EMAIL: (
-    <>
-      <h2>Getting Started</h2>
-      <p>
-        {' '}
-        To access the consent and surveys, you will need to create an account.
-      </p>
-      <p> You will use your email to log into your account in the future.</p>
-    </>
+    <Trans i18nKey="registration.intro2">
+      <h2>[translate]</h2>
+      <p>[translate] </p>
+      <p> [translate]</p>
+    </Trans>
   ),
 }
 
@@ -60,6 +47,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
   onSuccessFn,
   onErrorFn,
 }: RegistrationProps) => {
+  const { t } = useTranslation()
   const stateSchema = {
     email: { value: '', error: '' },
     phone: { value: '', error: '' },
@@ -72,7 +60,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
     phone: {
       validator: {
         regEx: /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
-        error: 'Invalid Phone',
+        error: t('registration.text5'),
       },
     },
     registrationType: {},
@@ -84,13 +72,10 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
       'POST',
       registrationData,
     )
-    //alert(JSON.stringify(result, null, 2))
     return result
   }
 
   async function onSubmitForm(state: any) {
-    //alert(JSON.stringify(state, null, 2))
-
     //register
     const data: RegistrationData = {
       email: state.email.value,
@@ -157,20 +142,20 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
             <div className="tabbedField">
               <div>
                 <label htmlFor="email" className="block--dark">
-                  Email
+                  {t('common.email')}
                 </label>
                 <div className="input--padded">
                   <TextField
                     name="email"
                     type="email"
                     value={state.email.value}
-                    aria-label="email"
+                    aria-label={t('common.email')}
                     onChange={handleOnChange}
                     variant="outlined"
-                    label="Email"
+                    label={t('common.email')}
                     fullWidth
-                    autoComplete="email address"
-                    placeholder="email address"
+                    autoComplete={t('common.emailAddress')}
+                    placeholder={t('common.emailAddress')}
                   />
                 </div>
 
@@ -183,7 +168,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                     disabled={!state.email.value}
                     className="wideButton"
                   >
-                    Create account
+                    {t('registration.text1')}
                   </Button>
                   <br />
                 </div>
@@ -199,10 +184,10 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                   handleOnChange({
                     target: { name: 'email', value: '' },
                   })
-                  window.scrollTo(0,0)
+                  window.scrollTo(0, 0)
                 }}
               >
-                I don't have an email account
+                {t('registration.text2')}
               </Button>
             </div>
           </div>
@@ -214,16 +199,16 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
           <div className="form-group" style={{ marginBottom: 0 }}>
             <div className="tabbedField">
               <label htmlFor="phone" className="block--dark">
-                Phone
+                {t('common.phone')}
               </label>
               <div className="input--padded">
                 <TextField
                   name="phone"
                   type="phone"
                   value={state.phone.value}
-                  placeholder="Phone"
-                  aria-label="phone"
-                  label="phone"
+                  placeholder={t('common.phone')}
+                  aria-label={t('common.phone')}
+                  label={t('common.phone')}
                   variant="outlined"
                   fullWidth
                   onChange={handleOnChange}
@@ -248,7 +233,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                   type="submit"
                   disabled={!state.phone.value}
                 >
-                  Create account
+                  {t('registration.text3')}
                 </Button>
               </div>
             </div>
@@ -265,7 +250,7 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                   })
                 }}
               >
-                I want to sign up with email
+                {t('registration.text4')}
               </Button>
             </div>
           </div>

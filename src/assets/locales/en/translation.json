@@ -1,19 +1,26 @@
 {
   "common": {
+    "email": "Email",
+    "emailAddress": "Email address",
     "joinUs": "Join Us",
-    "moreInfoVisit": "For more information, please visit"
+    "logIn": "Log in",
+    "moreInfoVisit": "For more information, please visit",
+    "phone": "Phone",
+    "fullName": "Full name",
+    "signUpForAccount": "Sign up for an account",
+    "submit": "Submit",
+    "zipCode": "Zip code"
   },
   "home": {
-    "title": "Building a partnership between COVID-19 survivors and researchers.",
-    "text1": "If you live in the New York City metro area and have recovered from COVID-19 - or think you have - you can partner with scientists to better understand the recovery process and long term effects from this disease.",
-    "text2": "Photo by Noah Berger",
-    "text3": "There is an urgent need to come together as a survivor community to rapidly advance our understanding of COVID-19.",
-    "text4": "You recovered. Your experience could help unlock the mysteries behind this disease. Our mission is to learn more about COVID-19 by bringing together the collective experiences of thousands of recovered patients.",
-    "text5": "By sharing your experience in recovering from COVID-19, you can help answer critical questions.",
+    "title": "A community-powered movement to understand COVID-19 across NYC.",
+    "text1": "If you live in the New York City metro area and have recovered from COVID-19 - or think you have - join our research study to better understand the long-term effects from this disease.",
+    "text3": "There is an urgent need to understand how COVID-19 will impact New York’s communities over time.",
+    "text4": "Our mission in this study is to understand how people recover from COVID-19 and the impacts of the disease on health, both today and in the future. By sharing your recovery experience, you can help researchers unlock the mysteries behind this disease and provide important new information for you, your loved ones, and thousands of others affected by the virus.",
+    "text41": "Minority communities have been disproportionately affected by COVID-19. We are committed to engaging a diverse and representative group of participants so that the research can help those most impacted by this disease.",
     "text6": "Participation is simple.",
-    "text7": "Here’s how it works.",
+    "text7": "Here’s how you can participate.",
     "text8": "STEP ONE",
-    "text9": "Register and take the survey",
+    "text9": "Register and take the surveys",
     "text10": "To get started, click",
     "text11": "and review information about what will happen in the study. After registering, you will be invited to take brief surveys that may help scientists begin to answer questions like: Why do some people experience very mild symptoms while others get very sick? How does recovering from COVID-19 impact your health over time?",
     "text12": "STEP TWO",
@@ -47,12 +54,22 @@
     "text8": "Dr. Lara Mangravite is a co-Principal Investigator with oversight over technology, governance, and data commons. Dr. Mangravite has extensive experience leading projects at Sage Bionetworks. She favors applying collaborative approaches to advance understanding of disease biology and treatment outcomes at a systems level with the overriding goal of improving clinical care.",
     "text9": "Dr. Mangravite obtained a BS in Physics from the Pennsylvania State University and a PhD in Pharmaceutical Chemistry from the University of California, San Francisco. She completed a postdoctoral fellowship in cardiovascular pharmacogenomics at the Children’s Hospital Oakland Research Institute.",
     "text10": "www.sagebionetworks.org",
-    "text11": "In partnership with Survivor Corps",
-    "text12": "Survivor Corps is a rapidly growing grassroots network of more than 50,000 COVID-19 survivors and family members who have first-hand experience with the virus. They are motivated to help others navigate the illness and find a pathway to recovery. Founded by Diana Berrent, Survivor Corps is mobilizing these survivors to donate plasma and to support ongoing scientific, medical and academic research to identify and improve treatments, understand the disease and its long term effects, and develop a vaccine.",
-    "text13": "www.survivorcorps.com",
     "text14": "With support from the Chan Zuckerberg Initiative",
     "text15": "Founded by Dr. Priscilla Chan and Mark Zuckerberg in 2015, the Chan Zuckerberg Initiative (CZI) is a new kind of philanthropy that’s leveraging technology to help solve some of the world’s toughest challenges — from eradicating disease, to improving education, to reforming the criminal justice system. Across three core Initiative focus areas of Science, Education, and Justice \u0026 Opportunity, CZI is pairing engineering with grant-making, impact investing, and policy and advocacy work to help build an inclusive, just and healthy future for everyone.",
     "text16": "www.chanzuckerberg.com"
+  },
+  "eligibility": {
+    "title": "Eligibility",
+    "error18": "To be eligible to take part in the COVID Recovery Corps study, you must be over 18.",
+    "errorCons": "To be eligible to take part in the COVID Recovery Corps study, you must be able to provide consent for yourself.",
+    "errorCovid": "To be eligible to take part in the COVID Recovery Corps study, you must think that you've had COVID-19.",
+    "errorZip": "Invalid zip code.",
+    "text1": "Currently we are looking for residents within a 25 mile radius of the Columbia University Medical Center. To be eligible to take part in the COVID Recovery Corps study, you must fulfill the following:",
+    "text2": "I am 18 years of age or older",
+    "text3": "I am able to provide consent for myself",
+    "text4": "I think I’ve had COVID-19",
+    "text5": "Please enter your zip code",
+    "zipCode": "Zip code"
   },
   "faqs": {
     "title": "FAQs",
@@ -131,5 +148,23 @@
       "text6": "<0>This study will <1> last for 12 months </1> from the time you enroll.</0>",
       "text7": "<0> This study will <1>  not provide medical care </1> for COVID-19. Participation in this study is <1> voluntary </1> and you may leave the study at any time.</0>"
     }
+  },
+  "ineligible": {
+    "text1": "Thank you for your interest",
+    "text2": "You have successfully joined the mailing list. We will notify you in the coming months if the program expands into your area.",
+    "text3": "Unfortunately, we are only able to enroll participants who live within a 25 mile radius of the Columbia University Medical Center.",
+    "text4": "We are hoping to expand the study in the coming months.",
+    "text5": "You can sign up for our mailing list here:",
+    "text6": "Join mailing list",
+    "text7": "Joining mailing list..."
+  },
+  "registration": {
+    "text1": "Create account",
+    "text2": "I don't have an email account",
+    "text3": "Create account",
+    "text4": "Create account",
+    "text5": "Invalid Phone",
+    "intro1":"<0>Don't have email?</0> <1> At this time, we are only able to invite participants to lab draws with an email account. </1> <2> We are working on this issue. We hope to support scheduling appointments with your phone number in the near future. </2> <3> You can still join the COVID Recovery Corps and provide important information to our researchers by filling out surveys with your phone number. </3>",
+    "intro2": "<0>Getting Started</0> <1> To access the consent and surveys, you will need to create an account. </1> <2> You will use your email to log into your account in the future.</2>"
   }
 }

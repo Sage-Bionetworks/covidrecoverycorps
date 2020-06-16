@@ -4,15 +4,14 @@ import { MailChimpFormFields } from '../../types/types'
 import TextField from '@material-ui/core/TextField/TextField'
 import { Button } from '@material-ui/core'
 import MailchimpSubscribe from 'react-mailchimp-subscribe'
+import { useTranslation } from 'react-i18next'
 
-type IneligibleProps = {
-}
+type IneligibleProps = {}
 
 const url =
   'https://sagebionetworks.us7.list-manage.com/subscribe/post?u=b146de537186191a9d2110f3a&amp;id=46d182222e'
 
-export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
-}: IneligibleProps) => {
+export const Ineligible: React.FunctionComponent<IneligibleProps> = ({}: IneligibleProps) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [zipcode, setZipcode] = useState('')
@@ -22,25 +21,18 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
     NAME: name,
     ZIP: zipcode,
   }
+  const { t } = useTranslation()
+
   return (
     <>
       <div>
-        <h2>Thank you for your interest</h2>
-        {mailListJoined && (
-          <p>
-            You have successfully joined the mailing list. We will notify you
-            in the coming months if the program expands into your area.
-          </p>
-        )}
+        <h2>{t('ineligible.text1')}</h2>
+        {mailListJoined && <p>{t('ineligible.text2')}</p>}
         {!mailListJoined && (
           <div>
-            <p>
-              Unfortunately, we are only able to enroll participants who live
-              within a 25 mile radius of the Columbia University Medical
-              Center.
-            </p>
-            <p>We are hoping to expand the study in the coming months.</p>
-            <p>You can sign up for our mailing list here:</p>
+            <p>{t('ineligible.text3')}</p>
+            <p>{t('ineligible.text4')}</p>
+            <p>{t('ineligible.text5')}</p>
             <div className="form-group">
               {
                 <div>
@@ -54,11 +46,11 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
                               name="name"
                               value={name}
                               fullWidth
-                              placeholder="full name"
-                              aria-label="full name"
+                              placeholder={t('common.fullName')}
+                              aria-label={t('common.fullName')}
                               variant="outlined"
                               onChange={e => setName(e.target.value)}
-                              label="Full name"
+                              label={t('common.fullName')}
                             />
                           </div>
                           <div className="input--min-padded">
@@ -68,9 +60,9 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
                               variant="outlined"
                               fullWidth
                               value={email}
-                              placeholder="email"
-                              aria-label="email"
-                              label="Email"
+                              placeholder={t('common.email')}
+                              aria-label={t('common.email')}
+                              label={t('common.email')}
                               onChange={e => setEmail(e.target.value)}
                             />
                           </div>
@@ -81,9 +73,9 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
                               variant="outlined"
                               fullWidth
                               value={zipcode}
-                              placeholder="zip code"
-                              aria-label="zip code"
-                              label="Zip code"
+                              placeholder={t('common.zipCode')}
+                              aria-label={t('common.zipCode')}
+                              label={t('common.zipCode')}
                               onChange={e => setZipcode(e.target.value)}
                             />
                           </div>
@@ -94,16 +86,14 @@ export const Ineligible: React.FunctionComponent<IneligibleProps> = ({
                           fullWidth
                           onClick={() => email && name && subscribe(formData)}
                         >
-                          Join mailing list
+                          {t('ineligible.text6')}
                         </Button>
                         {status === 'sending' && (
-                          <div>Joining mailing list...</div>
+                          <div>{t('ineligible.text7')}</div>
                         )}
                         {status === 'success' && setMailListJoined(true)}
                         {status === 'error' && message && (
-                          <div
-                            dangerouslySetInnerHTML={{ __html: message }}
-                          />
+                          <div dangerouslySetInnerHTML={{ __html: message }} />
                         )}
                       </div>
                     )}

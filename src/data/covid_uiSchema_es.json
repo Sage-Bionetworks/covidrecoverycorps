@@ -3,7 +3,7 @@
     "classNames": "symptom-dates",
     "symptoms_start": {
       "classNames": "subfields",
-      "ui:description": "If you are unsure of the exact date, please just provide your best guess.",
+      "ui:description": "Si usted no está seguro de la fecha exacta, por favor denos una fecha aproximada.",
       "symptoms_start_date": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {
@@ -17,7 +17,7 @@
     },
     "symptoms_worst": {
       "classNames": "subfields",
-      "ui:description": "If you are unsure of the exact date, please just provide your best guess.",
+      "ui:description": "Si usted no está seguro de la fecha exacta, por favor denos una fecha aproximada.",
       "symptoms_worst_date": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {
@@ -33,7 +33,7 @@
       "classNames": "subfields",
       "ui:field": "checkboxExclusiveField",
       "ui:exclusive": ["dont_feel_better"],
-      "ui:description": "If you are unsure of the exact date, please just provide your best guess.",
+      "ui:description": "Si usted no está seguro de la fecha exacta, por favor denos una fecha aproximada.",
       "symptoms_recovery_date": {
         "ui:widget": "CustomDateWidget",
     
@@ -53,7 +53,7 @@
       "classNames": "subfields",
       "ui:field": "checkboxExclusiveField",
       "ui:exclusive": ["still_have_symptoms"],
-      "ui:description": "If you are unsure of the exact date, please just provide your best guess.",
+      "ui:description": "Si usted no está seguro de la fecha exacta, por favor denos una fecha aproximada.",
       "symptoms_none_date": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {

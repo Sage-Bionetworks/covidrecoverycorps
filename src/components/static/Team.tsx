@@ -4,11 +4,9 @@ import TeamPageAboveFold from '../../assets/TeamPageAboveFold.jpg'
 import TeamPageAboveFoldMobile from '../../assets/TeamPageAboveFold_mobile.jpg'
 import Wendy from '../../assets/Wendy.png'
 import Lara from '../../assets/Lara.jpg'
-import SurvivorCorps from '../../assets/TeamPageSurvivorCorps.png'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
 import { ReactComponent as CZILogo } from '../../assets/czi_logo_dark.svg'
-import { ReactComponent as SurvivorCorpsLogo } from '../../assets/SurvivorCorpsLogo-Vertical.svg'
 import BlueSeparator from './BlueSeparator'
 import { useIntroStyles } from './Intro'
 
@@ -153,37 +151,6 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
                   </div>
                 </div>
                 <SageLogo />
-              </Grid>
-            </Grid>
-
-            {/* Survivor Corps callout */}
-            <Grid container justify="center" alignItems="flex-start">
-              <div className={introClasses.paperPanelTitle}>
-                <h2>{t('team.text11')}</h2>
-              </div>
-              <Hidden xsDown>
-                <BlueSeparator />
-              </Hidden>
-
-              <Grid container justify="center" alignItems="flex-start">
-                <Grid item xs={12} sm={6}>
-                  <img className={classes.profileImage} src={SurvivorCorps} />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <div className={classes.paddingBottom20}>
-                    <p>{t('team.text12')}</p>
-                  </div>
-                  <p className={classes.paddingBottom20}>
-                    {t('common.moreInfoVisit')} <br></br>
-                    <a href="https://www.survivorcorps.com" target="_blank">
-                      {t('team.text13')}
-                    </a>
-                    .
-                  </p>
-                  <div className={classes.paddingBottom20}>
-                    <SurvivorCorpsLogo className={classes.survivorCorpsLogo} />
-                  </div>
-                </Grid>
               </Grid>
             </Grid>
           </div>

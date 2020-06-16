@@ -8,21 +8,22 @@ import {
   IconButton,
 } from '@material-ui/core'
 import { playfairDisplayFont, openSansFont } from '../../App'
-import LandingPageAboveFold from '../../assets/LandingPageAboveFold.png'
+import LandingPageAboveFold0 from '../../assets/LandingPageAboveFold0.png'
+import LandingPageAboveFold1 from '../../assets/LandingPageAboveFold1.png'
 import LandingPageAboveFold2 from '../../assets/LandingPageAboveFold2.png'
 import LandingPageAboveFold3 from '../../assets/LandingPageAboveFold3.png'
-import LandingPageAboveFoldMobile from '../../assets/LandingPageAboveFold_mobile.png'
+import LandingPageAboveFold0Mobile from '../../assets/LandingPageAboveFold0_mobile.png'
+import LandingPageAboveFold1Mobile from '../../assets/LandingPageAboveFold1_mobile.png'
 import LandingPageAboveFold2Mobile from '../../assets/LandingPageAboveFold2_mobile.png'
 import LandingPageAboveFold3Mobile from '../../assets/LandingPageAboveFold3_mobile.png'
 
-import LandingPageLab from '../../assets/LandingPageLab.png'
+import LandingPageWalk from '../../assets/LandingPageWalk.png'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
 import { ReactComponent as Tablet } from '../../assets/tablet.svg'
 import { ReactComponent as TestTubes } from '../../assets/test_tubes.svg'
 import { ReactComponent as BooksApple } from '../../assets/books_apple.svg'
 import { ReactComponent as ShareIcon } from '../../assets/share_icon.svg'
-import { ReactComponent as SurvivorCorpsLogo } from '../../assets/SurvivorCorpsLogo-Horizontal.svg'
 
 import { NavLink, Link } from 'react-router-dom'
 import BlueSeparator from './BlueSeparator'
@@ -269,13 +270,18 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
 
   const classes = useIntroStyles()
   const [isShowingShareDialog, setIsShowingShareDialog] = useState(false)
-  const [heroImage1Opacity, setHeroImage1Opacity] = useState(1)
+  const [heroImage0Opacity, setHeroImage0Opacity] = useState(1)
+  const [heroImage1Opacity, setHeroImage1Opacity] = useState(0)
   const [heroImage2Opacity, setHeroImage2Opacity] = useState(0)
   const [heroImage3Opacity, setHeroImage3Opacity] = useState(0)
 
   const selectNextHeroBackground = () => {
     // get next image
     let nextHeroBackgroundImage: string
+    if (heroImage0Opacity > 0) {
+      setHeroImage0Opacity(0)
+      setHeroImage1Opacity(1)
+    } else 
     if (heroImage1Opacity > 0) {
       setHeroImage1Opacity(0)
       setHeroImage2Opacity(1)
@@ -284,13 +290,13 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
       setHeroImage3Opacity(1)
     } else {
       setHeroImage3Opacity(0)
-      setHeroImage1Opacity(1)
+      setHeroImage0Opacity(1)
     }
   }
   useEffect(() => {
     const interval = setInterval(selectNextHeroBackground, 8000)
     return () => clearInterval(interval)
-  }, [heroImage1Opacity, heroImage2Opacity, heroImage3Opacity])
+  }, [heroImage0Opacity,heroImage1Opacity, heroImage2Opacity, heroImage3Opacity])
 
   const heroTextContent = (
     <Container maxWidth="lg">
@@ -312,13 +318,22 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
   )
   return (
     <div className="Intro">
+    
+
+
       <div>
         <div className={classes.heroContainer}>
           <div className={classes.heroTextGradiant}></div>
-          <Hidden smUp>
+          <Hidden mdUp>
+          <img
+              className={classes.heroImage}
+              src={LandingPageAboveFold0Mobile}
+              style={{ opacity: heroImage0Opacity }}
+            />
+        
             <img
               className={classes.heroImage}
-              src={LandingPageAboveFoldMobile}
+              src={LandingPageAboveFold1Mobile}
               style={{ opacity: heroImage1Opacity }}
             />
             <img
@@ -332,10 +347,16 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               style={{ opacity: heroImage3Opacity }}
             />
           </Hidden>
-          <Hidden xsDown>
-            <img
+          <Hidden smDown>
+          
+             <img
               className={classes.heroImage}
-              src={LandingPageAboveFold}
+              src={LandingPageAboveFold0}
+              style={{ opacity: heroImage0Opacity }}
+            />
+             <img
+              className={classes.heroImage}
+              src={LandingPageAboveFold1}
               style={{ opacity: heroImage1Opacity }}
             />
             <img
@@ -383,14 +404,11 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
             <ColumbiaLogo className={classes.logo} />
             <div className={classes.logosDivSeparator}></div>
             <SageLogo className={classes.logo} />
-            <div className={classes.logosDivSeparator}></div>
-            <SurvivorCorpsLogo className={classes.logo} />
           </div>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={12} md={6}>
               <div className={classes.labImageDiv}>
-                <img src={LandingPageLab} alt="Lab" width="100%" />
-                <p className={classes.photographyNote}>{t('home.text2')}</p>
+                <img src={LandingPageWalk} alt="Lab" width="100%" />
               </div>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -398,25 +416,18 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
                 <h2 className={classes.labTextTitle}>{t('home.text3')}</h2>
                 <div className={classes.labTextBodyDiv}>
                   <p>{t('home.text4')}</p>
+                  <p>{t('home.text41')}</p>
                 </div>
               </div>
             </Grid>
           </Grid>
         </Container>
         <div className={classes.paperHeaderDiv}>
-          <Container maxWidth="md">
-            <h3 className={classes.paperHeaderText}>{t('home.text5')}</h3>
-          </Container>
+          
         </div>
         <Container maxWidth="md" className={classes.paperPanelWrapper}>
           <div className={classes.paperPanel}>
-            <h2 className={classes.paperPanelTitle}>
-              <span>{t('home.text6')}&nbsp;</span>
-              <Hidden smUp>
-                <br></br>
-              </Hidden>
-              <span className={classes.pink}>{t('home.text7')}</span>
-            </h2>
+            <h2 className={classes.paperPanelTitle}>{t('home.text7')}</h2>
             <Hidden xsDown>
               <BlueSeparator />
             </Hidden>

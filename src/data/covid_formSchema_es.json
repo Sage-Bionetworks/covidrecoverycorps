@@ -1,16 +1,16 @@
 {
   "definitions": {
     "symptomDuration": {
-      "title": "When did you have this symptom? (Check all that apply)",
+      "title": "¿Cuándo tuviste este síntoma? (Marque todo lo que corresponda)",
       "type": "array",
       "uniqueItems": true,
       "items": {
         "type": "string",
         "enumNames": [
-          "Was one of my first symptoms",
-          "Occurred when I was at my worst",
-          "Occurred even after I started to feel much better",
-          "I still have this symptom"
+          "Fue uno de mis primeros síntomas",
+          "Ocurrió cuando estaba en mi peor condición",
+          "Ocurrió aun después de que comencé a sentirme mucho mejor",
+          "Yo aún tengo este síntoma"
         ],
         "enum": [
           "first_symptom",
@@ -26,35 +26,35 @@
       "properties": {
         "symptoms_start": {
           "type": "object",
-          "title": "1. When did you first notice symptoms related to COVID-19?",
+          "title": "1. ¿Cuándo fue la primera vez que usted noto síntomas relacionados con COVID-19?",
           "properties": {
             "symptoms_start_date": {
               "type": "string",
-              "title": "First day of symptoms:"
+              "title": "Primer día de los síntomas:"
             }
           }
         },
         "symptoms_worst": {
           "type": "object",
-          "title": "2. When did you feel your symptoms were at their worst?",
+          "title": "2. ¿Cuándo usted sintió que sus síntomas estuvieron en su peor estado?",
           "properties": {
             "symptoms_worst_date": {
               "type": "string",
-              "title": "Worst day of symptoms:"
+              "title": "El peor día de los síntomas:"
             }
           }
         },
 
         "symptoms_recovery": {
           "type": "object",
-          "title": "3. When did you feel your symptoms were getting much better?",
+          "title": "3. ¿Cuándo sintió usted que sus síntomas estaban mejorando?",
           "properties": {
             "symptoms_recovery_date": {
               "type": "string",
-              "title": "I started to feel much better on:"
+              "title": "Yo empecé a sentirme mucho mejor en:"
             },
             "dont_feel_better": {
-              "title": "I don't feel better",
+              "title": "Yo no me siento mejor",
               "type": "boolean",
               "default": false
             }
@@ -63,14 +63,14 @@
 
         "symptoms_none": {
           "type": "object",
-          "title": "4. When did you feel you no longer had symptoms?",
+          "title": "4. ¿Cuándo sintió usted que ya no tenía síntomas?",
           "properties": {
             "symptoms_none_date": {
               "type": "string",
-              "title": "My last day of any symptoms was:"
+              "title": "El último día de cualesquiera de mis síntomas fue:"
             },
             "still_have_symptoms": {
-              "title": "I still have symptoms",
+              "title": "Yo sigo teniendo síntomas",
               "type": "boolean"
             }
           }
@@ -79,130 +79,129 @@
     },
     "symptoms1": {
       "type": "object",
-      "required":["symptoms_list"],
       "properties": {
         "symptoms_list": {
           "type": "object",
-          "title": "5. Please describe your symptoms (check all that apply):",
+          "title": "5. Por favor describa sus síntomas (marque todos los que correspondan):",
           "properties": {
             "cough": {
               "type": "boolean",
-              "title": "Cough"
+              "title": "Tos"
             },
             "fever": {
               "type": "boolean",
-              "title": "Fever"
+              "title": "Fiebre"
             },
             "shortness_breath": {
               "type": "boolean",
-              "title": "Shortness of breath"
+              "title": "Insuficiencia respiratoria"
             },
             "chest_pain": {
               "type": "boolean",
-              "title": "Chest pain"
+              "title": "Dolor de pecho"
             },
             "night_sweats": {
               "type": "boolean",
-              "title": "Night sweats"
+              "title": "Sudores nocturnos"
             },
             "chills": {
               "type": "boolean",
-              "title": "Chills"
+              "title": "Escalofríos"
             },
             "rash": {
               "type": "boolean",
-              "title": "Rash"
+              "title": "Erupción"
             },
             "swollen_fingers_toes": {
               "type": "boolean",
-              "title": "Swollen red fingers/swollen red toes"
+              "title": "Dedos hinchados y rojos/Dedos de pies rojos e hinchados"
             },
             "conjunctivitis": {
               "type": "boolean",
-              "title": "Conjunctivitis (red eyes)"
+              "title": "Conjuntivitis (ojos rojos)"
             },
 
             "fatigue": {
               "type": "boolean",
-              "title": "Fatigue"
+              "title": "Fatiga"
             },
             "headache": {
               "type": "boolean",
-              "title": "Headache"
+              "title": "dolor de cabeza"
             },
             "confusion": {
               "type": "boolean",
-              "title": "Confusion/inability to think clearly"
+              "title": "Confusión / inhabilidad para pensar con claridad"
             },
 
             "muscle_pain": {
               "type": "boolean",
-              "title": "Muscle pain"
+              "title": "Dolor muscular"
             },
             "runny_nose": {
               "type": "boolean",
-              "title": "Runny nose"
+              "title": "Goteo nasal"
             },
             "sore_throat": {
               "type": "boolean",
-              "title": "Sore throat"
+              "title": "Dolor de garganta"
             },
             "diarrhea": {
               "type": "boolean",
-              "title": "Diarrhea"
+              "title": "Diarrea"
             },
             "nausea_vomiting": {
               "type": "boolean",
-              "title": "Nausea or vomiting"
+              "title": "Náuseas o vómitos"
             },
             "abdominal_pain": {
               "type": "boolean",
-              "title": "Abdominal pain"
+              "title": "Dolor abdominal"
             },
             "foamy_urine": {
               "type": "boolean",
-              "title": "Foamy urine"
+              "title": "Orina espumosa"
             },
             "red_urine": {
               "type": "boolean",
-              "title": "Red urine"
+              "title": "Orina Roja"
             },
             "loss_of_smell": {
               "type": "boolean",
-              "title": "Partial or complete loss of smell"
+              "title": "Pérdida de sentido del olfato parcial o total"
             },
             "loss_of_taste": {
               "type": "boolean",
-              "title": "Partial or complete loss of taste"
+              "title": "Pérdida de sentido del gusto parcial o total"
             },
             "hallucinations": {
               "type": "boolean",
-              "title": "Hallucinations"
+              "title": "Alucinaciones"
             },
             "loss_of_consciousness": {
               "type": "boolean",
-              "title": "Loss of consciousness"
+              "title": "Pérdida de consciencia"
             },
             "seizures": {
               "type": "boolean",
-              "title": "Seizures"
+              "title": "Convulsiones"
             },
             "paralysis": {
               "type": "boolean",
-              "title": "Inability to move part of your body (paralysis)"
+              "title": "Inhabilidad de mover parte de su cuerpo (parálisis)"
             },
 
             "no_symptoms": {
               "type": "boolean",
-              "title": "I never had symptoms"
+              "title": "Yo nunca tuve síntomas"
             },
             "prefer_not_answer": {
               "type": "boolean",
-              "title": "Prefer not to answer"
+              "title": "Prefiero no responder"
             },
             "other": {
               "type": "boolean",
-              "title": "Other"
+              "title": "Otro"
             }
           },
           "dependencies": {
@@ -245,7 +244,7 @@
                       "$ref": "#/definitions/symptomDuration"
                     },
                     "fever_highest": {
-                      "title": "What was the highest temperature?(\u00B0 F) ",
+                      "title": "¿Cuál fue la temperatura más alta? (\u00B0 F) ",
                       "type": "number",
                       "minimum": 90
                     }
@@ -780,7 +779,7 @@
                       "enum": [true]
                     },
                     "other_specify": {
-                      "title": "Please Specify",
+                      "title": "Por favor especificar",
                       "type": "string"
                     },
                     "other_duration": {
@@ -800,37 +799,34 @@
       "properties": {
         "kind_of_testing": {
           "type": "object",
-
-          "title": "6. What kind of COVID-19 testing have you had?",
+          "title": "6. ¿Qué tipo de prueba COVID-19 tuvo usted?",
           "properties": {
             "nasal_swab": {
               "type": "boolean",
-              "title": "Nasal swab"
+              "title": "Hisopo nasal"
             },
             "serum_test": {
               "type": "boolean",
-              "title": "Serum antibody tests"
+              "title": "Pruebas de anticuerpos en suero"
             },
             "no_test": {
               "type": "boolean",
-              "title": "I was not tested, but I had suspected COVID-19"
+              "title": "No me hicieron la prueba, pero yo sospechaba que tenía el COVID-19"
             },
             "no_test_no_symptoms": {
               "type": "boolean",
-              "title": "I was not tested and had no symptoms"
+              "title": "Yo no tuve síntomas ni me hicieron la prueba"
             },
             "dont_know": {
               "type": "boolean",
-              "title": "I don't know"
+              "title": "Yo no lo sé"
             },
             "no_answer": {
               "type": "boolean",
-              "title": "Prefer not to answer"
+              "title": "Prefiero no responder"
             }
           },
           "dependencies": {
-
-
             "nasal_swab": {
               "oneOf": [
                 {
@@ -846,22 +842,21 @@
                       "enum": [true]
                     },
                     "nasal_swab_date": {
-                      "title": "Date of test:",
+                      "title": "Fecha de la prueba:",
                       "type": "string"
                     },
                     "nasal_swab_result": {
-                      "title": "Result of the test?",
+                      "title": "Resultado de la prueba?",
                       "type": "string",
                       "uniqueItems": true,
                       "enum": ["positive", "negative"],
-                      "enumNames": ["COVID-19 Positive", "COVID-19 Negative"]
+                      "enumNames": ["COVID-19 Positivo", "COVID-19 Negativo"]
                     }
                   }
                 }
               ]
             },
             "serum_test": {
-
               "oneOf": [
                 {
                   "properties": {
@@ -876,28 +871,25 @@
                       "enum": [true]
                     },
                     "serum_test_date": {
-                      "title": "Date of test:",
+                      "title": "Fecha de la prueba:",
                       "type": "string"
                     },
                     "serum_test_result": {
-                      "title": "Result of the test?",
+                      "title": "Resultado de la prueba?",
                       "type": "string",
                       "uniqueItems": true,
                       "enum": ["positive", "negative"],
-                      "enumNames": ["COVID-19 Positive", "COVID-19 Negative"]
+                      "enumNames": ["COVID-19 Positivo", "COVID-19 Negativo"]
                     }
                   }
                 }
               ]
-
             }
-            
-
           }
         },
         "how_was_it_treated": {
           "type": "string",
-          "title": "7. How was your COVID-19 treated? (pick single response reflecting your most intensive level of care)",
+          "title": "7. ¿Como fue su tratamiento de COVID-19? (Escoja una sola respuesta que refleje el nivel de su cuidado médico más intensivo)",
           "enum": [
             "at_home",
             "doctor's office",
@@ -907,17 +899,16 @@
             "no answer"
           ],
           "enumNames": [
-            "My COVID-19 was managed at home",
-            "I was seen in a doctor's office, clinic, or screening tent, and I was sent home",
-            "I was seen in the emergency room, and I was sent home",
-            "I was admitted to the hospital",
-            "I was in the intensive care unit",
-            "Prefer not to answer"
+            "Mi COVID-19 fue manejado en casa",
+            "Yo fui visto en un consultorio médico, clínica o carpa de detección, y despuse fui enviado a casa",
+            "Yo fui visto en la sala de emergencias y despuse me enviaron a casa",
+            "Yo fui internado en el hospital",
+            "Yo estaba en la unidad de cuidados intensivos",
+            "Prefiero no responder"
           ],
           "uniqueItems": true
         }
       }
-     
     },
     "hospitalization": {
       "type": "object",
@@ -925,7 +916,7 @@
       "properties": {
         "hospitals": {
           "type": "array",
-          "title": "7a. Please indicate any of the hospitals at which you were treated for COVID-19. (check all that apply)",
+          "title": "7a. Por favor indique todos los hospitales en los que recibió tratamiento para COVID-19. (Marque todo lo que corresponda)",
           "uniqueItems": true,
           "items": {
             "type": "string",
@@ -995,80 +986,80 @@
               "St. Barnabas",
               "Weill Cornell/ NewYork-Presbyterian",
               "Woodhull Hospital",
-              "Other",
+              "Otro",
 
-              "Prefer not to answer"
+              "Prefiero no responder"
             ]
           }
         },
         "hospitalization_treatment": {
           "type": "object",
-          "title": "7b. If you were hospitalized, did you have the following? (check all that apply)",
+          "title": "7b. Si fue hospitalizado, ¿tuvo usted lo siguiente? (marque todo lo que corresponda)",
           "properties": {
             "oxigen": {
               "type": "boolean",
-              "title": "Oxygen through prongs in your nose",
+              "title": "Suplementación de oxígeno a través de la cánula nasal",
               "enum": [true, false]
             },
             "oxigen_mask": {
               "type": "boolean",
-              "title": "Oxygen mask, BIPAP, or CPAP (mask on the face to help you breathe)",
+              "title": "Máscara de oxígeno, BIPAP, o CPAP (mascara de cara para ayúdate a respirar)",
               "enum": [true, false]
             },
             "ventilator": {
               "type": "boolean",
-              "title": "On a ventilator",
+              "title": "En ventilador pulmonar",
               "enum": [true, false]
             },
             "kidney_dialysis": {
               "type": "boolean",
-              "title": "Kidney problems requiring dialysis of any kind",
+              "title": "Problemas de riñón requiriendo cualquier tipo de diálisis",
               "enum": [true, false]
             },
             "heart_cathetirization": {
               "type": "boolean",
-              "title": "Heart problem requiring cardiac catheterization",
+              "title": "Problemas del corazón requiriendo cateterización cardíaca",
               "enum": [true, false]
             },
             "liver_problem": {
               "type": "boolean",
-              "title": "Liver problem or hepatitis",
+              "title": "Problemas del hígado o hepatitis",
               "enum": [true, false]
             },
             "blood_clots": {
               "type": "boolean",
-              "title": "Blood clots in legs or lungs",
+              "title": "Coágulos de sangre en las piernas o pulmones",
               "enum": [true, false]
             },
             "septic_shock": {
               "type": "boolean",
-              "title": "Septic shock requiring blood pressure support with pressor medicines given through an IV",
+              "title": "Shock séptico requiriendo soporte de la presión arterial con medicamentos para la presión administrados por vía intravenosa",
               "enum": [true, false]
             },
             "stroke": {
               "type": "boolean",
-              "title": "Stroke",
+              "title": "Ataque cardíaco o un accidente cerebrovascular (ACV)",
               "enum": [true, false]
             },
             "encepalitis": {
               "type": "boolean",
-              "title": "Encephalitis",
+              "title": "Encefalitis",
               "enum": [true, false]
             },
             "other": {
               "type": "boolean",
-              "title": "Other complications",
+              "title": "Otras complicaciones",
               "enum": [true, false]
             },
             "none": {
               "type": "boolean",
-              "title": "None of the above",
+              "title": "Ninguna anteriormente sugerida",
               "enum": [true, false]
             },
 
             "prefer_not_answer": {
               "type": "boolean",
-              "title": "Prefer not to answer",
+              "title": "Prefiero no responder",
               "enum": [true, false]
             }
           },
@@ -1082,7 +1073,7 @@
                     },
                     "oxigen_days": {
                       "type": "number",
-                      "title": "How many days?",
+                      "title": "¿Cuántos días?",
                       "minimum": 1
                     }
                   }
@@ -1105,7 +1096,7 @@
                     },
                     "oxigen_mask_days": {
                       "type": "number",
-                      "title": "How many days?",
+                      "title": "¿Cuántos días?",
                       "minimum": 1
                     }
                   }
@@ -1128,7 +1119,7 @@
                     },
                     "ventilator_days": {
                       "type": "number",
-                      "title": "How many days?",
+                      "title": "¿Cuántos días?",
                       "minimum": 1
                     }
                   }
@@ -1151,7 +1142,7 @@
                     },
                     "kidney_dialysis_days": {
                       "type": "number",
-                      "title": "How many days?",
+                      "title": "¿Cuántos días?",
                       "minimum": 1
                     }
                   }
@@ -1174,7 +1165,7 @@
                     },
                     "other_answer": {
                       "type": "string",
-                      "title": "Please specify:"
+                      "title": "Por favor detalle:"
                     }
                   }
                 },
@@ -1190,7 +1181,7 @@
           }
         },
         "hospitals_other": {
-          "title": "If you were treated in a different hospital, what was its name?",
+          "title": "Si usted fue tratado en un hospital diferente, ¿cuál fue el nombre?",
           "type": "string"
         }
       },
@@ -1203,7 +1194,7 @@
       "properties": {
         "smoking": {
           "type": "string",
-          "title": "10. Do you smoke tobacco?",
+          "title": "10. ¿Usted fuma tabaco?",
           "uniqueItems": true,
           "enum": [
             "I have never smoked regularly",
@@ -1213,16 +1204,16 @@
             "Prefer not to answer"
           ],
           "enumNames": [
-            "I have never smoked regularly",
-            "I used to smoke, but I quit",
-            "I smoke only rarely",
-            "I smoke every day",
-            "Prefer not to answer"
+            "Yo nunca he fumado regularmente",
+            "Yo solía fumar, pero deje",
+            "Yo solamente rara vez fumo",
+            "Yo fumo todos los días",
+            "Prefiero no responder"
           ]
         },
         "vaping": {
           "type": "string",
-          "title": "11. Do you vape?",
+          "title": "11. ¿Tu vapeas?",
           "uniqueItems": true,
           "enum": [
             "I have never vaped regularly",
@@ -1232,16 +1223,16 @@
             "Prefer not to answer"
           ],
           "enumNames": [
-            "I have never vaped regularly",
-            "I used to vape, but I quit",
-            "I vape only rarely",
-            "I vape every day",
-            "Prefer not to answer"
+            "Yo nunca he vapeado regularmente",
+            "Yo solía vapear, pero lo deje",
+            "Yo solamente rara vez vapeo",
+            "Yo vapeo todos los días",
+            "Prefiero no responder"
           ]
         },
         "alcohol": {
           "type": "string",
-          "title": "12. How often do you consume alcoholic beverages?",
+          "title": "12. ¿Con que frecuencia consume bebidas alcohólicas?",
           "uniqueItems": true,
           "enum": [
             "Never",
@@ -1252,12 +1243,12 @@
             "Prefer not to answer"
           ],
           "enumNames": [
-            "Never",
-            "Once a month or less often",
-            "2-4 times a month",
-            "2-3 times a week",
-            "4 times a week or more often",
-            "Prefer not to answer"
+            "Nunca",
+            "Una vez al mes o con menos frecuencia",
+            "2-4 veces al mes",
+            "2-3 veces a la semana",
+            "4 veces a la semana o más seguido",
+            "Prefiero no responder"
           ]
         }
       },
@@ -1271,7 +1262,7 @@
                 },
                 "smoking_how_many_cigarettes": {
                   "type": "number",
-                  "title": "10a. How many cigarettes on average do you smoke per day?"
+                  "title": "10a. ¿Cuántos cigarrillos fuma en promedio por día?"
                 }
               }
             },
@@ -1298,7 +1289,7 @@
       "properties": {
         "anxiety": {
           "type": "string",
-          "title": "13. Over the past week, how often have you been feeling nervous, anxious, or on edge?",
+          "title": "13. Durante la semana pasada, ¿con qué frecuencia se ha sentido nervioso, ansiedad o al borde de angustia?",
           "uniqueItems": true,
           "enum": [
             "Not at all",
@@ -1308,16 +1299,16 @@
             "Prefer not to answer"
           ],
           "enumNames": [
-            "Not at all",
-            "1-2 days",
-            "3-4 days",
-            "5-7 days",
-            "Prefer not to answer"
+            "En ningún momento",
+            "1-2 días",
+            "3-4 días",
+            "5-7 días",
+            "Prefiero no responder"
           ]
         },
         "worry": {
           "type": "string",
-          "title": "14. Over the past week, how often have you not been able to stop worrying?",
+          "title": "14. Durante la semana pasada, ¿con qué frecuencia usted no ha podido dejar de preocuparse?",
           "uniqueItems": true,
           "enum": [
             "Not at all",
@@ -1327,16 +1318,16 @@
             "Prefer not to answer"
           ],
           "enumNames": [
-            "Not at all",
-            "1-2 days",
-            "3-4 days",
-            "5-7 days",
-            "Prefer not to answer"
+            "En ningún momento",
+            "1-2 días",
+            "3-4 días",
+            "5-7 días",
+            "Prefiero no responder"
           ]
         },
         "loneliness": {
           "type": "string",
-          "title": "15. Many people may also feel loneliness during this time. How often have you felt lonely during the past week?",
+          "title": "15. Hay muchas personas que también puede que hayan sentido soledad durante este tiempo. ¿Con qué frecuencia usted ha sentido soledad durante la semana pasada?",
           "uniqueItems": true,
           "enum": [
             "Not at all",
@@ -1346,11 +1337,11 @@
             "Prefer not to answer"
           ],
           "enumNames": [
-            "Not at all",
-            "1-2 days",
-            "3-4 days",
-            "5-7 days",
-            "Prefer not to answer"
+            "En ningún momento",
+            "1-2 días",
+            "3-4 días",
+            "5-7 días",
+            "Prefiero no responder"
           ]
         }
       }
@@ -1364,7 +1355,7 @@
           "type": "array",
           "uniqueItems": true,
           "minItems": 1,
-          "title": "8. Which of the following medications were you taking on a regular basis before you got sick with COVID-19? (check all that apply)",
+          "title": "8. ¿Cuál de los siguientes medicamentos estaba usted tomando regularmente antes de enfermarse con COVID-19? (marque todo lo que corresponda)",
           "items": {
             "type": "string",
             "enum": [
@@ -1396,32 +1387,32 @@
               "Prefer not to answer"
             ],
             "enumNames": [
-              "Nonsteroidal anti-inflammatory agents or NSAIDS (aspirin, celecoxib, diclofenac, Cambia, Cataflam, Voltaren, diflunisal, etodolac, ibuprofen, Motrin, Advil, indomethacin, Indocin, ketoprofen, ketorolac, nambumetone, naproxen, Aleve, Anaprox, Naprelan, Naprosyn, oxaprozin, Daypro,  piroxicam, Feldene, salsalate, Disalate, sulidnac, tolmetin)",
+              "Agentes antiinflamatorios no esteroides o AINE (aspirin, celecoxib, diclofenac, Cambia, Cataflam, Voltaren, diflunisal, etodolac, ibuprofen, Motrin, Advil, indomethacin, Indocin, ketoprofen, ketorolac, nambumetone, naproxen, Aleve, Anaprox, Naprelan, Naprosyn, oxaprozin, Daypro,  piroxicam, Feldene, salsalate, Disalate, sulidnac, tolmetin)",
               "Tylenol, Acetaminophen, Daquil, Nyquil, Excedrin, Sinutab",
               "Aspirin",
-              "Asthma Medication (bronchodilator Ventolin, albuterol)",
+              "Medicamentos para el Asma (broncodilatador Ventolin, albuterol)",
               "Inhaled corticosteroids (Advair, beclomethasone, budesonide, ciclesonide, flunisolide, fluticasone, or mometasone)",
-              "Oral or injected steroids (prednisone, methylprednisolone, dexamethasone, hydrocortisone)",
-              "Antihistamines (Benadryl, Clarithin, Zyrtec)",
-              "High blood pressure medication- ACE inhibitors (Benazepril, Captopril, Fosinopril, Lisinpril)",
-              "High blood pressure medication-angiotensin receptor blockers (Edarbi, Atacand, Eprosartan, Avapro)",
-              "High blood pressure medication- beta blockers (metoprolol, atenolol, tramadol)",
-              "Cholesterol lowering statins (such as atorvastatin or simvastatin)",
-              "Diabetic medication metformin",
-              "Blood thinning medications (Eliquis, Xarelto, Coumadin, Warfarin)",
-              "Antiplatelet medications to prevent a heart attack or stroke (clopidogrel, Plavix, prasugrel, ticagrelor, cilostazol)",
-              "Thyroid medication (levothryroxyne)",
-              "Heart burn medication (Pepcid, omeprazole)",
-              "Cancer drugs or chemotherapy",
-              "Pill to dampen the immune system (azathioprine)",
-              "Injectable medication to dampen the immune system (Enbrel, humira, actemra, anakinra, Xolair, dupixent)",
-              "IV medications for immune conditions (infliximab/Remicade, rituximab, abatacept/Orencia, and belimumab/Benlysta",
-              "Medications after organ transplant (tacrolimus, cyclosporin, Mycophenolate)",
-              "Anti-depressant (sertraline, fluoxetine, citalopram, trazodone, escitalopram)",
-              "Antibiotics",
-              "HIV medication (lopinavir/ritonavir, darunavir/ritonavir, tenofovir disoproxil fumarate (TDF), tenofovir alafenamide fumarate (TAF), and combination medications containing these agents)",
-              "None of the above",
-              "Prefer not to answer"
+              "Esteroides orales o inyectables (prednisone, methylprednisolone, dexamethasone, hydrocortisone)",
+              "Antihistamínicos (Benadryl, Clarithin, Zyrtec)",
+              "Medicamentos para la presión alta- inhibidores de la ECA (Benazepril, Captopril, Fosinopril, Lisinpril)",
+              "Medicación para la presión arterial alta- bloqueadores de los receptores de angiotensina (Edarbi, Atacand, Eprosartan, Avapro)",
+              "Medicación para la presión arterial alta – Betabloqueadores (metoprolol, atenolol, tramadol)",
+              "Estatinas para reducir el colesterol (tal como atorvastatin o simvastatin)",
+              "Medicamentos para diabéticos metformina",
+              "Medicamentos anticoagulantes (Eliquis, Xarelto, Coumadin, Warfarin)",
+              "Medicamentos antiplaquetarios para prevenir un ataque al corazón o un derrame cerebral (clopidogrel, Plavix, prasugrel, ticagrelor, cilostazol)",
+              "Medicamentos para la tiroides (levothryroxyne)",
+              "Medicamentos para la acidez estomacal (Pepcid, omeprazole)",
+              "Medicamentos contra el cáncer o quimioterapia",
+              "Píldora para suprimir el sistema inmunitario (azathioprine)",
+              "Medicamentos inyectables para suprimir el sistema inmunitario (Enbrel, humira, actemra, anakinra, Xolair, dupixent)",
+              "Medicamentos intravenosos para tratar enfermedades inmunológicas (infliximab/Remicade, rituximab, abatacept/Orencia, and belimumab/Benlysta",
+              "Medicamentos después del trasplante de órganos (tacrolimus, cyclosporin, Mycophenolate)",
+              "Antidepresivo (sertraline, fluoxetine, citalopram, trazodone, escitalopram)",
+              "Antibióticos",
+              "Medicamentos para el VIH (lopinavir/ritonavir, darunavir/ritonavir, tenofovir disoproxil fumarate (TDF), tenofovir alafenamide fumarate (TAF), and combination medications containing these agents)",
+              "Ninguna de las anteriores",
+              "Prefiero no responder"
             ]
           }
         }
@@ -1435,7 +1426,7 @@
         "covid_medications": {
           "type": "array",
           "minItems": 1,
-          "title": "9. Which of the following medications did you take/were you given to treat your COVID-19 illness? (check all that apply):",
+          "title": "9. ¿Cuál de los siguientes medicamentos tomó / recibió para tratar su enfermedad de COVID-19? (marque todo lo que corresponda):",
           "items": {
             "type": "string",
             "enum": [
@@ -1462,23 +1453,23 @@
             "enumNames": [
               "Tylenol (acetaminophen)",
               "NSAIDs (ibuprofen, aspirin, naproxen, celecoxib, diclofenac, indomethacin, piroxicam)",
-              "Hydroxychloroquine (Plaquenil) or Chloroquine",
+              "Hydroxychloroquine (Plaquenil) o Chloroquine",
               "Azithromycin (Z-pack)",
-              "Pepcid or Famotidine",
-              "Corticosteroids (prednisone, methylprednisolone, dexamethasone, hydrocortisone)",
-              "IL-6 pathway blockers (sarilumab, tocilizumab, siltuximab)",
-              "JAK inhibitors (baricitinib, ruxolitinib, fedratinib, tofacitinib)",
+              "Pepcid o Famotidine",
+              "Corticosteroides (prednisone, methylprednisolone, dexamethasone, hydrocortisone)",
+              "Bloqueadores en la ruta de interleucina-6 (sarilumab, tocilizumab, siltuximab)",
+              "Inhibidores de JAK (baricitinib, ruxolitinib, fedratinib, tofacitinib)",
               "Remdesivir (GS-5735) or another protease inhibitor",
               "Tamiflu (oseltamivir) or Xofluza (baloxavir marboxil)",
-              "HIV medications [lopinavir/ritonavir, tenofovir (TDF, TAF)]",
+              "Medicamentos para el VIH [lopinavir/ritonavir, tenofovir (TDF, TAF)]",
               "Sofosbuvir",
               "Ribavirin",
               "Interferon alpha",
-              "Plasma therapy (antibodies from someone else)",
-              "Bronchodilators (asthma-like medications)",
-              "Don’t know",
-              "None of the above",
-              "Prefer not to answer"
+              "Terapia con plasma (anticuerpos de otra persona)",
+              "Broncodilatadores (Medicamentos como para el asma)",
+              "No sé",
+              "Ninguna de las anteriores",
+              "Prefiero no responder"
             ]
           },
           "uniqueItems": true
@@ -1493,7 +1484,7 @@
         "hydroxychloroquine_side_effects": {
           "type": "array",
           "minItems": 1,
-          "title": "9a. If you were treated with hydroxychloroquine (Plaquenil), please describe if you experienced any of the following? (check all that apply):",
+          "title": "9a. Si usted recibió tratamiento con hidroxicloroquina (Plaquenil), describa si ha tenido algunos de los siguientes síntomas. (marque todo lo que corresponda):",
           "uniqueItems": true,
           "items": {
             "type": "string",
@@ -1517,23 +1508,23 @@
               "Prefer not to answer"
             ],
             "enumNames": [
-              "Nausea or vomiting",
-              "Red skin rash",
-              "Severe necrotizing skin rash",
-              "Headaches or migraines",
-              "Vision problems or blindness",
-              "Night sweats",
-              "Insomnia",
-              "Heart problems",
-              "Abnormal heartbeat, or arrhythmia",
-              "Ringing in my ears",
-              "Tingling sensation",
-              "Loss of sensation in hands or feet",
-              "Seizures",
-              "Loss of consciousness or passing out",
-              "Hearing or seeing things that do not exist",
-              "None of the above",
-              "Prefer not to answer"
+              "Nauseas o vómitos",
+              "Erupciones rojas en la piel",
+              "Erupciones necrotizantes severas de la piel",
+              "Dolores de cabeza o migrañas",
+              "Problemas con la visión o ceguera",
+              "Sudores nocturnos",
+              "Insomnio",
+              "Problemas del corazón",
+              "Palpitaciones anormales del corazón o arritmia",
+              "Zumbido en mis oídos",
+              "Sensación de adormecimiento",
+              "Perdida de sensación en las manos o pies",
+              "Convulsiones",
+              "Pérdida de consciencia o desmayo",
+              "Escuchando o viendo cosas que no existe",
+              "Ninguna de las anteriores",
+              "Prefiero no responder"
             ]
           }
         }

@@ -5,7 +5,7 @@ export const APP_ID = 'czi-coronavirus'
 export const SESSION_NAME = 'bridge-session-ny-strong'
 export const ENDPOINT = 'https://webservices.sagebridge.org'
 
-export const SURVEY_TIME_CONSTANT = '2020-05-08T00:14:04.322Z'
+export const SURVEY_TIME_CONSTANT = '2020-06-15T00:14:04.322Z'
 export const SURVEY_IDENTIFIER = 'ny-strong'
 
 export interface MailChimpFormFields extends EmailFormFields {
@@ -31,6 +31,7 @@ export type Phone = {
   number: string
   regionCode: string
 }
+
 
 export type UserAttributes = {
   address: string
@@ -96,6 +97,7 @@ export type SurveyType =
   | 'HISTORY'
   | 'MORE'
   | 'WITHDRAW'
+  | 'TEST_LOCATION'
 
 export type SurveyConfigObject = {
   [key in SurveyType]: {
@@ -127,4 +129,10 @@ export type ReportData = {
 }
 export type ReportDataList = {
   items: ReportData[]
+}
+
+export enum TestLocationEnum  {
+  'HOME',
+  'LAB' ,
+  'NO_TEST'
 }
