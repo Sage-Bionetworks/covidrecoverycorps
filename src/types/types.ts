@@ -136,3 +136,9 @@ export enum TestLocationEnum  {
   'LAB' ,
   'NO_TEST'
 }
+
+export enum SurveysCompletionStatusEnum {
+'NOT_DONE',
+'MAIN_DONE' ,
+'ALL_DONE'
+}

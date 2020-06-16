@@ -27,7 +27,7 @@ import {
 import { getSession, getSearchParams } from './helpers/utility'
 
 import Intro from './components/static/Intro'
-import Dashboard from './components/Dashboard'
+import Dashboard from './components/dashboard/Dashboard'
 
 import { SESSION_NAME } from './types/types'
 import ConsentEHR from './components/consent/ConsentEHR'

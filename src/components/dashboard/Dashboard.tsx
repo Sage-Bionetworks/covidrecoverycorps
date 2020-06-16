@@ -1,28 +1,29 @@
 import React, { useState, useEffect } from 'react'
-import testTubeImg from '../assets/dashboard/icon_testtubes.svg'
-import saveProgressIconImg from '../assets/dashboard/icon_savedprogress.svg'
-import clockIconImg from '../assets/dashboard/icon_timer.svg'
-import completeIconImg from '../assets/dashboard/icon_complete.svg'
-import emptyIconImg from '../assets/dashboard/icon_empty.svg'
-import iconThankYou from '../assets/dashboard/icon_thankyou.svg'
-import iconWooHoo from '../assets/dashboard/icon_whoohoo.svg'
+import testTubeImg from '../../assets/dashboard/icon_testtubes.svg'
+import saveProgressIconImg from '../../assets/dashboard/icon_savedprogress.svg'
+import clockIconImg from '../../assets/dashboard/icon_timer.svg'
+import completeIconImg from '../../assets/dashboard/icon_complete.svg'
+import emptyIconImg from '../../assets/dashboard/icon_empty.svg'
+
 import { makeStyles } from '@material-ui/core/styles'
 
 import { CircularProgress, Grid } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 
-import { SurveyService } from '../services/survey.service'
+import { SurveyService } from '../../services/survey.service'
 import {
   SavedSurveysObject,
   SurveyType,
   SavedSurvey,
   ReportData,
   TestLocationEnum,
-} from '../types/types'
+  SurveysCompletionStatusEnum,
+} from '../../types/types'
 import _ from 'lodash'
-import { UserService } from '../services/user.service'
+import { UserService } from '../../services/user.service'
 import Alert from '@material-ui/lab/Alert/Alert'
-import TestLocationSurvey from './surveys/TestLocationSurvey'
+import Intro from './Intro'
+import TestLocationSurvey from '../surveys/TestLocationSurvey'
 
 type DashboardProps = {
   token: string
@@ -79,7 +80,7 @@ const surveys: UISurvey[] = [
   },
 ]
 
-type CompletionStatus = 'NOT_DONE' | 'MAIN_DONE' | 'ALL_DONE'
+//type CompletionStatus = 'NOT_DONE' | 'MAIN_DONE' | 'ALL_DONE'
 
 export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   token,
@@ -230,9 +231,9 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     return <ul className="items">{items}</ul>
   }
 
-  const getCompletionStatus = (): CompletionStatus => {
+  const getCompletionStatus = (): SurveysCompletionStatusEnum => {
     if (!savedSurveys) {
-      return 'NOT_DONE'
+      return SurveysCompletionStatusEnum.NOT_DONE
     }
     const completedSurveyNames = (savedSurveys.surveys || [])
       .filter(survey => survey && survey.completedDate)
@@ -248,67 +249,12 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       completedSurveyNames.includes('MORE')
 
     if (doneAll) {
-      return 'ALL_DONE'
+      return SurveysCompletionStatusEnum.ALL_DONE
     } else {
-      return doneMain ? 'MAIN_DONE' : 'NOT_DONE'
+      return doneMain
+        ? SurveysCompletionStatusEnum.MAIN_DONE
+        : SurveysCompletionStatusEnum.NOT_DONE
     }
-  }
-  const getIntro = (): JSX.Element => {
-    const doneMainEl = (
-      <>
-        <img src={iconWooHoo} alt="woo hoo!"></img>
-        <h2>Whoo hoo!</h2>
-        {(testLocationSurveySubmitted === TestLocationEnum.LAB ||
-          testLocationSurveySubmitted === TestLocationEnum.HOME) && (
-          <p>
-            We’ve added you to the waiting list for an antibody test. If you are
-            selected, you will receive an email.
-          </p>
-        )}
-        <p>
-          {' '}
-          Please consider completing the rest of the surveys if you have time.
-        </p>
-      </>
-    )
-
-    const doneMainNoLocationSurveyEl = (
-      <>
-        <img src={iconWooHoo} alt="woo hoo!"></img>
-        <h2>Whoo hoo!</h2>
-        <p>
-          You’ve completed the minimum surveys to qualify for an antibody test!
-        </p>
-        <p>
-          {' '}
-          Although we cannot guarantee testing for everyone, we will do our best
-          to accomodate based on availability.
-        </p>
-      </>
-    )
-
-    const doneAllEl = (
-      <>
-        <img src={iconThankYou} alt="thank you!"></img>
-        <h2>
-          Thank you for your contribution to the COVID Recovery Corps Study!
-        </h2>{' '}
-      </>
-    )
-    const completionStatus = getCompletionStatus()
-    if (completionStatus === 'NOT_DONE') {
-      return <></>
-    }
-
-    if (completionStatus === 'MAIN_DONE') {
-      return (
-        <div className="finished-status text-center">
-          {isDone('TEST_LOCATION') ? doneMainEl : doneMainNoLocationSurveyEl}
-        </div>
-      )
-    }
-
-    return <div className="finished-status text-center">{doneAllEl}</div>
   }
 
   if (isLoading) {
@@ -319,12 +265,12 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     )
   }
   if (error !== undefined) {
-    return <Alert severity="error">{error['message'] || error}</Alert>
+    return <Alert severity="error">{error!['message'] || error}</Alert>
   }
 
   return (
     <div className="Dashboard">
-      {getCompletionStatus() === 'NOT_DONE' && (
+      {getCompletionStatus() === SurveysCompletionStatusEnum.NOT_DONE && (
         <div className="dashboard-intro">
           <p>
             The information you provide will help researchers learn more about
@@ -340,30 +286,25 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         </div>
       )}
       <Card className={classes.root}>
-        {getIntro()}
+        <Intro
+          testLocation={testLocationSurveySubmitted}
+          completionStatus={getCompletionStatus()}
+          isTestLocationSurveyDone={isDone('TEST_LOCATION')}
+        />
         {
           //if they fininshed main surveys and didn't pick location
-          !isDone('TEST_LOCATION') && getCompletionStatus() !== 'NOT_DONE' && (
-            <div
-              className="finished-status"
-              style={{ marginBottom: '2.4rem', clear: 'both' }}
-            >
-              <p>
-                <strong>
-                  Would you prefer to go to a lab draw or wait until home test
-                  kits are available?{' '}
-                </strong>
-              </p>
+          !isDone('TEST_LOCATION') &&
+            getCompletionStatus() !== SurveysCompletionStatusEnum.NOT_DONE && (
               <TestLocationSurvey
                 surveyUpdatedCallbackFn={(location: TestLocationEnum) =>
                   setTestLocationSurveySubmitted(location)
                 }
                 token={token}
-              ></TestLocationSurvey>{' '}
-            </div>
-          )
+              ></TestLocationSurvey>
+            )
         }
-        {(isDone('TEST_LOCATION') || getCompletionStatus() == 'NOT_DONE') && (
+        {(isDone('TEST_LOCATION') ||
+          getCompletionStatus() === SurveysCompletionStatusEnum.NOT_DONE) && (
           <>
             <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
             <div className="separator">
