@@ -13,6 +13,7 @@ import BlueSeparator from '../static/BlueSeparator'
 import { RadioGroup, FormControlLabel, Radio } from '@material-ui/core'
 import ConsentIcons from './ConsentIcons'
 import { useTranslation } from 'react-i18next'
+import i18next from 'i18next';
 
 type ConsentInfoProps = {
   onDone: Function
@@ -20,13 +21,13 @@ type ConsentInfoProps = {
 const quizes = [
   {
     screen: 2,
-    title: ' What is the purpose of COVID Recovery Corps? ',
+    title: i18next.t('consentinfo.quiz1.text1'),
     options: [
-      'To receive medical treatment for COVID-19',
-      'To be able to better understand COVID-19',
+      i18next.t('consentinfo.quiz1.text2'),
+      i18next.t('consentinfo.quiz1.text3'),
     ],
     explanation:
-      'This study is a research study to understand COVID-19 better. The study does not provide medical treatment.',
+    i18next.t('consentinfo.quiz1.text4'),
     correctAnswer: 1,
   },
   {
@@ -58,7 +59,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   onDone,
 }: ConsentInfoProps) => {
   const [isFullText, setIsFullText] = useState(false)
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep, setCurrentStep] = useState(3)
   const [quizAnswers, setQuizAnswers] = useState(new Array(2))
   const { t } = useTranslation()
 

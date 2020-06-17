@@ -171,6 +171,48 @@
       "text6": "We also will ask you if you would like to share your electronic health record (EHR) with the study. Your electronic health record is a digital version of your medical health record (which may include information like your doctor's notes from visits, diagnosis information and medications). There will be a separate form called a HIPAA Authorization for you to sign if you decide to give us access to your health records. If you say yes to sharing, we will see data about your health problems, test results, medical procedures, images (such as X-rays), and medicines you take.",
       "text7": "It is important to remember that health records can contain sensitive data. For example, it may tell us about your mental health, genetic conditions, or use of alcohol or drugs. They may contain sexual or infection data, including HIV status. You can say no to sharing your health records and still take part in COVID Recovery Corps.",
       "text8": "We may contact you by email or text to remind you to answer the survey or to give you directions about providing a blood sample. We expect it will take you about 30-60 minutes to fill out the first four surveys, and then 15 minutes every month to answer the survey questions to see how you are doing. If you are asked and decide to give a blood sample, that will take additional time."
+    },
+    "quiz1": {
+      "text1": "What is the purpose of COVID Recovery Corps?",
+      "text2": "To receive medical treatment for COVID-19",
+      "text3": "To be able to better understand COVID-19",
+      "text4": "This study is a research study to understand COVID-19 better. The study does not provide medical treatment."
+    },
+    "summaryScreen3": {
+      "text1": "What are the benefits?",
+      "text2": "You may or may not benefit from volunteering for this research study. This study is<1> not medical treatment</1>.",
+      "text3": "If you are invited to give a biosample, we will provide you with results from your test. These results may let you know if you have been or are now infected with COVID-19.",
+      "text4": "The primary benefit of this study is helping researchers <1> better understand COVID-19 </1>and help future generations."
+    },
+    "fullTextScreen3": {
+      "text1": "What are the benefits?",
+      "text2": "COVID Recovery Corps is not medical treatment. It is a research study. You will not get direct medical benefit from taking part in COVID Recovery Corps. That said, you may indirectly benefit from taking part in COVID Recovery Corps. These results may be interesting to you.",
+      "text3": "You may learn about your health. This might include results about your samples and if you have been or are now infected with COVID-19. Knowing about your COVID-19 status might be a benefit to you.",
+      "text4": "You will be able to share your COVID Recovery Corps study information with your healthcare provider if you choose. You will have the option to learn about additional study opportunities. Finally, you will be helping researchers and other people make discoveries that may help each other as well as future generations."
+    },
+    "summaryScreen4": {
+      "text1": "What are the risks?",
+      "text2": "The main risk of participating in this study is to your <1> privacy</1>.",
+      "text3": "We understand you are sharing and allowing us to collect sensitive health information from you.",
+      "text4": "We take great care to <1> protect your information</1>. However, if there is a <1>data breach</1> it may be possible to <1>identify you and your sensitive information</1> may be seen by someone without your permission. This risk is <1> low but it is not zero</1>.",
+      "text5": "COVID-19 is also a risk to public health. <1> Thus we may have to give out your data if public health authorities demand it. </1>",
+      "text6": "If you give a <1>blood sample</1>, the most common risks are <1>brief pain and bruising</1>. Some people may become dizzy or feel faint. There is also a small risk of infection.",
+      "text7": "If you are asked to provide a sample from a <1> nose swab </1>you may feel <1> brief discomfort</1>."
+    },
+    "fullTextScreen4": {
+      "text1": "What are the risks?",
+      "text2": "The main risk of taking part in COVID Recovery Corps is to your privacy. A data breach is when someone sees or uses data without permission. If there is a data breach, someone could see or use the data we have about you. Even without your name, there is a chance someone could figure out who you are. They could misuse your data.",
+      "text3": "Your privacy is very important to us. We will take great care to protect it. Here are a few of the steps we will take:",
+      "text4": "Data we have about you will be stored on protected computers. We will limit and keep track of who can see these data.",
+      "text5": "We will limit who is allowed to see information that could directly identify you, like your name or date of birth.",
+      "text6": "In order to work with your health data, researchers must sign a contract stating they will not try to find out who you are.",
+      "text7": "We will tell you if there is a data breach.",
+      "text8": "COVID Recovery Corps has a Certificate of Confidentiality from the U.S. government. This will help us fight legal demands (such as a court order or a request from federal, state, or local law enforcement) to give out information that could identify you.",
+      "text9": "However, the Certificate might not stop demands from public health authorities like the Health Department or law enforcement because of COVID-19.",
+      "text10": "We believe the chance of this is very small, but it is not zero.",
+      "text11": "We will gather data from you through the COVID Recovery Corps website. There is a risk to your privacy whenever you use the website.",
+      "text12": "Researchers will use basic facts like your race, ethnic group, and sex in their studies. These data help researchers learn if the things that affect health are the same for different groups of people. These studies could one day help people of the same race, ethnic group, or sex as you. It is important to have a diverse group of individuals in COVID Recovery Corps to make sure the results will help everyone. However, there is a risk that someone could use this data to support harmful ideas about certain groups.",
+      "text13": "If you give a blood sample, the most common risks are brief pain and bruising. Some people may become dizzy or feel faint. There is also a small risk of infection. If you are asked to provide a sample from a nose swab you may feel brief discomfort."
     }
   },
   "ineligible": {
