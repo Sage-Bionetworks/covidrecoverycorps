@@ -378,6 +378,7 @@ const summaryScreens = [
 ]
 
 const fullTextScreens = [
+  // intentionally leaving first element empty, first page has no full text version
   <></>,
   <div>
     <h2>{i18next.t('consentinfo.fullTextScreen2.text1')}</h2>
