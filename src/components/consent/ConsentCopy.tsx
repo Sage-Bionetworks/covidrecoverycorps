@@ -77,66 +77,64 @@ const summaryScreens = [
   </div>,
 
   <div>
-    <h2>What will I be asked to do?</h2>
-
+    <h2>{i18next.t('consentinfo.summaryScreen2.text1')}</h2>
     <p className="Consent__copy">
-      If you join the study, you will be asked to:{' '}
+      {i18next.t('consentinfo.summaryScreen2.text2')}
     </p>
 
     <div className="list">
       <p className="Consent__copy">
-        <strong>Fill out surveys</strong> on your experience with COVID-19, your
-        past and current health conditions, and lifestyle.{' '}
+        <Trans i18nKey="consentinfo.summaryScreen2.text3">
+          <strong>[translate]</strong> [translate]
+        </Trans>
       </p>
       <p className="Consent__copy">
-        The <strong>first 4 surveys</strong> may take up to{' '}
-        <strong>30-60 minutes total</strong>. On a{' '}
-        <strong>monthly basis</strong>, we will contact you to complete a{' '}
-        <strong>15-minute survey</strong>.{' '}
+        <Trans i18nKey="consentinfo.summaryScreen2.text4">
+        [translate] <strong>[translate]</strong> [translate]
+        <strong>[translate]</strong> [translate]
+        <strong>[translate]</strong>[translate]
+        <strong>[translate]</strong>[translate]
+        </Trans>
       </p>
       <p className="Consent__copy">
-        It is ok if you don't remember or know the answer to some of the
-        questions.
+        {i18next.t("consentinfo.summaryScreen2.text5")}
       </p>
       <p className="Consent__copy">
-        You can pick "Prefer not to answer" for any of the questions.
+        {i18next.t("consentinfo.summaryScreen2.text6")}
       </p>
     </div>
 
     <p className="Consent__copy">
       <br/>
-      <strong>We may ask you to provide the following:</strong>
+      <strong>{i18next.t("consentinfo.summaryScreen2.text7")}</strong>
     </p>
 
     <div className="list">
       <p className="Consent__copy">
-        A <strong>biosample </strong>such as blood, pee, spit, or sample 
-        from a nose swab. We may contact you to schedule a blood draw or we
-        may mail you an at-home testing kit. We will provide you with
-        instructions and postage to mail the kit back to our lab.{' '}
+        <Trans i18nKey="consentinfo.summaryScreen2.text8">
+        [translation] <strong>[translation] </strong>[translation]
+        </Trans>
       </p>
       <p className="Consent__copy">
-        If you have a <strong>positive test result for COVID-19</strong>, we may
-        ask you to upload a picture or a scanned copy of the document to the
-        study website. This is<strong> optional</strong>.
-      </p>
-
-      <p className="Consent__copy">
-        Access to your <strong>electronic health record (EHR)</strong>. Your EHR
-        contains <strong>sensitive information </strong>on your health problems,
-        test results, visits to the doctor and medications. This is{' '}
-        <strong>optional </strong>and you can still take part in the study
-        without sharing your EHR.{' '}
+      <Trans i18nKey="consentinfo.summaryScreen2.text9">
+        [translation] <strong>[translation]</strong> [translation] <strong> [translation]</strong> [translation]
+      </Trans>
       </p>
 
       <p className="Consent__copy">
-        If you decide to share your EHR with us, you will receive a prompt to
-        complete a HIPAA authorization form after this consent process.{' '}
+        <Trans i18nKey="consentinfo.summaryScreen2.text10">
+          [translation] <strong>[translation]</strong>
+          [translation] <strong>[translation] </strong>[translation]
+          <strong>[translation] </strong> [translation]
+        </Trans>
       </p>
 
       <p className="Consent__copy">
-        We also may contact you to invite you to participate in other
-        COVID-related research studies.
+        {i18next.t("consentinfo.summaryScreen2.text11")}
+      </p>
+
+      <p className="Consent__copy">
+        {i18next.t("consentinfo.summaryScreen2.text12")}
       </p>
     </div>
   </div>,
@@ -380,98 +378,37 @@ const summaryScreens = [
 ]
 
 const fullTextScreens = [
+  <></>,
   <div>
-    <h2>About the Study</h2>
-
+    <h2>{i18next.t('consentinfo.fullTextScreen2.text1')}</h2>
     <p className="Consent__copy">
-      COVID Recovery Corps is a <strong> research study</strong>.{' '}
+      {i18next.t('consentinfo.fullTextScreen2.text2')}
     </p>
 
     <p className="Consent__copy">
-      The goal of the study is to collect information from participants who have
-      been diagnosed or believe they have had COVID-19.{' '}
+      {i18next.t('consentinfo.fullTextScreen2.text3')}
     </p>
 
     <p className="Consent__copy">
-      Researchers will use this information to{' '}
-      <strong>better understand how the body fights COVID-19 </strong>.
+      {i18next.t('consentinfo.fullTextScreen2.text4')}
     </p>
 
     <p className="Consent__copy">
-      This study is being led by Columbia University and Sage Bionetworks. The
-      study is being funded by the Chan Zuckerberg Initiative.{' '}
+      {i18next.t('consentinfo.fullTextScreen2.text5')}
     </p>
 
     <p className="Consent__copy">
-      This study will <strong> last for 12 months</strong> from the time you enroll.{' '}
+      {i18next.t('consentinfo.fullTextScreen2.text6')}
     </p>
+
     <p className="Consent__copy">
-      This study will <strong> not provide medical care </strong> for COVID-19.
-      Participation in this study is <strong> voluntary </strong>
-      and you may leave the study at any time.
+      {i18next.t('consentinfo.fullTextScreen2.text7')}
+    </p>
+
+    <p className="Consent__copy">
+      {i18next.t('consentinfo.fullTextScreen2.text8')}
     </p>
   </div>,
-
-  <div>
-    <h2>What will I be asked to do?</h2>
-    <p className="Consent__copy">
-      If you decide to join COVID Recovery Corps, we will ask you to answer
-      survey questions. We will use the answers you give us to guess when you
-      might have been infected to decide if and when to ask you to give a
-      biosample such as blood, pee, spit, or sample from a nose swab.
-      You can say no to providing these samples and still take part in COVID
-      Recovery Corps study.{' '}
-    </p>
-
-    <p className="Consent__copy">
-      If you say yes to giving a blood sample, we may use a needle to draw about
-      3 tablespoons of blood from your arm. We will contact you to schedule the
-      blood sample.
-    </p>
-
-    <p className="Consent__copy">
-      Some people might get a testing kit sent to their house. Those people
-      might use a finger stick to provide a small blood sample on a card. The
-      kit may also ask you to provide a sample by using a nose swab, peeing in a
-      cup, or spitting in a cup. We will provide you with
-      instructions and postage to mail the kit back to our lab.
-    </p>
-
-    <p className="Consent__copy">
-      If you have a positive test result for COVID-19, we may ask you to upload
-      a picture or a scanned copy of the document to the study website. This is
-      optional and not required to take part in the study.{' '}
-    </p>
-
-    <p className="Consent__copy">
-      We also will ask you if you would like to share your electronic health
-      record (EHR) with the study. Your electronic health record is a digital
-      version of your medical health record (which may include information like
-      your doctor's notes from visits, diagnosis information and medications).
-      There will be a separate form called a HIPAA Authorization for you to sign
-      if you decide to give us access to your health records. If you say yes to
-      sharing, we will see data about your health problems, test results,
-      medical procedures, images (such as X-rays), and medicines you take.{' '}
-    </p>
-
-    <p className="Consent__copy">
-      It is important to remember that health records can contain sensitive
-      data. For example, it may tell us about your mental health, genetic
-      conditions, or use of alcohol or drugs. They may contain sexual or
-      infection data, including HIV status. You can say no to sharing your
-      health records and still take part in COVID Recovery Corps.
-    </p>
-
-    <p className="Consent__copy">
-      We may contact you by email or text to remind you to answer the survey or
-      to give you directions about providing a blood sample. We expect it will
-      take you about 30-60 minutes to fill out the first four surveys, and then
-      15 minutes every month to answer the survey questions to see how you are
-      doing. If you are asked and decide to give a blood sample, that will take
-      additional time.{' '}
-    </p>
-  </div>,
-
   <div>[intentionally blank - quiz 1 screen]</div>,
 
   <div>
