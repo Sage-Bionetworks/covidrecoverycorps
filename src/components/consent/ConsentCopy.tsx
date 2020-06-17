@@ -1,4 +1,6 @@
 import React from 'react'
+import i18next from 'i18next';
+import { Trans } from 'react-i18next';
 import _01 from '../../assets/consent_icons/_0.png'
 import _02 from '../../assets/consent_icons/_1.png'
 import _03 from '../../assets/consent_icons/_2.png'
@@ -21,7 +23,7 @@ export type ConsentCopyProps = {
 }
 
 export enum SCREENS_ENUM {
-  INTRO='INTRO',
+  CONSENT_INTRO='CONSENT_INTRO',
   CONSENT_SIGNATURE1='CONSENT_SIGNATURE1',
   CONSENT_SIGNATURE2='CONSENT_SIGNATURE2',
   CONSENT_SHARING='CONSENT_SHARING',
@@ -32,38 +34,45 @@ export enum SCREENS_ENUM {
 
 const summaryScreens = [
   <div>
-    <h2>About the Study</h2>
+    <h2>{i18next.t("consentinfo.summaryScreen1.text1")}</h2>
+      <p className="Consent__copy">
+        <Trans i18nKey="consentinfo.summaryScreen1.text2">
+          [translate] <strong> [translate]</strong>
+        </Trans>
+      </p>
+      <p className="Consent__copy">
+        <Trans i18nKey="consentinfo.summaryScreen1.text3">
+          [translate]
+          <strong>
+            [translate]
+          </strong>
+        </Trans>
+      </p>
 
     <p className="Consent__copy">
-      COVID Recovery Corps is a <strong> research study</strong>.{' '}
+      <Trans i18nKey="consentinfo.summaryScreen1.text4">
+        [translate]
+        <strong>[translate]</strong>
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      The goal of the study is to{' '}
-      <strong>
-        collect information from participants who have been diagnosed or believe
-        they have had COVID-19
-      </strong>
-      .{' '}
+      {
+        i18next.t('consentinfo.summaryScreen1.text5')
+      }
     </p>
 
     <p className="Consent__copy">
-      Researchers will use this information to{' '}
-      <strong>better understand how the body fights COVID-19 </strong>.
-    </p>
-
-    <p className="Consent__copy">
-      This study is being led by Columbia University and Sage Bionetworks. The
-      study is being funded by the Chan Zuckerberg Initiative.{' '}
-    </p>
-
-    <p className="Consent__copy">
-      This study will <strong> last for 12 months</strong> from the time you enroll.{' '}
+      <Trans i18nKey="consentinfo.summaryScreen1.text6">
+        [translate] <strong> [translate] </strong> [translate]
+      </Trans>
     </p>
     <p className="Consent__copy">
-      This study will <strong> not provide medical care </strong> for COVID-19.
-      Participation in this study is <strong> voluntary </strong>
-      and you may leave the study at any time.
+      <Trans i18nKey="consentinfo.summaryScreen1.text7">
+        [translate] <strong> [translate] </strong> [translate]
+        [translate] <strong> [translate] </strong>
+        [translate]
+      </Trans>
     </p>
   </div>,
 
@@ -87,8 +96,8 @@ const summaryScreens = [
       </p>
       <p className="Consent__copy">
         It is ok if you don't remember or know the answer to some of the
-        questions.{' '}
-      </p>{' '}
+        questions.
+      </p>
       <p className="Consent__copy">
         You can pick "Prefer not to answer" for any of the questions.
       </p>
@@ -898,20 +907,16 @@ const ehrScreens = [
   </div>,
 ]
 
-const screens: { [key in SCREENS_ENUM]: JSX.Element } = {
-  INTRO: (
+const screens: {[key in SCREENS_ENUM]: JSX.Element} = {
+  CONSENT_INTRO: (
+    <>
+    <h2>{i18next.t('consentinfo.welcome.text1')}</h2>
     <div className="Consent__copy">
-      <p className="Consent__copy">
-        Before you decide to join the study, let's learn more about COVID
-        Recovery Corps.
-      </p>
-      <p className="Consent__copy">
-        The next screens will tell you about the purpose of the study, what we
-        will ask you to do, the benefits and risks of participation.
-      </p>
-
-      <p className="Consent__copy">Let's get started!</p>
+      <p className="Consent__copy">{i18next.t('consentinfo.welcome.text2')}</p>
+      <p className="Consent__copy">{i18next.t('consentinfo.welcome.text3')}</p>
+      <p className="Consent__copy">{i18next.t('consentinfo.welcome.text4')}</p>
     </div>
+    </>
   ),
   CONSENT_SIGNATURE1: (
     <p className="Consent__copy">
