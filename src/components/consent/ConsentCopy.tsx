@@ -197,82 +197,66 @@ const summaryScreens = [
     </p>
   </div>,
   <div>[intentionally blank - quiz 2 screen]</div>,
-
   <div>
-    <h2>What will you do with my data and samples?</h2>
+    <h2>{i18next.t("consentinfo.summaryScreen5.text1")}</h2>
     <p className="Consent__copy">
-      We will use the data and samples to
-      <strong> make discoveries about COVID-19</strong>.
+      <Trans i18nKey="consentinfo.summaryScreen5.text2">
+        [translate] <strong> [translate] </strong> [translate]
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      We will study the differences in symptoms people have over time 
-      and why some people responded differently than others.
+      {i18next.t("consentinfo.summaryScreen5.text3")}
     </p>
 
     <p className="Consent__copy">
-      To protect your data, we will
-      <strong> use a code to identify your data </strong> and samples rather
-      than your name or other personal information. This
-      <strong>code cannot be used to directly identify you</strong>.
+      <Trans i18nKey="consentinfo.summaryScreen5.text4">
+        [translate] <strong> [translate] </strong> and samples rather than your name or other personal information. This <strong> [translate] </strong>[translate]
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      This coded data is known as <strong> de-identified data</strong>. Only key
-      people from our study team can link your identity to your study data.
+      <Trans i18nKey="consentinfo.summaryScreen5.text5">
+        [translate] <strong> [translate]</strong>[translate]
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      Your data and samples will be
-      <strong>
-        
-        securely stored and controlled by the COVID Recovery Corps study
-      </strong>
-      . Your data will be stored in the COVID Recovery Corps study database and
-      your samples will be stored in the study's biobank.
+      <Trans i18nKey="consentinfo.summaryScreen5.text6">
+      [translate] <strong> [translate]</strong> [translate]
+      </Trans>
     </p>
   </div>,
   <div>
-    <h2>Sharing your data with future researchers</h2>
+    <h2>{i18next.t("consentinfo.summaryScreen6.text1")}</h2>
     <p className="Consent__copy">
-      You will have the
-      <strong>
-        
-        opportunity to share your data with qualified researchers
-      </strong>
-      outside of the COVID Recovery Corps.
+      <Trans i18nKey="consentinfo.summaryScreen6.text2">
+        [translate] <strong>  [translate] </strong>  [translate]
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      All qualified researchers must be approved by the COVID Recovery Corps
-      study team and will only use de-identified data.
+      {i18next.t("consentinfo.summaryScreen6.text3")}
     </p>
 
     <p className="Consent__copy">
-      This de-identified data does not contain identifiers like name, date of
-      birth, or email address.
+      {i18next.t("consentinfo.summaryScreen6.text4")}
     </p>
 
     <p className="Consent__copy">
-      These researchers may be from <strong>outside the United States</strong>
-      and may work for a
-      <strong>
-        non-profit institution, commercial drug or medical device companies, or
-        be a private citizen
-      </strong>
-      .
+      <Trans i18nKey="consentinfo.summaryScreen6.text5">
+        [translate] <strong> [translate] </strong> [translate] <strong> [translate] </strong> [translate]
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      Sharing your data with qualified researchers is optional and you can
-      change your mind at any time by updating your data sharing options in
-      account settings.
+      {i18next.t("consentinfo.summaryScreen6.text6")}
     </p>
 
     <p className="Consent__copy">
-      But once we <strong>share your data we cannot get it back</strong>. If you
-      decide to end data sharing, we will not share your
-      <strong>future data</strong>.
+      <Trans i18nKey="consentinfo.summaryScreen6.text7">
+        [translate] <strong>[translate]</strong> [translate] <strong>[translate]</strong>[translate]
+      </Trans>
     </p>
   </div>,
 
@@ -473,69 +457,37 @@ const fullTextScreens = [
   <div>[intentionally blank - quiz 2 screen]</div>,
 
   <div>
-    <h2>What will you do with my data and samples</h2>
+    <h2>{i18next.t('consentinfo.fullTextScreen5.text1')}</h2>
     <p className="Consent__copy">
-      We will store your data and samples securely, along with the data and
-      samples from all the other people who take part in COVID Recovery Corps.
-      Your data will be stored in the COVID Recovery Corps database and the
-      COVID Recovery Corps Biobank will store your biosamples. We will use the
-      data and samples to make discoveries about COVID-19. We will study the 
-      differences in symptoms people have over time and why some people 
-      responded differently than others. We will study how different people’s 
-      bodies fought the virus with
-      their immune system. We will also study changes in health after people
-      have recovered from COVID-19.
+      {i18next.t('consentinfo.fullTextScreen5.text2')}
     </p>
 
     <p className="Consent__copy">
-      We will create a scientific database and a biobank for the COVID Recovery
-      Corps study. The scientific database will have individual-level data and
-      the biobank will store your samples like your blood, and pee.
+      {i18next.t('consentinfo.fullTextScreen5.text3')}
     </p>
     <p className="Consent__copy">
-      To protect your data, we will use a code to identify your data and samples
-      rather than your name name or other personal information. This code cannot
-      be used to directly identify you. This coded data is known as
-      de-identified data.Only key people from our study team can link your
-      identity to your study.
+      {i18next.t('consentinfo.fullTextScreen5.text4')}
     </p>
 
     <p className="Consent__copy">
-      Access to this database will be controlled. Researchers will have to be
-      approved by COVID Recovery Corps and will use only de-identified or coded
-      data.
+      {i18next.t('consentinfo.fullTextScreen5.text5')}
     </p>
   </div>,
   <div>
-    <h2>Sharing your data with future researchers</h2>
+    <h2>{i18next.t('consentinfo.fullTextScreen6.text1')}</h2>
     <p className="Consent__copy">
-      The de-identified data that you donate for COVID Recovery Corps study
-      could be used for other COVID- related research. You get to decide if you
-      want to share your coded study data with qualified researchers worldwide.
-      If you give permission, sharing will be done without additional informed
-      consent.
+      {i18next.t('consentinfo.fullTextScreen6.text2')}
     </p>
 
     <p className="Consent__copy">
-      We have rules to qualify researchers. Qualified researchers must register
-      on Synapse, our data analysis platform. To access the data, qualified
-      researchers must write a short statement about their research. The
-      research could be about any topic. The research could be on topics you
-      disagree with or find offensive. We post the researchers’ statements on
-      Synapse for anyone to read. They must sign an oath to use the data
-      ethically and do no harm. Researchers will not be able to easily figure
-      out your identity using your coded study data.
+      {i18next.t('consentinfo.fullTextScreen6.text3')}
     </p>
 
     <p className="Consent__copy">
-      Anyone in the US or abroad can qualify to be a qualified researcher. The
-      person could be from a non-profit institution, commercial drug or medical
-      device companies, or be a private citizen.
+      {i18next.t('consentinfo.fullTextScreen6.text4')}
     </p>
     <p className="Consent__copy">
-      You cannot take back your data once it is used in research. Your data will
-      not be destroyed or deleted. Once we share your data, there isn’t a way
-      for us to delete it or take it back.
+      {i18next.t('consentinfo.fullTextScreen6.text5')}
     </p>
   </div>,
 

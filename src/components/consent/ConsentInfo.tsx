@@ -26,16 +26,14 @@ const quizes = [
       i18next.t('consentinfo.quiz1.text2'),
       i18next.t('consentinfo.quiz1.text3'),
     ],
-    explanation:
-    i18next.t('consentinfo.quiz1.text4'),
+    explanation: i18next.t('consentinfo.quiz1.text4'),
     correctAnswer: 1,
   },
   {
     screen: 5,
-    title: 'What is the primary risk in this study?',
-    options: ['Privacy', 'There is no risk in participating in this study'],
-    explanation:
-      'We will do our best to protect your privacy. But we can’t guarantee your privacy. It is possible that public health authorities will ask to see the data.',
+    title: i18next.t('consentinfo.quiz2.text1'),
+    options: [i18next.t('consentinfo.quiz2.text2'), i18next.t('consentinfo.quiz2.text3')],
+    explanation: i18next.t('consentinfo.quiz2.text4'),
     correctAnswer: 0,
   },
   {
@@ -59,7 +57,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   onDone,
 }: ConsentInfoProps) => {
   const [isFullText, setIsFullText] = useState(false)
-  const [currentStep, setCurrentStep] = useState(3)
+  const [currentStep, setCurrentStep] = useState(6)
   const [quizAnswers, setQuizAnswers] = useState(new Array(2))
   const { t } = useTranslation()
 
