@@ -35,26 +35,26 @@ export enum SCREENS_ENUM {
 const summaryScreens = [
   <div>
     <h2>{i18next.t("consentinfo.summaryScreen1.text1")}</h2>
-    <Trans i18nKey="consentinfo.summaryScreen1.text2">
       <p className="Consent__copy">
-      [translate] <strong> [translate]</strong>
+        <Trans i18nKey="consentinfo.summaryScreen1.text2">
+          [translate] <strong> [translate]</strong>
+        </Trans>
       </p>
-    </Trans>
-    <Trans i18nKey="consentinfo.summaryScreen1.text3">
       <p className="Consent__copy">
-        [translate]
-        <strong>
+        <Trans i18nKey="consentinfo.summaryScreen1.text3">
           [translate]
-        </strong>
+          <strong>
+            [translate]
+          </strong>
+        </Trans>
       </p>
-    </Trans>
 
-    <Trans i18nKey="consentinfo.summaryScreen1.text4">
-      <p className="Consent__copy">
+    <p className="Consent__copy">
+      <Trans i18nKey="consentinfo.summaryScreen1.text4">
         [translate]
         <strong>[translate]</strong>
-      </p>
-    </Trans>
+      </Trans>
+    </p>
 
     <p className="Consent__copy">
       {
@@ -62,18 +62,18 @@ const summaryScreens = [
       }
     </p>
 
-    <Trans i18nKey="consentinfo.summaryScreen1.text6">
-      <p className="Consent__copy">
+    <p className="Consent__copy">
+      <Trans i18nKey="consentinfo.summaryScreen1.text6">
         [translate] <strong> [translate] </strong> [translate]
-      </p>
-    </Trans>
-    <Trans i18nKey="consentinfo.summaryScreen1.text7">
-      <p className="Consent__copy">
+      </Trans>
+    </p>
+    <p className="Consent__copy">
+      <Trans i18nKey="consentinfo.summaryScreen1.text7">
         [translate] <strong> [translate] </strong> [translate]
         [translate] <strong> [translate] </strong>
         [translate]
-      </p>
-    </Trans>
+      </Trans>
+    </p>
   </div>,
 
   <div>
@@ -96,8 +96,8 @@ const summaryScreens = [
       </p>
       <p className="Consent__copy">
         It is ok if you don't remember or know the answer to some of the
-        questions.{' '}
-      </p>{' '}
+        questions.
+      </p>
       <p className="Consent__copy">
         You can pick "Prefer not to answer" for any of the questions.
       </p>
