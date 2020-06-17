@@ -132,9 +132,9 @@ export type ReportDataList = {
 }
 
 export enum TestLocationEnum  {
-  'HOME',
-  'LAB' ,
-  'NO_TEST'
+  'HOME'= 'home',
+  'LAB' = 'lab' ,
+  'NO_TEST' = 'noTest'
 }
 
 export enum SurveysCompletionStatusEnum {
