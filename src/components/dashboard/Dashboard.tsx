@@ -18,6 +18,7 @@ import {
   ReportData,
   TestLocationEnum,
   SurveysCompletionStatusEnum,
+  LoggedInUserData,
 } from '../../types/types'
 import _ from 'lodash'
 import { UserService } from '../../services/user.service'
@@ -80,16 +81,15 @@ const surveys: UISurvey[] = [
   },
 ]
 
-//type CompletionStatus = 'NOT_DONE' | 'MAIN_DONE' | 'ALL_DONE'
-
 export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   token,
 }: DashboardProps) => {
   const [savedSurveys, setSavedSurveys] = useState<SavedSurveysObject>()
   const [error, setError] = useState()
-
   const [isLoading, setIsLoading] = useState(false)
-  const [isContactInfoDone, setIsContactInfoDone] = useState(false)
+  const [userInfo, setUserInfo] = useState<LoggedInUserData | undefined>(
+    undefined,
+  )
 
   const [
     testLocationSurveySubmitted,
@@ -105,7 +105,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         try {
           setIsLoading(true)
           const userInfo = await UserService.getUserInfo(token)
-          setIsContactInfoDone(!!userInfo.data.attributes?.gender)
+          setUserInfo(userInfo.data)
           const response = await SurveyService.getUserSurveys(token)
           setSavedSurveys(_.first(response.data.items)?.data)
         } catch (e) {
@@ -131,6 +131,22 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 - all suverys completed
 */
 
+  const isContactInfoDone = (): boolean => {
+    if (!userInfo) {
+      return false
+    } else {
+      return !!userInfo.attributes?.gender
+    }
+  }
+
+  const isScheduledForTest = (): boolean => {
+    if (!userInfo) {
+      return false
+    } else {
+      return userInfo?.dataGroups.indexOf('tests_requested') > -1
+    }
+  }
+
   const getSavedSurvey = (surveyType: SurveyType): SavedSurvey | undefined => {
     if (!savedSurveys) {
       return undefined
@@ -138,6 +154,10 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     return savedSurveys.surveys.find(
       savedSurvey => surveyType === savedSurvey.type,
     )
+  }
+
+  const getPreferredTestLocation = (): TestLocationEnum | undefined => {
+    return getSavedSurvey('TEST_LOCATION')?.data.location
   }
 
   const isDone = (surveyType: SurveyType): boolean => {
@@ -152,7 +172,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
   const renderSurveyItems = (savedSurveys: SavedSurvey[], isTier1: boolean) => {
     const getIconImageForContact = (): JSX.Element => {
-      return isContactInfoDone ? (
+      return isContactInfoDone() ? (
         <img src={completeIconImg} alt="done"></img>
       ) : (
         <img src={emptyIconImg} alt="to do"></img>
@@ -177,9 +197,9 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
     const isSurveyDisabled = (surveyType: SurveyType): boolean => {
       if (surveyType === 'CONTACT') {
-        return isContactInfoDone
+        return isContactInfoDone()
       } else {
-        return isDone(surveyType) || !isContactInfoDone
+        return isDone(surveyType) || !isContactInfoDone()
       }
     }
 
@@ -240,7 +260,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       .map(survey => survey?.type)
 
     const doneMain =
-      isContactInfoDone &&
+      isContactInfoDone() &&
       completedSurveyNames.includes('DEMOGRAPHIC') &&
       completedSurveyNames.includes('COVID_EXPERIENCE')
     const doneAll =
@@ -287,8 +307,11 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       )}
       <Card className={classes.root}>
         <Intro
-          testLocation={testLocationSurveySubmitted}
+          testLocation={
+            testLocationSurveySubmitted || getPreferredTestLocation()
+          }
           completionStatus={getCompletionStatus()}
+          isScheduledForTest={isScheduledForTest()}
           isTestLocationSurveyDone={isDone('TEST_LOCATION')}
         />
         {
