@@ -4,6 +4,7 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { makeStyles } from '@material-ui/core/styles'
 import Logout from '../login/Logout'
+import { getSession} from '../../helpers/utility'
 import btnClose from '../../assets/btn_close_dark.svg'
 import {
   ListItem,
@@ -143,7 +144,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
     setAlertCode(undefined)
   }
   const isGlobalNotificationAlertHidden = (location: string): boolean => {
-    const specialPages = ['settings', 'appointment']
+    const specialPages = ['settings', 'appointment', 'consent']
     return (
       specialPages.find(page => location.toLowerCase().includes(page)) !==
       undefined
@@ -235,7 +236,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             {language === 'es' ? 'in English' : 'en español'}
         </ListItem>
         <Divider className={classes.mobileMenuSeparator} />
-        {props.token && (
+        {(props.token && getSession()?.consented) && (
           <NavLink
             to="/dashboard"
             onClick={handleDrawerToggle}
@@ -246,7 +247,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             </ListItem>
           </NavLink>
         )}
-        {props.token && (
+        {(props.token && getSession()?.consented) && (
           <NavLink
             to="/settings"
             onClick={handleDrawerToggle}
@@ -337,7 +338,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
       >
         {t('topnav.text5')}
       </NavLink>
-      {props.token && (
+      {(props.token && getSession()?.consented) &&  (
         <NavLink
           to="/dashboard"
           className={classes.fullNavBarLink}
@@ -346,7 +347,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           {t('topnav.text6')}
         </NavLink>
       )}
-      {props.token && (
+      {(props.token   && getSession()?.consented) && (
         <NavLink
           to="/settings"
           className={classes.fullNavBarLink}

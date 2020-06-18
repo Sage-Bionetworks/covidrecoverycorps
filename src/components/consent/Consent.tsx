@@ -22,7 +22,7 @@ import LearnMore from '../widgets/LearnMore'
 import { setSession, getSession } from '../../helpers/utility'
 import ConsentSentConfirmation from './ConsentSentConfirmation'
 import { UserService } from '../../services/user.service'
-
+import { useSessionStorage } from '../../helpers/utility'
 export type ConsentProps = {
   token: string
   setConsentFn?: Function
@@ -42,6 +42,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   )
 
   const [error, setError] = useState('')
+  const [alertCode, setAlertCode] = useSessionStorage('alert', undefined)
 
   const stateSchema = {
     agree: { value: '', error: '' },
@@ -97,6 +98,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
         token,
       )
       setSession(token, getSession()?.name || '', true)
+      setAlertCode(undefined)
       setIsConsentDone(true)
     } catch (e) {
       setError(e.message)
@@ -154,7 +156,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           <RadioGroup
             aria-label="start HIPAA consent"
             name="startHIPAAConsent"
-            onChange={(_event: any, val: string) => setDoHIPAAConsent(val === 'true')}
+            onChange={(_event: any, val: string) =>
+              setDoHIPAAConsent(val === 'true')
+            }
           >
             <FormControlLabel
               value={'true'}
@@ -192,7 +196,8 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       return <Redirect to="consentehr"></Redirect>
     }
     if (doHIPAAConsent === false) {
-      return <Redirect to="dashboard?consented=true"></Redirect>
+      //return <Redirect to="dashboard?consented=true"></Redirect>
+      window.location.href = '/dashboard?consented=true'
     }
   }
 
@@ -221,13 +226,17 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   </FloatingToolbar>
                 </div>
 
-                <ConsentCopy screen={SCREENS_ENUM.CONSENT_SIGNATURE1}></ConsentCopy>
+                <ConsentCopy
+                  screen={SCREENS_ENUM.CONSENT_SIGNATURE1}
+                ></ConsentCopy>
                 <p>I understand and agree to the following:</p>
                 <div
                   className="margin-top-std"
                   style={{ marginLeft: '4rem', marginBottom: '4rem' }}
                 >
-                  <ConsentCopy screen={SCREENS_ENUM.CONSENT_SIGNATURE2}></ConsentCopy>
+                  <ConsentCopy
+                    screen={SCREENS_ENUM.CONSENT_SIGNATURE2}
+                  ></ConsentCopy>
                 </div>
 
                 <div
@@ -235,7 +244,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     marginTop: '2rem',
                   }}
                 >
-                  <ConsentCopy screen={SCREENS_ENUM.CONSENT_SHARING}></ConsentCopy>
+                  <ConsentCopy
+                    screen={SCREENS_ENUM.CONSENT_SHARING}
+                  ></ConsentCopy>
                 </div>
                 <LearnMore learnMoreText="Learn more">
                   <div>
@@ -361,7 +372,21 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 doneCallbackFn={() => setConsentConfirmationShown(true)}
               ></ConsentSentConfirmation>
             )}
-            {isConsentDone && isConsentConfirmationShown && renderHIPAAStep()}
+            {isConsentDone && isConsentConfirmationShown && (
+              <>
+                <div>
+                  <FloatingToolbar
+                    closeLinkDestination="/home?alert=CANCELLED_CONSENT"
+                    closeLinkText=""
+                    closeConfirmationText="Are you sure you want to leave the consent process?"
+                  >
+                    Consent Signature
+                  </FloatingToolbar>
+                </div>
+
+                {renderHIPAAStep()}
+              </>
+            )}
           </div>
         )}
       </CardContent>
