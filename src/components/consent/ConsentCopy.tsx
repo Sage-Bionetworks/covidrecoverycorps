@@ -34,14 +34,14 @@ export enum SCREENS_ENUM {
 
 const summaryScreens = [
   <div>
-    <h2>{i18next.t("consentinfo.summaryScreen1.text1")}</h2>
+    <h2>{i18next.t("consentinfo.screen1.text1")}</h2>
       <p className="Consent__copy">
-        <Trans i18nKey="consentinfo.summaryScreen1.text2">
+        <Trans i18nKey="consentinfo.screen1.text2">
           [translate] <strong> [translate]</strong>
         </Trans>
       </p>
       <p className="Consent__copy">
-        <Trans i18nKey="consentinfo.summaryScreen1.text3">
+        <Trans i18nKey="consentinfo.screen1.text3">
           [translate]
           <strong>
             [translate]
@@ -50,7 +50,7 @@ const summaryScreens = [
       </p>
 
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen1.text4">
+      <Trans i18nKey="consentinfo.screen1.text4">
         [translate]
         <strong>[translate]</strong>
       </Trans>
@@ -58,17 +58,17 @@ const summaryScreens = [
 
     <p className="Consent__copy">
       {
-        i18next.t('consentinfo.summaryScreen1.text5')
+        i18next.t('consentinfo.screen1.text5')
       }
     </p>
 
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen1.text6">
+      <Trans i18nKey="consentinfo.screen1.text6">
         [translate] <strong> [translate] </strong> [translate]
       </Trans>
     </p>
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen1.text7">
+      <Trans i18nKey="consentinfo.screen1.text7">
         [translate] <strong> [translate] </strong> [translate]
         [translate] <strong> [translate] </strong>
         [translate]
@@ -77,19 +77,19 @@ const summaryScreens = [
   </div>,
 
   <div>
-    <h2>{i18next.t('consentinfo.summaryScreen2.text1')}</h2>
+    <h2>{i18next.t('consentinfo.screen2.text1')}</h2>
     <p className="Consent__copy">
-      {i18next.t('consentinfo.summaryScreen2.text2')}
+      {i18next.t('consentinfo.screen2.text2')}
     </p>
 
     <div className="list">
       <p className="Consent__copy">
-        <Trans i18nKey="consentinfo.summaryScreen2.text3">
+        <Trans i18nKey="consentinfo.screen2.text3">
           <strong>[translate]</strong> [translate]
         </Trans>
       </p>
       <p className="Consent__copy">
-        <Trans i18nKey="consentinfo.summaryScreen2.text4">
+        <Trans i18nKey="consentinfo.screen2.text4">
         [translate] <strong>[translate]</strong> [translate]
         <strong>[translate]</strong> [translate]
         <strong>[translate]</strong>[translate]
@@ -97,32 +97,32 @@ const summaryScreens = [
         </Trans>
       </p>
       <p className="Consent__copy">
-        {i18next.t("consentinfo.summaryScreen2.text5")}
+        {i18next.t("consentinfo.screen2.text5")}
       </p>
       <p className="Consent__copy">
-        {i18next.t("consentinfo.summaryScreen2.text6")}
+        {i18next.t("consentinfo.screen2.text6")}
       </p>
     </div>
 
     <p className="Consent__copy">
       <br/>
-      <strong>{i18next.t("consentinfo.summaryScreen2.text7")}</strong>
+      <strong>{i18next.t("consentinfo.screen2.text7")}</strong>
     </p>
 
     <div className="list">
       <p className="Consent__copy">
-        <Trans i18nKey="consentinfo.summaryScreen2.text8">
+        <Trans i18nKey="consentinfo.screen2.text8">
         [translation] <strong>[translation] </strong>[translation]
         </Trans>
       </p>
       <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen2.text9">
+      <Trans i18nKey="consentinfo.screen2.text9">
         [translation] <strong>[translation]</strong> [translation] <strong> [translation]</strong> [translation]
       </Trans>
       </p>
 
       <p className="Consent__copy">
-        <Trans i18nKey="consentinfo.summaryScreen2.text10">
+        <Trans i18nKey="consentinfo.screen2.text10">
           [translation] <strong>[translation]</strong>
           [translation] <strong>[translation] </strong>[translation]
           <strong>[translation] </strong> [translation]
@@ -130,46 +130,46 @@ const summaryScreens = [
       </p>
 
       <p className="Consent__copy">
-        {i18next.t("consentinfo.summaryScreen2.text11")}
+        {i18next.t("consentinfo.screen2.text11")}
       </p>
 
       <p className="Consent__copy">
-        {i18next.t("consentinfo.summaryScreen2.text12")}
+        {i18next.t("consentinfo.screen2.text12")}
       </p>
     </div>
   </div>,
   <div>[intentionally blank - quiz 1 screen]</div>,
   <div>
-    <h2>{i18next.t("consentinfo.summaryScreen3.text1")}</h2>
+    <h2>{i18next.t("consentinfo.screen4.text1")}</h2>
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen3.text2">
+      <Trans i18nKey="consentinfo.screen4.text2">
         [translate] <strong> [translate] </strong> [translate]
       </Trans>
     </p>
 
     <p className="Consent__copy">
-      {i18next.t("consentinfo.summaryScreen3.text3")}
+      {i18next.t("consentinfo.screen4.text3")}
     </p>
 
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen3.text4">
+      <Trans i18nKey="consentinfo.screen4.text4">
       [translate] <strong> [translate] </strong> [translate]
       </Trans>
     </p>
   </div>,
   <div>
-    <h2>{i18next.t("consentinfo.summaryScreen4.text1")}</h2>
+    <h2>{i18next.t("consentinfo.screen5.text1")}</h2>
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen4.text2">
+      <Trans i18nKey="consentinfo.screen5.text2">
         [translate]
         <strong> [translate]</strong>[translate]
       </Trans>
     </p>
     <p className="Consent__copy">
-      {i18next.t("consentinfo.summaryScreen4.text3")}
+      {i18next.t("consentinfo.screen5.text3")}
     </p>
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen4.text4">
+      <Trans i18nKey="consentinfo.screen5.text4">
       [translate] <strong> [translate]</strong> [translate]
       <strong>[translate]</strong> [translate]
         <strong>[translate]</strong>  [translate]
@@ -177,7 +177,7 @@ const summaryScreens = [
       </Trans>
     </p>
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen4.text5">
+      <Trans i18nKey="consentinfo.screen5.text5">
         [translate]
         <strong>
           [translate]
@@ -185,76 +185,76 @@ const summaryScreens = [
       </Trans>
     </p>
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen4.text6">
+      <Trans i18nKey="consentinfo.screen5.text6">
         [translate] <strong>[translate]</strong> [translate]
         <strong> [translate] </strong> [translate]
       </Trans>
     </p>
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen4.text7">
+      <Trans i18nKey="consentinfo.screen5.text7">
       [translate] <strong> [translate] </strong> [translate] <strong> [translate]</strong> [translate]
       </Trans>
     </p>
   </div>,
   <div>[intentionally blank - quiz 2 screen]</div>,
   <div>
-    <h2>{i18next.t("consentinfo.summaryScreen5.text1")}</h2>
+    <h2>{i18next.t("consentinfo.screen7.text1")}</h2>
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen5.text2">
+      <Trans i18nKey="consentinfo.screen7.text2">
         [translate] <strong> [translate] </strong> [translate]
       </Trans>
     </p>
 
     <p className="Consent__copy">
-      {i18next.t("consentinfo.summaryScreen5.text3")}
+      {i18next.t("consentinfo.screen7.text3")}
     </p>
 
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen5.text4">
+      <Trans i18nKey="consentinfo.screen7.text4">
         [translate] <strong> [translate] </strong> and samples rather than your name or other personal information. This <strong> [translate] </strong>[translate]
       </Trans>
     </p>
 
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen5.text5">
+      <Trans i18nKey="consentinfo.screen7.text5">
         [translate] <strong> [translate]</strong>[translate]
       </Trans>
     </p>
 
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen5.text6">
+      <Trans i18nKey="consentinfo.screen7.text6">
       [translate] <strong> [translate]</strong> [translate]
       </Trans>
     </p>
   </div>,
   <div>
-    <h2>{i18next.t("consentinfo.summaryScreen6.text1")}</h2>
+    <h2>{i18next.t("consentinfo.screen8.text1")}</h2>
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen6.text2">
+      <Trans i18nKey="consentinfo.screen8.text2">
         [translate] <strong>  [translate] </strong>  [translate]
       </Trans>
     </p>
 
     <p className="Consent__copy">
-      {i18next.t("consentinfo.summaryScreen6.text3")}
+      {i18next.t("consentinfo.screen8.text3")}
     </p>
 
     <p className="Consent__copy">
-      {i18next.t("consentinfo.summaryScreen6.text4")}
+      {i18next.t("consentinfo.screen8.text4")}
     </p>
 
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen6.text5">
+      <Trans i18nKey="consentinfo.screen8.text5">
         [translate] <strong> [translate] </strong> [translate] <strong> [translate] </strong> [translate]
       </Trans>
     </p>
 
     <p className="Consent__copy">
-      {i18next.t("consentinfo.summaryScreen6.text6")}
+      {i18next.t("consentinfo.screen8.text6")}
     </p>
 
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen6.text7">
+      <Trans i18nKey="consentinfo.screen8.text7">
         [translate] <strong>[translate]</strong> [translate] <strong>[translate]</strong>[translate]
       </Trans>
     </p>
@@ -395,67 +395,19 @@ const fullTextScreens = [
   <div>[intentionally blank - quiz 1 screen]</div>,
 
   <div>
-    <h2>{i18next.t('consentinfo.fullTextScreen3.text1')}</h2>
-    <p className="Consent__copy">
-    {i18next.t('consentinfo.fullTextScreen3.text2')}
-    </p>
-
-    <p className="Consent__copy">
-    {i18next.t('consentinfo.fullTextScreen3.text3')}
-    </p>
-
-    <p className="Consent__copy">
-    {i18next.t('consentinfo.fullTextScreen3.text4')}
-    </p>
-  </div>,
-  <div>
     <h2>{i18next.t('consentinfo.fullTextScreen4.text1')}</h2>
     <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen4.text2')}
+    {i18next.t('consentinfo.fullTextScreen4.text2')}
     </p>
 
     <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen4.text3')}
-    </p>
-    <div className="list">
-      <p className="Consent__copy">
-        {i18next.t('consentinfo.fullTextScreen4.text4')}
-      </p>
-      <p className="Consent__copy">
-        {i18next.t('consentinfo.fullTextScreen4.text5')}
-      </p>
-
-      <p className="Consent__copy">
-        {i18next.t('consentinfo.fullTextScreen4.text6')}
-      </p>
-      <p className="Consent__copy">
-        {i18next.t('consentinfo.fullTextScreen4.text7')}
-      </p>
-      <p className="Consent__copy">
-        {i18next.t('consentinfo.fullTextScreen4.text8')}
-      </p>
-
-      <p className="Consent__copy">
-        {i18next.t('consentinfo.fullTextScreen4.text9')}
-      </p>
-    </div>
-    <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen4.text10')}
-    </p>
-    <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen4.text11')}
-    </p>
-    <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen4.text12')}
+    {i18next.t('consentinfo.fullTextScreen4.text3')}
     </p>
 
     <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen4.text13')}
+    {i18next.t('consentinfo.fullTextScreen4.text4')}
     </p>
   </div>,
-
-  <div>[intentionally blank - quiz 2 screen]</div>,
-
   <div>
     <h2>{i18next.t('consentinfo.fullTextScreen5.text1')}</h2>
     <p className="Consent__copy">
@@ -465,29 +417,77 @@ const fullTextScreens = [
     <p className="Consent__copy">
       {i18next.t('consentinfo.fullTextScreen5.text3')}
     </p>
+    <div className="list">
+      <p className="Consent__copy">
+        {i18next.t('consentinfo.fullTextScreen5.text4')}
+      </p>
+      <p className="Consent__copy">
+        {i18next.t('consentinfo.fullTextScreen5.text5')}
+      </p>
+
+      <p className="Consent__copy">
+        {i18next.t('consentinfo.fullTextScreen5.text6')}
+      </p>
+      <p className="Consent__copy">
+        {i18next.t('consentinfo.fullTextScreen5.text7')}
+      </p>
+      <p className="Consent__copy">
+        {i18next.t('consentinfo.fullTextScreen5.text8')}
+      </p>
+
+      <p className="Consent__copy">
+        {i18next.t('consentinfo.fullTextScreen5.text9')}
+      </p>
+    </div>
     <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen5.text4')}
+      {i18next.t('consentinfo.fullTextScreen5.text10')}
+    </p>
+    <p className="Consent__copy">
+      {i18next.t('consentinfo.fullTextScreen5.text11')}
+    </p>
+    <p className="Consent__copy">
+      {i18next.t('consentinfo.fullTextScreen5.text12')}
     </p>
 
     <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen5.text5')}
+      {i18next.t('consentinfo.fullTextScreen5.text13')}
+    </p>
+  </div>,
+
+  <div>[intentionally blank - quiz 2 screen]</div>,
+
+  <div>
+    <h2>{i18next.t('consentinfo.fullTextScreen7.text1')}</h2>
+    <p className="Consent__copy">
+      {i18next.t('consentinfo.fullTextScreen7.text2')}
+    </p>
+
+    <p className="Consent__copy">
+      {i18next.t('consentinfo.fullTextScreen7.text3')}
+    </p>
+    <p className="Consent__copy">
+      {i18next.t('consentinfo.fullTextScreen7.text4')}
+    </p>
+
+    <p className="Consent__copy">
+      {i18next.t('consentinfo.fullTextScreen7.text5')}
     </p>
   </div>,
   <div>
-    <h2>{i18next.t('consentinfo.fullTextScreen6.text1')}</h2>
+    <h2>{i18next.t('consentinfo.fullTextScreen8.text1')}</h2>
     <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen6.text2')}
+      {i18next.t('consentinfo.fullTextScreen8.text2')}
     </p>
 
     <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen6.text3')}
+      {i18next.t('consentinfo.fullTextScreen8.text3')}
     </p>
 
     <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen6.text4')}
+      {i18next.t('consentinfo.fullTextScreen8.text4')}
     </p>
     <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen6.text5')}
+      {i18next.t('consentinfo.fullTextScreen8.text5')}
     </p>
   </div>,
 

@@ -21,19 +21,19 @@ type ConsentInfoProps = {
 const quizes = [
   {
     screen: 2,
-    title: i18next.t('consentinfo.quiz1.text1'),
+    title: i18next.t('consentinfo.screen3.text1'),
     options: [
-      i18next.t('consentinfo.quiz1.text2'),
-      i18next.t('consentinfo.quiz1.text3'),
+      i18next.t('consentinfo.screen3.text2'),
+      i18next.t('consentinfo.screen3.text3'),
     ],
-    explanation: i18next.t('consentinfo.quiz1.text4'),
+    explanation: i18next.t('consentinfo.screen3.text4'),
     correctAnswer: 1,
   },
   {
     screen: 5,
-    title: i18next.t('consentinfo.quiz2.text1'),
-    options: [i18next.t('consentinfo.quiz2.text2'), i18next.t('consentinfo.quiz2.text3')],
-    explanation: i18next.t('consentinfo.quiz2.text4'),
+    title: i18next.t('consentinfo.screen6.text1'),
+    options: [i18next.t('consentinfo.screen6.text2'), i18next.t('consentinfo.screen6.text3')],
+    explanation: i18next.t('consentinfo.screen6.text4'),
     correctAnswer: 0,
   },
   {
@@ -57,7 +57,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   onDone,
 }: ConsentInfoProps) => {
   const [isFullText, setIsFullText] = useState(false)
-  const [currentStep, setCurrentStep] = useState(6)
+  const [currentStep, setCurrentStep] = useState(-1)
   const [quizAnswers, setQuizAnswers] = useState(new Array(2))
   const { t } = useTranslation()
 
