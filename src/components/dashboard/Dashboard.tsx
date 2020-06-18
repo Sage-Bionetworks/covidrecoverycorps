@@ -25,7 +25,6 @@ import { UserService } from '../../services/user.service'
 import Alert from '@material-ui/lab/Alert/Alert'
 import Intro from './Intro'
 import TestLocationSurvey from '../surveys/TestLocationSurvey'
-import { setState } from 'react-jsonschema-form/lib/utils'
 
 type DashboardProps = {
   token: string
