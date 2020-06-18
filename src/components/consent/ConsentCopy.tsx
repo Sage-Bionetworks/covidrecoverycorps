@@ -770,7 +770,6 @@ const screens: {[key in SCREENS_ENUM]: JSX.Element} = {
     <div className="Consent__copy">
       <p className="Consent__copy">{i18next.t('consentinfo.welcome.text2')}</p>
       <p className="Consent__copy">{i18next.t('consentinfo.welcome.text3')}</p>
-      <p className="Consent__copy">{i18next.t('consentinfo.welcome.text4')}</p>
     </div>
     </>
   ),

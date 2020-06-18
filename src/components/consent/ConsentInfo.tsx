@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import FloatingToolbar from '../widgets/FloatingToolbar'
 import Button from '@material-ui/core/Button/Button'
-import {
-  faArrowRight,
-  faArrowLeft,
-} from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Alert from '@material-ui/lab/Alert'
 import Switch from '@material-ui/core/Switch/Switch'
@@ -14,6 +11,7 @@ import { RadioGroup, FormControlLabel, Radio } from '@material-ui/core'
 import ConsentIcons from './ConsentIcons'
 import { useTranslation } from 'react-i18next'
 import i18next from 'i18next';
+import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
 
 type ConsentInfoProps = {
   onDone: Function
@@ -84,7 +82,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
       if (quizIndex === -1) {
         return false
       } else {
-        // find if quiz has an answer 
+        // find if quiz has an answer
         return quizAnswers[quizIndex] === undefined
       }
     }
@@ -159,7 +157,9 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
               padding: '0px',
             }}
             severity={
-              quizAnswers[quizIndex] === quiz.correctAnswer ? 'success' : 'error'
+              quizAnswers[quizIndex] === quiz.correctAnswer
+                ? 'success'
+                : 'error'
             }
             color={
               quizAnswers[quizIndex] === quiz.correctAnswer ? 'info' : 'error'
@@ -253,7 +253,12 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
         )}
         {currentStep === -1 && (
           <div>
-            <ConsentCopy screen={SCREENS_ENUM.CONSENT_INTRO} isEHR={false}></ConsentCopy>
+            <CovidRecoveryCorpsLogo />
+            <p>&nbsp;</p>
+            <ConsentCopy
+              screen={SCREENS_ENUM.CONSENT_INTRO}
+              isEHR={false}
+            ></ConsentCopy>
           </div>
         )}
         {currentStep > -1 && (
