@@ -13,6 +13,7 @@ import BlueSeparator from '../static/BlueSeparator'
 import { RadioGroup, FormControlLabel, Radio } from '@material-ui/core'
 import ConsentIcons from './ConsentIcons'
 import { useTranslation } from 'react-i18next'
+import i18next from 'i18next';
 
 type ConsentInfoProps = {
   onDone: Function
@@ -20,21 +21,19 @@ type ConsentInfoProps = {
 const quizes = [
   {
     screen: 2,
-    title: ' What is the purpose of COVID Recovery Corps? ',
+    title: i18next.t('consentinfo.screen3.text1'),
     options: [
-      'To receive medical treatment for COVID-19',
-      'To be able to better understand COVID-19',
+      i18next.t('consentinfo.screen3.text2'),
+      i18next.t('consentinfo.screen3.text3'),
     ],
-    explanation:
-      'This study is a research study to understand COVID-19 better. The study does not provide medical treatment.',
+    explanation: i18next.t('consentinfo.screen3.text4'),
     correctAnswer: 1,
   },
   {
     screen: 5,
-    title: 'What is the primary risk in this study?',
-    options: ['Privacy', 'There is no risk in participating in this study'],
-    explanation:
-      'We will do our best to protect your privacy. But we can’t guarantee your privacy. It is possible that public health authorities will ask to see the data.',
+    title: i18next.t('consentinfo.screen6.text1'),
+    options: [i18next.t('consentinfo.screen6.text2'), i18next.t('consentinfo.screen6.text3')],
+    explanation: i18next.t('consentinfo.screen6.text4'),
     correctAnswer: 0,
   },
   {

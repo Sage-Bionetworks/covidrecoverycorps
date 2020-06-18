@@ -142,7 +142,7 @@
       "text3": "The next screens will tell you about the purpose of the study, what we will ask you to do, the benefits and risks of participation.",
       "text4": "Let's get started!"
     },
-    "summaryScreen1": {
+    "screen1": {
       "text1": "About the Study",
       "text2": "COVID Recovery Corps is a <1> research study</1>.",
       "text3": "The goal of the study is to <1> collect information from participants who have been diagnosed or believe they have had COVID-19</1>.</0>",
@@ -150,6 +150,110 @@
       "text5": "This study is being led by Columbia University and Sage Bionetworks. The study is being funded by the Chan Zuckerberg Initiative.",
       "text6": "This study will <1> last for 12 months </1> from the time you enroll.",
       "text7": "This study will <1> not provide medical care </1> for COVID-19. Participation in this study is <1> voluntary </1> and you may leave the study at any time."
+    },
+    "screen2": {
+      "text1": "What will I be asked to do?",
+      "text2": "If you join the study, you will be asked to:",
+      "text3": "<0> Fill out surveys </0> on your experience with COVID-19, your past and current health conditions, and lifestyle.",
+      "text4": "The <1> first 4 surveys </1> may take up to <1> 30-60 minutes total </1>. On a <1> monthly basis</1>, we will contact you to complete a <1> 15-minute survey</1>. ",
+      "text5": "It is ok if you don't remember or know the answer to some of the questions.",
+      "text6": "You can pick \"Prefer not to answer\" for any of the questions.",
+      "text7": "We may ask you to provide the following:",
+      "text8": "A <1>biosample</1> such as blood, pee, spit, or sample from a nose swab. We may contact you to schedule a blood draw or we may mail you an at-home testing kit. We will provide you with instructions and postage to mail the kit back to our lab.",
+      "text9": "If you have a <1>positive test result for COVID-19</1>, we may ask you to upload a picture or a scanned copy of the document to the study website. This is <1>optional</1>.",
+      "text10": "Access to your <1>electronic health record (EHR)</1>. Your EHR contains <1>sensitive information </1>on your health problems, test results, visits to the doctor and medications. This is <1>optional </1>and you can still take part in the study without sharing your EHR.",
+      "text11": "If you decide to share your EHR with us, you will receive a prompt to complete a HIPAA authorization form after this consent process.",
+      "text12": "We also may contact you to invite you to participate in other COVID-related research studies."
+    },
+    "fullTextScreen2": {
+      "text1": "What will I be asked to do?",
+      "text2": "If you decide to join COVID Recovery Corps, we will ask you to answer survey questions. We will use the answers you give us to guess when you might have been infected to decide if and when to ask you to give a biosample such as blood, pee, spit, or sample from a nose swab. You can say no to providing these samples and still take part in COVID Recovery Corps study.",
+      "text3": "If you say yes to giving a blood sample, we may use a needle to draw about 3 tablespoons of blood from your arm. We will contact you to schedule the blood sample.",
+      "text4": "Some people might get a testing kit sent to their house. Those people might use a finger stick to provide a small blood sample on a card. The kit may also ask you to provide a sample by using a nose swab, peeing in a cup, or spitting in a cup. We will provide you with instructions and postage to mail the kit back to our lab.",
+      "text5": "If you have a positive test result for COVID-19, we may ask you to upload a picture or a scanned copy of the document to the study website. This is optional and not required to take part in the study.",
+      "text6": "We also will ask you if you would like to share your electronic health record (EHR) with the study. Your electronic health record is a digital version of your medical health record (which may include information like your doctor's notes from visits, diagnosis information and medications). There will be a separate form called a HIPAA Authorization for you to sign if you decide to give us access to your health records. If you say yes to sharing, we will see data about your health problems, test results, medical procedures, images (such as X-rays), and medicines you take.",
+      "text7": "It is important to remember that health records can contain sensitive data. For example, it may tell us about your mental health, genetic conditions, or use of alcohol or drugs. They may contain sexual or infection data, including HIV status. You can say no to sharing your health records and still take part in COVID Recovery Corps.",
+      "text8": "We may contact you by email or text to remind you to answer the survey or to give you directions about providing a blood sample. We expect it will take you about 30-60 minutes to fill out the first four surveys, and then 15 minutes every month to answer the survey questions to see how you are doing. If you are asked and decide to give a blood sample, that will take additional time."
+    },
+    "screen3": {
+      "text1": "What is the purpose of COVID Recovery Corps?",
+      "text2": "To receive medical treatment for COVID-19",
+      "text3": "To be able to better understand COVID-19",
+      "text4": "This study is a research study to understand COVID-19 better. The study does not provide medical treatment."
+    },
+    "screen4": {
+      "text1": "What are the benefits?",
+      "text2": "You may or may not benefit from volunteering for this research study. This study is<1> not medical treatment</1>.",
+      "text3": "If you are invited to give a biosample, we will provide you with results from your test. These results may let you know if you have been or are now infected with COVID-19.",
+      "text4": "The primary benefit of this study is helping researchers <1> better understand COVID-19 </1>and help future generations."
+    },
+    "fullTextScreen4": {
+      "text1": "What are the benefits?",
+      "text2": "COVID Recovery Corps is not medical treatment. It is a research study. You will not get direct medical benefit from taking part in COVID Recovery Corps. That said, you may indirectly benefit from taking part in COVID Recovery Corps. These results may be interesting to you.",
+      "text3": "You may learn about your health. This might include results about your samples and if you have been or are now infected with COVID-19. Knowing about your COVID-19 status might be a benefit to you.",
+      "text4": "You will be able to share your COVID Recovery Corps study information with your healthcare provider if you choose. You will have the option to learn about additional study opportunities. Finally, you will be helping researchers and other people make discoveries that may help each other as well as future generations."
+    },
+    "screen5": {
+      "text1": "What are the risks?",
+      "text2": "The main risk of participating in this study is to your <1> privacy</1>.",
+      "text3": "We understand you are sharing and allowing us to collect sensitive health information from you.",
+      "text4": "We take great care to <1> protect your information</1>. However, if there is a <1>data breach</1> it may be possible to <1>identify you and your sensitive information</1> may be seen by someone without your permission. This risk is <1> low but it is not zero</1>.",
+      "text5": "COVID-19 is also a risk to public health. <1> Thus we may have to give out your data if public health authorities demand it. </1>",
+      "text6": "If you give a <1>blood sample</1>, the most common risks are <1>brief pain and bruising</1>. Some people may become dizzy or feel faint. There is also a small risk of infection.",
+      "text7": "If you are asked to provide a sample from a <1> nose swab </1>you may feel <1> brief discomfort</1>."
+    },
+    "fullTextScreen5": {
+      "text1": "What are the risks?",
+      "text2": "The main risk of taking part in COVID Recovery Corps is to your privacy. A data breach is when someone sees or uses data without permission. If there is a data breach, someone could see or use the data we have about you. Even without your name, there is a chance someone could figure out who you are. They could misuse your data.",
+      "text3": "Your privacy is very important to us. We will take great care to protect it. Here are a few of the steps we will take:",
+      "text4": "Data we have about you will be stored on protected computers. We will limit and keep track of who can see these data.",
+      "text5": "We will limit who is allowed to see information that could directly identify you, like your name or date of birth.",
+      "text6": "In order to work with your health data, researchers must sign a contract stating they will not try to find out who you are.",
+      "text7": "We will tell you if there is a data breach.",
+      "text8": "COVID Recovery Corps has a Certificate of Confidentiality from the U.S. government. This will help us fight legal demands (such as a court order or a request from federal, state, or local law enforcement) to give out information that could identify you.",
+      "text9": "However, the Certificate might not stop demands from public health authorities like the Health Department or law enforcement because of COVID-19.",
+      "text10": "We believe the chance of this is very small, but it is not zero.",
+      "text11": "We will gather data from you through the COVID Recovery Corps website. There is a risk to your privacy whenever you use the website.",
+      "text12": "Researchers will use basic facts like your race, ethnic group, and sex in their studies. These data help researchers learn if the things that affect health are the same for different groups of people. These studies could one day help people of the same race, ethnic group, or sex as you. It is important to have a diverse group of individuals in COVID Recovery Corps to make sure the results will help everyone. However, there is a risk that someone could use this data to support harmful ideas about certain groups.",
+      "text13": "If you give a blood sample, the most common risks are brief pain and bruising. Some people may become dizzy or feel faint. There is also a small risk of infection. If you are asked to provide a sample from a nose swab you may feel brief discomfort."
+    },
+    "screen6": {
+      "text1": "What is the primary risk in this study?",
+      "text2": "Privacy",
+      "text3": "There is no risk in participating in this study",
+      "text4": "We will do our best to protect your privacy. But we can’t guarantee your privacy. It is possible that public health authorities will ask to see the data.",
+      "text5": ""
+    },
+    "screen7": {
+      "text1": "What will you do with my data and samples?",
+      "text2": "We will use the data and samples to <1> make discoveries about COVID-19</1>.",
+      "text3": "We will study the differences in symptoms people have over time and why some people responded differently than others.",
+      "text4": "To protect your data, we will <1> use a code to identify your data </1> and samples rather than your name or other personal information. This <1>code cannot be used to directly identify you</1>.",
+      "text5": "This coded data is known as <1> de-identified data</1>. Only key people from our study team can link your identity to your study data.",
+      "text6": "Your data and samples will be <1> securely stored and controlled by the COVID Recovery Corps study</1>. Your data will be stored in the COVID Recovery Corps study database and your samples will be stored in the study's biobank."
+    },
+    "fullTextScreen7": {
+      "text1": "What will you do with my data and samples",
+      "text2": "We will store your data and samples securely, along with the data and samples from all the other people who take part in COVID Recovery Corps. Your data will be stored in the COVID Recovery Corps database and the COVID Recovery Corps Biobank will store your biosamples. We will use the data and samples to make discoveries about COVID-19. We will study the  differences in symptoms people have over time and why some people  responded differently than others. We will study how different people’s  bodies fought the virus with their immune system. We will also study changes in health after people have recovered from COVID-19.",
+      "text3": "We will create a scientific database and a biobank for the COVID Recovery Corps study. The scientific database will have individual-level data and the biobank will store your samples like your blood, and pee.",
+      "text4": "To protect your data, we will use a code to identify your data and samples rather than your name name or other personal information. This code cannot be used to directly identify you. This coded data is known as de-identified data.Only key people from our study team can link your identity to your study.",
+      "text5": "Access to this database will be controlled. Researchers will have to be approved by COVID Recovery Corps and will use only de-identified or coded data."
+    },
+    "screen8": {
+      "text1": "Sharing your data with future researchers",
+      "text2": "You will have the <1> opportunity to share your data with qualified researchers </1> outside of the COVID Recovery Corps.",
+      "text3": "All qualified researchers must be approved by the COVID Recovery Corps study team and will only use de-identified data.",
+      "text4": "This de-identified data does not contain identifiers like name, date of birth, or email address.",
+      "text5": "These researchers may be from <1>outside the United States</1> and may work for a <1> non-profit institution, commercial drug or medical device companies, or be a private citizen </1>.",
+      "text6": "Sharing your data with qualified researchers is optional and you can change your mind at any time by updating your data sharing options in account settings.",
+      "text7": "But once we <1>share your data we cannot get it back</1>. If you decide to end data sharing, we will not share your <1>future data</1>."
+    },
+    "fullTextScreen8": {
+      "text1": "Sharing your data with future researchers",
+      "text2": "The de-identified data that you donate for COVID Recovery Corps study could be used for other COVID- related research. You get to decide if you want to share your coded study data with qualified researchers worldwide. If you give permission, sharing will be done without additional informed consent.",
+      "text3": "We have rules to qualify researchers. Qualified researchers must register on Synapse, our data analysis platform. To access the data, qualified researchers must write a short statement about their research. The research could be about any topic. The research could be on topics you disagree with or find offensive. We post the researchers’ statements on Synapse for anyone to read. They must sign an oath to use the data ethically and do no harm. Researchers will not be able to easily figure out your identity using your coded study data.",
+      "text4": "Anyone in the US or abroad can qualify to be a qualified researcher. The person could be from a non-profit institution, commercial drug or medical device companies, or be a private citizen.",
+      "text5": "You cannot take back your data once it is used in research. Your data will not be destroyed or deleted. Once we share your data, there isn’t a way for us to delete it or take it back."
     }
   },
   "ineligible": {

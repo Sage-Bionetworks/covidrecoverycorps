@@ -34,14 +34,14 @@ export enum SCREENS_ENUM {
 
 const summaryScreens = [
   <div>
-    <h2>{i18next.t("consentinfo.summaryScreen1.text1")}</h2>
+    <h2>{i18next.t("consentinfo.screen1.text1")}</h2>
       <p className="Consent__copy">
-        <Trans i18nKey="consentinfo.summaryScreen1.text2">
+        <Trans i18nKey="consentinfo.screen1.text2">
           [translate] <strong> [translate]</strong>
         </Trans>
       </p>
       <p className="Consent__copy">
-        <Trans i18nKey="consentinfo.summaryScreen1.text3">
+        <Trans i18nKey="consentinfo.screen1.text3">
           [translate]
           <strong>
             [translate]
@@ -50,7 +50,7 @@ const summaryScreens = [
       </p>
 
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen1.text4">
+      <Trans i18nKey="consentinfo.screen1.text4">
         [translate]
         <strong>[translate]</strong>
       </Trans>
@@ -58,17 +58,17 @@ const summaryScreens = [
 
     <p className="Consent__copy">
       {
-        i18next.t('consentinfo.summaryScreen1.text5')
+        i18next.t('consentinfo.screen1.text5')
       }
     </p>
 
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen1.text6">
+      <Trans i18nKey="consentinfo.screen1.text6">
         [translate] <strong> [translate] </strong> [translate]
       </Trans>
     </p>
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.summaryScreen1.text7">
+      <Trans i18nKey="consentinfo.screen1.text7">
         [translate] <strong> [translate] </strong> [translate]
         [translate] <strong> [translate] </strong>
         [translate]
@@ -77,206 +77,186 @@ const summaryScreens = [
   </div>,
 
   <div>
-    <h2>What will I be asked to do?</h2>
-
+    <h2>{i18next.t('consentinfo.screen2.text1')}</h2>
     <p className="Consent__copy">
-      If you join the study, you will be asked to:{' '}
+      {i18next.t('consentinfo.screen2.text2')}
     </p>
 
     <div className="list">
       <p className="Consent__copy">
-        <strong>Fill out surveys</strong> on your experience with COVID-19, your
-        past and current health conditions, and lifestyle.{' '}
+        <Trans i18nKey="consentinfo.screen2.text3">
+          <strong>[translate]</strong> [translate]
+        </Trans>
       </p>
       <p className="Consent__copy">
-        The <strong>first 4 surveys</strong> may take up to{' '}
-        <strong>30-60 minutes total</strong>. On a{' '}
-        <strong>monthly basis</strong>, we will contact you to complete a{' '}
-        <strong>15-minute survey</strong>.{' '}
+        <Trans i18nKey="consentinfo.screen2.text4">
+        [translate] <strong>[translate]</strong> [translate]
+        <strong>[translate]</strong> [translate]
+        <strong>[translate]</strong>[translate]
+        <strong>[translate]</strong>[translate]
+        </Trans>
       </p>
       <p className="Consent__copy">
-        It is ok if you don't remember or know the answer to some of the
-        questions.
+        {i18next.t("consentinfo.screen2.text5")}
       </p>
       <p className="Consent__copy">
-        You can pick "Prefer not to answer" for any of the questions.
+        {i18next.t("consentinfo.screen2.text6")}
       </p>
     </div>
 
     <p className="Consent__copy">
       <br/>
-      <strong>We may ask you to provide the following:</strong>
+      <strong>{i18next.t("consentinfo.screen2.text7")}</strong>
     </p>
 
     <div className="list">
       <p className="Consent__copy">
-        A <strong>biosample </strong>such as blood, pee, spit, or sample 
-        from a nose swab. We may contact you to schedule a blood draw or we
-        may mail you an at-home testing kit. We will provide you with
-        instructions and postage to mail the kit back to our lab.{' '}
+        <Trans i18nKey="consentinfo.screen2.text8">
+        [translation] <strong>[translation] </strong>[translation]
+        </Trans>
       </p>
       <p className="Consent__copy">
-        If you have a <strong>positive test result for COVID-19</strong>, we may
-        ask you to upload a picture or a scanned copy of the document to the
-        study website. This is<strong> optional</strong>.
-      </p>
-
-      <p className="Consent__copy">
-        Access to your <strong>electronic health record (EHR)</strong>. Your EHR
-        contains <strong>sensitive information </strong>on your health problems,
-        test results, visits to the doctor and medications. This is{' '}
-        <strong>optional </strong>and you can still take part in the study
-        without sharing your EHR.{' '}
+      <Trans i18nKey="consentinfo.screen2.text9">
+        [translation] <strong>[translation]</strong> [translation] <strong> [translation]</strong> [translation]
+      </Trans>
       </p>
 
       <p className="Consent__copy">
-        If you decide to share your EHR with us, you will receive a prompt to
-        complete a HIPAA authorization form after this consent process.{' '}
+        <Trans i18nKey="consentinfo.screen2.text10">
+          [translation] <strong>[translation]</strong>
+          [translation] <strong>[translation] </strong>[translation]
+          <strong>[translation] </strong> [translation]
+        </Trans>
       </p>
 
       <p className="Consent__copy">
-        We also may contact you to invite you to participate in other
-        COVID-related research studies.
+        {i18next.t("consentinfo.screen2.text11")}
+      </p>
+
+      <p className="Consent__copy">
+        {i18next.t("consentinfo.screen2.text12")}
       </p>
     </div>
   </div>,
-
   <div>[intentionally blank - quiz 1 screen]</div>,
   <div>
-    <h2>What are the benefits?</h2>
+    <h2>{i18next.t("consentinfo.screen4.text1")}</h2>
     <p className="Consent__copy">
-      You may or may not benefit from volunteering for this research study. This
-      study is<strong> not medical treatment</strong>.
+      <Trans i18nKey="consentinfo.screen4.text2">
+        [translate] <strong> [translate] </strong> [translate]
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      If you are invited to give a biosample, we will provide you with results
-      from your test. These results may let you know if you have been or are now
-      infected with COVID-19.{' '}
+      {i18next.t("consentinfo.screen4.text3")}
     </p>
 
     <p className="Consent__copy">
-      The primary benefit of this study is helping researchers{' '}
-      <strong> better understand COVID-19 </strong>and help future generations.
+      <Trans i18nKey="consentinfo.screen4.text4">
+      [translate] <strong> [translate] </strong> [translate]
+      </Trans>
     </p>
   </div>,
-
   <div>
-    <h2>What are the risks?</h2>
+    <h2>{i18next.t("consentinfo.screen5.text1")}</h2>
     <p className="Consent__copy">
-      The main risk of participating in this study is to your{' '}
-      <strong> privacy</strong>.
+      <Trans i18nKey="consentinfo.screen5.text2">
+        [translate]
+        <strong> [translate]</strong>[translate]
+      </Trans>
     </p>
     <p className="Consent__copy">
-      We understand you are sharing and allowing us to collect sensitive health
-      information from you.{' '}
-    </p>
-
-    <p className="Consent__copy">
-      We take great care to <strong> protect your information</strong>. However,
-      if there is a <strong>data breach</strong> it may be possible to{' '}
-      <strong>identify you and your sensitive information</strong> may be seen
-      by someone without your permission. This risk is{' '}
-      <strong> low but it is not zero</strong>.
-    </p>
-
-    <p className="Consent__copy">
-      COVID-19 is also a risk to public health.{' '}
-      <strong>
-        Thus we may have to give out your data if public health authorities
-        demand it.
-      </strong>
+      {i18next.t("consentinfo.screen5.text3")}
     </p>
     <p className="Consent__copy">
-      If you give a <strong>blood sample</strong>, the most common risks are{' '}
-      <strong>brief pain and bruising</strong>. Some people may become dizzy or
-      feel faint. There is also a small risk of infection.
+      <Trans i18nKey="consentinfo.screen5.text4">
+      [translate] <strong> [translate]</strong> [translate]
+      <strong>[translate]</strong> [translate]
+        <strong>[translate]</strong>  [translate]
+        <strong> [translate]</strong> [translate]
+      </Trans>
     </p>
-
     <p className="Consent__copy">
-      If you are asked to provide a sample from a{' '}
-      <strong> nose swab </strong>you may feel{' '}
-      <strong> brief discomfort</strong>.{' '}
+      <Trans i18nKey="consentinfo.screen5.text5">
+        [translate]
+        <strong>
+          [translate]
+        </strong>
+      </Trans>
+    </p>
+    <p className="Consent__copy">
+      <Trans i18nKey="consentinfo.screen5.text6">
+        [translate] <strong>[translate]</strong> [translate]
+        <strong> [translate] </strong> [translate]
+      </Trans>
+    </p>
+    <p className="Consent__copy">
+      <Trans i18nKey="consentinfo.screen5.text7">
+      [translate] <strong> [translate] </strong> [translate] <strong> [translate]</strong> [translate]
+      </Trans>
     </p>
   </div>,
-
   <div>[intentionally blank - quiz 2 screen]</div>,
-
   <div>
-    <h2>What will you do with my data and samples?</h2>
+    <h2>{i18next.t("consentinfo.screen7.text1")}</h2>
     <p className="Consent__copy">
-      We will use the data and samples to{' '}
-      <strong> make discoveries about COVID-19</strong>.
+      <Trans i18nKey="consentinfo.screen7.text2">
+        [translate] <strong> [translate] </strong> [translate]
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      We will study the differences in symptoms people have over time 
-      and why some people responded differently than others.{' '}
+      {i18next.t("consentinfo.screen7.text3")}
     </p>
 
     <p className="Consent__copy">
-      To protect your data, we will{' '}
-      <strong> use a code to identify your data </strong> and samples rather
-      than your name or other personal information. This{' '}
-      <strong>code cannot be used to directly identify you</strong>.{' '}
+      <Trans i18nKey="consentinfo.screen7.text4">
+        [translate] <strong> [translate] </strong> and samples rather than your name or other personal information. This <strong> [translate] </strong>[translate]
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      This coded data is known as <strong> de-identified data</strong>. Only key
-      people from our study team can link your identity to your study data.{' '}
+      <Trans i18nKey="consentinfo.screen7.text5">
+        [translate] <strong> [translate]</strong>[translate]
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      Your data and samples will be{' '}
-      <strong>
-        {' '}
-        securely stored and controlled by the COVID Recovery Corps study
-      </strong>
-      . Your data will be stored in the COVID Recovery Corps study database and
-      your samples will be stored in the study's biobank.
+      <Trans i18nKey="consentinfo.screen7.text6">
+      [translate] <strong> [translate]</strong> [translate]
+      </Trans>
     </p>
   </div>,
   <div>
-    <h2>Sharing your data with future researchers</h2>
+    <h2>{i18next.t("consentinfo.screen8.text1")}</h2>
     <p className="Consent__copy">
-      You will have the{' '}
-      <strong>
-        {' '}
-        opportunity to share your data with qualified researchers{' '}
-      </strong>
-      outside of the COVID Recovery Corps.{' '}
+      <Trans i18nKey="consentinfo.screen8.text2">
+        [translate] <strong>  [translate] </strong>  [translate]
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      All qualified researchers must be approved by the COVID Recovery Corps
-      study team and will only use de-identified data.
+      {i18next.t("consentinfo.screen8.text3")}
     </p>
 
     <p className="Consent__copy">
-      This de-identified data does not contain identifiers like name, date of
-      birth, or email address.{' '}
+      {i18next.t("consentinfo.screen8.text4")}
     </p>
 
     <p className="Consent__copy">
-      These researchers may be from <strong>outside the United States</strong>{' '}
-      and may work for a{' '}
-      <strong>
-        non-profit institution, commercial drug or medical device companies, or
-        be a private citizen
-      </strong>
-      .
+      <Trans i18nKey="consentinfo.screen8.text5">
+        [translate] <strong> [translate] </strong> [translate] <strong> [translate] </strong> [translate]
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      Sharing your data with qualified researchers is optional and you can
-      change your mind at any time by updating your data sharing options in
-      account settings.
+      {i18next.t("consentinfo.screen8.text6")}
     </p>
 
     <p className="Consent__copy">
-      But once we <strong>share your data we cannot get it back</strong>. If you
-      decide to end data sharing, we will not share your{' '}
-      <strong>future data</strong>.
+      <Trans i18nKey="consentinfo.screen8.text7">
+        [translate] <strong>[translate]</strong> [translate] <strong>[translate]</strong>[translate]
+      </Trans>
     </p>
   </div>,
 
@@ -285,13 +265,13 @@ const summaryScreens = [
   <div>
     <h2>Not Medical Care</h2>
     <p className="Consent__copy">
-      The COVID Recovery Corps is a <strong>research study</strong>.{' '}
+      The COVID Recovery Corps is a <strong>research study</strong>.
     </p>
 
     <p className="Consent__copy">
-      The study does <strong>not</strong> provide{' '}
+      The study does <strong>not</strong> provide
       <strong> medical care, medical advice</strong> or
-      <strong> treatment</strong>.{' '}
+      <strong> treatment</strong>.
     </p>
 
     <p className="Consent__copy">
@@ -311,33 +291,33 @@ const summaryScreens = [
       <strong> not affect how your doctor treats you</strong>.
     </p>
     <p className="Consent__copy">
-      If you decide to withdraw (quit) the study, you can tell us by{' '}
+      If you decide to withdraw (quit) the study, you can tell us by
       <strong>
-        going to the website and by clicking the{' '}
+        going to the website and by clicking the
         <strong>"Withdraw from study" in account setting</strong>. You can also
-        also <strong>email or write to us</strong>.{' '}
+        also <strong>email or write to us</strong>.
       </strong>
     </p>
 
     <p className="Consent__copy">
-      If you withdraw, <strong>your samples will be destroyed</strong>. Your{' '}
-      <strong>data will not be distributed any more</strong>.{' '}
+      If you withdraw, <strong>your samples will be destroyed</strong>. Your
+      <strong>data will not be distributed any more</strong>.
     </p>
 
     <p className="Consent__copy">
       However, if researchers already have your data or samples for their
-      studies, the COVID Recovery Corps study cannot get it back.{' '}
+      studies, the COVID Recovery Corps study cannot get it back.
     </p>
   </div>,
   <div>
     <h2>Things you should consider before you say yes</h2>
     <p className="Consent__copy">
-      Before you say yes to joining the study, please consider the following:{' '}
+      Before you say yes to joining the study, please consider the following:
     </p>
 
     <div className="list">
       <p className="Consent__copy">
-        You will<strong> not be paid </strong>for participating in this study.{' '}
+        You will<strong> not be paid </strong>for participating in this study.
       </p>
 
       <p className="Consent__copy">
@@ -345,7 +325,7 @@ const summaryScreens = [
         research.
       </p>
       <p className="Consent__copy">
-        Your study information{' '}
+        Your study information
         <strong>
           will not be shared with insurance companies or your doctor without
           your permission.
@@ -362,7 +342,7 @@ const summaryScreens = [
     <h2>How to contact us?</h2>
     <p className="Consent__copy">
       <strong>For general questions,</strong> please contact the COVID Recovery
-      Corps study at 212-305-5700 (24 hours) or{' '}
+      Corps study at 212-305-5700 (24 hours) or
       <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
         COVIDRecoveryCorps@cumc.columbia.edu
       </a>
@@ -372,7 +352,7 @@ const summaryScreens = [
       <strong>
         For questions about your rights as a research participant, concerns or
         complaints,
-      </strong>{' '}
+      </strong>
       please contact Western IRB (WIRB) at <a href="mailto:help@WIRB.com">help@WIRB.com</a> at 360-252-2500 or
       toll-free at 800-562-478.
     </p>
@@ -380,258 +360,134 @@ const summaryScreens = [
 ]
 
 const fullTextScreens = [
+  // intentionally leaving first element empty, first page has no full text version
+  <></>,
   <div>
-    <h2>About the Study</h2>
-
+    <h2>{i18next.t('consentinfo.fullTextScreen2.text1')}</h2>
     <p className="Consent__copy">
-      COVID Recovery Corps is a <strong> research study</strong>.{' '}
+      {i18next.t('consentinfo.fullTextScreen2.text2')}
     </p>
 
     <p className="Consent__copy">
-      The goal of the study is to collect information from participants who have
-      been diagnosed or believe they have had COVID-19.{' '}
+      {i18next.t('consentinfo.fullTextScreen2.text3')}
     </p>
 
     <p className="Consent__copy">
-      Researchers will use this information to{' '}
-      <strong>better understand how the body fights COVID-19 </strong>.
+      {i18next.t('consentinfo.fullTextScreen2.text4')}
     </p>
 
     <p className="Consent__copy">
-      This study is being led by Columbia University and Sage Bionetworks. The
-      study is being funded by the Chan Zuckerberg Initiative.{' '}
+      {i18next.t('consentinfo.fullTextScreen2.text5')}
     </p>
 
     <p className="Consent__copy">
-      This study will <strong> last for 12 months</strong> from the time you enroll.{' '}
+      {i18next.t('consentinfo.fullTextScreen2.text6')}
     </p>
+
     <p className="Consent__copy">
-      This study will <strong> not provide medical care </strong> for COVID-19.
-      Participation in this study is <strong> voluntary </strong>
-      and you may leave the study at any time.
+      {i18next.t('consentinfo.fullTextScreen2.text7')}
+    </p>
+
+    <p className="Consent__copy">
+      {i18next.t('consentinfo.fullTextScreen2.text8')}
     </p>
   </div>,
-
-  <div>
-    <h2>What will I be asked to do?</h2>
-    <p className="Consent__copy">
-      If you decide to join COVID Recovery Corps, we will ask you to answer
-      survey questions. We will use the answers you give us to guess when you
-      might have been infected to decide if and when to ask you to give a
-      biosample such as blood, pee, spit, or sample from a nose swab.
-      You can say no to providing these samples and still take part in COVID
-      Recovery Corps study.{' '}
-    </p>
-
-    <p className="Consent__copy">
-      If you say yes to giving a blood sample, we may use a needle to draw about
-      3 tablespoons of blood from your arm. We will contact you to schedule the
-      blood sample.
-    </p>
-
-    <p className="Consent__copy">
-      Some people might get a testing kit sent to their house. Those people
-      might use a finger stick to provide a small blood sample on a card. The
-      kit may also ask you to provide a sample by using a nose swab, peeing in a
-      cup, or spitting in a cup. We will provide you with
-      instructions and postage to mail the kit back to our lab.
-    </p>
-
-    <p className="Consent__copy">
-      If you have a positive test result for COVID-19, we may ask you to upload
-      a picture or a scanned copy of the document to the study website. This is
-      optional and not required to take part in the study.{' '}
-    </p>
-
-    <p className="Consent__copy">
-      We also will ask you if you would like to share your electronic health
-      record (EHR) with the study. Your electronic health record is a digital
-      version of your medical health record (which may include information like
-      your doctor's notes from visits, diagnosis information and medications).
-      There will be a separate form called a HIPAA Authorization for you to sign
-      if you decide to give us access to your health records. If you say yes to
-      sharing, we will see data about your health problems, test results,
-      medical procedures, images (such as X-rays), and medicines you take.{' '}
-    </p>
-
-    <p className="Consent__copy">
-      It is important to remember that health records can contain sensitive
-      data. For example, it may tell us about your mental health, genetic
-      conditions, or use of alcohol or drugs. They may contain sexual or
-      infection data, including HIV status. You can say no to sharing your
-      health records and still take part in COVID Recovery Corps.
-    </p>
-
-    <p className="Consent__copy">
-      We may contact you by email or text to remind you to answer the survey or
-      to give you directions about providing a blood sample. We expect it will
-      take you about 30-60 minutes to fill out the first four surveys, and then
-      15 minutes every month to answer the survey questions to see how you are
-      doing. If you are asked and decide to give a blood sample, that will take
-      additional time.{' '}
-    </p>
-  </div>,
-
   <div>[intentionally blank - quiz 1 screen]</div>,
 
   <div>
-    <h2>What are the benefits?</h2>
+    <h2>{i18next.t('consentinfo.fullTextScreen4.text1')}</h2>
     <p className="Consent__copy">
-      COVID Recovery Corps is not medical treatment. It is a research study. You
-      will not get direct medical benefit from taking part in COVID Recovery
-      Corps. That said, you may indirectly benefit from taking part in COVID
-      Recovery Corps. These results may be interesting to you.{' '}
+    {i18next.t('consentinfo.fullTextScreen4.text2')}
     </p>
 
     <p className="Consent__copy">
-      You may learn about your health. This might include results about your
-      samples and if you have been or are now infected with COVID-19. Knowing
-      about your COVID-19 status might be a benefit to you.
+    {i18next.t('consentinfo.fullTextScreen4.text3')}
     </p>
 
     <p className="Consent__copy">
-      You will be able to share your COVID Recovery Corps study information with
-      your healthcare provider if you choose. You will have the option to learn
-      about additional study opportunities. Finally, you will be helping
-      researchers and other people make discoveries that may help each other as
-      well as future generations.
+    {i18next.t('consentinfo.fullTextScreen4.text4')}
     </p>
   </div>,
   <div>
-    <h2>What are the risks?</h2>
+    <h2>{i18next.t('consentinfo.fullTextScreen5.text1')}</h2>
     <p className="Consent__copy">
-      The main risk of taking part in COVID Recovery Corps is to your privacy. A
-      data breach is when someone sees or uses data without permission. If there
-      is a data breach, someone could see or use the data we have about you.
-      Even without your name, there is a chance someone could figure out who you
-      are. They could misuse your data.{' '}
+      {i18next.t('consentinfo.fullTextScreen5.text2')}
     </p>
 
     <p className="Consent__copy">
-      Your privacy is very important to us. We will take great care to protect
-      it. Here are a few of the steps we will take:
+      {i18next.t('consentinfo.fullTextScreen5.text3')}
     </p>
     <div className="list">
       <p className="Consent__copy">
-        Data we have about you will be stored on protected computers. We will
-        limit and keep track of who can see these data.
+        {i18next.t('consentinfo.fullTextScreen5.text4')}
       </p>
       <p className="Consent__copy">
-        We will limit who is allowed to see information that could directly
-        identify you, like your name or date of birth.
+        {i18next.t('consentinfo.fullTextScreen5.text5')}
       </p>
 
       <p className="Consent__copy">
-        In order to work with your health data, researchers must sign a contract
-        stating they will not try to find out who you are.
+        {i18next.t('consentinfo.fullTextScreen5.text6')}
       </p>
       <p className="Consent__copy">
-        We will tell you if there is a data breach.
+        {i18next.t('consentinfo.fullTextScreen5.text7')}
       </p>
       <p className="Consent__copy">
-        COVID Recovery Corps has a Certificate of Confidentiality from the U.S.
-        government. This will help us fight legal demands (such as a court order
-        or a request from federal, state, or local law enforcement) to give out
-        information that could identify you.
+        {i18next.t('consentinfo.fullTextScreen5.text8')}
       </p>
 
       <p className="Consent__copy">
-        However, the Certificate might not stop demands from public health
-        authorities like the Health Department or law enforcement because of
-        COVID-19.
+        {i18next.t('consentinfo.fullTextScreen5.text9')}
       </p>
     </div>
     <p className="Consent__copy">
-      We believe the chance of this is very small, but it is not zero.
+      {i18next.t('consentinfo.fullTextScreen5.text10')}
     </p>
     <p className="Consent__copy">
-      We will gather data from you through the COVID Recovery Corps website.
-      There is a risk to your privacy whenever you use the website.
+      {i18next.t('consentinfo.fullTextScreen5.text11')}
     </p>
     <p className="Consent__copy">
-      Researchers will use basic facts like your race, ethnic group, and sex in
-      their studies. These data help researchers learn if the things that affect
-      health are the same for different groups of people. These studies could
-      one day help people of the same race, ethnic group, or sex as you. It is
-      important to have a diverse group of individuals in COVID Recovery Corps
-      to make sure the results will help everyone. However, there is a risk that
-      someone could use this data to support harmful ideas about certain groups.
+      {i18next.t('consentinfo.fullTextScreen5.text12')}
     </p>
 
     <p className="Consent__copy">
-      If you give a blood sample, the most common risks are brief pain and
-      bruising. Some people may become dizzy or feel faint. There is also a
-      small risk of infection. If you are asked to provide a sample from a nose
-      swab you may feel brief discomfort.{' '}
+      {i18next.t('consentinfo.fullTextScreen5.text13')}
     </p>
   </div>,
 
   <div>[intentionally blank - quiz 2 screen]</div>,
 
   <div>
-    <h2>What will you do with my data and samples</h2>
+    <h2>{i18next.t('consentinfo.fullTextScreen7.text1')}</h2>
     <p className="Consent__copy">
-      We will store your data and samples securely, along with the data and
-      samples from all the other people who take part in COVID Recovery Corps.
-      Your data will be stored in the COVID Recovery Corps database and the
-      COVID Recovery Corps Biobank will store your biosamples. We will use the
-      data and samples to make discoveries about COVID-19. We will study the 
-      differences in symptoms people have over time and why some people 
-      responded differently than others. We will study how different people’s 
-      bodies fought the virus with
-      their immune system. We will also study changes in health after people
-      have recovered from COVID-19.
+      {i18next.t('consentinfo.fullTextScreen7.text2')}
     </p>
 
     <p className="Consent__copy">
-      We will create a scientific database and a biobank for the COVID Recovery
-      Corps study. The scientific database will have individual-level data and
-      the biobank will store your samples like your blood, and pee.
+      {i18next.t('consentinfo.fullTextScreen7.text3')}
     </p>
     <p className="Consent__copy">
-      To protect your data, we will use a code to identify your data and samples
-      rather than your name name or other personal information. This code cannot
-      be used to directly identify you. This coded data is known as
-      de-identified data.Only key people from our study team can link your
-      identity to your study.{' '}
+      {i18next.t('consentinfo.fullTextScreen7.text4')}
     </p>
 
     <p className="Consent__copy">
-      Access to this database will be controlled. Researchers will have to be
-      approved by COVID Recovery Corps and will use only de-identified or coded
-      data.
+      {i18next.t('consentinfo.fullTextScreen7.text5')}
     </p>
   </div>,
   <div>
-    <h2>Sharing your data with future researchers</h2>
+    <h2>{i18next.t('consentinfo.fullTextScreen8.text1')}</h2>
     <p className="Consent__copy">
-      The de-identified data that you donate for COVID Recovery Corps study
-      could be used for other COVID- related research. You get to decide if you
-      want to share your coded study data with qualified researchers worldwide.
-      If you give permission, sharing will be done without additional informed
-      consent.
+      {i18next.t('consentinfo.fullTextScreen8.text2')}
     </p>
 
     <p className="Consent__copy">
-      We have rules to qualify researchers. Qualified researchers must register
-      on Synapse, our data analysis platform. To access the data, qualified
-      researchers must write a short statement about their research. The
-      research could be about any topic. The research could be on topics you
-      disagree with or find offensive. We post the researchers’ statements on
-      Synapse for anyone to read. They must sign an oath to use the data
-      ethically and do no harm. Researchers will not be able to easily figure
-      out your identity using your coded study data.
+      {i18next.t('consentinfo.fullTextScreen8.text3')}
     </p>
 
     <p className="Consent__copy">
-      Anyone in the US or abroad can qualify to be a qualified researcher. The
-      person could be from a non-profit institution, commercial drug or medical
-      device companies, or be a private citizen.{' '}
+      {i18next.t('consentinfo.fullTextScreen8.text4')}
     </p>
     <p className="Consent__copy">
-      You cannot take back your data once it is used in research. Your data will
-      not be destroyed or deleted. Once we share your data, there isn’t a way
-      for us to delete it or take it back.
+      {i18next.t('consentinfo.fullTextScreen8.text5')}
     </p>
   </div>,
 
@@ -646,7 +502,7 @@ const fullTextScreens = [
 
     <p className="Consent__copy">
       If you have questions or concerns related to your health, you should
-      contact your doctor.{' '}
+      contact your doctor.
     </p>
   </div>,
   <div>
@@ -662,7 +518,7 @@ const fullTextScreens = [
       any time. If you decide you want to withdraw (quit), you need to tell us.
       You can tell us by going to the website and clicking the “Withdraw Study”
       section in your profile setting. You can use our contact information to
-      email or write to us.{' '}
+      email or write to us.
     </p>
 
     <p className="Consent__copy">
@@ -780,7 +636,7 @@ const ehrScreens = [
       There might be sensitive data in your EHR. For example, about your use of
       alcohol or drugs. Your EHR might have data about sexually transmitted
       infections, like HIV. It might have results from genetic (DNA) tests. We
-      will be able to see these data.{' '}
+      will be able to see these data.
     </p>
     <p className="Consent__copy">
       If you have seen counselors or doctors who treat addictions or substance
@@ -788,9 +644,9 @@ const ehrScreens = [
       same goes for if you have seen counselors or doctors who treat mental
       health, like depression or bipolar disorder. These data would be about
       your diagnosis and treatment. We will be able to see these data.
-    </p>{' '}
+    </p>
     <p className="Consent__copy">
-      {' '}
+      
       One exception are any notes from counselors or doctors in specialized
       clinics who treat addictions or substance use disorders. These notes are
       usually private and not part of the EHR. We will only be able to see these
@@ -798,10 +654,10 @@ const ehrScreens = [
     </p>
   </div>,
   <div>
-    {' '}
+    
     <h2>What exactly will you access in my EHR? </h2>
     <p className="Consent__copy">
-      {' '}
+      
       We will access your whole EHR. That means we will take a copy of all the
       tests, results, and images in your EHR. This includes data about your
       diagnoses, medications, symptoms, allergies, and treatments.
@@ -846,7 +702,7 @@ const ehrScreens = [
       research will be on COVID-19 and related viruses.
     </p>
     <p className="Consent__copy">
-      {' '}
+      
       Once your information is shared with COVID Recovery Corps, it may no
       longer be protected by patient privacy rules (like “HIPAA”). However, it
       will still be protected by other privacy rules and agreements. These
@@ -859,7 +715,7 @@ const ehrScreens = [
       What if I don’t want to give access to my EHR? What if I change my mind?
     </h2>
     <p className="Consent__copy">
-      {' '}
+      
       Giving COVID Recovery Corps access to your EHR is voluntary. You get to
       choose. No matter what you decide, now or in the future, it will not
       affect your medical care. If you decide to give COVID Recovery Corps
@@ -868,13 +724,13 @@ const ehrScreens = [
       withdraw from the study.
     </p>
     <p className="Consent__copy">
-      {' '}
+      
       You can tell us through the app or website, or use the contact information
       at the end of this form to call or write to us. You can update the study’s
       access to your EHR in your profile settings on the website at any time.
-    </p>{' '}
+    </p>
     <p className="Consent__copy">
-      {' '}
+      
       However, if researchers have already accessed data from your EHR for their
       studies, we at COVID Recovery Corps cannot get it back. Also, we will let
       researchers check the results of past studies. If they need your old data
@@ -894,10 +750,10 @@ const ehrScreens = [
     <ul>
       <li>
         <strong>For general questions,</strong> please contact the COVID Recovery Corps study at
-        212-305-5700 (24 hours) or{' '}
+        212-305-5700 (24 hours) or
         <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
           COVIDRecoveryCorps@cumc.columbia.edu
-        </a>{' '}
+        </a>
       </li>
       <li>
       <strong>For questions about your rights as a research participant, concerns or complaints,</strong> please contact Western IRB (WIRB) at <a href="mailto:help@WIRB.com">help@WIRB.com</a> at
@@ -950,7 +806,7 @@ const screens: {[key in SCREENS_ENUM]: JSX.Element} = {
         <li>
           I can withdraw (quit) at any time. There is no penalty if I withdraw.
         </li>
-      </ul>{' '}
+      </ul>
     </p>
   ),
   CONSENT_SHARING: (
@@ -982,7 +838,7 @@ const screens: {[key in SCREENS_ENUM]: JSX.Element} = {
   HIPAA_LAST_CHECKBOX: (
     <>
       <strong>
-        {' '}
+        
         By signing this form, I voluntarily authorize my healthcare providers
         and organizations to share my EHR with the COVID Recovery Corps Research
         Study, led by Dr. Wendy Chung, and its partner organization Sage
