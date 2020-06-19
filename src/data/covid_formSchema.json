@@ -1203,7 +1203,7 @@
       "properties": {
         "smoking": {
           "type": "string",
-          "title": "10. Do you smoke tobacco?",
+          "title": "10. Do you smoke?",
           "uniqueItems": true,
           "enum": [
             "I have never smoked regularly",
