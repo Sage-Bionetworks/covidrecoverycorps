@@ -984,7 +984,7 @@
           "title": "15a. If you checked \"other\" in the previous question, what kind of pet is it? "
         },
         "last_time_pet_dog_cat": {
-          "title": "16. When was the last time you pet a dog or cat before you got sick?",
+          "title": "16. When was the last time you pet a cat, dog or other domesticated animal before you got sick?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -993,6 +993,7 @@
             "One month ago",
             "More than one month ago",
             "Don’t remember",
+            "I didn’t pet a domesticated animal",
             "Prefer not to answer"
           ],
           "enumNames": [
@@ -1001,6 +1002,7 @@
             "One month ago",
             "More than one month ago",
             "Don’t remember",
+            "I didn’t pet a domesticated animal",
             "Prefer not to answer"
           ]
         },
