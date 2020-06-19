@@ -19,10 +19,10 @@ import { Redirect } from 'react-router-dom'
 import FloatingToolbar from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
 import LearnMore from '../widgets/LearnMore'
-import { setSession, getSession } from '../../helpers/utility'
 import ConsentSentConfirmation from './ConsentSentConfirmation'
 import { UserService } from '../../services/user.service'
-import { useSessionStorage } from '../../helpers/utility'
+import {useSessionDataState, useSessionDataDispatch} from '../../AuthContext'
+
 export type ConsentProps = {
   token: string
   setConsentFn?: Function
@@ -41,8 +41,10 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     undefined,
   )
 
+  const sessionData = useSessionDataState()
+  const sessionUpdateFn = useSessionDataDispatch()
+
   const [error, setError] = useState('')
-  const [alertCode, setAlertCode] = useSessionStorage('alert', undefined)
 
   const stateSchema = {
     agree: { value: '', error: '' },
@@ -97,8 +99,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
         state.shareScope.value,
         token,
       )
-      setSession(token, getSession()?.name || '', true)
-      setAlertCode(undefined)
+      sessionUpdateFn({type: 'CONSENT'})
       setIsConsentDone(true)
     } catch (e) {
       setError(e.message)
@@ -196,8 +197,8 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       return <Redirect to="consentehr"></Redirect>
     }
     if (doHIPAAConsent === false) {
-      //return <Redirect to="dashboard?consented=true"></Redirect>
-      window.location.href = '/dashboard?consented=true'
+      return <Redirect to="dashboard?consented=true"></Redirect>
+     // window.location.href = '/dashboard?consented=true'
     }
   }
 

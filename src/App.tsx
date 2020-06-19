@@ -1,6 +1,4 @@
 import React, { useState, useEffect, Component } from 'react'
-import logo from './logo.svg'
-
 import './styles/style.scss'
 import {
   BrowserRouter as Router,
@@ -14,6 +12,7 @@ import SurveyWrapper from './components/surveys/SurveyWrapper'
 import Done from './components/surveys/Done'
 import Login from './components/login/Login'
 import Consent from './components/consent/Consent'
+import { useSessionDataState, useSessionDataDispatch } from './AuthContext'
 
 import { makeStyles } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline'
@@ -24,12 +23,10 @@ import {
   Grid,
 } from '@material-ui/core'
 
-import { getSession, getSearchParams } from './helpers/utility'
+import { getSearchParams } from './helpers/utility'
 
 import Intro from './components/static/Intro'
 import Dashboard from './components/dashboard/Dashboard'
-
-import { SESSION_NAME } from './types/types'
 import ConsentEHR from './components/consent/ConsentEHR'
 import Team from './components/static/Team'
 import Contact from './components/static/Contact'
@@ -155,11 +152,6 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-type AppState = {
-  token: string
-}
-export const TokenContext = React.createContext('')
-
 function renderWithGridLayout(el: JSX.Element) {
   return (
     <Grid
@@ -178,15 +170,17 @@ function renderWithGridLayout(el: JSX.Element) {
 }
 
 function App() {
-  const [token, setToken] = useState(getSession()?.token)
-  const [name, setName] = useState(getSession()?.name)
-  const [consented, setConsented] = useState(getSession()?.consented)
+  const sessionData = useSessionDataState()
+  const sessionUpdateFn = useSessionDataDispatch()
+  const token = sessionData.token
+  const consented = sessionData.consented
   const [currentLocation, setCurrentLocation] = useState(
     window.location.pathname,
   )
 
   useEffect(() => {
     let isSubscribed = true
+    console.log(`token changed to ${token}`)
     //the whole point of this is to log out the user if their session ha expired on the servier
     async function getInfo(token: string | undefined) {
       if (token && isSubscribed) {
@@ -243,7 +237,7 @@ function App() {
               />
             )
           }
-          if (!getSession()?.consented) {
+          if (!sessionData.consented) {
             return (
               <Redirect
                 to={{
@@ -264,21 +258,18 @@ function App() {
     name: string,
     consented: boolean,
   ) => {
-    const data = {
-      token,
-      name,
-      consented,
-    }
     if (!token) {
-      sessionStorage.clear()
-      setToken(undefined)
-      setName('')
-      setConsented(undefined)
+      sessionUpdateFn({ type: 'LOGOUT' })
     } else {
-      setToken(token)
-      setName(name)
-      setConsented(consented)
-      sessionStorage.setItem(SESSION_NAME, JSON.stringify(data))
+      sessionUpdateFn({
+        type: 'LOGIN',
+        payload: {
+          ...sessionData,
+          token: token,
+          name: name,
+          consented: consented,
+        },
+      })
     }
   }
 
@@ -446,9 +437,7 @@ function App() {
                       <AcountSettings token={token!}></AcountSettings>,
                     )}
                   </Route>
-                  <Route path="/done">
-                    {renderWithGridLayout(<Done />)}
-                  </Route>
+                  <Route path="/done">{renderWithGridLayout(<Done />)}</Route>
                   <Route path="/home">
                     <Intro token={token || null}></Intro>
                   </Route>

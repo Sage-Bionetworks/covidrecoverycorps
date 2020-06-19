@@ -3,7 +3,7 @@ import FormGroup from '@material-ui/core/FormGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Switch from '@material-ui/core/Switch'
 import { blue } from '@material-ui/core/colors'
-import {withStyles } from '@material-ui/core'
+import { withStyles } from '@material-ui/core'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import FloatingToolbar from './widgets/FloatingToolbar'
 import LearnMore from './widgets/LearnMore'
@@ -16,7 +16,7 @@ import { LoggedInUserData, Response } from '../types/types'
 import WithdrawSurvey from './surveys/WithdrawSurvey'
 import Alert from '@material-ui/lab/Alert'
 import { Card, CardContent } from '@material-ui/core'
-import { setSession, getSession } from '../helpers/utility'
+import { useSessionDataState, useSessionDataDispatch } from '../AuthContext'
 import { SurveyService } from '../services/survey.service'
 
 type AcountSettingsProps = {
@@ -55,6 +55,9 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
   const [userId, setUserId] = useState<string | undefined>()
   const [error, setError] = useState('')
   const [withdrawlSurveyData, setWithdrawlSurveyData] = useState({})
+
+  const sessionUpdateFn = useSessionDataDispatch()
+  const sessionInfo = useSessionDataState()
 
   // initialize check box values
   useEffect(() => {
@@ -139,9 +142,13 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
   const handleOnWithdrawFromStudyClick = async () => {
     setError('')
     try {
-      await SurveyService.postToHealthData('WITHDRAW', withdrawlSurveyData, props.token)
+      await SurveyService.postToHealthData(
+        'WITHDRAW',
+        withdrawlSurveyData,
+        props.token,
+      )
       await ConsentService.withdrawFromStudy(userId!, props.token)
-      setSession(props.token, getSession()?.name || '', false)
+      sessionUpdateFn({ type: 'WITHDRAW' })
       setIsRedirectingHome(true)
 
       setIsShowingWithdrawConfirmation(false)

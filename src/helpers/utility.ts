@@ -13,6 +13,7 @@ import {
 
 import moment from 'moment'
 import { useState } from 'react'
+import {SessionData} from '../types/types'
 
 export const callEndpoint = async <T>(
   endpoint: string,
@@ -84,7 +85,7 @@ export const getAge = (
 }
 
 export const getSession = ():
-  | { token: string; name: string; consented: boolean }
+  | SessionData
   | undefined => {
   const item = sessionStorage.getItem(SESSION_NAME) || ''
   try {
@@ -95,12 +96,13 @@ export const getSession = ():
   }
 }
 
-export const setSession = (token: string, name: string, consented: boolean) => {
-  const data = {
-    token,
-    name,
-    consented,
-  }
+export const clearSession = () =>{
+  sessionStorage.removeItem(SESSION_NAME)
+  sessionStorage.clear()
+}
+
+export const setSession = (data: SessionData) => {
+ 
   sessionStorage.setItem(SESSION_NAME, JSON.stringify(data))
 }
 

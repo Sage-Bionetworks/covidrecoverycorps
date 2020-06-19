@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router'
-import { SESSION_NAME } from '../../types/types'
-import Button from '@material-ui/core/Button/Button'
-import { ListItem, Link } from '@material-ui/core'
-
-//import {SESSION_NAME} from './types'
+import { useSessionDataDispatch } from '../../AuthContext'
 
 type LogoutProps = {
   redirectUrl?: string
@@ -16,10 +12,11 @@ export const Logout: React.FunctionComponent<LogoutProps> = ({
   onLogout,
 }: LogoutProps) => {
   const [navigate, setNavigate] = useState(false)
+  const sessionUpdateFn = useSessionDataDispatch()
   const logout = () => {
+    sessionUpdateFn({ type: 'LOGOUT' })
     onLogout()
-    sessionStorage.removeItem(SESSION_NAME)
-    sessionStorage.clear()
+
     setNavigate(true)
   }
   if (navigate) {
