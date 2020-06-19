@@ -10,7 +10,7 @@ import {
   Response,
   ENDPOINT,
 } from '../../types/types'
-import { callEndpoint, makePhone, setSession } from '../../helpers/utility'
+import { callEndpoint, makePhone} from '../../helpers/utility'
 
 import Button from '@material-ui/core/Button'
 import SignInWithCode from './SignInWithCode'
@@ -31,8 +31,6 @@ import { useTranslation } from 'react-i18next'
 export interface OwnLoginProps {
   redirectUrl?: string // will redirect here after a successful login. if unset, reload the current page url.
   callbackFn: Function // Callback is invoked after login
-  //sessionName: string
-
   email?: string
   token?: string
   searchParams?: EmailSigninParams
@@ -56,6 +54,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
   const [isLinkSent, setIsLinkSent] = useState(false)
   const [loginType, setLoginType] = useState<LoginType>('EMAIL')
   const [isLoading, setIsLoading] = useState(true)
+
 
   const { t } = useTranslation()
   //detect if they are bck on the page
@@ -114,6 +113,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         setIsLoading(false)
       }
     }
+    console.log('login'+ JSON.stringify(searchParams,null, 2))
 
     if (searchParams?.email) {
       const email = decodeURIComponent(searchParams.email)
@@ -181,6 +181,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
           email,
           `${ENDPOINT}${EMAIL_SIGN_IN_TRIGGER_ENDPOINT}`,
         )
+        console.log(JSON.stringify(result))
       }
       setIsLinkSent(true)
     } catch (e) {

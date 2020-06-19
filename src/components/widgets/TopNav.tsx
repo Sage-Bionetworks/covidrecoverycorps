@@ -4,7 +4,7 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { makeStyles } from '@material-ui/core/styles'
 import Logout from '../login/Logout'
-import { getSession} from '../../helpers/utility'
+
 import btnClose from '../../assets/btn_close_dark.svg'
 import {
   ListItem,
@@ -22,7 +22,8 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Alert from '@material-ui/lab/Alert'
 import { openSansFont } from '../../App'
-import { getSearchParams, useSessionStorage } from '../../helpers/utility'
+import { getSearchParams} from '../../helpers/utility'
+import {useSessionDataState, useSessionDataDispatch} from '../../AuthContext'
 import GlobalAlertCopy from './GlobalAlertCopy'
 import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
 import i18n from '../../i18n'
@@ -136,12 +137,16 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
   const [mobileOpen, setMobileOpen] = React.useState(false)
   const [language, setLanguage] = React.useState(i18n.language)
   const classes = useStyles()
-  const [alertCode, setAlertCode] = useSessionStorage('alert', undefined)
+  const sessionData = useSessionDataState()
+  const alertCode = sessionData.alert
+  const sessionUpdateFn = useSessionDataDispatch()
+  //const [alertCode, setAlertCode] = useSessionStorage('alert', undefined)
 
   const { t } = useTranslation()
   
   const clearAlertCode = () => {
-    setAlertCode(undefined)
+    //setAlertCode(undefined)
+    sessionUpdateFn({type: 'CLEAR_ALERT'})
   }
   const isGlobalNotificationAlertHidden = (location: string): boolean => {
     const specialPages = ['settings', 'appointment', 'consent']
@@ -155,7 +160,8 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
     const searchParamsProps = getSearchParams(window.location.search)
     const searchParamAlertCode: string = searchParamsProps['alert']
     if (searchParamAlertCode && searchParamAlertCode !== alertCode) {
-      setAlertCode(searchParamAlertCode)
+      sessionUpdateFn({type: 'SET_ALERT', payload: {...sessionData, alert: searchParamAlertCode}})
+     // setAlertCode(searchParamAlertCode)
     }
   }
 
@@ -236,7 +242,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             {language === 'es' ? 'in English' : 'en español'}
         </ListItem>
         <Divider className={classes.mobileMenuSeparator} />
-        {(props.token && getSession()?.consented) && (
+        {(props.token && sessionData.consented) && (
           <NavLink
             to="/dashboard"
             onClick={handleDrawerToggle}
@@ -247,7 +253,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             </ListItem>
           </NavLink>
         )}
-        {(props.token && getSession()?.consented) && (
+        {(props.token && sessionData.consented) && (
           <NavLink
             to="/settings"
             onClick={handleDrawerToggle}
@@ -267,7 +273,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             <ListItem button className={classes.mobileMenuItem}>
               <Logout
                 onLogout={() => {
-                  clearAlertCode()
+   
                   props.logoutCallbackFn(undefined, '', false)
                 }}
               ></Logout>
@@ -338,7 +344,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
       >
         {t('topnav.text5')}
       </NavLink>
-      {(props.token && getSession()?.consented) &&  (
+      {(props.token && sessionData.consented) &&  (
         <NavLink
           to="/dashboard"
           className={classes.fullNavBarLink}
@@ -347,7 +353,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           {t('topnav.text6')}
         </NavLink>
       )}
-      {(props.token   && getSession()?.consented) && (
+      {(props.token   && sessionData.consented) && (
         <NavLink
           to="/settings"
           className={classes.fullNavBarLink}
@@ -371,7 +377,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
         >
           <Logout
             onLogout={() => {
-              clearAlertCode()
+
               props.logoutCallbackFn(undefined, '', false)
             }}
           ></Logout>

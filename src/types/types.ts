@@ -18,9 +18,7 @@ export type EmailSigninParams = {
   token: string
 }
 
-export type IneligibilityReason =
-  | 'LOCATION'
-  | 'NONE'
+export type IneligibilityReason = 'LOCATION' | 'NONE'
 
 export interface StringDictionary {
   [key: string]: any
@@ -31,7 +29,6 @@ export type Phone = {
   number: string
   regionCode: string
 }
-
 
 export type UserAttributes = {
   address: string
@@ -118,27 +115,34 @@ export type SavedSurveysObject = {
   surveys: SavedSurvey[]
 }
 export type ColumbiaAppointment = {
-  start: string, // date/time when appointment will start
+  start: string // date/time when appointment will start
   status: string
 }
 
 export type ReportData = {
-  localDate: string,
-  date: string,
+  localDate: string
+  date: string
   data: ColumbiaAppointment
 }
 export type ReportDataList = {
   items: ReportData[]
 }
 
-export enum TestLocationEnum  {
-  'HOME'= 'home',
-  'LAB' = 'lab' ,
-  'NO_TEST' = 'noTest'
+export type SessionData = {
+  token: string | undefined
+  name?: string
+  consented?: boolean
+  alert?: string
+}
+
+export enum TestLocationEnum {
+  'HOME' = 'home',
+  'LAB' = 'lab',
+  'NO_TEST' = 'noTest',
 }
 
 export enum SurveysCompletionStatusEnum {
-'NOT_DONE',
-'MAIN_DONE' ,
-'ALL_DONE'
+  'NOT_DONE',
+  'MAIN_DONE',
+  'ALL_DONE',
 }
