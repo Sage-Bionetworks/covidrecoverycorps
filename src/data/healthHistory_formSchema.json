@@ -304,12 +304,9 @@
             },
             "stroke": {
               "type": "boolean",
-              "title": "Stroke"
+              "title": "Stroke/Brain bleed"
             },
-            "head_hemorrhage": {
-              "type": "boolean",
-              "title": "Head hemorrhage"
-            },
+         
             "coronary_bypass_surgery": {
               "type": "boolean",
               "title": "Coronary artery bypass surgery"
@@ -376,30 +373,7 @@
                 }
               ]
             },
-            "head_hemorrhage": {
-              "oneOf": [
-                {
-                  "properties": {
-                    "head_hemorrhage": {
-                      "enum": [false]
-                    }
-                  }
-                },
-                {
-                  "properties": {
-                    "head_hemorrhage": {
-                      "enum": [true]
-                    },
-                    "head_hemorrhage_age": {
-                      "title": "What was your age",
-                      "type": "number",
-                      "minimum": 1
-                    }
-                  },
-                  "required": ["head_hemorrhage_age"]
-                }
-              ]
-            },
+            
             "coronary_bypass_surgery": {
               "oneOf": [
                 {

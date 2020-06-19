@@ -118,8 +118,7 @@
         "heart_attack_age",
         "stroke",
         "stroke_age",
-        "head_hemorrhage",
-        "head_hemorrhage_age",
+ 
         "coronary_bypass_surgery",
         "coronary_bypass_surgery_age",
         "cardiac_catheterization",
@@ -131,11 +130,9 @@
         "ui:title": "What was your age at the time of a heart attack?"
       },
       "stroke_age": {
-        "ui:title": "What was your age at the time of a stroke?"
+        "ui:title": "What was your age at the time of a stroke/brain bleed?"
       },
-      "head_hemorrhage_age": {
-        "ui:title": "What was your age at the time of a head hemorrhage"
-      },
+     
       "coronary_bypass_surgery_age": {
         "ui:title": "What was your age at the time of a coronary bypass surgery?"
       },

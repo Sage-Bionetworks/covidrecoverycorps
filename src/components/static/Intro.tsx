@@ -12,11 +12,12 @@ import LandingPageAboveFold0 from '../../assets/LandingPageAboveFold0.png'
 import LandingPageAboveFold1 from '../../assets/LandingPageAboveFold1.png'
 import LandingPageAboveFold2 from '../../assets/LandingPageAboveFold2.png'
 import LandingPageAboveFold3 from '../../assets/LandingPageAboveFold3.png'
+import LandingPageAboveFold4 from '../../assets/LandingPageAboveFold.png'
 import LandingPageAboveFold0Mobile from '../../assets/LandingPageAboveFold0_mobile.png'
 import LandingPageAboveFold1Mobile from '../../assets/LandingPageAboveFold1_mobile.png'
 import LandingPageAboveFold2Mobile from '../../assets/LandingPageAboveFold2_mobile.png'
 import LandingPageAboveFold3Mobile from '../../assets/LandingPageAboveFold3_mobile.png'
-
+import LandingPageAboveFold4Mobile from '../../assets/LandingPageAboveFold_mobile.png'
 import LandingPageWalk from '../../assets/LandingPageWalk.png'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
@@ -274,6 +275,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
   const [heroImage1Opacity, setHeroImage1Opacity] = useState(0)
   const [heroImage2Opacity, setHeroImage2Opacity] = useState(0)
   const [heroImage3Opacity, setHeroImage3Opacity] = useState(0)
+  const [heroImage4Opacity, setHeroImage4Opacity] = useState(0)
 
   const selectNextHeroBackground = () => {
     // get next image
@@ -288,15 +290,19 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
     } else if (heroImage2Opacity > 0) {
       setHeroImage2Opacity(0)
       setHeroImage3Opacity(1)
-    } else {
+    } else if (heroImage3Opacity > 0) {
       setHeroImage3Opacity(0)
+      setHeroImage4Opacity(1)
+    }
+    else {
+      setHeroImage4Opacity(0)
       setHeroImage0Opacity(1)
     }
   }
   useEffect(() => {
     const interval = setInterval(selectNextHeroBackground, 8000)
     return () => clearInterval(interval)
-  }, [heroImage0Opacity,heroImage1Opacity, heroImage2Opacity, heroImage3Opacity])
+  }, [heroImage0Opacity,heroImage1Opacity, heroImage2Opacity, heroImage3Opacity, heroImage4Opacity])
 
   const heroTextContent = (
     <Container maxWidth="lg">
@@ -346,6 +352,11 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               src={LandingPageAboveFold3Mobile}
               style={{ opacity: heroImage3Opacity }}
             />
+             <img
+              className={classes.heroImage}
+              src={LandingPageAboveFold4Mobile}
+              style={{ opacity: heroImage4Opacity }}
+            />
           </Hidden>
           <Hidden smDown>
           
@@ -368,6 +379,11 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               className={classes.heroImage}
               src={LandingPageAboveFold3}
               style={{ opacity: heroImage3Opacity }}
+            />
+             <img
+              className={classes.heroImage}
+              src={LandingPageAboveFold4}
+              style={{ opacity: heroImage4Opacity }}
             />
           </Hidden>
 
