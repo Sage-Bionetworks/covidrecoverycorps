@@ -1,0 +1,1050 @@
+{
+  "definitions": {
+    "history1": {
+      "type": "object",
+      "required": ["general_health_status", "physical_activity_level"],
+      "properties": {
+        "general_health_status": {
+          "type": "string",
+          "title": "1. How would you rate your general health status prior to the infection?",
+          "enum": [
+            "Excellent",
+            "Very good",
+            "Good",
+            "Fair",
+            "Poor",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Excellent",
+            "Very good",
+            "Good",
+            "Fair",
+            "Poor",
+            "Prefer not to answer"
+          ]
+        },
+        "physical_activity_level": {
+          "type": "string",
+          "title": "2. What is the level of your usual physical activity? ",
+          "enum": [
+            "I read, watch TV, and perform chores that are not physically taxing",
+            "I walk, bike, or are otherwise physically active for many days a week. Including among other activities: walking, hunting, and light gardening work",
+            "I do endurance sports for several hours a week. Including jogging, skiing, weight lifting, calisthenics, swimming, ball games or physically taxing gardening work.",
+            "I train for competitive sports daily",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "I read, watch TV, and perform chores that are not physically taxing",
+            "I walk, bike, or are otherwise physically active for many days a week. Including among other activities: walking, hunting, and light gardening work",
+            "I do endurance sports for several hours a week. Including jogging, skiing, weight lifting, calisthenics, swimming, ball games or physically taxing gardening work.",
+            "I train for competitive sports daily",
+            "Prefer not to answer"
+          ]
+        },
+        "weight": {
+          "type": "number",
+          "title": "3. How much do you weigh? (lbs.)",
+          "minimum": 50,
+          "maximum": 500
+        },
+        "height": {
+          "type": "object",
+          "title": "4. How tall are you?",
+          "properties": {
+            "feet": {
+              "type": "number",
+              "minimum": 2,
+              "maximum": 8
+            },
+            "inches": {
+              "type": "number",
+              "minimum": 0,
+              "maximum":11
+            }
+          }
+        }
+      }
+    },
+    "history11": {
+      "type": "object",
+      "required": [
+        "where_go_for_care",
+        "routine_exam_2019",
+        "vaccinations",
+        "travel_time_to_doctor"
+      ],
+      "properties": {
+        "where_go_for_care": {
+          "type": "string",
+          "uniqueItems": true,
+          "title": "5. When you are sick, where do you usually go for care?",
+      
+            "enum": [
+              "Doctor’s office, Clinic, or Health center",
+              "Urgent care or Minute clinic",
+              "Hospital emergency room",
+              "Some other place (for example: faith healer, botanica, acupuncture, etc.)",
+              "I don’t go to one place",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Doctor’s office, Clinic, or Health center",
+              "Urgent care or Minute clinic",
+              "Hospital emergency room",
+              "Some other place (for example: faith healer, botanica, acupuncture, etc.)",
+              "I don’t go to one place",
+              "Prefer not to answer"
+            ]
+         
+        },
+        "routine_exam_2019": {
+          "type": "string",
+          "title": "6. Did you have a routine health exam (check-up) in the last year (2019/2020)?",
+          "enum": [
+            "Yes",
+            "No",
+            "Not sure/don't remember",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Yes",
+            "No",
+            "Not sure/don't remember",
+            "Prefer not to answer"
+          ]
+        },
+        "vaccinations": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems":1,
+          "title": "7. Have you received a vaccination in 2019/2020 against any of the following? (check all that apply)",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Flu shot",
+              "Pneumococcal vaccination or Pneumovax",
+              "Tuberculosis (TB) vaccine (BCG) (at any time in your life)",
+              "None of the above",
+              "I don’t know",
+              "Prefer not to answer "
+            ],
+            "enumNames": [
+              "Flu shot",
+              "Pneumococcal vaccination or Pneumovax",
+              "Tuberculosis (TB) vaccine (BCG) (at any time in your life)",
+              "None of the above",
+              "I don’t know",
+              "Prefer not to answer "
+            ]
+          }
+        },
+        "travel_time_to_doctor": {
+          "type": "string",
+          "title": "8. How long does it take to travel to see your doctor/healthcare provider? ",
+          "enum": [
+            "Less than 10 minutes",
+            "10-30 minutes",
+            "30-60 minutes",
+            "1-2 hours",
+            "Over 2 hours",
+            "Don’t know",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Less than 10 minutes",
+            "10-30 minutes",
+            "30-60 minutes",
+            "1-2 hours",
+            "Over 2 hours",
+            "Don’t know",
+            "Prefer not to answer"
+          ]
+        }
+      }
+    },
+    "history2": {
+      "type": "object",
+      "required": ["blood_type", "diabetes_diagnosis"],
+      "properties": {
+        "blood_type": {
+          "type": "string",
+          "title": "9. What is your blood type?",
+          "enum": [
+            "A Positive",
+            "A Negative",
+            "B Positive",
+            "B Negative",
+            "AB Positive",
+            "AB Negative",
+            "O Positive",
+            "O Negative",
+            "I Don’t Know",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "A Positive",
+            "A Negative",
+            "B Positive",
+            "B Negative",
+            "AB Positive",
+            "AB Negative",
+            "O Positive",
+            "O Negative",
+            "I Don’t Know",
+            "Prefer not to answer"
+          ]
+        },
+        "diabetes_diagnosis": {
+          "type": "string",
+          "title": "10. Have you been diagnosed with diabetes?",
+          "enum": [
+            "No",
+            "No, but sometimes have high blood sugar",
+            "Yes, Type 1 diabetes (treated with insulin)",
+            "Yes, Type 2 diabetes (often treated with pills)",
+            "Yes, but I don’t know the type",
+            "Yes, Gestational diabetes",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "No",
+            "No, but sometimes have high blood sugar",
+            "Yes, Type 1 diabetes (treated with insulin)",
+            "Yes, Type 2 diabetes (often treated with pills)",
+            "Yes, but I don’t know the type",
+            "Yes, Gestational diabetes",
+            "Prefer not to answer"
+          ]
+        }
+      },
+      "dependencies": {
+        "diabetes_diagnosis": {
+          "oneOf": [
+            {
+              "properties": {
+                "diabetes_diagnosis": {
+                  "enum": [
+                    "No",
+                    "No, but sometimes have high blood sugar",
+                    "Prefer not to answer"
+                  ]
+                }
+              }
+            },
+            {
+              "properties": {
+                "diabetes_diagnosis": {
+                  "enum": [
+                    "Yes, Type 1 diabetes (treated with insulin)",
+                    "Yes, Type 2 diabetes (often treated with pills)",
+                    "Yes, but I don’t know the type",
+                    "Yes, Gestational diabetes"
+                  ]
+                },
+                "diabetes_drugs": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "title": "10a. What drugs prescribed by a physician do you use for diabetes?",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "Insulin",
+                      "Pills",
+                      "Insulin and pills",
+                      "Prescribed other medication",
+                      "No prescribed medication",
+                      "Prefer not to answer"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "history21": {
+      "type": "object",
+      "required": [
+        "blood_pressure",
+        "blood_pressure_medication",
+        "health_conditions"
+      ],
+      "properties": {
+        "blood_pressure": {
+          "type": "string",
+          "title": "11. Have you ever been diagnosed with hypertension or high blood pressure?",
+          "enum": [
+            "No",
+            "Yes",
+            "Yes, but only during pregnancy",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "No",
+            "Yes",
+            "Yes, but only during pregnancy",
+            "Prefer not to answer"
+          ]
+        },
+        "blood_pressure_medication": {
+          "type": "string",
+          "title": "12. Have you ever used blood pressure medication?",
+          "enum": ["No", "Yes", "I don't remember", "Prefer not to answer"],
+          "enumNames": ["No", "Yes", "I don't remember", "Prefer not to answer"]
+        },
+        "health_conditions": {
+          "title": "13. Which of the following health conditions have you had? (Check all that apply)",
+          "type": "object",
+          "properties": {
+            "heart_attack": {
+              "type": "boolean",
+              "title": "Heart attack"
+            },
+            "stroke": {
+              "type": "boolean",
+              "title": "Stroke/Brain bleed"
+            },
+         
+            "coronary_bypass_surgery": {
+              "type": "boolean",
+              "title": "Coronary artery bypass surgery"
+            },
+            "cardiac_catheterization": {
+              "type": "boolean",
+              "title": "Cardiac catheterization or stent"
+            },
+            "none": {
+              "type": "boolean",
+              "title": "None of the above"
+            },
+            "no_answer": {
+              "type": "boolean",
+              "title": "Prefer not to answer"
+            }
+          },
+          "dependencies": {
+            "heart_attack": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "heart_attack": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "heart_attack": {
+                      "enum": [true]
+                    },
+                    "heart_attack_age": {
+                      "title": "What was your age",
+                      "type": "number",
+                      "minimum": 1
+                    }
+                  },
+                  "required": ["heart_attack_age"]
+                }
+              ]
+            },
+            "stroke": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "stroke": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "stroke": {
+                      "enum": [true]
+                    },
+                    "stroke_age": {
+                      "title": "What was your age",
+                      "type": "number",
+                      "minimum": 1
+                    }
+                  },
+                  "required": ["stroke_age"]
+                }
+              ]
+            },
+            
+            "coronary_bypass_surgery": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "coronary_bypass_surgery": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "coronary_bypass_surgery": {
+                      "enum": [true]
+                    },
+                    "coronary_bypass_surgery_age": {
+                      "title": "What was your age",
+                      "type": "number",
+                      "minimum": 1
+                    }
+                  },
+                  "required": ["coronary_bypass_surgery_age"]
+                }
+              ]
+            },
+            "cardiac_catheterization": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "cardiac_catheterization": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "cardiac_catheterization": {
+                      "enum": [true]
+                    },
+                    "cardiac_catheterization_age": {
+                      "title": "What was your age",
+                      "type": "number",
+                      "minimum": 1
+                    }
+                  },
+                  "required": ["cardiac_catheterization_age"]
+                }
+              ]
+            }
+          }
+        }
+      },
+      "dependencies": {
+        "blood_pressure_medication": {
+          "oneOf": [
+            {
+              "properties": {
+                "blood_pressure_medication": {
+                  "enum": ["No"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "blood_pressure_medication": {
+                  "enum": ["I don't remember"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "blood_pressure_medication": {
+                  "enum": ["Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "blood_pressure_medication": {
+                  "enum": ["Yes"]
+                },
+                "what_bp_medication": {
+                  "title": "12a. What blood pressure medication have you used?",
+                  "type": "string"
+                }
+              },
+              "required": ["what_bp_medication"]
+            }
+          ]
+        }
+      }
+    },
+    "history3": {
+      "type": "object",
+      "required": ["diseases_history"],
+      "properties": {
+        "diseases_history": {
+          "title": "14. Have you ever had any of the following diseases diagnosed or treated? (check all that apply)",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Allergies",
+              "Anemia",
+              "Arrhythmia or cardiac arrest",
+              "Asthma",
+              "Atrial fibrillation, palpitations or abnormal heart rhythm",
+              "Blood in the urine",
+              "Bone marrow transplant",
+              "Cancer",
+              "Celiac disease",
+              "Chronic kidney disease",
+              "Chronic obstructive pulmonary disease (COPD)",
+              "Cold sores",
+              "Crohn’s disease",
+              "Dementia",
+              "Eczema",
+              "Hay fever",
+              "Heart attack",
+              "Heart failure",
+              "Heart failure requiring heart transplant",
+              "Herpes",
+              "HIV",
+              "Hives",
+              "Immune deficiency",
+              "Kidney failure requiring dialysis",
+              "Kidney failure requiring kidney transplant",
+              "Liver disease or cirrhosis",
+              "Liver failure requiring liver transplant",
+              "Lupus",
+              "Molluscum",
+              "Multiple sclerosis",
+              "Obesity",
+              "Pacemaker implanted",
+              "Periodic/Frequent fevers",
+              "Prior blood clots in legs or lungs",
+              "Protein in the urine",
+              "Recurrent bacterial infections",
+              "Recurrent ear infections/sinusitis",
+              "Rheumatoid arthritis",
+              "Shingles",
+              "Sleep apnea",
+              "Thyroid disease",
+              "Ulcerative colitis",
+              "Warts",
+              "None of the above",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Allergies",
+              "Anemia",
+              "Arrhythmia or cardiac arrest",
+              "Asthma",
+              "Atrial fibrillation, palpitations or abnormal heart rhythm",
+              "Blood in the urine",
+              "Bone marrow transplant",
+              "Cancer",
+              "Celiac disease",
+              "Chronic kidney disease",
+              "Chronic obstructive pulmonary disease (COPD)",
+              "Cold sores",
+              "Crohn’s disease",
+              "Dementia",
+              "Eczema",
+              "Hay fever",
+              "Heart attack",
+              "Heart failure",
+              "Heart failure requiring heart transplant",
+              "Herpes",
+              "HIV",
+              "Hives",
+              "Immune deficiency",
+              "Kidney failure requiring dialysis",
+              "Kidney failure requiring kidney transplant",
+              "Liver disease or cirrhosis",
+              "Liver failure requiring liver transplant",
+              "Lupus",
+              "Molluscum",
+              "Multiple sclerosis",
+              "Obesity",
+              "Pacemaker implanted",
+              "Periodic/Frequent fevers",
+              "Prior blood clots in legs or lungs",
+              "Protein in the urine",
+              "Recurrent bacterial infections",
+              "Recurrent ear infections/sinusitis",
+              "Rheumatoid arthritis",
+              "Shingles",
+              "Sleep apnea",
+              "Thyroid disease",
+              "Ulcerative colitis",
+              "Warts",
+              "None of the above",
+              "Prefer not to answer"
+            ]
+          }
+        }
+      }
+    },
+    "history31": {
+      "type": "object",
+      "required": [
+        "diseases_history_cont",
+        "immune_deficiency",
+        "family_diseases",
+        "sexual_orientation"
+      ],
+      "properties": {
+        "diseases_history_cont": {
+          "type": "object",
+          "title": "15. Have you ever had any of the following diseases diagnosed or treated? (check all that apply)",
+          "properties": {
+            "pulmonary_hypertension": {
+              "type": "boolean",
+              "title": "High pressure in the lung (pulmonary hypertension)"
+            },
+            "other_lung_disorder": {
+              "type": "boolean",
+              "title": "Another lung disorder"
+            },
+            "neuro_disorder": {
+              "type": "boolean",
+              "title": "Neurological disorder (e.g., ALS, Parkinson’s, Huntington’s)"
+            },
+            "osteoarthritis": {
+              "type": "boolean",
+              "title": "Osteoarthritis"
+            },
+            "other_inflammatory_arthritis": {
+              "title": "Other type of inflammatory arthritis",
+              "type": "boolean"
+            },
+            "none": {
+              "type": "boolean",
+              "title": "None of the above"
+            },
+            "no_answer": {
+              "title": "Prefer not to answer",
+              "type": "boolean"
+            }
+          },
+          "dependencies": {
+            "other_lung_disorder": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "other_lung_disorder": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "other_lung_disorder": {
+                      "enum": [true]
+                    },
+                    "other_lung_disorder_specify": {
+                      "title": "Please specify:",
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            "other_inflammatory_arthritis": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "other_inflammatory_arthritis": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "other_inflammatory_arthritis": {
+                      "enum": [true]
+                    },
+                    "other_inflammatory_arthritis_specify": {
+                      "title": "Please specify:",
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "immune_deficiency": {
+          "type": "string",
+          "title": "16. Do any of your family members have an immune deficiency or immune-related condition?",
+          "enum": ["Yes", "No", "Prefer not to answer"],
+          "enumNames": ["Yes", "No", "Prefer not to answer"]
+        },
+        "family_diseases": {
+          "type": "object",
+          "title": "17. What diseases run in your family?",
+          "properties": {
+            "cancer": {
+              "type": "boolean",
+              "title": "Cancer"
+            },
+            "heart_disease": {
+              "type": "boolean",
+              "title": "Heart disease"
+            },
+            "hypertension": {
+              "type": "boolean",
+              "title": "Hypertension"
+            },
+            "diabetes": {
+              "type": "boolean",
+              "title": "Diabetes"
+            },
+            "kidney_disease": {
+              "title": "Kidney disease",
+              "type": "boolean"
+            },
+            "other": {
+              "title": "Other",
+              "type": "boolean"
+            },
+            "none": {
+              "title": "None of the above",
+              "type": "boolean"
+            },
+            "no_answer": {
+              "title": "Prefer not to answer",
+              "type": "boolean"
+            }
+          },
+          "dependencies": {
+            "cancer": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "cancer": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "cancer": {
+                      "enum": [true]
+                    },
+                    "cancer_specify": {
+                      "title": "Please specify:",
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            "kidney_disease": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "kidney_disease": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "kidney_disease": {
+                      "enum": [true]
+                    },
+                    "kidney_disease_specify": {
+                      "title": "Please specify:",
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            "other": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [true]
+                    },
+                    "other_disease_specify": {
+                      "title": "Please specify:",
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "sexual_orientation": {
+          "type": "string",
+          "title": "18. What would best describe  your sexual orientation? ",
+          "enum": [
+            "Asexual",
+            "Bisexual",
+            "Gay",
+            "Lesbian",
+            "Straight (Heterosexual)",
+            "Pan-sexual",
+            "Queer",
+            "Questioning or unsure",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Asexual",
+            "Bisexual",
+            "Gay",
+            "Lesbian",
+            "Straight (Heterosexual)",
+            "Pan-sexual",
+            "Queer",
+            "Questioning or unsure",
+            "Prefer not to answer"
+          ]
+        }
+      }
+    },
+    "women": {
+      "type": "object",
+      "required": ["pregnant"],
+      "properties": {
+        "pregnant": {
+          "type": "string",
+          "title": "Are you pregnant or have you delivered or miscarried in the last 6 months?",
+          "uniqueItems": true,
+          "enum": [
+            "I am currently pregnant",
+            "I delivered within the last 6 months",
+            "No, I am not currently pregnant and have not delivered a baby in the last 6 months",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "I am currently pregnant",
+            "I delivered within the last 6 months",
+            "No, I am not currently pregnant and have not delivered a baby in the last 6 months",
+            "Prefer not to answer"
+          ]
+        }
+      },
+      "dependencies": {
+        "pregnant": {
+          "oneOf": [
+            {
+              "properties": {
+                "pregnant": {
+                  "enum": ["I delivered within the last 6 months"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "pregnant": {
+                  "enum": [
+                    "No, I am not currently pregnant and have not delivered a baby in the last 6 months"
+                  ]
+                }
+              }
+            },
+            {
+              "properties": {
+                "pregnant": {
+                  "enum": ["Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "pregnant": {
+                  "enum": ["I am currently pregnant"]
+                },
+                "due_date": {
+                  "type": "string",
+                  "title": "My due date is"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "women2": {
+      "type": "object",
+      "required": ["complications_q"],
+      "properties": {
+        "complications_q": {
+          "type": "string",
+          "title": "Did you have any complications with the pregnancy since having the COVID-19 infection?",
+          "uniqueItems": true,
+          "enum": ["Yes", "No", "Prefer not to answer"],
+          "enumNames": ["Yes", "No", "Prefer not to answer"]
+        }
+      },
+      "dependencies": {
+        "complications_q": {
+          "oneOf": [
+            {
+              "properties": {
+                "complications_q": {
+                  "enum": ["No"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "complications_q": {
+                  "enum": ["Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "complications_q": {
+                  "enum": ["Yes"]
+                },
+                "complications": {
+                  "type": "object",
+                  "title": "If yes, which of the following complications did you have?",
+                  "properties": {
+                    "miscarriage": {
+                      "type": "boolean",
+                      "title": "Miscarriage",
+                      "enum": [true, false]
+                    },
+                    "stillborn": {
+                      "type": "boolean",
+                      "title": "Stillborn",
+                      "enum": [true, false]
+                    },
+                    "premature_labor": {
+                      "type": "boolean",
+                      "title": "Premature labor",
+                      "enum": [true, false]
+                    },
+                    "pre_eclampsia": {
+                      "type": "boolean",
+                      "title": "Pre-eclampsia",
+                      "enum": [true, false]
+                    },
+                    "other": {
+                      "type": "boolean",
+                      "title": "Other",
+                      "enum": [true, false]
+                    },
+                    "no_answer": {
+                      "type": "boolean",
+                      "title": "Prefer not to answer",
+                      "enum": [true, false]
+                    }
+                  },
+                  "dependencies": {
+                    "miscarriage": {
+                      "oneOf": [
+                        {
+                          "properties": {
+                            "miscarriage": {
+                              "enum": [false]
+                            }
+                          }
+                        },
+                        {
+                          "properties": {
+                            "miscarriage": {
+                              "enum": [true]
+                            },
+                            "miscarriage_number": {
+                              "title": "If so, how many times",
+                              "type": "number",
+                              "minimum": 0
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "other": {
+                      "oneOf": [
+                        {
+                          "properties": {
+                            "other": {
+                              "enum": [false]
+                            }
+                          }
+                        },
+                        {
+                          "properties": {
+                            "other": {
+                              "enum": [true]
+                            },
+                            "other_specify": {
+                              "title": "Please specify:",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "women3": {
+      "type": "object",
+      "required": ["breastfeeding"],
+      "properties": {
+        "breastfeeding": {
+          "type": "string",
+          "title": "Are you currently breastfeeding?",
+          "uniqueItems": true,
+          "enum": ["Yes", "No", "Prefer not to answer"],
+          "enumNames": ["Yes", "No", "Prefer not to answer"]
+        },
+        "children_birth": {
+          "type": "number",
+          "title": "How many children have you given birth to?",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "history1": {
+      "title": "",
+      "$ref": "#/definitions/history1"
+    },
+    "history11": {
+      "title": "",
+      "$ref": "#/definitions/history11"
+    },
+    "history2": {
+      "title": "",
+      "$ref": "#/definitions/history2"
+    },
+    "history21": {
+      "title": "",
+      "$ref": "#/definitions/history21"
+    },
+    "history3": {
+      "title": "",
+      "$ref": "#/definitions/history3"
+    },
+    "history31": {
+      "title": "",
+      "$ref": "#/definitions/history31"
+    },
+    "women": {
+      "title": "",
+      "$ref": "#/definitions/women"
+    },
+    "women2": {
+      "title": "",
+      "$ref": "#/definitions/women2"
+    },
+    "women3": {
+      "title": "",
+      "$ref": "#/definitions/women3"
+    }
+  }
+}
