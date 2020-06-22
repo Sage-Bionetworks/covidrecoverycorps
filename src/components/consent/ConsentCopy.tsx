@@ -285,12 +285,12 @@ const summaryScreens = [
   <div>
     <h2>{i18next.t("consentinfo.screen11.text1")}</h2>
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.11.text2">
+      <Trans i18nKey="consentinfo.screen11.text2">
         [translation] <strong> [translation]</strong>[translation]
       </Trans>
     </p>
     <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.11.text3">
+      <Trans i18nKey="consentinfo.screen11.text3">
         [translation] <strong> [translation]</strong>[translation]
       </Trans>
     </p>
@@ -309,31 +309,33 @@ const summaryScreens = [
     </p>
   </div>,
   <div>
-    <h2>Things you should consider before you say yes</h2>
+    <h2>{i18next.t("consentinfo.screen12.text1")}</h2>
     <p className="Consent__copy">
-      Before you say yes to joining the study, please consider the following:
+      {i18next.t("consentinfo.screen12.text2")}
     </p>
 
     <div className="list">
       <p className="Consent__copy">
-        You will<strong> not be paid </strong>for participating in this study.
+        <Trans i18nKey="consentinfo.screen12.text3">
+          [translation]<strong> [translation] </strong>[translation]
+        </Trans>
       </p>
 
       <p className="Consent__copy">
-        You will<strong> not receive any profit</strong> from this or future
-        research.
+        <Trans i18nKey="consentinfo.screen12.text4">
+          [translation]<strong> [translation]</strong> [translation]
+        </Trans>
       </p>
       <p className="Consent__copy">
-        Your study information
-        <strong>
-          will not be shared with insurance companies or your doctor without
-          your permission.
-        </strong>
+        <Trans i18nKey="consentinfo.screen12.text5">
+          [translation] <strong> [translation] </strong>
+        </Trans>
       </p>
 
       <p className="Consent__copy">
-        The risk of injury is low in this study. You will
-        <strong> not be compensated for injury</strong>.
+        <Trans i18nKey="consentinfo.screen12.text6">
+          [translation] <strong> [translation]</strong>[translation]
+        </Trans>
       </p>
     </div>
   </div>,
@@ -502,74 +504,51 @@ const fullTextScreens = [
     </p>
   </div>,
   <div>
-    <h2>Leaving the study</h2>
+    <h2>{i18next.t('consentinfo.fullTextScreen11.text1')}</h2>
     <p className="Consent__copy">
-      Taking part in COVID Recovery Corps is voluntary. You can choose to join
-      or not. No matter what you decide, now or in the future, it will not
-      affect how your doctor treats you.
+      {i18next.t('consentinfo.fullTextScreen11.text2')}
     </p>
 
     <p className="Consent__copy">
-      If you decide to join COVID Recovery Corps, you can change your mind at
-      any time. If you decide you want to withdraw (quit), you need to tell us.
-      You can tell us by going to the website and clicking the “Withdraw Study”
-      section in your profile setting. You can use our contact information to
-      email or write to us.
+      {i18next.t('consentinfo.fullTextScreen11.text3')}
     </p>
 
     <p className="Consent__copy">
-      If you withdraw, your samples will be destroyed. Your data will not be
-      distributed any more.
+      {i18next.t('consentinfo.fullTextScreen11.text4')}
     </p>
     <p className="Consent__copy">
-      However, if researchers already have your data or samples for their
-      studies, the COVID Recovery Corps study cannot get it back. Also, we will
-      let researchers check the results of past studies. If they need your old
-      data to do this work, we will give it to them.
+      {i18next.t('consentinfo.fullTextScreen11.text5')}
     </p>
     <p className="Consent__copy">
-      Even if you withdraw, we will keep your name and contact information. We
-      keep this information so we can follow U.S. research laws and regulations.
+      {i18next.t('consentinfo.fullTextScreen11.text6')}
     </p>
   </div>,
   <div>
-    <h2>Things you should consider before you say yes</h2>
+    <h2>{i18next.t('consentinfo.fullTextScreen12.text1')}</h2>
 
     <p className="Consent__copy">
-      You will not be paid for joining and/or taking part in the COVID Recovery
-      Corps study. Researchers will use your data to make discoveries. If any of
-      their studies lead to new tests, drugs, or other commercial products, you
-      will not get any profits. These inventions will be the property of the
-      researchers who develop them.
+      {i18next.t('consentinfo.fullTextScreen12.text2')}
     </p>
 
     <p className="Consent__copy">
-      We will keep your data private, and even if public health authorities
-      access this data about COVID, it cannot be transferred to an insurance
-      company or your healthcare provider without your permission.
+    {i18next.t('consentinfo.fullTextScreen12.text3')}
     </p>
 
     <p className="Consent__copy">
-      If you think you have been injured because of taking part in COVID
-      Recovery Corps, contact us using the information at the end of this form.
-      If we find that you were injured as a direct result of taking part in
-      COVID Recovery Corps:
+    {i18next.t('consentinfo.fullTextScreen12.text4')}
     </p>
     <div className="list">
       <p className="Consent__copy">
-        Beyond your immediate medical care, we will not pay for your injury.
+      {i18next.t('consentinfo.fullTextScreen12.text5')}
       </p>
       <p className="Consent__copy">
-        If you need follow-up care to treat your injury, you and/or your
-        insurance will have to pay for it.
+      {i18next.t('consentinfo.fullTextScreen12.text6')}
       </p>
       <p className="Consent__copy">
-        If you have any long-term costs to treat your injury, you and/or your
-        insurance will have to pay them.
+      {i18next.t('consentinfo.fullTextScreen12.text7')}
       </p>
       <p className="Consent__copy">
-        You do not give up any of your legal rights if you take part in COVID
-        Recovery Corps.
+      {i18next.t('consentinfo.fullTextScreen12.text8')}
       </p>
     </div>
   </div>,

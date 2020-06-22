@@ -278,6 +278,48 @@
       "text4": "If you decide to withdraw (quit) the study, you can tell us by <1> going to the website and by clicking the <1> \"Withdraw from study\" in account setting</1>. You can also also <1>email or write to us</1>. </1>",
       "text5": "If you withdraw, <1>your samples will be destroyed</1>. Your <1>data will not be distributed any more</1>.",
       "text6": "However, if researchers already have your data or samples for their studies, the COVID Recovery Corps study cannot get it back."
+    },
+    "fullTextScreen11": {
+      "text1": "Leaving the study",
+      "text2": "Taking part in COVID Recovery Corps is voluntary. You can choose to join or not. No matter what you decide, now or in the future, it will not affect how your doctor treats you.",
+      "text3": "If you decide to join COVID Recovery Corps, you can change your mind at any time. If you decide you want to withdraw (quit), you need to tell us. You can tell us by going to the website and clicking the “Withdraw Study” section in your profile setting. You can use our contact information to email or write to us.",
+      "text4": "If you withdraw, your samples will be destroyed. Your data will not be distributed any more.",
+      "text5": "However, if researchers already have your data or samples for their studies, the COVID Recovery Corps study cannot get it back. Also, we will let researchers check the results of past studies. If they need your old data to do this work, we will give it to them.",
+      "text6": "Even if you withdraw, we will keep your name and contact information. We keep this information so we can follow U.S. research laws and regulations."
+    },
+    "screen12": {
+      "text1": "Things you should consider before you say yes",
+      "text2": "Before you say yes to joining the study, please consider the following:",
+      "text3": "You will<1> not be paid </1>for participating in this study.",
+      "text4": "You will<1> not receive any profit</1> from this or future research.",
+      "text5": "Your study information <1> will not be shared with insurance companies or your doctor without your permission. </1>",
+      "text6": "The risk of injury is low in this study. You will <1> not be compensated for injury</1>."
+    },
+    "fullTextScreen12": {
+      "text1": "Things you should consider before you say yes",
+      "text2": "You will not be paid for joining and/or taking part in the COVID Recovery Corps study. Researchers will use your data to make discoveries. If any of their studies lead to new tests, drugs, or other commercial products, you will not get any profits. These inventions will be the property of the researchers who develop them.",
+      "text3": "We will keep your data private, and even if public health authorities access this data about COVID, it cannot be transferred to an insurance company or your healthcare provider without your permission.",
+      "text4": "If you think you have been injured because of taking part in COVID Recovery Corps, contact us using the information at the end of this form. If we find that you were injured as a direct result of taking part in COVID Recovery Corps:",
+      "text5": "Beyond your immediate medical care, we will not pay for your injury.",
+      "text6": "If you need follow-up care to treat your injury, you and/or your insurance will have to pay for it.",
+      "text7": "If you have any long-term costs to treat your injury, you and/or your insurance will have to pay them.",
+      "text8": "You do not give up any of your legal rights if you take part in COVID Recovery Corps."
+    },
+    "screen13": {
+      "text1": "",
+      "text2": "",
+      "text3": "",
+      "text4": "",
+      "text5": "",
+      "text6": ""
+    },
+    "fullTextScreen13": {
+      "text1": "",
+      "text2": "",
+      "text3": "",
+      "text4": "",
+      "text5": "",
+      "text6": ""
     }
   },
   "ineligible": {

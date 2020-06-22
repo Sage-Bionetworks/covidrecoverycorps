@@ -52,7 +52,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   onDone,
 }: ConsentInfoProps) => {
   const [isFullText, setIsFullText] = useState(false)
-  const [currentStep, setCurrentStep] = useState(-1)
+  const [currentStep, setCurrentStep] = useState(11)
   const [quizAnswers, setQuizAnswers] = useState(new Array(2))
   const { t } = useTranslation()
 
