@@ -233,14 +233,15 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           {t('topnav.text5')}
           </ListItem>
         </NavLink>
+        {/*
         <ListItem button className={classes.mobileMenuItem} 
-          onClick={() => {
+         onClick={() => {
             handleDrawerToggle()
             changeLanguage()
           }}
           >
-            {language === 'es' ? 'in English' : 'en español'}
-        </ListItem>
+        {language === 'es' ? 'in English' : 'en español'}
+        </ListItem>*/}
         <Divider className={classes.mobileMenuSeparator} />
         {(props.token && sessionData.consented) && (
           <NavLink
@@ -362,12 +363,12 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
            {t('topnav.text7')}
         </NavLink>
       )}
-      <a
+    {/*}  <a
         className={classes.fullNavBarLink}
         onClick={() => changeLanguage()}
       >
         {language === 'es' ? 'in English' : 'en español'}
-      </a>
+      </a>*/}
 
       {props.token && (
         <NavLink
