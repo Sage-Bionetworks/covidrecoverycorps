@@ -3,6 +3,20 @@ export const USPSService = {
   validateAddress,
 }
 
+//#556: replace all '#' with 'apt' since number signs cause invalid xml.
+const searchRegExp = /#/gm;
+const replaceWith = ' apt ';
+
+const fixAddressForService = (
+  originalAddress: string,
+): string => {
+  if (originalAddress) {
+    return originalAddress.replace(searchRegExp, replaceWith)
+  } else {
+    return ''
+  }
+}
+
 async function validateAddress(
   address1: string,
   address2: string,
@@ -15,7 +29,7 @@ async function validateAddress(
     method: 'GET',
     headers,
   }
-  const xml = `<AddressValidateRequest USERID="040SAGEB0745"><Address><Address1>${address1 || ''}</Address1><Address2>${address2 || ''}</Address2>
+  const xml = `<AddressValidateRequest USERID="040SAGEB0745"><Address><Address1>${fixAddressForService(address1)}</Address1><Address2>${fixAddressForService(address2)}</Address2>
     <City>${city || ''}</City><State>${state || ''}</State><Zip5>${zip || ''}</Zip5><Zip4></Zip4></Address></AddressValidateRequest>`
   const endpoint = `https://secure.shippingapis.com/ShippingAPI.dll?API=Verify&XML=${encodeURI(xml)}`
   return await fetch(endpoint, config).then(response => {
