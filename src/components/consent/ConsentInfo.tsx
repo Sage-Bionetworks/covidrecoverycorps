@@ -36,15 +36,12 @@ const quizes = [
   },
   {
     screen: 8,
-    title:
-      'I decided to share my data broadly with qualified researchers and now I want to stop. What happens to the data I have already shared?',
-
+    title: i18next.t('consentinfo.screen9.text1'),
     options: [
-      'The study will destroy or delete my data',
-      'The study will not share my future data',
+      i18next.t('consentinfo.screen9.text2'),
+      i18next.t('consentinfo.screen9.text3'),
     ],
-    explanation:
-      'If you decide to end your data sharing with qualified researchers, we will not share your future data. But the data we have already shared with qualified researchers, we unfortunately cannot get back.',
+    explanation: i18next.t('consentinfo.screen9.text4'),
     correctAnswer: 1,
   },
 ]

@@ -263,50 +263,49 @@ const summaryScreens = [
   <div>[intentionally blank - quiz 3 screen]</div>,
 
   <div>
-    <h2>Not Medical Care</h2>
+    <h2>{i18next.t("consentinfo.screen10.text1")}</h2>
     <p className="Consent__copy">
-      The COVID Recovery Corps is a <strong>research study</strong>.
+      <Trans i18nKey="consentinfo.screen10.text2">
+        [translation] <strong>[translation]</strong>[translation]
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      The study does <strong>not</strong> provide
-      <strong> medical care, medical advice</strong> or
-      <strong> treatment</strong>.
+      <Trans i18nKey="consentinfo.screen10.text3">
+      [translation] <strong>[translation]</strong> [translation] <strong> [translation]</strong> [translation] <strong> [translation]</strong> [translation]
+      </Trans>
     </p>
 
     <p className="Consent__copy">
-      If you have <strong>questions or concerns</strong> related to your health,
-      you should <strong>contact your doctor</strong>.
+      <Trans i18nKey="consentinfo.screen10.text4">
+        [translation] <strong>[translation]</strong> [translation] <strong>[translation]</strong>[translation]
+      </Trans>
     </p>
   </div>,
   <div>
-    <h2>Leaving the study</h2>
+    <h2>{i18next.t("consentinfo.screen11.text1")}</h2>
     <p className="Consent__copy">
-      Taking part in COVID Recovery Corps is <strong> voluntary</strong>. You
-      can choose to join or not.
-    </p>
-
-    <p className="Consent__copy">
-      No matter what you decide, now or in the future, it will
-      <strong> not affect how your doctor treats you</strong>.
+      <Trans i18nKey="consentinfo.11.text2">
+        [translation] <strong> [translation]</strong>[translation]
+      </Trans>
     </p>
     <p className="Consent__copy">
-      If you decide to withdraw (quit) the study, you can tell us by
-      <strong>
-        going to the website and by clicking the
-        <strong>"Withdraw from study" in account setting</strong>. You can also
-        also <strong>email or write to us</strong>.
-      </strong>
+      <Trans i18nKey="consentinfo.11.text3">
+        [translation] <strong> [translation]</strong>[translation]
+      </Trans>
     </p>
-
     <p className="Consent__copy">
-      If you withdraw, <strong>your samples will be destroyed</strong>. Your
-      <strong>data will not be distributed any more</strong>.
+      <Trans i18nKey="consentinfo.screen11.text4">
+        [translation] <strong> [translation] <strong>[translation]</strong>. [translation] <strong>[translation]</strong>[translation] </strong>
+      </Trans>
     </p>
-
     <p className="Consent__copy">
-      However, if researchers already have your data or samples for their
-      studies, the COVID Recovery Corps study cannot get it back.
+      <Trans i18nKey="consentinfo.screen11.text5">
+        [translation] <strong>[translation]</strong>[translation] <strong>[translation]</strong>[translation]
+      </Trans>
+    </p>
+    <p className="Consent__copy">
+      {i18next.t("consentinfo.screen11.text6")}
     </p>
   </div>,
   <div>
@@ -494,15 +493,12 @@ const fullTextScreens = [
   <div>[intentionally blank - quiz 3 screen]</div>,
 
   <div>
-    <h2>Not Medical Care</h2>
+    <h2>{i18next.t('consentinfo.fullTextScreen10.text1')}</h2>
     <p className="Consent__copy">
-      The COVID Recovery Corps study is a research study. You will not receive
-      medical care, medical advice or treatment by taking part in this study.
+      {i18next.t('consentinfo.fullTextScreen10.text2')}
     </p>
-
     <p className="Consent__copy">
-      If you have questions or concerns related to your health, you should
-      contact your doctor.
+      {i18next.t('consentinfo.fullTextScreen10.text3')}
     </p>
   </div>,
   <div>

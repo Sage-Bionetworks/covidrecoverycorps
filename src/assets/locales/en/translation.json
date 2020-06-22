@@ -253,6 +253,31 @@
       "text3": "We have rules to qualify researchers. Qualified researchers must register on Synapse, our data analysis platform. To access the data, qualified researchers must write a short statement about their research. The research could be about any topic. The research could be on topics you disagree with or find offensive. We post the researchers’ statements on Synapse for anyone to read. They must sign an oath to use the data ethically and do no harm. Researchers will not be able to easily figure out your identity using your coded study data.",
       "text4": "Anyone in the US or abroad can qualify to be a qualified researcher. The person could be from a non-profit institution, commercial drug or medical device companies, or be a private citizen.",
       "text5": "You cannot take back your data once it is used in research. Your data will not be destroyed or deleted. Once we share your data, there isn’t a way for us to delete it or take it back."
+    },
+    "screen9": {
+      "text1": "I decided to share my data broadly with qualified researchers and now I want to stop. What happens to the data I have already shared?",
+      "text2": "The study will destroy or delete my data",
+      "text3": "The study will not share my future data",
+      "text4": "If you decide to end your data sharing with qualified researchers, we will not share your future data. But the data we have already shared with qualified researchers, we unfortunately cannot get back."
+    },
+    "screen10": {
+      "text1": "Not Medical Care",
+      "text2": "The COVID Recovery Corps is a <1>research study</1>.",
+      "text3": "The study does <1>not</1> provide <1> medical care, medical advice</1> or <1> treatment</1>.",
+      "text4": "If you have <1>questions or concerns</1> related to your health, you should <1>contact your doctor</1>."
+    },
+    "fullTextScreen10": {
+      "text1": "Not Medical Care",
+      "text2": "The COVID Recovery Corps study is a research study. You will not receive medical care, medical advice or treatment by taking part in this study.",
+      "text3": "If you have questions or concerns related to your health, you should contact your doctor."
+    },
+    "screen11": {
+      "text1": "Leaving the study",
+      "text2": "Taking part in COVID Recovery Corps is <1> voluntary</1>. You can choose to join or not.",
+      "text3": "No matter what you decide, now or in the future, it will <1> not affect how your doctor treats you</1>.",
+      "text4": "If you decide to withdraw (quit) the study, you can tell us by <1> going to the website and by clicking the <1> \"Withdraw from study\" in account setting</1>. You can also also <1>email or write to us</1>. </1>",
+      "text5": "If you withdraw, <1>your samples will be destroyed</1>. Your <1>data will not be distributed any more</1>.",
+      "text6": "However, if researchers already have your data or samples for their studies, the COVID Recovery Corps study cannot get it back."
     }
   },
   "ineligible": {
