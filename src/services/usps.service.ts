@@ -3,14 +3,13 @@ export const USPSService = {
   validateAddress,
 }
 
-//#556: replace all '#' with 'apt' since number signs cause invalid xml.
+//#556: remove all '#'s (invalid xml if included) and prepend 'apt ' (service is ok with multiple apts, for example 'apt suite apt 1A')
 const searchRegExp = /#/gm;
-
 const fixAptAddressForService = (
   originalAddress: string,
 ): string => {
   if (originalAddress) {
-    // remove all '#'s and prepend 'apt ' (service is ok with 'apt suite apt 1A')
+    // 
     return `apt ${originalAddress.replace(searchRegExp, ' ')}`
   } else {
     return ''
