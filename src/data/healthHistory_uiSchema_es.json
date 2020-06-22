@@ -17,16 +17,16 @@
     },
     "weight": {
       "classNames": "weight text",
-      "ui:description": "Weight in lbs:"
+      "ui:description": "Peso en libras:"
     },
     "height": {
       "classNames": "height",
       "feet": {
-        "ui:help": "feet",
+        "ui:help": "pies",
         "classNames": "text"
       },
       "inches": {
-        "ui:help": "inches",
+        "ui:help": "pulgadas",
         "classNames": "text"
       }
     }
@@ -34,7 +34,6 @@
   "history11": {
     "where_go_for_care": {
       "ui:widget": "radio"
-     
     },
     "routine_exam_2019": {
       "ui:widget": "radio",
@@ -80,7 +79,7 @@
       "classNames": "diabetes-drugs",
       "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
-        "exclusive": [0,1]
+        "exclusive": [0, 1]
       }
     }
   },
@@ -118,7 +117,7 @@
         "heart_attack_age",
         "stroke",
         "stroke_age",
- 
+
         "coronary_bypass_surgery",
         "coronary_bypass_surgery_age",
         "cardiac_catheterization",
@@ -127,17 +126,18 @@
         "no_answer"
       ],
       "heart_attack_age": {
-        "ui:title": "What was your age at the time of a heart attack?"
+        "ui:title": "¿Cuál era su edad al momento de un ataque al corazón?"
       },
+
       "stroke_age": {
-        "ui:title": "What was your age at the time of a stroke/brain bleed?"
+        "ui:title": "¿Cuál era su edad en el momento de un derrame?"
       },
-     
       "coronary_bypass_surgery_age": {
-        "ui:title": "What was your age at the time of a coronary bypass surgery?"
+        "ui:title": "¿Cuál era su edad al momento de una cirugía de baipás coronaria?"
       },
+
       "cardiac_catheterization_age": {
-        "ui:title": "What was your age at the time of a cardiac catheterization?"
+        "ui:title": "¿Cuál era su edad en el momento de un cateterismo cardíaco?"
       }
     }
   },

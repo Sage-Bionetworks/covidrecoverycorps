@@ -6,7 +6,7 @@
       "properties": {
         "general_health_status": {
           "type": "string",
-          "title": "1. How would you rate your general health status prior to the infection?",
+          "title": "1. ¿Cómo calificaría usted su estado de salud general antes de la infección?",
           "enum": [
             "Excellent",
             "Very good",
@@ -16,17 +16,17 @@
             "Prefer not to answer"
           ],
           "enumNames": [
-            "Excellent",
-            "Very good",
-            "Good",
-            "Fair",
-            "Poor",
-            "Prefer not to answer"
+            "Excelente",
+            "Muy bien",
+            "Bueno",
+            "Ni bien ni mal",
+            "Muy mal",
+            "Prefiero no responder"
           ]
         },
         "physical_activity_level": {
           "type": "string",
-          "title": "2. What is the level of your usual physical activity? ",
+          "title": "2. ¿Cuál es su nivel de actividad física rutinaria? ",
           "enum": [
             "I read, watch TV, and perform chores that are not physically taxing",
             "I walk, bike, or are otherwise physically active for many days a week. Including among other activities: walking, hunting, and light gardening work",
@@ -35,22 +35,22 @@
             "Prefer not to answer"
           ],
           "enumNames": [
-            "I read, watch TV, and perform chores that are not physically taxing",
-            "I walk, bike, or are otherwise physically active for many days a week. Including among other activities: walking, hunting, and light gardening work",
-            "I do endurance sports for several hours a week. Including jogging, skiing, weight lifting, calisthenics, swimming, ball games or physically taxing gardening work.",
-            "I train for competitive sports daily",
-            "Prefer not to answer"
+            "Yo leo, veo televisión y realizo tareas que no son físicamente rigurosas",
+            "Yo camino, manejo bicicleta o estoy físicamente activo durante varios días a la semana. Incluyendo entre otras actividades: caminando, cazando y trabajos livianos de jardinería",
+            "Yo hago deportes de resistencia durante varias horas a la semana. Incluyendo trotar, esquiar, pesas, ejercicios de calistenia, natación, juegos de pelota o trabajos físicamente rigurosos de jardinería.",
+            "Yo entreno diariamente para deportes competitivos",
+            "Prefiero no responder"
           ]
         },
         "weight": {
           "type": "number",
-          "title": "3. How much do you weigh? (lbs.)",
+          "title": "3. ¿Cuánto pesas? (en libras)",
           "minimum": 50,
           "maximum": 500
         },
         "height": {
           "type": "object",
-          "title": "4. How tall are you?",
+          "title": "4. ¿Qué es su estatura?",
           "properties": {
             "feet": {
               "type": "number",
@@ -60,7 +60,7 @@
             "inches": {
               "type": "number",
               "minimum": 0,
-              "maximum":11
+              "maximum": 11
             }
           }
         }
@@ -78,29 +78,28 @@
         "where_go_for_care": {
           "type": "string",
           "uniqueItems": true,
-          "title": "5. When you are sick, where do you usually go for care?",
-      
-            "enum": [
-              "Doctor’s office, Clinic, or Health center",
-              "Urgent care or Minute clinic",
-              "Hospital emergency room",
-              "Some other place (for example: faith healer, botanica, acupuncture, etc.)",
-              "I don’t go to one place",
-              "Prefer not to answer"
-            ],
-            "enumNames": [
-              "Doctor’s office, Clinic, or Health center",
-              "Urgent care or Minute clinic",
-              "Hospital emergency room",
-              "Some other place (for example: faith healer, botanica, acupuncture, etc.)",
-              "I don’t go to one place",
-              "Prefer not to answer"
-            ]
-         
+          "title": "5. ¿Cuándo usted se enferma donde usualmente va para su cuidado?",
+
+          "enum": [
+            "Doctor’s office, Clinic, or Health center",
+            "Urgent care or Minute clinic",
+            "Hospital emergency room",
+            "Some other place (for example: faith healer, botanica, acupuncture, etc.)",
+            "I don’t go to one place",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Consultorio médico, clínica o centro de salud",
+            "Clínicas de atención primaria o clínica de minutos",
+            "Sala de emergencia del hospital",
+            "Algún otro lugar (por ejemplo: curandero, botánica, acupuntura, etc.)",
+            "I Yo no voy a un solo lugar",
+            "Prefiero no responder"
+          ]
         },
         "routine_exam_2019": {
           "type": "string",
-          "title": "6. Did you have a routine health exam (check-up) in the last year (2019/2020)?",
+          "title": "6. ¿Tuvo usted un examen de salud de rutina (chequeo) en el último año (2019/2020)?",
           "enum": [
             "Yes",
             "No",
@@ -108,17 +107,17 @@
             "Prefer not to answer"
           ],
           "enumNames": [
-            "Yes",
+            "Si",
             "No",
-            "Not sure/don't remember",
-            "Prefer not to answer"
+            "No estoy seguro/no me acuerdo",
+            "Prefiero no responder"
           ]
         },
         "vaccinations": {
           "type": "array",
           "uniqueItems": true,
-          "minItems":1,
-          "title": "7. Have you received a vaccination in 2019/2020 against any of the following? (check all that apply)",
+          "minItems": 1,
+          "title": "7. ¿Recibió usted una vacuna en el año 2019/2020 contra alguno de los siguientes? (marque todo lo que corresponda)",
           "items": {
             "type": "string",
             "enum": [
@@ -130,18 +129,18 @@
               "Prefer not to answer "
             ],
             "enumNames": [
-              "Flu shot",
-              "Pneumococcal vaccination or Pneumovax",
-              "Tuberculosis (TB) vaccine (BCG) (at any time in your life)",
-              "None of the above",
-              "I don’t know",
-              "Prefer not to answer "
+              "Vacuna contra la influenza (gripe o flu)",
+              "Vacuna antineumocócica o Pneumovax",
+              "Vacuna contra la tuberculosis (TB) (BCG) (en cualquier momento de su vida)",
+              "Ninguna de las anteriores ",
+              "No lo sé",
+              "Prefiero no responder"
             ]
           }
         },
         "travel_time_to_doctor": {
           "type": "string",
-          "title": "8. How long does it take to travel to see your doctor/healthcare provider? ",
+          "title": "8. ¿Cuánto tiempo tiene que viajar para ver a su médico / proveedor de atención médica? ",
           "enum": [
             "Less than 10 minutes",
             "10-30 minutes",
@@ -152,13 +151,13 @@
             "Prefer not to answer"
           ],
           "enumNames": [
-            "Less than 10 minutes",
-            "10-30 minutes",
-            "30-60 minutes",
-            "1-2 hours",
-            "Over 2 hours",
-            "Don’t know",
-            "Prefer not to answer"
+            "Menos de 10 minutos",
+            "10-30 minutos",
+            "30-60 minutos",
+            "1-2 horas",
+            "Más de 2 horas",
+            "No lo sé",
+            "Prefiero no responder"
           ]
         }
       }
@@ -169,7 +168,7 @@
       "properties": {
         "blood_type": {
           "type": "string",
-          "title": "9. What is your blood type?",
+          "title": "9. ¿Cuál es tu tipo de sangre?",
           "enum": [
             "A Positive",
             "A Negative",
@@ -183,21 +182,21 @@
             "Prefer not to answer"
           ],
           "enumNames": [
-            "A Positive",
-            "A Negative",
-            "B Positive",
-            "B Negative",
-            "AB Positive",
-            "AB Negative",
-            "O Positive",
-            "O Negative",
-            "I Don’t Know",
-            "Prefer not to answer"
+            "A Positivo",
+            "A Negativo",
+            "B Positivo",
+            "B Negativo",
+            "AB Positivo",
+            "AB Negativo",
+            "O Positivo",
+            "O Negativo",
+            "No lo sé",
+            "Prefiero no responder"
           ]
         },
         "diabetes_diagnosis": {
           "type": "string",
-          "title": "10. Have you been diagnosed with diabetes?",
+          "title": "10. ¿Fuiste diagnosticado con diabetes?",
           "enum": [
             "No",
             "No, but sometimes have high blood sugar",
@@ -209,12 +208,12 @@
           ],
           "enumNames": [
             "No",
-            "No, but sometimes have high blood sugar",
-            "Yes, Type 1 diabetes (treated with insulin)",
-            "Yes, Type 2 diabetes (often treated with pills)",
-            "Yes, but I don’t know the type",
-            "Yes, Gestational diabetes",
-            "Prefer not to answer"
+            "No, pero a veces tengo el azúcar en la sangre alta",
+            "Sí, diabetes tipo 1 (tratada con insulina)",
+            "Sí, diabetes tipo 2 (frecuentemente tratada con pastillas)",
+            "Sí, pero no sé el tipo",
+            "Sí, diabetes gestacional",
+            "Prefiero no responder"
           ]
         }
       },
@@ -245,7 +244,7 @@
                 "diabetes_drugs": {
                   "type": "array",
                   "uniqueItems": true,
-                  "title": "10a. What drugs prescribed by a physician do you use for diabetes?",
+                  "title": "10a. ¿Qué medicamentos de prescripción médica usa usted para su diabetes?",
                   "items": {
                     "type": "string",
                     "enum": [
@@ -274,7 +273,7 @@
       "properties": {
         "blood_pressure": {
           "type": "string",
-          "title": "11. Have you ever been diagnosed with hypertension or high blood pressure?",
+          "title": "11. ¿Alguna vez fue usted diagnosticado con hipertensión o presión arterial alta?",
           "enum": [
             "No",
             "Yes",
@@ -283,45 +282,45 @@
           ],
           "enumNames": [
             "No",
-            "Yes",
-            "Yes, but only during pregnancy",
-            "Prefer not to answer"
+            "Sí",
+            "Sí, pero solo durante mi embarazo",
+            "Prefiero no responder"
           ]
         },
         "blood_pressure_medication": {
           "type": "string",
-          "title": "12. Have you ever used blood pressure medication?",
+          "title": "12. ¿Alguna vez ha usado usted medicamentos para la presión arterial alta?",
           "enum": ["No", "Yes", "I don't remember", "Prefer not to answer"],
-          "enumNames": ["No", "Yes", "I don't remember", "Prefer not to answer"]
+          "enumNames": ["No", "Sí", "No me acuerdo", "Prefiero no responder"]
         },
         "health_conditions": {
-          "title": "13. Which of the following health conditions have you had? (Check all that apply)",
+          "title": "13. ¿Cuál de estas condiciones de salud tuvo usted? (Marque todo lo que corresponda)",
           "type": "object",
           "properties": {
             "heart_attack": {
               "type": "boolean",
-              "title": "Heart attack"
+              "title": "Ataque al corazón"
             },
             "stroke": {
               "type": "boolean",
-              "title": "Stroke/Brain bleed"
+              "title": "Ataque cardíaco o un accidente cerebrovascular (ACV)/ Hemorragia de la cabeza"
             },
-         
+        
             "coronary_bypass_surgery": {
               "type": "boolean",
-              "title": "Coronary artery bypass surgery"
+              "title": "Cirugía de baipás de la arteria coronaria"
             },
             "cardiac_catheterization": {
               "type": "boolean",
-              "title": "Cardiac catheterization or stent"
+              "title": "Cateterismo cardiaco o El stent"
             },
             "none": {
               "type": "boolean",
-              "title": "None of the above"
+              "title": "Ninguna de las anteriores"
             },
             "no_answer": {
               "type": "boolean",
-              "title": "Prefer not to answer"
+              "title": "Prefiero no responder"
             }
           },
           "dependencies": {
@@ -340,7 +339,7 @@
                       "enum": [true]
                     },
                     "heart_attack_age": {
-                      "title": "What was your age",
+                      "title": "Qué fue su edad",
                       "type": "number",
                       "minimum": 1
                     }
@@ -364,7 +363,7 @@
                       "enum": [true]
                     },
                     "stroke_age": {
-                      "title": "What was your age",
+                      "title": "Qué fue su edad",
                       "type": "number",
                       "minimum": 1
                     }
@@ -373,7 +372,7 @@
                 }
               ]
             },
-            
+           
             "coronary_bypass_surgery": {
               "oneOf": [
                 {
@@ -389,7 +388,7 @@
                       "enum": [true]
                     },
                     "coronary_bypass_surgery_age": {
-                      "title": "What was your age",
+                      "title": "Qué fue su edad",
                       "type": "number",
                       "minimum": 1
                     }
@@ -413,7 +412,7 @@
                       "enum": [true]
                     },
                     "cardiac_catheterization_age": {
-                      "title": "What was your age",
+                      "title": "Qué fue su edad",
                       "type": "number",
                       "minimum": 1
                     }
@@ -455,7 +454,7 @@
                   "enum": ["Yes"]
                 },
                 "what_bp_medication": {
-                  "title": "12a. What blood pressure medication have you used?",
+                  "title": "12a. ¿Qué tipo de medicación ha usado para la presión arterial alta?",
                   "type": "string"
                 }
               },
@@ -470,7 +469,7 @@
       "required": ["diseases_history"],
       "properties": {
         "diseases_history": {
-          "title": "14. Have you ever had any of the following diseases diagnosed or treated? (check all that apply)",
+          "title": "14. ¿Alguna vez ha sido usted diagnosticado o tratado con alguna de las siguientes enfermedades? (marque todo lo que corresponda)",
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
@@ -524,51 +523,51 @@
               "Prefer not to answer"
             ],
             "enumNames": [
-              "Allergies",
+              "Alergias",
               "Anemia",
-              "Arrhythmia or cardiac arrest",
-              "Asthma",
-              "Atrial fibrillation, palpitations or abnormal heart rhythm",
-              "Blood in the urine",
-              "Bone marrow transplant",
-              "Cancer",
-              "Celiac disease",
-              "Chronic kidney disease",
-              "Chronic obstructive pulmonary disease (COPD)",
-              "Cold sores",
-              "Crohn’s disease",
-              "Dementia",
-              "Eczema",
-              "Hay fever",
-              "Heart attack",
-              "Heart failure",
-              "Heart failure requiring heart transplant",
-              "Herpes",
-              "HIV",
-              "Hives",
-              "Immune deficiency",
-              "Kidney failure requiring dialysis",
-              "Kidney failure requiring kidney transplant",
-              "Liver disease or cirrhosis",
-              "Liver failure requiring liver transplant",
-              "Lupus",
-              "Molluscum",
-              "Multiple sclerosis",
-              "Obesity",
-              "Pacemaker implanted",
-              "Periodic/Frequent fevers",
-              "Prior blood clots in legs or lungs",
-              "Protein in the urine",
-              "Recurrent bacterial infections",
-              "Recurrent ear infections/sinusitis",
-              "Rheumatoid arthritis",
-              "Shingles",
-              "Sleep apnea",
-              "Thyroid disease",
-              "Ulcerative colitis",
-              "Warts",
-              "None of the above",
-              "Prefer not to answer"
+              "Arritmia o paro cardíaco",
+              "Asma",
+              "Fibrilación auricular, palpitaciones o ritmo anormal del corazón",
+              "Sangre en la orina",
+              "Trasplante de médula ósea",
+              "Cáncer",
+              "Enfermedad celíaca",
+              "Enfermedad crónica de riñones",
+              "Enfermedad Pulmonar Obstructiva Crónica (EPOC)",
+              "Herpes labial",
+              "Enfermedad de Crohn",
+              "Demencia",
+              "Eccema",
+              "La fiebre del heno, también llamada rinitis alérgica",
+              "Ataque cardíaco",
+              "Insuficiencia cardíaca",
+              "Insuficiencia cardíaca requiriendo trasplante de corazón",
+              "Infección de herpes",
+              "VIH",
+              "Urticaria o ronchas rojas",
+              "Inmunodeficiencia",
+              "Insuficiencia renal requiriendo diálisis",
+              "Insuficiencia renal requiriendo trasplante de riñón",
+              "Enfermedad del hígado o cirrosis",
+              "Insuficiencia hepática que requiere trasplante de hígado",
+              "El lupus",
+              "El molusco contagioso",
+              "Esclerosis múltiple",
+              "Obesidad",
+              "Marcapasos implantado",
+              "Fiebres periódicas / frecuentes",
+              "Previamente coágulos sanguíneos en las piernas o pulmones",
+              "Proteína en la orina",
+              "Infecciones recurrentes de bacterianas",
+              "Infecciones recurrentes de oído/ sinusitis",
+              "Artritis reumatoide",
+              "La culebrilla",
+              "Apnea del sueño",
+              "Enfermedad de la de la tiroides",
+              "Colitis ulcerosa",
+              "Verrugas",
+              "Ninguna de las anteriores",
+              "Prefiero no responder"
             ]
           }
         }
@@ -585,34 +584,34 @@
       "properties": {
         "diseases_history_cont": {
           "type": "object",
-          "title": "15. Have you ever had any of the following diseases diagnosed or treated? (check all that apply)",
+          "title": "15. ¿Alguna vez ha sido diagnosticado o tratado con alguna de las siguientes enfermedades? (marque todo lo que corresponda)",
           "properties": {
             "pulmonary_hypertension": {
               "type": "boolean",
-              "title": "High pressure in the lung (pulmonary hypertension)"
+              "title": "Presión alta en el pulmón (hipertensión pulmonar)"
             },
             "other_lung_disorder": {
               "type": "boolean",
-              "title": "Another lung disorder"
+              "title": "Otra Trastorno de pulmón"
             },
             "neuro_disorder": {
               "type": "boolean",
-              "title": "Neurological disorder (e.g., ALS, Parkinson’s, Huntington’s)"
+              "title": "Trastorno neurológico (p. Ej., ELA, Parkinson, Huntington)"
             },
             "osteoarthritis": {
               "type": "boolean",
-              "title": "Osteoarthritis"
+              "title": "Osteoartritis"
             },
             "other_inflammatory_arthritis": {
-              "title": "Other type of inflammatory arthritis",
+              "title": "Otro tipo de artritis inflamatoria",
               "type": "boolean"
             },
             "none": {
               "type": "boolean",
-              "title": "None of the above"
+              "title": "Ninguno de los anteriores"
             },
             "no_answer": {
-              "title": "Prefer not to answer",
+              "title": "Prefiero no responder",
               "type": "boolean"
             }
           },
@@ -632,7 +631,7 @@
                       "enum": [true]
                     },
                     "other_lung_disorder_specify": {
-                      "title": "Please specify:",
+                      "title": "Por favor especificar:",
                       "type": "string"
                     }
                   }
@@ -654,7 +653,7 @@
                       "enum": [true]
                     },
                     "other_inflammatory_arthritis_specify": {
-                      "title": "Please specify:",
+                      "title": "Por favor especificar:",
                       "type": "string"
                     }
                   }
@@ -665,44 +664,44 @@
         },
         "immune_deficiency": {
           "type": "string",
-          "title": "16. Do any of your family members have an immune deficiency or immune-related condition?",
+          "title": "16. ¿Algún miembro familiar tiene deficiencia inmunológica o una afección relacionada con la inmunidad?",
           "enum": ["Yes", "No", "Prefer not to answer"],
-          "enumNames": ["Yes", "No", "Prefer not to answer"]
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
         },
         "family_diseases": {
           "type": "object",
-          "title": "17. What diseases run in your family?",
+          "title": "17. ¿Qué enfermedades se ve en su familia?",
           "properties": {
             "cancer": {
               "type": "boolean",
-              "title": "Cancer"
+              "title": "cáncer"
             },
             "heart_disease": {
               "type": "boolean",
-              "title": "Heart disease"
+              "title": "Enfermedad del corazón"
             },
             "hypertension": {
               "type": "boolean",
-              "title": "Hypertension"
+              "title": "Hipertensión"
             },
             "diabetes": {
               "type": "boolean",
               "title": "Diabetes"
             },
             "kidney_disease": {
-              "title": "Kidney disease",
+              "title": "Enfermedad del riñón",
               "type": "boolean"
             },
             "other": {
-              "title": "Other",
+              "title": "Otro",
               "type": "boolean"
             },
             "none": {
-              "title": "None of the above",
+              "title": "Ninguna de las anteriores",
               "type": "boolean"
             },
             "no_answer": {
-              "title": "Prefer not to answer",
+              "title": "Prefiero no responder",
               "type": "boolean"
             }
           },
@@ -722,7 +721,7 @@
                       "enum": [true]
                     },
                     "cancer_specify": {
-                      "title": "Please specify:",
+                      "title": "Por favor especifica:",
                       "type": "string"
                     }
                   }
@@ -744,7 +743,7 @@
                       "enum": [true]
                     },
                     "kidney_disease_specify": {
-                      "title": "Please specify:",
+                      "title": "Por favor especifica:",
                       "type": "string"
                     }
                   }
@@ -766,7 +765,7 @@
                       "enum": [true]
                     },
                     "other_disease_specify": {
-                      "title": "Please specify:",
+                      "title": "Por favor especifica:",
                       "type": "string"
                     }
                   }
@@ -777,7 +776,7 @@
         },
         "sexual_orientation": {
           "type": "string",
-          "title": "18. What would best describe  your sexual orientation? ",
+          "title": "18. ¿Cuál describiría mejor su orientación sexual? ",
           "enum": [
             "Asexual",
             "Bisexual",
@@ -793,12 +792,12 @@
             "Asexual",
             "Bisexual",
             "Gay",
-            "Lesbian",
-            "Straight (Heterosexual)",
-            "Pan-sexual",
-            "Queer",
-            "Questioning or unsure",
-            "Prefer not to answer"
+            "Lesbiana",
+            "Heterosexual",
+            "Pansexual",
+            "Afeminado",
+            "Cuestionando o inseguro",
+            "Prefiero no responder"
           ]
         }
       }
@@ -809,7 +808,7 @@
       "properties": {
         "pregnant": {
           "type": "string",
-          "title": "Are you pregnant or have you delivered or miscarried in the last 6 months?",
+          "title": "¿Está usted embarazada o a dado a luz o a tenido un mal parto en los últimos 6 meses?",
           "uniqueItems": true,
           "enum": [
             "I am currently pregnant",
@@ -818,10 +817,10 @@
             "Prefer not to answer"
           ],
           "enumNames": [
-            "I am currently pregnant",
-            "I delivered within the last 6 months",
-            "No, I am not currently pregnant and have not delivered a baby in the last 6 months",
-            "Prefer not to answer"
+            "Presentemente yo estoy embarazada",
+            "Di a luz entre los últimos 6 meses",
+            "No, actualmente no estoy embarazada y no he dado a luz en los últimos 6 meses",
+            "Prefiero no responder"
           ]
         }
       },
@@ -858,7 +857,7 @@
                 },
                 "due_date": {
                   "type": "string",
-                  "title": "My due date is"
+                  "title": "La fecha de mi parto es"
                 }
               }
             }
@@ -872,10 +871,10 @@
       "properties": {
         "complications_q": {
           "type": "string",
-          "title": "Did you have any complications with the pregnancy since having the COVID-19 infection?",
+          "title": "¿Tuvo usted alguna complicación con el embarazo desde que tuvo la infección con el COVID-19?",
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"],
-          "enumNames": ["Yes", "No", "Prefer not to answer"]
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
         }
       },
       "dependencies": {
@@ -902,36 +901,36 @@
                 },
                 "complications": {
                   "type": "object",
-                  "title": "If yes, which of the following complications did you have?",
+                  "title": "Si la respuesta es sí, ¿cuál de las siguientes complicaciones tuvo?",
                   "properties": {
                     "miscarriage": {
                       "type": "boolean",
-                      "title": "Miscarriage",
+                      "title": "Mal parto",
                       "enum": [true, false]
                     },
                     "stillborn": {
                       "type": "boolean",
-                      "title": "Stillborn",
+                      "title": "Mortinato",
                       "enum": [true, false]
                     },
                     "premature_labor": {
                       "type": "boolean",
-                      "title": "Premature labor",
+                      "title": "Parto prematuro",
                       "enum": [true, false]
                     },
                     "pre_eclampsia": {
                       "type": "boolean",
-                      "title": "Pre-eclampsia",
+                      "title": "Preeclampsia",
                       "enum": [true, false]
                     },
                     "other": {
                       "type": "boolean",
-                      "title": "Other",
+                      "title": "Otro",
                       "enum": [true, false]
                     },
                     "no_answer": {
                       "type": "boolean",
-                      "title": "Prefer not to answer",
+                      "title": "Prefiero no responder",
                       "enum": [true, false]
                     }
                   },
@@ -951,7 +950,7 @@
                               "enum": [true]
                             },
                             "miscarriage_number": {
-                              "title": "If so, how many times",
+                              "title": "Si es sí, cuántas veces",
                               "type": "number",
                               "minimum": 0
                             }
@@ -974,7 +973,7 @@
                               "enum": [true]
                             },
                             "other_specify": {
-                              "title": "Please specify:",
+                              "title": "Por favor especificar:",
                               "type": "string"
                             }
                           }
@@ -995,14 +994,14 @@
       "properties": {
         "breastfeeding": {
           "type": "string",
-          "title": "Are you currently breastfeeding?",
+          "title": "¿Está usted presentemente amamantando?",
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"],
-          "enumNames": ["Yes", "No", "Prefer not to answer"]
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
         },
         "children_birth": {
           "type": "number",
-          "title": "How many children have you given birth to?",
+          "title": "¿A cuántos niños dio a luz usted?",
           "minimum": 0
         }
       }

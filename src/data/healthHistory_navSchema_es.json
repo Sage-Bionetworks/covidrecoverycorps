@@ -3,10 +3,10 @@
     {
       "id": "history1",
       "order": 5,
-      "title": "Medical History",
+      "title": "Historial médico",
       "default": "history11",
       "orderDisplay": "1/6",
-      "description": "Please fill out the following survey questions to the best of your ability. If you do not remember or would not like to answer, please click \"Prefer not to answer\""
+      "description": "Por favor complete las preguntas de este cuestionario, a lo que mejor pueda. Si usted no se recuerda o no desea responder a la pregunta, por favor marque \"Prefiero no responder\""
     },
     {
       "id": "history11",
