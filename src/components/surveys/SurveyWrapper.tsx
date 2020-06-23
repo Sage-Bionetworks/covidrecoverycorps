@@ -210,36 +210,32 @@ export default class SurveyWrapper extends React.Component<
       } else if (returnTextElement) {
         // matched an address, but something is wrong
         invalidAddressText = returnTextElement.childNodes[0].textContent!
-      } else if (
-        zipCodeElement.childNodes[0].textContent! != attributes.zip_code
-      ) {
-        // USPS sometimes returns a validated address, but it automatically "fixes" the zip code that was provided in the request!
-        invalidAddressText =
-          'The zip code entered does not correspond to this address.'
-        console.log(
-          `User entered zip code ${attributes.zip_code} but USPS indicates zip code ${zipCodeElement.childNodes[0].textContent} for this address.`,
-        )
-      } else if (stateElement.childNodes[0].textContent! != attributes.state) {
-        // USPS sometimes returns a validated address, but it automatically "fixes" the state that was provided in the request!
-        invalidAddressText =
-          'The state entered does not correspond to this address.'
-        console.log(
-          `User entered state ${attributes.state} but USPS indicates state ${stateElement.childNodes[0].textContent} for this address.`,
-        )
-      } else if (
-        cityElement.childNodes[0].textContent!.toUpperCase() !=
-        attributes.city.toUpperCase()
-      ) {
-        // USPS sometimes returns a validated address, but it automatically "fixes" the city that was provided in the request!
-        invalidAddressText =
-          'The city entered does not correspond to this address.'
-        console.log(
-          `User entered city ${
-            attributes.city
-          } but USPS indicates city ${cityElement.childNodes[0]
-            .textContent!} for this address.`,
-        )
+      } else {
+        let invalidField: string|undefined|null = undefined
+        let suggestedValue: string|undefined|null = undefined
+
+        // USPS sometimes returns a validated address, but it automatically "fixes" the zip code/state/city that was provided in the request!
+        if (zipCodeElement.childNodes[0].textContent! != attributes.zip_code) {
+          invalidField = 'zip code'
+          suggestedValue = zipCodeElement.childNodes[0].textContent
+        } else if (stateElement.childNodes[0].textContent! != attributes.state) {
+          invalidField = 'state'
+          suggestedValue = stateElement.childNodes[0].textContent
+        } else if (
+          cityElement.childNodes[0].textContent!.toUpperCase() !=
+          attributes.city.toUpperCase()
+        ) {
+          invalidField = 'city'
+          suggestedValue = cityElement.childNodes[0].textContent
+        }
+
+        if (invalidField) {
+          invalidAddressText =
+            `Sorry, the ${invalidField} entered does not correspond to a valid mailing address. Did you mean '${suggestedValue}'?`
+        }
       }
+        
+      
 
       if (invalidAddressText) {
         this.onError({ name: '', message: invalidAddressText })
