@@ -22,6 +22,8 @@ import LearnMore from '../widgets/LearnMore'
 import ConsentSentConfirmation from './ConsentSentConfirmation'
 import { UserService } from '../../services/user.service'
 import {useSessionDataState, useSessionDataDispatch} from '../../AuthContext'
+import i18next from 'i18next';
+import 'moment/locale/es'
 
 export type ConsentProps = {
   token: string
@@ -230,7 +232,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 <ConsentCopy
                   screen={SCREENS_ENUM.CONSENT_SIGNATURE1}
                 ></ConsentCopy>
-                <p>I understand and agree to the following:</p>
+                <p>{i18next.t('consentinfo.screen14.text2')}</p>
                 <div
                   className="margin-top-std"
                   style={{ marginLeft: '4rem', marginBottom: '4rem' }}
@@ -251,24 +253,8 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 </div>
                 <LearnMore learnMoreText="Learn more">
                   <div>
-                    <p>
-                      You will have the opportunity to share your data with
-                      qualified researchers outside of the COVID Recovery Corps.
-                      All qualified researchers must be approved by the COVID
-                      Recovery Corps study team and will only use de-identified
-                      data. This de-identified data does not contain identifiers
-                      like name, date of birth, or zip code. These researchers
-                      may be from outside the United States and may work for a
-                      non-profit institution, commercial drug or medical device
-                      companies, or be a private citizen.
-                    </p>
-                    <p>
-                      Sharing your data with qualified researchers is optional
-                      and you can change your mind at any time by updating your
-                      data sharing options in your profile. But once we share
-                      your data we cannot get it back. If you decide to end data
-                      sharing, we will not share your future data.
-                    </p>
+                    <p>{i18next.t('consentinfo.learnMoreScreen14.text1')}</p>
+                    <p>{i18next.t('consentinfo.learnMoreScreen14.text2')}</p>
                   </div>
                 </LearnMore>
                 <form className="Consent__form" onSubmit={handleOnSubmit}>
@@ -283,13 +269,13 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                         value={ConsentService.SHARE_SCOPE_ALL}
                         control={<Radio color="primary" />}
                         style={{ marginBottom: '4rem' }}
-                        label="Yes, share my study data with qualified researchers for future COVID related work."
+                        label={i18next.t('consentinfo.screen14.text10')}
                       />
 
                       <FormControlLabel
                         value={ConsentService.SHARE_SCOPE_PARTNERS}
                         control={<Radio color="primary" />}
-                        label="No, only use my study data for this (COVID Recovery Corps) study only."
+                        label={i18next.t('consentinfo.screen14.text11')}
                       />
                     </RadioGroup>
                     <div
@@ -298,17 +284,14 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                         marginBottom: '4rem',
                       }}
                     >
-                      <p>
-                        By default, you are sharing your data with this study
-                        only.
-                      </p>
+                      <p>{i18next.t('consentinfo.screen14.text12')}</p>
                     </div>
                   </div>
                   <p
                     className="margin-top-std"
                     style={{ marginBottom: '4rem' }}
                   >
-                    Please check the box below if you agree to take part:
+                    {i18next.t('consentinfo.screen14.text13')}
                   </p>
                   <div
                     className="form-group checkbox--indented"
@@ -323,19 +306,14 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                       }
                     />
                     <p>
-                      <strong>
-                        {' '}
-                        I have read this consent form (or someone read it to
-                        me). I understand the information in this form. All of
-                        my questions have been answered. I freely and willingly
-                        choose to take part in COVID Recovery Corps study.
-                      </strong>
+                      <strong>{i18next.t('consentinfo.screen14.text14')}</strong>
                     </p>
                   </div>
-                  <p>{moment().format('MMMM Do, YYYY')}</p>
+                  
+                  <p>{moment().locale(i18next.language).format('MMMM Do, YYYY')}</p>
                   <div className="form-group" style={{ marginTop: '4rem' }}>
                     <TextField
-                      label="Full Name of adult participant:"
+                      label={i18next.t('consentinfo.screen14.text15')}
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -361,7 +339,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                       variant="contained"
                       color="primary"
                     >
-                      Agree
+                      {i18next.t('consentinfo.screen14.text16')}
                     </Button>
                   </div>
                 </form>

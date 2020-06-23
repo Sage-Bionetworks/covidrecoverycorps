@@ -253,6 +253,84 @@
       "text3": "We have rules to qualify researchers. Qualified researchers must register on Synapse, our data analysis platform. To access the data, qualified researchers must write a short statement about their research. The research could be about any topic. The research could be on topics you disagree with or find offensive. We post the researchers’ statements on Synapse for anyone to read. They must sign an oath to use the data ethically and do no harm. Researchers will not be able to easily figure out your identity using your coded study data.",
       "text4": "Anyone in the US or abroad can qualify to be a qualified researcher. The person could be from a non-profit institution, commercial drug or medical device companies, or be a private citizen.",
       "text5": "You cannot take back your data once it is used in research. Your data will not be destroyed or deleted. Once we share your data, there isn’t a way for us to delete it or take it back."
+    },
+    "screen9": {
+      "text1": "I decided to share my data broadly with qualified researchers and now I want to stop. What happens to the data I have already shared?",
+      "text2": "The study will destroy or delete my data",
+      "text3": "The study will not share my future data",
+      "text4": "If you decide to end your data sharing with qualified researchers, we will not share your future data. But the data we have already shared with qualified researchers, we unfortunately cannot get back."
+    },
+    "screen10": {
+      "text1": "Not Medical Care",
+      "text2": "The COVID Recovery Corps is a <1>research study</1>.",
+      "text3": "The study does <1>not</1> provide <1> medical care, medical advice</1> or <1> treatment</1>.",
+      "text4": "If you have <1>questions or concerns</1> related to your health, you should <1>contact your doctor</1>."
+    },
+    "fullTextScreen10": {
+      "text1": "Not Medical Care",
+      "text2": "The COVID Recovery Corps study is a research study. You will not receive medical care, medical advice or treatment by taking part in this study.",
+      "text3": "If you have questions or concerns related to your health, you should contact your doctor."
+    },
+    "screen11": {
+      "text1": "Leaving the study",
+      "text2": "Taking part in COVID Recovery Corps is <1> voluntary</1>. You can choose to join or not.",
+      "text3": "No matter what you decide, now or in the future, it will <1> not affect how your doctor treats you</1>.",
+      "text4": "If you decide to withdraw (quit) the study, you can tell us by <1> going to the website and by clicking the <1> \"Withdraw from study\" in account setting</1>. You can also also <1>email or write to us</1>. </1>",
+      "text5": "If you withdraw, <1>your samples will be destroyed</1>. Your <1>data will not be distributed any more</1>.",
+      "text6": "However, if researchers already have your data or samples for their studies, the COVID Recovery Corps study cannot get it back."
+    },
+    "fullTextScreen11": {
+      "text1": "Leaving the study",
+      "text2": "Taking part in COVID Recovery Corps is voluntary. You can choose to join or not. No matter what you decide, now or in the future, it will not affect how your doctor treats you.",
+      "text3": "If you decide to join COVID Recovery Corps, you can change your mind at any time. If you decide you want to withdraw (quit), you need to tell us. You can tell us by going to the website and clicking the “Withdraw Study” section in your profile setting. You can use our contact information to email or write to us.",
+      "text4": "If you withdraw, your samples will be destroyed. Your data will not be distributed any more.",
+      "text5": "However, if researchers already have your data or samples for their studies, the COVID Recovery Corps study cannot get it back. Also, we will let researchers check the results of past studies. If they need your old data to do this work, we will give it to them.",
+      "text6": "Even if you withdraw, we will keep your name and contact information. We keep this information so we can follow U.S. research laws and regulations."
+    },
+    "screen12": {
+      "text1": "Things you should consider before you say yes",
+      "text2": "Before you say yes to joining the study, please consider the following:",
+      "text3": "You will<1> not be paid </1>for participating in this study.",
+      "text4": "You will<1> not receive any profit</1> from this or future research.",
+      "text5": "Your study information <1> will not be shared with insurance companies or your doctor without your permission. </1>",
+      "text6": "The risk of injury is low in this study. You will <1> not be compensated for injury</1>."
+    },
+    "fullTextScreen12": {
+      "text1": "Things you should consider before you say yes",
+      "text2": "You will not be paid for joining and/or taking part in the COVID Recovery Corps study. Researchers will use your data to make discoveries. If any of their studies lead to new tests, drugs, or other commercial products, you will not get any profits. These inventions will be the property of the researchers who develop them.",
+      "text3": "We will keep your data private, and even if public health authorities access this data about COVID, it cannot be transferred to an insurance company or your healthcare provider without your permission.",
+      "text4": "If you think you have been injured because of taking part in COVID Recovery Corps, contact us using the information at the end of this form. If we find that you were injured as a direct result of taking part in COVID Recovery Corps:",
+      "text5": "Beyond your immediate medical care, we will not pay for your injury.",
+      "text6": "If you need follow-up care to treat your injury, you and/or your insurance will have to pay for it.",
+      "text7": "If you have any long-term costs to treat your injury, you and/or your insurance will have to pay them.",
+      "text8": "You do not give up any of your legal rights if you take part in COVID Recovery Corps."
+    },
+    "screen13": {
+      "text1": "How to contact us?",
+      "text2": "<0>For general questions,</0> please contact the COVID Recovery Corps study at 212-305-5700 (24 hours) or <2> COVIDRecoveryCorps@cumc.columbia.edu </2> .",
+      "text3": "<0> For questions about your rights as a research participant, concerns or complaints, </0> please contact Western IRB (WIRB) at <2>help@WIRB.com</2> at 360-252-2500 or toll-free at 800-562-478."
+    },
+    "screen14": {
+      "text1": "If you understand and agree to the benefits and risk of participating in this study, please sign below.",
+      "text2": "I understand and agree to the following:",
+      "text3": "My data will be stored in the COVID Recovery Corps databases.",
+      "text4": "If I give a biosample, it will be stored at the COVID Recovery Corps biobank. This includes my DNA or genetic material. Information that researchers learn by studying my samples will be stored in the COVID Recovery Corps databases.",
+      "text5": "Researchers will do COVID-19 studies using the COVID Recovery Corps databases and biobank. They may also do research on other health conditions that are related to how the body responds to COVID-19.",
+      "text6": "If my sample is used up, I may be asked to give another biosample. I can say yes or no.",
+      "text7": "My contact information may be used to tell me about other COVID-related studies.",
+      "text8": "I can withdraw (quit) at any time. There is no penalty if I withdraw.",
+      "text9": "Would you like to share your study data with other qualified researchers for future research on COVID related work?",
+      "text10": "Yes, share my study data with qualified researchers for future COVID related work.",
+      "text11": "No, only use my study data for this (COVID Recovery Corps) study only.",
+      "text12": "By default, you are sharing your data with this study only.",
+      "text13": "Please check the box below if you agree to take part:",
+      "text14": "I have read this consent form (or someone read it to me). I understand the information in this form. All of my questions have been answered. I freely and willingly choose to take part in COVID Recovery Corps study.",
+      "text15": "Full Name of adult participant",
+      "text16": "Agree"
+    },
+    "learnMoreScreen14": {
+      "text1": "You will have the opportunity to share your data with qualified researchers outside of the COVID Recovery Corps. All qualified researchers must be approved by the COVID Recovery Corps study team and will only use de-identified data. This de-identified data does not contain identifiers like name, date of birth, or zip code. These researchers may be from outside the United States and may work for a non-profit institution, commercial drug or medical device companies, or be a private citizen.",
+      "text2": "Sharing your data with qualified researchers is optional and you can change your mind at any time by updating your data sharing options in your profile. But once we share your data we cannot get it back. If you decide to end data sharing, we will not share your future data."
     }
   },
   "ineligible": {
