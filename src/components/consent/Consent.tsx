@@ -339,7 +339,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                       variant="contained"
                       color="primary"
                     >
-                      Agree
+                      {i18next.t('consentinfo.screen14.text16')}
                     </Button>
                   </div>
                 </form>

@@ -325,7 +325,8 @@
       "text12": "By default, you are sharing your data with this study only.",
       "text13": "Please check the box below if you agree to take part:",
       "text14": "I have read this consent form (or someone read it to me). I understand the information in this form. All of my questions have been answered. I freely and willingly choose to take part in COVID Recovery Corps study.",
-      "text15": "Full Name of adult participant"
+      "text15": "Full Name of adult participant",
+      "text16": "Agree"
     },
     "learnMoreScreen14": {
       "text1": "You will have the opportunity to share your data with qualified researchers outside of the COVID Recovery Corps. All qualified researchers must be approved by the COVID Recovery Corps study team and will only use de-identified data. This de-identified data does not contain identifiers like name, date of birth, or zip code. These researchers may be from outside the United States and may work for a non-profit institution, commercial drug or medical device companies, or be a private citizen.",
