@@ -283,8 +283,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
     if (heroImage0Opacity > 0) {
       setHeroImage0Opacity(0)
       setHeroImage1Opacity(1)
-    } else 
-    if (heroImage1Opacity > 0) {
+    } else if (heroImage1Opacity > 0) {
       setHeroImage1Opacity(0)
       setHeroImage2Opacity(1)
     } else if (heroImage2Opacity > 0) {
@@ -293,8 +292,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
     } else if (heroImage3Opacity > 0) {
       setHeroImage3Opacity(0)
       setHeroImage4Opacity(1)
-    }
-    else {
+    } else {
       setHeroImage4Opacity(0)
       setHeroImage0Opacity(1)
     }
@@ -302,7 +300,13 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
   useEffect(() => {
     const interval = setInterval(selectNextHeroBackground, 8000)
     return () => clearInterval(interval)
-  }, [heroImage0Opacity,heroImage1Opacity, heroImage2Opacity, heroImage3Opacity, heroImage4Opacity])
+  }, [
+    heroImage0Opacity,
+    heroImage1Opacity,
+    heroImage2Opacity,
+    heroImage3Opacity,
+    heroImage4Opacity,
+  ])
 
   const heroTextContent = (
     <Container maxWidth="lg">
@@ -315,7 +319,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               variant="contained"
               className={classes.joinButton}
             >
-             {t('common.joinUs')}
+              {t('common.joinUs')}
             </Button>
           </NavLink>
         </div>
@@ -324,19 +328,16 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
   )
   return (
     <div className="Intro">
-    
-
-
       <div>
         <div className={classes.heroContainer}>
           <div className={classes.heroTextGradiant}></div>
           <Hidden mdUp>
-          <img
+            <img
               className={classes.heroImage}
               src={LandingPageAboveFold0Mobile}
               style={{ opacity: heroImage0Opacity }}
             />
-        
+
             <img
               className={classes.heroImage}
               src={LandingPageAboveFold1Mobile}
@@ -352,20 +353,19 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               src={LandingPageAboveFold3Mobile}
               style={{ opacity: heroImage3Opacity }}
             />
-             <img
+            <img
               className={classes.heroImage}
               src={LandingPageAboveFold4Mobile}
               style={{ opacity: heroImage4Opacity }}
             />
           </Hidden>
           <Hidden smDown>
-          
-             <img
+            <img
               className={classes.heroImage}
               src={LandingPageAboveFold0}
               style={{ opacity: heroImage0Opacity }}
             />
-             <img
+            <img
               className={classes.heroImage}
               src={LandingPageAboveFold1}
               style={{ opacity: heroImage1Opacity }}
@@ -380,7 +380,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               src={LandingPageAboveFold3}
               style={{ opacity: heroImage3Opacity }}
             />
-             <img
+            <img
               className={classes.heroImage}
               src={LandingPageAboveFold4}
               style={{ opacity: heroImage4Opacity }}
@@ -438,9 +438,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
             </Grid>
           </Grid>
         </Container>
-        <div className={classes.paperHeaderDiv}>
-          
-        </div>
+        <div className={classes.paperHeaderDiv}></div>
         <Container maxWidth="md" className={classes.paperPanelWrapper}>
           <div className={classes.paperPanel}>
             <h2 className={classes.paperPanelTitle}>{t('home.text7')}</h2>
@@ -562,8 +560,8 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               color="primary"
               variant="contained"
               className={classes.joinButton}
-            >{t('common.joinUs')}
-       
+            >
+              {t('common.joinUs')}
             </Button>
           </NavLink>
         </Grid>

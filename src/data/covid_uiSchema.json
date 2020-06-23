@@ -36,7 +36,7 @@
       "ui:description": "If you are unsure of the exact date, please just provide your best guess.",
       "symptoms_recovery_date": {
         "ui:widget": "CustomDateWidget",
-    
+
         "ui:options": {
           "yearsRange": [2020, 2020],
           "hideNowButton": true,
@@ -260,7 +260,6 @@
       "symptoms_dates",
       "kind_of_testing",
 
-   
       "how_was_it_treated"
     ],
     "symptoms_start": {
@@ -311,10 +310,12 @@
         "dont_know",
         "no_answer"
       ],
-      "ui:exclusive": [ "no_test",
+      "ui:exclusive": [
+        "no_test",
         "no_test_no_symptoms",
         "dont_know",
-        "no_answer"],
+        "no_answer"
+      ],
       "ui:dependent_option_postfix": ["_date, _result"],
       "ui:widget": "checkboxes",
       "ui:options": {
@@ -332,7 +333,7 @@
       },
       "nasal_swab_result": {
         "ui:widget": "radio",
-        "classNames":  ["secondary_radio test_result subcheckbox"],
+        "classNames": ["secondary_radio test_result subcheckbox"],
         "ui:options": {
           "inline": false
         }
@@ -354,10 +355,8 @@
           "inline": false
         }
       }
-
-    
     },
-   
+
     "how_was_it_treated": {
       "ui:widget": "radio",
       "ui:options": {

@@ -1,9 +1,5 @@
 import * as React from 'react'
-import {
-  setSession,
-  getSession,
-  clearSession,
-} from './helpers/utility'
+import { setSession, getSession, clearSession } from './helpers/utility'
 import { SessionData } from './types/types'
 
 type ActionType =

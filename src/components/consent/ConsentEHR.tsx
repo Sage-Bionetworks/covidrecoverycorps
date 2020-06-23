@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faArrowRight,
-  faArrowLeft,
-} from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import moment from 'moment'
 import { Redirect } from 'react-router'
@@ -148,7 +145,10 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
   const renderSignatureStep = (): JSX.Element => {
     const element = (
       <div>
-        <ConsentCopy screen={SCREENS_ENUM.HIPAA_LAST_INTRO} isEHR={true}></ConsentCopy>
+        <ConsentCopy
+          screen={SCREENS_ENUM.HIPAA_LAST_INTRO}
+          isEHR={true}
+        ></ConsentCopy>
         <div className="Consent__inset">
           <p>
             <strong>
@@ -156,7 +156,10 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
             </strong>
           </p>
 
-          <ConsentCopy screen={SCREENS_ENUM.HIPAA_LAST_TERMS} isEHR={true}></ConsentCopy>
+          <ConsentCopy
+            screen={SCREENS_ENUM.HIPAA_LAST_TERMS}
+            isEHR={true}
+          ></ConsentCopy>
 
           <form className="Consent__form" onSubmit={handleSubmit}>
             <div className="form-group checkbox--indented" style={{}}>
@@ -167,7 +170,9 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
                 onChange={(_val, isChecked) => setIsHIPAAConsented(isChecked)}
               />
               <p>
-                <ConsentCopy screen={SCREENS_ENUM.HIPAA_LAST_CHECKBOX}></ConsentCopy>
+                <ConsentCopy
+                  screen={SCREENS_ENUM.HIPAA_LAST_CHECKBOX}
+                ></ConsentCopy>
               </p>
             </div>
             <p>{moment().format('MMMM Do, YYYY')}</p>

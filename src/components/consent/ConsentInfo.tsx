@@ -10,7 +10,7 @@ import BlueSeparator from '../static/BlueSeparator'
 import { RadioGroup, FormControlLabel, Radio } from '@material-ui/core'
 import ConsentIcons from './ConsentIcons'
 import { useTranslation } from 'react-i18next'
-import i18next from 'i18next';
+import i18next from 'i18next'
 import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
 
 type ConsentInfoProps = {
@@ -30,7 +30,10 @@ const quizes = [
   {
     screen: 5,
     title: i18next.t('consentinfo.screen6.text1'),
-    options: [i18next.t('consentinfo.screen6.text2'), i18next.t('consentinfo.screen6.text3')],
+    options: [
+      i18next.t('consentinfo.screen6.text2'),
+      i18next.t('consentinfo.screen6.text3'),
+    ],
     explanation: i18next.t('consentinfo.screen6.text4'),
     correctAnswer: 0,
   },

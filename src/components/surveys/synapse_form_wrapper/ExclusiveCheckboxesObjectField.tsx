@@ -111,33 +111,33 @@ class ExclusiveCheckboxesObjectField extends Component {
       }
       let newFormData
       // only the boolean fields get the new handling
-        const exclusives = this.props.uiSchema['ui:exclusive']
-        const dependentFields = this.props.uiSchema[
-          'ui:dependent_option_postfix'
-        ]?.map(item => name + item)
+      const exclusives = this.props.uiSchema['ui:exclusive']
+      const dependentFields = this.props.uiSchema[
+        'ui:dependent_option_postfix'
+      ]?.map(item => name + item)
 
-        newFormData = { ...this.props.formData }
-        // if selecting any of the exclusive fields - clear the object completely
-        if (exclusives.indexOf(name) > -1) {
-          newFormData = { [name]: value }
+      newFormData = { ...this.props.formData }
+      // if selecting any of the exclusive fields - clear the object completely
+      if (exclusives.indexOf(name) > -1) {
+        newFormData = { [name]: value }
+      } else {
+        if (value) {
+          // selecting non exclusive field
+          //set the field value
+          newFormData[name] = value //{ ...this.props.formData, [name]: value }
+          //clear out exclusive fields
+          exclusives.forEach(item => {
+            delete newFormData[item]
+          })
         } else {
-          if (value) {
-            // selecting non exclusive field
-            //set the field value
-            newFormData[name] = value //{ ...this.props.formData, [name]: value }
-            //clear out exclusive fields
-            exclusives.forEach(item => {
-              delete newFormData[item]
-            })
-          } else {
-            //if deselected -- clear out dependent fields
-            delete newFormData[name]
-            dependentFields?.forEach(item => {
-              delete newFormData[item]
-            })
-          }
+          //if deselected -- clear out dependent fields
+          delete newFormData[name]
+          dependentFields?.forEach(item => {
+            delete newFormData[item]
+          })
         }
-      
+      }
+
       this.props.onChange(
         newFormData,
         errorSchema &&

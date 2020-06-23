@@ -13,7 +13,7 @@ import {
 
 import moment from 'moment'
 import { useState } from 'react'
-import {SessionData} from '../types/types'
+import { SessionData } from '../types/types'
 
 export const callEndpoint = async <T>(
   endpoint: string,
@@ -84,9 +84,7 @@ export const getAge = (
   return age
 }
 
-export const getSession = ():
-  | SessionData
-  | undefined => {
+export const getSession = (): SessionData | undefined => {
   const item = sessionStorage.getItem(SESSION_NAME) || ''
   try {
     const json = JSON.parse(item)
@@ -96,13 +94,12 @@ export const getSession = ():
   }
 }
 
-export const clearSession = () =>{
+export const clearSession = () => {
   sessionStorage.removeItem(SESSION_NAME)
   sessionStorage.clear()
 }
 
 export const setSession = (data: SessionData) => {
- 
   sessionStorage.setItem(SESSION_NAME, JSON.stringify(data))
 }
 
@@ -145,7 +142,10 @@ export const getSearchParams = (search: string): { [key: string]: string } => {
 }
 
 // function to use session storage (react hooks)
-export const useSessionStorage = (key:string, initialValue:string|undefined): [string|undefined, (value: string|undefined) => void] => {
+export const useSessionStorage = (
+  key: string,
+  initialValue: string | undefined,
+): [string | undefined, (value: string | undefined) => void] => {
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState(() => {
     try {
@@ -154,7 +154,7 @@ export const useSessionStorage = (key:string, initialValue:string|undefined): [s
       const value = item ? item : initialValue
       if (value) {
         window.sessionStorage.setItem(key, value)
-      }      
+      }
       return value
     } catch (error) {
       // If error also return initialValue
@@ -163,7 +163,7 @@ export const useSessionStorage = (key:string, initialValue:string|undefined): [s
     }
   })
   // persist value to session storage
-  const setValue = (value:string|undefined) => {
+  const setValue = (value: string | undefined) => {
     try {
       setStoredValue(value)
       if (value) {

@@ -79,7 +79,7 @@
     },
     "symptoms1": {
       "type": "object",
-      "required":["symptoms_list"],
+      "required": ["symptoms_list"],
       "properties": {
         "symptoms_list": {
           "type": "object",
@@ -829,8 +829,6 @@
             }
           },
           "dependencies": {
-
-
             "nasal_swab": {
               "oneOf": [
                 {
@@ -861,7 +859,6 @@
               ]
             },
             "serum_test": {
-
               "oneOf": [
                 {
                   "properties": {
@@ -889,10 +886,7 @@
                   }
                 }
               ]
-
             }
-            
-
           }
         },
         "how_was_it_treated": {
@@ -917,7 +911,6 @@
           "uniqueItems": true
         }
       }
-     
     },
     "hospitalization": {
       "type": "object",

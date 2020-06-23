@@ -710,13 +710,12 @@
     .test_result {
       background-color: blue;
       .radio {
-        padding-top:.1rem;
+        padding-top: 0.1rem;
         padding-bottom: -1rem;
         label {
-          margin-bottom: 0
+          margin-bottom: 0;
         }
       }
-
     }
   }
 

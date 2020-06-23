@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Eligiblity from './Eligibility'
 import Ineligible from './Ineligible'
 import SignInWithCode from '../login/SignInWithCode'
-import { IneligibilityReason} from '../../types/types'
+import { IneligibilityReason } from '../../types/types'
 import Registration from './Registration'
 import { RouteComponentProps } from 'react-router-dom'
 import Card from '@material-ui/core/Card'
@@ -62,9 +62,7 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
             }}
           ></Eligiblity>
         )}
-        {eligible === false && (
-          <Ineligible />
-        )}
+        {eligible === false && <Ineligible />}
         {eligible && !loginType && (
           <Registration
             onSuccessFn={(

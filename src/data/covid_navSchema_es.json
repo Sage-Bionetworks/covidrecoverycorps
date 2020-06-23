@@ -6,35 +6,35 @@
       "title": "Experiencia reciente con COVID-19",
       "orderDisplay": "1/7",
       "description": "Por favor complete las preguntas de este cuestionario, a lo que mejor pueda. Si usted no se recuerda o no desea responder a la pregunta, por favor marque \"Prefiero no responder\" ",
-     
+
       "default": "symptoms1",
       "validationRules": [
-      {
-        "conditions": {
-          "all": [
-            {
-              "fact": "symptoms",
-              "operator": "symptomsDates",
-             
-              "value": {
+        {
+          "conditions": {
+            "all": [
+              {
                 "fact": "symptoms",
-                "path": ".symptoms_start.symptoms_start_date"
-              }
-            }
-          ]
-        },
-        "event": {
-          "type": "validation",
+                "operator": "symptomsDates",
 
-          "params": {
-            "message": "please check that your symptoms dates are in the right sequence",
-            "name": "range",
-            "property": ".symptoms"
-          }
-        },
-        "priority:": 1
-      }
-    ]
+                "value": {
+                  "fact": "symptoms",
+                  "path": ".symptoms_start.symptoms_start_date"
+                }
+              }
+            ]
+          },
+          "event": {
+            "type": "validation",
+
+            "params": {
+              "message": "please check that your symptoms dates are in the right sequence",
+              "name": "range",
+              "property": ".symptoms"
+            }
+          },
+          "priority:": 1
+        }
+      ]
     },
     {
       "id": "symptoms1",

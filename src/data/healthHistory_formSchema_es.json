@@ -305,7 +305,7 @@
               "type": "boolean",
               "title": "Ataque cardíaco o un accidente cerebrovascular (ACV)/ Hemorragia de la cabeza"
             },
-        
+
             "coronary_bypass_surgery": {
               "type": "boolean",
               "title": "Cirugía de baipás de la arteria coronaria"
@@ -372,7 +372,7 @@
                 }
               ]
             },
-           
+
             "coronary_bypass_surgery": {
               "oneOf": [
                 {

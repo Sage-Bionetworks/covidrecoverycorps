@@ -21,8 +21,8 @@ import { ConsentService } from '../../services/consent.service'
 import LearnMore from '../widgets/LearnMore'
 import ConsentSentConfirmation from './ConsentSentConfirmation'
 import { UserService } from '../../services/user.service'
-import {useSessionDataState, useSessionDataDispatch} from '../../AuthContext'
-import i18next from 'i18next';
+import { useSessionDataState, useSessionDataDispatch } from '../../AuthContext'
+import i18next from 'i18next'
 import 'moment/locale/es'
 
 export type ConsentProps = {
@@ -101,7 +101,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
         state.shareScope.value,
         token,
       )
-      sessionUpdateFn({type: 'CONSENT'})
+      sessionUpdateFn({ type: 'CONSENT' })
       setIsConsentDone(true)
     } catch (e) {
       setError(e.message)
@@ -200,7 +200,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
     }
     if (doHIPAAConsent === false) {
       return <Redirect to="dashboard?consented=true"></Redirect>
-     // window.location.href = '/dashboard?consented=true'
+      // window.location.href = '/dashboard?consented=true'
     }
   }
 
@@ -306,11 +306,15 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                       }
                     />
                     <p>
-                      <strong>{i18next.t('consentinfo.screen14.text14')}</strong>
+                      <strong>
+                        {i18next.t('consentinfo.screen14.text14')}
+                      </strong>
                     </p>
                   </div>
-                  
-                  <p>{moment().locale(i18next.language).format('MMMM Do, YYYY')}</p>
+
+                  <p>
+                    {moment().locale(i18next.language).format('MMMM Do, YYYY')}
+                  </p>
                   <div className="form-group" style={{ marginTop: '4rem' }}>
                     <TextField
                       label={i18next.t('consentinfo.screen14.text15')}

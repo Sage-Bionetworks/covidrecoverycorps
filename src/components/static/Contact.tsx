@@ -94,7 +94,7 @@ export const Contact: React.FunctionComponent<ContactProps> = ({}: ContactProps)
                     [translate]<br></br>
                     [translate]<br></br>
                     <b>[translate]</b> or <b>[translate]</b> <br></br>
-                    <a href="mailto:Help@wirb.com">  [translate]</a>
+                    <a href="mailto:Help@wirb.com"> [translate]</a>
                   </Trans>
                 </p>
               </div>
