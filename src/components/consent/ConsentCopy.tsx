@@ -1,6 +1,6 @@
 import React from 'react'
-import i18next from 'i18next';
-import { Trans } from 'react-i18next';
+import i18next from 'i18next'
+import { Trans } from 'react-i18next'
 import _01 from '../../assets/consent_icons/_0.png'
 import _02 from '../../assets/consent_icons/_1.png'
 import _03 from '../../assets/consent_icons/_2.png'
@@ -23,31 +23,29 @@ export type ConsentCopyProps = {
 }
 
 export enum SCREENS_ENUM {
-  CONSENT_INTRO='CONSENT_INTRO',
-  CONSENT_SIGNATURE1='CONSENT_SIGNATURE1',
-  CONSENT_SIGNATURE2='CONSENT_SIGNATURE2',
-  CONSENT_SHARING='CONSENT_SHARING',
-  HIPAA_LAST_INTRO='HIPAA_LAST_INTRO',
-  HIPAA_LAST_TERMS='HIPAA_LAST_TERMS',
-  HIPAA_LAST_CHECKBOX='HIPAA_LAST_CHECKBOX',
+  CONSENT_INTRO = 'CONSENT_INTRO',
+  CONSENT_SIGNATURE1 = 'CONSENT_SIGNATURE1',
+  CONSENT_SIGNATURE2 = 'CONSENT_SIGNATURE2',
+  CONSENT_SHARING = 'CONSENT_SHARING',
+  HIPAA_LAST_INTRO = 'HIPAA_LAST_INTRO',
+  HIPAA_LAST_TERMS = 'HIPAA_LAST_TERMS',
+  HIPAA_LAST_CHECKBOX = 'HIPAA_LAST_CHECKBOX',
 }
 
 const summaryScreens = [
   <div>
-    <h2>{i18next.t("consentinfo.screen1.text1")}</h2>
-      <p className="Consent__copy">
-        <Trans i18nKey="consentinfo.screen1.text2">
-          [translate] <strong> [translate]</strong>
-        </Trans>
-      </p>
-      <p className="Consent__copy">
-        <Trans i18nKey="consentinfo.screen1.text3">
-          [translate]
-          <strong>
-            [translate]
-          </strong>
-        </Trans>
-      </p>
+    <h2>{i18next.t('consentinfo.screen1.text1')}</h2>
+    <p className="Consent__copy">
+      <Trans i18nKey="consentinfo.screen1.text2">
+        [translate] <strong> [translate]</strong>
+      </Trans>
+    </p>
+    <p className="Consent__copy">
+      <Trans i18nKey="consentinfo.screen1.text3">
+        [translate]
+        <strong>[translate]</strong>
+      </Trans>
+    </p>
 
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen1.text4">
@@ -56,11 +54,7 @@ const summaryScreens = [
       </Trans>
     </p>
 
-    <p className="Consent__copy">
-      {
-        i18next.t('consentinfo.screen1.text5')
-      }
-    </p>
+    <p className="Consent__copy">{i18next.t('consentinfo.screen1.text5')}</p>
 
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen1.text6">
@@ -69,8 +63,8 @@ const summaryScreens = [
     </p>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen1.text7">
-        [translate] <strong> [translate] </strong> [translate]
-        [translate] <strong> [translate] </strong>
+        [translate] <strong> [translate] </strong> [translate] [translate]{' '}
+        <strong> [translate] </strong>
         [translate]
       </Trans>
     </p>
@@ -78,9 +72,7 @@ const summaryScreens = [
 
   <div>
     <h2>{i18next.t('consentinfo.screen2.text1')}</h2>
-    <p className="Consent__copy">
-      {i18next.t('consentinfo.screen2.text2')}
-    </p>
+    <p className="Consent__copy">{i18next.t('consentinfo.screen2.text2')}</p>
 
     <div className="list">
       <p className="Consent__copy">
@@ -90,35 +82,32 @@ const summaryScreens = [
       </p>
       <p className="Consent__copy">
         <Trans i18nKey="consentinfo.screen2.text4">
-        [translate] <strong>[translate]</strong> [translate]
-        <strong>[translate]</strong> [translate]
-        <strong>[translate]</strong>[translate]
-        <strong>[translate]</strong>[translate]
+          [translate] <strong>[translate]</strong> [translate]
+          <strong>[translate]</strong> [translate]
+          <strong>[translate]</strong>[translate]
+          <strong>[translate]</strong>[translate]
         </Trans>
       </p>
-      <p className="Consent__copy">
-        {i18next.t("consentinfo.screen2.text5")}
-      </p>
-      <p className="Consent__copy">
-        {i18next.t("consentinfo.screen2.text6")}
-      </p>
+      <p className="Consent__copy">{i18next.t('consentinfo.screen2.text5')}</p>
+      <p className="Consent__copy">{i18next.t('consentinfo.screen2.text6')}</p>
     </div>
 
     <p className="Consent__copy">
-      <br/>
-      <strong>{i18next.t("consentinfo.screen2.text7")}</strong>
+      <br />
+      <strong>{i18next.t('consentinfo.screen2.text7')}</strong>
     </p>
 
     <div className="list">
       <p className="Consent__copy">
         <Trans i18nKey="consentinfo.screen2.text8">
-        [translate] <strong>[translate] </strong>[translate]
+          [translate] <strong>[translate] </strong>[translate]
         </Trans>
       </p>
       <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.screen2.text9">
-        [translate] <strong>[translate]</strong> [translate] <strong> [translate]</strong> [translate]
-      </Trans>
+        <Trans i18nKey="consentinfo.screen2.text9">
+          [translate] <strong>[translate]</strong> [translate]{' '}
+          <strong> [translate]</strong> [translate]
+        </Trans>
       </p>
 
       <p className="Consent__copy">
@@ -129,59 +118,49 @@ const summaryScreens = [
         </Trans>
       </p>
 
-      <p className="Consent__copy">
-        {i18next.t("consentinfo.screen2.text11")}
-      </p>
+      <p className="Consent__copy">{i18next.t('consentinfo.screen2.text11')}</p>
 
-      <p className="Consent__copy">
-        {i18next.t("consentinfo.screen2.text12")}
-      </p>
+      <p className="Consent__copy">{i18next.t('consentinfo.screen2.text12')}</p>
     </div>
   </div>,
   <div>[intentionally blank - quiz 1 screen]</div>,
   <div>
-    <h2>{i18next.t("consentinfo.screen4.text1")}</h2>
+    <h2>{i18next.t('consentinfo.screen4.text1')}</h2>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen4.text2">
         [translate] <strong> [translate] </strong> [translate]
       </Trans>
     </p>
 
-    <p className="Consent__copy">
-      {i18next.t("consentinfo.screen4.text3")}
-    </p>
+    <p className="Consent__copy">{i18next.t('consentinfo.screen4.text3')}</p>
 
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen4.text4">
-      [translate] <strong> [translate] </strong> [translate]
+        [translate] <strong> [translate] </strong> [translate]
       </Trans>
     </p>
   </div>,
   <div>
-    <h2>{i18next.t("consentinfo.screen5.text1")}</h2>
+    <h2>{i18next.t('consentinfo.screen5.text1')}</h2>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen5.text2">
         [translate]
         <strong> [translate]</strong>[translate]
       </Trans>
     </p>
-    <p className="Consent__copy">
-      {i18next.t("consentinfo.screen5.text3")}
-    </p>
+    <p className="Consent__copy">{i18next.t('consentinfo.screen5.text3')}</p>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen5.text4">
-      [translate] <strong> [translate]</strong> [translate]
-      <strong>[translate]</strong> [translate]
-        <strong>[translate]</strong>  [translate]
+        [translate] <strong> [translate]</strong> [translate]
+        <strong>[translate]</strong> [translate]
+        <strong>[translate]</strong> [translate]
         <strong> [translate]</strong> [translate]
       </Trans>
     </p>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen5.text5">
         [translate]
-        <strong>
-          [translate]
-        </strong>
+        <strong>[translate]</strong>
       </Trans>
     </p>
     <p className="Consent__copy">
@@ -192,26 +171,27 @@ const summaryScreens = [
     </p>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen5.text7">
-      [translate] <strong> [translate] </strong> [translate] <strong> [translate]</strong> [translate]
+        [translate] <strong> [translate] </strong> [translate]{' '}
+        <strong> [translate]</strong> [translate]
       </Trans>
     </p>
   </div>,
   <div>[intentionally blank - quiz 2 screen]</div>,
   <div>
-    <h2>{i18next.t("consentinfo.screen7.text1")}</h2>
+    <h2>{i18next.t('consentinfo.screen7.text1')}</h2>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen7.text2">
         [translate] <strong> [translate] </strong> [translate]
       </Trans>
     </p>
 
-    <p className="Consent__copy">
-      {i18next.t("consentinfo.screen7.text3")}
-    </p>
+    <p className="Consent__copy">{i18next.t('consentinfo.screen7.text3')}</p>
 
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen7.text4">
-        [translate] <strong> [translate] </strong> and samples rather than your name or other personal information. This <strong> [translate] </strong>[translate]
+        [translate] <strong> [translate] </strong> and samples rather than your
+        name or other personal information. This <strong> [translate] </strong>
+        [translate]
       </Trans>
     </p>
 
@@ -223,39 +203,35 @@ const summaryScreens = [
 
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen7.text6">
-      [translate] <strong> [translate]</strong> [translate]
+        [translate] <strong> [translate]</strong> [translate]
       </Trans>
     </p>
   </div>,
   <div>
-    <h2>{i18next.t("consentinfo.screen8.text1")}</h2>
+    <h2>{i18next.t('consentinfo.screen8.text1')}</h2>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen8.text2">
-        [translate] <strong>  [translate] </strong>  [translate]
+        [translate] <strong> [translate] </strong> [translate]
       </Trans>
     </p>
 
-    <p className="Consent__copy">
-      {i18next.t("consentinfo.screen8.text3")}
-    </p>
+    <p className="Consent__copy">{i18next.t('consentinfo.screen8.text3')}</p>
 
-    <p className="Consent__copy">
-      {i18next.t("consentinfo.screen8.text4")}
-    </p>
+    <p className="Consent__copy">{i18next.t('consentinfo.screen8.text4')}</p>
 
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen8.text5">
-        [translate] <strong> [translate] </strong> [translate] <strong> [translate] </strong> [translate]
+        [translate] <strong> [translate] </strong> [translate]{' '}
+        <strong> [translate] </strong> [translate]
       </Trans>
     </p>
 
-    <p className="Consent__copy">
-      {i18next.t("consentinfo.screen8.text6")}
-    </p>
+    <p className="Consent__copy">{i18next.t('consentinfo.screen8.text6')}</p>
 
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen8.text7">
-        [translate] <strong>[translate]</strong> [translate] <strong>[translate]</strong>[translate]
+        [translate] <strong>[translate]</strong> [translate]{' '}
+        <strong>[translate]</strong>[translate]
       </Trans>
     </p>
   </div>,
@@ -263,7 +239,7 @@ const summaryScreens = [
   <div>[intentionally blank - quiz 3 screen]</div>,
 
   <div>
-    <h2>{i18next.t("consentinfo.screen10.text1")}</h2>
+    <h2>{i18next.t('consentinfo.screen10.text1')}</h2>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen10.text2">
         [translate] <strong>[translate]</strong>[translate]
@@ -272,18 +248,21 @@ const summaryScreens = [
 
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen10.text3">
-      [translate] <strong>[translate]</strong> [translate] <strong> [translate]</strong> [translate] <strong> [translate]</strong> [translate]
+        [translate] <strong>[translate]</strong> [translate]{' '}
+        <strong> [translate]</strong> [translate] <strong> [translate]</strong>{' '}
+        [translate]
       </Trans>
     </p>
 
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen10.text4">
-        [translate] <strong>[translate]</strong> [translate] <strong>[translate]</strong>[translate]
+        [translate] <strong>[translate]</strong> [translate]{' '}
+        <strong>[translate]</strong>[translate]
       </Trans>
     </p>
   </div>,
   <div>
-    <h2>{i18next.t("consentinfo.screen11.text1")}</h2>
+    <h2>{i18next.t('consentinfo.screen11.text1')}</h2>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen11.text2">
         [translate] <strong> [translate]</strong>[translate]
@@ -296,23 +275,25 @@ const summaryScreens = [
     </p>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen11.text4">
-        [translate] <strong> [translate] <strong>[translate]</strong>. [translate] <strong>[translate]</strong>[translate] </strong>
+        [translate]{' '}
+        <strong>
+          {' '}
+          [translate] <strong>[translate]</strong>. [translate]{' '}
+          <strong>[translate]</strong>[translate]{' '}
+        </strong>
       </Trans>
     </p>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen11.text5">
-        [translate] <strong>[translate]</strong>[translate] <strong>[translate]</strong>[translate]
+        [translate] <strong>[translate]</strong>[translate]{' '}
+        <strong>[translate]</strong>[translate]
       </Trans>
     </p>
-    <p className="Consent__copy">
-      {i18next.t("consentinfo.screen11.text6")}
-    </p>
+    <p className="Consent__copy">{i18next.t('consentinfo.screen11.text6')}</p>
   </div>,
   <div>
-    <h2>{i18next.t("consentinfo.screen12.text1")}</h2>
-    <p className="Consent__copy">
-      {i18next.t("consentinfo.screen12.text2")}
-    </p>
+    <h2>{i18next.t('consentinfo.screen12.text1')}</h2>
+    <p className="Consent__copy">{i18next.t('consentinfo.screen12.text2')}</p>
 
     <div className="list">
       <p className="Consent__copy">
@@ -340,19 +321,18 @@ const summaryScreens = [
     </div>
   </div>,
   <div>
-    <h2> {i18next.t("consentinfo.screen13.text1")}</h2>
+    <h2> {i18next.t('consentinfo.screen13.text1')}</h2>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen13.text2">
         <strong>[translate]</strong> [translate]
-        <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
-          [translate]
-        </a>
+        <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">[translate]</a>
         [translate]
       </Trans>
     </p>
     <p>
       <Trans i18nKey="consentinfo.screen13.text3">
-        <strong> [translate] </strong> [translate] <a href="mailto:help@WIRB.com">[translate]</a> [translate]
+        <strong> [translate] </strong> [translate]{' '}
+        <a href="mailto:help@WIRB.com">[translate]</a> [translate]
       </Trans>
     </p>
   </div>,
@@ -396,15 +376,15 @@ const fullTextScreens = [
   <div>
     <h2>{i18next.t('consentinfo.fullTextScreen4.text1')}</h2>
     <p className="Consent__copy">
-    {i18next.t('consentinfo.fullTextScreen4.text2')}
+      {i18next.t('consentinfo.fullTextScreen4.text2')}
     </p>
 
     <p className="Consent__copy">
-    {i18next.t('consentinfo.fullTextScreen4.text3')}
+      {i18next.t('consentinfo.fullTextScreen4.text3')}
     </p>
 
     <p className="Consent__copy">
-    {i18next.t('consentinfo.fullTextScreen4.text4')}
+      {i18next.t('consentinfo.fullTextScreen4.text4')}
     </p>
   </div>,
   <div>
@@ -529,28 +509,43 @@ const fullTextScreens = [
     </p>
 
     <p className="Consent__copy">
-    {i18next.t('consentinfo.fullTextScreen12.text3')}
+      {i18next.t('consentinfo.fullTextScreen12.text3')}
     </p>
 
     <p className="Consent__copy">
-    {i18next.t('consentinfo.fullTextScreen12.text4')}
+      {i18next.t('consentinfo.fullTextScreen12.text4')}
     </p>
     <div className="list">
       <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen12.text5')}
+        {i18next.t('consentinfo.fullTextScreen12.text5')}
       </p>
       <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen12.text6')}
+        {i18next.t('consentinfo.fullTextScreen12.text6')}
       </p>
       <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen12.text7')}
+        {i18next.t('consentinfo.fullTextScreen12.text7')}
       </p>
       <p className="Consent__copy">
-      {i18next.t('consentinfo.fullTextScreen12.text8')}
+        {i18next.t('consentinfo.fullTextScreen12.text8')}
       </p>
     </div>
   </div>,
-  <>[[intentionally blank]</>,
+  <div>
+    <h2> {i18next.t('consentinfo.screen13.text1')}</h2>
+    <p className="Consent__copy">
+      <Trans i18nKey="consentinfo.screen13.text2">
+        <strong>[translate]</strong> [translate]
+        <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">[translate]</a>
+        [translate]
+      </Trans>
+    </p>
+    <p>
+      <Trans i18nKey="consentinfo.screen13.text3">
+        <strong> [translate] </strong> [translate]{' '}
+        <a href="mailto:help@WIRB.com">[translate]</a> [translate]
+      </Trans>
+    </p>
+  </div>,
 ]
 
 const ehrScreens = [
@@ -602,7 +597,6 @@ const ehrScreens = [
       your diagnosis and treatment. We will be able to see these data.
     </p>
     <p className="Consent__copy">
-      
       One exception are any notes from counselors or doctors in specialized
       clinics who treat addictions or substance use disorders. These notes are
       usually private and not part of the EHR. We will only be able to see these
@@ -610,10 +604,8 @@ const ehrScreens = [
     </p>
   </div>,
   <div>
-    
     <h2>What exactly will you access in my EHR? </h2>
     <p className="Consent__copy">
-      
       We will access your whole EHR. That means we will take a copy of all the
       tests, results, and images in your EHR. This includes data about your
       diagnoses, medications, symptoms, allergies, and treatments.
@@ -701,34 +693,41 @@ const ehrScreens = [
     <h2>Who can answer my questions?</h2>
     <ul>
       <li>
-        <strong>For general questions,</strong> please contact the COVID Recovery Corps study at
-        212-305-5700 (24 hours) or
+        <strong>For general questions,</strong> please contact the COVID
+        Recovery Corps study at 212-305-5700 (24 hours) or
         <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
           COVIDRecoveryCorps@cumc.columbia.edu
         </a>
       </li>
       <li>
-      <strong>For questions about your rights as a research participant, concerns or complaints,</strong> please contact Western IRB (WIRB) at <a href="mailto:help@WIRB.com">help@WIRB.com</a> at
-        360-252-2500 or toll-free at 800-562-4789.
+        <strong>
+          For questions about your rights as a research participant, concerns or
+          complaints,
+        </strong>{' '}
+        please contact Western IRB (WIRB) at{' '}
+        <a href="mailto:help@WIRB.com">help@WIRB.com</a> at 360-252-2500 or
+        toll-free at 800-562-4789.
       </li>
     </ul>
   </div>,
 ]
 
-const screens: {[key in SCREENS_ENUM]: JSX.Element} = {
+const screens: { [key in SCREENS_ENUM]: JSX.Element } = {
   CONSENT_INTRO: (
     <>
-    <h2>{i18next.t('consentinfo.welcome.text1')}</h2>
-    <div className="Consent__copy">
-      <p className="Consent__copy">{i18next.t('consentinfo.welcome.text2')}</p>
-      <p className="Consent__copy">{i18next.t('consentinfo.welcome.text3')}</p>
-    </div>
+      <h2>{i18next.t('consentinfo.welcome.text1')}</h2>
+      <div className="Consent__copy">
+        <p className="Consent__copy">
+          {i18next.t('consentinfo.welcome.text2')}
+        </p>
+        <p className="Consent__copy">
+          {i18next.t('consentinfo.welcome.text3')}
+        </p>
+      </div>
     </>
   ),
   CONSENT_SIGNATURE1: (
-    <p className="Consent__copy">
-      {i18next.t('consentinfo.screen14.text1')}
-    </p>
+    <p className="Consent__copy">{i18next.t('consentinfo.screen14.text1')}</p>
   ),
   CONSENT_SIGNATURE2: (
     <p className="Consent__copy">
@@ -744,9 +743,7 @@ const screens: {[key in SCREENS_ENUM]: JSX.Element} = {
   ),
   CONSENT_SHARING: (
     <div>
-      <p className="Consent__copy">
-        {i18next.t('consentinfo.screen14.text9')}
-      </p>
+      <p className="Consent__copy">{i18next.t('consentinfo.screen14.text9')}</p>
     </div>
   ),
   HIPAA_LAST_INTRO: <></>,
@@ -770,7 +767,6 @@ const screens: {[key in SCREENS_ENUM]: JSX.Element} = {
   HIPAA_LAST_CHECKBOX: (
     <>
       <strong>
-        
         By signing this form, I voluntarily authorize my healthcare providers
         and organizations to share my EHR with the COVID Recovery Corps Research
         Study, led by Dr. Wendy Chung, and its partner organization Sage
