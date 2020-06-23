@@ -156,7 +156,7 @@ export const Eligibility: React.FunctionComponent<EligibilityProps> = ({
             name="zipcode"
             placeholder={t('eligibility.zipCode')}
             aria-label={t('eligibility.zipCode')}
-            label= {t('eligibility.zipCode')}
+            label={t('eligibility.zipCode')}
             onChange={handleOnChange}
           />
         </div>

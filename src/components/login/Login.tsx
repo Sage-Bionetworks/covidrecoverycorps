@@ -10,7 +10,7 @@ import {
   Response,
   ENDPOINT,
 } from '../../types/types'
-import { callEndpoint, makePhone} from '../../helpers/utility'
+import { callEndpoint, makePhone } from '../../helpers/utility'
 
 import Button from '@material-ui/core/Button'
 import SignInWithCode from './SignInWithCode'
@@ -55,7 +55,6 @@ export const Login: React.FunctionComponent<LoginProps> = ({
   const [loginType, setLoginType] = useState<LoginType>('EMAIL')
   const [isLoading, setIsLoading] = useState(true)
 
-
   const { t } = useTranslation()
   //detect if they are bck on the page
 
@@ -69,7 +68,9 @@ export const Login: React.FunctionComponent<LoginProps> = ({
       )
       // if user is already booked for an appointment, then go home and show the global alert
       let isAppointmentBooked: boolean = false
-      const appointmentsResponse = await UserService.getAppointments(loggedIn.data.sessionToken)
+      const appointmentsResponse = await UserService.getAppointments(
+        loggedIn.data.sessionToken,
+      )
       if (appointmentsResponse?.data?.items?.length > 0) {
         const appt = appointmentsResponse.data.items[0]
         if (appt.data.status === 'booked') {
@@ -113,7 +114,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         setIsLoading(false)
       }
     }
-    console.log('login'+ JSON.stringify(searchParams,null, 2))
+    console.log('login' + JSON.stringify(searchParams, null, 2))
 
     if (searchParams?.email) {
       const email = decodeURIComponent(searchParams.email)
@@ -290,7 +291,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                   variant="text"
                   onClick={() => (window.location.href = 'eligibility')}
                 >
-                   {t('common.signUpForAccount')}
+                  {t('common.signUpForAccount')}
                 </Button>
               </div>
             )}

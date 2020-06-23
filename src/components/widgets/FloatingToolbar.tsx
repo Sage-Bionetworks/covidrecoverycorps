@@ -70,7 +70,9 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = pr
           content={
             <div>
               <h2>{props.closeConfirmationText}</h2>
-             {props.closeConfirmationText2 && <div>{props.closeConfirmationText2}</div>}
+              {props.closeConfirmationText2 && (
+                <div>{props.closeConfirmationText2}</div>
+              )}
             </div>
           }
           onCancel={() =>

@@ -1,9 +1,8 @@
 {
-    "home" : {
-        "title": "Construyendo una asociación entre los sobrevivientes de COVID-19 y los investigadores."
-             
-    },
-    "team": {
-        "title": "El Cuerpo de Recuperación de COVID es un estudio de investigación impulsado por ciudadanos para aprender más sobre COVID-19 y avanzar en la lucha global."
-    }
+  "home": {
+    "title": "Construyendo una asociación entre los sobrevivientes de COVID-19 y los investigadores."
+  },
+  "team": {
+    "title": "El Cuerpo de Recuperación de COVID es un estudio de investigación impulsado por ciudadanos para aprender más sobre COVID-19 y avanzar en la lucha global."
+  }
 }

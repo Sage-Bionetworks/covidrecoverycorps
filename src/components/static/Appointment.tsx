@@ -5,7 +5,7 @@ import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
 import moment from 'moment'
 import { UserService } from '../../services/user.service'
-import i18next from 'i18next';
+import i18next from 'i18next'
 import 'moment/locale/es'
 
 type AppointmentProps = {
@@ -86,12 +86,16 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
 
   const renderAppointment = (appointment: ReportData) => {
     const appointmentDateTime = moment(appointment.data.start)
-    const friendlyAppointmentTimeStart = appointmentDateTime.format('h:mm a')
+    const friendlyAppointmentTimeStart = appointmentDateTime
+      .locale(i18next.language)
+      .format('h:mm a')
     const appointmentDateTimeEnd = moment(appointment.data.start).add(
       30,
       'minutes',
     )
-    const friendlyAppointmentTimeEnd = appointmentDateTimeEnd.format('h:mm a')
+    const friendlyAppointmentTimeEnd = appointmentDateTimeEnd
+      .locale(i18next.language)
+      .format('h:mm a')
 
     return (
       <Card className={classes.root}>
@@ -101,10 +105,16 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item>
               <div className={classes.appointmentDateHeader}>DATE</div>
-           
-              <div>{appointmentDateTime.locale(i18next.language).format('dddd')}</div>
+
               <div>
-                <strong>{appointmentDateTime.locale(i18next.language).format('MMMM Do, YYYY')}</strong>
+                {appointmentDateTime.locale(i18next.language).format('dddd')}
+              </div>
+              <div>
+                <strong>
+                  {appointmentDateTime
+                    .locale(i18next.language)
+                    .format('MMMM Do, YYYY')}
+                </strong>
               </div>
               <div>
                 <strong>

@@ -22,8 +22,8 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Alert from '@material-ui/lab/Alert'
 import { openSansFont } from '../../App'
-import { getSearchParams} from '../../helpers/utility'
-import {useSessionDataState, useSessionDataDispatch} from '../../AuthContext'
+import { getSearchParams } from '../../helpers/utility'
+import { useSessionDataState, useSessionDataDispatch } from '../../AuthContext'
 import GlobalAlertCopy from './GlobalAlertCopy'
 import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
 import i18n from '../../i18n'
@@ -143,10 +143,10 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
   //const [alertCode, setAlertCode] = useSessionStorage('alert', undefined)
 
   const { t } = useTranslation()
-  
+
   const clearAlertCode = () => {
     //setAlertCode(undefined)
-    sessionUpdateFn({type: 'CLEAR_ALERT'})
+    sessionUpdateFn({ type: 'CLEAR_ALERT' })
   }
   const isGlobalNotificationAlertHidden = (location: string): boolean => {
     const specialPages = ['settings', 'appointment', 'consent']
@@ -155,13 +155,18 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
       undefined
     )
   }
-  const isGlobalNotificationAlertHiddenFlag = isGlobalNotificationAlertHidden(window.location.pathname)
+  const isGlobalNotificationAlertHiddenFlag = isGlobalNotificationAlertHidden(
+    window.location.pathname,
+  )
   if (!isGlobalNotificationAlertHiddenFlag) {
     const searchParamsProps = getSearchParams(window.location.search)
     const searchParamAlertCode: string = searchParamsProps['alert']
     if (searchParamAlertCode && searchParamAlertCode !== alertCode) {
-      sessionUpdateFn({type: 'SET_ALERT', payload: {...sessionData, alert: searchParamAlertCode}})
-     // setAlertCode(searchParamAlertCode)
+      sessionUpdateFn({
+        type: 'SET_ALERT',
+        payload: { ...sessionData, alert: searchParamAlertCode },
+      })
+      // setAlertCode(searchParamAlertCode)
     }
   }
 
@@ -171,7 +176,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
 
   const changeLanguage = () => {
     const newLanguage = i18n.language === 'es' ? 'en' : 'es'
-    window.localStorage.setItem('appUILang', newLanguage);
+    window.localStorage.setItem('appUILang', newLanguage)
 
     i18n.changeLanguage(newLanguage)
     setLanguage(newLanguage)
@@ -194,7 +199,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.navBarLink}
         >
           <ListItem button className={classes.mobileMenuItem}>
-          {t('topnav.text1')}
+            {t('topnav.text1')}
           </ListItem>
         </NavLink>
         <NavLink
@@ -203,7 +208,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.navBarLink}
         >
           <ListItem button className={classes.mobileMenuItem}>
-          {t('topnav.text2')}
+            {t('topnav.text2')}
           </ListItem>
         </NavLink>
         <NavLink
@@ -212,7 +217,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.navBarLink}
         >
           <ListItem button className={classes.mobileMenuItem}>
-          {t('topnav.text3')}
+            {t('topnav.text3')}
           </ListItem>
         </NavLink>
         <NavLink
@@ -221,7 +226,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.navBarLink}
         >
           <ListItem button className={classes.mobileMenuItem}>
-          {t('topnav.text4')}
+            {t('topnav.text4')}
           </ListItem>
         </NavLink>
         <NavLink
@@ -230,7 +235,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.navBarLink}
         >
           <ListItem button className={classes.mobileMenuItem}>
-          {t('topnav.text5')}
+            {t('topnav.text5')}
           </ListItem>
         </NavLink>
         {/*
@@ -243,25 +248,25 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
         {language === 'es' ? 'in English' : 'en español'}
         </ListItem>*/}
         <Divider className={classes.mobileMenuSeparator} />
-        {(props.token && sessionData.consented) && (
+        {props.token && sessionData.consented && (
           <NavLink
             to="/dashboard"
             onClick={handleDrawerToggle}
             className={classes.navBarLink}
           >
             <ListItem button className={classes.mobileMenuItem}>
-            {t('topnav.text6')}
+              {t('topnav.text6')}
             </ListItem>
           </NavLink>
         )}
-        {(props.token && sessionData.consented) && (
+        {props.token && sessionData.consented && (
           <NavLink
             to="/settings"
             onClick={handleDrawerToggle}
             className={classes.navBarLink}
           >
             <ListItem button className={classes.mobileMenuItem}>
-            {t('topnav.text7')}
+              {t('topnav.text7')}
             </ListItem>
           </NavLink>
         )}
@@ -274,7 +279,6 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             <ListItem button className={classes.mobileMenuItem}>
               <Logout
                 onLogout={() => {
-   
                   props.logoutCallbackFn(undefined, '', false)
                 }}
               ></Logout>
@@ -288,7 +292,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             className={classes.navBarLink}
           >
             <ListItem button className={classes.mobileMenuItem}>
-            {t('common.joinUs')}
+              {t('common.joinUs')}
             </ListItem>
           </NavLink>
         )}
@@ -299,7 +303,6 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             className={classes.navBarLink}
           >
             <ListItem button className={classes.mobileMenuItem}>
-             
               {t('topnav.text8')}
             </ListItem>
           </NavLink>
@@ -315,7 +318,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
         className={classes.fullNavBarLink}
         activeClassName={classes.fullNavBarLinkActive}
       >
-         {t('topnav.text1')}
+        {t('topnav.text1')}
       </NavLink>
       <NavLink
         to="/team"
@@ -345,7 +348,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
       >
         {t('topnav.text5')}
       </NavLink>
-      {(props.token && sessionData.consented) &&  (
+      {props.token && sessionData.consented && (
         <NavLink
           to="/dashboard"
           className={classes.fullNavBarLink}
@@ -354,16 +357,16 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           {t('topnav.text6')}
         </NavLink>
       )}
-      {(props.token   && sessionData.consented) && (
+      {props.token && sessionData.consented && (
         <NavLink
           to="/settings"
           className={classes.fullNavBarLink}
           activeClassName={classes.fullNavBarLinkActive}
         >
-           {t('topnav.text7')}
+          {t('topnav.text7')}
         </NavLink>
       )}
-    {/*}  <a
+      {/*}  <a
         className={classes.fullNavBarLink}
         onClick={() => changeLanguage()}
       >
@@ -378,7 +381,6 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
         >
           <Logout
             onLogout={() => {
-
               props.logoutCallbackFn(undefined, '', false)
             }}
           ></Logout>
@@ -391,7 +393,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.fullNavBarLink}
         >
           <Button variant="outlined" className={classes.fullNavBarButton}>
-          {t('topnav.text8')}
+            {t('topnav.text8')}
           </Button>
         </NavLink>
       )}

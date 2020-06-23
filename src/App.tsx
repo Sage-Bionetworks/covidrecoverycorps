@@ -276,7 +276,7 @@ function App() {
   const classes = useStyles()
 
   const getTopClass = (location: string) => {
-    const alertClass  = !!sessionData.alert ? ' hasAlert': ''
+    const alertClass = !!sessionData.alert ? ' hasAlert' : ''
     const specialPages = ['dashboard', 'survey', 'contactinfo', 'appointment']
     if (specialPages.find(page => location.toLowerCase().includes(page))) {
       return `partialGreen${alertClass}`

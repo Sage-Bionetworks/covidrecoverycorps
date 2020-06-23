@@ -96,7 +96,7 @@ const TestLoctionSurvey: React.FunctionComponent<TestLoctionSurveyProps> = ({
                     </div>
                     <div
                       className="pull-right"
-                      style={{ paddingBottom: '2.4rem' , paddingTop: '1rem'}}
+                      style={{ paddingBottom: '2.4rem', paddingTop: '1rem' }}
                     >
                       <Button
                         size="small"

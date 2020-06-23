@@ -60,7 +60,7 @@
             "inches": {
               "type": "number",
               "minimum": 0,
-              "maximum":11
+              "maximum": 11
             }
           }
         }
@@ -79,24 +79,23 @@
           "type": "string",
           "uniqueItems": true,
           "title": "5. When you are sick, where do you usually go for care?",
-      
-            "enum": [
-              "Doctor’s office, Clinic, or Health center",
-              "Urgent care or Minute clinic",
-              "Hospital emergency room",
-              "Some other place (for example: faith healer, botanica, acupuncture, etc.)",
-              "I don’t go to one place",
-              "Prefer not to answer"
-            ],
-            "enumNames": [
-              "Doctor’s office, Clinic, or Health center",
-              "Urgent care or Minute clinic",
-              "Hospital emergency room",
-              "Some other place (for example: faith healer, botanica, acupuncture, etc.)",
-              "I don’t go to one place",
-              "Prefer not to answer"
-            ]
-         
+
+          "enum": [
+            "Doctor’s office, Clinic, or Health center",
+            "Urgent care or Minute clinic",
+            "Hospital emergency room",
+            "Some other place (for example: faith healer, botanica, acupuncture, etc.)",
+            "I don’t go to one place",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Doctor’s office, Clinic, or Health center",
+            "Urgent care or Minute clinic",
+            "Hospital emergency room",
+            "Some other place (for example: faith healer, botanica, acupuncture, etc.)",
+            "I don’t go to one place",
+            "Prefer not to answer"
+          ]
         },
         "routine_exam_2019": {
           "type": "string",
@@ -117,7 +116,7 @@
         "vaccinations": {
           "type": "array",
           "uniqueItems": true,
-          "minItems":1,
+          "minItems": 1,
           "title": "7. Have you received a vaccination in 2019/2020 against any of the following? (check all that apply)",
           "items": {
             "type": "string",
@@ -306,7 +305,7 @@
               "type": "boolean",
               "title": "Stroke/Brain bleed"
             },
-         
+
             "coronary_bypass_surgery": {
               "type": "boolean",
               "title": "Coronary artery bypass surgery"
@@ -373,7 +372,7 @@
                 }
               ]
             },
-            
+
             "coronary_bypass_surgery": {
               "oneOf": [
                 {

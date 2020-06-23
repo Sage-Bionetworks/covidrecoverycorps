@@ -13,7 +13,7 @@
       "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
         "inline": false,
-        "exclusive":[0, 1]
+        "exclusive": [0, 1]
       }
     },
     "ethnicity_other": {
@@ -46,7 +46,7 @@
       "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
         "inline": false,
-        "exclusive":[0]
+        "exclusive": [0]
       }
     },
     "how_heard_other": {

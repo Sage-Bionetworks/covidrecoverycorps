@@ -24,8 +24,8 @@ import {
   PocketIcon,
   FacebookMessengerShareButton,
   FacebookMessengerIcon,
-} from 'react-share';
-import classes from '*.module.css';
+} from 'react-share'
+import classes from '*.module.css'
 
 export type ShareModalProps = {
   show: boolean
@@ -34,7 +34,7 @@ export type ShareModalProps = {
 
 const useStyles = makeStyles(theme => ({
   modalBody: {
-    padding: '10px'
+    padding: '10px',
   },
   shareButtonsContainer: {
     display: 'flex',
@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   },
   shareButtonDiv: {
     width: '100px',
-    padding: '10px'
+    padding: '10px',
   },
   shareButton: {
     marginLeft: '5px',
@@ -52,9 +52,8 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
   },
   closeButton: {
-    padding: '0px 45px'
+    padding: '0px 45px',
   },
-  
 }))
 
 export default function ShareModal(props: ShareModalProps) {
@@ -64,7 +63,7 @@ export default function ShareModal(props: ShareModalProps) {
   const classes = useStyles()
 
   return (
-    <Modal show={props.show} animation={false} onHide={props.onClose} size='lg'>
+    <Modal show={props.show} animation={false} onHide={props.onClose} size="lg">
       <Modal.Header closeButton={true}>
         <Modal.Title>Share</Modal.Title>
       </Modal.Header>
@@ -80,7 +79,7 @@ export default function ShareModal(props: ShareModalProps) {
             </FacebookShareButton>
 
             <div>
-              <p>Facebook</p>              
+              <p>Facebook</p>
             </div>
           </div>
           <div className={classes.shareButtonDiv}>

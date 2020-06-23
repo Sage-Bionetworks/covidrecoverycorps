@@ -117,7 +117,7 @@
       "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
         "inline": false,
-        "exclusive":[0, 1]
+        "exclusive": [0, 1]
       }
     },
     "pets_other": {
@@ -131,7 +131,7 @@
       "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
         "inline": false,
-        "exclusive":[0,1]
+        "exclusive": [0, 1]
       }
     }
   },
@@ -140,7 +140,7 @@
       "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
         "inline": false,
-        "exclusive":[0]
+        "exclusive": [0]
       }
     },
     "work_from_home": {
