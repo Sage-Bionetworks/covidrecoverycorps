@@ -144,6 +144,13 @@ export default class SurveyWrapper extends React.Component<
     }
   }
 
+  isSurveySubmitted = (surveyName: SurveyType): boolean => {
+    const currentSurvey = this.state.savedSurveys?.surveys.find(
+      survey => survey.type === surveyName,
+    )
+    return !!currentSurvey?.completedDate
+  }
+
   finishedProcessing = (status: StatusEnum, message?: string) => {
     this.setState({
       isLoading: false,
@@ -299,7 +306,6 @@ export default class SurveyWrapper extends React.Component<
       )
 
       if (result.ok) {
-        // await SurveyService.postUserSurvey(savedSurveys, this.props.token)
         await this.saveSurvey(rawData, new Date())
         this.setState({ isFormSubmitted: true })
       }
@@ -425,7 +431,7 @@ export default class SurveyWrapper extends React.Component<
                     ? this.submitForm(data, this.cleanData(data))
                     : this.updateUserContactInfo(data, this.cleanData(data))
                 }}
-                isSubmitted={false}
+                isSubmitted={this.isSurveySubmitted(this.props.surveyName)}
                 extraUIProps={extraUIProps}
               ></SynapseForm>
             </div>
