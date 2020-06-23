@@ -5,6 +5,8 @@ import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
 import moment from 'moment'
 import { UserService } from '../../services/user.service'
+import i18next from 'i18next';
+import 'moment/locale/es'
 
 type AppointmentProps = {
   token?: string
@@ -99,9 +101,10 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item>
               <div className={classes.appointmentDateHeader}>DATE</div>
-              <div>{appointmentDateTime.format('dddd')}</div>
+           
+              <div>{appointmentDateTime.locale(i18next.language).format('dddd')}</div>
               <div>
-                <strong>{appointmentDateTime.format('MMMM Do, YYYY')}</strong>
+                <strong>{appointmentDateTime.locale(i18next.language).format('MMMM Do, YYYY')}</strong>
               </div>
               <div>
                 <strong>
