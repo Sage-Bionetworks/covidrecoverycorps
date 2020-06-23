@@ -112,20 +112,20 @@ const summaryScreens = [
     <div className="list">
       <p className="Consent__copy">
         <Trans i18nKey="consentinfo.screen2.text8">
-        [translation] <strong>[translation] </strong>[translation]
+        [translate] <strong>[translate] </strong>[translate]
         </Trans>
       </p>
       <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen2.text9">
-        [translation] <strong>[translation]</strong> [translation] <strong> [translation]</strong> [translation]
+        [translate] <strong>[translate]</strong> [translate] <strong> [translate]</strong> [translate]
       </Trans>
       </p>
 
       <p className="Consent__copy">
         <Trans i18nKey="consentinfo.screen2.text10">
-          [translation] <strong>[translation]</strong>
-          [translation] <strong>[translation] </strong>[translation]
-          <strong>[translation] </strong> [translation]
+          [translate] <strong>[translate]</strong>
+          [translate] <strong>[translate] </strong>[translate]
+          <strong>[translate] </strong> [translate]
         </Trans>
       </p>
 
@@ -266,19 +266,19 @@ const summaryScreens = [
     <h2>{i18next.t("consentinfo.screen10.text1")}</h2>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen10.text2">
-        [translation] <strong>[translation]</strong>[translation]
+        [translate] <strong>[translate]</strong>[translate]
       </Trans>
     </p>
 
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen10.text3">
-      [translation] <strong>[translation]</strong> [translation] <strong> [translation]</strong> [translation] <strong> [translation]</strong> [translation]
+      [translate] <strong>[translate]</strong> [translate] <strong> [translate]</strong> [translate] <strong> [translate]</strong> [translate]
       </Trans>
     </p>
 
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen10.text4">
-        [translation] <strong>[translation]</strong> [translation] <strong>[translation]</strong>[translation]
+        [translate] <strong>[translate]</strong> [translate] <strong>[translate]</strong>[translate]
       </Trans>
     </p>
   </div>,
@@ -286,22 +286,22 @@ const summaryScreens = [
     <h2>{i18next.t("consentinfo.screen11.text1")}</h2>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen11.text2">
-        [translation] <strong> [translation]</strong>[translation]
+        [translate] <strong> [translate]</strong>[translate]
       </Trans>
     </p>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen11.text3">
-        [translation] <strong> [translation]</strong>[translation]
+        [translate] <strong> [translate]</strong>[translate]
       </Trans>
     </p>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen11.text4">
-        [translation] <strong> [translation] <strong>[translation]</strong>. [translation] <strong>[translation]</strong>[translation] </strong>
+        [translate] <strong> [translate] <strong>[translate]</strong>. [translate] <strong>[translate]</strong>[translate] </strong>
       </Trans>
     </p>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen11.text5">
-        [translation] <strong>[translation]</strong>[translation] <strong>[translation]</strong>[translation]
+        [translate] <strong>[translate]</strong>[translate] <strong>[translate]</strong>[translate]
       </Trans>
     </p>
     <p className="Consent__copy">
@@ -317,45 +317,43 @@ const summaryScreens = [
     <div className="list">
       <p className="Consent__copy">
         <Trans i18nKey="consentinfo.screen12.text3">
-          [translation]<strong> [translation] </strong>[translation]
+          [translate]<strong> [translate] </strong>[translate]
         </Trans>
       </p>
 
       <p className="Consent__copy">
         <Trans i18nKey="consentinfo.screen12.text4">
-          [translation]<strong> [translation]</strong> [translation]
+          [translate]<strong> [translate]</strong> [translate]
         </Trans>
       </p>
       <p className="Consent__copy">
         <Trans i18nKey="consentinfo.screen12.text5">
-          [translation] <strong> [translation] </strong>
+          [translate] <strong> [translate] </strong>
         </Trans>
       </p>
 
       <p className="Consent__copy">
         <Trans i18nKey="consentinfo.screen12.text6">
-          [translation] <strong> [translation]</strong>[translation]
+          [translate] <strong> [translate]</strong>[translate]
         </Trans>
       </p>
     </div>
   </div>,
   <div>
-    <h2>How to contact us?</h2>
+    <h2> {i18next.t("consentinfo.screen13.text1")}</h2>
     <p className="Consent__copy">
-      <strong>For general questions,</strong> please contact the COVID Recovery
-      Corps study at 212-305-5700 (24 hours) or
-      <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
-        COVIDRecoveryCorps@cumc.columbia.edu
-      </a>
-      .
+      <Trans i18nKey="consentinfo.screen13.text2">
+        <strong>[translate]</strong> [translate]
+        <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
+          [translate]
+        </a>
+        [translate]
+      </Trans>
     </p>
     <p>
-      <strong>
-        For questions about your rights as a research participant, concerns or
-        complaints,
-      </strong>
-      please contact Western IRB (WIRB) at <a href="mailto:help@WIRB.com">help@WIRB.com</a> at 360-252-2500 or
-      toll-free at 800-562-478.
+      <Trans i18nKey="consentinfo.screen13.text3">
+        <strong> [translate] </strong> [translate] <a href="mailto:help@WIRB.com">[translate]</a> [translate]
+      </Trans>
     </p>
   </div>,
 ]
@@ -552,24 +550,7 @@ const fullTextScreens = [
       </p>
     </div>
   </div>,
-  <div>
-    <h2>How to contact us?</h2>
-    <p className="Consent__copy">
-      COVID Recovery Corps is a <strong>research study.</strong>
-    </p>
-    <p className="Consent__copy">
-      The goal of the study is to collect information from participants on how
-      the <strong> body fights COVID-19</strong>.
-    </p>
-    <p className="Consent__copy">
-      If you decide to join this study, we will ask you to complete a
-      <strong> survey</strong>.
-    </p>
-    <p className="Consent__copy">
-      We may also ask you to provide a spit, blood, or nasal swab sample.
-      This study will last at least for <strong>12 months</strong> from the time you enroll
-    </p>
-  </div>,
+  <>[[intentionally blank]</>,
 ]
 
 const ehrScreens = [
@@ -677,7 +658,6 @@ const ehrScreens = [
       research will be on COVID-19 and related viruses.
     </p>
     <p className="Consent__copy">
-      
       Once your information is shared with COVID Recovery Corps, it may no
       longer be protected by patient privacy rules (like “HIPAA”). However, it
       will still be protected by other privacy rules and agreements. These
@@ -690,7 +670,6 @@ const ehrScreens = [
       What if I don’t want to give access to my EHR? What if I change my mind?
     </h2>
     <p className="Consent__copy">
-      
       Giving COVID Recovery Corps access to your EHR is voluntary. You get to
       choose. No matter what you decide, now or in the future, it will not
       affect your medical care. If you decide to give COVID Recovery Corps
@@ -699,13 +678,11 @@ const ehrScreens = [
       withdraw from the study.
     </p>
     <p className="Consent__copy">
-      
       You can tell us through the app or website, or use the contact information
       at the end of this form to call or write to us. You can update the study’s
       access to your EHR in your profile settings on the website at any time.
     </p>
     <p className="Consent__copy">
-      
       However, if researchers have already accessed data from your EHR for their
       studies, we at COVID Recovery Corps cannot get it back. Also, we will let
       researchers check the results of past studies. If they need your old data
@@ -750,44 +727,25 @@ const screens: {[key in SCREENS_ENUM]: JSX.Element} = {
   ),
   CONSENT_SIGNATURE1: (
     <p className="Consent__copy">
-      If you understand and agree to the benefits and risk of participating in
-      this study, please sign below.
+      {i18next.t('consentinfo.screen14.text1')}
     </p>
   ),
   CONSENT_SIGNATURE2: (
     <p className="Consent__copy">
       <ul>
-        <li>My data will be stored in the COVID Recovery Corps databases.</li>
-        <li>
-          If I give a biosample, it will be stored at the COVID Recovery Corps
-          biobank. This includes my DNA or genetic material. Information that
-          researchers learn by studying my samples will be stored in the COVID
-          Recovery Corps databases.
-        </li>
-        <li>
-          Researchers will do COVID-19 studies using the COVID Recovery Corps
-          databases and biobank. They may also do research on other health
-          conditions that are related to how the body responds to COVID-19.
-        </li>
-        <li>
-          If my sample is used up, I may be asked to give another biosample. I
-          can say yes or no.
-        </li>
-        <li>
-          My contact information may be used to tell me about other
-          COVID-related studies.
-        </li>
-        <li>
-          I can withdraw (quit) at any time. There is no penalty if I withdraw.
-        </li>
+        <li>{i18next.t('consentinfo.screen14.text3')}</li>
+        <li>{i18next.t('consentinfo.screen14.text4')}</li>
+        <li>{i18next.t('consentinfo.screen14.text5')}</li>
+        <li>{i18next.t('consentinfo.screen14.text6')}</li>
+        <li>{i18next.t('consentinfo.screen14.text7')}</li>
+        <li>{i18next.t('consentinfo.screen14.text8')}</li>
       </ul>
     </p>
   ),
   CONSENT_SHARING: (
     <div>
       <p className="Consent__copy">
-        Would you like to share your study data with other qualified researchers
-        for future research on COVID related work?
+        {i18next.t('consentinfo.screen14.text9')}
       </p>
     </div>
   ),

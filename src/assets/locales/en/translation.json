@@ -306,20 +306,30 @@
       "text8": "You do not give up any of your legal rights if you take part in COVID Recovery Corps."
     },
     "screen13": {
-      "text1": "",
-      "text2": "",
-      "text3": "",
-      "text4": "",
-      "text5": "",
-      "text6": ""
+      "text1": "How to contact us?",
+      "text2": "<0>For general questions,</0> please contact the COVID Recovery Corps study at 212-305-5700 (24 hours) or <2> COVIDRecoveryCorps@cumc.columbia.edu </2> .",
+      "text3": "<0> For questions about your rights as a research participant, concerns or complaints, </0> please contact Western IRB (WIRB) at <2>help@WIRB.com</2> at 360-252-2500 or toll-free at 800-562-478."
     },
-    "fullTextScreen13": {
-      "text1": "",
-      "text2": "",
-      "text3": "",
-      "text4": "",
-      "text5": "",
-      "text6": ""
+    "screen14": {
+      "text1": "If you understand and agree to the benefits and risk of participating in this study, please sign below.",
+      "text2": "I understand and agree to the following:",
+      "text3": "My data will be stored in the COVID Recovery Corps databases.",
+      "text4": "If I give a biosample, it will be stored at the COVID Recovery Corps biobank. This includes my DNA or genetic material. Information that researchers learn by studying my samples will be stored in the COVID Recovery Corps databases.",
+      "text5": "Researchers will do COVID-19 studies using the COVID Recovery Corps databases and biobank. They may also do research on other health conditions that are related to how the body responds to COVID-19.",
+      "text6": "If my sample is used up, I may be asked to give another biosample. I can say yes or no.",
+      "text7": "My contact information may be used to tell me about other COVID-related studies.",
+      "text8": "I can withdraw (quit) at any time. There is no penalty if I withdraw.",
+      "text9": "Would you like to share your study data with other qualified researchers for future research on COVID related work?",
+      "text10": "Yes, share my study data with qualified researchers for future COVID related work.",
+      "text11": "No, only use my study data for this (COVID Recovery Corps) study only.",
+      "text12": "By default, you are sharing your data with this study only.",
+      "text13": "Please check the box below if you agree to take part:",
+      "text14": "I have read this consent form (or someone read it to me). I understand the information in this form. All of my questions have been answered. I freely and willingly choose to take part in COVID Recovery Corps study.",
+      "text15": "Full Name of adult participant"
+    },
+    "learnMoreScreen14": {
+      "text1": "You will have the opportunity to share your data with qualified researchers outside of the COVID Recovery Corps. All qualified researchers must be approved by the COVID Recovery Corps study team and will only use de-identified data. This de-identified data does not contain identifiers like name, date of birth, or zip code. These researchers may be from outside the United States and may work for a non-profit institution, commercial drug or medical device companies, or be a private citizen.",
+      "text2": "Sharing your data with qualified researchers is optional and you can change your mind at any time by updating your data sharing options in your profile. But once we share your data we cannot get it back. If you decide to end data sharing, we will not share your future data."
     }
   },
   "ineligible": {
