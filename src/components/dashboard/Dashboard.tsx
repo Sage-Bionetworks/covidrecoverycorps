@@ -27,7 +27,7 @@ import Intro from './Intro'
 import TestLocationSurvey from '../surveys/TestLocationSurvey'
 
 type DashboardProps = {
-  token: string
+        token: string
 }
 type UISurvey = {
   type: SurveyType
