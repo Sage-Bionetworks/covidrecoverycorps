@@ -822,6 +822,11 @@
         .form-group {
           width: 45%;
           margin-bottom: 0px;
+
+          &.field-error .bs-callout {
+            margin-left: 0;
+            font-size: 1.4rem;
+          }
         }
         .form-group:first-of-type {
           margin-right: 5px;
@@ -837,6 +842,10 @@
     .weight {
       input {
         width: 30%;
+      }
+      &.form-group.field-error .bs-callout {
+        margin-left: 0;
+        font-size: 1.4rem;
       }
     }
 

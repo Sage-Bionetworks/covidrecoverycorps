@@ -8,6 +8,7 @@ import {
   pad,
 } from 'react-jsonschema-form/lib/utils'
 import { WidgetProps } from 'react-jsonschema-form'
+import i18next from 'i18next'
 
 // Alina 5/22 this copies an existing alt date widget to allow for only date in the past.
 // if .options.lessThanNow is set and the date is in the future the date resets to today.
@@ -74,7 +75,7 @@ function DateElement(props: any) {
         id={id}
         className="form-control"
         options={{ enumOptions: rangeOptions(range[0], range[1]) }}
-        placeholder={type}
+        placeholder={i18next.t(`common.date.${type}`)}
         value={value}
         disabled={disabled}
         readonly={readonly}
@@ -230,7 +231,7 @@ class AltDateWidget extends Component<AltDateWidgetProps, AltDateWidgetState> {
               className="btn btn-warning btn-clear"
               onClick={this.clear}
             >
-              Clear
+              {i18next.t('surveys.clear')}
             </a>
           </li>
         )}

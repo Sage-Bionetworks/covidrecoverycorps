@@ -1,4 +1,5 @@
 import * as React from 'react'
+import i18next from 'i18next'
 
 export type HeaderProps = {
   isSubmitted?: boolean
@@ -10,7 +11,7 @@ export default function Header(props: HeaderProps) {
   let bodyText = <></>
 
   if (props.isSubmitted) {
-    bodyText = <div>Your information has been submitted</div>
+    bodyText = <div>  {i18next.t('surveys.submitted')}</div>
   } else {
     if (props.bodyText) {
       bodyText = (

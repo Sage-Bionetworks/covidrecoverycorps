@@ -38,6 +38,7 @@ import CircularProgress from '@material-ui/core/CircularProgress/CircularProgres
 import AltDateWidget from './AltDateWidget'
 import ExclusiveCheckboxesWidget from './ExclusiveCheckboxesWidget'
 import ExclusiveCheckboxesObjectField from './ExclusiveCheckboxesObjectField'
+import i18next from 'i18next'
 
 export interface IFormData {
   [key: string]: {
@@ -904,7 +905,7 @@ export default class SynapseForm extends React.Component<
     })
     errors.forEach(error => {
       if (error.name === 'minItems') {
-        error.message = 'is a required field'
+        error.message = i18next.t('surveys.errors.required')
       }
     })
 
@@ -949,7 +950,22 @@ export default class SynapseForm extends React.Component<
     })
 
     return errors.map(error => {
-      error.message = error.message.replace('property', 'field')
+      switch(error.name) {
+        case "required": {
+          error.message = i18next.t('surveys.errors.required')
+          break;
+
+        }
+        case "maximum" : {
+          error.message = i18next.t('surveys.errors.maximum', {value: error.params.limit})
+          break;
+        }
+        case "minimum" : {
+          error.message = i18next.t('surveys.errors.minimum', {value: error.params.limit})
+          break;
+        }
+      }
+
 
       return error
     })
@@ -1080,6 +1096,7 @@ export default class SynapseForm extends React.Component<
                 >
                   <Form
                     widgets={widgets}
+               
                     className={
                       this.state.doShowHelp
                         ? 'submissionInputForm'
@@ -1119,7 +1136,8 @@ export default class SynapseForm extends React.Component<
                       className="error padded-panel pull-right"
                       style={{ margin: '1rem 0 2rem 0' }}
                     >
-                      Responses required above
+                      {i18next.t('surveys.responsesRequired')}
+                     
                     </div>
                   )}
                   {!this.props.isWizardMode && (

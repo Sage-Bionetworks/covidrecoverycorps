@@ -1,0 +1,71 @@
+{
+    "definitions": {
+      "data": {
+        "type": "object",
+        "required": ["attributes", "firstName", "lastName"],
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "title": "First name:"
+          },
+          "lastName": {
+            "type": "string",
+            "title": "Last name:"
+          },
+  
+          "attributes": {
+            "type": "object",
+            "required": [
+              "address1",
+              "city",
+              "state",
+              "zip_code",
+              "gender",
+              "dob"
+            ],
+            "properties": {
+              "dob": {
+                "type": "string",
+                "title": "Date of birth:"
+              },
+              "address1": {
+                "title": "Current Residential Address:",
+                "type": "string"
+              },
+              "address2": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string",
+                "enum": ["NY", "NJ", "CT"],
+                "enumNames": ["NY", "NJ", "CT"]
+              },
+              "zip_code": {
+                "type": "string",
+  
+                "uniqueItems": true
+              },
+  
+              "gender": {
+                "type": "string",
+                "title": "What  was your biological sex assigned at birth?",
+                "enum": ["Female", "Male", "Other"],
+                "enumNames": ["Female", "Male", "Other"],
+                "uniqueItems": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "type": "object",
+    "properties": {
+      "data": {
+        "$ref": "#/definitions/data"
+      }
+    }
+  }
+  
