@@ -1150,7 +1150,7 @@ export default class SynapseForm extends React.Component<
                     ref={this.formRef}
                     disabled={
                       this.state.currentStep
-                        .excluded /*|| this.state.isSubmitted*/
+                        .excluded || this.state.isSubmitted
                     }
                   >
                     <div style={{ display: 'none' }}>
