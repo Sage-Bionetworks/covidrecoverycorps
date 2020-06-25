@@ -364,6 +364,8 @@
       "required": "is a required field",
       "minimum": "should be at least {{value}}",
       "maximum": "should be at most {{value}}",
+      "between": "should be between {{min}} and {{max}}",
+      "invalid": "invalid value",
       "symptomSequence": "please check that your symptoms dates are in the right sequence"
     }
   },
@@ -378,5 +380,8 @@
     "text8": "Medical History",
     "text9": "Survey 4",
     "text10": "More COVID Experience"
+  },
+  "appointment": {
+    "title": ""
   }
 }

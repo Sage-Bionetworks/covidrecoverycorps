@@ -869,6 +869,19 @@ export default class SynapseForm extends React.Component<
       return err1 || err2 || err3
     })
 
+    engine.addOperator('range', (factValue: any, value: number[]) => {
+      if (!factValue) {
+        return
+      }
+      if (isNaN(factValue)) {
+        return true
+      } else {
+        const val = Number(factValue)
+
+        return val < value[0] || val > value[1]
+      }
+    })
+
     allRules.forEach(rule => {
       engine.addRule(rule)
     })
@@ -878,11 +891,19 @@ export default class SynapseForm extends React.Component<
       const validationEvents = result.events as IRulesValidationEvent[]
       console.log(result)
       validationEvents.forEach(event => {
+        const msg =
+          event.params.name === 'range'
+            ? i18next.t('surveys.errors.between', {
+                min: event.params.value[0],
+                max: event.params.value[1],
+              })
+            : event.params.message
         const err: AjvError = {
           ...event.params,
+          message: msg,
           ...{
             params: {},
-            stack: `${event.params.property} ${event.params.message}`,
+            stack: `${event.params.property} ${msg}`,
           },
         }
         errors.push(err)
@@ -950,22 +971,28 @@ export default class SynapseForm extends React.Component<
     })
 
     return errors.map(error => {
-      switch(error.name) {
-        case "required": {
+      switch (error.name) {
+        case 'required': {
           error.message = i18next.t('surveys.errors.required')
-          break;
-
+          break
         }
-        case "maximum" : {
-          error.message = i18next.t('surveys.errors.maximum', {value: error.params.limit})
-          break;
+        case 'maximum': {
+          error.message = i18next.t('surveys.errors.maximum', {
+            value: error.params.limit,
+          })
+          break
         }
-        case "minimum" : {
-          error.message = i18next.t('surveys.errors.minimum', {value: error.params.limit})
-          break;
+        case 'minimum': {
+          error.message = i18next.t('surveys.errors.minimum', {
+            value: error.params.limit,
+          })
+          break
+        }
+        case 'sequence': {
+          error.message = i18next.t('surveys.errors.symptomSequence')
+          break
         }
       }
-
 
       return error
     })
@@ -1096,7 +1123,6 @@ export default class SynapseForm extends React.Component<
                 >
                   <Form
                     widgets={widgets}
-               
                     className={
                       this.state.doShowHelp
                         ? 'submissionInputForm'
@@ -1123,7 +1149,8 @@ export default class SynapseForm extends React.Component<
                     ObjectFieldTemplate={ObjectFieldTemplate}
                     ref={this.formRef}
                     disabled={
-                      this.state.currentStep.excluded || this.state.isSubmitted
+                      this.state.currentStep
+                        .excluded /*|| this.state.isSubmitted*/
                     }
                   >
                     <div style={{ display: 'none' }}>
@@ -1137,7 +1164,6 @@ export default class SynapseForm extends React.Component<
                       style={{ margin: '1rem 0 2rem 0' }}
                     >
                       {i18next.t('surveys.responsesRequired')}
-                     
                     </div>
                   )}
                   {!this.props.isWizardMode && (

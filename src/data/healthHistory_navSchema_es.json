@@ -6,7 +6,59 @@
       "title": "Historial médico",
       "default": "history11",
       "orderDisplay": "1/6",
-      "description": "Por favor complete las preguntas de este cuestionario, a lo que mejor pueda. Si usted no se recuerda o no desea responder a la pregunta, por favor marque \"Prefiero no responder\""
+      "description": "Por favor complete las preguntas de este cuestionario, a lo que mejor pueda. Si usted no se recuerda o no desea responder a la pregunta, por favor marque \"Prefiero no responder\"",
+      "validationRules": [
+        {
+          "conditions": {
+            "all": [
+              {
+                "fact": "history1",
+                "operator": "range",
+                "path": ".weight",
+                "value": [50, 500]
+              }
+            ]
+          },
+          "event": {
+            "type": "validation",
+            "params": {
+              "message": "  range ",
+              "value": [50, 500],
+              "name": "range",
+              "property": "history1.weight"
+            }
+          },
+          "priority:": 1
+        },
+        {
+          "conditions": {
+            "any": [
+              {
+                "fact": "history1",
+                "operator": "range",
+                "path": ".height.feet",
+                "value": [2, 7]
+              },
+              {
+                "fact": "history1",
+                "operator": "range",
+                "path": ".height.inches",
+                "value": [0, 11]
+              }
+            ]
+          },
+          "event": {
+            "type": "validation",
+            "params": {
+              "message": " range  ",
+              "value": ["2'0", "7'0"],
+              "name": "range",
+              "property": "history1.height"
+            }
+          },
+          "priority:": 1
+        }
+      ]
     },
     {
       "id": "history11",
