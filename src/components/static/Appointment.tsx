@@ -3,7 +3,7 @@ import { makeStyles, Grid, Card } from '@material-ui/core'
 import { ReportData, AppointmentParticipant } from '../../types/types'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
-import QRCode from 'qrcode.react';
+import QRCode from 'qrcode.react'
 import moment from 'moment'
 import { UserService } from '../../services/user.service'
 import i18next from 'i18next'
@@ -53,8 +53,8 @@ export const useStyles = makeStyles(theme => ({
   },
   qrCode: {
     margin: '3rem auto',
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+  },
 }))
 export const Appointment: React.FunctionComponent<AppointmentProps> = ({
   token,
@@ -91,12 +91,14 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
     }
   }, [token])
 
-  const getInfoPiece = (participant: AppointmentParticipant[] | undefined, type: 'Patient' | 'Location') => {
- const result = participant?.find(item => item.actor.reference.includes(`${type}/`))
- console.log(result)
- return result?.actor;
-
-
+  const getInfoPiece = (
+    participant: AppointmentParticipant[] | undefined,
+    type: 'Patient' | 'Location',
+  ) => {
+    const result = participant?.find(item =>
+      item.actor.reference.includes(`${type}/`),
+    )
+    return result?.actor
   }
   const renderAppointment = (appointment: ReportData) => {
     const appointmentDateTime = moment(appointment.data.start)
@@ -119,7 +121,6 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
       <Card className={classes.root}>
         <div className={classes.appointmentContainerDiv}>
           <h2 className="text-center">Appointment confirmation</h2>
-       
 
           <p>Your lab appointment has been confirmed for:</p>
           <Grid container direction="row" justify="center" alignItems="center">
@@ -142,31 +143,22 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
                 </strong>
               </div>
             </Grid>
-         
-          
           </Grid>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item>
               <div className={classes.appointmentDateHeader}>LOCATION</div>
 
               <div>
-                {appointmentDateTime.locale(i18next.language).format('dddd')}
+                [TBD]
               </div>
               <div>
                 <strong>
-                  {appointmentDateTime
-                    .locale(i18next.language)
-                    .format('MMMM Do, YYYY')}
+                 
+                 [TBD]
                 </strong>
               </div>
-              <div>
-                <strong>
-                  {friendlyAppointmentTimeStart} - {friendlyAppointmentTimeEnd}
-                </strong>
-              </div>
+              
             </Grid>
-         
-          
           </Grid>
 
           <div className={classes.appointmentInstructions}>
@@ -183,7 +175,7 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
               appointment.
             </p>
             <div className={classes.qrCode}>
-            <QRCode value={reference|| ''} />
+              <QRCode value={reference || ''} />
             </div>
             <p>
               If you have a fever, cough, sore throat, shortness of breath,
