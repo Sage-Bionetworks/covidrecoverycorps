@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles, Grid, Card } from '@material-ui/core'
-import { ReportData } from '../../types/types'
+import { ReportData, AppointmentParticipant } from '../../types/types'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
+import QRCode from 'qrcode.react';
 import moment from 'moment'
 import { UserService } from '../../services/user.service'
 import i18next from 'i18next'
+import { useTranslation } from 'react-i18next'
 import 'moment/locale/es'
 
 type AppointmentProps = {
@@ -49,6 +51,10 @@ export const useStyles = makeStyles(theme => ({
     height: '50px',
     maxWidth: '200px',
   },
+  qrCode: {
+    margin: '3rem auto',
+    textAlign: 'center'
+  }
 }))
 export const Appointment: React.FunctionComponent<AppointmentProps> = ({
   token,
@@ -57,6 +63,7 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
   const [appointment, setAppointment] = useState<ReportData>()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState()
+  const { t } = useTranslation()
 
   useEffect(() => {
     let isSubscribed = true
@@ -84,8 +91,19 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
     }
   }, [token])
 
+  const getInfoPiece = (participant: AppointmentParticipant[] | undefined, type: 'Patient' | 'Location') => {
+ const result = participant?.find(item => item.actor.reference.includes(`${type}/`))
+ console.log(result)
+ return result?.actor;
+
+
+  }
   const renderAppointment = (appointment: ReportData) => {
     const appointmentDateTime = moment(appointment.data.start)
+    const patient = getInfoPiece(appointment.data.participant, 'Patient')
+    const location = getInfoPiece(appointment.data.participant, 'Location')
+
+    const reference = patient?.reference.split('Patient/')[1]
     const friendlyAppointmentTimeStart = appointmentDateTime
       .locale(i18next.language)
       .format('h:mm a')
@@ -101,7 +119,9 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
       <Card className={classes.root}>
         <div className={classes.appointmentContainerDiv}>
           <h2 className="text-center">Appointment confirmation</h2>
-          <p>Your lab appointment has been confirmed for::</p>
+       
+
+          <p>Your lab appointment has been confirmed for:</p>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item>
               <div className={classes.appointmentDateHeader}>DATE</div>
@@ -122,6 +142,31 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
                 </strong>
               </div>
             </Grid>
+         
+          
+          </Grid>
+          <Grid container direction="row" justify="center" alignItems="center">
+            <Grid item>
+              <div className={classes.appointmentDateHeader}>LOCATION</div>
+
+              <div>
+                {appointmentDateTime.locale(i18next.language).format('dddd')}
+              </div>
+              <div>
+                <strong>
+                  {appointmentDateTime
+                    .locale(i18next.language)
+                    .format('MMMM Do, YYYY')}
+                </strong>
+              </div>
+              <div>
+                <strong>
+                  {friendlyAppointmentTimeStart} - {friendlyAppointmentTimeEnd}
+                </strong>
+              </div>
+            </Grid>
+         
+          
           </Grid>
 
           <div className={classes.appointmentInstructions}>
@@ -137,6 +182,9 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
               card. Please complete the four surveys prior to your lab
               appointment.
             </p>
+            <div className={classes.qrCode}>
+            <QRCode value={reference|| ''} />
+            </div>
             <p>
               If you have a fever, cough, sore throat, shortness of breath,
               diarrhea, or body aches, you should not come to have your blood

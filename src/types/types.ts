@@ -114,9 +114,20 @@ export type SavedSurvey = {
 export type SavedSurveysObject = {
   surveys: SavedSurvey[]
 }
+
+export type AppointmentParticipant = {
+  actor: {
+    reference: string
+    display: string
+    address?: any
+  },
+  required: string
+  status: string
+}
 export type ColumbiaAppointment = {
   start: string // date/time when appointment will start
   status: string
+  participant?: AppointmentParticipant[]
 }
 
 export type ReportData = {
