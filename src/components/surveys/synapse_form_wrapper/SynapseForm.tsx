@@ -38,6 +38,7 @@ import CircularProgress from '@material-ui/core/CircularProgress/CircularProgres
 import AltDateWidget from './AltDateWidget'
 import ExclusiveCheckboxesWidget from './ExclusiveCheckboxesWidget'
 import ExclusiveCheckboxesObjectField from './ExclusiveCheckboxesObjectField'
+import i18next from 'i18next'
 
 export interface IFormData {
   [key: string]: {
@@ -868,6 +869,19 @@ export default class SynapseForm extends React.Component<
       return err1 || err2 || err3
     })
 
+    engine.addOperator('range', (factValue: any, value: number[]) => {
+      if (!factValue) {
+        return
+      }
+      if (isNaN(factValue)) {
+        return true
+      } else {
+        const val = Number(factValue)
+
+        return val < value[0] || val > value[1]
+      }
+    })
+
     allRules.forEach(rule => {
       engine.addRule(rule)
     })
@@ -877,11 +891,19 @@ export default class SynapseForm extends React.Component<
       const validationEvents = result.events as IRulesValidationEvent[]
       console.log(result)
       validationEvents.forEach(event => {
+        const msg =
+          event.params.name === 'range'
+            ? i18next.t('surveys.errors.between', {
+                min: event.params.value[0],
+                max: event.params.value[1],
+              })
+            : event.params.message
         const err: AjvError = {
           ...event.params,
+          message: msg,
           ...{
             params: {},
-            stack: `${event.params.property} ${event.params.message}`,
+            stack: `${event.params.property} ${msg}`,
           },
         }
         errors.push(err)
@@ -904,7 +926,7 @@ export default class SynapseForm extends React.Component<
     })
     errors.forEach(error => {
       if (error.name === 'minItems') {
-        error.message = 'is a required field'
+        error.message = i18next.t('surveys.errors.required')
       }
     })
 
@@ -949,7 +971,28 @@ export default class SynapseForm extends React.Component<
     })
 
     return errors.map(error => {
-      error.message = error.message.replace('property', 'field')
+      switch (error.name) {
+        case 'required': {
+          error.message = i18next.t('surveys.errors.required')
+          break
+        }
+        case 'maximum': {
+          error.message = i18next.t('surveys.errors.maximum', {
+            value: error.params.limit,
+          })
+          break
+        }
+        case 'minimum': {
+          error.message = i18next.t('surveys.errors.minimum', {
+            value: error.params.limit,
+          })
+          break
+        }
+        case 'sequence': {
+          error.message = i18next.t('surveys.errors.symptomSequence')
+          break
+        }
+      }
 
       return error
     })
@@ -1106,7 +1149,8 @@ export default class SynapseForm extends React.Component<
                     ObjectFieldTemplate={ObjectFieldTemplate}
                     ref={this.formRef}
                     disabled={
-                      this.state.currentStep.excluded || this.state.isSubmitted
+                      this.state.currentStep
+                        .excluded /*|| this.state.isSubmitted*/
                     }
                   >
                     <div style={{ display: 'none' }}>
@@ -1119,7 +1163,7 @@ export default class SynapseForm extends React.Component<
                       className="error padded-panel pull-right"
                       style={{ margin: '1rem 0 2rem 0' }}
                     >
-                      Responses required above
+                      {i18next.t('surveys.responsesRequired')}
                     </div>
                   )}
                   {!this.props.isWizardMode && (

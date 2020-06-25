@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Button from '@material-ui/core/Button/Button'
+import i18next from 'i18next'
 
 export interface NavButtonsProps {
   isWizardMode?: boolean
@@ -66,7 +67,7 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
       disabled={props.isFormSubmitted}
       onClick={e => props.onNavAction(NavActionEnum.SUBMIT)}
     >
-      Submit
+     {i18next.t('common.submit')}
     </Button>
   )
 
@@ -81,7 +82,7 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
         disabled={props.isFormSubmitted}
         onClick={e => props.onNavAction(NavActionEnum.SAVE)}
       >
-        Save progress
+          {i18next.t('surveys.saveProgress')}
       </Button>
     ) : (
       <></>

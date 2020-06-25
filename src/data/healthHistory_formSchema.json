@@ -43,24 +43,18 @@
           ]
         },
         "weight": {
-          "type": "number",
-          "title": "3. How much do you weigh? (lbs.)",
-          "minimum": 50,
-          "maximum": 500
+          "type": "string",
+          "title": "3. How much do you weigh? (lbs.)"
         },
         "height": {
           "type": "object",
           "title": "4. How tall are you?",
           "properties": {
             "feet": {
-              "type": "number",
-              "minimum": 2,
-              "maximum": 8
+              "type": "string"
             },
             "inches": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 11
+              "type": "string"
             }
           }
         }

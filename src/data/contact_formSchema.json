@@ -40,7 +40,8 @@
             },
             "state": {
               "type": "string",
-              "enum": ["NY", "NJ", "CT"]
+              "enum": ["NY", "NJ", "CT"],
+              "enumNames": ["NY", "NJ", "CT"]
             },
             "zip_code": {
               "type": "string",
@@ -52,6 +53,7 @@
               "type": "string",
               "title": "What  was your biological sex assigned at birth?",
               "enum": ["Female", "Male", "Other"],
+              "enumNames": ["Female", "Male", "Other"],
               "uniqueItems": true
             }
           }

@@ -6,7 +6,59 @@
       "title": "Medical History",
       "default": "history11",
       "orderDisplay": "1/6",
-      "description": "Please fill out the following survey questions to the best of your ability. If you do not remember or would not like to answer, please click \"Prefer not to answer\""
+      "description": "Please fill out the following survey questions to the best of your ability. If you do not remember or would not like to answer, please click \"Prefer not to answer\"",
+      "validationRules": [
+        {
+          "conditions": {
+            "all": [
+              {
+                "fact": "history1",
+                "operator": "range",
+                "path": ".weight",
+                "value": [50, 500]
+              }
+            ]
+          },
+          "event": {
+            "type": "validation",
+            "params": {
+              "message": "  range ",
+              "value": [50, 500],
+              "name": "range",
+              "property": "history1.weight"
+            }
+          },
+          "priority:": 1
+        },
+        {
+          "conditions": {
+            "any": [
+              {
+                "fact": "history1",
+                "operator": "range",
+                "path": ".height.feet",
+                "value": [2, 7]
+              },
+              {
+                "fact": "history1",
+                "operator": "range",
+                "path": ".height.inches",
+                "value": [0, 11]
+              }
+            ]
+          },
+          "event": {
+            "type": "validation",
+            "params": {
+              "message": " range  ",
+              "value": ["2'0", "7'0"],
+              "name": "range",
+              "property": "history1.height"
+            }
+          },
+          "priority:": 1
+        }
+      ]
     },
     {
       "id": "history11",

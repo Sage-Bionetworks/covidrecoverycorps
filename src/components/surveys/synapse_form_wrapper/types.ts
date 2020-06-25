@@ -69,6 +69,7 @@ export interface IRulesValidationEvent extends IRulesEvent {
     message: string
     name: string
     property: string
+    value?: any
   }
 }
 

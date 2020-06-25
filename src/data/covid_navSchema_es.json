@@ -28,7 +28,7 @@
 
             "params": {
               "message": "please check that your symptoms dates are in the right sequence",
-              "name": "range",
+              "name": "sequence",
               "property": ".symptoms"
             }
           },

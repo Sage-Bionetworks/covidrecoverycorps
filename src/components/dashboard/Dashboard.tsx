@@ -4,12 +4,9 @@ import saveProgressIconImg from '../../assets/dashboard/icon_savedprogress.svg'
 import clockIconImg from '../../assets/dashboard/icon_timer.svg'
 import completeIconImg from '../../assets/dashboard/icon_complete.svg'
 import emptyIconImg from '../../assets/dashboard/icon_empty.svg'
-
 import { makeStyles } from '@material-ui/core/styles'
-
 import { CircularProgress, Grid } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
-
 import { SurveyService } from '../../services/survey.service'
 import {
   SavedSurveysObject,
@@ -25,9 +22,10 @@ import { UserService } from '../../services/user.service'
 import Alert from '@material-ui/lab/Alert/Alert'
 import Intro from './Intro'
 import TestLocationSurvey from '../surveys/TestLocationSurvey'
+import i18next from 'i18next'
 
 type DashboardProps = {
-  token: string
+        token: string
 }
 type UISurvey = {
   type: SurveyType
@@ -46,36 +44,36 @@ const useStyles = makeStyles({
 const surveys: UISurvey[] = [
   {
     type: 'CONTACT',
-    title: 'profile',
-    description: 'Contact Information',
+    title: i18next.t('dashboard.text1'),
+    description: i18next.t('dashboard.text2'),
     time: '2',
     link: '/contactinfo',
   },
   {
     type: 'DEMOGRAPHIC',
-    title: 'Survey 1',
-    description: 'Tell us about yourself',
+    title: i18next.t('dashboard.text3'),
+    description:i18next.t('dashboard.text4'),
     time: '2',
     link: '/survey1',
   },
   {
     type: 'COVID_EXPERIENCE',
-    title: 'Survey 2',
-    description: 'Recent COVID Experience',
+    title: i18next.t('dashboard.text5'),
+    description: i18next.t('dashboard.text6'),
     time: '5',
     link: '/survey2',
   },
   {
     type: 'HISTORY',
-    title: 'Survey 3',
-    description: 'Medical History',
+    title: i18next.t('dashboard.text7'),
+    description: i18next.t('dashboard.text8'),
     time: '5-10',
     link: '/survey3',
   },
   {
     type: 'MORE',
-    title: 'Survey 4',
-    description: 'More COVID Experience',
+    title: i18next.t('dashboard.text9'),
+    description: i18next.t('dashboard.text10'),
     time: '5-10',
     link: '/survey4',
   },
