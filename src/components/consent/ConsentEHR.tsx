@@ -14,6 +14,8 @@ import { FloatingToolbar } from '../widgets/FloatingToolbar'
 import { ConsentService } from '../../services/consent.service'
 import ConsentIcons from './ConsentIcons'
 import ConsentSentConfirmation from './ConsentSentConfirmation'
+import i18next from 'i18next'
+import 'moment/locale/es'
 
 export type ConsentEHRProps = {
   setConsentEHRFn?: Function
@@ -52,7 +54,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           style={{ marginTop: '20px' }}
           onClick={() => setCurrentStep(_prev => _prev + 1)}
         >
-          Start HIPAA
+          {i18next.t('consentEHR.welcome.text4')}
         </Button>
       </>
     )
@@ -152,7 +154,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
         <div className="Consent__inset">
           <p>
             <strong>
-              I know the following information may be gathered from my EHR:
+              {i18next.t('consentEHR.screen11.text1')}
             </strong>
           </p>
 
@@ -178,7 +180,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
             <p>{moment().format('MMMM Do, YYYY')}</p>
             <div className="form-group">
               <TextField
-                label="Full Name of adult participant:"
+                label={i18next.t('consentEHR.screen11.text9')}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -198,7 +200,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
                 variant="contained"
                 color="primary"
               >
-                Agree
+                 {i18next.t('consentEHR.screen11.text10')}
               </Button>
             </div>
           </form>
@@ -218,7 +220,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
               closeLinkText=""
               closeConfirmationText="Are you sure you want to leave the HIPPA Authorization process?"
             >
-              HIPAA Authorization
+              {i18next.t('consentEHR.header.text1')}
             </FloatingToolbar>
           </>
           {currentStep > 0 && currentStep <= totalSteps && (
