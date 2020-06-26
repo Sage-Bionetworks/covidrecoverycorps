@@ -184,7 +184,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                     <div>
                       <p>
                         <Trans i18nKey="faqs.text23">
-                          [translate]
+                          [translate]<strong></strong> [translate]
                           <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
                             [translate]
                           </a>
