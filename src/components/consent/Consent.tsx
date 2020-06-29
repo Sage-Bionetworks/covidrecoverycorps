@@ -232,7 +232,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 <ConsentCopy
                   screen={SCREENS_ENUM.CONSENT_SIGNATURE1}
                 ></ConsentCopy>
-                <p>{i18next.t('consentinfo.screen14.text2')}</p>
+                <p>{i18next.t('consentinfo.screen15.text2')}</p>
                 <div
                   className="margin-top-std"
                   style={{ marginLeft: '4rem', marginBottom: '4rem' }}
@@ -253,8 +253,8 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 </div>
                 <LearnMore learnMoreText="Learn more">
                   <div>
-                    <p>{i18next.t('consentinfo.learnMoreScreen14.text1')}</p>
-                    <p>{i18next.t('consentinfo.learnMoreScreen14.text2')}</p>
+                    <p>{i18next.t('consentinfo.learnMoreScreen15.text1')}</p>
+                    <p>{i18next.t('consentinfo.learnMoreScreen15.text2')}</p>
                   </div>
                 </LearnMore>
                 <form className="Consent__form" onSubmit={handleOnSubmit}>
@@ -269,13 +269,13 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                         value={ConsentService.SHARE_SCOPE_ALL}
                         control={<Radio color="primary" />}
                         style={{ marginBottom: '4rem' }}
-                        label={i18next.t('consentinfo.screen14.text10')}
+                        label={i18next.t('consentinfo.screen15.text10')}
                       />
 
                       <FormControlLabel
                         value={ConsentService.SHARE_SCOPE_PARTNERS}
                         control={<Radio color="primary" />}
-                        label={i18next.t('consentinfo.screen14.text11')}
+                        label={i18next.t('consentinfo.screen15.text11')}
                       />
                     </RadioGroup>
                     <div
@@ -284,14 +284,14 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                         marginBottom: '4rem',
                       }}
                     >
-                      <p>{i18next.t('consentinfo.screen14.text12')}</p>
+                      <p>{i18next.t('consentinfo.screen15.text12')}</p>
                     </div>
                   </div>
                   <p
                     className="margin-top-std"
                     style={{ marginBottom: '4rem' }}
                   >
-                    {i18next.t('consentinfo.screen14.text13')}
+                    {i18next.t('consentinfo.screen15.text13')}
                   </p>
                   <div
                     className="form-group checkbox--indented"
@@ -307,7 +307,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     />
                     <p>
                       <strong>
-                        {i18next.t('consentinfo.screen14.text14')}
+                        {i18next.t('consentinfo.screen15.text14')}
                       </strong>
                     </p>
                   </div>
@@ -317,7 +317,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   </p>
                   <div className="form-group" style={{ marginTop: '4rem' }}>
                     <TextField
-                      label={i18next.t('consentinfo.screen14.text15')}
+                      label={i18next.t('consentinfo.screen15.text15')}
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -343,7 +343,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                       variant="contained"
                       color="primary"
                     >
-                      {i18next.t('consentinfo.screen14.text16')}
+                      {i18next.t('consentinfo.screen15.text16')}
                     </Button>
                   </div>
                 </form>

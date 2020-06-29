@@ -8,6 +8,7 @@ import _07 from '../../assets/consent_icons/_6.png'
 import _08 from '../../assets/consent_icons/_7.png'
 import _09 from '../../assets/consent_icons/_8.png'
 import _10 from '../../assets/consent_icons/_9.png'
+import _11 from '../../assets/consent_icons/10.png'
 
 import ehr_01 from '../../assets/ehr_icons/_0.png'
 import ehr_02 from '../../assets/ehr_icons/_1.png'
@@ -31,6 +32,7 @@ const ConsentIcons = {
     _05,
     _06,
     undefined,
+    _11,
     _07,
     _08,
     _09,
