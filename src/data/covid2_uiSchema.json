@@ -147,7 +147,7 @@
       "ui:widget": "radio"
     },
     "job_title": {
-      "classNames": "text"
+      "ui:widget": "radio"
     },
     "were_healthcare_worker": {
       "ui:widget": "radio"
