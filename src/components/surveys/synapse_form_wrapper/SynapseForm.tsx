@@ -470,6 +470,8 @@ export default class SynapseForm extends React.Component<
   triggerAction = async (navAction: NavActionEnum) => {
     // we don't need to validate on save so bypassing submit
     if (navAction === NavActionEnum.SAVE) {
+      window.scrollTo(0, 0)
+      console.log('scrolling')
       return this.props.onSave(this.state.formData)
     } else {
       this.navAction = navAction
