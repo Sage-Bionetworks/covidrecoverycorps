@@ -1,0 +1,1211 @@
+{
+  "definitions": {
+    "countryListNames": [
+      "Afganistán",
+      "Albania",
+      "Argelia",
+      "Samoa Americana",
+      "Andorra",
+      "Angola",
+      "Anguila",
+      "Antártida",
+      "Antigua y Barbuda",
+      "Argentina",
+      "Armenia",
+      "Aruba",
+      "Australia",
+      "Austria",
+      "Azerbaiyán",
+
+      "Bahamas (la)",
+      "Bahrein",
+      "Bangladesh",
+      "Barbados",
+      "Bielorrusia",
+      "Bélgica",
+      "Belice",
+      "Benin",
+      "Islas Bermudas",
+      "Bután",
+      "Bolivia (Estado Plurinacional de)",
+      "Bonaire, San Eustaquio y Saba",
+      "Bosnia y Herzegovina",
+      "Botswana",
+      "Isla Bouvet",
+      "Brasil",
+      "Territorio Británico del Océano Índico (el)",
+      "Brunei Darussalam",
+      "Bulgaria",
+      "Burkina Faso",
+      "Burundi",
+      "Cabo Verde",
+      "Camboya",
+      "Camerún",
+      "Canadá",
+      "Islas Caimán (la)",
+      "República Centroafricana (la)",
+      "Chad",
+      "Chile",
+      "China",
+      "Isla de Navidad",
+      "Islas Cocos (Keeling) (la)",
+      "Colombia",
+      "Comoras (el)",
+      "Congo (la República Democrática del)",
+      "Congo (el)",
+      "Islas Cook (la)",
+      "Costa Rica",
+      "Croacia",
+      "Cuba",
+      "Curazao",
+      "Chipre",
+      "Chequia",
+      "Costa de Marfil",
+      "Dinamarca",
+      "Djibouti",
+      "Dominica",
+      "República Dominicana (la)",
+      "Ecuador",
+      "Egipto",
+      "El Salvador",
+      "Guinea Ecuatorial",
+      "Eritrea",
+      "Estonia",
+      "Eswatini",
+      "Etiopía",
+      "Islas Malvinas (Malvinas)",
+      "Islas Feroe (la)",
+      "Fiji",
+      "Finlandia",
+      "Francia",
+      "Guayana Francesa",
+      "Polinesia francés",
+      "Territorios Australes Franceses (el)",
+      "Gabón",
+      "Gambia (la)",
+      "Georgia",
+      "Alemania",
+      "Ghana",
+      "Gibraltar",
+      "Grecia",
+      "Groenlandia",
+      "Granada",
+      "Guadalupe",
+      "Guam",
+      "Guatemala",
+      "Guernsey",
+      "Guinea",
+      "Guinea-Bissau",
+      "Guayana",
+      "Haití",
+      "Islas Heard y McDonald",
+      "Santa Sede (la)",
+      "Honduras",
+      "Hong Kong",
+      "Hungría",
+      "Islandia",
+      "India",
+      "Indonesia",
+      "Irán (República Islámica de)",
+      "Irak",
+      "Irlanda",
+      "Isla del hombre",
+      "Israel",
+      "Italia",
+      "Jamaica",
+      "Japón",
+      "Jersey",
+      "Jordán",
+      "Kazajstán",
+      "Kenia",
+      "Kiribati",
+      "Corea (la República Popular Democrática de)",
+      "Corea (la República de)",
+      "Kuwait",
+      "Kirguistán",
+
+      "República Democrática Popular Lao (la)",
+      "Letonia",
+      "Líbano",
+      "Lesoto",
+      "Liberia",
+      "Libia",
+      "Liechtenstein",
+      "Lituania",
+      "Luxemburgo",
+      "Macao",
+      "Madagascar",
+      "Malawi",
+      "Malasia",
+      "Maldivas",
+      "Mali",
+      "Malta",
+      "Islas Marshall (la)",
+      "Martinica",
+      "Mauritania",
+      "Mauricio",
+      "Mayotte",
+      "México",
+      "Micronesia (Estados Federados de)",
+      "Moldavia (la República de)",
+      "Mónaco",
+      "Mongolia",
+      "Montenegro",
+      "Montserrat",
+      "Marruecos",
+      "Mozambique",
+      "Myanmar",
+      "Namibia",
+      "Nauru",
+      "Nepal",
+      "Países Bajos (el)",
+      "Nueva Caledonia",
+      "Nueva Zelanda",
+      "Nicaragua",
+      "Níger (el)",
+      "Nigeria",
+      "Niue",
+      "Isla Norfolk",
+      "Islas Marianas del Norte (la)",
+      "Noruega",
+      "Omán",
+      "Pakistán",
+      "Palau",
+      "Palestina, Estado de",
+      "Panamá",
+      "Papúa Nueva Guinea",
+      "Paraguay",
+      "Perú",
+      "Filipinas (el)",
+      "Pitcairn",
+      "Polonia",
+      "Portugal",
+      "Puerto Rico",
+      "Katar",
+      "República de Macedonia del Norte",
+      "Rumania",
+      "Federación de Rusia (la)",
+      "Ruanda",
+      "Reunión",
+      "San Bartolomé",
+      "Santa Elena, Ascensión y Tristán de Cunha",
+      "San Cristóbal y Nieves",
+      "Santa Lucía",
+      "San Martín (parte francesa)",
+      "San Pedro y Miquelón",
+      "San Vicente y las Granadinas",
+      "Samoa",
+      "San Marino",
+      "Santo Tomé y Príncipe",
+      "Arabia Saudita",
+      "Senegal",
+      "Serbia",
+      "Seychelles",
+      "Sierra Leona",
+      "Singapur",
+      "Sint Maarten (parte holandesa)",
+      "Eslovaquia",
+      "Eslovenia",
+      "Islas Salomón",
+      "Somalia",
+      "Sudáfrica",
+      "Georgia del sur y las islas Sandwich del sur",
+      "Sudán del Sur",
+      "España",
+      "Sri Lanka",
+      "Sudán (el)",
+      "Surinam",
+      "Svalbard y Jan Mayen",
+      "Suecia",
+      "Suiza",
+      "República Árabe Siria",
+      "Taiwan, provincia de China)",
+      "Tayikistán",
+      "Tanzania, República Unida de",
+      "Tailandia",
+      "Timor-Leste",
+      "Ir",
+      "Tokelau",
+      "Tonga",
+      "Trinidad y Tobago",
+      "Túnez",
+      "Turquía",
+      "Turkmenistán",
+      "Islas Turcas y Caicos (la)",
+      "Tuvalu",
+      "Uganda",
+      "Ucrania",
+      "Emiratos Árabes Unidos (el)",
+      "Reino Unido de Gran Bretaña e Irlanda del Norte (el)",
+      "Islas ultramarinas menores de los Estados Unidos (la)",
+      "Estados Unidos de América (el)",
+      "Uruguay",
+      "Uzbekistán",
+      "Vanuatu",
+      "Venezuela (República Bolivariana de)",
+      "Vietnam",
+      "Islas Vírgenes (británicas)",
+      "Islas Vírgenes (EE. UU.)",
+      "Wallis y Futuna",
+      "Sahara Occidental",
+      "Yemen",
+      "Zambia",
+      "Zimbabue"
+    ],
+    "countryList": [
+      "Afghanistan",
+      "Albania",
+      "Algeria",
+      "American Samoa",
+      "Andorra",
+      "Angola",
+      "Anguilla",
+      "Antarctica",
+      "Antigua and Barbuda",
+      "Argentina",
+      "Armenia",
+      "Aruba",
+      "Australia",
+      "Austria",
+      "Azerbaijan",
+      "Bahamas (the)",
+      "Bahrain",
+      "Bangladesh",
+      "Barbados",
+      "Belarus",
+      "Belgium",
+      "Belize",
+      "Benin",
+      "Bermuda",
+      "Bhutan",
+      "Bolivia (Plurinational State of)",
+      "Bonaire, Sint Eustatius and Saba",
+      "Bosnia and Herzegovina",
+      "Botswana",
+      "Bouvet Island",
+      "Brazil",
+      "British Indian Ocean Territory (the)",
+      "Brunei Darussalam",
+      "Bulgaria",
+      "Burkina Faso",
+      "Burundi",
+      "Cabo Verde",
+      "Cambodia",
+      "Cameroon",
+      "Canada",
+      "Cayman Islands (the)",
+      "Central African Republic (the)",
+      "Chad",
+      "Chile",
+      "China",
+      "Christmas Island",
+      "Cocos (Keeling) Islands (the)",
+      "Colombia",
+      "Comoros (the)",
+      "Congo (the Democratic Republic of the)",
+      "Congo (the)",
+      "Cook Islands (the)",
+      "Costa Rica",
+      "Croatia",
+      "Cuba",
+      "Curaçao",
+      "Cyprus",
+      "Czechia",
+      "Côte d'Ivoire",
+      "Denmark",
+      "Djibouti",
+      "Dominica",
+      "Dominican Republic (the)",
+      "Ecuador",
+      "Egypt",
+      "El Salvador",
+      "Equatorial Guinea",
+      "Eritrea",
+      "Estonia",
+      "Eswatini",
+      "Ethiopia",
+      "Falkland Islands (the) [Malvinas]",
+      "Faroe Islands (the)",
+      "Fiji",
+      "Finland",
+      "France",
+      "French Guiana",
+      "French Polynesia",
+      "French Southern Territories (the)",
+      "Gabon",
+      "Gambia (the)",
+      "Georgia",
+      "Germany",
+      "Ghana",
+      "Gibraltar",
+      "Greece",
+      "Greenland",
+      "Grenada",
+      "Guadeloupe",
+      "Guam",
+      "Guatemala",
+      "Guernsey",
+      "Guinea",
+      "Guinea-Bissau",
+      "Guyana",
+      "Haiti",
+      "Heard Island and McDonald Islands",
+      "Holy See (the)",
+      "Honduras",
+      "Hong Kong",
+      "Hungary",
+      "Iceland",
+      "India",
+      "Indonesia",
+      "Iran (Islamic Republic of)",
+      "Iraq",
+      "Ireland",
+      "Isle of Man",
+      "Israel",
+      "Italy",
+      "Jamaica",
+      "Japan",
+      "Jersey",
+      "Jordan",
+      "Kazakhstan",
+      "Kenya",
+      "Kiribati",
+      "Korea (the Democratic People's Republic of)",
+      "Korea (the Republic of)",
+      "Kuwait",
+      "Kyrgyzstan",
+      "Lao People's Democratic Republic (the)",
+      "Latvia",
+      "Lebanon",
+      "Lesotho",
+      "Liberia",
+      "Libya",
+      "Liechtenstein",
+      "Lithuania",
+      "Luxembourg",
+      "Macao",
+      "Madagascar",
+      "Malawi",
+      "Malaysia",
+      "Maldives",
+      "Mali",
+      "Malta",
+      "Marshall Islands (the)",
+      "Martinique",
+      "Mauritania",
+      "Mauritius",
+      "Mayotte",
+      "Mexico",
+      "Micronesia (Federated States of)",
+      "Moldova (the Republic of)",
+      "Monaco",
+      "Mongolia",
+      "Montenegro",
+      "Montserrat",
+      "Morocco",
+      "Mozambique",
+      "Myanmar",
+      "Namibia",
+      "Nauru",
+      "Nepal",
+      "Netherlands (the)",
+      "New Caledonia",
+      "New Zealand",
+      "Nicaragua",
+      "Niger (the)",
+      "Nigeria",
+      "Niue",
+      "Norfolk Island",
+      "Northern Mariana Islands (the)",
+      "Norway",
+      "Oman",
+      "Pakistan",
+      "Palau",
+      "Palestine, State of",
+      "Panama",
+      "Papua New Guinea",
+      "Paraguay",
+      "Peru",
+      "Philippines (the)",
+      "Pitcairn",
+      "Poland",
+      "Portugal",
+      "Puerto Rico",
+      "Qatar",
+      "Republic of North Macedonia",
+      "Romania",
+      "Russian Federation (the)",
+      "Rwanda",
+      "Réunion",
+      "Saint Barthélemy",
+      "Saint Helena, Ascension and Tristan da Cunha",
+      "Saint Kitts and Nevis",
+      "Saint Lucia",
+      "Saint Martin (French part)",
+      "Saint Pierre and Miquelon",
+      "Saint Vincent and the Grenadines",
+      "Samoa",
+      "San Marino",
+      "Sao Tome and Principe",
+      "Saudi Arabia",
+      "Senegal",
+      "Serbia",
+      "Seychelles",
+      "Sierra Leone",
+      "Singapore",
+      "Sint Maarten (Dutch part)",
+      "Slovakia",
+      "Slovenia",
+      "Solomon Islands",
+      "Somalia",
+      "South Africa",
+      "South Georgia and the South Sandwich Islands",
+      "South Sudan",
+      "Spain",
+      "Sri Lanka",
+      "Sudan (the)",
+      "Suriname",
+      "Svalbard and Jan Mayen",
+      "Sweden",
+      "Switzerland",
+      "Syrian Arab Republic",
+      "Taiwan (Province of China)",
+      "Tajikistan",
+      "Tanzania, United Republic of",
+      "Thailand",
+      "Timor-Leste",
+      "Togo",
+      "Tokelau",
+      "Tonga",
+      "Trinidad and Tobago",
+      "Tunisia",
+      "Turkey",
+      "Turkmenistan",
+      "Turks and Caicos Islands (the)",
+      "Tuvalu",
+      "Uganda",
+      "Ukraine",
+      "United Arab Emirates (the)",
+      "United Kingdom of Great Britain and Northern Ireland (the)",
+      "United States Minor Outlying Islands (the)",
+      "United States of America (the)",
+      "Uruguay",
+      "Uzbekistan",
+      "Vanuatu",
+      "Venezuela (Bolivarian Republic of)",
+      "Viet Nam",
+      "Virgin Islands (British)",
+      "Virgin Islands (U.S.)",
+      "Wallis and Futuna",
+      "Western Sahara",
+      "Yemen",
+      "Zambia",
+      "Zimbabwe"
+    ],
+
+    "country": {
+      "type": "object",
+      "properties": {
+        "country_name": {
+          "title": "Nombre del país",
+          "type": "string",
+          "enum": {
+            "$ref": "#/definitions/countryList"
+          },
+          "enumNames": {
+            "$ref": "#/definitions/countryListNames"
+          }
+        },
+        "travel_start": {
+          "title": "Desde:",
+          "type": "string"
+        },
+        "travel_end": {
+          "title": "Hasta:",
+          "type": "string"
+        }
+      }
+    },
+    "covid1": {
+      "type": "object",
+      "title": "",
+      "required": ["travel", "household_size", "housing_type"],
+      "properties": {
+        "travel": {
+          "type": "string",
+          "title": "1. ¿Estaba en el extranjero justo antes de enfermarse / ser expuesto o haya sospechado infección por el COVID-19?",
+          "enum": ["No", "Yes", "Prefer not to answer"],
+          "enumNames": ["No", "Sí", "Prefiero no responder"]
+        },
+        "household_size": {
+          "type": "object",
+          "title": "2. ¿Cuántas personas (incluido se a usted) viven en su apartamento / o casa en cada categoría de edad? (Complete 0 si no hay ninguno)",
+
+          "properties": {
+            "under3": {
+              "type": "number",
+              "minimum": 0,
+              "default": 0,
+              "title": " Menos de 3 años"
+            },
+            "3-6": {
+              "type": "number",
+              "minimum": 0,
+              "default": 0,
+              "title": "Entre 3-6 años"
+            },
+            "7–17": {
+              "type": "number",
+              "minimum": 0,
+              "default": 0,
+              "title": " Entre 7–17 años"
+            },
+            "18–64": {
+              "type": "number",
+              "minimum": 0,
+              "default": 0,
+              "title": "Entre 18–64 años"
+            },
+            "65–79": {
+              "type": "number",
+              "minimum": 0,
+              "default": 0,
+              "title": "Entre 65–79 años "
+            },
+            "80+": {
+              "type": "number",
+              "minimum": 0,
+              "default": 0,
+              "title": "80 años o más"
+            },
+            "no_answer": {
+              "type": "boolean",
+
+              "title": "Prefiero no responder"
+            }
+          }
+        },
+        "housing_type": {
+          "type": "string",
+          "title": "3. ¿Qué tipo de vivienda vive usted?",
+          "uniqueItems": true,
+          "enum": [
+            "Studio apartment",
+            "One-bedroom apartment",
+            "Two-bedroom apartment",
+            "Three-bedroom (or more) apartment",
+            "Townhouse",
+            "Free-standing house",
+            "Nursing home, or rehab facility",
+            "Homeless",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Apartamento tipo estudio",
+            "Apartamento de un dormitorio",
+            "Apartamento de dos dormitorios",
+            "Apartamento de tres o más dormitorios",
+            "Casas adosadas",
+            "Casa independiente sin colindancia",
+            " Asilo de ancianos o centro de rehabilitación",
+            "Sin Hogar",
+            "Prefiero no responder"
+          ]
+        }
+      },
+      "dependencies": {
+        "travel": {
+          "oneOf": [
+            {
+              "properties": {
+                "travel": {
+                  "enum": ["No"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "travel": {
+                  "enum": ["Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "travel": {
+                  "enum": ["Yes"]
+                },
+                "travel_countries": {
+                  "type": "array",
+                  "title": "1b. ¿A qué país / países específicos a usted viajado?",
+                  "minItems": 1,
+                  "items": {
+                    "$ref": "#/definitions/country"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "covid11": {
+      "type": "object",
+      "title": "",
+      "required": ["people_diagnosed", "antibiotics_covid_prior"],
+      "properties": {
+        "people_infected": {
+          "type": "number",
+          "title": "4. ¿Cuántas personas en su vivienda han sido infectadas con o presumido ser infectados con el COVID-19?"
+        },
+        "people_diagnosed": {
+          "title": "5. ¿Cuántos de sus familiares inmediatos o extendidos relacionados por parentesco de sangre tienen lo siguiente?:",
+          "type": "object",
+          "minProperties": 1,
+          "properties": {
+            "covid_diagnosed": {
+              "type": "number",
+              "title": "¿Ha sido diagnosticado con COVID-19? (tiene un resultado positivo en la prueba de laboratorio)",
+              "default": 0,
+              "minimum": 0
+            },
+            "covid_suspected": {
+              "type": "number",
+              "title": "¿Tenía síntomas, pero ningún resultado de ensayo de COVID-19 fue positivo?",
+              "default": 0,
+              "minimum": 0
+            },
+            "covid_hospitalized": {
+              "type": "number",
+              "title": "¿Ha sido hospitalizado por causa del COVID-19?",
+              "default": 0,
+              "minimum": 0
+            },
+            "covid_died": {
+              "type": "number",
+              "title": "¿Ha fallecido por causa del COVID-19?",
+              "default": 0,
+              "minimum": 0
+            },
+            "no_answer": {
+              "type": "boolean",
+              "title": "Prefiero no responder"
+            }
+          }
+        },
+        "antibiotics_covid_prior": {
+          "title": "6.  Previamente al COVID-19, ¿cuándo fue la última vez que un médico le dio antibióticos?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "In the last month",
+            "In the last year",
+            "Within the last 5 years",
+            "Within the last 10 years",
+            "Over 10 years ago",
+            "Never",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "En el mes pasado",
+            "En el año pasado",
+            "Entre los últimos 5 años",
+            "Entre los últimos 10 años",
+            "Más de 10 años",
+            "Nunca",
+            "Prefiero no responder"
+          ]
+        }
+      }
+    },
+    "antibiotics": {
+      "type": "object",
+      "title": "",
+      "required": ["antibiotics_purpose", "antibiotics_course"],
+      "properties": {
+        "antibiotics_purpose": {
+          "title": "6a. ¿Con qué propósito, el médico le dio antibióticos la última vez que tomó antibióticos?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "Respiratory infection (E.G. Strep throat, sinusitis, bronchitis, pneumonia)",
+            "Gastroenteritis, which caused diarrhea and/or vomiting",
+            "Urinary tract infection",
+            "Infection of the skin or a wound infection",
+            "Other purpose",
+            "Don’t know",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Infección respiratoria (por ejemplo: Faringitis estreptocócica, Sinusitis, Bronquitis, Neumonía)",
+            "Gastroenteritis, que causó diarrea y / o vómitos",
+            "Infección del tracto urinario",
+            "Infección de la piel o de una herida",
+            "Otro propósito",
+            "No lo sé",
+            "Prefiero no responder"
+          ]
+        },
+        "antibiotics_course": {
+          "title": "6b. ¿Cuánto tiempo duró su tratamiento con antibióticos?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "3 days",
+            "7 days",
+            "14 days",
+            "More than 14 days",
+            "I don’t know",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "3 días",
+            "7 días",
+            "14 días",
+            "Más de 14 días",
+            "No lo sé",
+            "Prefiero no responder"
+          ]
+        }
+      },
+      "dependencies": {}
+    },
+    "hygene": {
+      "type": "object",
+      "title": "",
+      "required": [
+        "cold_how_often",
+        "mask_you",
+        "mask_household",
+        "sanitizer_you"
+      ],
+      "properties": {
+        "cold_how_often": {
+          "title": "7. ¿Usualmente con qué frecuencia usted se resfría?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "Never",
+            "Once every 2 years",
+            "Once a year",
+            "Twice a year or more",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Nunca",
+            "Una vez cada dos años",
+            "Una vez al año",
+            "Dos veces o más al año",
+            "Prefiero no responder"
+          ]
+        },
+        "mask_you": {
+          "title": "8. En las 2 semanas antes de enfermarse, ¿con qué frecuencia a usado mascarilla de protección facial en público?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "Never",
+            "Rarely",
+            "Usually",
+            "Always",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Nunca",
+            "Rara vez",
+            "Usualmente",
+            "Siempre",
+            "Prefiero no responder"
+          ]
+        },
+        "mask_household": {
+          "title": "9.  En las 2 semanas antes de enfermarse, ¿con qué frecuencia la gente que vive con usted usa mascarilla de protección facial en público?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "Never",
+            "Rarely",
+            "Usually",
+            "Always",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Nunca",
+            "Rara vez",
+            "Usualmente",
+            "Siempre",
+            "Prefiero no responder"
+          ]
+        },
+        "sanitizer_you": {
+          "title": "10.  En las 2 semanas antes de enfermarse, ¿con qué frecuencia a usado usted desinfectante para manos?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "Never",
+            "Rarely",
+            "Usually",
+            "Always",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Nunca",
+            "Rara vez",
+            "Usualmente",
+            "Siempre",
+            "Prefiero no responder"
+          ]
+        }
+      }
+    },
+    "hygene2": {
+      "type": "object",
+      "title": "",
+      "required": [
+        "sanitizer_household",
+        "social_distance_you",
+        "social_distance_household",
+        "leave_house_frequency"
+      ],
+      "properties": {
+        "sanitizer_household": {
+          "title": "11. En las 2 semanas antes de enfermarse, ¿con qué frecuencia la gente que vive con usted usa desinfectante para manos?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "Never",
+            "Rarely",
+            "Usually",
+            "Always",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Nunca",
+            "Rara vez",
+            "Usualmente",
+            "Siempre",
+            "Prefiero no responder"
+          ]
+        },
+        "social_distance_you": {
+          "title": "12. En las 2 semanas antes de enfermarse, ¿con qué frecuencia intentó conscientemente distanciamiento social de los demás?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "Never",
+            "Rarely",
+            "Usually",
+            "Always",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Nunca",
+            "Raramente",
+            "Usualmente",
+            "Siempre",
+            "Prefiero no responder"
+          ]
+        },
+        "social_distance_household": {
+          "title": "13. I En las 2 semanas antes de enfermarse, ¿con qué frecuencia la gente que vive con usted intentó conscientemente distanciamiento social de los demás?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "Never",
+            "Rarely",
+            "Usually",
+            "Always",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Nunca",
+            "Raramente",
+            "Usualmente",
+            "Siempre",
+            "Prefiero no responder"
+          ]
+        },
+        "leave_house_frequency": {
+          "title": "14. En las 2 semanas antes de enfermarse, ¿con qué frecuencia salió de su apartamento o casa?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "Never",
+            "1-2 times a week",
+            "3-4 times a week",
+            "5-6 times a week",
+            "Once a day",
+            "Multiple times per day",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Nunca",
+            "1-2 veces por semana",
+            "3-4 veces por semana",
+            "5-6 veces por semana",
+            "Una vez por día",
+            "Varias veces al día",
+            "Prefiero no responder"
+          ]
+        }
+      }
+    },
+    "life_pets": {
+      "type": "object",
+      "title": "",
+      "required": ["pets", "last_time_pet_dog_cat", "how_purchased_groceries"],
+      "properties": {
+        "pets": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "title": "15. ¿Tiene alguna de las siguientes mascotas en su case? (marque todo lo que corresponda)",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Dog",
+              "Indoor cat",
+              "Indoor/outdoor cat",
+              "Other",
+              "No pets",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Perro",
+              "Gato de interior",
+              "Gatos de interior / de exterior",
+              "Otro",
+              "Sin Mascota",
+              "Prefiero no responder"
+            ]
+          }
+        },
+        "pets_other": {
+          "type": "string",
+          "title": "15a. Si usted marcó \"otro\"en la pregunta anterior, ¿qué tipo de mascota es?"
+        },
+        "last_time_pet_dog_cat": {
+          "title": "16. ¿Cuándo fue la última vez que acarició a un gato, perro u otro animal domesticado antes de enfermarse?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "One day ago",
+            "One week ago",
+            "One month ago",
+            "More than one month ago",
+            "Don’t remember",
+            "I didn’t pet a domesticated animal",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Hace un día",
+            "Hace una semana",
+            "Hace un mes",
+            " Hace más de un mes",
+            "No me acuerdo",
+            " Yo no acaricie a un animal domesticados",
+            "Prefiero no responder"
+          ]
+        },
+        "how_purchased_groceries": {
+          "title": "17. En las 2 semanas antes de enfermarse, ¿cómo compró sus comestibles? (marque todo lo que corresponda",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Went to the store or market",
+              "Home delivery service",
+              "In-store pick up",
+              "Had a caregiver or family member purchase your groceries",
+              "Did not visit the store",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              " Fui a la tienda o al mercado",
+              "Servicio a domicilio",
+              " Recoger en tienda",
+              "Tuvo un cuidador o familiar para compras de sus comestibles",
+              "No visité la tienda",
+              "Prefiero no responder"
+            ]
+          }
+        }
+      },
+      "dependencies": {}
+    },
+    "job_commute": {
+      "type": "object",
+      "title": "",
+      "required": [
+        "transportation",
+        "work_from_home",
+        "were_healthcare_worker",
+        "were_teacher_childcare",
+        "were_foodservice",
+        "commute_mass_transit",
+        "commute_car"
+      ],
+      "properties": {
+        "transportation": {
+          "title": "18. ¿Qué transporte tomaste en las dos semanas antes a enfermarte? (marque todo lo que corresponda)",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Subway",
+              "Bus",
+              "Uber/Lyft/Taxi cab or similar",
+              "Airplane",
+              "Train",
+              "Ferry",
+              "Car",
+              "None of the above",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Subterráneo",
+              "Autobús",
+              "Uber/Lyft/Taxi o similar",
+              "Avión",
+              "Tren",
+              "Ferry",
+              "Carro",
+              "Ninguna de las anteriores",
+              "Prefiero no responder"
+            ]
+          }
+        },
+        "work_from_home": {
+          "title": "19. ¿Pudo trabajar desde casa en las dos semanas antes de enfermarse?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": [
+            "Yes",
+            "No",
+            "Not Applicable, Lost job as part of COVID-19",
+            "Not Applicable, Unemployed or retired prior to disease",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Sí",
+            "No",
+            "No aplica, perdí el trabajo como parte de COVID-19",
+            "No aplica, estaba desempleado o jubilado antes de la enfermedad",
+            "Prefiero no responder"
+          ]
+        },
+        "job_title": {
+          "type": "string",
+          "title": "20.Cuál es su profesión?",
+
+          "enum": [
+            "Child care",
+            "Custodial worker",
+            "Education/teacher/work in school setting",
+            "Health care worker (nurse, nursing assistant, community healthcare worker, clerk, therapist, laboratory technologist, doctor)",
+            "Performing artist",
+            "Public safety (police, security guard)",
+            "Researcher in a laboratory",
+            "Sanitation engineer",
+            "Work in a factory/plant/processing center",
+            "Work in a store / shopping mall",
+            "Work in an office setting",
+            "Work in public transportation (bus driver, subway station employee)",
+            "Work in restaurant/bar",
+            "Work outdoors (farming, landscaping, construction)",
+            "Other",
+            "Prefer not to answer"
+          ],
+          "enumNames": [
+            "Cuidado de los niños",
+            "Trabajador de custodia",
+            "Educación / profesor / trabajo en el entorno escolar",
+            "Trabajador sanitario (enfermero, auxiliar de enfermería, trabajador sanitario comunitario, empleado, terapeuta, tecnólogo de laboratorio, médico)",
+            "Artista intérprete o ejecutante",
+            "Seguridad pública (policía, guardia de seguridad)",
+            "Investigador en un laboratorio",
+            "Ingeniero de saneamiento",
+            "Trabajar en una fábrica / planta / centro de procesamiento",
+            "Trabajar en una tienda / centro comercial",
+            "Trabajar en un entorno de oficina",
+            "Trabajo en transporte público (conductor de autobús, empleado de estación de metro)",
+            "Trabajo en restaurante / bar",
+            "Trabajo al aire libre (agricultura, paisajismo, construcción)",
+            "Otro",
+            "Prefiero no responder"
+          ]
+        },
+        "were_healthcare_worker": {
+          "title": "21. Durante el último año, ¿fue usted un trabajador en cuidado de salud?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["Yes", "No", "Prefer not to answer"],
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
+        },
+        "were_teacher_childcare": {
+          "title": "22. Durante el último año, ¿trabajó como maestro o trabajó en servicios de cuidado de niños?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["Yes", "No", "Prefer not to answer"],
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
+        },
+        "were_foodservice": {
+          "title": "23. Durante el último año, ¿trabajó en la Industria de Servicios de Alimentos?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["Yes", "No", "Prefer not to answer"],
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
+        },
+        "commute_mass_transit": {
+          "title": "24. ¿Sueles viajar por transportación púbica (Subterráneo, tren, autobús)?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["Yes", "No", "Prefer not to answer"],
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
+        },
+        "commute_car": {
+          "title": "25. ¿Sueles viajar manejando, por taxis o servicio para compartir automóvil?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["Yes", "No", "Prefer not to answer"],
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "covid1": {
+      "title": "",
+      "$ref": "#/definitions/covid1"
+    },
+    "covid11": {
+      "title": "",
+      "$ref": "#/definitions/covid11"
+    },
+    "antibiotics": {
+      "title": "",
+      "$ref": "#/definitions/antibiotics"
+    },
+    "hygene": {
+      "title": "",
+      "$ref": "#/definitions/hygene"
+    },
+    "hygene2": {
+      "title": "",
+      "$ref": "#/definitions/hygene2"
+    },
+    "life_pets": {
+      "title": "",
+      "$ref": "#/definitions/life_pets"
+    },
+    "job_commute": {
+      "title": "",
+      "$ref": "#/definitions/job_commute"
+    }
+  }
+}

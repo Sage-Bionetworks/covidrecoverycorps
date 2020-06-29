@@ -450,7 +450,19 @@
     "text7": "Survey 3",
     "text8": "Medical History",
     "text9": "Survey 4",
-    "text10": "More COVID Experience"
+    "text10": "More COVID Experience",
+    "intro1": "<0>The information you provide will help researchers learn more about COVID-19.</0> <1> To be invited for a lab test, you will need to complete your Profile and Surveys 1-2. Surveys 3 and 4 are optional but still provide important information. Please consider completing them if you have the time. </1>",
+    "text11": "Minimum surveys required for lab invites",
+    "min": "min",
+    "intro": {
+      "heading1": "Thank you!",
+      "text1": "We’ve added you to the waiting list for an antibody test. If you are selected, you will receive an email.",
+      "text2": "Please consider completing the rest of the surveys if you have time. ",
+      "heading2": "You're invited!",
+      "text3": "Please complete surveys 3 & 4 before your antibody test appointment in order to receive a gift card.",
+      "text4": "Please complete surveys 3 & 4 before sending back your at-home test kit.",
+      "text5": "<0>Lab Preferences</0> <1> You've completed the minimum surveys to qualify for the antibody test waitlist. </1> <1> To receive a gift card, you will need to be invited to an antibody test and provide a biosample. You will also need to complete surveys 3 & 4. </1> <1> We cannot guarantee testing invites for all participants at this time. </1> <1> If you were invited to get an antibody test, what is your testing preference? </1>"
+    }
   },
   "appointment": {
     "title": ""
