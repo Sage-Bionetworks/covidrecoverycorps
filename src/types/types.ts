@@ -8,6 +8,8 @@ export const ENDPOINT = 'https://webservices.sagebridge.org'
 export const SURVEY_TIME_CONSTANT = '2020-06-15T00:14:04.322Z'
 export const SURVEY_IDENTIFIER = 'ny-strong'
 
+export const GoogleAPIKey = 'AIzaSyC8ybju7k0FeyAHbILJAh5Ep6dZblA_810'
+
 export interface MailChimpFormFields extends EmailFormFields {
   NAME: string
   ZIP: string
@@ -115,11 +117,19 @@ export type SavedSurveysObject = {
   surveys: SavedSurvey[]
 }
 
+
+export type ColumbiaAppointmentAddress = {
+  city: string
+  line: string[]
+  postalCode: string
+  state: string
+}
+
 export type AppointmentParticipant = {
   actor: {
     reference: string
     display: string
-    address?: any
+    address?: ColumbiaAppointmentAddress
   },
   required: string
   status: string
@@ -128,6 +138,8 @@ export type ColumbiaAppointment = {
   start: string // date/time when appointment will start
   status: string
   participant?: AppointmentParticipant[]
+  patient?: AppointmentParticipant['actor']
+  location?: AppointmentParticipant['actor']
 }
 
 export type ReportData = {
