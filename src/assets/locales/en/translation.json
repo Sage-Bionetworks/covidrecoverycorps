@@ -152,7 +152,8 @@
       "text4": "Researchers will use this information to <1> better understand how the body fights COVID-19</1>.</0>",
       "text5": "This study is being led by Columbia University and Sage Bionetworks. The study is being funded by the Chan Zuckerberg Initiative.",
       "text6": "This study will <1> last for 12 months </1> from the time you enroll.",
-      "text7": "This study will <1> not provide medical care </1> for COVID-19. Participation in this study is <1> voluntary </1> and you may leave the study at any time."
+      "text7": "This study will <1> not provide medical care </1> for COVID-19. Participation in this study is <1> voluntary </1> and you may leave the study at any time.",
+      "text8": "You will be given $50 gift card if you complete all of the surveys and provide biosamples in person they provide samples in person or a $20 gift card if you provide biosamples from home."
     },
     "screen2": {
       "text1": "What will I be asked to do?",
@@ -242,6 +243,7 @@
       "text4": "To protect your data, we will use a code to identify your data and samples rather than your name name or other personal information. This code cannot be used to directly identify you. This coded data is known as de-identified data.Only key people from our study team can link your identity to your study.",
       "text5": "Access to this database will be controlled. Researchers will have to be approved by COVID Recovery Corps and will use only de-identified or coded data."
     },
+    
     "screen8": {
       "text1": "Sharing your data with future researchers",
       "text2": "You will have the <1> opportunity to share your data with qualified researchers </1> outside of the COVID Recovery Corps.",
@@ -265,17 +267,27 @@
       "text4": "If you decide to end your data sharing with qualified researchers, we will not share your future data. But the data we have already shared with qualified researchers, we unfortunately cannot get back."
     },
     "screen10": {
+      "text1": "Will I receive any form of compensation for participating in the study?",
+      "text2": "You will be given a <1>$50 gift card</1> if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a <1>$20 gift card</1>.",
+      "text3": "You will not receive any profit from this or future research."
+    },
+    "fullTextScreen10": {
+      "text1": "Will I receive any form of compensation for participating in the study?",
+      "text2": "You will be given a $50 gift card if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a $20 gift card.", 
+      "text3": "Researchers will use your data to make discoveries. If any of their studies lead to new tests, drugs, or other commercial products, you will not get any profits. These inventions will be the property of the researchers who develop them."
+    },
+    "screen11": {
       "text1": "Not Medical Care",
       "text2": "The COVID Recovery Corps is a <1>research study</1>.",
       "text3": "The study does <1>not</1> provide <1> medical care, medical advice</1> or <1> treatment</1>.",
       "text4": "If you have <1>questions or concerns</1> related to your health, you should <1>contact your doctor</1>."
     },
-    "fullTextScreen10": {
+    "fullTextScreen11": {
       "text1": "Not Medical Care",
       "text2": "The COVID Recovery Corps study is a research study. You will not receive medical care, medical advice or treatment by taking part in this study.",
       "text3": "If you have questions or concerns related to your health, you should contact your doctor."
     },
-    "screen11": {
+    "screen12": {
       "text1": "Leaving the study",
       "text2": "Taking part in COVID Recovery Corps is <1> voluntary</1>. You can choose to join or not.",
       "text3": "No matter what you decide, now or in the future, it will <1> not affect how your doctor treats you</1>.",
@@ -283,7 +295,7 @@
       "text5": "If you withdraw, <1>your samples will be destroyed</1>. Your <1>data will not be distributed any more</1>.",
       "text6": "However, if researchers already have your data or samples for their studies, the COVID Recovery Corps study cannot get it back."
     },
-    "fullTextScreen11": {
+    "fullTextScreen12": {
       "text1": "Leaving the study",
       "text2": "Taking part in COVID Recovery Corps is voluntary. You can choose to join or not. No matter what you decide, now or in the future, it will not affect how your doctor treats you.",
       "text3": "If you decide to join COVID Recovery Corps, you can change your mind at any time. If you decide you want to withdraw (quit), you need to tell us. You can tell us by going to the website and clicking the “Withdraw Study” section in your profile setting. You can use our contact information to email or write to us.",
@@ -291,7 +303,7 @@
       "text5": "However, if researchers already have your data or samples for their studies, the COVID Recovery Corps study cannot get it back. Also, we will let researchers check the results of past studies. If they need your old data to do this work, we will give it to them.",
       "text6": "Even if you withdraw, we will keep your name and contact information. We keep this information so we can follow U.S. research laws and regulations."
     },
-    "screen12": {
+    "screen13": {
       "text1": "Things you should consider before you say yes",
       "text2": "Before you say yes to joining the study, please consider the following:",
       "text3": "You will<1> not be paid </1>for participating in this study.",
@@ -299,7 +311,7 @@
       "text5": "Your study information <1> will not be shared with insurance companies or your doctor without your permission. </1>",
       "text6": "The risk of injury is low in this study. You will <1> not be compensated for injury</1>."
     },
-    "fullTextScreen12": {
+    "fullTextScreen13": {
       "text1": "Things you should consider before you say yes",
       "text2": "You will not be paid for joining and/or taking part in the COVID Recovery Corps study. Researchers will use your data to make discoveries. If any of their studies lead to new tests, drugs, or other commercial products, you will not get any profits. These inventions will be the property of the researchers who develop them.",
       "text3": "We will keep your data private, and even if public health authorities access this data about COVID, it cannot be transferred to an insurance company or your healthcare provider without your permission.",
@@ -309,12 +321,12 @@
       "text7": "If you have any long-term costs to treat your injury, you and/or your insurance will have to pay them.",
       "text8": "You do not give up any of your legal rights if you take part in COVID Recovery Corps."
     },
-    "screen13": {
+    "screen14": {
       "text1": "How to contact us?",
       "text2": "<0>For general questions,</0> please contact the COVID Recovery Corps study at 212-305-5700 (24 hours) or <2> COVIDRecoveryCorps@cumc.columbia.edu </2> .",
       "text3": "<0> For questions about your rights as a research participant, concerns or complaints, </0> please contact Western IRB (WIRB) at <2>help@WIRB.com</2> at 360-252-2500 or toll-free at 800-562-478."
     },
-    "screen14": {
+    "screen15": {
       "text1": "If you understand and agree to the benefits and risk of participating in this study, please sign below.",
       "text2": "I understand and agree to the following:",
       "text3": "My data will be stored in the COVID Recovery Corps databases.",
@@ -332,7 +344,7 @@
       "text15": "Full Name of adult participant",
       "text16": "Agree"
     },
-    "learnMoreScreen14": {
+    "learnMoreScreen15": {
       "text1": "You will have the opportunity to share your data with qualified researchers outside of the COVID Recovery Corps. All qualified researchers must be approved by the COVID Recovery Corps study team and will only use de-identified data. This de-identified data does not contain identifiers like name, date of birth, or zip code. These researchers may be from outside the United States and may work for a non-profit institution, commercial drug or medical device companies, or be a private citizen.",
       "text2": "Sharing your data with qualified researchers is optional and you can change your mind at any time by updating your data sharing options in your profile. But once we share your data we cannot get it back. If you decide to end data sharing, we will not share your future data."
     }

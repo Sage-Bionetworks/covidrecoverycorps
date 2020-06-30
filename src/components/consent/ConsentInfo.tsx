@@ -49,7 +49,7 @@ const quizes = [
   },
 ]
 
-const totalSteps = 12
+const totalSteps = 13
 
 export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
   onDone,
