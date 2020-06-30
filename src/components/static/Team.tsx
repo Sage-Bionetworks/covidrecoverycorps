@@ -108,7 +108,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
                   </p>
                   <p>
                     {t('common.moreInfoVisit')}&nbsp;
-                    <a href="https://wchunglab.com/" target="_blank">
+                    <a href="http://www.columbia.edu/" target="_blank">
                       {t('team.text61')}
                     </a>
                     .
