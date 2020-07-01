@@ -92,7 +92,7 @@ export const useIntroStyles = makeStyles(theme => ({
   },
   joinButton: {
     height: '36px',
-    width: '100px',
+    width: '150px',
     marginBottom: '5px',
     [theme.breakpoints.up('sm')]: {
       marginTop: '20px',
@@ -561,7 +561,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               variant="contained"
               className={classes.joinButton}
             >
-              {t('common.joinUs')}
+              {t('common.joinStudy')}
             </Button>
           </NavLink>
         </Grid>

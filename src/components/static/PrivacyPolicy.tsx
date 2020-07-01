@@ -77,6 +77,7 @@ export const PrivacyPolicy: React.FunctionComponent = ({}) => {
                         <p> [translate]</p>
                         <p className={classes.subHeading}> [translate]</p>
                         <p>[translate]</p>
+                        <p>[translate]</p>
                       </Trans>
                     </div>
                   </LearnMore>
