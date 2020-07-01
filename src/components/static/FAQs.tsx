@@ -73,6 +73,18 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                     </div>
                   </LearnMore>
                 </div>
+                <div className="FAQ__content21">
+                  <LearnMore
+                    learnMoreText=""
+                    clickableElement={<h3>{t('faqs.text41')}</h3>}
+                  >
+                    <div>
+                      <Trans i18nKey="faqs.text51">
+                        [translate]<p></p>
+                      </Trans>
+                    </div>
+                  </LearnMore>
+                </div>
                 <div className="FAQ__content3">
                   <LearnMore
                     learnMoreText=""
@@ -81,7 +93,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                     <div>
                       <p>
                         <Trans i18nKey="faqs.text12">
-                          [translate]
+                          <p>[translate]</p>
                           <ul>
                             <li>[translate]</li>
                             <li>[translate]</li>
@@ -131,6 +143,26 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                     </div>
                   </LearnMore>
                 </div>
+                <div className="FAQ__content71">
+                  <LearnMore
+                    learnMoreText=""
+                    clickableElement={<h3>{t('faqs.text151')}</h3>}
+                  >
+                    <div>
+                      <p>{t('faqs.text161')}</p>
+                    </div>
+                  </LearnMore>
+                </div>
+                <div className="FAQ__content10">
+                  <LearnMore
+                    learnMoreText=""
+                    clickableElement={<h3>{t('faqs.text20')}</h3>}
+                  >
+                    <div>
+                      <p>{t('faqs.text21')}</p>
+                    </div>
+                  </LearnMore>
+                </div>
                 <div className="FAQ__content7">
                   <LearnMore
                     learnMoreText=""
@@ -146,6 +178,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                     </div>
                   </LearnMore>
                 </div>
+
                 <div className="FAQ__content8">
                   <LearnMore
                     learnMoreText=""
@@ -166,16 +199,17 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                     </div>
                   </LearnMore>
                 </div>
-                <div className="FAQ__content10">
+                <div className="FAQ__content91">
                   <LearnMore
                     learnMoreText=""
-                    clickableElement={<h3>{t('faqs.text20')}</h3>}
+                    clickableElement={<h3>{t('faqs.text181')}</h3>}
                   >
                     <div>
-                      <p>{t('faqs.text21')}</p>
+                      <p>{t('faqs.text191')}</p>
                     </div>
                   </LearnMore>
                 </div>
+
                 <div className="FAQ__content11">
                   <LearnMore
                     learnMoreText=""
