@@ -457,6 +457,21 @@
       "between": "should be between {{min}} and {{max}}",
       "invalid": "invalid value",
       "symptomSequence": "please check that your symptoms dates are in the right sequence"
+    },
+    "testLocationSurvey": {
+      "text1": "Would you prefer to go to a lab draw or wait until home test kits are available?",
+      "text2": "Go to a lab draw",
+      "text3": "Wait for a home test kit",
+      "text4": "Not interested in testing"
+    },
+    "withdrawSurvey": {
+      "text1": "Please help us make the COVID Recovery Corps study better by telling us about your reasons for withdrawing. (Check all that apply)",
+      "text2": "Study was taking too much of my time",
+      "text3": "Not enough benefit for me to continue",
+      "text4": "I am concerned about my privacy",
+      "text5": "I am concerned about the use of my data",
+      "text6": "Withdrawing for personal reason that do not involve this study",
+      "text7": "Prefer not to answer"
     }
   },
   "dashboard": {
@@ -480,10 +495,9 @@
       "heading2": "You're invited!",
       "text3": "Please complete surveys 3 & 4 before your antibody test appointment in order to receive a gift card.",
       "text4": "Please complete surveys 3 & 4 before sending back your at-home test kit.",
-      "text5": "<0>Lab Preferences</0> <1> You've completed the minimum surveys to qualify for the antibody test waitlist. </1> <1> To receive a gift card, you will need to be invited to an antibody test and provide a biosample. You will also need to complete surveys 3 & 4. </1> <1> We cannot guarantee testing invites for all participants at this time. </1> <1> If you were invited to get an antibody test, what is your testing preference? </1>"
+      "text5": "<0>Lab Preferences</0> <1> You've completed the minimum surveys to qualify for the antibody test waitlist. </1> <1> To receive a gift card, you will need to be invited to an antibody test and provide a biosample. You will also need to complete surveys 3 & 4. </1> <1> We cannot guarantee testing invites for all participants at this time. </1> <1> If you were invited to get an antibody test, what is your testing preference? </1>",
+      "text6": "Thank you for your contribution to the COVID Recovery Corps Study!"
     }
   },
-  "appointment": {
-    "title": ""
-  }
+  "appointment": { "title": "" }
 }

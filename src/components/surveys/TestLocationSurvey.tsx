@@ -3,6 +3,8 @@ import { Button } from '@material-ui/core'
 import _ from 'lodash'
 import { SurveyService } from '../../services/survey.service'
 import { TestLocationEnum } from '../../types/types'
+import i18next from 'i18next'
+import { useTranslation } from 'react-i18next'
 
 type TestLoctionSurveyProps = {
   surveyUpdatedCallbackFn: Function
@@ -20,6 +22,7 @@ const TestLoctionSurvey: React.FunctionComponent<TestLoctionSurveyProps> = ({
     undefined,
   )
 
+  const { t } = useTranslation()
   const postSurvey = async () => {
     await SurveyService.postToHealthData(
       'TEST_LOCATION',
@@ -38,13 +41,10 @@ const TestLoctionSurvey: React.FunctionComponent<TestLoctionSurveyProps> = ({
   return (
     <div
       className="finished-status"
-      style={{ marginBottom: '2.4rem', clear: 'both' }}
+      style={{  clear: 'both' }}
     >
       <p>
-        <strong>
-          Would you prefer to go to a lab draw or wait until home test kits are
-          available?{' '}
-        </strong>
+        <strong>{t('surveys.testLocationSurvey.text1')}</strong>
       </p>
       <div className="theme-crc">
         <div className="SRC-ReactJsonForm">
@@ -62,7 +62,7 @@ const TestLoctionSurvey: React.FunctionComponent<TestLoctionSurveyProps> = ({
                             value={TestLocationEnum.LAB}
                             checked={location === TestLocationEnum.LAB}
                           />
-                          <span>Go to a lab draw</span>
+                          <span>{t('surveys.testLocationSurvey.text2')}</span>
                         </span>
                       </label>
                     </div>
@@ -75,7 +75,7 @@ const TestLoctionSurvey: React.FunctionComponent<TestLoctionSurveyProps> = ({
                             value={TestLocationEnum.HOME}
                             checked={location === TestLocationEnum.HOME}
                           />
-                          <span>Wait for a home test kit</span>
+                          <span>{t('surveys.testLocationSurvey.text3')}</span>
                         </span>
                       </label>
                     </div>
@@ -90,13 +90,13 @@ const TestLoctionSurvey: React.FunctionComponent<TestLoctionSurveyProps> = ({
                             value={TestLocationEnum.NO_TEST}
                             checked={location === TestLocationEnum.NO_TEST}
                           />
-                          <span>Not interested in testing</span>
+                          <span>{t('surveys.testLocationSurvey.text4')}</span>
                         </span>
                       </label>
                     </div>
                     <div
                       className="pull-right"
-                      style={{ paddingBottom: '2.4rem', paddingTop: '1rem' }}
+                      style={{ paddingBottom: '1.2rem', paddingTop: '1rem' }}
                     >
                       <Button
                         size="small"
@@ -106,7 +106,7 @@ const TestLoctionSurvey: React.FunctionComponent<TestLoctionSurveyProps> = ({
                         disabled={!location}
                         onClick={postSurvey}
                       >
-                        Submit
+                        {t('common.submit')}
                       </Button>
                     </div>
                   </div>
