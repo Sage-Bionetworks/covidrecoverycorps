@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import i18next from 'i18next'
 
 type WithdrawSurveyProps = {
   surveyUpdatedCallbackFn: Function
@@ -34,9 +35,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                   className="control-label"
                   htmlFor="root_about_gender_identity"
                 >
-                  Please help us make the COVID Recovery Corps study better by
-                  telling us about your reasons for withdrawing. (Check all that
-                  apply)
+                  {i18next.t('surveys.withdrawSurvey.text1')}
                 </label>
                 <div className="checkboxes">
                   <div className="checkbox ">
@@ -47,7 +46,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                           name="too_much_time"
                           onChange={handleChange}
                         />
-                        <span>Study was taking too much of my time </span>
+                        <span>{i18next.t('surveys.withdrawSurvey.text2')}</span>
                       </span>
                     </label>
                   </div>
@@ -59,7 +58,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                           name="not_enough_benefit"
                           onChange={handleChange}
                         />
-                        <span>Not enough benefit for me to continue</span>
+                        <span>{i18next.t('surveys.withdrawSurvey.text3')}</span>
                       </span>
                     </label>
                   </div>
@@ -71,7 +70,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                           name="privacy "
                           onChange={handleChange}
                         />
-                        <span> I am concerned about my privacy </span>
+                        <span>{i18next.t('surveys.withdrawSurvey.text4')}</span>
                       </span>
                     </label>
                   </div>
@@ -83,7 +82,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                           name="data_use"
                           onChange={handleChange}
                         />
-                        <span>I am concerned about the use of my data</span>
+                        <span>{i18next.t('surveys.withdrawSurvey.text5')}</span>
                       </span>
                     </label>
                   </div>
@@ -95,10 +94,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                           name="personal_reasons"
                           onChange={handleChange}
                         />
-                        <span>
-                          Withdrawing for personal reason that do not involve
-                          this study{' '}
-                        </span>
+                        <span>{i18next.t('surveys.withdrawSurvey.text6')}</span>
                       </span>
                     </label>
                   </div>
@@ -111,7 +107,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                           //checked={result.no_answer}
                           onChange={handleChange}
                         />
-                        <span>Prefer not to answer</span>
+                        <span>{i18next.t('surveys.withdrawSurvey.text7')}</span>
                       </span>
                     </label>
                   </div>

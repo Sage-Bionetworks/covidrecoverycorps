@@ -23,9 +23,10 @@ import Alert from '@material-ui/lab/Alert/Alert'
 import Intro from './Intro'
 import TestLocationSurvey from '../surveys/TestLocationSurvey'
 import i18next from 'i18next'
+import { Trans, useTranslation } from 'react-i18next'
 
 type DashboardProps = {
-        token: string
+  token: string
 }
 type UISurvey = {
   type: SurveyType
@@ -40,44 +41,6 @@ const useStyles = makeStyles({
     backgroundColor: '#f5f5f5',
   },
 })
-
-const surveys: UISurvey[] = [
-  {
-    type: 'CONTACT',
-    title: i18next.t('dashboard.text1'),
-    description: i18next.t('dashboard.text2'),
-    time: '2',
-    link: '/contactinfo',
-  },
-  {
-    type: 'DEMOGRAPHIC',
-    title: i18next.t('dashboard.text3'),
-    description:i18next.t('dashboard.text4'),
-    time: '2',
-    link: '/survey1',
-  },
-  {
-    type: 'COVID_EXPERIENCE',
-    title: i18next.t('dashboard.text5'),
-    description: i18next.t('dashboard.text6'),
-    time: '5',
-    link: '/survey2',
-  },
-  {
-    type: 'HISTORY',
-    title: i18next.t('dashboard.text7'),
-    description: i18next.t('dashboard.text8'),
-    time: '5-10',
-    link: '/survey3',
-  },
-  {
-    type: 'MORE',
-    title: i18next.t('dashboard.text9'),
-    description: i18next.t('dashboard.text10'),
-    time: '5-10',
-    link: '/survey4',
-  },
-]
 
 export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   token,
@@ -95,6 +58,45 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   ] = useState<TestLocationEnum | undefined>(undefined)
 
   const classes = useStyles()
+  const { t } = useTranslation()
+
+  const surveys: UISurvey[] = [
+    {
+      type: 'CONTACT',
+      title: i18next.t('dashboard.text1'),
+      description: i18next.t('dashboard.text2'),
+      time: '2',
+      link: '/contactinfo',
+    },
+    {
+      type: 'DEMOGRAPHIC',
+      title: i18next.t('dashboard.text3'),
+      description: i18next.t('dashboard.text4'),
+      time: '2',
+      link: '/survey1',
+    },
+    {
+      type: 'COVID_EXPERIENCE',
+      title: i18next.t('dashboard.text5'),
+      description: i18next.t('dashboard.text6'),
+      time: '5',
+      link: '/survey2',
+    },
+    {
+      type: 'HISTORY',
+      title: i18next.t('dashboard.text7'),
+      description: i18next.t('dashboard.text8'),
+      time: '5-10',
+      link: '/survey3',
+    },
+    {
+      type: 'MORE',
+      title: i18next.t('dashboard.text9'),
+      description: i18next.t('dashboard.text10'),
+      time: '5-10',
+      link: '/survey4',
+    },
+  ]
 
   useEffect(() => {
     let isSubscribed = true
@@ -223,7 +225,9 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
           <div className="time">
             <img src={clockIconImg}></img>
-            <span>{survey.time}&nbsp;min</span>
+            <span>
+              {survey.time}&nbsp;{i18next.t('dashboard.min')}
+            </span>
           </div>
         </>
       )
@@ -288,19 +292,12 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
   return (
     <div className="Dashboard">
-      {getCompletionStatus() === SurveysCompletionStatusEnum.NOT_DONE && (
+      {getCompletionStatus() !== SurveysCompletionStatusEnum.NOT_DONE && (
         <div className="dashboard-intro">
-          <p>
-            The information you provide will help researchers learn more about
-            COVID-19.
-          </p>
-          <p>
-            {' '}
-            To be invited for a lab test, you will need to complete your Profile
-            and Surveys 1-2. Surveys 3 and 4 are optional but still provide
-            important information. Please consider completing them if you have
-            the time.{' '}
-          </p>
+          <Trans i18nKey="dashboard.intro1">
+            <p>[translate]</p>
+            <p>[translate]</p>
+          </Trans>
         </div>
       )}
       <Card className={classes.root}>
@@ -314,15 +311,15 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         />
         {
           //if they fininshed main surveys and didn't pick location
-          !isDone('TEST_LOCATION') &&
-            getCompletionStatus() !== SurveysCompletionStatusEnum.NOT_DONE && (
-              <TestLocationSurvey
-                surveyUpdatedCallbackFn={(location: TestLocationEnum) =>
-                  setTestLocationSurveySubmitted(location)
-                }
-                token={token}
-              ></TestLocationSurvey>
-            )
+          /* !isDone('TEST_LOCATION') &&
+            getCompletionStatus() !== SurveysCompletionStatusEnum.NOT_DONE*/ true && (
+            <TestLocationSurvey
+              surveyUpdatedCallbackFn={(location: TestLocationEnum) =>
+                setTestLocationSurveySubmitted(location)
+              }
+              token={token}
+            ></TestLocationSurvey>
+          )
         }
         {(isDone('TEST_LOCATION') ||
           getCompletionStatus() === SurveysCompletionStatusEnum.NOT_DONE) && (
@@ -330,10 +327,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
             <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
             <div className="separator">
               <img src={testTubeImg}></img>
-              <div className="small">
-                {' '}
-                Minimum surveys required for lab invites{' '}
-              </div>
+              <div className="small">{i18next.t('dashboard.text11')}</div>
             </div>
             <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
           </>
