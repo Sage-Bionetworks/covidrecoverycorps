@@ -8,7 +8,7 @@ export const ENDPOINT = 'https://webservices.sagebridge.org'
 export const SURVEY_TIME_CONSTANT = '2020-06-15T00:14:04.322Z'
 export const SURVEY_IDENTIFIER = 'ny-strong'
 
-export const GoogleAPIKey = 'AIzaSyC8ybju7k0FeyAHbILJAh5Ep6dZblA_810'
+export const GoogleAPIKey = 'AIzaSyCOHAq1ImsO7-eAiAvj1l5VzCwRMxsm8kA'
 
 export interface MailChimpFormFields extends EmailFormFields {
   NAME: string

@@ -17,6 +17,13 @@
     "submit": "Submit",
     "zipCode": "Zip code"
   },
+  "globalAlert": {
+    "withdrawn":"<0>We are sorry to see you go!</0><1></1><2>You are now withdrawn from the COVID Recovery Corps Study.</2>",
+    "cancelledConsent":"You will need to complete the consent process before you can join the study.",
+    "startConsent":"Start consent",
+    "booked":"Your lab appointment to get your blood drawn has been confirmed. ",
+    "viewDetails": "View details"
+  },
   "home": {
     "title": "A community-powered movement to understand COVID-19 across NYC.",
     "text1": "If you live in the New York City metro area and have recovered from COVID-19 - or think you have - join our research study to better understand the long-term effects from this disease.",
@@ -499,5 +506,13 @@
       "text6": "Thank you for your contribution to the COVID Recovery Corps Study!"
     }
   },
-  "appointment": { "title": "" }
+  "appointment": { 
+    "title": "Appointment confirmation",
+    "text1":"Your lab appointment has been confirmed for:",
+    "text2":"DATE",
+    "text3":"LOCATION",
+    "text4":"View Map",
+    "text5":"<0> You will stop at the main Information desk in the lobby and will be directed to the proper location. Please bring this email on your smartphone or a printout of this email with you to your appointment. </0> <1> As a token of our appreciation, all participants who complete all of the surveys and provide a lab sample will receive a $50 gift card. Please complete the four surveys prior to your lab appointment. </1>", 
+    "text6":"<0> If you have a fever, cough, sore throat, shortness of breath, diarrhea, or body aches, you should not come to have your blood drawn. </0> <1> If you need to reschedule your appointment or need assistance, call 212-305-5700 or email<1> COVIDRecoveryCorps@cumc.columbia.edu </1> </1>"
+   }
 }
