@@ -1100,7 +1100,7 @@
         },
         "job_title": {
           "type": "string",
-          "title": "20.Cuál es su profesión?",
+          "title": "20. ¿Qué tipo de trabajo tienes actualmente? (marque todo lo que corresponda)",
 
           "enum": [
             "Child care",
@@ -1117,6 +1117,7 @@
             "Work in public transportation (bus driver, subway station employee)",
             "Work in restaurant/bar",
             "Work outdoors (farming, landscaping, construction)",
+            "Currently unemployed",
             "Other",
             "Prefer not to answer"
           ],
@@ -1135,9 +1136,14 @@
             "Trabajo en transporte público (conductor de autobús, empleado de estación de metro)",
             "Trabajo en restaurante / bar",
             "Trabajo al aire libre (agricultura, paisajismo, construcción)",
+            "Actualmente desempleado",
             "Otro",
             "Prefiero no responder"
           ]
+        },
+        "job_title_other": {
+          "type": "string",
+          "title": "20a. Si usted marcó \"otro\"en la pregunta anterior, ¿qué tipo de trabajo tienes actualmente?"
         },
         "were_healthcare_worker": {
           "title": "21. Durante el último año, ¿fue usted un trabajador en cuidado de salud?",
