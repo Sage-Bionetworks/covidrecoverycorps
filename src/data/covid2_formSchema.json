@@ -1098,47 +1098,56 @@
           ]
         },
         "job_title": {
-          "type": "string",
-          "title": "20. What is your job title?",
+          "type": "array",
+          "title": "20. What type of job do you currently have? (check all that apply)",
+
+          "minItems": 1,
           "uniqueItems": true,
-          "enum":[
-            "Child care",
-            "Custodial worker",
-            "Education/teacher/work in school setting",
-            "Health care worker (nurse, nursing assistant, community healthcare worker, clerk, therapist, laboratory technologist, doctor)",
-            "Performing artist",
-            "Public safety (police, security guard)",
-            "Researcher in a laboratory",
-            "Sanitation engineer",
-            "Work in a factory/plant/processing center",
-            "Work in a store / shopping mall",
-            "Work in an office setting",
-            "Work in public transportation (bus driver, subway station employee)",
-            "Work in restaurant/bar",
-            "Work outdoors (farming, landscaping, construction)",
-            "Other",
-            "Prefer not to answer"
-          ],
-          "enumNames":[
-            "Child care",
-            "Custodial worker",
-            "Education/teacher/work in school setting",
-            "Health care worker (nurse, nursing assistant, community healthcare worker, clerk, therapist, laboratory technologist, doctor)",
-            "Performing artist",
-            "Public safety (police, security guard)",
-            "Researcher in a laboratory",
-            "Sanitation engineer",
-            "Work in a factory/plant/processing center",
-            "Work in a store / shopping mall",
-            "Work in an office setting",
-            "Work in public transportation (bus driver, subway station employee)",
-            "Work in restaurant/bar",
-            "Work outdoors (farming, landscaping, construction)",
-            "Other",
-            "Prefer not to answer"
-
-          ]
-
+          "items": {
+            "type": "string",
+            "enum": [
+              "Child care",
+              "Custodial worker",
+              "Education/teacher/work in school setting",
+              "Health care worker (nurse, nursing assistant, community healthcare worker, clerk, therapist, laboratory technologist, doctor)",
+              "Performing artist",
+              "Public safety (police, security guard)",
+              "Researcher in a laboratory",
+              "Sanitation engineer",
+              "Work in a factory/plant/processing center",
+              "Work in a store / shopping mall",
+              "Work in an office setting",
+              "Work in public transportation (bus driver, subway station employee)",
+              "Work in restaurant/bar",
+              "Work outdoors (farming, landscaping, construction)",
+              "Currently unemployed",
+              "Other",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Child care",
+              "Custodial worker",
+              "Education/teacher/work in school setting",
+              "Health care worker (nurse, nursing assistant, community healthcare worker, clerk, therapist, laboratory technologist, doctor)",
+              "Performing artist",
+              "Public safety (police, security guard)",
+              "Researcher in a laboratory",
+              "Sanitation engineer",
+              "Work in a factory/plant/processing center",
+              "Work in a store / shopping mall",
+              "Work in an office setting",
+              "Work in public transportation (bus driver, subway station employee)",
+              "Work in restaurant/bar",
+              "Work outdoors (farming, landscaping, construction)",
+              "Currently unemployed",
+              "Other",
+              "Prefer not to answer"
+            ]
+          }
+        },
+        "job_title_other": {
+          "type": "string",
+          "title": "20a. If you checked \"other\" in the previous question, what type of job do you currently have?"
         },
         "were_healthcare_worker": {
           "title": "21. Over the last year, were you a health care worker?",

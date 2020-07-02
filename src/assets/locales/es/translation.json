@@ -1,8 +1,39 @@
 {
+   "common": {
+    "date": {
+      "year": "year",
+      "month": "month",
+      "day": "day"
+    },
+    "email": "Email",
+    "emailAddress": "Email address",
+    "joinUs": "Join Us",
+    "logIn": "Log in",
+    "moreInfoVisit": "For more information, please visit",
+    "phone": "Phone",
+    "fullName": "Full name",
+    "signUpForAccount": "Sign up for an account",
+    "submit": "Enviar",
+    "zipCode": "Zip code"
+  },
   "home": {
     "title": "Construyendo una asociación entre los sobrevivientes de COVID-19 y los investigadores."
   },
   "team": {
     "title": "El Cuerpo de Recuperación de COVID es un estudio de investigación impulsado por ciudadanos para aprender más sobre COVID-19 y avanzar en la lucha global."
+  },
+  "surveys": {
+    "saveProgress": "Guardar progreso",
+    "submitted": "Your information has been submitted",
+    "responsesRequired": "Respuestas requeridas arriba ",
+    "clear": "Clear",
+    "errors": {
+      "required": "is a required field",
+      "minimum": "should be at least {{value}}",
+      "maximum": "should be at most {{value}}",
+      "between": "should be between {{min}} and {{max}}",
+      "invalid": "invalid value",
+      "symptomSequence": "Por favor verifique que las fechas de sus síntomas estén en la secuencia correcta"
+    }
   }
 }

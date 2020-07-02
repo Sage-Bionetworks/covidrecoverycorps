@@ -147,7 +147,14 @@
       "ui:widget": "radio"
     },
     "job_title": {
-      "ui:widget": "radio"
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0]
+      }
+    },
+    "job_title_other": {
+      "classNames": "text"
     },
     "were_healthcare_worker": {
       "ui:widget": "radio"
