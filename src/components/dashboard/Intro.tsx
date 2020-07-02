@@ -5,6 +5,8 @@ import {
 } from '../../types/types'
 import iconThankYou from '../../assets/dashboard/icon_thankyou.svg'
 import iconWooHoo from '../../assets/dashboard/icon_whoohoo.svg'
+import i18next from 'i18next'
+import { Trans } from 'react-i18next'
 
 type IntroProps = {
   testLocation: TestLocationEnum | undefined
@@ -23,69 +25,40 @@ const Intro: FunctionComponent<IntroProps> = ({
   const doneMainElNotScheduled = (
     <>
       <img src={iconWooHoo} alt="woo hoo!"></img>
-      <h2>Thank you!</h2>
+      <h2>{i18next.t('dashboard.intro.heading1')}</h2>
       {(testLocation === TestLocationEnum.LAB ||
         testLocation === TestLocationEnum.HOME) && (
-        <p>
-          We’ve added you to the waiting list for an antibody test. If you are
-          selected, you will receive an email.
-        </p>
+        <p>{i18next.t('dashboard.intro.text1')}</p>
       )}
       {testLocation === TestLocationEnum.NO_TEST && (
-        <p>
-          {' '}
-          Please consider completing the rest of the surveys if you have time.
-        </p>
+        <p>{i18next.t('dashboard.intro.text2')}</p>
       )}
     </>
   )
   const doneMainElScheduled = (
     <>
       <img src={iconWooHoo} alt="woo hoo!"></img>
-      <h2>You're invited!</h2>
+      <h2>{i18next.t('dashboard.intro.heading2')}</h2>
       {testLocation === TestLocationEnum.LAB && (
-        <p>
-          Please complete surveys 3 &amp; 4 before your antibody test
-          appointment in order to receive a gift card.
-        </p>
+        <p>{i18next.t('dashboard.intro.text3')}</p>
       )}
       {testLocation === TestLocationEnum.HOME && (
-        <p>
-          Please complete surveys 3 &amp; 4 before sending back your at-home
-          test kit.
-        </p>
+        <p>{i18next.t('dashboard.intro.text4')}</p>
       )}
     </>
   )
   // main surveys done but not the location survey
   const doneMainNoLocationSurveyEl = (
-    <>
-      <h2>Lab Preferences</h2>
-      <p>
-        You've completed the minimum surveys to qualify for the antibody test
-        waitlist.
-      </p>
-      <p>
-        To receive a gift card, you will need to be invited to an antibody test
-        and provide a biosample. You will also need to complete surveys 3 &amp;
-        4.
-      </p>
-      <p>
-        We cannot guarantee testing invites for all participants at this time.
-      </p>
-      <p>
-        If you were invited to get an antibody test, what is your testing
-        preference?
-      </p>
-    </>
+    <Trans i18nKey="dashboard.intro.text5">
+      <h2>[translate]</h2>
+      <p>[translate]</p>
+    </Trans>
   )
 
   const doneAllEl = (
     <>
-      <img src={iconThankYou} alt="thank you!"></img>
-      <h2>
-        Thank you for your contribution to the COVID Recovery Corps Study!
-      </h2>{' '}
+      <img src={iconThankYou} alt={i18next.t('dashboard.intro.heading1')}></img>
+      <h2>{i18next.t('dashboard.intro.text6')}</h2>{' '}
     </>
   )
 

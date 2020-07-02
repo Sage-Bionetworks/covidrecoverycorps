@@ -1,64 +1,65 @@
 import React from 'react'
 import { Button, Link } from '@material-ui/core'
+import { useTranslation, Trans } from 'react-i18next'
+import i18next from 'i18next'
+import i18n from '../../i18n'
 
 export type GlobalAlertCopyProps = {
   code?: string
 }
 
-const codes: { [key: string]: JSX.Element } = {
-  WITHDRAWN_FROM_STUDY: (
-    <div>
-      <div>We are sorry to see you go!</div>
-      <br></br>
-      <div>You are now withdrawn from the COVID Recovery Corps Study.</div>
-    </div>
-  ),
-  CANCELLED_CONSENT: (
-    <div>
-      <div>
-        You will need to complete the consent process before you can join the
-        study.
-      </div>
-      <br></br>
-      <Button
-        // override standard secondary button color for the global alert
-        style={{ backgroundColor: '#2E2E2E', color: '#F2F2F2' }}
-        color="secondary"
-        variant="contained"
-        size="large"
-        type="submit"
-        fullWidth
-        href="/consent"
-      >
-        Start consent
-      </Button>
-    </div>
-  ),
-  APPOINTMENT_BOOKED: (
-    <div>
-      <div>
-        Your lab appointment to get your blood drawn has been confirmed.
-      </div>
-      <br></br>
-      <Button
-        // override standard secondary button color for the global alert
-        style={{ backgroundColor: '#2E2E2E', color: '#F2F2F2' }}
-        color="secondary"
-        variant="contained"
-        size="large"
-        type="submit"
-        fullWidth
-        href="/appointment"
-      >
-        View details
-      </Button>
-    </div>
-  ),
-}
-
 export const GlobalAlertCopy: React.FunctionComponent<GlobalAlertCopyProps> = ({
   code,
 }: GlobalAlertCopyProps) => {
+  const { t } = useTranslation()
+
+  const codes: { [key: string]: JSX.Element } = {
+    WITHDRAWN_FROM_STUDY: (
+      <div>
+        <Trans i18nKey="globalAlert.withdrawn">
+          <div>[translate]</div>
+          <br></br>
+          <div>[translate]</div>
+        </Trans>
+      </div>
+    ),
+    CANCELLED_CONSENT: (
+      <div>
+        <div>{t('globalAlert.cancelledConsent')}</div>
+        <br></br>
+        <Button
+          // override standard secondary button color for the global alert
+          style={{ backgroundColor: '#2E2E2E', color: '#F2F2F2' }}
+          color="secondary"
+          variant="contained"
+          size="large"
+          type="submit"
+          fullWidth
+          href="/consent"
+        >
+          {t('globalAlert.startConsent')}
+        </Button>
+      </div>
+    ),
+    APPOINTMENT_BOOKED: (
+      <div>
+        <div>{t('globalAlert.booked')}</div>
+        <br></br>
+        <Button
+          // override standard secondary button color for the global alert
+          style={{ backgroundColor: '#2E2E2E', color: '#F2F2F2' }}
+          color="secondary"
+          variant="contained"
+          size="large"
+          type="submit"
+          fullWidth
+          href="/appointment"
+        >
+          {t('globalAlert.viewDetails')}
+        </Button>
+      </div>
+    ),
+  }
   if (code) {
     return codes[code]
   }

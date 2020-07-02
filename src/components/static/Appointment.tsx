@@ -12,7 +12,7 @@ import QRCode from 'qrcode.react'
 import moment, { Moment } from 'moment'
 import { UserService } from '../../services/user.service'
 import i18next from 'i18next'
-import { useTranslation } from 'react-i18next'
+import { useTranslation, Trans } from 'react-i18next'
 import 'moment/locale/es'
 import GoogleMapReact from 'google-map-react'
 import Geocode from 'react-geocode'
@@ -198,11 +198,13 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
     return (
       <Card className={classes.root}>
         <div className={classes.appointmentContainerDiv}>
-          <h2 className="text-center">Appointment confirmation</h2>
-          <p>Your lab appointment has been confirmed for:</p>
+          <h2 className="text-center">{t('appointment.title')}</h2>
+          <p>{t('appointment.text1')}</p>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item>
-              <div className={classes.appointmentDateHeader}>DATE</div>
+              <div className={classes.appointmentDateHeader}>
+                {t('appointment.text2')}
+              </div>
 
               <div>
                 {appointmentDateTime.locale(i18next.language).format('dddd')}
@@ -229,7 +231,9 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
               alignItems="center"
             >
               <Grid item>
-                <div className={classes.appointmentDateHeader}>LOCATION</div>
+                <div className={classes.appointmentDateHeader}>
+                  {t('appointment.text3')}
+                </div>
                 {appointment.address.addressObject.line[0]
                   ? appointment.address.addressObject.line[0]
                   : ''}
@@ -246,39 +250,28 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
                   )}`}
                   target="_blank"
                 >
-                  View Map
+                  {t('appointment.text4')}
                 </a>
               </Grid>
             </Grid>
           )}
           <div className={classes.appointmentInstructions}>
-            <p>
-              You will stop at the main Information desk in the lobby and will
-              be directed to the proper location. Please bring this email on
-              your smartphone or a printout of this email with you to your
-              appointment.
-            </p>
-            <p>
-              As a token of our appreciation, all participants who complete all
-              of the surveys and provide a lab sample will receive a $50 gift
-              card. Please complete the four surveys prior to your lab
-              appointment.
-            </p>
+            <Trans i18nKey="appointment.text5">
+              <p>[translation]</p>
+              <p>[translation]</p>
+            </Trans>
             <div className={classes.qrCode}>
               <QRCode value={reference || ''} />
             </div>
-            <p>
-              If you have a fever, cough, sore throat, shortness of breath,
-              diarrhea, or body aches, you should not come to have your blood
-              drawn.
-            </p>
-            <p>
-              If you need to reschedule your appointment or need assistance,
-              call 212-305-5700 or email{' '}
-              <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
-                COVIDRecoveryCorps@cumc.columbia.edu
-              </a>
-            </p>
+            <Trans i18nKey="appointment.text6">
+              <p>[translation] </p>
+              <p>
+                [translation]
+                <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
+                  [translation]
+                </a>
+              </p>
+            </Trans>
           </div>
 
           <div className={classes.logosDiv}>
