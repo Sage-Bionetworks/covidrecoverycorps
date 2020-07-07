@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
+import { useTranslation, Trans } from 'react-i18next'
 
 export default function CookieNotificationBanner() {
   const isCookiePolicyPreviouslyAccepted: boolean =
@@ -8,6 +9,8 @@ export default function CookieNotificationBanner() {
   const [isCookiePolicyAccepted, setIsCookiePolicyAccepted] = useState<boolean>(
     isCookiePolicyPreviouslyAccepted,
   )
+
+  const { t } = useTranslation()
   useEffect(() => {
     localStorage.setItem(
       'cookiePolicyAccepted',
@@ -23,19 +26,14 @@ export default function CookieNotificationBanner() {
       }}
     >
       <div>
-        <div>
-          This site uses Cookies to enhance your experience and to analyze our
-          traffic. Using this website means that you agree with our cookie
-          policy.
-        </div>
-        <Link to="/privacypolicy">Learn more</Link>
+        <div>{t('cookieBanner.text1')}</div>
+        <Link to="/privacypolicy">{t('common.learnMore')}</Link>
       </div>
       <Button
         variant="contained"
         onClick={() => setIsCookiePolicyAccepted(true)}
       >
-        {' '}
-        OK{' '}
+        {t('common.ok')}
       </Button>
     </div>
   )

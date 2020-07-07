@@ -22,6 +22,7 @@ import LearnMore from '../widgets/LearnMore'
 import ConsentSentConfirmation from './ConsentSentConfirmation'
 import { UserService } from '../../services/user.service'
 import { useSessionDataState, useSessionDataDispatch } from '../../AuthContext'
+import { useTranslation, Trans } from 'react-i18next'
 import i18next from 'i18next'
 import 'moment/locale/es'
 
@@ -47,6 +48,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   const sessionUpdateFn = useSessionDataDispatch()
 
   const [error, setError] = useState('')
+  const { t } = useTranslation()
 
   const stateSchema = {
     agree: { value: '', error: '' },
@@ -123,35 +125,28 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
   const renderHIPAAStep = (): JSX.Element => {
     const element = (
       <div>
-        <h2> Do you want to share your electronic health records with us?</h2>
+        <h2>{t('consent.hipaaText1')}</h2>
         <p>
-          Sharing your EHR (electronic health records) is{' '}
-          <strong>optional</strong>.{' '}
+          <Trans i18nKey = "consent.hipaaText2">
+          [translate]
+          <strong>[translate]</strong>.
+          </Trans>
         </p>
 
         <LearnMore learnMoreText="Review what it means">
           <div>
+          <Trans i18nKey = "consent.hipaaText3">
             <p>
-              Your electronic health record (EHR) is a digital version of your
-              medical health record (which may include information like your
-              doctor’s notes from visits, diagnosis information and
-              medications).{' '}
+            [translate]
             </p>
             <p>
-              If you say yes to sharing, we will see data about your health
-              problems, test results, medical procedures, images (such as
-              X-rays), and medicines you take.
+            [translate]
             </p>
             <p>
-              It may tell us about your mental health, genetic conditions, or
-              use of alcohol or drugs. EHR may contain sexual or infection data,
-              including HIV status. You can say no to sharing your health
-              records and still take part in COVID Recovery Corps.
-            </p>
+            [translate]</p>
             <p>
-              There will be a separate form called a HIPAA Authorization for you
-              to sign if you decide to give us access to your health records.
-            </p>
+            [translate]</p>
+            </Trans>
           </div>
         </LearnMore>
 
@@ -166,13 +161,13 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
             <FormControlLabel
               value={'true'}
               control={<Radio color="primary" />}
-              label="Yes, share"
+              label={t('consent.shareYes')}
             />
 
             <FormControlLabel
               value={'false'}
               control={<Radio color="primary" />}
-              label="No, don't share"
+              label={t('consent.shareNo')}
             />
           </RadioGroup>
         </div>
@@ -187,7 +182,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           color="primary"
           onClick={() => setIsConsentDone(true)}
         >
-          Submit
+          {t("common.submit")}
         </Button>
       </div>
     )
@@ -223,9 +218,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   <FloatingToolbar
                     closeLinkDestination="/home?alert=CANCELLED_CONSENT"
                     closeLinkText=""
-                    closeConfirmationText="Are you sure you want to leave the consent process?"
+                    closeConfirmationText={t("closeConfirmationText")}
                   >
-                    Consent Signature
+                    {t("consent.consentSignature")}
                   </FloatingToolbar>
                 </div>
 
@@ -251,7 +246,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     screen={SCREENS_ENUM.CONSENT_SHARING}
                   ></ConsentCopy>
                 </div>
-                <LearnMore learnMoreText="Learn more">
+                <LearnMore learnMoreText={t("common.learnMore")}>
                   <div>
                     <p>{i18next.t('consentinfo.learnMoreScreen15.text1')}</p>
                     <p>{i18next.t('consentinfo.learnMoreScreen15.text2')}</p>
@@ -361,9 +356,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   <FloatingToolbar
                     closeLinkDestination="/home?alert=CANCELLED_CONSENT"
                     closeLinkText=""
-                    closeConfirmationText="Are you sure you want to leave the consent process?"
+                    closeConfirmationText= {t("closeConfirmationText")}
                   >
-                    Consent Signature
+                       {t("consent.consentSignature")}
                   </FloatingToolbar>
                 </div>
 

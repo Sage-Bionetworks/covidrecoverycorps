@@ -15,6 +15,7 @@ import { ConsentService } from '../../services/consent.service'
 import ConsentIcons from './ConsentIcons'
 import ConsentSentConfirmation from './ConsentSentConfirmation'
 import i18next from 'i18next'
+import { useTranslation } from 'react-i18next'
 import 'moment/locale/es'
 
 export type ConsentEHRProps = {
@@ -37,10 +38,12 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
     false,
   )
   const totalSteps = 10
+  const { t } = useTranslation()
 
   if (isConsentConfirmationShown) {
     return <Redirect to="/dashboard?consented=true"></Redirect>
   }
+ 
 
   const renderStep0 = () => {
     const element = (
@@ -54,7 +57,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
           style={{ marginTop: '20px' }}
           onClick={() => setCurrentStep(_prev => _prev + 1)}
         >
-          {i18next.t('consentEHR.welcome.text4')}
+          {t('consentEHR.welcome.text4')}
         </Button>
       </>
     )
@@ -153,9 +156,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
         ></ConsentCopy>
         <div className="Consent__inset">
           <p>
-            <strong>
-              {i18next.t('consentEHR.screen11.text1')}
-            </strong>
+            <strong>{t('consentEHR.screen11.text1')}</strong>
           </p>
 
           <ConsentCopy
@@ -180,7 +181,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
             <p>{moment().format('MMMM Do, YYYY')}</p>
             <div className="form-group">
               <TextField
-                label={i18next.t('consentEHR.screen11.text9')}
+                label={t('consentEHR.screen11.text9')}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -200,7 +201,7 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
                 variant="contained"
                 color="primary"
               >
-                 {i18next.t('consentEHR.screen11.text10')}
+                {t('consentEHR.screen11.text10')}
               </Button>
             </div>
           </form>
@@ -218,9 +219,9 @@ export const ConsentEHR: React.FunctionComponent<ConsentEHRProps> = ({
             <FloatingToolbar
               closeLinkDestination="/dashboard"
               closeLinkText=""
-              closeConfirmationText="Are you sure you want to leave the HIPPA Authorization process?"
+              closeConfirmationText={t('consentEHR.header.confirmation')}
             >
-              {i18next.t('consentEHR.header.text1')}
+              {t('consentEHR.header.text1')}
             </FloatingToolbar>
           </>
           {currentStep > 0 && currentStep <= totalSteps && (
