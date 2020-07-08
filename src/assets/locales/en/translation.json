@@ -9,151 +9,126 @@
     "emailAddress": "Email address",
     "joinUs": "Join Us",
     "joinStudy": "Join The Study",
+    "learnMore": "Learn More",
     "logIn": "Log in",
     "moreInfoVisit": "For more information, please visit",
     "phone": "Phone",
     "fullName": "Full name",
+    "ok": "OK",
     "signUpForAccount": "Sign up for an account",
     "submit": "Submit",
     "zipCode": "Zip code"
   },
-  "globalAlert": {
-    "withdrawn":"<0>We are sorry to see you go!</0><1></1><2>You are now withdrawn from the COVID Recovery Corps Study.</2>",
-    "cancelledConsent":"You will need to complete the consent process before you can join the study.",
-    "startConsent":"Start consent",
-    "booked":"Your lab appointment to get your blood drawn has been confirmed. ",
-    "viewDetails": "View details"
+  "accountSettings": {
+    "header": "Account Settings",
+    "updateLink": "Update contact information",
+    "shareDataLabel": "Share my study data with qualified researchers for future COVID related work",
+    "shareLearnMore": "<0> You will have the opportunity to share your data with qualified researchers outside of the COVID Recovery Corps. </0> <0> All qualified researchers must be approved by the COVID Recovery Corps study team and will only use de-identified data. This de-identified data does not contain identifiers like name, date of birth, or zip code. </0> <0> These researchers may be from outside the United States and may work for a non-profit institution, commercial drug or medical device companies, or be a private citizen. </0> <0> Sharing your data with qualified researchers is optional and you can change your mind at any time by updating your data sharing options in your profile. </0> <0> But once we share your data we cannot get it back. If you decide to end data sharing, we will not share your future data. </0>",
+    "shareEHRLabel": "Share my electronic health records",
+    "ehrLearnMore": "<0> Sharing your EHR (electronic health records) is optional. </0> <0> Your electronic health record (EHR) is a digital version of your medical health record (which may include information like your doctor's notes from visits, diagnosis information and medications). </0> <0> If you say yes to sharing, we will see data about your health problems, test results, medical procedures, images (such as X-rays), and medicines you take. </0> <0> It may tell us about your mental health, genetic conditions, or use of alcohol or drugs. EHR may contain sexual or infection data, including HIV status. You can say no to sharing your health records and still take part in COVID Recovery Corps. </0> <0> There will be a separate form called a HIPAA Authorization for you to sign if you decide to give us access to your health records. </0>",
+    "withdrawLink": "Withdraw from study",
+    "withdrawConfirm": "<0> Withdrawing from COVID Recovery Corps: </0> <1> If you withdraw, your samples will be destroyed. Your data will not be distributed any more. </1> <1> However, if researchers already have your data or samples for their studies, the COVID Recovery Corps study cannot get it back. </1>",
+    "withdrawYes": "Yes, withdraw study",
+    "withdrawNo": "No, keep me in the study"
   },
-  "home": {
-    "title": "A community-powered movement to understand COVID-19 across NYC.",
-    "text1": "If you live in the New York City metro area and have recovered from COVID-19 - or think you have - join our research study to better understand the long-term effects from this disease.",
-    "text3": "There is an urgent need to understand how COVID-19 will impact New York’s communities over time.",
-    "text4": "Our mission in this study is to understand how people recover from COVID-19 and the impacts of the disease on health, both today and in the future. By sharing your recovery experience, you can help researchers unlock the mysteries behind this disease and provide important new information for you, your loved ones, and thousands of others affected by the virus.",
-    "text41": "Minority communities have been disproportionately affected by COVID-19. We are committed to engaging a diverse and representative group of participants so that the research can help those most impacted by this disease.",
-    "text6": "Participation is simple.",
-    "text7": "Here’s how you can participate.",
-    "text8": "STEP ONE",
-    "text9": "Register and take the surveys",
-    "text10": "To get started, click",
-    "text11": "and learn what will happen in the study. After registering, you will be invited to take brief surveys that may help scientists begin to answer questions like: Why do some people experience very mild symptoms while others get very sick? How does recovering from COVID-19 impact your health over time?",
-    "text12": "STEP TWO",
-    "text13": "Share your samples",
-    "text14": "We will invite some participants to visit clinical sites in New York City to donate a sample. Sharing your samples will help answer important questions including: Who was really infected with COVID-19? What levels of antibodies are needed to protect us from reinfection? Is it possible to develop full immunity to COVID-19?",
-    "text15": "STEP THREE",
-    "text16": "Learn with us along the way",
-    "text17": "If you are asked to provide a sample, we will test the sample for antibodies related to COVID-19 infection, using an antibody test approved by the New York State Department of Health. We will share your test results with you, along with information about what those results may mean. As we learn more about the impact of COVID-19 across study participants, we will share regular updates with the broader scientific and patient community. We may also ask if you are interested in joining other related studies. For instance, some participants may choose to be notified of opportunities to donate plasma and help those still fighting for survival from COVID-19.",
-    "text18": "Together, we can fight COVID-19."
+  "appointment": {
+    "title": "Appointment confirmation",
+    "text1": "Your lab appointment has been confirmed for:",
+    "text2": "DATE",
+    "text3": "LOCATION",
+    "text4": "View Map",
+    "text5": "<0> You will stop at the main Information desk in the lobby and will be directed to the proper location. Please bring this email on your smartphone or a printout of this email with you to your appointment. </0> <1> As a token of our appreciation, all participants who complete all of the surveys and provide a lab sample will receive a $50 gift card. Please complete the four surveys prior to your lab appointment. </1>",
+    "text6": "<0> If you have a fever, cough, sore throat, shortness of breath, diarrhea, or body aches, you should not come to have your blood drawn. </0> <1> If you need to reschedule your appointment or need assistance, call 212-305-5700 or email<1> COVIDRecoveryCorps@cumc.columbia.edu </1> </1>"
   },
-  "topnav": {
-    "text1": "About",
-    "text2": "Meet the Researchers",
-    "text3": "FAQs",
-    "text4": "Contact Us",
-    "text5": "Privacy Policy",
-    "text6": "Survey Dashboard",
-    "text7": "Account Settings",
-    "text8": "Log in"
+  "consent": {
+    "consentSignature": "Consent Signature",
+    "closeConfirmationText": "Are you sure you want to leave the consent process?",
+    "hipaaText1": "Do you want to share your electronic health records with us?",
+    "hipaaText2": "Sharing your EHR (electronic health records) is <1>optional</1>.",
+    "hipaaText3": "<0> Your electronic health record (EHR) is a digital version of your medical health record (which may include information like your doctor’s notes from visits, diagnosis information and medications). </0> <1> If you say yes to sharing, we will see data about your health problems, test results, medical procedures, images (such as X-rays), and medicines you take. </1> <2> It may tell us about your mental health, genetic conditions, or use of alcohol or drugs. EHR may contain sexual or infection data, including HIV status. You can say no to sharing your health records and still take part in COVID Recovery Corps. </2> <3> There will be a separate form called a HIPAA Authorization for you to sign if you decide to give us access to your health records. </3>",
+    "shareYes": "Yes, share",
+    "shareNo": "No, don't share"
   },
-  "team": {
-    "title": "The COVID Recovery Corps is a citizen-powered research study that aims to accelerate progress in the global fight against COVID-19.",
-    "text1": "Study Leadership",
-    "text2": "Led by Columbia University and Sage Bionetworks, the study aims to enable those who have recovered from COVID-19 to partner with scientists to answer key questions - about how the body fights coronavirus, whether and how often infection affords immunity, and why infection is more severe in some communities. Starting in the New York metropolitan area - the epicenter of the pandemic in the United States - participants will help build a powerful dataset that may significantly advance science and help save lives. We want to learn as quickly as possible so we can keep our community safe from the virus and improve health in the future.",
-    "text3": " Dr. Wendy Chung",
-    "text4": "Dr. Wendy Chung is a co-Principal Investigator based at Columbia University with oversight over clinical operations. Dr Chung is an ABMG board certified clinical and molecular geneticist with 20 years of experience in clinical research, largely for rare diseases. She leads the Precision Medicine Resource of the Irving Institute at Columbia University and is the principal investigator of the large U.S. study of autism, SPARK.",
-    "text5": "She works with many patient and family led organizations to develop better supports and treatments for rare diseases and was recognized by the National Organization of Rare Disorders with the Rare Impact Award in 2019. She was recently featured in the documentary,",
-    "text6": "The Gene: An Intimate History",
-    "text61": "www.columbia.edu",
-    "text7": "Dr. Lara Mangravite",
-    "text8": "Dr. Lara Mangravite is a co-Principal Investigator with oversight over technology, governance, and data commons. Dr. Mangravite has extensive experience leading projects at Sage Bionetworks. She favors applying collaborative approaches to advance understanding of disease biology and treatment outcomes at a systems level with the overriding goal of improving clinical care.",
-    "text9": "Dr. Mangravite obtained a BS in Physics from the Pennsylvania State University and a PhD in Pharmaceutical Chemistry from the University of California, San Francisco. She completed a postdoctoral fellowship in cardiovascular pharmacogenomics at the Children’s Hospital Oakland Research Institute.",
-    "text10": "www.sagebionetworks.org",
-    "text14": "With support from the Chan Zuckerberg Initiative",
-    "text15": "Founded by Dr. Priscilla Chan and Mark Zuckerberg in 2015, the Chan Zuckerberg Initiative (CZI) is a new kind of philanthropy that’s leveraging technology to help solve some of the world’s toughest challenges — from eradicating disease, to improving education, to reforming the criminal justice system. Across three core Initiative focus areas of Science, Education, and Justice & Opportunity,  we’re is pairing engineering with grant-making, impact investing, and policy and advocacy work to help build an inclusive, just and healthy future for everyone.",
-    "text16": "www.chanzuckerberg.com"
-  },
-  "eligibility": {
-    "title": "Eligibility",
-    "error18": "To be eligible to take part in the COVID Recovery Corps study, you must be over 18.",
-    "errorCons": "To be eligible to take part in the COVID Recovery Corps study, you must be able to provide consent for yourself.",
-    "errorCovid": "To be eligible to take part in the COVID Recovery Corps study, you must think that you've had COVID-19.",
-    "errorZip": "Invalid zip code.",
-    "text1": "Currently we are looking for residents within a 25 mile radius of the Columbia University Medical Center. To be eligible to take part in the COVID Recovery Corps study, you must fulfill the following:",
-    "text2": "I am 18 years of age or older",
-    "text3": "I am able to provide consent for myself",
-    "text4": "I think I’ve had COVID-19",
-    "text5": "Please enter your zip code",
-    "zipCode": "Zip code"
-  },
-  "faqs": {
-    "title": "FAQs",
-    "text1": "What is the COVID Recovery Corps study?",
-    "text2": "COVID Recovery Corps is a research study. If you join and provide consent, we will gather data about you. We will ask you to fill out a survey. We will also invite you to share your electronic health record (EHR)) with us -- this is optional and not required for participation in the study. We might invite you to give a biosample (blood, urine or spit). Researchers will use these data to study how the body fights COVID-19. Researchers may also use it to study how other diseases like high blood pressure, diabetes, and lung diseases may be connected to how the body responds to COVID-19.",
-    "text3": "Researchers who wish to access the information that you provide for research purposes will need to be approved by COVID Recovery Corps prior to using these data. Researchers may be from anywhere in the world. They may work for research labs, medical institutions, or commercial companies, like drug companies. Their research will be on COVID-19 and related viruses.",
-    "text4": "What is the goal of this study?",
-    "text5": "The goal of this study is to learn more about how the body fights COVID-19. We also want to understand how other diseases like high blood pressure, diabetes, and lung diseases may be connected to how the body responds to COVID-19.",
-    "text41": "How do I participate in the study?",
-    "text51": "<1>If you decide to join COVID Recovery Corps, we will ask you to answer survey questions. We will use the answers you give to guess when you might have been infected.</1> <1> You may be asked to provide a biosample (such as blood and spit) to test if you have antibodies. If you are invited to provide a biosample, we will ask you if you would like to visit a lab location or be put on the waitlist for an at-home lab testing kit. </1><1> We will contact you on a periodic basis to ask you to fill out a follow-up survey on your current and your COVID-related symptoms. </1>",
-    "text6": "Who is eligible to participate?",
-    "text7": "We are committed to protecting your privacy. Except as required by law, you will not be identified by your name or by any other direct personal identifier. Your contact information, including your name and e-mail address will be stored separately from the study data. We will use a random code number instead of your name on all your study data. This code cannot be used to directly re-identify you. Information about the code will be kept in a secure system. Only a small team of the study staff and IT staff will have the key to associate your coded study data to your name and account information. Your coded study data (without your name) will be encrypted and stored on a secure cloud server to prevent improper access. Sage, Columbia University, the Chan Zuckerberg Initiative or anyone else affiliated with the COVID Survivors Corps will never sell, rent, or lease your contact information.",
-    "text8": "I have never been diagnosed with COVID-19. Can I participate?",
-    "text9": "We are enrolling participants who have been diagnosed or believe they were infected with COVID-19.",
-    "text10": "Are there any costs for me to participate?",
-    "text11": "There are no direct or indirect costs to taking part in the COVID Survivors Corps.",
-    "text12": "<0>You are eligible to participate in the study, if you:</0> <1> <0>Are 18 years old or older and are able to consent to participate in the study</0> <1>Have access to email or are able to receive text messages</1> <2>Have been diagnosed with or believe you have had COVID-19</2> <3> Read or understand English or Spanish </3> </1>",
-    "text13": "Who is running the COVID Recovery Corps study?",
-    "text14": "The COVID Recovery Corps study is being led by Columbia University and Sage Bionetworks and is supported by the Chan Zuckerberg Initiative. The <1>Principal Investigators</1> on this study are Dr. Wendy Chung at Columbia University and Dr. Lara Mangravite at Sage Bionetworks. This study is funded by the Chan Zuckerberg Initiative.",
-    "text15": "Who else will have access to my study data?",
-    "text16": "<0>We will create a scientific database and a biobank for the COVID Recovery Corps study. The scientific database will have individual-level data and the biobank will store your biosamples like your blood and urine.</0> <1>Access to this database will be controlled. Researchers will be approved by COVID Recovery Corps prior to using these data and will use only de-identified data.</1> <2>The U.S. and state governments might mandate access to the data so they can use it for public health activities. This includes law enforcement. We may be required to provide the data if they ask, even though we have a Certificate of Confidentiality from the U.S. government.</2> <3>We may offer you the chance to donate your data to other databases or researchers. You will get to decide if you want to share your data beyond this study.</3>",
-    "text151": "Will I have access to my test results?",
-    "text161": "Yes, we will provide you with access to your test results and information on what the results may mean.",
-    "text20": "Will you share back with me what you learn from the study?",
-    "text21": "Yes, as the study makes discoveries, the results will be shared with all participants. We also hope to provide periodic updates to participants through newsletters, webinars and public meetings.",
-    "text17": "How is my privacy protected?",
-    "text18": "Will participating in this study affect my insurance or medical services?",
-    "text19": "The COVID Recovery Corps is an observational study and not a clinical trial. We will not be asking you to change what you do or to take a specific medication. This study will not affect your medical insurance or healthcare.",
-    "text181": "Will I receive any form of compensation for participating in the study?",
-    "text191": "<0>Yes, participants who complete the surveys and provide a biosample by visiting a lab will receive a $50 gift card.</0> <0>For participants who provide a biosample using an at-home testing kit, you will receive a $20 gift card.</0> <0> Please remember to complete your surveys before your lab appointment or mailing back your at-home testing kit.</0>",
-    "text22": "I have a question that isn't answered in this FAQ. Who do I contact?",
-    "text23": "You can call <1>212-305-5700</1> or email <3>COVIDRecoveryCorps@cumc.columbia.edu</3>."
-  },
-  "contact": {
-    "title": "Contact Us",
-    "text1": "For information about participating and questions related to the study, visit the <1>FAQ</1> section of the site. If you have additional questions, please send us a message.",
-    "text2": "<0> COVID-19 Recovery Corps is a research study. This study does not provide medical advice, diagnosis, or treatment of any kind. If you have questions about your health, talk to your healthcare team. Do not use the information provided on the study website or email correspondence in place of advice from your healthcare team. </0> <1> Sage Bionetworks, Columbia University, and The Chan Zuckerberg Initiative are not liable or responsible for any advice, course of treatment, diagnosis or any other information, or services you obtain through the study. </1> <2> If you have any questions at any time before, during, or after the study, contact: </2>",
-    "text3": "Dr. Wendy Chung, MD, PhD, Principal Investigator of the study. If you have any questions or need assistance, you can call <1>212-305-5700</1> or email <3></3> <4> COVIDRecoveryCorps@cumc.columbia.edu </4> .",
-    "text4": "Privacy",
-    "text5": "For questions, comments, or requests regarding the <1>privacy policy</1> or our processing of your information, please contact: <3></3> <4> privacypolicy@sagebionetworks.org </4> .",
-    "text6": "Independent Review",
-    "text7": "The Western Institutional Review Board (WIRB) oversees the COVID Recovery Corps study. Contact WIRB if you have questions or concerns about your rights as a participant in this study.",
-    "text8": "<0>Western Institutional Review Board® (WIRB®)</0> <1></1> 1019 39th Avenue SE<3></3> Suite 120<5></5> Puyallup, WA 98374-2115<7></7> <8>800-562-4789</8> or <10>360-252-2500</10> <11></11><12></12> <13>Help@wirb.com</13>"
-  },
-  "privacy": {
-    "title": "Privacy Policy",
-    "text1": "<0>The COVID Recovery Corps study (the “Study”) is a collaboration between Sage Bionetworks and Columbia University. The Study is sponsored by the Chan Zuckerberg Initiative. The goal of the Study is to collect information from participants who have been diagnosed or believe they have had COVID-19. Researchers will use this information to better understand how the body fights COVID-19. </0> <1> The Study is committed to protecting your online privacy. This Privacy Policy explains the personal information we collect about you through the Website (defined below), how we use and share it, and the choices you have regarding this information. </1> <2> This Privacy Policy applies to visitors to <1>www.covidrecoverycorps.org</1> (the “Website”), including participants in the Study. If you don’t agree with this Privacy Policy, please do not access the Website or participate in the Study. </2>",
-    "text2": "Data We Collect From You",
-    "text3": "<0> “Personal information” or “personal data” means any direct information about you such as your name and contact information or indirect information that could be reasonably linked to you such as your device’s internet protocol address (IP Address). When you visit the Website, we collect the following information (collectively, “Personal Data”): </0> <1>Who You Are (“User Information”)</1> <2> We collect information that you provide to us during the informed consent and account creation process, and in any correspondence you have with us. For example, this could include your name, email, and any other contact information you share with us. </2> <3>Where you go on the Website (“Usage Data”)</3> <4> Whenever you use any online service, certain information gets created and logged automatically; the same is true when you visit the Website. We may collect technical data on the different pages you visit on the Website. For example, we may collect the date and time when you visit the Website. </4><5>We use a Facebook Pixel to measure if our advertising is working, and to understand the actions people take on our website. For example, the Pixel lets us know when someone clicks to sign up for an email from us. Facebook can learn from this information.</5>",
-    "text4": "Why We Collect This Data ",
-    "text5": "<0>User Information</0> <1> We use user-reported information for any of the following: <1> <0> Authenticating/administering your account </0> <1> Responding to user requests, questions, and concerns</1> <2> Requesting user feedback to enhance and improve the website </2> <3> Sending study communications such as newsletters and other materials that may be of interest to you.</3> </1> </1> <2>Usage Data</2> <3> We use usage data for the following purposes: <1> <0> Maintaining, securing, and enhancing the website </0> <1> Detecting and remedying disruptions in our systems </1> <2> Performing statistical analysis of usage patterns </2> <3> Operating, maintaining, enhancing, and providing all the features of the website </3> </1> </3>",
-    "text6": "To Whom/When We Disclose Data",
-    "text7": "<0> We work with vendors, service providers, and other partners that help us support and maintain the Website by providing services on our behalf. </0> <1>Vendors/Service Providers</1> <2> We may rely on vendors and service providers to provide the necessary hardware, software, networking, storage, and related technology required to operate, support and maintain the website. We required that all service providers agree to put in place reasonable security to keep users information confidential and secure, and to process information only for performing tasks on Sage Bionetwork’s behalf. We do not permit service providers to use or disclose users’ information, except as necessary to their work on the website. </2> <3>The COVID Recovery Corps website uses the following service providers: <1> <0> Amazon Web Services </0> <1> Google Analytics </1> </1> </3> <4>Statistical and Aggregate Information</4> <5> In accordance with applicable law, we may share aggregate and statistical information derived from users’ information with third parties for analysis. </5> <6>Compliance with Laws</6> <7> We may be required by law to give your user information in the case of any civil, criminal, administrative, legislative, or other proceedings. We will protect your privacy as much as possible. </7> <8>Business Transfers</8> <9> If Sage Bionetworks (website’s host) goes through a management or business transition such as a merger, closure, sale, joint venture, assignment, transfer, management reorganization, or other disposition of all or any portion of Sage Bionetworks’ business, assets, or stock, information or data may be transferred to a third party. In such cases, we will take reasonable steps to direct the transferee to use the information and data in a manner consistent with this Privacy Policy. </9>",
-    "text8": "How Long We Keep this Data ",
-    "text9": "<0> We keep the information, including personal information, for as long as necessary to provide our services and to fulfill any other purposes for which the information was initially collected, unless otherwise required by applicable law. For instance, we will keep personally identifiable information related to authentication of user identity only for as long as is necessary for authentication. </0> <1> Users may edit their information or remove their information by withdrawing from the study in the profile settings. We will retain and archive a record of user’s activities performed while the account was active to use for audit purposes, legitimate business purposes, to keep with our legal obligations, resolve disputes, and enforce our agreements and policies. </1>",
-    "text10": "Information/Data Security",
-    "text11": "<0> Sage Bionetworks maintains industry standard physical, organizational, technical, and administrative measures to protect the personal identifiable information we collect, store, or otherwise process in connection to the study against accidental, unlawful, or unauthorized access, destruction, disclosure, misuse, alteration, or loss. </0> <1> The data security measures are a combination of Privacy-Enhancing Technologies (PET) options and policies/processes for data handling. Still, no environment is 100% secure. There is some risk that an unauthorized third party may find a way to circumvent our security systems. </1>",
-    "text12": "What We Do Not Do",
-    "text13": "We do not use your personal information for advertising purposes. We do not sell or lease your information.",
-    "text14": "Your Rights",
-    "text15": "<0>You may request to access, update, correct, restrict or delete the personal information you provide to us. You also have the right to object to the processing of your personal information under certain conditions. For all such inquiries, we can be reached at the following: </0> <1> <0>Sage Bionetworks</0><1 /> Attention: Data Protection Officer <3 /> 2901 Third Avenue, Suite 330, <5 /> Seattle, WA 98121 <7 /> United States of America <9 /> <10 /> <11>privacyofficer@sagebionetworks.org</11></1><2> Upon request, we will provide you with reasonable access to the personal information about you that we hold. If your personal account information is deleted, your account becomes deactivated. </2> <3> You may opt-out of receiving study communications from us by clicking on the “unsubscribe” link included in each such communication or by notifying us by email at <1>privacyofficer@sagebionetworks.org</1> with the word “remove” in the subject header, and we will remove your contact details from our mailing list. </3>",
-    "text16": "Cross-Border Transfer of Your Information",
-    "text17": "Although you may access the website from a location outside of the United States, the website is primarily operated and managed within the United States. When we transfer information and data, we will protect the information and data as described in this Privacy Policy.",
-    "text18": "How to Contact Us ",
-    "text19": "<0> Sage Bionetworks is the controller of your information when it is collected and processed in the context of our sites and services. Our Data Protection Officer (DPO) is responsible for overseeing what we do with your information and ensuring we comply with applicable data protection laws. Our Data Protection Officer may be contacted by emailing  <1> privacyofficer@sagebionetworks.org </1> or by writing to: </0> <1> <0>Sage Bionetworks</0> <1 /> Attention: Data Protection Officer <3 /> 2901 Third Avenue, Suite 330, <5 /> Seattle, WA 98121 <7 /> United States of America <9 /> <10 /> </1>",
-    "text20": " Updates",
-    "text21": "We may update our Privacy Policy from time to time to clarify how we collect, process, store, use and disclose information. We want to be as transparent as possible about the changes we make to our Privacy Policy.",
-    "text22": "COVID Recovery Corps. Appendix C_V2.0. 17.June.2020"
+  "consentEHR": {
+    "header": {
+      "text1": "HIPAA Authorization",
+      "confirmation": "Are you sure you want to leave the HIPPA Authorization process?"
+    },
+    "welcome": {
+      "text1": "HIPAA Consent",
+      "text2": "Before you decide to share your electronic health record (EHR) with us, let’s learn more about how the COVID Recovery Corp will use this information.",
+      "text3": "The next screens will tell you about why we are asking you to share your EHR information, what types of information is collected in your EHR, and what we will do with this information.",
+      "text4": "Start HIPAA"
+    },
+    "screen1": {
+      "text1": "What is an EHR?",
+      "text2": "Health records are the data collected when you get healthcare. Electronic health records, or EHR, are when these data are kept in secure electronic systems."
+    },
+    "screen2": {
+      "text1": "What data is in my EHR?",
+      "text2": "The information in your EHR depends on what kinds of healthcare providers you see. Your EHR tells about the health problems and care you have received. It might list the medicines you take. It might have test results. It might have images, like X-rays. If you have had a medical procedure, notes about it will probably be in your EHR."
+    },
+    "screen3": {
+      "text1": "Are there sensitive data in my EHR?",
+      "text2": "There might be sensitive data in your EHR. For example, about your use of alcohol or drugs. Your EHR might have data about sexually transmitted infections, like HIV. It might have results from genetic (DNA) tests. We will be able to see these data.",
+      "text3": "If you have seen counselors or doctors who treat addictions or substance use disorders, information about your care might be part of your EHR. The same goes for if you have seen counselors or doctors who treat mental health, like depression or bipolar disorder. These data would be about your diagnosis and treatment. We will be able to see these data.",
+      "text4": "One exception are any notes from counselors or doctors in specialized clinics who treat addictions or substance use disorders. These notes are usually private and not part of the EHR. We will only be able to see these notes if they are part of your EHR."
+    },
+    "screen4": {
+      "text1": "What exactly will you access in my EHR?",
+      "text2": "We will access your whole EHR. That means we will take a copy of all the tests, results, and images in your EHR. This includes data about your diagnoses, medications, symptoms, allergies, and treatments."
+    },
+    "screen5": {
+      "text1": "Why do you want access to my EHR?",
+      "text2": "Your EHR contains important data about your health. We will add your EHR to your COVID Recovery Corps record. Your record will be part of the COVID Recovery Corps scientific database. In order to use this database, researchers will have to be approved by COVID Recovery Corps. Researchers will use this database to look for patterns related to the COVID-19 infection."
+    },
+    "screen6": {
+      "text1": "Who will be sending you my EHR?",
+      "text2": "We will request your EHR from all of your healthcare providers. This includes your regular healthcare providers. It also includes specialists.",
+      "text3": "We may ask for your EHR from many different places. This may include hospitals where you have gotten care."
+    },
+    "screen7": {
+      "text1": "Who will be getting access to my EHR?",
+      "text2": "If you sign this form, COVID Recovery Corps will be getting access to your EHR. We will add your EHR to your COVID Recovery Corps study data. The lead researcher of COVID Recovery Corps is Dr. Wendy Chung. She oversees the whole Research Program.",
+      "text3": "The scientific database will have individual-level information about people in COVID Recovery Corps. Access to this cloud-based database will be controlled. Researchers will have to be approved by COVID Recovery Corps to use this database. These researchers may be from anywhere in the world. They may work for commercial companies, like drug companies. Their research will be on COVID-19 and related viruses.",
+      "text4": "Once your information is shared with COVID Recovery Corps, it may no longer be protected by patient privacy rules (like “HIPAA”). However, it will still be protected by other privacy rules and agreements. These include the rules and agreements that researchers must follow to access the COVID Recovery Corps scientific database."
+    },
+    "screen8": {
+      "text1": "What if I don’t want to give access to my EHR? What if I change my mind?",
+      "text2": "Giving COVID Recovery Corps access to your EHR is voluntary. You get to choose. No matter what you decide, now or in the future, it will not affect your medical care. If you decide to give COVID Recovery Corps access to your EHR, you can change your mind at any time. If you decide you want to stop giving us access, you need to tell us you would like to withdraw from the study.",
+      "text3": "You can tell us through the app or website, or use the contact information at the end of this form to call or write to us. You can update the study’s access to your EHR in your profile settings on the website at any time.",
+      "text4": "However, if researchers have already accessed data from your EHR for their studies, we at COVID Recovery Corps cannot get it back. Also, we will let researchers check the results of past studies. If they need your old data to do this work, we will give it to them."
+    },
+    "screen9": {
+      "text1": "When will my consent expire?",
+      "text2": "Unless you tell us to stop, we will access your EHR until the COVID Recovery Corps study ends to check what has happened to your health after your COVID-19 infection."
+    },
+    "screen10": {
+      "text1": "Who can answer my questions?",
+      "text2": "<0>For general questions,</0> please contact the COVID Recovery Corps study at 212-305-5700 (24 hours) or <2> COVIDRecoveryCorps@cumc.columbia.edu </2>",
+      "text3": "<0> For questions about your rights as a research participant, concerns or complaints, </0> please contact Western IRB (WIRB) at <2>help@WIRB.com</2> at 360-252-2500 or toll-free at 800-562-4789."
+    },
+    "screen11": {
+      "text1": "I know the following information may be gathered from my EHR:",
+      "text2": "All health information pertaining to my medical history, mental or physical condition, and treatment received",
+      "text3": "Mental health diagnosis or treatment information",
+      "text4": "HIV/AIDS testing information",
+      "text5": "Alcohol/drug abuse, diagnosis or treatment information",
+      "text6": "Genetic testing information",
+      "text7": "Information about domestic violence and sexual assault counseling",
+      "text8": "By signing this form, I voluntarily authorize my healthcare providers and organizations to share my EHR with the COVID Recovery Corps Research Study, led by Dr. Wendy Chung, and its partner organization Sage Bionetworks.",
+      "text9": "Full Name of adult participant:",
+      "text10": "Agree"
+    }
   },
   "consentinfo": {
     "closeconfirmationtext": "Are you sure you want to leave the consent process?",
+    "startConsent": "Start Consent",
+    "studyConsent": "Study Consent",
+    "consentSummaryToggle": "consent text summary toggle",
+    "summary": "Summary",
+    "fullText": "Full Text",
+    "consentQuestion": "Consent Question",
     "welcome": {
       "text1": "Welcome!",
       "text2": "Before you decide to join the study, let's learn more about COVID Recovery Corps.",
@@ -363,77 +338,140 @@
       "text2": "Sharing your data with qualified researchers is optional and you can change your mind at any time by updating your data sharing options in your profile. But once we share your data we cannot get it back. If you decide to end data sharing, we will not share your future data."
     }
   },
-  "consentEHR": {
-    "header": {
-      "text1": "HIPAA Authorization"
-    },
-    "welcome": {
-      "text1": "HIPAA Consent",
-      "text2": "Before you decide to share your electronic health record (EHR) with us, let’s learn more about how the COVID Recovery Corp will use this information.",
-      "text3": "The next screens will tell you about why we are asking you to share your EHR information, what types of information is collected in your EHR, and what we will do with this information.",
-      "text4": "Start HIPAA"
-    },
-    "screen1": {
-      "text1": "What is an EHR?",
-      "text2": "Health records are the data collected when you get healthcare. Electronic health records, or EHR, are when these data are kept in secure electronic systems."
-    },
-    "screen2": {
-      "text1": "What data is in my EHR?",
-      "text2": "The information in your EHR depends on what kinds of healthcare providers you see. Your EHR tells about the health problems and care you have received. It might list the medicines you take. It might have test results. It might have images, like X-rays. If you have had a medical procedure, notes about it will probably be in your EHR."
-    },
-    "screen3": {
-      "text1": "Are there sensitive data in my EHR?",
-      "text2": "There might be sensitive data in your EHR. For example, about your use of alcohol or drugs. Your EHR might have data about sexually transmitted infections, like HIV. It might have results from genetic (DNA) tests. We will be able to see these data.",
-      "text3": "If you have seen counselors or doctors who treat addictions or substance use disorders, information about your care might be part of your EHR. The same goes for if you have seen counselors or doctors who treat mental health, like depression or bipolar disorder. These data would be about your diagnosis and treatment. We will be able to see these data.",
-      "text4": "One exception are any notes from counselors or doctors in specialized clinics who treat addictions or substance use disorders. These notes are usually private and not part of the EHR. We will only be able to see these notes if they are part of your EHR."
-    },
-    "screen4": {
-      "text1": "What exactly will you access in my EHR?",
-      "text2": "We will access your whole EHR. That means we will take a copy of all the tests, results, and images in your EHR. This includes data about your diagnoses, medications, symptoms, allergies, and treatments."
-    },
-    "screen5": {
-      "text1": "Why do you want access to my EHR?",
-      "text2": "Your EHR contains important data about your health. We will add your EHR to your COVID Recovery Corps record. Your record will be part of the COVID Recovery Corps scientific database. In order to use this database, researchers will have to be approved by COVID Recovery Corps. Researchers will use this database to look for patterns related to the COVID-19 infection."
-    },
-    "screen6": {
-      "text1": "Who will be sending you my EHR?",
-      "text2": "We will request your EHR from all of your healthcare providers. This includes your regular healthcare providers. It also includes specialists.",
-      "text3": "We may ask for your EHR from many different places. This may include hospitals where you have gotten care."
-    },
-    "screen7": {
-      "text1": "Who will be getting access to my EHR?",
-      "text2": "If you sign this form, COVID Recovery Corps will be getting access to your EHR. We will add your EHR to your COVID Recovery Corps study data. The lead researcher of COVID Recovery Corps is Dr. Wendy Chung. She oversees the whole Research Program.",
-      "text3": "The scientific database will have individual-level information about people in COVID Recovery Corps. Access to this cloud-based database will be controlled. Researchers will have to be approved by COVID Recovery Corps to use this database. These researchers may be from anywhere in the world. They may work for commercial companies, like drug companies. Their research will be on COVID-19 and related viruses.",
-      "text4": "Once your information is shared with COVID Recovery Corps, it may no longer be protected by patient privacy rules (like “HIPAA”). However, it will still be protected by other privacy rules and agreements. These include the rules and agreements that researchers must follow to access the COVID Recovery Corps scientific database."
-    },
-    "screen8": {
-      "text1": "What if I don’t want to give access to my EHR? What if I change my mind?",
-      "text2": "Giving COVID Recovery Corps access to your EHR is voluntary. You get to choose. No matter what you decide, now or in the future, it will not affect your medical care. If you decide to give COVID Recovery Corps access to your EHR, you can change your mind at any time. If you decide you want to stop giving us access, you need to tell us you would like to withdraw from the study.",
-      "text3": "You can tell us through the app or website, or use the contact information at the end of this form to call or write to us. You can update the study’s access to your EHR in your profile settings on the website at any time.",
-      "text4": "However, if researchers have already accessed data from your EHR for their studies, we at COVID Recovery Corps cannot get it back. Also, we will let researchers check the results of past studies. If they need your old data to do this work, we will give it to them."
-    },
-    "screen9": {
-      "text1": "When will my consent expire?",
-      "text2": "Unless you tell us to stop, we will access your EHR until the COVID Recovery Corps study ends to check what has happened to your health after your COVID-19 infection."
-    },
-    "screen10": {
-      "text1": "Who can answer my questions?",
-      "text2": "<0>For general questions,</0> please contact the COVID Recovery Corps study at 212-305-5700 (24 hours) or <2> COVIDRecoveryCorps@cumc.columbia.edu </2>",
-      "text3": "<0> For questions about your rights as a research participant, concerns or complaints, </0> please contact Western IRB (WIRB) at <2>help@WIRB.com</2> at 360-252-2500 or toll-free at 800-562-4789."
-    },
-    "screen11": {
-      "text1": "I know the following information may be gathered from my EHR:",
-      "text2": "All health information pertaining to my medical history, mental or physical condition, and treatment received",
-      "text3": "Mental health diagnosis or treatment information",
-      "text4": "HIV/AIDS testing information",
-      "text5": "Alcohol/drug abuse, diagnosis or treatment information",
-      "text6": "Genetic testing information",
-      "text7": "Information about domestic violence and sexual assault counseling",
-      "text8": "By signing this form, I voluntarily authorize my healthcare providers and organizations to share my EHR with the COVID Recovery Corps Research Study, led by Dr. Wendy Chung, and its partner organization Sage Bionetworks.",
-      "text9": "Full Name of adult participant:",
-      "text10": "Agree"
+  "consentSent": {
+    "title": "Thank you for joining the COVID Recovery Corps !",
+    "viewDashboard": "View Dashboard",
+    "beginStudy": "Begin Study",
+    "textConsent": "We just sent you a copy of your study consent.",
+    "textEHR": "We just sent you a copy of your HIPAA Authorization."
+  },
+
+  "contact": {
+    "title": "Contact Us",
+    "text1": "For information about participating and questions related to the study, visit the <1>FAQ</1> section of the site. If you have additional questions, please send us a message.",
+    "text2": "<0> COVID-19 Recovery Corps is a research study. This study does not provide medical advice, diagnosis, or treatment of any kind. If you have questions about your health, talk to your healthcare team. Do not use the information provided on the study website or email correspondence in place of advice from your healthcare team. </0> <1> Sage Bionetworks, Columbia University, and The Chan Zuckerberg Initiative are not liable or responsible for any advice, course of treatment, diagnosis or any other information, or services you obtain through the study. </1> <2> If you have any questions at any time before, during, or after the study, contact: </2>",
+    "text3": "Dr. Wendy Chung, MD, PhD, Principal Investigator of the study. If you have any questions or need assistance, you can call <1>212-305-5700</1> or email <3></3> <4> COVIDRecoveryCorps@cumc.columbia.edu </4> .",
+    "text4": "Privacy",
+    "text5": "For questions, comments, or requests regarding the <1>privacy policy</1> or our processing of your information, please contact: <3></3> <4> privacypolicy@sagebionetworks.org </4> .",
+    "text6": "Independent Review",
+    "text7": "The Western Institutional Review Board (WIRB) oversees the COVID Recovery Corps study. Contact WIRB if you have questions or concerns about your rights as a participant in this study.",
+    "text8": "<0>Western Institutional Review Board® (WIRB®)</0> <1></1> 1019 39th Avenue SE<3></3> Suite 120<5></5> Puyallup, WA 98374-2115<7></7> <8>800-562-4789</8> or <10>360-252-2500</10> <11></11><12></12> <13>Help@wirb.com</13>"
+  },
+  "cookieBanner": {
+    "text1": "This site uses Cookies to enhance your experience and to analyze our traffic. Using this website means that you agree with our cookie policy."
+  },
+  "dashboard": {
+    "text1": "profile",
+    "text2": "Contact Information",
+    "text3": "Survey 1",
+    "text4": "Tell us about yourself",
+    "text5": "Survey 2",
+    "text6": "Recent COVID Experience",
+    "text7": "Survey 3",
+    "text8": "Medical History",
+    "text9": "Survey 4",
+    "text10": "More COVID Experience",
+    "intro1": "<0>The information you provide will help researchers learn more about COVID-19.</0> <1> To be invited for a lab test, you will need to complete your Profile and Surveys 1-2. Surveys 3 and 4 are optional but still provide important information. Please consider completing them if you have the time. </1>",
+    "text11": "Minimum surveys required for lab invites",
+    "min": "min",
+    "intro": {
+      "heading1": "Thank you!",
+      "text1": "We’ve added you to the waiting list for an antibody test. If you are selected, you will receive an email.",
+      "text2": "Please consider completing the rest of the surveys if you have time. ",
+      "heading2": "You're invited!",
+      "text3": "Please complete surveys 3 & 4 before your antibody test appointment in order to receive a gift card.",
+      "text4": "Please complete surveys 3 & 4 before sending back your at-home test kit.",
+      "text5": "<0>Lab Preferences</0> <1> You've completed the minimum surveys to qualify for the antibody test waitlist. </1> <1> To receive a gift card, you will need to be invited to an antibody test and provide a biosample. You will also need to complete surveys 3 & 4. </1> <1> We cannot guarantee testing invites for all participants at this time. </1> <1> If you were invited to get an antibody test, what is your testing preference? </1>",
+      "text6": "Thank you for your contribution to the COVID Recovery Corps Study!"
     }
   },
+  "footer": {
+    "dashboard": "Survey Dashboard",
+    "about": "About",
+    "meet": "Meet the Researchers",
+    "faq": "FAQs",
+    "contactUs": " Contact Us",
+    "privacy": "Privacy Policy",
+    "settings": "Account Settings",
+    "login": "Log in",
+    "join": "Join Us",
+    "text1": "For questions, comments, or requests regarding the privacy policy or our processing of your information, please contact: <1> privacypolicy@sagebionetworks.org. </1>"
+  },
+
+  "globalAlert": {
+    "withdrawn": "<0>We are sorry to see you go!</0><1></1><2>You are now withdrawn from the COVID Recovery Corps Study.</2>",
+    "cancelledConsent": "You will need to complete the consent process before you can join the study.",
+    "startConsent": "Start consent",
+    "booked": "Your lab appointment to get your blood drawn has been confirmed. ",
+    "viewDetails": "View details"
+  },
+  "eligibility": {
+    "title": "Eligibility",
+    "error18": "To be eligible to take part in the COVID Recovery Corps study, you must be over 18.",
+    "errorCons": "To be eligible to take part in the COVID Recovery Corps study, you must be able to provide consent for yourself.",
+    "errorCovid": "To be eligible to take part in the COVID Recovery Corps study, you must think that you've had COVID-19.",
+    "errorZip": "Invalid zip code.",
+    "text1": "Currently we are looking for residents within a 25 mile radius of the Columbia University Medical Center. To be eligible to take part in the COVID Recovery Corps study, you must fulfill the following:",
+    "text2": "I am 18 years of age or older",
+    "text3": "I am able to provide consent for myself",
+    "text4": "I think I’ve had COVID-19",
+    "text5": "Please enter your zip code",
+    "zipCode": "Zip code"
+  },
+  "faqs": {
+    "title": "FAQs",
+    "text1": "What is the COVID Recovery Corps study?",
+    "text2": "COVID Recovery Corps is a research study. If you join and provide consent, we will gather data about you. We will ask you to fill out a survey. We will also invite you to share your electronic health record (EHR)) with us -- this is optional and not required for participation in the study. We might invite you to give a biosample (blood, urine or spit). Researchers will use these data to study how the body fights COVID-19. Researchers may also use it to study how other diseases like high blood pressure, diabetes, and lung diseases may be connected to how the body responds to COVID-19.",
+    "text3": "Researchers who wish to access the information that you provide for research purposes will need to be approved by COVID Recovery Corps prior to using these data. Researchers may be from anywhere in the world. They may work for research labs, medical institutions, or commercial companies, like drug companies. Their research will be on COVID-19 and related viruses.",
+    "text4": "What is the goal of this study?",
+    "text5": "The goal of this study is to learn more about how the body fights COVID-19. We also want to understand how other diseases like high blood pressure, diabetes, and lung diseases may be connected to how the body responds to COVID-19.",
+    "text41": "How do I participate in the study?",
+    "text51": "<1>If you decide to join COVID Recovery Corps, we will ask you to answer survey questions. We will use the answers you give to guess when you might have been infected.</1> <1> You may be asked to provide a biosample (such as blood and spit) to test if you have antibodies. If you are invited to provide a biosample, we will ask you if you would like to visit a lab location or be put on the waitlist for an at-home lab testing kit. </1><1> We will contact you on a periodic basis to ask you to fill out a follow-up survey on your current and your COVID-related symptoms. </1>",
+    "text6": "Who is eligible to participate?",
+    "text7": "We are committed to protecting your privacy. Except as required by law, you will not be identified by your name or by any other direct personal identifier. Your contact information, including your name and e-mail address will be stored separately from the study data. We will use a random code number instead of your name on all your study data. This code cannot be used to directly re-identify you. Information about the code will be kept in a secure system. Only a small team of the study staff and IT staff will have the key to associate your coded study data to your name and account information. Your coded study data (without your name) will be encrypted and stored on a secure cloud server to prevent improper access. Sage, Columbia University, the Chan Zuckerberg Initiative or anyone else affiliated with the COVID Survivors Corps will never sell, rent, or lease your contact information.",
+    "text8": "I have never been diagnosed with COVID-19. Can I participate?",
+    "text9": "We are enrolling participants who have been diagnosed or believe they were infected with COVID-19.",
+    "text10": "Are there any costs for me to participate?",
+    "text11": "There are no direct or indirect costs to taking part in the COVID Survivors Corps.",
+    "text12": "<0>You are eligible to participate in the study, if you:</0> <1> <0>Are 18 years old or older and are able to consent to participate in the study</0> <1>Have access to email or are able to receive text messages</1> <2>Have been diagnosed with or believe you have had COVID-19</2> <3> Read or understand English or Spanish </3> </1>",
+    "text13": "Who is running the COVID Recovery Corps study?",
+    "text14": "The COVID Recovery Corps study is being led by Columbia University and Sage Bionetworks and is supported by the Chan Zuckerberg Initiative. The <1>Principal Investigators</1> on this study are Dr. Wendy Chung at Columbia University and Dr. Lara Mangravite at Sage Bionetworks. This study is funded by the Chan Zuckerberg Initiative.",
+    "text15": "Who else will have access to my study data?",
+    "text16": "<0>We will create a scientific database and a biobank for the COVID Recovery Corps study. The scientific database will have individual-level data and the biobank will store your biosamples like your blood and urine.</0> <1>Access to this database will be controlled. Researchers will be approved by COVID Recovery Corps prior to using these data and will use only de-identified data.</1> <2>The U.S. and state governments might mandate access to the data so they can use it for public health activities. This includes law enforcement. We may be required to provide the data if they ask, even though we have a Certificate of Confidentiality from the U.S. government.</2> <3>We may offer you the chance to donate your data to other databases or researchers. You will get to decide if you want to share your data beyond this study.</3>",
+    "text151": "Will I have access to my test results?",
+    "text161": "Yes, we will provide you with access to your test results and information on what the results may mean.",
+    "text20": "Will you share back with me what you learn from the study?",
+    "text21": "Yes, as the study makes discoveries, the results will be shared with all participants. We also hope to provide periodic updates to participants through newsletters, webinars and public meetings.",
+    "text17": "How is my privacy protected?",
+    "text18": "Will participating in this study affect my insurance or medical services?",
+    "text19": "The COVID Recovery Corps is an observational study and not a clinical trial. We will not be asking you to change what you do or to take a specific medication. This study will not affect your medical insurance or healthcare.",
+    "text181": "Will I receive any form of compensation for participating in the study?",
+    "text191": "<0>Yes, participants who complete the surveys and provide a biosample by visiting a lab will receive a $50 gift card.</0> <0>For participants who provide a biosample using an at-home testing kit, you will receive a $20 gift card.</0> <0> Please remember to complete your surveys before your lab appointment or mailing back your at-home testing kit.</0>",
+    "text22": "I have a question that isn't answered in this FAQ. Who do I contact?",
+    "text23": "You can call <1>212-305-5700</1> or email <3>COVIDRecoveryCorps@cumc.columbia.edu</3>."
+  },
+
+  "home": {
+    "title": "A community-powered movement to understand COVID-19 across NYC.",
+    "text1": "If you live in the New York City metro area and have recovered from COVID-19 - or think you have - join our research study to better understand the long-term effects from this disease.",
+    "text3": "There is an urgent need to understand how COVID-19 will impact New York’s communities over time.",
+    "text4": "Our mission in this study is to understand how people recover from COVID-19 and the impacts of the disease on health, both today and in the future. By sharing your recovery experience, you can help researchers unlock the mysteries behind this disease and provide important new information for you, your loved ones, and thousands of others affected by the virus.",
+    "text41": "Minority communities have been disproportionately affected by COVID-19. We are committed to engaging a diverse and representative group of participants so that the research can help those most impacted by this disease.",
+    "text6": "Participation is simple.",
+    "text7": "Here’s how you can participate.",
+    "text8": "STEP ONE",
+    "text9": "Register and take the surveys",
+    "text10": "To get started, click",
+    "text11": "and learn what will happen in the study. After registering, you will be invited to take brief surveys that may help scientists begin to answer questions like: Why do some people experience very mild symptoms while others get very sick? How does recovering from COVID-19 impact your health over time?",
+    "text12": "STEP TWO",
+    "text13": "Share your samples",
+    "text14": "We will invite some participants to visit clinical sites in New York City to donate a sample. Sharing your samples will help answer important questions including: Who was really infected with COVID-19? What levels of antibodies are needed to protect us from reinfection? Is it possible to develop full immunity to COVID-19?",
+    "text15": "STEP THREE",
+    "text16": "Learn with us along the way",
+    "text17": "If you are asked to provide a sample, we will test the sample for antibodies related to COVID-19 infection, using an antibody test approved by the New York State Department of Health. We will share your test results with you, along with information about what those results may mean. As we learn more about the impact of COVID-19 across study participants, we will share regular updates with the broader scientific and patient community. We may also ask if you are interested in joining other related studies. For instance, some participants may choose to be notified of opportunities to donate plasma and help those still fighting for survival from COVID-19.",
+    "text18": "Together, we can fight COVID-19."
+  },
+
   "ineligible": {
     "text1": "Thank you for your interest",
     "text2": "You have successfully joined the mailing list. We will notify you in the coming months if the program expands into your area.",
@@ -442,6 +480,32 @@
     "text5": "You can sign up for our mailing list here:",
     "text6": "Join mailing list",
     "text7": "Joining mailing list..."
+  },
+
+  "privacy": {
+    "title": "Privacy Policy",
+    "text1": "<0>The COVID Recovery Corps study (the “Study”) is a collaboration between Sage Bionetworks and Columbia University. The Study is sponsored by the Chan Zuckerberg Initiative. The goal of the Study is to collect information from participants who have been diagnosed or believe they have had COVID-19. Researchers will use this information to better understand how the body fights COVID-19. </0> <1> The Study is committed to protecting your online privacy. This Privacy Policy explains the personal information we collect about you through the Website (defined below), how we use and share it, and the choices you have regarding this information. </1> <2> This Privacy Policy applies to visitors to <1>www.covidrecoverycorps.org</1> (the “Website”), including participants in the Study. If you don’t agree with this Privacy Policy, please do not access the Website or participate in the Study. </2>",
+    "text2": "Data We Collect From You",
+    "text3": "<0> “Personal information” or “personal data” means any direct information about you such as your name and contact information or indirect information that could be reasonably linked to you such as your device’s internet protocol address (IP Address). When you visit the Website, we collect the following information (collectively, “Personal Data”): </0> <1>Who You Are (“User Information”)</1> <2> We collect information that you provide to us during the informed consent and account creation process, and in any correspondence you have with us. For example, this could include your name, email, and any other contact information you share with us. </2> <3>Where you go on the Website (“Usage Data”)</3> <4> Whenever you use any online service, certain information gets created and logged automatically; the same is true when you visit the Website. We may collect technical data on the different pages you visit on the Website. For example, we may collect the date and time when you visit the Website. </4><5>We use a Facebook Pixel to measure if our advertising is working, and to understand the actions people take on our website. For example, the Pixel lets us know when someone clicks to sign up for an email from us. Facebook can learn from this information.</5>",
+    "text4": "Why We Collect This Data ",
+    "text5": "<0>User Information</0> <1> We use user-reported information for any of the following: <1> <0> Authenticating/administering your account </0> <1> Responding to user requests, questions, and concerns</1> <2> Requesting user feedback to enhance and improve the website </2> <3> Sending study communications such as newsletters and other materials that may be of interest to you.</3> </1> </1> <2>Usage Data</2> <3> We use usage data for the following purposes: <1> <0> Maintaining, securing, and enhancing the website </0> <1> Detecting and remedying disruptions in our systems </1> <2> Performing statistical analysis of usage patterns </2> <3> Operating, maintaining, enhancing, and providing all the features of the website </3> </1> </3>",
+    "text6": "To Whom/When We Disclose Data",
+    "text7": "<0> We work with vendors, service providers, and other partners that help us support and maintain the Website by providing services on our behalf. </0> <1>Vendors/Service Providers</1> <2> We may rely on vendors and service providers to provide the necessary hardware, software, networking, storage, and related technology required to operate, support and maintain the website. We required that all service providers agree to put in place reasonable security to keep users information confidential and secure, and to process information only for performing tasks on Sage Bionetwork’s behalf. We do not permit service providers to use or disclose users’ information, except as necessary to their work on the website. </2> <3>The COVID Recovery Corps website uses the following service providers: <1> <0> Amazon Web Services </0> <1> Google Analytics </1> </1> </3> <4>Statistical and Aggregate Information</4> <5> In accordance with applicable law, we may share aggregate and statistical information derived from users’ information with third parties for analysis. </5> <6>Compliance with Laws</6> <7> We may be required by law to give your user information in the case of any civil, criminal, administrative, legislative, or other proceedings. We will protect your privacy as much as possible. </7> <8>Business Transfers</8> <9> If Sage Bionetworks (website’s host) goes through a management or business transition such as a merger, closure, sale, joint venture, assignment, transfer, management reorganization, or other disposition of all or any portion of Sage Bionetworks’ business, assets, or stock, information or data may be transferred to a third party. In such cases, we will take reasonable steps to direct the transferee to use the information and data in a manner consistent with this Privacy Policy. </9>",
+    "text8": "How Long We Keep this Data ",
+    "text9": "<0> We keep the information, including personal information, for as long as necessary to provide our services and to fulfill any other purposes for which the information was initially collected, unless otherwise required by applicable law. For instance, we will keep personally identifiable information related to authentication of user identity only for as long as is necessary for authentication. </0> <1> Users may edit their information or remove their information by withdrawing from the study in the profile settings. We will retain and archive a record of user’s activities performed while the account was active to use for audit purposes, legitimate business purposes, to keep with our legal obligations, resolve disputes, and enforce our agreements and policies. </1>",
+    "text10": "Information/Data Security",
+    "text11": "<0> Sage Bionetworks maintains industry standard physical, organizational, technical, and administrative measures to protect the personal identifiable information we collect, store, or otherwise process in connection to the study against accidental, unlawful, or unauthorized access, destruction, disclosure, misuse, alteration, or loss. </0> <1> The data security measures are a combination of Privacy-Enhancing Technologies (PET) options and policies/processes for data handling. Still, no environment is 100% secure. There is some risk that an unauthorized third party may find a way to circumvent our security systems. </1>",
+    "text12": "What We Do Not Do",
+    "text13": "We do not use your personal information for advertising purposes. We do not sell or lease your information.",
+    "text14": "Your Rights",
+    "text15": "<0>You may request to access, update, correct, restrict or delete the personal information you provide to us. You also have the right to object to the processing of your personal information under certain conditions. For all such inquiries, we can be reached at the following: </0> <1> <0>Sage Bionetworks</0><1 /> Attention: Data Protection Officer <3 /> 2901 Third Avenue, Suite 330, <5 /> Seattle, WA 98121 <7 /> United States of America <9 /> <10 /> <11>privacyofficer@sagebionetworks.org</11></1><2> Upon request, we will provide you with reasonable access to the personal information about you that we hold. If your personal account information is deleted, your account becomes deactivated. </2> <3> You may opt-out of receiving study communications from us by clicking on the “unsubscribe” link included in each such communication or by notifying us by email at <1>privacyofficer@sagebionetworks.org</1> with the word “remove” in the subject header, and we will remove your contact details from our mailing list. </3>",
+    "text16": "Cross-Border Transfer of Your Information",
+    "text17": "Although you may access the website from a location outside of the United States, the website is primarily operated and managed within the United States. When we transfer information and data, we will protect the information and data as described in this Privacy Policy.",
+    "text18": "How to Contact Us ",
+    "text19": "<0> Sage Bionetworks is the controller of your information when it is collected and processed in the context of our sites and services. Our Data Protection Officer (DPO) is responsible for overseeing what we do with your information and ensuring we comply with applicable data protection laws. Our Data Protection Officer may be contacted by emailing  <1> privacyofficer@sagebionetworks.org </1> or by writing to: </0> <1> <0>Sage Bionetworks</0> <1 /> Attention: Data Protection Officer <3 /> 2901 Third Avenue, Suite 330, <5 /> Seattle, WA 98121 <7 /> United States of America <9 /> <10 /> </1>",
+    "text20": " Updates",
+    "text21": "We may update our Privacy Policy from time to time to clarify how we collect, process, store, use and disclose information. We want to be as transparent as possible about the changes we make to our Privacy Policy.",
+    "text22": "COVID Recovery Corps. Appendix C_V2.0. 17.June.2020"
   },
   "registration": {
     "text1": "Create account",
@@ -481,38 +545,32 @@
       "text7": "Prefer not to answer"
     }
   },
-  "dashboard": {
-    "text1": "profile",
-    "text2": "Contact Information",
-    "text3": "Survey 1",
-    "text4": "Tell us about yourself",
-    "text5": "Survey 2",
-    "text6": "Recent COVID Experience",
-    "text7": "Survey 3",
-    "text8": "Medical History",
-    "text9": "Survey 4",
-    "text10": "More COVID Experience",
-    "intro1": "<0>The information you provide will help researchers learn more about COVID-19.</0> <1> To be invited for a lab test, you will need to complete your Profile and Surveys 1-2. Surveys 3 and 4 are optional but still provide important information. Please consider completing them if you have the time. </1>",
-    "text11": "Minimum surveys required for lab invites",
-    "min": "min",
-    "intro": {
-      "heading1": "Thank you!",
-      "text1": "We’ve added you to the waiting list for an antibody test. If you are selected, you will receive an email.",
-      "text2": "Please consider completing the rest of the surveys if you have time. ",
-      "heading2": "You're invited!",
-      "text3": "Please complete surveys 3 & 4 before your antibody test appointment in order to receive a gift card.",
-      "text4": "Please complete surveys 3 & 4 before sending back your at-home test kit.",
-      "text5": "<0>Lab Preferences</0> <1> You've completed the minimum surveys to qualify for the antibody test waitlist. </1> <1> To receive a gift card, you will need to be invited to an antibody test and provide a biosample. You will also need to complete surveys 3 & 4. </1> <1> We cannot guarantee testing invites for all participants at this time. </1> <1> If you were invited to get an antibody test, what is your testing preference? </1>",
-      "text6": "Thank you for your contribution to the COVID Recovery Corps Study!"
-    }
+
+  "team": {
+    "title": "The COVID Recovery Corps is a citizen-powered research study that aims to accelerate progress in the global fight against COVID-19.",
+    "text1": "Study Leadership",
+    "text2": "Led by Columbia University and Sage Bionetworks, the study aims to enable those who have recovered from COVID-19 to partner with scientists to answer key questions - about how the body fights coronavirus, whether and how often infection affords immunity, and why infection is more severe in some communities. Starting in the New York metropolitan area - the epicenter of the pandemic in the United States - participants will help build a powerful dataset that may significantly advance science and help save lives. We want to learn as quickly as possible so we can keep our community safe from the virus and improve health in the future.",
+    "text3": " Dr. Wendy Chung",
+    "text4": "Dr. Wendy Chung is a co-Principal Investigator based at Columbia University with oversight over clinical operations. Dr Chung is an ABMG board certified clinical and molecular geneticist with 20 years of experience in clinical research, largely for rare diseases. She leads the Precision Medicine Resource of the Irving Institute at Columbia University and is the principal investigator of the large U.S. study of autism, SPARK.",
+    "text5": "She works with many patient and family led organizations to develop better supports and treatments for rare diseases and was recognized by the National Organization of Rare Disorders with the Rare Impact Award in 2019. She was recently featured in the documentary,",
+    "text6": "The Gene: An Intimate History",
+    "text61": "www.columbia.edu",
+    "text7": "Dr. Lara Mangravite",
+    "text8": "Dr. Lara Mangravite is a co-Principal Investigator with oversight over technology, governance, and data commons. Dr. Mangravite has extensive experience leading projects at Sage Bionetworks. She favors applying collaborative approaches to advance understanding of disease biology and treatment outcomes at a systems level with the overriding goal of improving clinical care.",
+    "text9": "Dr. Mangravite obtained a BS in Physics from the Pennsylvania State University and a PhD in Pharmaceutical Chemistry from the University of California, San Francisco. She completed a postdoctoral fellowship in cardiovascular pharmacogenomics at the Children’s Hospital Oakland Research Institute.",
+    "text10": "www.sagebionetworks.org",
+    "text14": "With support from the Chan Zuckerberg Initiative",
+    "text15": "Founded by Dr. Priscilla Chan and Mark Zuckerberg in 2015, the Chan Zuckerberg Initiative (CZI) is a new kind of philanthropy that’s leveraging technology to help solve some of the world’s toughest challenges — from eradicating disease, to improving education, to reforming the criminal justice system. Across three core Initiative focus areas of Science, Education, and Justice & Opportunity,  we’re is pairing engineering with grant-making, impact investing, and policy and advocacy work to help build an inclusive, just and healthy future for everyone.",
+    "text16": "www.chanzuckerberg.com"
   },
-  "appointment": { 
-    "title": "Appointment confirmation",
-    "text1":"Your lab appointment has been confirmed for:",
-    "text2":"DATE",
-    "text3":"LOCATION",
-    "text4":"View Map",
-    "text5":"<0> You will stop at the main Information desk in the lobby and will be directed to the proper location. Please bring this email on your smartphone or a printout of this email with you to your appointment. </0> <1> As a token of our appreciation, all participants who complete all of the surveys and provide a lab sample will receive a $50 gift card. Please complete the four surveys prior to your lab appointment. </1>", 
-    "text6":"<0> If you have a fever, cough, sore throat, shortness of breath, diarrhea, or body aches, you should not come to have your blood drawn. </0> <1> If you need to reschedule your appointment or need assistance, call 212-305-5700 or email<1> COVIDRecoveryCorps@cumc.columbia.edu </1> </1>"
-   }
+  "topnav": {
+    "text1": "About",
+    "text2": "Meet the Researchers",
+    "text3": "FAQs",
+    "text4": "Contact Us",
+    "text5": "Privacy Policy",
+    "text6": "Survey Dashboard",
+    "text7": "Account Settings",
+    "text8": "Log in"
+  }
 }

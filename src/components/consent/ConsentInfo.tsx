@@ -202,10 +202,10 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
 
   const renderNavChildren = (step: number): JSX.Element | string => {
     if (step < 1 || step === 12) {
-      return 'Study Consent'
+      return t('consentinfo.studyConsent')
     }
     if (quizes.findIndex(quiz => quiz.screen === step) > -1) {
-      return 'Consent Question'
+      return t('consentinfo.consentQuestion')
     }
     return (
       <div className="FloatingToolbar__toggle">
@@ -213,11 +213,12 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
           className="FloatingToolbar__toggle__text"
           onClick={() => setIsFullText(false)}
         >
-          Summary
+             {t('consentinfo.summary')}
+
         </span>
         <Switch
           color="primary"
-          inputProps={{ 'aria-label': 'consent text summary toggle' }}
+          inputProps={{ 'aria-label':   t('consentinfo.consentSummaryToggle') }}
           checked={isFullText}
           size="small"
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
@@ -228,7 +229,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
           className="FloatingToolbar__toggle__text"
           onClick={() => setIsFullText(true)}
         >
-          Full Text
+             {t('consentinfo.fullText')}
         </span>
       </div>
     )
@@ -289,7 +290,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
               style={{ margin: '30px 0' }}
               onClick={() => setCurrentStep(prev => prev + 1)}
             >
-              Start Consent
+              {t('consentinfo.startConsent')}
             </Button>
           </div>
         )}

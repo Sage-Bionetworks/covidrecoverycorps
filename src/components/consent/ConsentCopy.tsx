@@ -186,8 +186,7 @@ const summaryScreens = [
 
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen7.text4">
-        [translate] <strong> [translate] </strong> and samples rather than your
-        name or other personal information. This <strong> [translate] </strong>
+        [translate] <strong> [translate] </strong> [translate] <strong> [translate] </strong>
         [translate]
       </Trans>
     </p>

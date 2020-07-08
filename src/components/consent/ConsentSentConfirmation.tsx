@@ -7,6 +7,10 @@ import { getSearchParams } from '../../helpers/utility'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
+import { useTranslation} from 'react-i18next'
+
+
+
 type ConsentSentConfirmationProps = {
   type: 'CONSENT' | 'EHR'
   doneCallbackFn: Function
@@ -14,8 +18,8 @@ type ConsentSentConfirmationProps = {
 }
 
 const text = {
-  CONSENT: 'We just sent you a copy of your study consent.',
-  EHR: 'We just sent you a copy of your HIPAA Authorization.',
+  CONSENT: 'consentSent.textConsent',
+  EHR: 'consentSent.textEHR',
 }
 
 export const ConsentSentConfirmation: React.FunctionComponent<ConsentSentConfirmationProps> = ({
@@ -24,6 +28,8 @@ export const ConsentSentConfirmation: React.FunctionComponent<ConsentSentConfirm
 }: ConsentSentConfirmationProps) => {
   const searchParamsProps = getSearchParams(window.location.search)
   const from: string = searchParamsProps['from']
+  const { t } = useTranslation()
+
 
   const getConsentButton = (): JSX.Element => {
     return (
@@ -64,13 +70,13 @@ export const ConsentSentConfirmation: React.FunctionComponent<ConsentSentConfirm
   return (
     <div style={{ textAlign: 'center' }}>
       {type === 'CONSENT' && (
-        <h2>Thank you for joining the COVID Recovery Corps !</h2>
+        <h2>{t('consentSent.title')}></h2>
       )}
       <div className="consentConfirmation">
         <img src={icon}></img>
       </div>
       <div>
-        <p>{text[type]}</p>
+        <p>{t(text[type])}</p>
       </div>
       {type === 'CONSENT' && getConsentButton()}
       {type === 'EHR' && getEHRButton(from)}

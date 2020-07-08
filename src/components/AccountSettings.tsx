@@ -18,6 +18,7 @@ import Alert from '@material-ui/lab/Alert'
 import { Card, CardContent } from '@material-ui/core'
 import { useSessionDataState, useSessionDataDispatch } from '../AuthContext'
 import { SurveyService } from '../services/survey.service'
+import { useTranslation, Trans } from 'react-i18next'
 
 type AcountSettingsProps = {
   token: string
@@ -58,6 +59,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
 
   const sessionUpdateFn = useSessionDataDispatch()
   const sessionInfo = useSessionDataState()
+  const { t } = useTranslation()
 
   // initialize check box values
   useEffect(() => {
@@ -168,9 +170,11 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
       </div>
       <Card>
         <CardContent>
-          <h2 className="text-center margin-top-std">Account Settings</h2>
+          <h2 className="text-center margin-top-std">
+            {t('accountSettings.header')}
+          </h2>
           {error && <Alert severity="error">{error}</Alert>}
-          <Link to="/contactinfo">Update contact information</Link>
+          <Link to="/contactinfo">{t('accountSettings.updateLink')}</Link>
           <FormGroup className="margin-top-std">
             {isShareScopeAll !== undefined && (
               <>
@@ -183,36 +187,18 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
                       name="checkConsent"
                     />
                   }
-                  label="Share my study data with qualified researchers for future COVID related work"
+                  label={t('accountSettings.shareDataLabel')}
                   className="margin-bottom-std"
                 />
-                <LearnMore learnMoreText="Learn more">
+                <LearnMore learnMoreText={t('common.learnMore')}>
                   <div>
-                    <p>
-                      You will have the opportunity to share your data with
-                      qualified researchers outside of the COVID Recovery Corps.
-                    </p>
-                    <p>
-                      All qualified researchers must be approved by the COVID
-                      Recovery Corps study team and will only use de-identified
-                      data. This de-identified data does not contain identifiers
-                      like name, date of birth, or zip code.
-                    </p>
-                    <p>
-                      These researchers may be from outside the United States
-                      and may work for a non-profit institution, commercial drug
-                      or medical device companies, or be a private citizen.
-                    </p>
-                    <p>
-                      Sharing your data with qualified researchers is optional
-                      and you can change your mind at any time by updating your
-                      data sharing options in your profile.
-                    </p>
-                    <p>
-                      But once we share your data we cannot get it back. If you
-                      decide to end data sharing, we will not share your future
-                      data.
-                    </p>
+                    <Trans i18nKey="accountSettings.shareLearnMore">
+                      <p>[translate]</p>
+                      <p>[translate]</p>
+                      <p>[translate]</p>
+                      <p>[translate]</p>
+                      <p>[translate]</p>
+                    </Trans>
                   </div>
                 </LearnMore>
               </>
@@ -228,37 +214,18 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
                       name="checkEhrConsent"
                     />
                   }
-                  label="Share my electronic health records"
+                  label={t('accountSettings.shareEHRLabel')}
                   className="margin-bottom-std"
                 />
-                <LearnMore learnMoreText="Learn more">
+                <LearnMore learnMoreText={t('common.learnMore')}>
                   <div>
-                    <p>
-                      Sharing your EHR (electronic health records) is optional.
-                    </p>
-                    <p>
-                      Your electronic health record (EHR) is a digital version
-                      of your medical health record (which may include
-                      information like your doctor's notes from visits,
-                      diagnosis information and medications).
-                    </p>
-                    <p>
-                      If you say yes to sharing, we will see data about your
-                      health problems, test results, medical procedures, images
-                      (such as X-rays), and medicines you take.
-                    </p>
-                    <p>
-                      It may tell us about your mental health, genetic
-                      conditions, or use of alcohol or drugs. EHR may contain
-                      sexual or infection data, including HIV status. You can
-                      say no to sharing your health records and still take part
-                      in COVID Recovery Corps.
-                    </p>
-                    <p>
-                      There will be a separate form called a HIPAA Authorization
-                      for you to sign if you decide to give us access to your
-                      health records.
-                    </p>
+                    <Trans i18nKey="accountSettings.ehrLearnMore">
+                      <p>[translate]</p>
+                      <p>[translate]</p>
+                      <p>[translate]</p>
+                      <p>[translate]</p>
+                      <p>[translate]</p>
+                    </Trans>
                   </div>
                 </LearnMore>
               </>
@@ -269,7 +236,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
             <MaterialUiLink
               onClick={() => setIsShowingWithdrawConfirmation(true)}
             >
-              Withdraw from study
+              {t('accountSettings.withdrawLink')}
             </MaterialUiLink>
           )}
         </CardContent>
@@ -280,18 +247,13 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
           content={
             <>
               <div>
-                <h2 style={{ marginTop: '0rem' }}>
-                  Withdrawing from COVID Recovery Corps:
-                </h2>
-                <p className="margin-top-std">
-                  If you withdraw, your samples will be destroyed. Your data
-                  will not be distributed any more.
-                </p>
-                <p style={{ marginTop: '2rem', marginBottom: '6rem' }}>
-                  However, if researchers already have your data or samples for
-                  their studies, the COVID Recovery Corps study cannot get it
-                  back.
-                </p>
+                <Trans i18nKey="accountSettings.withdrawConfirm">
+                  <h2 style={{ marginTop: '0rem' }}>[translate]</h2>
+                  <p className="margin-top-std">[translate]</p>
+                  <p style={{ marginTop: '2rem', marginBottom: '6rem' }}>
+                    [translate]
+                  </p>
+                </Trans>
               </div>
               <div className="withdrawal-form">
                 <WithdrawSurvey
@@ -311,8 +273,8 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
           isOKDisabled={
             !Object.values(withdrawlSurveyData).find(value => value === true)
           }
-          confirmCopy={'Yes, withdraw study'}
-          cancelCopy={'No, keep me in the study'}
+          confirmCopy={t('accountSettings.withdrawYes')}
+          cancelCopy={t('accountSettings.withdrawNo')}
         ></ConfirmationModal>
       )}
     </>

@@ -5,6 +5,7 @@ import { Toolbar } from '@material-ui/core'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { openSansFont } from '../../App'
 import { ReactComponent as CZILogo } from '../../assets/czi_logo.svg'
+import { useTranslation, Trans } from 'react-i18next'
 
 type FooterProps = {
   token: string | undefined
@@ -66,6 +67,7 @@ const useStyles = makeStyles(theme => ({
 
 export const Footer: React.FunctionComponent<FooterProps> = props => {
   const classes = useStyles()
+  const { t } = useTranslation()
   return (
     <div>
       <div className={classes.footer}>
@@ -75,27 +77,27 @@ export const Footer: React.FunctionComponent<FooterProps> = props => {
           <Toolbar className={classes.toolBar}>
             {props.token && (
               <NavLink to="/dashboard" className={classes.fullNavBarLink}>
-                Survey Dashboard
+                {t('footer.dashboard')}
               </NavLink>
             )}
             <NavLink to="/home" className={classes.fullNavBarLink}>
-              About
+              {t('footer.about')}
             </NavLink>
             <NavLink to="/team" className={classes.fullNavBarLink}>
-              Meet the Researchers
+              {t('footer.meet')}
             </NavLink>
             <NavLink to="/faqs" className={classes.fullNavBarLink}>
-              FAQs
+              {t('footer.faq')}
             </NavLink>
             <NavLink to="/contact" className={classes.fullNavBarLink}>
-              Contact Us
+              {t('footer.contactUs')}
             </NavLink>
             <NavLink to="/privacypolicy" className={classes.fullNavBarLink}>
-              Privacy Policy
+              {t('footer.privacy')}
             </NavLink>
             {props.token && (
               <NavLink to="/settings" className={classes.fullNavBarLink}>
-                Account Settings
+                {t('footer.settings')}
               </NavLink>
             )}
             {/* the toolbar is a flex layout, whose flex direction changes on smaller devices.  add an empty element for correct spacing or newline */}
@@ -103,19 +105,20 @@ export const Footer: React.FunctionComponent<FooterProps> = props => {
 
             {!props.token && (
               <NavLink to="/login" className={classes.fullNavBarLink}>
-                Log in
+                {t('footer.login')}
               </NavLink>
             )}
             {!props.token && (
               <NavLink to="/eligibility" className={classes.fullNavBarLink}>
-                Join Us
+                {t('footer.join')}
               </NavLink>
             )}
           </Toolbar>
           <div className={classes.questionsCommentsText}>
-            For questions, comments, or requests regarding the privacy policy or
-            our processing of your information, please contact:
-            privacypolicy@sagebionetworks.org.
+            <Trans i18nKey="footer.text1">
+              [translate]
+              <a href="mailto:privacypolicy@sagebionetworks.org">[translate]</a>
+            </Trans>
           </div>
         </div>
         <div className={classes.cziLogoDiv}>
