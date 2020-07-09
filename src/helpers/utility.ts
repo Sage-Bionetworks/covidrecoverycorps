@@ -12,6 +12,7 @@ import {
 } from '../types/types'
 
 import moment from 'moment'
+import i18n from 'i18next'
 import { useState } from 'react'
 import { SessionData } from '../types/types'
 
@@ -22,7 +23,7 @@ export const callEndpoint = async <T>(
   token?: string,
 ): Promise<Response<T>> => {
   const headers: HeadersInit = new Headers()
-
+  headers.set('Accept-Language', i18n.language)
   headers.set('Content-Type', 'application/json')
   if (token) {
     headers.set('Bridge-Session', token)
