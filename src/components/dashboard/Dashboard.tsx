@@ -157,7 +157,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   }
 
   const getPreferredTestLocation = (): TestLocationEnum | undefined => {
-    return getSavedSurvey('TEST_LOCATION')?.data.location
+    const result = getSavedSurvey('TEST_LOCATION')?.data.location
+    return result
   }
 
   const isDone = (surveyType: SurveyType): boolean => {
@@ -292,7 +293,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
   return (
     <div className="Dashboard">
-      {getCompletionStatus() !== SurveysCompletionStatusEnum.NOT_DONE && (
+
+      {getCompletionStatus() === SurveysCompletionStatusEnum.NOT_DONE && (
         <div className="dashboard-intro">
           <Trans i18nKey="dashboard.intro1">
             <p>[translate]</p>
@@ -311,8 +313,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         />
         {
           //if they fininshed main surveys and didn't pick location
-          /* !isDone('TEST_LOCATION') &&
-            getCompletionStatus() !== SurveysCompletionStatusEnum.NOT_DONE*/ true && (
+         !isDone('TEST_LOCATION') &&
+            getCompletionStatus() !== SurveysCompletionStatusEnum.NOT_DONE && (
             <TestLocationSurvey
               surveyUpdatedCallbackFn={(location: TestLocationEnum) =>
                 setTestLocationSurveySubmitted(location)
