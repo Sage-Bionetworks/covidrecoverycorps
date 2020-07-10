@@ -1,12 +1,15 @@
 import { ENDPOINT, LoggedInUserData } from '../types/types'
-import { SavedSurveysObject, Response } from '../types/types'
+import { Response } from '../types/types'
 import { callEndpoint } from '../helpers/utility'
 import moment from 'moment'
+import i18n from 'i18next'
 
 const SHARE_SCOPE_PARTNERS = 'sponsors_and_partners'
 const SHARE_SCOPE_ALL = 'all_qualified_researchers'
 const SUBPOP_GUID = 'czi-coronavirus'
+const SUBPOP_GUID_ES = 'p18ECVDwIcT1Els2YzNgSxrS'
 const HIPAA_SUBPOP_GUID = 'g2mW_YdW70k9lJ4PZQboJD3n'
+const HIPAA_SUBPOP_GUID_ES = 'QjoTt6O2bQZixHwQPZovdg3e'
 
 export const ConsentService = {
   updateMySharingScope,
@@ -16,8 +19,14 @@ export const ConsentService = {
   withdrawFromStudy,
   SHARE_SCOPE_PARTNERS,
   SHARE_SCOPE_ALL,
-  SUBPOP_GUID,
-  HIPAA_SUBPOP_GUID,
+}
+
+const getSubpopGuid = (): string => {
+  return i18n.language === 'es' ? SUBPOP_GUID_ES : SUBPOP_GUID
+}
+
+const getHIPAASubpopGuid = (): string => {
+  return i18n.language === 'es' ? HIPAA_SUBPOP_GUID_ES : HIPAA_SUBPOP_GUID
 }
 
 async function updateMySharingScope(
@@ -49,7 +58,7 @@ async function signGeneralConsent(
   }
 
   const result = await callEndpoint(
-    `${ENDPOINT}/v3/subpopulations/${SUBPOP_GUID}/consents/signature`,
+    `${ENDPOINT}/v3/subpopulations/${getSubpopGuid()}/consents/signature`,
     'POST',
     data,
     token,
@@ -70,7 +79,7 @@ async function signEhrConsent(
   }
 
   const result = await callEndpoint(
-    `${ENDPOINT}/v3/subpopulations/${HIPAA_SUBPOP_GUID}/consents/signature`,
+    `${ENDPOINT}/v3/subpopulations/${getHIPAASubpopGuid()}/consents/signature`,
     'POST',
     data,
     token,
@@ -84,7 +93,7 @@ async function withdrawEhrConsent(token: string): Promise<any> {
   }
 
   const result = await callEndpoint(
-    `${ENDPOINT}/v3/subpopulations/${HIPAA_SUBPOP_GUID}/consents/signature/withdraw`,
+    `${ENDPOINT}/v3/subpopulations/${getHIPAASubpopGuid()}/consents/signature/withdraw`,
     'POST',
     data,
     token,
