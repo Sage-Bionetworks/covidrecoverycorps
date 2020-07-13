@@ -216,7 +216,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         <>
           <div className="graphics">
             <div className="circle">{getIconImage(survey)}</div>
-            {isTier1 && <div className="rect"></div>}
+           
           </div>
           <div>
             <div className="title">{survey.title}</div>
@@ -297,6 +297,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       {getCompletionStatus() === SurveysCompletionStatusEnum.NOT_DONE && (
         <div className="dashboard-intro">
           <Trans i18nKey="dashboard.intro1">
+            <h2>[translate]</h2>
+            <p>[translate]</p>
             <p>[translate]</p>
             <p>[translate]</p>
           </Trans>
