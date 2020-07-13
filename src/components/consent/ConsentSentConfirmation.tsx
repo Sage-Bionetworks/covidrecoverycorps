@@ -70,7 +70,7 @@ export const ConsentSentConfirmation: React.FunctionComponent<ConsentSentConfirm
   return (
     <div style={{ textAlign: 'center' }}>
       {type === 'CONSENT' && (
-        <h2>{t('consentSent.title')}></h2>
+        <h2>{t('consentSent.title')}</h2>
       )}
       <div className="consentConfirmation">
         <img src={icon}></img>
