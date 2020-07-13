@@ -117,6 +117,18 @@ export type SavedSurveysObject = {
   surveys: SavedSurvey[]
 }
 
+export type GeocodedColumbiaAppointmentAddress = {
+  results: [
+    {
+      formatted_address: string
+      geometry: {
+        location: { lat: number; lng: number }
+      }
+      place_id: 'string'
+    },
+  ]
+  status: string
+}
 
 export type ColumbiaAppointmentAddress = {
   city: string
@@ -130,7 +142,8 @@ export type AppointmentParticipant = {
     reference: string
     display: string
     address?: ColumbiaAppointmentAddress
-  },
+    geocoding?: GeocodedColumbiaAppointmentAddress
+  }
   required: string
   status: string
 }
