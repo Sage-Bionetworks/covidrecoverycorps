@@ -174,22 +174,27 @@ export const Registration: React.FunctionComponent<RegistrationProps> = ({
                 </div>
               </div>
             </div>
-            <div style={{ margin: '0 auto', textAlign: 'center' }}>
-              <Button
-                variant="text"
-                onClick={() => {
-                  handleOnChange({
-                    target: { name: 'registrationType', value: 'PHONE' },
-                  })
-                  handleOnChange({
-                    target: { name: 'email', value: '' },
-                  })
-                  window.scrollTo(0, 0)
-                }}
-              >
-                {t('registration.text2')}
-              </Button>
-            </div>
+            {
+              // temporarily disabling phone login
+              false && (
+                <div style={{ margin: '0 auto', textAlign: 'center' }}>
+                  <Button
+                    variant="text"
+                    onClick={() => {
+                      handleOnChange({
+                        target: { name: 'registrationType', value: 'PHONE' },
+                      })
+                      handleOnChange({
+                        target: { name: 'email', value: '' },
+                      })
+                      window.scrollTo(0, 0)
+                    }}
+                  >
+                    {t('registration.text2')}
+                  </Button>
+                </div>
+              )
+            }
           </div>
         </form>
       )}
