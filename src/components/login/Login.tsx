@@ -220,7 +220,12 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                       >
                         <Tab label={t('common.email')} value="EMAIL" />
 
-                        <Tab label={t('common.phone')} value="PHONE" />
+                        {
+                          // temporarily disabling phone login
+                          false && (
+                            <Tab label={t('common.phone')} value="PHONE" />
+                          )
+                        }
                       </Tabs>
 
                       {loginType === 'EMAIL' && (
