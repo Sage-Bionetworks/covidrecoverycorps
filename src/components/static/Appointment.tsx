@@ -4,6 +4,7 @@ import {
   AppointmentParticipant,
   ColumbiaAppointmentAddress,
   GoogleAPIKey,
+  GeocodedColumbiaAppointmentAddress,
 } from '../../types/types'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
@@ -16,6 +17,62 @@ import { useTranslation, Trans } from 'react-i18next'
 import 'moment/locale/es'
 import GoogleMapReact from 'google-map-react'
 import Geocode from 'react-geocode'
+
+//agendel TODO: remove once we get correct data from Columbia
+const fakeGeocodingResponse = {
+  results: [
+    {
+      address_components: [
+        { long_name: '330', short_name: '330', types: ['subpremise'] },
+        { long_name: '2901', short_name: '2901', types: ['street_number'] },
+        { long_name: '3rd Avenue', short_name: '3rd Ave', types: ['route'] },
+        {
+          long_name: 'Downtown Seattle',
+          short_name: 'Downtown Seattle',
+          types: ['neighborhood', 'political'],
+        },
+        {
+          long_name: 'Seattle',
+          short_name: 'Seattle',
+          types: ['locality', 'political'],
+        },
+        {
+          long_name: 'King County',
+          short_name: 'King County',
+          types: ['administrative_area_level_2', 'political'],
+        },
+        {
+          long_name: 'Washington',
+          short_name: 'WA',
+          types: ['administrative_area_level_1', 'political'],
+        },
+        {
+          long_name: 'United States',
+          short_name: 'US',
+          types: ['country', 'political'],
+        },
+        { long_name: '98121', short_name: '98121', types: ['postal_code'] },
+      ],
+      formatted_address: '2901 3rd Ave #330, Seattle, WA 98121, USA',
+      geometry: {
+        bounds: {
+          northeast: { lat: 47.6184148, lng: -122.3510372 },
+          southwest: { lat: 47.617759, lng: -122.3525807 },
+        },
+        location: { lat: 47.6180007, lng: -122.3516149 },
+        location_type: 'ROOFTOP',
+        viewport: {
+          northeast: { lat: 47.6194358802915, lng: -122.3504599697085 },
+          southwest: { lat: 47.6167379197085, lng: -122.3531579302915 },
+        },
+      },
+      place_id:
+        'EikyOTAxIDNyZCBBdmUgIzMzMCwgU2VhdHRsZSwgV0EgOTgxMjEsIFVTQSIfGh0KFgoUChIJidPohE8VkFQRVpUgA1LwJYcSAzMzMA',
+      types: ['subpremise'],
+    },
+  ],
+  status: 'OK',
+}
 
 const MarkerComponent = ({ text }: any) => (
   <div>
@@ -109,31 +166,38 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
   const [error, setError] = useState()
   const { t } = useTranslation()
 
-  const getCodedLocation = async (
+  const getCodedLocation = (
     addressObject: ColumbiaAppointmentAddress,
-  ): Promise<LocationObject> => {
-    const result: LocationObject = {
+    geocodedAddressObject?: GeocodedColumbiaAppointmentAddress,
+  ): LocationObject => {
+    let result: LocationObject = {
       addressObject,
     }
+    const geocodedResult =
+      geocodedAddressObject?.status === 'OK' &&
+      geocodedAddressObject?.results?.length > 0
+        ? geocodedAddressObject?.results[0]
+        : null
 
-    try {
+    if (!geocodedResult) {
+      //if no geocoded result -- just return what we get from Columbia
       const address = `${addressObject.line.join(',')}, ${
         addressObject.city
       }, ${addressObject.state}  ${addressObject.postalCode}`
       result.address = address
-    } catch {
-      return Promise.resolve(result)
-    }
-    try {
-      const response = await Geocode.fromAddress(result.address)
-      const { lat, lng } = response.results[0].geometry.location
-      result.lat = lat as number
-      result.lng = lng as number
-    } catch (e) {
-      setError(e)
-    } finally {
+
       return result
     }
+
+    const { lat, lng } = geocodedResult.geometry.location
+    result = {
+      lat,
+      lng,
+      addressObject,
+      address: geocodedResult.formatted_address,
+    }
+
+    return result
   }
 
   useEffect(() => {
@@ -149,7 +213,7 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
               const patient = getInfoPiece(appt.data.participant, 'Patient')!
               const location = getInfoPiece(appt.data.participant, 'Location')
               const codedLocation = location?.address
-                ? await getCodedLocation(location?.address)
+                ? await getCodedLocation(location?.address, location?.geocoding)
                 : undefined
               const appointment: BookedAppointment = {
                 start: moment(appt.data.start),
