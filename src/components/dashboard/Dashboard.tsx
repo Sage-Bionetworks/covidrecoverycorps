@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import testTubeImg from '../../assets/dashboard/icon_testtubes.svg'
+
 import saveProgressIconImg from '../../assets/dashboard/icon_savedprogress.svg'
 import clockIconImg from '../../assets/dashboard/icon_timer.svg'
 import completeIconImg from '../../assets/dashboard/icon_complete.svg'
@@ -12,10 +12,10 @@ import {
   SavedSurveysObject,
   SurveyType,
   SavedSurvey,
-  ReportData,
   TestLocationEnum,
   SurveysCompletionStatusEnum,
   LoggedInUserData,
+  ReportData,
 } from '../../types/types'
 import _ from 'lodash'
 import { UserService } from '../../services/user.service'
@@ -24,6 +24,7 @@ import Intro from './Intro'
 import TestLocationSurvey from '../surveys/TestLocationSurvey'
 import i18next from 'i18next'
 import { Trans, useTranslation } from 'react-i18next'
+import Appointment from '../static/Appointment'
 
 type DashboardProps = {
   token: string
@@ -51,6 +52,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   const [userInfo, setUserInfo] = useState<LoggedInUserData | undefined>(
     undefined,
   )
+  const [appt, setAppt] = useState<ReportData | undefined>(undefined)
 
   const [
     testLocationSurveySubmitted,
@@ -98,16 +100,35 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     },
   ]
 
+  const hasAppointment = (userData?: LoggedInUserData): boolean =>
+    !!userData && userData.dataGroups.indexOf('tests_scheduled') > -1
+  const hasInvitation = (userData?: LoggedInUserData): boolean =>
+    !!userData && userData.dataGroups.indexOf('tests_requested') > -1
+
+  const hasCancelledAppointment = (userData?: LoggedInUserData): boolean =>
+    !!userData && userData.dataGroups.indexOf('tests_cancelled') > -1
+
   useEffect(() => {
     let isSubscribed = true
     const getInfo = async () => {
       if (token && isSubscribed) {
         try {
           setIsLoading(true)
-          const userInfo = await UserService.getUserInfo(token)
-          setUserInfo(userInfo.data)
+          const userInfoResponse = await UserService.getUserInfo(token)
+          setUserInfo(_old => userInfoResponse.data)
           const response = await SurveyService.getUserSurveys(token)
           setSavedSurveys(_.first(response.data.items)?.data)
+          if (hasAppointment(userInfoResponse.data)) {
+            const appointmentsResponse = await UserService.getAppointments(
+              token,
+            )
+            if (appointmentsResponse?.data?.items?.length > 0) {
+              const appt = appointmentsResponse.data.items[0]
+              if (appt.data.status === 'booked') {
+                setAppt(appt)
+              }
+            }
+          }
         } catch (e) {
           setError(e)
         } finally {
@@ -139,14 +160,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     }
   }
 
-  const isScheduledForTest = (): boolean => {
-    if (!userInfo) {
-      return false
-    } else {
-      return userInfo?.dataGroups.indexOf('tests_requested') > -1
-    }
-  }
-
   const getSavedSurvey = (surveyType: SurveyType): SavedSurvey | undefined => {
     if (!savedSurveys) {
       return undefined
@@ -163,6 +176,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
   const isDone = (surveyType: SurveyType): boolean => {
     const savedSurvey = getSavedSurvey(surveyType)
+
     return !!savedSurvey?.completedDate
   }
   const isInProgress = (surveyType: SurveyType): boolean => {
@@ -171,7 +185,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     return !!savedSurvey?.updatedDate && !isDone(surveyType)
   }
 
-  const renderSurveyItems = (savedSurveys: SavedSurvey[], isTier1: boolean) => {
+  const renderSurveyItems = (savedSurveys: SavedSurvey[]) => {
     const getIconImageForContact = (): JSX.Element => {
       return isContactInfoDone() ? (
         <img src={completeIconImg} alt="done"></img>
@@ -208,15 +222,11 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       return isSurveyDisabled(surveyType) ? 'item-wrap disabled' : 'item-wrap'
     }
 
-    const renderSurveyInfo = (
-      survey: UISurvey,
-      isTier1: boolean,
-    ): JSX.Element => {
+    const renderSurveyInfo = (survey: UISurvey): JSX.Element => {
       const innerElement = (
         <>
           <div className="graphics">
             <div className="circle">{getIconImage(survey)}</div>
-           
           </div>
           <div>
             <div className="title">{survey.title}</div>
@@ -244,11 +254,9 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       }
     }
 
-    const _surveys = isTier1 ? surveys.slice(0, 3) : surveys.slice(3)
-
-    const items = _surveys.map((survey: UISurvey, index) => (
+    const items = surveys.map((survey: UISurvey, index) => (
       <li className={getClassNameForSurveyItem(survey.type)} key={survey.title}>
-        <div className="item">{renderSurveyInfo(survey, isTier1)}</div>
+        <div className="item">{renderSurveyInfo(survey)}</div>
       </li>
     ))
     return <ul className="items">{items}</ul>
@@ -262,83 +270,81 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       .filter(survey => survey && survey.completedDate)
       .map(survey => survey?.type)
 
-    const doneMain =
+    const doneAll =
       isContactInfoDone() &&
       completedSurveyNames.includes('DEMOGRAPHIC') &&
-      completedSurveyNames.includes('COVID_EXPERIENCE')
-    const doneAll =
-      doneMain &&
+      completedSurveyNames.includes('COVID_EXPERIENCE') &&
       completedSurveyNames.includes('HISTORY') &&
       completedSurveyNames.includes('MORE')
 
     if (doneAll) {
       return SurveysCompletionStatusEnum.ALL_DONE
     } else {
-      return doneMain
-        ? SurveysCompletionStatusEnum.MAIN_DONE
-        : SurveysCompletionStatusEnum.NOT_DONE
+      return SurveysCompletionStatusEnum.NOT_DONE
     }
   }
 
-  if (isLoading) {
+  if ((isLoading || !userInfo) && !error) {
     return (
       <div className="text-center">
         <CircularProgress color="primary" />
       </div>
     )
-  }
-  if (error !== undefined) {
-    return <Alert severity="error">{error!['message'] || error}</Alert>
-  }
+  } else {
+    if (error !== undefined) {
+      return <Alert severity="error">{error!['message'] || error}</Alert>
+    }
 
-  return (
-    <div className="Dashboard">
 
-      {getCompletionStatus() === SurveysCompletionStatusEnum.NOT_DONE && (
-        <div className="dashboard-intro">
-          <Trans i18nKey="dashboard.intro1">
-            <h2>[translate]</h2>
-            <p>[translate]</p>
-            <p>[translate]</p>
-            <p>[translate]</p>
-          </Trans>
-        </div>
-      )}
-      <Card className={classes.root}>
-        <Intro
-          testLocation={
-            testLocationSurveySubmitted || getPreferredTestLocation()
-          }
-          completionStatus={getCompletionStatus()}
-          isScheduledForTest={isScheduledForTest()}
-          isTestLocationSurveyDone={isDone('TEST_LOCATION')}
-        />
-        {
-          //if they fininshed main surveys and didn't pick location
-         !isDone('TEST_LOCATION') &&
-            getCompletionStatus() !== SurveysCompletionStatusEnum.NOT_DONE && (
-            <TestLocationSurvey
-              surveyUpdatedCallbackFn={(location: TestLocationEnum) =>
-                setTestLocationSurveySubmitted(location)
-              }
-              token={token}
-            ></TestLocationSurvey>
-          )
-        }
-        {(isDone('TEST_LOCATION') ||
-          getCompletionStatus() === SurveysCompletionStatusEnum.NOT_DONE) && (
-          <>
-            <div>{renderSurveyItems(savedSurveys?.surveys || [], true)}</div>
-            <div className="separator">
-              <img src={testTubeImg}></img>
-              <div className="small">{i18next.t('dashboard.text11')}</div>
-            </div>
-            <div>{renderSurveyItems(savedSurveys?.surveys || [], false)}</div>
-          </>
+    if (appt && !hasCancelledAppointment(userInfo)) {
+      return <Appointment token={token} />
+    }
+
+    return (
+      <div className="Dashboard">
+        {getCompletionStatus() === SurveysCompletionStatusEnum.NOT_DONE && (
+          <div className="dashboard-intro">
+            <Trans i18nKey="dashboard.intro1">
+              <h2>[translate]</h2>
+              <p>[translate]</p>
+              <p>[translate]</p>
+              <p>[translate]</p>
+            </Trans>
+          </div>
         )}
-      </Card>
-    </div>
-  )
+
+        <Card className={classes.root}>
+          {getCompletionStatus() !== SurveysCompletionStatusEnum.NOT_DONE && (
+            <Intro
+              testLocation={
+                testLocationSurveySubmitted || getPreferredTestLocation()
+              }
+              isInvitedForTest={hasInvitation(userInfo)}
+              completionStatus={getCompletionStatus()}
+              hasCancelledAppointment={hasCancelledAppointment(userInfo)}
+              emailAddress={userInfo?.email || ''}
+            />
+          )}
+          {
+            //if they fininshed  surveys and didn't pick location
+            !isDone('TEST_LOCATION') &&
+              getCompletionStatus() ===
+                SurveysCompletionStatusEnum.ALL_DONE && (
+                <TestLocationSurvey
+                  surveyUpdatedCallbackFn={(location: TestLocationEnum) =>
+                    setTestLocationSurveySubmitted(location)
+                  }
+                  token={token}
+                ></TestLocationSurvey>
+              )
+          }
+          {getCompletionStatus() === SurveysCompletionStatusEnum.NOT_DONE && (
+            <div>{renderSurveyItems(savedSurveys?.surveys || [])}</div>
+          )}
+        </Card>
+      </div>
+    )
+  }
 }
 
 export default Dashboard

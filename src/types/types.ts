@@ -50,11 +50,15 @@ export interface UserData {
   attributes?: UserAttributes
 }
 
+export type UserDataGroup = 'enrolled'| 'declined'| 'selected'| 'tests_requested' | 
+'tests_scheduled' |'tests_cancelled' | 'tests_collected'| 'tests_available' | 'tests_notified'| 'hipaa_consented'|'test_user'
+
+
 export interface LoggedInUserData extends UserData {
   sessionToken: string
   consented: boolean
   sharingScope: string
-  dataGroups: string[]
+  dataGroups: UserDataGroup[]
   id: string
 }
 
@@ -65,7 +69,7 @@ export interface RegistrationData {
   email?: string
   phone?: Phone
   clientData: object
-  dataGroups?: string[]
+  dataGroups?: UserDataGroup[]
 }
 
 export interface Response<T> {
@@ -179,6 +183,5 @@ export enum TestLocationEnum {
 
 export enum SurveysCompletionStatusEnum {
   'NOT_DONE',
-  'MAIN_DONE',
   'ALL_DONE',
 }

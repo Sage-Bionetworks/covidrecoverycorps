@@ -4,90 +4,166 @@ import {
   SurveysCompletionStatusEnum,
 } from '../../types/types'
 import iconThankYou from '../../assets/dashboard/icon_thankyou.svg'
-import iconWooHoo from '../../assets/dashboard/icon_whoohoo.svg'
+import iconCheckMark from '../../assets/dashboard/icon_whoohoo.svg'
 import i18next from 'i18next'
 import { Trans } from 'react-i18next'
+import i18n from '../../i18n'
 
 type IntroProps = {
   testLocation: TestLocationEnum | undefined
   completionStatus: SurveysCompletionStatusEnum
-  isTestLocationSurveyDone: boolean
-  isScheduledForTest?: boolean
+  // isTestLocationSurveyDone: boolean
+  isAppointmentCanceled?: boolean
+  isInvitedForTest?: boolean
+  isMissedAppointment?: boolean
+  hasCancelledAppointment?: boolean
+  emailAddress: string
 }
 
 const Intro: FunctionComponent<IntroProps> = ({
   testLocation,
   completionStatus,
-  isTestLocationSurveyDone,
-  isScheduledForTest,
+  //isTestLocationSurveyDone,
+  isAppointmentCanceled,
+  isInvitedForTest,
+  emailAddress,
+  isMissedAppointment,
+  hasCancelledAppointment,
 }) => {
-  //finished main surveys and test location survey. Not called for test
-  const doneMainElNotScheduled = (
-    <>
-      <img src={iconWooHoo} alt="woo hoo!"></img>
-      <h2>{i18next.t('dashboard.intro.heading1')}</h2>
-      {(testLocation === TestLocationEnum.LAB ||
-        testLocation === TestLocationEnum.HOME) && (
-        <p>{i18next.t('dashboard.intro.text1')}</p>
-      )}
-      {testLocation === TestLocationEnum.NO_TEST && (
-        <p>{i18next.t('dashboard.intro.text2')}</p>
-      )}
-    </>
-  )
-  const doneMainElScheduled = (
-    <>
-      <img src={iconWooHoo} alt="woo hoo!"></img>
-      <h2>{i18next.t('dashboard.intro.heading2')}</h2>
-      {testLocation === TestLocationEnum.LAB && (
-        <p>{i18next.t('dashboard.intro.text3')}</p>
-      )}
-      {testLocation === TestLocationEnum.HOME && (
-        <p>{i18next.t('dashboard.intro.text4')}</p>
-      )}
-    </>
-  )
-  // main surveys done but not the location survey
-  const doneMainNoLocationSurveyEl = (
-    <Trans i18nKey="dashboard.intro.text5">
-      <h2>[translate]</h2>
-      <p>[translate]</p>
-    </Trans>
-  )
+  /*
+  / Scenarios:
+  //1. Surveys not finished
+  //2. Surveys finished - test preference not picked
+  //3. Test Preference Picked -- not invited
+  //  3a No test -> wrap up journey
+  //  3b Home test ->'home test intro'
+  //  3c Lab test -> ....'added to wait list'
+  4. Invited -- invited screen.
+  5. scheduled - scheduled screen.
+  */
 
-  const doneAllEl = (
+  const elDoneNoLocationSurvey = (
     <>
-      <img src={iconThankYou} alt={i18next.t('dashboard.intro.heading1')}></img>
-      <h2>{i18next.t('dashboard.intro.text6')}</h2>{' '}
+      <img src={iconCheckMark}></img>
+      <h2>{i18next.t('dashboard.intro.surveysDoneTitle')}</h2>
+      <Trans i18nKey="dashboard.intro.surveysDoneText">
+        <p>[translate]</p>
+        <p>[translate]</p>
+      </Trans>
     </>
   )
 
+  const elSelectedTest = (
+    <>
+      <img src={iconCheckMark}></img>
+      <h2>{i18next.t('dashboard.intro.selectedTestTitle')}</h2>
+      <Trans i18nKey="dashboard.intro.selectedTestText">
+        <p>[translate]</p>
+      </Trans>
+    </>
+  )
+
+  const elSelectedNoTest = (
+    <>
+      <img src={iconThankYou}></img>
+      <h2 style={{ textAlign: 'left' }}>
+        {i18next.t('dashboard.intro.selectedNoTestTitle')}
+      </h2>
+      <Trans i18nKey="dashboard.intro.selectedNoTestText">
+        <p>[translate]</p>
+      </Trans>
+    </>
+  )
+
+  const missedAppointment = (
+    <>
+      <h2 style={{ textAlign: 'left' }}>
+        {i18next.t('dashboard.intro.missedTitle')}
+      </h2>
+      <p>
+        <Trans i18nKey="dashboard.intro.missedText">
+          <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu"></a>
+        </Trans>
+      </p>
+    </>
+  )
+
+  const elCancelledAppointment = (
+    <>
+      <h2 style={{ textAlign: 'left' }}>
+        {i18next.t('dashboard.intro.cancelledTitle')}
+      </h2>
+      <p>
+        <Trans i18nKey="dashboard.intro.cancelledText">
+          <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu"></a>
+        </Trans>
+      </p>
+    </>
+  )
+
+  const elInvitedTest = (
+    <>
+      <img src={iconCheckMark}></img>
+      <h2>{i18next.t('dashboard.intro.invitedTitle')}</h2>
+      <p>
+        {i18next.t('dashboard.intro.invitedText1', { email: emailAddress })}
+      </p>
+      <Trans i18nKey="dashboard.intro.invitedText2">
+        <p>[translate]</p>
+        <p>
+          <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu"></a>
+        </p>
+      </Trans>
+    </>
+  )
+
+  // didn't finish surveys
   if (completionStatus === SurveysCompletionStatusEnum.NOT_DONE) {
     return <></>
   }
 
-  if (
-    completionStatus === SurveysCompletionStatusEnum.MAIN_DONE &&
-    !isScheduledForTest
-  ) {
+  // finished surveys and didn't finish location selection
+  if (testLocation === undefined) {
     return (
       <div className="finished-status text-center">
-        {isTestLocationSurveyDone
-          ? doneMainElNotScheduled
-          : doneMainNoLocationSurveyEl}
+        {elDoneNoLocationSurvey}
       </div>
     )
   }
-  if (
-    completionStatus === SurveysCompletionStatusEnum.MAIN_DONE &&
-    isScheduledForTest
-  ) {
-    return (
-      <div className="finished-status text-center">{doneMainElScheduled}</div>
-    )
+  // location selection --- no test
+  if (testLocation === TestLocationEnum.NO_TEST) {
+    return <div className="finished-status text-center">{elSelectedNoTest}</div>
   }
 
-  return <div className="finished-status text-center">{doneAllEl}</div>
+  // locaton selection -- take home
+  if (testLocation === TestLocationEnum.HOME) {
+    return <div className="finished-status text-center">{elSelectedTest}</div>
+  }
+
+  // location selection lab
+  if (testLocation === TestLocationEnum.LAB) {
+    if (isAppointmentCanceled) {
+      //should se the appointment page
+      return <></>
+    }
+
+    if (isInvitedForTest) {
+      return <div className="finished-status text-center">{elInvitedTest}</div>
+    }
+    if (hasCancelledAppointment) {
+      return (
+        <div className="finished-status text-center">
+          {elCancelledAppointment}
+        </div>
+      )
+    }
+  }
+
+  return (
+    <div className="finished-status text-center">
+      <div className="finished-status text-center">{elSelectedTest}</div>
+    </div>
+  )
 }
 
 export default Intro

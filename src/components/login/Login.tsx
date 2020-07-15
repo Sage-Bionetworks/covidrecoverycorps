@@ -67,19 +67,8 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         loggedIn.data.consented,
       )
       // if user is already booked for an appointment, then go home and show the global alert
-      let isAppointmentBooked: boolean = false
-      const appointmentsResponse = await UserService.getAppointments(
-        loggedIn.data.sessionToken,
-      )
-      if (appointmentsResponse?.data?.items?.length > 0) {
-        const appt = appointmentsResponse.data.items[0]
-        if (appt.data.status === 'booked') {
-          isAppointmentBooked = true
-        }
-      }
-      if (isAppointmentBooked) {
-        history.push('/home?alert=APPOINTMENT_BOOKED')
-      } else if (consented) {
+    
+     if (consented) {
         history.push('/dashboard')
       } else {
         history.push('/consent')
