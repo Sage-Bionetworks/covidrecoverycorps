@@ -109,9 +109,7 @@ export const useStyles = makeStyles(theme => ({
     fontSize: '2rem',
     lineHeight: '127%',
   },
-  /*resultInstructions: {
-    marginTop: '30px',
-  },*/
+
 }))
 export const Result: React.FunctionComponent<ResultProps> = ({
   token,
