@@ -371,7 +371,7 @@
     "text8": "Medical History",
     "text9": "Survey 4",
     "text10": "More COVID Experience",
-    "intro1": "<0>Study surveys</0><1>Your responses to the information below will help researchers learn more about COVID-19.</1> <1>To qualify for the antibody test waitlist, please complete all of the surveys to the best of your ability. If you feel uncomfortable about any of the questions, you can always click \"Prefer not to answer\".</1><1>Thank you for your time.</1>", 
+    "intro1": "<0>Study surveys</0><1>Your responses to the information below will help researchers learn more about COVID-19.</1> <1>To qualify for the antibody test waitlist, please complete all of the surveys to the best of your ability. If you feel uncomfortable about any of the questions, you can always click \"Prefer not to answer\".</1><1>Thank you for your time.</1>",
     "text11": "Minimum surveys required for lab invites",
     "min": "min",
     "intro": {
@@ -383,16 +383,15 @@
       "selectedNoTestText": "<0>As we learn more, we will provide updates on the results of the study in newsletters, online presentations, and community meetings.</0>",
       "invitedTitle": "You’re invited!",
       "invitedText1": "We sent an invitation to schedule a lab appointment to: {{email}}.",
-      "invitedText2":"<0>Please check your email and junk mail folder.</0><1>If you have any questions, please call 212-305-5700 or email: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>.</1>",
-      "missedTitle" : "Looks like like we missed you... ",
+      "invitedText2": "<0>Please check your email and junk mail folder.</0><1>If you have any questions, please call 212-305-5700 or email: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>.</1>",
+      "missedTitle": "Looks like like we missed you... ",
       "missedText": "If you would like to re-schedule a lab appointment, please call 212-305-5700 or email: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. ",
-      "cancelledTitle":"Your lab appointment has been canceled.",
+      "cancelledTitle": "Your lab appointment has been canceled.",
       "cancelledText": "If you would like to re-schedule a lab appointment, please call 212-305-5700 or email: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. "
-     
     }
   },
   "footer": {
-    "dashboard": "Survey Dashboard",
+    "dashboard": "Dashboard",
     "about": "About",
     "meet": "Meet the Researchers",
     "faq": "FAQs",
@@ -522,6 +521,29 @@
     "intro1": "<0>Don't have email?</0> <1> At this time, we are only able to invite participants to lab draws with an email account. </1> <2> We are working on this issue. We hope to support scheduling appointments with your phone number in the near future. </2> <3> You can still join the COVID Recovery Corps and provide important information to our researchers by filling out surveys with your phone number. </3>",
     "intro2": "<0>Getting Started</0> <1> To access the consent and surveys, you will need to create an account. </1> <2> You will use your email to log into your account in the future.</2>"
   },
+  "result": {
+    "positiveTitle1": "you are SARS-CoV-2 antibody positive",
+    "positiveTitle2": "which indicates that you have been exposed to SARS-CoV-2.",
+    "negativeTitle1": "you are SARS-CoV-2 antibody negative",
+    "negativeTitle2": "which indicates that you have not been exposed to SARS-CoV-2.",
+    "inconclusiveTitle1": "Jane, your exposure to the SARS-CoV-2 virus cannot be determined",
+    "positiveText1": "<0>A positive result suggests that your immune system has developed antibodies to fight SARS-CoV-2, the virus that causes COVID-19. </0> <1>It is greater than 90% likely that you were infected with SARS-CoV-2.</1>",
+    "negativeText1": "<0>A negative result suggests the absence of an immune response to SAR-CoV-2. Negative results do not rule out COVID-19 infection or recent exposure to the virus. </0> <1>A negative test means that antibodies against SARS-CoV-2 were not detected. There are several reasons why this could happen:</1>",
+    "inconclusiveText1": "Indeterminate results may represent a partial immune response, but this cannot be concluded with certainty based on currently available data. This result is relatively infrequent and may represent antibodies to only one of the SARS-CoV-2 viral proteins.",
+    "positiveText2": "<0><0>Your positive test result means that antibodies against SARS-CoV-2, the virus that causes COVID-19, were detected.</0> <1>It is very likely that you have had recent infection or exposure to SARS-CoV-2 (true positive). Your body is mounting an antibody response now. </1> <1>Rarely, positive results could be from infection with another virus. Regardless of your antibody test result, you should follow the current guidance of wearing a mask or other personal protective equipment, and washing your hands.</1> <1> It is unknown if having SARS-CoV-2 antibodies means that someone is immune from future SARS-CoV-2 infections.</1> <1>It is unknown how long antibodies to SARS-CoV-2 last after infection.</1></0>",
+    "negativeText2": "<0><0>You had recent infection, but did not make a response, or your antibody response is still developing and the antibodies were too low to be detected.</0> <1>You were not exposed, and the symptoms you experienced were not COVID-19.</1> <1>A negative test does not rule out infection with SARS-CoV-2 virus / COVID-19 disease. Antibodies show up 80% of the time, three to four weeks after symptoms start.</1> <1> Regardless of your antibody test result, you should follow the current guidance of wearing a mask or other personal protective equipment, and washing your hands.</1></0>",
+    "inconclusiveText2": "<0><0>You had recent infection, but did not make a response, or your antibody response is still developing and the antibodies were too low to be detected.</0> <1> You were not exposed, and the symptoms you experienced were not COVID-19.</1> <2> A negative test does not rule out infection with SARS-CoV-2 virus / COVID-19 disease. Antibodies show up 80% of the time, three to four weeks after symptoms start.  </2> <3>Regardless of your antibody test result, you should follow the current guidance of wearing a mask or other personal protective equipment, and washing your hands.</3></0>",
+    "download": "Download your lab results",
+    "explain": "Your antibody test results explained.",
+    "text1": "Please note that the antibody test used to generate these results does not detect the virus itself. If you are currently <1>experiencing symptoms</1> of COVID-19 or believe that you have recently been exposed to COVID-19, you should talk to a healthcare professional, who may recommend additional testing options for you.",
+    "text2": "<0>A serology test for COVID-19 looks for the presence of proteins, called antibodies, which can be used to help understand if you were exposed to the virus recently or in the past. Antibodies develop when your immune system responds to a pathogen, such as COVID-19. </0><1> There are different types of antibodies, including ones called IgM and IgG. IgM is the first antibody that develops after you have been exposed to a virus like COVID-19. This is followed by the development of IgG antibodies. Most people that have been infected with a virus like COVID-19 develop IgG antibodies about 14 days after their symptoms start. Once you have developed IgG antibodies, if you come into contact with the same virus again, the IgG antibodies help your immune system respond faster and more effectively than it did the first time and may prevent reinfection to the virus.</1>",
+    "techInfo": "Technical information about the test",
+    "learnMoreCTA": "Learn more",
+    "learnMore": "To learn more about our latesting study findings around COVID-19, please check out our Learning Hub page. ",
+    "contact": "Contact us",
+    "contactText": "<0>If you have any questions about your results, please reach out via:</0> <1> phone:  212-305-5700<1></1> email: <3>COVIDRecoveryCorps@cumc.columbia.edu</3> </1> "
+  },
+
   "surveys": {
     "saveProgress": "Save progress",
     "submitted": "Your information has been submitted",
@@ -575,7 +597,7 @@
     "text3": "FAQs",
     "text4": "Contact Us",
     "text5": "Privacy Policy",
-    "text6": "Survey Dashboard",
+    "text6": "Dashboard",
     "text7": "Account Settings",
     "text8": "Log in"
   }

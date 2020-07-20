@@ -50,9 +50,18 @@ export interface UserData {
   attributes?: UserAttributes
 }
 
-export type UserDataGroup = 'enrolled'| 'declined'| 'selected'| 'tests_requested' | 
-'tests_scheduled' |'tests_cancelled' | 'tests_collected'| 'tests_available' | 'tests_notified'| 'hipaa_consented'|'test_user'
-
+export type UserDataGroup =
+  | 'enrolled'
+  | 'declined'
+  | 'selected'
+  | 'tests_requested'
+  | 'tests_scheduled'
+  | 'tests_cancelled'
+  | 'tests_collected'
+  | 'tests_available'
+  | 'tests_notified'
+  | 'hipaa_consented'
+  | 'test_user'
 
 export interface LoggedInUserData extends UserData {
   sessionToken: string
@@ -173,6 +182,7 @@ export type SessionData = {
   name?: string
   consented?: boolean
   alert?: string
+  userDataGroup: UserDataGroup[]
 }
 
 export enum TestLocationEnum {
@@ -184,4 +194,15 @@ export enum TestLocationEnum {
 export enum SurveysCompletionStatusEnum {
   'NOT_DONE',
   'ALL_DONE',
+}
+
+export type TestResultString = 'Not Detected' | 'Detected' | 'Inconclusive'
+
+export type TestResult = {
+  data: {
+    status: string
+    effectiveDateTime: string
+    valueString: TestResultString
+    comment: string
+  }
 }
