@@ -65,10 +65,9 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         loggedIn.data.sessionToken,
         loggedIn.data.firstName,
         loggedIn.data.consented,
+        loggedIn.data.dataGroups,
       )
-      // if user is already booked for an appointment, then go home and show the global alert
-    
-     if (consented) {
+      if (consented) {
         history.push('/dashboard')
       } else {
         history.push('/consent')

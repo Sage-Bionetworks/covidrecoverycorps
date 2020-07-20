@@ -40,6 +40,9 @@ import ScrollToTopOnRouteChange from './components/widgets/ScrollToTopOnRouteCha
 import Footer from './components/widgets/Footer'
 import PrivacyPolicy from './components/static/PrivacyPolicy'
 import Appointment from './components/static/Appointment'
+import Result from './components/static/Result'
+import { userInfo } from 'os'
+import { UserDataGroup, SessionData } from './types/types'
 
 export const openSansFont = [
   'Open Sans',
@@ -177,6 +180,7 @@ function App() {
   const [currentLocation, setCurrentLocation] = useState(
     window.location.pathname,
   )
+  const [userGroups, setUserGroups] = useState<UserDataGroup[]>([])
 
   useEffect(() => {
     let isSubscribed = true
@@ -190,9 +194,10 @@ function App() {
             token,
             userInfo.data.firstName,
             userInfo.data.consented,
+            userInfo.data.dataGroups,
           )
         } catch (e) {
-          setUserSession(undefined, '', false)
+          setUserSession(undefined, '', false, [])
         }
       }
     }
@@ -253,10 +258,21 @@ function App() {
     )
   }
 
+  function getDashboardPage(sessionData: SessionData) {
+    if (sessionData.userDataGroup.includes('tests_available')) {
+      return renderWithGridLayout(<Result token={token || ''} />)
+    }
+    if (sessionData.userDataGroup.includes('tests_scheduled')) {
+      return renderWithGridLayout(<Appointment token={token || ''} />)
+    }
+    return renderWithGridLayout(<Dashboard token={token || ''} />)
+  }
+
   const setUserSession = (
     token: string | undefined,
     name: string,
     consented: boolean,
+    dataGroup: UserDataGroup[],
   ) => {
     if (!token) {
       sessionUpdateFn({ type: 'LOGOUT' })
@@ -268,6 +284,7 @@ function App() {
           token: token,
           name: name,
           consented: consented,
+          userDataGroup: dataGroup,
         },
       })
     }
@@ -277,8 +294,15 @@ function App() {
 
   const getTopClass = (location: string) => {
     const alertClass = !!sessionData.alert ? ' hasAlert' : ''
-    const specialPages = ['dashboard', 'survey', 'contactinfo', 'appointment']
+    const specialPages = ['survey', 'contactinfo', 'appointment']
     if (specialPages.find(page => location.toLowerCase().includes(page))) {
+      return `partialGreen${alertClass}`
+    }
+    //dashboard is green for users to haven't tested
+    if (
+      location.toLowerCase().includes('dashboard') &&
+      sessionData.userDataGroup.indexOf('tests_available') === -1
+    ) {
       return `partialGreen${alertClass}`
     } else {
       return ''
@@ -309,7 +333,9 @@ function App() {
               />
               <TopNav
                 token={token}
-                logoutCallbackFn={() => setUserSession(undefined, '', false)}
+                logoutCallbackFn={() =>
+                  setUserSession(undefined, '', false, [])
+                }
               >
                 {/* A <Switch> looks through its children <Route>s and
         renders the first one that matches the current URL. */}{' '}
@@ -331,7 +357,10 @@ function App() {
                             token: string,
                             name: string,
                             consented: boolean,
-                          ) => setUserSession(token, name, consented)}
+                            dataGroup: UserDataGroup[],
+                          ) =>
+                            setUserSession(token, name, consented, dataGroup)
+                          }
                         />,
                       )
                     }}
@@ -347,7 +376,7 @@ function App() {
                         <EligibilityRegistration
                           {...props}
                           callbackFn={(token: string, name: string) =>
-                            setUserSession(token, name, false)
+                            setUserSession(token, name, false, [])
                           }
                         />,
                       )
@@ -355,7 +384,7 @@ function App() {
                   ></Route>
 
                   <ConsentedRoute exact={true} path="/dashboard">
-                    {renderWithGridLayout(<Dashboard token={token || ''} />)}
+                    {getDashboardPage(sessionData)}
                   </ConsentedRoute>
                   {/*todo make private */}
                   <Route exact={true} path="/consent">
@@ -418,6 +447,9 @@ function App() {
                   </ConsentedRoute>
                   <ConsentedRoute exact={true} path="/appointment">
                     {renderWithGridLayout(<Appointment token={token || ''} />)}
+                  </ConsentedRoute>
+                  <ConsentedRoute exact={true} path="/result">
+                    {renderWithGridLayout(<Result token={token || ''} />)}
                   </ConsentedRoute>
 
                   <Route path="/faqs">
