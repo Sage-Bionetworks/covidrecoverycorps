@@ -132,13 +132,10 @@ export const Result: React.FunctionComponent<ResultProps> = ({
           setIsLoading(true)
           const userInfoResponse = await UserService.getUserInfo(token)
           setFirstName(userInfoResponse.data.firstName)
-
           const ResultsResponse = await UserService.getTestResult(token)
           if (ResultsResponse?.data?.items?.length > 0) {
             const result = ResultsResponse.data.items[0]
-
             setResult(result)
-            console.log(result)
           }
         } catch (e) {
           setError(e)
@@ -276,7 +273,6 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   }
 
   const getElement = (result: TestResultString, key: keyof PageVersion) => {
-    console.log(result)
     if (!result) {
       return <></>
     }

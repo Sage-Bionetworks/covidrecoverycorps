@@ -119,8 +119,6 @@ const Intro: FunctionComponent<IntroProps> = ({
   if (completionStatus === SurveysCompletionStatusEnum.NOT_DONE) {
     return <></>
   }
-  console.log(testLocation, 'testLocation')
-
   // finished surveys and didn't finish location selection
   if (testLocation === undefined) {
     return (

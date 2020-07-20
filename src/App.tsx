@@ -184,7 +184,6 @@ function App() {
 
   useEffect(() => {
     let isSubscribed = true
-    console.log(`token changed to ${token}`)
     //the whole point of this is to log out the user if their session ha expired on the servier
     async function getInfo(token: string | undefined) {
       if (token && isSubscribed) {

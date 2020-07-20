@@ -102,7 +102,6 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         setIsLoading(false)
       }
     }
-    console.log('login' + JSON.stringify(searchParams, null, 2))
 
     if (searchParams?.email) {
       const email = decodeURIComponent(searchParams.email)
@@ -170,12 +169,10 @@ export const Login: React.FunctionComponent<LoginProps> = ({
           email,
           `${ENDPOINT}${EMAIL_SIGN_IN_TRIGGER_ENDPOINT}`,
         )
-        console.log(JSON.stringify(result))
       }
       setIsLinkSent(true)
     } catch (e) {
       setError(e.message)
-      console.log('error ', result)
     } finally {
       setIsLoading(false)
     }
