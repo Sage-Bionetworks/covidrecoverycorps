@@ -24,7 +24,6 @@ import Intro from './Intro'
 import TestLocationSurvey from '../surveys/TestLocationSurvey'
 import i18next from 'i18next'
 import { Trans, useTranslation } from 'react-i18next'
-import Appointment from '../static/Appointment'
 
 type DashboardProps = {
   token: string
@@ -100,8 +99,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     },
   ]
 
-  const hasAppointment = (userData?: LoggedInUserData): boolean =>
-    !!userData && userData.dataGroups.indexOf('tests_scheduled') > -1
   const hasInvitation = (userData?: LoggedInUserData): boolean =>
     !!userData && userData.dataGroups.indexOf('tests_requested') > -1
 
@@ -118,17 +115,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
           setUserInfo(_old => userInfoResponse.data)
           const response = await SurveyService.getUserSurveys(token)
           setSavedSurveys(_.first(response.data.items)?.data)
-          if (hasAppointment(userInfoResponse.data)) {
-            const appointmentsResponse = await UserService.getAppointments(
-              token,
-            )
-            if (appointmentsResponse?.data?.items?.length > 0) {
-              const appt = appointmentsResponse.data.items[0]
-              if (appt.data.status === 'booked') {
-                setAppt(appt)
-              }
-            }
-          }
         } catch (e) {
           setError(e)
         } finally {
@@ -293,11 +279,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   } else {
     if (error !== undefined) {
       return <Alert severity="error">{error!['message'] || error}</Alert>
-    }
-
-
-    if (appt && !hasCancelledAppointment(userInfo)) {
-      return <Appointment token={token} />
     }
 
     return (
