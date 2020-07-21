@@ -3,6 +3,7 @@ import FormGroup from '@material-ui/core/FormGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Switch from '@material-ui/core/Switch'
 import { blue } from '@material-ui/core/colors'
+import { grey} from '@material-ui/core/colors'
 import { withStyles } from '@material-ui/core'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import FloatingToolbar from './widgets/FloatingToolbar'
@@ -26,7 +27,7 @@ type AcountSettingsProps = {
 
 const BlueSwitch = withStyles({
   switchBase: {
-    color: blue[300],
+    color: grey[400],
     '&$checked': {
       color: blue[500],
     },
