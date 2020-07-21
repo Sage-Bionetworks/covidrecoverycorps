@@ -4,6 +4,7 @@ import {
   Response,
   UserAttributes,
   ReportDataList,
+  TestResult,
 } from '../types/types'
 
 import { callEndpoint } from '../helpers/utility'
@@ -13,6 +14,7 @@ export const UserService = {
   updateUserAttributes,
   updateUserData,
   getAppointments,
+  getTestResult,
 }
 
 async function getUserInfo(token: string): Promise<Response<LoggedInUserData>> {
@@ -63,6 +65,24 @@ async function getAppointments(
 ): Promise<Response<ReportDataList>> {
   const result = await callEndpoint<ReportDataList>(
     `${ENDPOINT}/v3/users/self/reports/appointment?startDate=1970-01-01&endDate=1970-01-01`,
+    'GET',
+    {},
+    token,
+  )
+  return result
+}
+
+async function getTestResult(
+  token: string,
+): Promise<
+  Response<{
+    items: TestResult[]
+  }>
+> {
+  const result = await callEndpoint<{
+    items: TestResult[]
+  }>(
+    `${ENDPOINT}/v3/users/self/reports/observation?startDate=1970-01-01&endDate=1970-01-01`,
     'GET',
     {},
     token,

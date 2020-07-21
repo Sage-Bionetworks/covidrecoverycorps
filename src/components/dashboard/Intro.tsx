@@ -12,19 +12,17 @@ import i18n from '../../i18n'
 type IntroProps = {
   testLocation: TestLocationEnum | undefined
   completionStatus: SurveysCompletionStatusEnum
-  // isTestLocationSurveyDone: boolean
-  isAppointmentCanceled?: boolean
+
   isInvitedForTest?: boolean
   isMissedAppointment?: boolean
-  hasCancelledAppointment?: boolean
+  hasCancelledAppointment: boolean
   emailAddress: string
 }
 
 const Intro: FunctionComponent<IntroProps> = ({
   testLocation,
   completionStatus,
-  //isTestLocationSurveyDone,
-  isAppointmentCanceled,
+
   isInvitedForTest,
   emailAddress,
   isMissedAppointment,
@@ -121,7 +119,6 @@ const Intro: FunctionComponent<IntroProps> = ({
   if (completionStatus === SurveysCompletionStatusEnum.NOT_DONE) {
     return <></>
   }
-
   // finished surveys and didn't finish location selection
   if (testLocation === undefined) {
     return (
@@ -142,20 +139,15 @@ const Intro: FunctionComponent<IntroProps> = ({
 
   // location selection lab
   if (testLocation === TestLocationEnum.LAB) {
-    if (isAppointmentCanceled) {
-      //should se the appointment page
-      return <></>
-    }
-
-    if (isInvitedForTest) {
-      return <div className="finished-status text-center">{elInvitedTest}</div>
-    }
     if (hasCancelledAppointment) {
       return (
         <div className="finished-status text-center">
           {elCancelledAppointment}
         </div>
       )
+    }
+    if (isInvitedForTest) {
+      return <div className="finished-status text-center">{elInvitedTest}</div>
     }
   }
 

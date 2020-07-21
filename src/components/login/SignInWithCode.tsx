@@ -32,7 +32,6 @@ export const SignInWithCode: React.FunctionComponent<SignInWithCodeProps> = ({
       token: code,
     }
     //
-    console.log(code)
     const endpoint = `${ENDPOINT}${PHONE_SIGN_IN_ENDPOINT}`
     try {
       setError('')

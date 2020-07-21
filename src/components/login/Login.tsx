@@ -65,10 +65,9 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         loggedIn.data.sessionToken,
         loggedIn.data.firstName,
         loggedIn.data.consented,
+        loggedIn.data.dataGroups,
       )
-      // if user is already booked for an appointment, then go home and show the global alert
-    
-     if (consented) {
+      if (consented) {
         history.push('/dashboard')
       } else {
         history.push('/consent')
@@ -103,7 +102,6 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         setIsLoading(false)
       }
     }
-    console.log('login' + JSON.stringify(searchParams, null, 2))
 
     if (searchParams?.email) {
       const email = decodeURIComponent(searchParams.email)
@@ -171,12 +169,10 @@ export const Login: React.FunctionComponent<LoginProps> = ({
           email,
           `${ENDPOINT}${EMAIL_SIGN_IN_TRIGGER_ENDPOINT}`,
         )
-        console.log(JSON.stringify(result))
       }
       setIsLinkSent(true)
     } catch (e) {
       setError(e.message)
-      console.log('error ', result)
     } finally {
       setIsLoading(false)
     }

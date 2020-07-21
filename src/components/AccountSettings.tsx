@@ -97,7 +97,6 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
     const newScope = checked
       ? ConsentService.SHARE_SCOPE_ALL
       : ConsentService.SHARE_SCOPE_PARTNERS
-    console.log(newScope)
     ConsentService.updateMySharingScope(newScope, props.token)
       .then((participantRecordResponse: Response<LoggedInUserData>) => {
         const isCurrentlySharingAll =
@@ -258,7 +257,6 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
               <div className="withdrawal-form">
                 <WithdrawSurvey
                   surveyUpdatedCallbackFn={(surveyData: object) => {
-                    console.log(surveyData)
                     setWithdrawlSurveyData(_pre => surveyData)
                   }}
                 ></WithdrawSurvey>

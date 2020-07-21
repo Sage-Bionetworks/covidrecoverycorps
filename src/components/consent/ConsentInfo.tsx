@@ -177,7 +177,6 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
             setQuizAnswers(prev => {
               const newAnswers = [...prev]
               newAnswers[quizIndex] = parseInt(value, 10)
-              console.log(newAnswers)
               return newAnswers
             })
           }
