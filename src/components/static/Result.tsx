@@ -27,12 +27,12 @@ import { UserService } from '../../services/user.service'
 import { useTranslation, Trans } from 'react-i18next'
 
 import Alert from '@material-ui/lab/Alert'
+import moment from 'moment'
+import _ from 'lodash'
 
 type ResultProps = {
   token?: string
 }
-
-const defaultTheme = createMuiTheme()
 
 export const useStyles = makeStyles(theme => ({
   root: {
@@ -291,6 +291,53 @@ export const Result: React.FunctionComponent<ResultProps> = ({
     }
     return versions[result][key]
   }
+  const renderResultForPrint = (result: TestResult): JSX.Element => {
+    const patient = result.data.contained?.find(
+      item => item['resourceType'] === 'Patient',
+    )
+    if (!patient) {
+      return <></>
+    }
+    return (
+      <>
+        <div style={{ borderStyle: 'double none double none' }}>
+          Patient: {_.get(patient, 'name[0].family')},{' '}
+          {_.get(patient, 'name[0].given')}
+          <br />
+          MRN: DONT KNOW
+          <br />
+          DOB: {patient.birthDate}
+          <br />
+          Sex: {patient.gender}
+          <br />
+        </div>
+        <h3 style={{ float: 'left' }}>COVID-19 SEROLOGY TEST</h3>
+        <div style={{ float: 'right' }}>Status: {result.data.status}|</div>
+        <div style={{ clear: 'both' }}>
+          <table style={{width: '80%'}}>
+            <tr>
+              <th>&nbsp;</th>
+              <th>Value</th>
+              <th>Range</th>
+            </tr>
+            <tr>
+              <td> {_.get(result.data, 'code.coding[0].display')}</td>
+              <td>
+                <strong>{result.data.valueString}</strong>
+              </td>
+              <td></td>
+            </tr>
+          </table>
+        </div><br /><br />
+        Comments: <br />
+        {result.data.comment}
+        <div style={{ borderStyle: 'dashed none dashed none' }}>
+          {moment(result.data.effectiveDateTime).toLocaleString()}
+          <br />
+        </div>
+      </>
+    )
+  }
 
   const renderResult = (result: TestResult): JSX.Element => {
     return (
@@ -316,7 +363,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
                 style={{ margin: '30px auto' }}
                 variant="contained"
                 color="primary"
-                onClick={() => alert('download')}
+                onClick={() => window.print()}
               >
                 {t('result.download')}
               </Button>
@@ -419,7 +466,12 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   }
 
   if (result && userData) {
-    return <div>{renderResult(result)}</div>
+    return (
+      <>
+        <div className="no-print">{renderResult(result)}</div>
+        <div className="print-only">{renderResultForPrint(result)}</div>
+      </>
+    )
   }
   if (userData?.dataGroups.includes('tests_collected')) {
     return <div>{renderProcessing()}</div>
