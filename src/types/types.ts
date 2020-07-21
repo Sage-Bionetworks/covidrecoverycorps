@@ -204,5 +204,7 @@ export type TestResult = {
     effectiveDateTime: string
     valueString: TestResultString
     comment: string
+
+    contained: any[]
   }
 }

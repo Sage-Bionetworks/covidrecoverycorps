@@ -33,6 +33,10 @@ h6 {
   font-weight: bold;
 }
 
+.print-only {
+  display: none !important;
+}
+
 @media (min-width: 600px) {
   h1,
   h2 {
@@ -189,4 +193,14 @@ div.intro {
 .partialGreen {
   background-image: url('../assets/dashboard/bg_rectangle_color.svg');
   background-repeat: repeat-x;
+}
+
+@media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
 }

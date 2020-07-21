@@ -412,9 +412,9 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
   )
 
   return (
-    <div>
+    <div >
       <CssBaseline />
-      <div>
+      <div className="no-print">
         <Toolbar className={classes.toolBar}>
           <div>
             <Typography variant="h6" noWrap className={classes.navbarTitle}>

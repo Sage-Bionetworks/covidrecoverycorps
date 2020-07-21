@@ -1,7 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router'
 import { useSessionDataDispatch } from '../../AuthContext'
+import { makeStyles, Button } from '@material-ui/core'
 
+const useStyles = makeStyles(theme => ({
+  fullNavBarButton: {
+    width: '100px',
+    height: '37px',
+    fontWeight: 'bold',
+    border: '2px solid',
+    '&:hover': {
+      border: '2px solid',
+    },
+  },
+}))
 type LogoutProps = {
   redirectUrl?: string
   onLogout: Function
@@ -12,6 +24,7 @@ export const Logout: React.FunctionComponent<LogoutProps> = ({
   onLogout,
 }: LogoutProps) => {
   const [navigate, setNavigate] = useState(false)
+  const classes = useStyles()
   const sessionUpdateFn = useSessionDataDispatch()
   const logout = () => {
     sessionUpdateFn({ type: 'LOGOUT' })
@@ -22,7 +35,16 @@ export const Logout: React.FunctionComponent<LogoutProps> = ({
   if (navigate) {
     return <Redirect to={redirectUrl || '/login'} push={true} />
   } else {
-    return <span onClick={logout}>Log out</span>
+    return (
+      <Button
+        color="primary"
+        variant="outlined"
+        className={classes.fullNavBarButton}
+        onClick={logout}
+      >
+        Log out
+      </Button>
+    )
   }
 }
 
