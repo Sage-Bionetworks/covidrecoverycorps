@@ -1,7 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { makeStyles, Grid, Card, Button, CardContent } from '@material-ui/core'
+import {
+  makeStyles,
+  Grid,
+  Card,
+  Button,
+  CardContent,
+  CircularProgress,
+  createMuiTheme,
+} from '@material-ui/core'
 import { playfairDisplayFont, openSansFont } from '../../App'
-import { TestResult, TestResultString } from '../../types/types'
+import {
+  TestResult,
+  TestResultString,
+  LoggedInUserData,
+} from '../../types/types'
 import negativeTri from '../../assets/results/rect_negative.svg'
 import positiveTri from '../../assets/results/rect_positive.svg'
 import inconclusiveTri from '../../assets/results/rect_indeterminate.svg'
@@ -9,15 +21,18 @@ import negativeTopImg from '../../assets/results/result_negative.svg'
 import positiveTopImg from '../../assets/results/result_positive.svg'
 import inconclusiveTopImg from '../../assets/results/result_indeterminate.svg'
 import contactUs from '../../assets/results/contact_us.svg'
-import moment, { Moment } from 'moment'
+
 import { UserService } from '../../services/user.service'
-import i18next from 'i18next'
+
 import { useTranslation, Trans } from 'react-i18next'
-import 'moment/locale/es'
+
+import Alert from '@material-ui/lab/Alert'
 
 type ResultProps = {
   token?: string
 }
+
+const defaultTheme = createMuiTheme()
 
 export const useStyles = makeStyles(theme => ({
   root: {
@@ -79,10 +94,9 @@ export const useStyles = makeStyles(theme => ({
     '& p': {
       fontSize: '1.4rem',
     },
-    MuiCardContent: {
-      root: {
-        paddingLeft: '3.2rem',
-      },
+
+    '& .MuiCardContent-root': {
+      padding: '46px 32px',
     },
   },
 
@@ -109,7 +123,6 @@ export const useStyles = makeStyles(theme => ({
     fontSize: '2rem',
     lineHeight: '127%',
   },
-
 }))
 export const Result: React.FunctionComponent<ResultProps> = ({
   token,
@@ -119,7 +132,9 @@ export const Result: React.FunctionComponent<ResultProps> = ({
 
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState()
-  const [firstName, setFirstName] = useState('')
+  const [userData, setUserData] = useState<LoggedInUserData | undefined>(
+    undefined,
+  )
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -129,7 +144,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
         try {
           setIsLoading(true)
           const userInfoResponse = await UserService.getUserInfo(token)
-          setFirstName(userInfoResponse.data.firstName)
+          setUserData(userInfoResponse.data)
           const ResultsResponse = await UserService.getTestResult(token)
           if (ResultsResponse?.data?.items?.length > 0) {
             const result = ResultsResponse.data.items[0]
@@ -151,7 +166,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   //positives
   const positiveHeader = (
     <>
-      {firstName}, &nbsp;
+      {userData?.firstName}, &nbsp;
       <span className={classes.resultDataHeaderPositive}>
         {t('result.positiveTitle1')},
       </span>
@@ -180,7 +195,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   //negatives
   const negativeHeader = (
     <>
-      {firstName}, &nbsp;
+      {userData?.firstName}, &nbsp;
       <span className={classes.resultDataHeaderNegative}>
         {t('result.negativeTitle1')},
       </span>
@@ -209,7 +224,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   //inconclusive
   const inconclusiveHeader = (
     <>
-      {firstName}, &nbsp;
+      {userData?.firstName}, &nbsp;
       <span className={classes.resultDataHeaderInconclusive}>
         {t('result.inconclusiveTitle1')}
       </span>
@@ -277,9 +292,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
     return versions[result][key]
   }
 
-  const renderResult = (result: TestResult) => {
-    const ResultDateTime = moment(result.data.effectiveDateTime)
-
+  const renderResult = (result: TestResult): JSX.Element => {
     return (
       <>
         <Card className={`${classes.root}`} style={{ position: 'relative' }}>
@@ -333,12 +346,15 @@ export const Result: React.FunctionComponent<ResultProps> = ({
             </Trans>
           </div>
           <p>
-            <a href="#" target="_blank">
+            <a
+              href="https://www.figma.com/file/NYYPVfRsbtUflNyySnFeDK/COVID_flow?node-id=1661%3A4481"
+              target="_blank"
+            >
               {t('result.techInfo')}
             </a>
           </p>
           {/* What can do next if positive agendel TODO*/}
-          {result.data.valueString !== 'Detected' && (
+          {/* agendel TODO: link to learning hub result.data.valueString !== 'Detected' && (
             <>
               <p className={classes.learnMore}>{t('result.learnMore')}</p>
               <div className="text-center">
@@ -353,33 +369,70 @@ export const Result: React.FunctionComponent<ResultProps> = ({
                 </Button>
               </div>
             </>
-          )}
+          )*/}
         </Card>
         <Card className={classes.cardContact}>
           <CardContent style={{ display: 'flex' }}>
-            <div style={{ width: '50%' }}>
-              <img src={contactUs} />
-
-              <span className={classes.contact}>{t('result.contact')}</span>
-            </div>
-            <div>
-              <Trans i18nKey="result.contactText">
-                <p>[trans]</p>
-                <p>
-                  [trans]<br></br>[trans]
-                  <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
-                    [translate]
-                  </a>{' '}
-                </p>
-              </Trans>
-            </div>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+            >
+              <Grid item xs={12} sm={4}>
+                <img src={contactUs} />
+                <br></br>
+                <span className={classes.contact}>{t('result.contact')}</span>
+              </Grid>
+              <Grid item xs={12} sm={8}>
+                <Trans i18nKey="result.contactText">
+                  <p>[trans]</p>
+                  <p>
+                    [trans]<br></br>[trans]
+                    <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
+                      [translate]
+                    </a>{' '}
+                  </p>
+                </Trans>
+              </Grid>
+            </Grid>
           </CardContent>
         </Card>
       </>
     )
   }
 
-  return <div>{result && <div>{renderResult(result)}</div>}</div>
+  const renderProcessing = (): JSX.Element => {
+    return (
+      <div className="text-center">
+        <div className={classes.topImage}>
+          <img src={inconclusiveTopImg} />
+        </div>
+        <div style={{ width: '300px', margin: '0 auto' }}>
+          <Trans i18nKey="result.inProcess">
+            <h3></h3>
+            <h3></h3>
+          </Trans>
+        </div>
+      </div>
+    )
+  }
+
+  if (result && userData) {
+    return <div>{renderResult(result)}</div>
+  }
+  if (userData?.dataGroups.includes('tests_collected')) {
+    return <div>{renderProcessing()}</div>
+  }
+  if (error) {
+    return <Alert severity="error">{error!['message'] || error}</Alert>
+  }
+
+  return (
+    <div className="text-center">
+      <CircularProgress color="primary" />
+    </div>
+  )
 }
 
 export default Result
