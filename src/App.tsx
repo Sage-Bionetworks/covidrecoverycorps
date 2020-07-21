@@ -258,7 +258,7 @@ function App() {
   }
 
   function getDashboardPage(sessionData: SessionData) {
-    if (sessionData.userDataGroup.includes('tests_available')) {
+    if (sessionData.userDataGroup.includes('tests_available') || sessionData.userDataGroup.includes('tests_collected')) {
       return renderWithGridLayout(<Result token={token || ''} />)
     }
     if (sessionData.userDataGroup.includes('tests_scheduled')) {
