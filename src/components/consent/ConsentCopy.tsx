@@ -288,11 +288,7 @@ const summaryScreens = [
     </p>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen12.text4">
-        [translate]{' '}
-        <strong>
-          {' '}
-          [translate] <strong>[translate]</strong>. [translate]{' '}
-          <strong>[translate]</strong>[translate]{' '}
+        [translate]<strong>[translate] <strong>[translate]</strong>. [translate]<strong>[translate]</strong>[translate]{' '}
         </strong>
       </Trans>
     </p>
