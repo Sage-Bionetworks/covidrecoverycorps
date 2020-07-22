@@ -372,14 +372,14 @@ export const Result: React.FunctionComponent<ResultProps> = ({
         </Card>
         <h2 className="text-center">{t('result.explain')}</h2>
         <Card className={classes.cardNoBg}>
-          <div className={classes.videoContainerDiv}>
+         {/*agendel: add when video is ready <div className={classes.videoContainerDiv}>
             <iframe
               src="https://www.youtube.com/embed/HdfuSDxApwE"
               frameBorder="0"
               className={classes.video}
               allowFullScreen
             ></iframe>
-          </div>
+    </div> */}
           <p>
             <Trans i18nKey="result.text1">
               [translate]<strong></strong>
