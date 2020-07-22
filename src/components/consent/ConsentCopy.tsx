@@ -288,11 +288,7 @@ const summaryScreens = [
     </p>
     <p className="Consent__copy">
       <Trans i18nKey="consentinfo.screen12.text4">
-        [translate]{' '}
-        <strong>
-          {' '}
-          [translate] <strong>[translate]</strong>. [translate]{' '}
-          <strong>[translate]</strong>[translate]{' '}
+        [translate]<strong>[translate] <strong>[translate]</strong>. [translate]<strong>[translate]</strong>[translate]{' '}
         </strong>
       </Trans>
     </p>
@@ -658,15 +654,15 @@ const ehrScreens = [
     </p>
   </div>,
   <div>
-    <h2>{i18next.t('consentEHR.screen11.text1')}</h2>
+    <h2>{i18next.t('consentEHR.screen10.text1')}</h2>
     <ul>
       <li>
-        <Trans i18nKey="consentEHR.screen11.text2">
+        <Trans i18nKey="consentEHR.screen10.text2">
           <strong>[translate]</strong> [translate] <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu"> [translate] </a>
         </Trans>
       </li>
       <li>
-        <Trans i18nKey="consentEHR.screen11.text3">
+        <Trans i18nKey="consentEHR.screen10.text3">
           <strong> [translate] </strong> [translate] <a href="mailto:help@WIRB.com">help@WIRB.com</a> [translate]
         </Trans>
       </li>
@@ -713,14 +709,14 @@ const screens: { [key in SCREENS_ENUM]: JSX.Element } = {
     <p className="Consent__copy">
       <ul>
         <li>
-          {i18next.t('consentEHR.screen12.text2')}
+          {i18next.t('consentEHR.screen11.text2')}
         </li>
-        <li>{i18next.t('consentEHR.screen12.text3')}</li>
-        <li>{i18next.t('consentEHR.screen12.text4')}</li>
-        <li>{i18next.t('consentEHR.screen12.text5')}</li>
-        <li>{i18next.t('consentEHR.screen12.text6')}</li>
+        <li>{i18next.t('consentEHR.screen11.text3')}</li>
+        <li>{i18next.t('consentEHR.screen11.text4')}</li>
+        <li>{i18next.t('consentEHR.screen11.text5')}</li>
+        <li>{i18next.t('consentEHR.screen11.text6')}</li>
         <li>
-        {i18next.t('consentEHR.screen12.text7')}
+        {i18next.t('consentEHR.screen11.text7')}
         </li>
       </ul>
     </p>
@@ -728,7 +724,7 @@ const screens: { [key in SCREENS_ENUM]: JSX.Element } = {
   HIPAA_LAST_CHECKBOX: (
     <>
       <strong>
-        {i18next.t('consentEHR.screen12.text8')}
+        {i18next.t('consentEHR.screen11.text8')}
       </strong>
     </>
   ),
