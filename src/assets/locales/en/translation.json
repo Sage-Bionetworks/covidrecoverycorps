@@ -192,8 +192,11 @@
       "text3": "We understand you are sharing and allowing us to collect sensitive health information from you.",
       "text4": "We take great care to <1> protect your information</1>. However, if there is a <1>data breach</1> it may be possible to <1>identify you and your sensitive information</1> may be seen by someone without your permission. This risk is <1> low but it is not zero</1>.",
       "text5": "COVID-19 is also a risk to public health. <1> Thus we may have to give out your data if public health authorities demand it. </1>",
+      "text5a": "If you are invited to provide a biosample to the lab, the lab will need you to provide <1>the name and address of your employer</1>. This is a New York State requirement. This information (employer’s name and address) <1>will not be sent or stored by the Covid Recovery Corps study<1/>.",
+      "text5b": "We <1>cannot control</1> any of the information you provide <1>directly to the lab</1> if you are tested for COVID.",
+
       "text6": "If you give a <1>blood sample</1>, the most common risks are <1>brief pain and bruising</1>. Some people may become dizzy or feel faint. There is also a small risk of infection.",
-      "text7": "If you are asked to provide a sample from a <1> nose swab </1>you may feel <1> brief discomfort</1>."
+      "text7": "If you are asked to provide a sample from a <1> nose  or fecal swab </1>you may feel <1> brief discomfort</1>."
     },
     "fullTextScreen5": {
       "text1": "What are the risks?",
@@ -203,12 +206,16 @@
       "text5": "We will limit who is allowed to see information that could directly identify you, like your name or date of birth.",
       "text6": "In order to work with your health data, researchers must sign a contract stating they will not try to find out who you are.",
       "text7": "We will tell you if there is a data breach.",
-      "text8": "COVID Recovery Corps has a Certificate of Confidentiality from the U.S. government. This will help us fight legal demands (such as a court order or a request from federal, state, or local law enforcement) to give out information that could identify you.",
-      "text9": "However, the Certificate might not stop demands from public health authorities like the Health Department or law enforcement because of COVID-19.",
-      "text10": "We believe the chance of this is very small, but it is not zero.",
-      "text11": "We will gather data from you through the COVID Recovery Corps website. There is a risk to your privacy whenever you use the website.",
-      "text12": "Researchers will use basic facts like your race, ethnic group, and sex in their studies. These data help researchers learn if the things that affect health are the same for different groups of people. These studies could one day help people of the same race, ethnic group, or sex as you. It is important to have a diverse group of individuals in COVID Recovery Corps to make sure the results will help everyone. However, there is a risk that someone could use this data to support harmful ideas about certain groups.",
-      "text13": "If you give a blood sample, the most common risks are brief pain and bruising. Some people may become dizzy or feel faint. There is also a small risk of infection. If you are asked to provide a sample from a nose swab you may feel brief discomfort."
+      "text7a": "If you are invited to provide a biosample to the lab, the lab will need you to provide the name and address of your employer. This is a New York State requirement. This information (employer’s name and address) will not be sent or stored by the Covid Recovery Corps study.",
+      "text7b": "We cannot control any of the information you provide directly to the lab if you are tested for COVID.",
+      "text8": "To help us protect your privacy, we received a Certificate of Confidentiality from the National Institutes of Health (NIH). With this Certificate, we cannot be forced to provide information that may identify you, even by a court subpoena, in any federal, state, or local civil, criminal, administrative, legislative, or other proceedings. We will use the Certificate to resist any demands for information that would identify you, except as explained below",
+      "text9": "The Certificate of Confidentiality does not stop you or a member of your family from telling others about yourself or your involvement in this research. If an insurer, employer, or other person gets your written consent to receive research information, then we cannot use the Certificate to withhold that information.",
+      "text10": "The Certificate cannot be used to resist a demand for information from representatives of the United States Government that is used for auditing or evaluation of projects they are responsible for overseeing or for information that must be provided in order to meet the requirements of the federal Food and Drug Administration (FDA).",
+      "text11": "You should also know that this Certificate does not protect you from our responsibility to report certain communicable diseases, suspected child abuse, or danger of physical or mental harm, to appropriate agencies or authorities.",
+      "text12": "We believe the chance of this is very small, but it is not zero.",
+      "text13": "We will gather data from you through the COVID Recovery Corps website. There is a risk to your privacy whenever you use the website.",
+      "text14": "Researchers will use basic facts like your race, ethnic group, and sex in their studies. These data help researchers learn if the things that affect health are the same for different groups of people. These studies could one day help people of the same race, ethnic group, or sex as you. It is important to have a diverse group of individuals in COVID Recovery Corps to make sure the results will help everyone. However, there is a risk that someone could use this data to support harmful ideas about certain groups.",
+      "text15": "If you give a blood sample, the most common risks are brief pain and bruising. Some people may become dizzy or feel faint. There is also a small risk of infection. If you are asked to provide a sample from a nose or fecal swab you may feel brief discomfort."
     },
     "screen6": {
       "text1": "What is the primary risk in this study?",
