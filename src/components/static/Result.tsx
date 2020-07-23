@@ -38,7 +38,9 @@ export const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: '#f5f5f5',
     overflow: 'unset',
+    maxWidth: 'unset',
   },
+
   resultContainerDiv: {
     margin: '0px 30px 0 30px',
   },
@@ -65,6 +67,7 @@ export const useStyles = makeStyles(theme => ({
   cardNoBg: {
     backgroundColor: 'transparent',
     boxShadow: 'none',
+    maxWidth: 'unset'
   },
   videoContainerDiv: {
     position: 'relative',
@@ -91,6 +94,7 @@ export const useStyles = makeStyles(theme => ({
     borderTop: '7px solid #FFDC5D',
     borderTopLeftRadius: '0px',
     borderTopRightRadius: '0px',
+    maxWidth: 'unset',
     '& p': {
       fontSize: '1.4rem',
     },
