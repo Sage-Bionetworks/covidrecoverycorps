@@ -43,6 +43,7 @@ import Appointment from './components/static/Appointment'
 import Result from './components/static/Result'
 import { userInfo } from 'os'
 import { UserDataGroup, SessionData } from './types/types'
+import ResultDashboard from './components/static/ResultDashboard'
 
 export const openSansFont = [
   'Open Sans',
@@ -172,6 +173,23 @@ function renderWithGridLayout(el: JSX.Element) {
   )
 }
 
+function renderWithWiderGridLayout(el: JSX.Element) {
+  return (
+    <Grid
+      container
+      direction="row"
+      justify="center"
+      alignItems="center"
+      spacing={2}
+      style={{ padding: '24px' }}
+    >
+      <Grid item xs={12} md={12} lg={10}>
+        {el}
+      </Grid>
+    </Grid>
+  )
+}
+
 function App() {
   const sessionData = useSessionDataState()
   const sessionUpdateFn = useSessionDataDispatch()
@@ -258,8 +276,11 @@ function App() {
   }
 
   function getDashboardPage(sessionData: SessionData) {
-    if (sessionData.userDataGroup.includes('tests_available') || sessionData.userDataGroup.includes('tests_collected')) {
-      return renderWithGridLayout(<Result token={token || ''} />)
+    if (
+      sessionData.userDataGroup.includes('tests_available') ||
+      sessionData.userDataGroup.includes('tests_collected')
+    ) {
+      return renderWithGridLayout(<ResultDashboard token={token || ''} />)
     }
     if (sessionData.userDataGroup.includes('tests_scheduled')) {
       return renderWithGridLayout(<Appointment token={token || ''} />)
@@ -448,7 +469,9 @@ function App() {
                     {renderWithGridLayout(<Appointment token={token || ''} />)}
                   </ConsentedRoute>
                   <ConsentedRoute exact={true} path="/result">
-                    {renderWithGridLayout(<Result token={token || ''} />)}
+                    {renderWithWiderGridLayout(
+                      <ResultDashboard token={token || ''} />,
+                    )}
                   </ConsentedRoute>
 
                   <Route path="/faqs">

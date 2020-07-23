@@ -554,6 +554,13 @@
     "contactText": "<0>If you have any questions about your results, please reach out via:</0> <1> phone:  212-305-5700<1></1> email: <3>COVIDRecoveryCorps@cumc.columbia.edu</3> </1> ",
     "inProcess": "<0>We are currently processing your antibody test results.</0> <1>Please stay tuned.</1>"
   },
+   "resultDashboard": {
+     "li1": "My test results",
+     "li2": "What's next",
+     "li3": "My surveys",
+     "inviteCTA": "Invite a Friend to Join the Study "
+
+  },
 
   "surveys": {
     "saveProgress": "Save progress",
