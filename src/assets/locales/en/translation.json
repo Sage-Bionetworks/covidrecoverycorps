@@ -302,16 +302,19 @@
     "screen13": {
       "text1": "Things you should consider before you say yes",
       "text2": "Before you say yes to joining the study, please consider the following:",
-      "text3": "You will<1> not be paid </1>for participating in this study.",
-      "text4": "You will<1> not receive any profit</1> from this or future research.",
-      "text5": "Your study information <1> will not be shared with insurance companies or your doctor without your permission. </1>",
-      "text6": "The risk of injury is low in this study. You will <1> not be compensated for injury</1>."
+      "text3": "You will<1> not receive any profit</1> from this or future research.",
+      "text4": "Your study information <1> will not be shared with insurance companies or your doctor without your permission. </1>",
+      "text5": "The risk of injury is low in this study. You will <1> not be compensated for injury</1>.",
+      "text6": "If you are invited to <1>provide a biosample to the lab</1>, the lab will need you to provide the <1>name and address of your employer</1>. This is a <1> New York State requirement</1>.",
+      "text7": "We cannot control any of the information you provide <1>directly to the lab</1> if you are tested for COVID."
+
     },
     "fullTextScreen13": {
       "text1": "Things you should consider before you say yes",
-      "text2": "You will not be paid for joining and/or taking part in the COVID Recovery Corps study. Researchers will use your data to make discoveries. If any of their studies lead to new tests, drugs, or other commercial products, you will not get any profits. These inventions will be the property of the researchers who develop them.",
+      "text2": "Researchers will use your data to make discoveries. If any of their studies lead to new tests, drugs, or other commercial products, you will not get any profits. These inventions will be the property of the researchers who develop them.",
       "text3": "We will keep your data private, and even if public health authorities access this data about COVID, it cannot be transferred to an insurance company or your healthcare provider without your permission.",
-      "text4": "If you think you have been injured because of taking part in COVID Recovery Corps, contact us using the information at the end of this form. If we find that you were injured as a direct result of taking part in COVID Recovery Corps:",
+      "text4": "If you are invited to provide a biosample to the lab, the lab will need you to provide the name and address of your employer. This is a New York State requirement. This information (employer’s name and address) will not be sent or stored by the COVID Recovery Corps study. We cannot control any of the information you provide directly to the lab if you are tested for COVID.",
+      "text4a": "If you think you have been injured because of taking part in COVID Recovery Corps, contact us using the information at the end of this form. If we find that you were injured as a direct result of taking part in COVID Recovery Corps:",
       "text5": "Beyond your immediate medical care, we will not pay for your injury.",
       "text6": "If you need follow-up care to treat your injury, you and/or your insurance will have to pay for it.",
       "text7": "If you have any long-term costs to treat your injury, you and/or your insurance will have to pay them.",
