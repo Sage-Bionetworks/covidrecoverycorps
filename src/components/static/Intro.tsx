@@ -21,6 +21,7 @@ import LandingPageAboveFold4Mobile from '../../assets/LandingPageAboveFold_mobil
 import LandingPageWalk from '../../assets/LandingPageWalk.png'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
 import { ReactComponent as SageLogo } from '../../assets/sage_logo.svg'
+import { ReactComponent as SurvivorCorpsLogo } from '../../assets/SurvivorCorpsLogo-Vertical.svg'
 import { ReactComponent as Tablet } from '../../assets/tablet.svg'
 import { ReactComponent as TestTubes } from '../../assets/test_tubes.svg'
 import { ReactComponent as BooksApple } from '../../assets/books_apple.svg'
@@ -421,6 +422,23 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
             <div className={classes.logosDivSeparator}></div>
             <SageLogo className={classes.logo} />
           </div>
+          <Grid container direction="row" justify="center" alignItems="center">
+            <Grid item xs={12} md={12}>
+              <h2 className={`${classes.labTextTitle} text-center`}>
+                {t('home.text31')}
+              </h2>
+              <Hidden xsDown>
+                <BlueSeparator />
+              </Hidden>
+              <div className="text-center">
+                <a href="https://www.survivorcorps.com/" target="_blank">
+                  <SurvivorCorpsLogo
+                    style={{ height: '100px', maxWidth: '300px' }}
+                  />
+                </a>
+              </div>
+            </Grid>
+          </Grid>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={12} md={6}>
               <div className={classes.labImageDiv}>
