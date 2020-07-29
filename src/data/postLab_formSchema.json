@@ -1,0 +1,363 @@
+{
+  "definitions": {
+    "postLab": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "longterm_impact": {
+          "type": "object",
+          "title": "1. How concerned are you about the long term impact of COVID-19 on the following:",
+          "properties": {
+            "physical_health": {
+              "title": "Your physical health",
+              "type": "string",
+
+              "enum": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ],
+              "enumNames": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            },
+            "mental_health": {
+              "title": "Your mental health",
+              "type": "string",   "enum": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ],
+              "enumNames": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            },
+            "family_health": {
+              "title": "Your family’s health ",
+              "type": "string",   "enum": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ],
+              "enumNames": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            },
+            "friends_health": {
+              "title": "Your friends’ health",
+              "type": "string",   "enum": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ],
+              "enumNames": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            },
+            "community": {
+              "title": "Your community overall",
+              "type": "string",   "enum": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ],
+              "enumNames": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            },
+            "job": {
+              "title": "Your job",
+              "type": "string",   "enum": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ],
+              "enumNames": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            },
+            "financial": {
+              "title": " Financial issues",
+              "type": "string",   "enum": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ],
+              "enumNames": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            },
+            "homeless": {
+              "title": "Being homeless",
+              "type": "string",   "enum": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ],
+              "enumNames": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            },
+            "family_tension": {
+              "title": "Family tension",
+              "type": "string",   "enum": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ],
+              "enumNames": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            },
+            "children": {
+              "title": "You/Your children’s education/services",
+              "type": "string",   "enum": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ],
+              "enumNames": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            }
+          }
+        },
+        "helped_recover": {
+          "type": "array",
+          "title": "2. What helped you recover? (Check all that apply)",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+
+            "enum": [
+              "Medicine",
+              "Vitamins/supplements",
+              "Treatment in the hospital",
+              "Rehabilitation, including physical therapy",
+              "Oxygen",
+              "Convalescent plasma",
+              "Rest/sleep",
+              "Exercise/yoga/stretching",
+              "Eating healthy foods",
+              "Prayer",
+              "Meditation/mindfulness",
+              "Other",
+              "Don't know/Not sure",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Medicine",
+              "Vitamins/supplements",
+              "Treatment in the hospital",
+              "Rehabilitation, including physical therapy",
+              "Oxygen",
+              "Convalescent plasma",
+              "Rest/sleep",
+              "Exercise/yoga/stretching",
+              "Eating healthy foods",
+              "Prayer",
+              "Meditation/mindfulness",
+              "Other",
+              "Don't know/Not sure",
+              "Prefer not to answer"
+            ]
+          }
+        },
+   
+        "helped_recover_recommend": {
+          "type": "array",
+          "title": "3. What would you recommend to others to help their recovery? (Check all that apply)",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+
+            "enum": [
+              "Medicine",
+              "Vitamins/supplements",
+              "Treatment in the hospital",
+              "Rehabilitation, including physical therapy",
+              "Oxygen",
+              "Convalescent plasma",
+              "Rest/sleep",
+              "Exercise/yoga/stretching",
+              "Eating healthy foods",
+              "Prayer",
+              "Meditation/mindfulness",
+              "Other",
+              "Don't know/Not sure",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Medicine",
+              "Vitamins/supplements",
+              "Treatment in the hospital",
+              "Rehabilitation, including physical therapy",
+              "Oxygen",
+              "Convalescent plasma",
+              "Rest/sleep",
+              "Exercise/yoga/stretching",
+              "Eating healthy foods",
+              "Prayer",
+              "Meditation/mindfulness",
+              "Other",
+              "Don't know/Not sure",
+              "Prefer not to answer"
+            ]
+          }
+        },
+    
+        "hampered_recover": {
+          "type": "array",
+          "title": "4. Is there anything you think has hampered your recovery? (Check all that apply) ",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Stress",
+              "Anxiety",
+              "Depression/sadness",
+              "Loneliness/isolation",
+              "Pain ",
+              "Sleeplessness",
+              "Inability to relax",
+              "Being quarantined",
+              "Having to work",
+              "Other pre-existing medical conditions",
+              "Lack of access to medical care",
+              "Lack of healthy foods",
+              "Other",
+              "Don't know/Not sure",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Stress",
+              "Anxiety",
+              "Depression/sadness",
+              "Loneliness/isolation",
+              "Pain ",
+              "Sleeplessness",
+              "Inability to relax",
+              "Being quarantined",
+              "Having to work",
+              "Other pre-existing medical conditions",
+              "Lack of access to medical care",
+              "Lack of healthy foods",
+              "Other",
+              "Don't know/Not sure",
+              "Prefer not to answer"
+            ]
+          }
+        },
+      
+        "contributed_exposure": {
+          "type": "array",
+          "title": "5. Which of the following do you think contributed to your exposure to the virus? (Check all that apply)",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Someone sick in your home",
+              "Someone sick at your job ",
+              "Taking public transportation (bus, subway, train)",
+              "Taking a plane or cruise",
+              "Attending an indoor group event (party, meeting, church/temple/mosque)",
+              "Being in an indoor bar/restaurant",
+              "Being in an indoor public place with many people (store, mall, movie theater)",
+
+              "Lack of healthy foods",
+              "Other",
+              "Don't know/Not sure",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Someone sick in your home",
+              "Someone sick at your job ",
+              "Taking public transportation (bus, subway, train)",
+              "Taking a plane or cruise",
+              "Attending an indoor group event (party, meeting, church/temple/mosque)",
+              "Being in an indoor bar/restaurant",
+              "Being in an indoor public place with many people (store, mall, movie theater)",
+
+              "Lack of healthy foods",
+              "Other",
+              "Don't know/Not sure",
+              "Prefer not to answer"
+            ]
+          }
+        }
+      
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "postLab": {
+      "title": "",
+      "$ref": "#/definitions/postLab"
+    }
+  }
+}

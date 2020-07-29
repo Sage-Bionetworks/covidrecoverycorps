@@ -25,8 +25,10 @@ import CircularProgress from '@material-ui/core/CircularProgress/CircularProgres
 export interface SurveyWrapperProps {
   formTitle: string //for UI customization
   formClass?: string // to support potential theaming
+  cardClass?: string
   surveyName: SurveyType
   token: string
+
 }
 
 type SurveyWrapperState = {
@@ -58,6 +60,7 @@ const extraUIProps: ExtraUIProps = {
   onNextCallback: () => {},
   isHelpHidden: true,
   isNoSaveButton: false,
+
 }
 
 export default class SurveyWrapper extends React.Component<
@@ -430,6 +433,7 @@ export default class SurveyWrapper extends React.Component<
                 isWizardMode={true}
                 formTitle={this.props.formTitle}
                 formClass={this.props.formClass}
+                cardClass={this.props.cardClass}
                 callbackStatus={this.state.status}
                 onSave={(data: any) => this.saveSurvey(data)}
                 onSubmit={async (data: any) => {
@@ -439,7 +443,7 @@ export default class SurveyWrapper extends React.Component<
                 }}
                 isSubmitted={this.isSurveySubmitted(this.props.surveyName)}
                 extraUIProps={extraUIProps}
-              ></SynapseForm>
+              >{this.props.children}</SynapseForm>
             </div>
           )}
           {this.state.status === StatusEnum.SUBMIT_SUCCESS && (

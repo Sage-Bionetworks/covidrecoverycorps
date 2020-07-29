@@ -9,6 +9,7 @@ import {
 
 import EligibilityRegistration from './components/registration/EligibilityRegistration'
 import SurveyWrapper from './components/surveys/SurveyWrapper'
+import PostLabHeader from './components/surveys/PostLabHeader'
 import Done from './components/surveys/Done'
 import Login from './components/login/Login'
 import Consent from './components/consent/Consent'
@@ -461,6 +462,21 @@ function App() {
                         surveyName={'MORE'}
                         formClass="crc"
                       ></SurveyWrapper>,
+                    )}
+                  </ConsentedRoute>
+                  <ConsentedRoute exact={true} path="/surveyPostLab">
+                    {renderWithGridLayout(
+                      <div>
+                     
+                      <SurveyWrapper
+                        formTitle="Post Lab"
+                        token={token || ''}
+                        surveyName={'POST_LAB'}
+                        formClass="crc"
+                        cardClass="inherit"
+                      >
+                           <PostLabHeader></PostLabHeader></SurveyWrapper>,
+                      </div>
                     )}
                   </ConsentedRoute>
                   <ConsentedRoute exact={true} path="/appointment">

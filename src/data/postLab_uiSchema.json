@@ -1,0 +1,152 @@
+{
+  "postLab": {
+    "classNames": "postLab",
+
+
+    "longterm_impact": {
+      "physical_health": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "mental_health": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      }
+    ,
+    "family_health": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "friends_health": {
+        "classNames": "radiorange",
+        "ui:widget": "RadioRangeWidget",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "community": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "job": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "financial": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "homeless": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "family_tension": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "children": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      }
+    
+    },
+    "helped_recover": {
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0, 1],
+        "other": [2]
+     
+      }
+    },
+    "helped_recover_other": {
+      "classNames": "helped_recover_other text"
+    },
+    "helped_recover_recommend": {
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0, 1]
+      }
+    },
+    "helped_recover_recommend_other": {
+      "classNames": "helped_recover_other text"
+    },
+
+    "hampered_recover": {
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0, 1]
+      }
+    },
+    "hampered_recover_other": {
+      "classNames": "hampered_recover_other text"
+    },
+
+    "contributed_exposure": {
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0, 1]
+      }
+    },
+    "contributed_exposure_other": {
+      "classNames": "contributed_exposure_other text"
+    },
+
+    "education": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    }
+  }
+}
