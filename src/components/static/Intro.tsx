@@ -436,6 +436,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
                     style={{ height: '80px', maxWidth: '300px' }}
                   />
                 </a>
+                <div style={{ height: '40px' }}></div>
               </div>
             </Grid>
           </Grid>
