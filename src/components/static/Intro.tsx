@@ -424,16 +424,16 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
           </div>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={12} md={12}>
-              <h2 className={`${classes.labTextTitle} text-center`}>
+              <h3 className={`${classes.labTextTitle} text-center`}>
                 {t('home.text31')}
-              </h2>
+              </h3>
               <Hidden xsDown>
                 <BlueSeparator />
               </Hidden>
               <div className="text-center">
                 <a href="https://www.survivorcorps.com/" target="_blank">
                   <SurvivorCorpsLogo
-                    style={{ height: '100px', maxWidth: '300px' }}
+                    style={{ height: '80px', maxWidth: '300px' }}
                   />
                 </a>
               </div>
