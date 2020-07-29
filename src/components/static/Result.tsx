@@ -361,16 +361,17 @@ export const Result: React.FunctionComponent<ResultProps> = ({
               {getElement(result.data.valueString, 'TEXT')}
             </div>
             {getElement(result.data.valueString, 'LIST')}
-            <div className="text-center">
-              <Button
+           
+            <div className="text-center"   style={{ margin: '30px auto', height: '1px'}}>
+              {/* ALINA REMOVE TEMP <Button
                 type="button"
-                style={{ margin: '30px auto' }}
+              
                 variant="contained"
                 color="primary"
                 onClick={() => window.print()}
               >
                 {t('result.download')}
-              </Button>
+              </Button>*/}
             </div>
           </div>
         </Card>
