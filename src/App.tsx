@@ -40,8 +40,6 @@ import ScrollToTopOnRouteChange from './components/widgets/ScrollToTopOnRouteCha
 import Footer from './components/widgets/Footer'
 import PrivacyPolicy from './components/static/PrivacyPolicy'
 import Appointment from './components/static/Appointment'
-import Result from './components/static/Result'
-import { userInfo } from 'os'
 import { UserDataGroup, SessionData } from './types/types'
 import ResultDashboard from './components/static/ResultDashboard'
 
@@ -280,7 +278,7 @@ function App() {
       sessionData.userDataGroup.includes('tests_available') ||
       sessionData.userDataGroup.includes('tests_collected')
     ) {
-      return renderWithGridLayout(<ResultDashboard token={token || ''} />)
+      return renderWithWiderGridLayout(<ResultDashboard token={token || ''} />)
     }
     if (sessionData.userDataGroup.includes('tests_scheduled')) {
       return renderWithGridLayout(<Appointment token={token || ''} />)
