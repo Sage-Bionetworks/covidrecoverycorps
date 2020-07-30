@@ -84,6 +84,13 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       link: '/survey2',
     },
     {
+      type: 'RESULT_UPLOAD',
+      title: i18next.t('dashboard.text61'),
+      description: i18next.t('dashboard.text62'),
+      time: '1-2',
+      link: '/resultupload',
+    },
+    {
       type: 'HISTORY',
       title: i18next.t('dashboard.text7'),
       description: i18next.t('dashboard.text8'),
@@ -265,7 +272,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       completedSurveyNames.includes('DEMOGRAPHIC') &&
       completedSurveyNames.includes('COVID_EXPERIENCE') &&
       completedSurveyNames.includes('HISTORY') &&
-      completedSurveyNames.includes('MORE')
+      completedSurveyNames.includes('MORE') &&
+      completedSurveyNames.includes('RESULT_UPLOAD') 
 
     if (doneAll) {
       return SurveysCompletionStatusEnum.ALL_DONE
@@ -299,7 +307,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         )}
 
         <Card className={classes.root}>
-         
+       
             <Intro
               testLocation={
                 testLocationSurveySubmitted || getPreferredTestLocation()
@@ -309,7 +317,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
               hasCancelledAppointment={hasCancelledAppointment(userInfo)}
               emailAddress={userInfo?.email || ''}
             />
-      
+       
+
           {
             //if they fininshed  surveys and didn't pick location
             !getPreferredTestLocation() &&

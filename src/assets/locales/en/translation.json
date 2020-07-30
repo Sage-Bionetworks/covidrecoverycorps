@@ -5,6 +5,8 @@
       "month": "month",
       "day": "day"
     },
+    "cancel": "Cancel",
+    "done": "Done",
     "email": "Email",
     "emailAddress": "Email address",
     "joinUs": "Join Us",
@@ -375,10 +377,14 @@
     "text3": "Survey 1",
     "text4": "Tell us about yourself",
     "text5": "Survey 2",
+
     "text6": "Recent COVID Experience",
+    "text61": "Test Results",
+    "text62": "Upload COVID-19 Test Result",
     "text7": "Survey 3",
     "text8": "Medical History",
     "text9": "Survey 4",
+
     "text10": "More COVID Experience",
     "intro1": "<0>Study surveys</0><1>Your responses to the information below will help researchers learn more about COVID-19.</1> <1>To qualify for the antibody test waitlist, please complete all of the surveys to the best of your ability. If you feel uncomfortable about any of the questions, you can always click \"Prefer not to answer\".</1><1>Thank you for your time.</1>",
     "text11": "Minimum surveys required for lab invites",
@@ -622,6 +628,7 @@
     "subhead2": "Limitations",
     "text2": "<0>This test has not been reviewed by the FDA. It is a laboratory-developed test offered in the Clinical Laboratories at NewYork-Presbyterian Hospital-Columbia University Irving Medical Center (PFI 5310). </0><1>Results from this antibody test should not be used as the sole basis to diagnose or exclude SARS-CoV-2 infection or exposure.</1>"
   },
+  
   "signIn": {
     "text1": "We just sent an SMS to: ",
     "text2": "Please enter your code: ",
@@ -704,5 +711,17 @@
     "text6": "Dashboard",
     "text7": "Account Settings",
     "text8": "Log in"
+  },
+  "uploadResult": {
+    "title": "Upload COVID-19 test result",
+    "description": "<0>You’ve answered that you’ve taken a Nasal Swab and/or a Serum antibody test.</0> <0>Please upload a copy of your test results.</0> <0> The test result document can be a .jpeg, pdf, .png, or a .tiff.</0>",
+    "text2": "Select file to upload",
+    "text3": "I don't have a copy",
+    "text4": "Upload this file",
+    "add": "+ Add another file",
+    "successfulUpload": "has been uploaded",
+    "duplicateUpload": "has already been uploaded",
+    "uploadFailed": "could not be uploaded"
+
   }
 }

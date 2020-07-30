@@ -108,6 +108,7 @@ export type SurveyPrelabType = 'CONTACT'
 | 'MORE'
 | 'WITHDRAW'
 | 'TEST_LOCATION'
+| 'RESULT_UPLOAD'
 export type SurveyPostLabType = 'POST_LAB'
 export type SurveyType =SurveyPrelabType | SurveyPostLabType
 
