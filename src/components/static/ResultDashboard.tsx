@@ -10,6 +10,10 @@ import {
 import liResult from '../../assets/results/liResult.svg'
 import liResultSurveys from '../../assets/results/liResultSurveys.svg'
 import liResultNext from '../../assets/results/liResultNext.svg'
+import iconCheckMark from '../../assets/dashboard/icon_whoohoo.svg'
+
+import i18next from 'i18next'
+
 
 import TwoColumnTemplate from './TwoColumnTemplate'
 import LeftNav, { LeftNavItem } from './LeftNav'
@@ -66,10 +70,21 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
     )
   }
 
+  const surveyDoneEl = 
+  <div style={{ textAlign: 'center' , margin: '0 auto'}}>
+  <img src={iconCheckMark}></img>
+  <h3 >
+    {i18next.t('resultDashboard.thankYou')}
+  </h3>
+ 
+</div>
+
   const getMain = (): JSX.Element => {
     switch (activeItemIndex) {
       case 0: 
       return <Result token={token} />
+      case 10:
+        return surveyDoneEl
       default:
         return (<SurveyWrapper
         formTitle="Post Lab"
@@ -77,6 +92,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
         surveyName={'POST_LAB'}
         formClass="crc"
         cardClass="inherit"
+        onDoneCallback={()=> setActiveItemIndex(10) }
       >
            <PostLabHeader></PostLabHeader></SurveyWrapper>)
 

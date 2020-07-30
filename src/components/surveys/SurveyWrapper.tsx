@@ -28,7 +28,7 @@ export interface SurveyWrapperProps {
   cardClass?: string
   surveyName: SurveyType
   token: string
-
+  onDoneCallback?: Function
 }
 
 type SurveyWrapperState = {
@@ -57,10 +57,9 @@ interface Notification extends Error {
 const extraUIProps: ExtraUIProps = {
   isLeftNavHidden: true,
   isValidateHidden: true,
-  onNextCallback: () => {},
+
   isHelpHidden: true,
   isNoSaveButton: false,
-
 }
 
 export default class SurveyWrapper extends React.Component<
@@ -214,14 +213,16 @@ export default class SurveyWrapper extends React.Component<
         // matched an address, but something is wrong
         invalidAddressText = returnTextElement.childNodes[0].textContent!
       } else {
-        let invalidField: string|undefined|null = undefined
-        let suggestedValue: string|undefined|null = undefined
+        let invalidField: string | undefined | null = undefined
+        let suggestedValue: string | undefined | null = undefined
 
         // USPS sometimes returns a validated address, but it automatically "fixes" the zip code/state/city that was provided in the request!
         if (zipCodeElement.childNodes[0].textContent! != attributes.zip_code) {
           invalidField = 'zip code'
           suggestedValue = zipCodeElement.childNodes[0].textContent
-        } else if (stateElement.childNodes[0].textContent! != attributes.state) {
+        } else if (
+          stateElement.childNodes[0].textContent! != attributes.state
+        ) {
           invalidField = 'state'
           suggestedValue = stateElement.childNodes[0].textContent
         } else if (
@@ -233,12 +234,9 @@ export default class SurveyWrapper extends React.Component<
         }
 
         if (invalidField) {
-          invalidAddressText =
-            `Sorry, the ${invalidField} entered does not correspond to a valid mailing address. Did you mean '${suggestedValue}'?`
+          invalidAddressText = `Sorry, the ${invalidField} entered does not correspond to a valid mailing address. Did you mean '${suggestedValue}'?`
         }
       }
-        
-      
 
       if (invalidAddressText) {
         this.onError({ name: '', message: invalidAddressText })
@@ -411,11 +409,16 @@ export default class SurveyWrapper extends React.Component<
 
   render() {
     if (this.state.isFormSubmitted) {
-      return this.props.surveyName === 'CONTACT' ? (
-        <Redirect to="/dashboard" />
-      ) : (
-        <Redirect to="/done" />
-      )
+      if (this.props.onDoneCallback) {
+        //if we need to do something when done -- do it. otherwise redirect
+        this.props.onDoneCallback()
+      } else {
+        return this.props.surveyName === 'CONTACT' ? (
+          <Redirect to="/dashboard" />
+        ) : (
+          <Redirect to="/done" />
+        )
+      }
     }
     return (
       <div className={`theme-${this.props.formClass}`}>
@@ -443,7 +446,9 @@ export default class SurveyWrapper extends React.Component<
                 }}
                 isSubmitted={this.isSurveySubmitted(this.props.surveyName)}
                 extraUIProps={extraUIProps}
-              >{this.props.children}</SynapseForm>
+              >
+                {this.props.children}
+              </SynapseForm>
             </div>
           )}
           {this.state.status === StatusEnum.SUBMIT_SUCCESS && (

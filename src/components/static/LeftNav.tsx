@@ -32,6 +32,7 @@ export const useStyles = makeStyles(theme => ({
       borderBottom: ' 1px solid #EEEEEE',
       display: 'flex',
       alignItems: 'center',
+      cursor: 'pointer',
       '& span': {
         fontFamily: openSansFont,
         fontWeight: 600,
