@@ -40,6 +40,11 @@ export const useStyles = makeStyles(theme => ({
     overflow: 'unset',
     maxWidth: 'unset',
   },
+  loader: {
+    textAlign: 'center',
+    position: 'absolute',
+    left: '50%',
+  },
 
   resultContainerDiv: {
     margin: '0px 30px 0 30px',
@@ -67,7 +72,7 @@ export const useStyles = makeStyles(theme => ({
   cardNoBg: {
     backgroundColor: 'transparent',
     boxShadow: 'none',
-    maxWidth: 'unset'
+    maxWidth: 'unset',
   },
   videoContainerDiv: {
     position: 'relative',
@@ -266,14 +271,14 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   }
 
   const versions: PageVersions = {
-    Detected: {
+    Positive: {
       HEADER: positiveHeader,
       TEXT: positiveText,
       LIST: positiveList,
       TOP_IMG: <img src={positiveTopImg}></img>,
       BG_IMG: <img src={positiveTri}></img>,
     },
-    'Not Detected': {
+    Negative: {
       HEADER: negativeHeader,
       TEXT: negativeText,
       LIST: negativeList,
@@ -295,10 +300,24 @@ export const Result: React.FunctionComponent<ResultProps> = ({
     }
     return versions[result][key]
   }
+
+  const capitalize = (_str: string): string =>
+    _str.charAt(0).toUpperCase() + _str.slice(1)
+
   const renderResultForPrint = (result: TestResult): JSX.Element => {
+    const removeBreaks = (_str: string) => _str.replace(/\\.br.\\/g, '')
+
     const patient = result.data.contained?.find(
       item => item['resourceType'] === 'Patient',
     )
+
+    const specimen = result.data.contained?.find(
+      item => item['resourceType'] === 'Specimen',
+    )
+
+    const performer = result.data.performer[0]
+
+    const performerDetails = performer ? performer.extension[0] : undefined
     if (!patient) {
       return <></>
     }
@@ -308,37 +327,78 @@ export const Result: React.FunctionComponent<ResultProps> = ({
           Patient: {_.get(patient, 'name[0].family')},{' '}
           {_.get(patient, 'name[0].given')}
           <br />
-          MRN: DONT KNOW
+          MRN:
           <br />
-          DOB: {patient.birthDate}
+          DOB: {new Date(patient.birthDate).toLocaleDateString()}
           <br />
-          Sex: {patient.gender}
+          Sex: {capitalize(patient.gender)}
           <br />
         </div>
-        <h3 style={{ float: 'left' }}>COVID-19 SEROLOGY TEST</h3>
-        <div style={{ float: 'right' }}>Status: {result.data.status}|</div>
+        <div style={{ float: 'right' }}>
+          Status: <strong>{capitalize(result.data.status)}</strong>
+        </div>
         <div style={{ clear: 'both' }}>
-          <table style={{width: '80%'}}>
+          <table style={{ width: '80%' }}>
             <tr>
-              <th>&nbsp;</th>
-              <th>Value</th>
-              <th>Range</th>
+              <td>&nbsp;</td>
+              <td>Value</td>
+              <td>Range</td>
             </tr>
             <tr>
-              <td> {_.get(result.data, 'code.coding[0].display')}</td>
+              <td>
+                {' '}
+                {_.get(result.data, 'code.coding[0].display').toUpperCase()}
+              </td>
               <td>
                 <strong>{result.data.valueString}</strong>
               </td>
-              <td></td>
+              <td>{result.data.valueRange.extension[0].valueString}</td>
             </tr>
           </table>
-        </div><br /><br />
-        Comments: <br />
-        {result.data.comment}
-        <div style={{ borderStyle: 'dashed none dashed none' }}>
-          {moment(result.data.effectiveDateTime).toLocaleString()}
-          <br />
         </div>
+        <br />
+        <br />
+        <strong>Comments:</strong> <br />
+        <p style={{ fontFamily: 'Courier New', fontSize: '12px' }}>
+          {removeBreaks(result.data.comment)}
+        </p>
+        <div style={{ height: '30px' }}></div>
+        <table style={{ width: '100%', fontSize: '12px' }}>
+          <tbody>
+            <tr>
+              <td colSpan={2}>Performing Lab: {performer?.display}</td>
+              <td colSpan={2}>CLIA: {performerDetails?.valueCode}</td>
+            </tr>
+            <tr>
+              <td colSpan={2}>Director: {performerDetails?.valueString}</td>
+              <td colSpan={2}>
+                Address: {performerDetails?.valueAddress?.text}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Specimen Type:
+                <br />
+                {specimen.type?.text}
+              </td>
+              <td>
+                Specimen Collected:
+                <br />
+                {new Date(
+                  specimen?.collection?.collectedDateTime,
+                ).toLocaleString()}{' '}
+              </td>
+              <td>
+                Specimen Received Date:
+                <br />
+              </td>
+              <td>
+                Last Resulted:
+                <br />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </>
     )
   }
@@ -361,23 +421,25 @@ export const Result: React.FunctionComponent<ResultProps> = ({
               {getElement(result.data.valueString, 'TEXT')}
             </div>
             {getElement(result.data.valueString, 'LIST')}
-           
-            <div className="text-center"   style={{ margin: '30px auto', height: '1px'}}>
-              {/* ALINA REMOVE TEMP <Button
-                type="button"
-              
-                variant="contained"
-                color="primary"
-                onClick={() => window.print()}
-              >
-                {t('result.download')}
-              </Button>*/}
+
+            <div className="text-center" style={{ width: '100%' }}>
+              {
+                <Button
+                  type="button"
+                  variant="contained"
+                  color="primary"
+                  style={{ margin: '30px auto' }}
+                  onClick={() => window.print()}
+                >
+                  {t('result.download')}
+                </Button>
+              }
             </div>
           </div>
         </Card>
         <h2 className="text-center">{t('result.explain')}</h2>
         <Card className={classes.cardNoBg}>
-         {/*agendel: add when video is ready <div className={classes.videoContainerDiv}>
+          {/*agendel: add when video is ready <div className={classes.videoContainerDiv}>
             <iframe
               src="https://www.youtube.com/embed/HdfuSDxApwE"
               frameBorder="0"
@@ -486,7 +548,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   }
 
   return (
-    <div className="text-center">
+    <div className={classes.loader}>
       <CircularProgress color="primary" />
     </div>
   )

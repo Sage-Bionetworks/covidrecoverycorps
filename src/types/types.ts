@@ -196,13 +196,17 @@ export enum SurveysCompletionStatusEnum {
   'ALL_DONE',
 }
 
-export type TestResultString = 'Not Detected' | 'Detected' | 'Inconclusive'
+export type TestResultString = 'Negative' | 'Positive' | 'Inconclusive'
 
 export type TestResult = {
   data: {
     status: string
     effectiveDateTime: string
     valueString: TestResultString
+    valueRange: {
+      extension: any[]
+    }
+    performer: any[]
     comment: string
 
     contained: any[]
