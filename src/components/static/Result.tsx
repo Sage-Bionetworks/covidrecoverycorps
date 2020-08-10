@@ -460,12 +460,12 @@ export const Result: React.FunctionComponent<ResultProps> = ({
             </Trans>
           </div>
           <p>
-            <a
+         {/* ALINA TODO:   <a
               href="https://www.figma.com/file/NYYPVfRsbtUflNyySnFeDK/COVID_flow?node-id=1661%3A4481"
               target="_blank"
             >
               {t('result.techInfo')}
-            </a>
+         </a>*/}
           </p>
           {/* What can do next if positive agendel TODO*/}
           {/* agendel TODO: link to learning hub result.data.valueString !== 'Detected' && (
