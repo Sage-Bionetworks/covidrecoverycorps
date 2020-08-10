@@ -131,16 +131,7 @@ export type SavedSurveysObject = {
 }
 
 export type GeocodedColumbiaAppointmentAddress = {
-  results: [
-    {
-      formatted_address: string
-      geometry: {
-        location: { lat: number; lng: number }
-      }
-      place_id: 'string'
-    },
-  ]
-  status: string
+  location: { lat: number; lng: number }
 }
 
 export type ColumbiaAppointmentAddress = {

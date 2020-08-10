@@ -16,63 +16,6 @@ import i18next from 'i18next'
 import { useTranslation, Trans } from 'react-i18next'
 import 'moment/locale/es'
 import GoogleMapReact from 'google-map-react'
-import Geocode from 'react-geocode'
-
-//agendel TODO: remove once we get correct data from Columbia
-const fakeGeocodingResponse = {
-  results: [
-    {
-      address_components: [
-        { long_name: '330', short_name: '330', types: ['subpremise'] },
-        { long_name: '2901', short_name: '2901', types: ['street_number'] },
-        { long_name: '3rd Avenue', short_name: '3rd Ave', types: ['route'] },
-        {
-          long_name: 'Downtown Seattle',
-          short_name: 'Downtown Seattle',
-          types: ['neighborhood', 'political'],
-        },
-        {
-          long_name: 'Seattle',
-          short_name: 'Seattle',
-          types: ['locality', 'political'],
-        },
-        {
-          long_name: 'King County',
-          short_name: 'King County',
-          types: ['administrative_area_level_2', 'political'],
-        },
-        {
-          long_name: 'Washington',
-          short_name: 'WA',
-          types: ['administrative_area_level_1', 'political'],
-        },
-        {
-          long_name: 'United States',
-          short_name: 'US',
-          types: ['country', 'political'],
-        },
-        { long_name: '98121', short_name: '98121', types: ['postal_code'] },
-      ],
-      formatted_address: '2901 3rd Ave #330, Seattle, WA 98121, USA',
-      geometry: {
-        bounds: {
-          northeast: { lat: 47.6184148, lng: -122.3510372 },
-          southwest: { lat: 47.617759, lng: -122.3525807 },
-        },
-        location: { lat: 47.6180007, lng: -122.3516149 },
-        location_type: 'ROOFTOP',
-        viewport: {
-          northeast: { lat: 47.6194358802915, lng: -122.3504599697085 },
-          southwest: { lat: 47.6167379197085, lng: -122.3531579302915 },
-        },
-      },
-      place_id:
-        'EikyOTAxIDNyZCBBdmUgIzMzMCwgU2VhdHRsZSwgV0EgOTgxMjEsIFVTQSIfGh0KFgoUChIJidPohE8VkFQRVpUgA1LwJYcSAzMzMA',
-      types: ['subpremise'],
-    },
-  ],
-  status: 'OK',
-}
 
 const MarkerComponent = ({ text }: any) => (
   <div>
@@ -103,11 +46,7 @@ type BookedAppointment = {
   address?: LocationObject
 }
 
-Geocode.setApiKey(GoogleAPIKey)
-Geocode.enableDebug()
 
-// set response language. Defaults to english.
-Geocode.setLanguage(i18next.language)
 
 export const useStyles = makeStyles(theme => ({
   root: {
@@ -173,29 +112,16 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
     let result: LocationObject = {
       addressObject,
     }
-    const geocodedResult =
-      geocodedAddressObject?.status === 'OK' &&
-      geocodedAddressObject?.results?.length > 0
-        ? geocodedAddressObject?.results[0]
-        : null
-
-    if (!geocodedResult) {
+    const address = `${addressObject.line.join(',')}, ${
+      addressObject.city
+    }, ${addressObject.state}  ${addressObject.postalCode}`
+    result.address = address
+    if (! geocodedAddressObject) {
       //if no geocoded result -- just return what we get from Columbia
-      const address = `${addressObject.line.join(',')}, ${
-        addressObject.city
-      }, ${addressObject.state}  ${addressObject.postalCode}`
-      result.address = address
-
       return result
     }
 
-    const { lat, lng } = geocodedResult.geometry.location
-    result = {
-      lat,
-      lng,
-      addressObject,
-      address: geocodedResult.formatted_address,
-    }
+   result = {...result, lat: geocodedAddressObject.location.lat, lng:geocodedAddressObject.location.lat}
 
     return result
   }
@@ -212,9 +138,11 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
             if (appt.data.status === 'booked') {
               const patient = getInfoPiece(appt.data.participant, 'Patient')!
               const location = getInfoPiece(appt.data.participant, 'Location')
+          
               const codedLocation = location?.address
-                ? await getCodedLocation(location?.address, location?.geocoding)
+                ? getCodedLocation(location?.address, location?.geocoding)
                 : undefined
+           
               const appointment: BookedAppointment = {
                 start: moment(appt.data.start),
                 patient,
@@ -258,6 +186,8 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
     const friendlyAppointmentTimeEnd = appointmentDateTimeEnd
       .locale(i18next.language)
       .format('h:mm a')
+
+
 
     return (
       <Card className={classes.root}>
