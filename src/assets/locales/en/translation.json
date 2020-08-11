@@ -307,7 +307,6 @@
       "text5": "The risk of injury is low in this study. You will <1> not be compensated for injury</1>.",
       "text6": "If you are invited to <1>provide a biosample to the lab</1>, the lab will need you to provide the <1>name and address of your employer</1>. This is a <1> New York State requirement</1>.",
       "text7": "We cannot control any of the information you provide <1>directly to the lab</1> if you are tested for COVID."
-
     },
     "fullTextScreen13": {
       "text1": "Things you should consider before you say yes",
@@ -555,12 +554,20 @@
     "contactText": "<0>If you have any questions about your results, please reach out via:</0> <1> phone:  212-305-5700<1></1> email: <3>COVIDRecoveryCorps@cumc.columbia.edu</3> </1> ",
     "inProcess": "<0>We are currently processing your antibody test results.</0> <1>Please stay tuned.</1>"
   },
-   "resultDashboard": {
-     "li1": "My test results",
-     "li2": "What's next",
-     "li3": "My surveys",
-     "inviteCTA": "Invite a Friend to Join the Study "
 
+  "resultDashboard": {
+    "li1": "My test results",
+    "li2": "What's next",
+    "li3": "My surveys",
+    "inviteCTA": "Invite a Friend to Join the Study "
+  },
+  "resultTechInfo": {
+    "title": "Tehnical information about the test",
+    "p1": "This test is intended to detect the development of antibodies to SARS-CoV-2, the virus that causes COVID-19. It should not be used to diagnose an active infection of COVID-19. For individuals who currently have symptoms consistent with COVID-19, your doctor may choose to order a test to rule out current infection.",
+    "subhead1": "Intended Uses",
+    "text1": "<0>This is a new blood test that measures antibodies against SARS-CoV-2, the virus that causes COVID-19. The antibodies are made by the body as part of the immune response against SARS-CoV-2. Both IgM and IgG are measured.</0><1> This test provides results that will be provided as positive (antibodies detected), negative (antibodies not detected) or indeterminant.</1>",
+    "subhead2": "Limitations",
+    "text2": "<0>This test has not been reviewed by the FDA. It is a laboratory-developed test offered in the Clinical Laboratories at NewYork-Presbyterian Hospital-Columbia University Irving Medical Center (PFI 5310). </0><1>Results from this antibody test should not be used as the sole basis to diagnose or exclude SARS-CoV-2 infection or exposure.</1>"
   },
 
   "surveys": {

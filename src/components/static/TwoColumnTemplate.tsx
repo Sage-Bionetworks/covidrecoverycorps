@@ -29,6 +29,9 @@ export const useStyles = makeStyles(theme => ({
       marginRight: '5rem',
       flexShrink: 0,
     },
+    [theme.breakpoints.down('md')]: {
+      marginBottom: '3.2rem',
+    },
   },
 
   main: {},

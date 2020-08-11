@@ -5,10 +5,9 @@ import {
   Card,
   Button,
   CardContent,
-  CircularProgress,
-  createMuiTheme,
+  CircularProgress
 } from '@material-ui/core'
-import { playfairDisplayFont, openSansFont } from '../../App'
+import { playfairDisplayFont} from '../../App'
 import {
   TestResult,
   TestResultString,
@@ -29,6 +28,7 @@ import { useTranslation, Trans } from 'react-i18next'
 import Alert from '@material-ui/lab/Alert'
 import moment from 'moment'
 import _ from 'lodash'
+import { TechnicalInfo } from './TechicalInfo'
 
 type ResultProps = {
   token?: string
@@ -39,6 +39,11 @@ export const useStyles = makeStyles(theme => ({
     backgroundColor: '#f5f5f5',
     overflow: 'unset',
     maxWidth: 'unset',
+    [theme.breakpoints.down('md')]: {
+      marginBottom: '3rem'
+    },
+
+
   },
   loader: {
     textAlign: 'center',
@@ -62,6 +67,11 @@ export const useStyles = makeStyles(theme => ({
   },
   cardNegatative: {
     backgroundImage: negativeTri,
+  },
+  list1:{
+    '& li': {
+      margin: '10px 0'
+    }
   },
   explanationText: {
     '& p': {
@@ -193,7 +203,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
 
   const positiveList = (
     <Trans i18nKey="result.positiveText2">
-      <ul>
+      <ul className={classes.list1}>
         <li>[translate]</li>
         <li>[translate]</li>
         <li>[translate]</li>
@@ -221,7 +231,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
 
   const negativeList = (
     <Trans i18nKey="result.negativeText2">
-      <ul>
+      <ul className={classes.list1}>
         <li>[translate]</li>
 
         <li>[translate]</li>
@@ -250,7 +260,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
 
   const inconclusiveList = (
     <Trans i18nKey="result.inconclusiveText2">
-      <ul>
+       <ul className={classes.list1}>
         <li>[translate]</li>
         <li>[translate]</li>
         <li>[translate]</li>
@@ -467,14 +477,10 @@ export const Result: React.FunctionComponent<ResultProps> = ({
               <p>[translate]</p>
             </Trans>
           </div>
-          <p>
-         {/* ALINA TODO:   <a
-              href="https://www.figma.com/file/NYYPVfRsbtUflNyySnFeDK/COVID_flow?node-id=1661%3A4481"
-              target="_blank"
-            >
-              {t('result.techInfo')}
-         </a>*/}
-          </p>
+       
+      
+           <TechnicalInfo></TechnicalInfo>
+        
           {/* What can do next if positive agendel TODO*/}
           {/* agendel TODO: link to learning hub result.data.valueString !== 'Detected' && (
             <>

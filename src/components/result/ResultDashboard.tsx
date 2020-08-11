@@ -11,8 +11,8 @@ import liResult from '../../assets/results/liResult.svg'
 import liResultSurveys from '../../assets/results/liResultSurveys.svg'
 import liResultNext from '../../assets/results/liResultNext.svg'
 
-import TwoColumnTemplate from './TwoColumnTemplate'
-import LeftNav, { LeftNavItem } from './LeftNav'
+import TwoColumnTemplate from '../static/TwoColumnTemplate'
+import LeftNav, { LeftNavItem } from '../static/LeftNav'
 import Result from './Result'
 
 import { UserService } from '../../services/user.service'
