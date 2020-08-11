@@ -185,7 +185,7 @@ export enum SurveysCompletionStatusEnum {
   'ALL_DONE',
 }
 
-export type TestResultString = 'Negative' | 'Positive' | 'Inconclusive'
+export type TestResultString = 'NEGATIVE' | 'POSITIVE' | 'INDETERMINATE'
 
 export type TestResult = {
   data: {
