@@ -3,7 +3,6 @@ import { makeStyles, Grid, Card } from '@material-ui/core'
 import {
   AppointmentParticipant,
   ColumbiaAppointmentAddress,
-  GoogleAPIKey,
   GeocodedColumbiaAppointmentAddress,
 } from '../../types/types'
 import { ReactComponent as ColumbiaLogo } from '../../assets/columbia_logo.svg'
@@ -15,7 +14,6 @@ import { UserService } from '../../services/user.service'
 import i18next from 'i18next'
 import { useTranslation, Trans } from 'react-i18next'
 import 'moment/locale/es'
-import GoogleMapReact from 'google-map-react'
 
 const MarkerComponent = ({ text }: any) => (
   <div>
@@ -45,8 +43,6 @@ type BookedAppointment = {
   }
   address?: LocationObject
 }
-
-
 
 export const useStyles = makeStyles(theme => ({
   root: {
@@ -107,21 +103,14 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
 
   const getCodedLocation = (
     addressObject: ColumbiaAppointmentAddress,
-    geocodedAddressObject?: GeocodedColumbiaAppointmentAddress,
   ): LocationObject => {
     let result: LocationObject = {
       addressObject,
     }
-    const address = `${addressObject.line.join(',')}, ${
-      addressObject.city
-    }, ${addressObject.state}  ${addressObject.postalCode}`
-    result.address = address
-    if (! geocodedAddressObject) {
-      //if no geocoded result -- just return what we get from Columbia
-      return result
-    }
-
-   result = {...result, lat: geocodedAddressObject.location.lat, lng:geocodedAddressObject.location.lat}
+    result.address = `${addressObject.line.join(',')}, ${addressObject.city}, ${
+      addressObject.state
+    }  ${addressObject.postalCode}`
+  
 
     return result
   }
@@ -138,11 +127,11 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
             if (appt.data.status === 'booked') {
               const patient = getInfoPiece(appt.data.participant, 'Patient')!
               const location = getInfoPiece(appt.data.participant, 'Location')
-          
+
               const codedLocation = location?.address
-                ? getCodedLocation(location?.address, location?.geocoding)
+                ? getCodedLocation(location?.address)
                 : undefined
-           
+
               const appointment: BookedAppointment = {
                 start: moment(appt.data.start),
                 patient,
@@ -186,8 +175,6 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
     const friendlyAppointmentTimeEnd = appointmentDateTimeEnd
       .locale(i18next.language)
       .format('h:mm a')
-
-
 
     return (
       <Card className={classes.root}>
@@ -273,24 +260,6 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
             <div className={classes.logosDivSeparator}></div>
             <SageLogo className={classes.logo} />
           </div>
-          {appointment.address?.lat !== undefined && (
-            <div className={classes.mapContainerDiv}>
-              <GoogleMapReact
-                bootstrapURLKeys={{ key: GoogleAPIKey }}
-                defaultCenter={{
-                  lat: appointment.address!.lat!,
-                  lng: appointment.address.lng!,
-                }}
-                defaultZoom={11}
-              >
-                <MarkerComponent
-                  lat={appointment.address!.lat!}
-                  lng={appointment.address!.lng}
-                  text={appointment.address.addressObject.line[0]}
-                />
-              </GoogleMapReact>
-            </div>
-          )}
         </div>
       </Card>
     )
