@@ -271,21 +271,21 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   }
 
   const versions: PageVersions = {
-    Positive: {
+    POSITIVE: {
       HEADER: positiveHeader,
       TEXT: positiveText,
       LIST: positiveList,
       TOP_IMG: <img src={positiveTopImg}></img>,
       BG_IMG: <img src={positiveTri}></img>,
     },
-    Negative: {
+    NEGATIVE: {
       HEADER: negativeHeader,
       TEXT: negativeText,
       LIST: negativeList,
       TOP_IMG: <img src={negativeTopImg}></img>,
       BG_IMG: <img src={negativeTri}></img>,
     },
-    Inconclusive: {
+    INDETERMINATE: {
       HEADER: inconclusiveHeader,
       TEXT: inconclusiveText,
       LIST: inconclusiveList,
@@ -305,6 +305,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
     _str.charAt(0).toUpperCase() + _str.slice(1)
 
   const renderResultForPrint = (result: TestResult): JSX.Element => {
+    const resultValue = result.data.valueString.toUpperCase()
     const removeBreaks = (_str: string) => _str.replace(/\\.br.\\/g, '')
 
     const patient = result.data.contained?.find(
@@ -404,23 +405,30 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   }
 
   const renderResult = (result: TestResult): JSX.Element => {
+    const resultValue = result.data.valueString.toUpperCase() as TestResultString
+    if (['NEGATIVE', 'POSITIVE', 'INDETERMINATE'].indexOf(resultValue) === -1)
+    return ( <Card className={`${classes.root}`} style={{ position: 'relative' }}>
+    <div className={classes.corner}>
+      Invalid Test Result
+    </div>
+    </Card>)
     return (
       <>
         <Card className={`${classes.root}`} style={{ position: 'relative' }}>
           <div className={classes.corner}>
-            {getElement(result.data.valueString, 'BG_IMG')}
+            {getElement(resultValue, 'BG_IMG')}
           </div>
           <div className={classes.resultContainerDiv}>
             <div className={classes.topImage}>
-              {getElement(result.data.valueString, 'TOP_IMG')}
+              {getElement(resultValue, 'TOP_IMG')}
             </div>
             <div className={classes.resultDataHeader}>
-              {getElement(result.data.valueString, 'HEADER')}
+              {getElement(resultValue, 'HEADER')}
             </div>
             <div className={classes.explanationText}>
-              {getElement(result.data.valueString, 'TEXT')}
+              {getElement(resultValue, 'TEXT')}
             </div>
-            {getElement(result.data.valueString, 'LIST')}
+            {getElement(resultValue, 'LIST')}
 
             <div className="text-center" style={{ width: '100%' }}>
               {
