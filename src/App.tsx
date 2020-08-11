@@ -41,7 +41,7 @@ import Footer from './components/widgets/Footer'
 import PrivacyPolicy from './components/static/PrivacyPolicy'
 import Appointment from './components/static/Appointment'
 import { UserDataGroup, SessionData } from './types/types'
-import ResultDashboard from './components/static/ResultDashboard'
+import ResultDashboard from './components/result/ResultDashboard'
 
 export const openSansFont = [
   'Open Sans',
