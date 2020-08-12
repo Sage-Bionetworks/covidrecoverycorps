@@ -88,8 +88,11 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
         callbackFn: () => setActiveItemIndex(0),
       },
     ]
+    if (resultValue === 'INDETERMINATE') {
+      navItems[0].img = liResultIndeterminate
+    }
 
-    if (resultValue === 'POSITIVE') {
+   if (resultValue === 'POSITIVE') {
       navItems[0].img = liResultPositive
       navItems.push({
         img: liResultNext,
