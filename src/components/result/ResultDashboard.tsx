@@ -10,6 +10,7 @@ import {
 import liResultPositive from '../../assets/results/liResultPositive.svg'
 import liResultNegative from '../../assets/results/liResultNegative.svg'
 import liResultIndeterminate from '../../assets/results/liResultIndeterminate.svg'
+import iconCheckMark from '../../assets/dashboard/icon_whoohoo.svg'
 import liResultNext from '../../assets/results/liResultNext.svg'
 import TwoColumnTemplate from '../static/TwoColumnTemplate'
 import LeftNav, { LeftNavItem } from '../static/LeftNav'
@@ -19,6 +20,7 @@ import { UserService } from '../../services/user.service'
 import { useTranslation, Trans } from 'react-i18next'
 import ShareModal from '../widgets/ShareModal'
 import Alert from '@material-ui/lab/Alert/Alert'
+
 
 type ResultProps = {
   token: string
@@ -142,7 +144,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
           changeTabCallbackFn={setActiveItemIndex}
         />
       ) : (
-        <WhatNext></WhatNext>
+        <WhatNext token={token}></WhatNext>
       )
     }
 
