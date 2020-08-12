@@ -285,7 +285,9 @@ export const LearningHub: React.FunctionComponent<ResultProps> = ({
           </Button>
         </div>
       </div>
-      <TwoColumnTemplate nav = {<LeftNav items = {navItems} activeIndex={1}/>} main={getMain()}></TwoColumnTemplate>
+     <TwoColumnTemplate nav = {
+      <LeftNav  changeIndexCallbackFn={(index: number)=> setActiveItemIndex(index)} items = {navItems} activeIndex={1}/>} main={getMain()}
+     ></TwoColumnTemplate>
       </div>
     
   )

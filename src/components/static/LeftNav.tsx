@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import { openSansFont } from '../../App'
 
@@ -11,6 +11,8 @@ export type LeftNavItem = {
 type LeftNavProps = {
   items: LeftNavItem[]
   activeIndex?: number
+  activeColor?: string
+  changeIndexCallbackFn: Function
 }
 
 export const useStyles = makeStyles(theme => ({
@@ -60,28 +62,33 @@ export const useStyles = makeStyles(theme => ({
     height: '100%',
     top: '0px',
     left: '0px',
-    backgroundColor: 'rgb(252, 144, 144)',
+
     borderBottom: '1px solid #EEEEEE',
   },
 }))
 export const LeftNav: React.FunctionComponent<LeftNavProps> = ({
   items,
   activeIndex,
+  activeColor,
+  changeIndexCallbackFn
 }: LeftNavProps) => {
   const classes = useStyles()
-  const [activeItemIndex, setActiveItemIndex] = useState(activeIndex || 0)
+
 
   return (
     <ul className={classes.root}>
       {items.map((item, index) => (
         <li
-          onClick={() => setActiveItemIndex(index)}
+          onClick={() => changeIndexCallbackFn(index)}
           style={
-            activeItemIndex === index ? { backgroundColor: '#FCFCFC' } : {}
+            activeIndex === index ? { backgroundColor: '#FCFCFC' } : {}
           }
         >
-          {activeItemIndex === index && (
-            <div className={classes.activeNavMarker}></div>
+          {activeIndex === index && (
+            <div
+              className={classes.activeNavMarker}
+              style={{ backgroundColor: activeColor }}
+            ></div>
           )}
           <img src={item.img}></img>
           <span>{item.text}</span>

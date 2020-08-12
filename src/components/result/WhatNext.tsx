@@ -1,9 +1,6 @@
 import React, { FunctionComponent } from 'react'
-import {
-  makeStyles,
-
-} from '@material-ui/core'
-import { playfairDisplayFont} from '../../App'
+import { makeStyles, Button } from '@material-ui/core'
+import { playfairDisplayFont } from '../../App'
 import { useTranslation, Trans } from 'react-i18next'
 import img1 from '../../assets/results/techInfo_hand.svg'
 import img2 from '../../assets/results/techInfo_board.svg'
@@ -12,7 +9,6 @@ export const useStyles = makeStyles(theme => ({
   root: {
     overflow: 'unset',
     maxWidth: 'unset',
-    
   },
   list: {
     '& ul': {
@@ -26,7 +22,7 @@ export const useStyles = makeStyles(theme => ({
 
     '& li': {
       color: '#4C697E;',
-      margin: '10px 0'
+      margin: '10px 0',
     },
   },
   heading: {
@@ -57,37 +53,21 @@ export const useStyles = makeStyles(theme => ({
   },
 }))
 
-const TechnicalInfo: FunctionComponent = () => {
+const WhatNext: FunctionComponent = () => {
   const classes = useStyles()
   const { t } = useTranslation()
   return (
     <div className={classes.root}>
-      <h2>{t('resultTechInfo.title')}</h2>
-      <p>{t('resultTechInfo.p1')}</p>
-      <div className={classes.list}>
-        <div className={classes.heading}>
-          <img src={img1} alt=""></img>
-          <h4>{t('resultTechInfo.subhead1')}</h4>
-        </div>
-        <ul>
-          <Trans i18nKey="resultTechInfo.text1">
-            <li></li>
-            <li></li>
-          </Trans>
-        </ul>
-        <div className={classes.heading}>
-          <img src={img2} alt=""></img>
-          <h4>{t('resultTechInfo.subhead2')}</h4>
-        </div>
-        <ul>
-          <Trans i18nKey="resultTechInfo.text2">
-            <li></li>
-            <li></li>
-          </Trans>
-        </ul>
+      <h2>{t('resultNext.title')}</h2>
+      <h3>{t('resultNext.subtitle1')}</h3>
+      <p>{t('resultNext.text1')}</p>
+      <div className="text-center" style={{margin: '30px auto'}}>
+        <Button variant="contained" color="primary">{t('resultNext.surveyCTA')}</Button>
       </div>
+      <h3>{t('resultNext.subtitle2')}</h3>
+      <p>{t('resultNext.text2')}</p>
     </div>
   )
 }
 
-export default  TechnicalInfo
+export default WhatNext

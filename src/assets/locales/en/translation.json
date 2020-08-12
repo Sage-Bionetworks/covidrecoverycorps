@@ -549,6 +549,7 @@
     "text2": "<0>A serology test for COVID-19 looks for the presence of proteins, called antibodies, which can be used to help understand if you were exposed to the virus recently or in the past. Antibodies develop when your immune system responds to a pathogen, such as COVID-19. </0><1> There are different types of antibodies, including ones called IgM and IgG. IgM is the first antibody that develops after you have been exposed to a virus like COVID-19. This is followed by the development of IgG antibodies. Most people that have been infected with a virus like COVID-19 develop IgG antibodies about 14 days after their symptoms start. Once you have developed IgG antibodies, if you come into contact with the same virus again, the IgG antibodies help your immune system respond faster and more effectively than it did the first time and may prevent reinfection to the virus.</1>",
     "techInfo": "Technical information about the test",
     "learnMoreCTA": "Learn more",
+    "whatNext": "What can you do next",
     "learnMore": "To learn more about our latesting study findings around COVID-19, please check out our Learning Hub page. ",
     "contact": "Contact us",
     "contactText": "<0>If you have any questions about your results, please reach out via:</0> <1> phone:  212-305-5700<1></1> email: <3>COVIDRecoveryCorps@cumc.columbia.edu</3> </1> ",
@@ -568,6 +569,14 @@
     "text1": "<0>This is a new blood test that measures antibodies against SARS-CoV-2, the virus that causes COVID-19. The antibodies are made by the body as part of the immune response against SARS-CoV-2. Both IgM and IgG are measured.</0><1> This test provides results that will be provided as positive (antibodies detected), negative (antibodies not detected) or indeterminant.</1>",
     "subhead2": "Limitations",
     "text2": "<0>This test has not been reviewed by the FDA. It is a laboratory-developed test offered in the Clinical Laboratories at NewYork-Presbyterian Hospital-Columbia University Irving Medical Center (PFI 5310). </0><1>Results from this antibody test should not be used as the sole basis to diagnose or exclude SARS-CoV-2 infection or exposure.</1>"
+  },
+  "resultNext": {
+    "title": "What COVID-19 positive people can do now.",
+    "subtitle1": "2 min post lab follow up",
+    "text1": "We are curious about how you are processing this outcome. Please help us design the study and future questionnaires by providing quick responses to a few follow up questions.",
+    "subtitle2": "Future surveys",
+    "text2": "Because the virus is new, we are not sure yet what the long-term consequences of being infected are. We are going to ask participants like you to answer quick questions approximately 5 times over the next year. It will be important to hear how you are doing, even if you are completely recovered from COVID-19, to better understand the ways in which the virus affects the body and if any complications have occured.",
+    "surveyCTA": "Take post-lab survey"
   },
 
   "surveys": {

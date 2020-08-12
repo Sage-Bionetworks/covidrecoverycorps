@@ -5,9 +5,10 @@ import {
   Card,
   Button,
   CardContent,
-  CircularProgress
+  CircularProgress,
+  colors,
 } from '@material-ui/core'
-import { playfairDisplayFont} from '../../App'
+import { playfairDisplayFont } from '../../App'
 import {
   TestResult,
   TestResultString,
@@ -28,10 +29,18 @@ import { useTranslation, Trans } from 'react-i18next'
 import Alert from '@material-ui/lab/Alert'
 import moment from 'moment'
 import _ from 'lodash'
-import { TechnicalInfo } from './TechicalInfo'
+import TechnicalInfo from './TechicalInfo'
 
 type ResultProps = {
-  token?: string
+  testResult?: TestResult
+  userData: LoggedInUserData
+  changeTabCallbackFn: Function
+}
+
+export const RESULT_COLOR = {
+  POSITIVE: '#FC9090',
+  NEGATIVE: '#7ddef0',
+  INDETERMINATE: '#3CDDD3',
 }
 
 export const useStyles = makeStyles(theme => ({
@@ -40,15 +49,8 @@ export const useStyles = makeStyles(theme => ({
     overflow: 'unset',
     maxWidth: 'unset',
     [theme.breakpoints.down('md')]: {
-      marginBottom: '3rem'
+      marginBottom: '3rem',
     },
-
-
-  },
-  loader: {
-    textAlign: 'center',
-    position: 'absolute',
-    left: '50%',
   },
 
   resultContainerDiv: {
@@ -68,10 +70,10 @@ export const useStyles = makeStyles(theme => ({
   cardNegatative: {
     backgroundImage: negativeTri,
   },
-  list1:{
+  list1: {
     '& li': {
-      margin: '10px 0'
-    }
+      margin: '10px 0',
+    },
   },
   explanationText: {
     '& p': {
@@ -127,13 +129,13 @@ export const useStyles = makeStyles(theme => ({
     marginBottom: '5rem',
   },
   resultDataHeaderPositive: {
-    color: '#FC9090',
+    color: RESULT_COLOR.POSITIVE,
   },
   resultDataHeaderNegative: {
-    color: '#7ddef0',
+    color: RESULT_COLOR.NEGATIVE,
   },
   resultDataHeaderInconclusive: {
-    color: '#3CDDD3',
+    color: RESULT_COLOR.INDETERMINATE,
   },
 
   contact: {
@@ -144,48 +146,18 @@ export const useStyles = makeStyles(theme => ({
   },
 }))
 export const Result: React.FunctionComponent<ResultProps> = ({
-  token,
+  testResult,
+  userData,
+  changeTabCallbackFn
 }: ResultProps) => {
   const classes = useStyles()
-  const [result, setResult] = useState<TestResult>()
 
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState()
-  const [userData, setUserData] = useState<LoggedInUserData | undefined>(
-    undefined,
-  )
   const { t } = useTranslation()
-
-  useEffect(() => {
-    let isSubscribed = true
-    const getInfo = async () => {
-      if (token && isSubscribed) {
-        try {
-          setIsLoading(true)
-          const userInfoResponse = await UserService.getUserInfo(token)
-          setUserData(userInfoResponse.data)
-          const ResultsResponse = await UserService.getTestResult(token)
-          if (ResultsResponse?.data?.items?.length > 0) {
-            const result = ResultsResponse.data.items[0]
-            setResult(result)
-          }
-        } catch (e) {
-          setError(e)
-        } finally {
-          setIsLoading(false)
-        }
-      }
-    }
-    getInfo()
-    return () => {
-      isSubscribed = false
-    }
-  }, [token])
 
   //positives
   const positiveHeader = (
     <>
-      {userData?.firstName}, &nbsp;
+      {userData.firstName}, &nbsp;
       <span className={classes.resultDataHeaderPositive}>
         {t('result.positiveTitle1')},
       </span>
@@ -214,7 +186,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   //negatives
   const negativeHeader = (
     <>
-      {userData?.firstName}, &nbsp;
+      {userData.firstName}, &nbsp;
       <span className={classes.resultDataHeaderNegative}>
         {t('result.negativeTitle1')},
       </span>
@@ -243,7 +215,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   //inconclusive
   const inconclusiveHeader = (
     <>
-      {userData?.firstName}, &nbsp;
+      {userData.firstName}, &nbsp;
       <span className={classes.resultDataHeaderInconclusive}>
         {t('result.inconclusiveTitle1')}
       </span>
@@ -260,12 +232,41 @@ export const Result: React.FunctionComponent<ResultProps> = ({
 
   const inconclusiveList = (
     <Trans i18nKey="result.inconclusiveText2">
-       <ul className={classes.list1}>
+      <ul className={classes.list1}>
         <li>[translate]</li>
         <li>[translate]</li>
         <li>[translate]</li>
       </ul>
     </Trans>
+  )
+
+  const nextSteps = (
+    <Button
+      type="button"
+      variant="contained"
+      color="primary"
+      style={{ margin: '30px auto' }}
+      onClick={()=> changeTabCallbackFn(1)}
+    >
+      {t('result.whatNext')}
+    </Button>
+  )
+
+  const learnMore = (
+    <>
+      <p className={classes.learnMore}>{t('result.learnMore')}</p>
+      <div className="text-center">
+        <Button
+          type="button"
+          style={{ margin: '30px auto' }}
+          variant="contained"
+          color="primary"
+          onClick={() => alert('download')}
+        >
+          {t('result.learnMoreCTA')}
+        </Button>
+      </div>
+    </>
   )
 
   type PageVersion = {
@@ -274,6 +275,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
     LIST: JSX.Element
     TOP_IMG: JSX.Element
     BG_IMG: JSX.Element
+    NEXT: JSX.Element
   }
 
   type PageVersions = {
@@ -287,6 +289,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
       LIST: positiveList,
       TOP_IMG: <img src={positiveTopImg}></img>,
       BG_IMG: <img src={positiveTri}></img>,
+      NEXT: nextSteps,
     },
     NEGATIVE: {
       HEADER: negativeHeader,
@@ -294,6 +297,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
       LIST: negativeList,
       TOP_IMG: <img src={negativeTopImg}></img>,
       BG_IMG: <img src={negativeTri}></img>,
+      NEXT: learnMore,
     },
     INDETERMINATE: {
       HEADER: inconclusiveHeader,
@@ -301,6 +305,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
       LIST: inconclusiveList,
       TOP_IMG: <img src={inconclusiveTopImg}></img>,
       BG_IMG: <img src={inconclusiveTri}></img>,
+      NEXT: learnMore,
     },
   }
 
@@ -417,11 +422,11 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   const renderResult = (result: TestResult): JSX.Element => {
     const resultValue = result.data.valueString.toUpperCase() as TestResultString
     if (['NEGATIVE', 'POSITIVE', 'INDETERMINATE'].indexOf(resultValue) === -1)
-    return ( <Card className={`${classes.root}`} style={{ position: 'relative' }}>
-    <div className={classes.corner}>
-      Invalid Test Result
-    </div>
-    </Card>)
+      return (
+        <Card className={`${classes.root}`} style={{ position: 'relative' }}>
+          <div className={classes.corner}>Invalid Test Result</div>
+        </Card>
+      )
     return (
       <>
         <Card className={`${classes.root}`} style={{ position: 'relative' }}>
@@ -477,27 +482,10 @@ export const Result: React.FunctionComponent<ResultProps> = ({
               <p>[translate]</p>
             </Trans>
           </div>
-       
-      
-           <TechnicalInfo></TechnicalInfo>
-        
-          {/* What can do next if positive agendel TODO*/}
-          {/* agendel TODO: link to learning hub result.data.valueString !== 'Detected' && (
-            <>
-              <p className={classes.learnMore}>{t('result.learnMore')}</p>
-              <div className="text-center">
-                <Button
-                  type="button"
-                  style={{ margin: '30px auto' }}
-                  variant="contained"
-                  color="primary"
-                  onClick={() => alert('download')}
-                >
-                  {t('result.learnMoreCTA')}
-                </Button>
-              </div>
-            </>
-          )*/}
+
+          <TechnicalInfo></TechnicalInfo>
+
+          <div className="text-center">{getElement(resultValue, 'NEXT')}</div>
         </Card>
         <Card className={classes.cardContact}>
           <CardContent style={{ display: 'flex' }}>
@@ -546,26 +534,17 @@ export const Result: React.FunctionComponent<ResultProps> = ({
     )
   }
 
-  if (result && userData) {
+  if (testResult) {
     return (
       <>
-        <div className="no-print">{renderResult(result)}</div>
-        <div className="print-only">{renderResultForPrint(result)}</div>
+        <div className="no-print">{renderResult(testResult)}</div>
+        <div className="print-only">{renderResultForPrint(testResult)}</div>
       </>
     )
   }
-  if (userData?.dataGroups.includes('tests_collected')) {
+  if (userData.dataGroups.includes('tests_collected')) {
     return <div>{renderProcessing()}</div>
-  }
-  if (error) {
-    return <Alert severity="error">{error!['message'] || error}</Alert>
-  }
-
-  return (
-    <div className={classes.loader}>
-      <CircularProgress color="primary" />
-    </div>
-  )
+  } else return <></>
 }
 
 export default Result
