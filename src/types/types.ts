@@ -198,6 +198,8 @@ export type TestResult = {
     }
     performer: any[]
     comment: string
+    subject: any
+    issued: string
 
     contained: any[]
   }

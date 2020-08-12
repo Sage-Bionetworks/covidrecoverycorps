@@ -21,7 +21,6 @@ import { useTranslation, Trans } from 'react-i18next'
 import ShareModal from '../widgets/ShareModal'
 import Alert from '@material-ui/lab/Alert/Alert'
 
-
 type ResultProps = {
   token: string
 }
@@ -104,7 +103,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
     }
 
     return (
-      <>
+      <div className="no-print">
         <LeftNav
           items={navItems}
           activeColor={RESULT_COLOR[resultValue]}
@@ -128,7 +127,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
           > {t('resultDashboard.inviteCTA')}
           </Button>
         </div>
-      </>
+      </div>
     )
   }
 

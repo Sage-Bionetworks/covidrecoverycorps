@@ -343,7 +343,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
           Patient: {_.get(patient, 'name[0].family')},{' '}
           {_.get(patient, 'name[0].given')}
           <br />
-          MRN:
+          MRN: {result.data.subject.reference.split('/')[1]}
           <br />
           DOB: {new Date(patient.birthDate).toLocaleDateString()}
           <br />
@@ -405,12 +405,18 @@ export const Result: React.FunctionComponent<ResultProps> = ({
                 ).toLocaleString()}{' '}
               </td>
               <td>
-                Specimen Received Date:
+                Specimen Received Date: 
                 <br />
+                {new Date(
+                  result.data.effectiveDateTime
+                ).toLocaleString()}
               </td>
               <td>
                 Last Resulted:
                 <br />
+                {new Date(
+                  result.data.issued
+                ).toLocaleString()}
               </td>
             </tr>
           </tbody>
