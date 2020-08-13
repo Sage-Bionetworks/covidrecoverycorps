@@ -584,6 +584,13 @@
     "submitted": "Your information has been submitted",
     "responsesRequired": "Responses required above",
     "clear": "Clear",
+    "error": "Error",
+    "contact": {
+      "zip": "zip code",
+      "state": "state",
+      "city": "city",
+      "invalidAddress": "Sorry, the {{invalidField}} entered does not correspond to a valid mailing address. Did you mean '{{suggestedValue}}'?"
+    },
     "errors": {
       "required": "is a required field",
       "minimum": "should be at least {{value}}",
@@ -606,7 +613,16 @@
       "text5": "I am concerned about the use of my data",
       "text6": "Withdrawing for personal reason that do not involve this study",
       "text7": "Prefer not to answer"
+    },
+    "postLab": {
+      "text1": "Please select a value the best represents how you feel for each concern:",
+      "concern0": "Not at all concerned",
+      "concern1": "Slightly concerned",
+      "concern2": "Somewhat concerned",
+      "concern3": "Moderately concerned",
+      "concern4": "Extremely concerned"
     }
+
   },
 
   "team": {

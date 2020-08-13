@@ -355,11 +355,14 @@ export const Result: React.FunctionComponent<ResultProps> = ({
         </div>
         <div style={{ clear: 'both' }}>
           <table style={{ width: '80%' }}>
+            <thead>
             <tr>
               <td>&nbsp;</td>
               <td>Value</td>
               <td>Range</td>
             </tr>
+            </thead>
+            <tbody>
             <tr>
               <td>
                 {' '}
@@ -370,6 +373,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
               </td>
               <td>{result.data.valueRange.extension[0].valueString}</td>
             </tr>
+            </tbody>
           </table>
         </div>
         <br />

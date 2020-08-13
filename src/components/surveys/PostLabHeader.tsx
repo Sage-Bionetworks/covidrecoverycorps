@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent } from 'react'
-import Button from '@material-ui/core/Button/Button'
-import { CardContent, Card } from '@material-ui/core'
+
 import { makeStyles } from '@material-ui/core'
+import { useTranslation} from 'react-i18next'
 
 const useStyles = makeStyles({
 root: {
@@ -27,12 +27,13 @@ root: {
 })
 
 export const PostLabHeader: React.FunctionComponent = ({}) => {
+const {t} = useTranslation()
   const labels = [
-    'Not at all concerned',
-    'Slightly concerned',
-    'Somewhat concerned',
-    'Moderately concerned',
-    'Extremely concerned',
+    t('surveys.postLab.concern0'),
+    t('surveys.postLab.concern1'),
+    t('surveys.postLab.concern2'),
+    t('surveys.postLab.concern3'),
+    t('surveys.postLab.concern4'),
   ]
 
   const classes = useStyles()
@@ -40,7 +41,7 @@ export const PostLabHeader: React.FunctionComponent = ({}) => {
   const cir = <div className={classes.circle}></div>
   return (
     <div className={classes.root}>
-      <span style={{fontStyle: 'italic', paddingBottom: '1rem'}}>Please select a value the best represents how you feel for each concern:</span>
+      <span style={{fontStyle: 'italic', paddingBottom: '1rem'}}>{t('surveys.postLab.text1')}</span>
       <div className={classes.table}>
         {labels.map((item, i) => (
           <div className={classes.cell}>

@@ -46,8 +46,7 @@ function selectValue(value: any, selected: any, all: any, exclusive: any) {
 }
 
 //update for the 'other' textbox
-function enterOther(value: string, selected: any, all: any, other_prefix: any) {
-  debugger
+function enterOther(value: string, selected: any, all: any) {
   let updated
 
   updated = filterOtherInputValue(selected, true)
@@ -87,7 +86,7 @@ function ExclusiveCheckboxesWidget(props: WidgetProps) {
     inline,
     exclusive,
     other,
-    other_prefix,
+    otherTextLabel,
   } = options
 
   const otherTextValue = filterOtherInputValue(value)
@@ -101,13 +100,13 @@ function ExclusiveCheckboxesWidget(props: WidgetProps) {
   const otherText = (
     <>
       {' '}
-      <span>Please specify</span>
+      <span>{otherTextLabel}</span><br/>
       <input
         type="text"
         value={textValue}
         onChange={({ target: { value: val } }) => {
           const all = (enumOptions as any).map(({ val }: any) => value)
-          return onChange(enterOther(val, value, all, other_prefix))
+          return onChange(enterOther(val, value, all))
         }}
       ></input>
     </>

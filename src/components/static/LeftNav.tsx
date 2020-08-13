@@ -79,7 +79,7 @@ export const LeftNav: React.FunctionComponent<LeftNavProps> = ({
   return (
     <ul className={classes.root}>
       {items.map((item, index) => (
-        <li
+        <li key={`nav${index}`}
           onClick={() => changeIndexCallbackFn(index)}
           style={
             activeIndex === index ? { backgroundColor: '#FCFCFC' } : {}

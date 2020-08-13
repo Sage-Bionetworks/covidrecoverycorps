@@ -21,6 +21,7 @@ import { UserService } from '../../services/user.service'
 import { USPSService } from '../../services/usps.service'
 import { Redirect } from 'react-router-dom'
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
+import { withTranslation, WithTranslation } from 'react-i18next';
 
 export interface SurveyWrapperProps {
   formTitle: string //for UI customization
@@ -61,12 +62,11 @@ const extraUIProps: ExtraUIProps = {
   isHelpHidden: true,
   isNoSaveButton: false,
 }
-
-export default class SurveyWrapper extends React.Component<
-  SurveyWrapperProps,
+class SurveyWrapperComponent extends React.Component<
+  SurveyWrapperProps & WithTranslation,
   SurveyWrapperState
 > {
-  constructor(props: SurveyWrapperProps) {
+  constructor(props: SurveyWrapperProps & WithTranslation) {
     super(props)
     this.state = {
       isLoading: true,
@@ -218,23 +218,23 @@ export default class SurveyWrapper extends React.Component<
 
         // USPS sometimes returns a validated address, but it automatically "fixes" the zip code/state/city that was provided in the request!
         if (zipCodeElement.childNodes[0].textContent! != attributes.zip_code) {
-          invalidField = 'zip code'
+          invalidField =  this.props.t('surveys.contact.zip')
           suggestedValue = zipCodeElement.childNodes[0].textContent
         } else if (
           stateElement.childNodes[0].textContent! != attributes.state
         ) {
-          invalidField = 'state'
+          invalidField = this.props.t('surveys.contact.state')
           suggestedValue = stateElement.childNodes[0].textContent
         } else if (
           cityElement.childNodes[0].textContent!.toUpperCase() !=
           attributes.city.toUpperCase()
         ) {
-          invalidField = 'city'
+          invalidField = this.props.t('surveys.contact.city')
           suggestedValue = cityElement.childNodes[0].textContent
         }
 
         if (invalidField) {
-          invalidAddressText = `Sorry, the ${invalidField} entered does not correspond to a valid mailing address. Did you mean '${suggestedValue}'?`
+          invalidAddressText = this.props.t('surveys.contact.invalidAddress', {invalidField: invalidField, suggestedValue: suggestedValue})
         }
       }
 
@@ -360,7 +360,7 @@ export default class SurveyWrapper extends React.Component<
           variant="danger"
           onClose={() => this.setState({ status: undefined })}
         >
-          <Alert.Heading>Error</Alert.Heading>
+          <Alert.Heading>{this.props.t('surveys.error')}</Alert.Heading>
 
           <p>
             {notification.name} {notification.message}
@@ -463,3 +463,8 @@ export default class SurveyWrapper extends React.Component<
     )
   }
 }
+
+const SurveyWrapper = withTranslation()(SurveyWrapperComponent)
+
+
+export default SurveyWrapper

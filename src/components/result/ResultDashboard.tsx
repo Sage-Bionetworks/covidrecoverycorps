@@ -54,20 +54,22 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
   useEffect(() => {
     let isSubscribed = true
     const getInfo = async () => {
-      if (token && isSubscribed) {
+      if (token) {
+        setIsLoading(true)
         try {
-          setIsLoading(true)
           const userInfoResponse = await UserService.getUserInfo(token)
-          setUserData(userInfoResponse.data)
           const ResultsResponse = await UserService.getTestResult(token)
+          if (isSubscribed){
+          setUserData(userInfoResponse.data)
           if (ResultsResponse?.data?.items?.length > 0) {
             const result = ResultsResponse.data.items[0]
             setResult(result)
           }
+        }
         } catch (e) {
-          setError(e)
+          if (isSubscribed) {setError(e)}
         } finally {
-          setIsLoading(false)
+         if (isSubscribed) {setIsLoading(false)}
         }
       }
     }

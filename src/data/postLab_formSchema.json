@@ -113,7 +113,7 @@
               ]
             },
             "financial": {
-              "title": " Financial issues",
+              "title": "Financial issues",
               "type": "string",   "enum": [
                 "1",
                 "2",
@@ -327,7 +327,6 @@
               "Attending an indoor group event (party, meeting, church/temple/mosque)",
               "Being in an indoor bar/restaurant",
               "Being in an indoor public place with many people (store, mall, movie theater)",
-
               "Lack of healthy foods",
               "Other",
               "Don't know/Not sure",
@@ -341,7 +340,6 @@
               "Attending an indoor group event (party, meeting, church/temple/mosque)",
               "Being in an indoor bar/restaurant",
               "Being in an indoor public place with many people (store, mall, movie theater)",
-
               "Lack of healthy foods",
               "Other",
               "Don't know/Not sure",
