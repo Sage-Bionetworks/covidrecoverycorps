@@ -555,12 +555,12 @@
     "contactText": "<0>If you have any questions about your results, please reach out via:</0> <1> phone:  212-305-5700<1></1> email: <3>COVIDRecoveryCorps@cumc.columbia.edu</3> </1> ",
     "inProcess": "<0>We are currently processing your antibody test results.</0> <1>Please stay tuned.</1>"
   },
-
-  "resultDashboard": {
-    "li1": "My test results",
-    "li2": "What's next",
-    "li3": "My surveys",
-    "inviteCTA": "Invite a Friend to Join the Study "
+   "resultDashboard": {
+     "li1": "My test results",
+     "li2": "What's next",
+     "li3": "My surveys",
+     "inviteCTA": "Invite a Friend to Join the Study",
+     "thankYou":  "Thank you for your help!"
   },
   "resultTechInfo": {
     "title": "Tehnical information about the test",
@@ -584,6 +584,13 @@
     "submitted": "Your information has been submitted",
     "responsesRequired": "Responses required above",
     "clear": "Clear",
+    "error": "Error",
+    "contact": {
+      "zip": "zip code",
+      "state": "state",
+      "city": "city",
+      "invalidAddress": "Sorry, the {{invalidField}} entered does not correspond to a valid mailing address. Did you mean '{{suggestedValue}}'?"
+    },
     "errors": {
       "required": "is a required field",
       "minimum": "should be at least {{value}}",
@@ -606,7 +613,16 @@
       "text5": "I am concerned about the use of my data",
       "text6": "Withdrawing for personal reason that do not involve this study",
       "text7": "Prefer not to answer"
+    },
+    "postLab": {
+      "text1": "Please select a value the best represents how you feel for each concern:",
+      "concern0": "Not at all concerned",
+      "concern1": "Slightly concerned",
+      "concern2": "Somewhat concerned",
+      "concern3": "Moderately concerned",
+      "concern4": "Extremely concerned"
     }
+
   },
 
   "team": {

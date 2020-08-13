@@ -53,6 +53,10 @@
   .MuiCard-root {
     padding-bottom: 2rem;
     max-width: 360px;
+
+    &.inherit {
+      max-width: 511px;
+    }
   }
 
   margin-right: 0;
@@ -73,6 +77,14 @@
   .field-radio-group,
   div.checkboxes {
     margin-right: -1.5rem;
+  }
+
+  .form-group .radiorange {
+    margin-right: -1.5rem;
+    padding: 2rem 1.5rem 2rem 0;
+    background-color: #fff;
+    margin-bottom: 8px;
+    margin-top: -6px;
   }
 
   .form-group.field-boolean {
@@ -368,6 +380,19 @@
     padding-left: 0px;
     min-width: 27px;
   }
+
+  .checkbox {
+    .subfields.other {
+      margin-top: 2rem;
+      width: 100%;
+      font-size: 1.4rem;
+      font-style: italic;
+      padding-left: calc(
+        #{$margin-from-dot+ $extra-label-padding+ $checkbox-width+2}
+      );
+      display: block;
+    }
+  }
   input[type='checkbox'],
   input[type='radio'] {
     display: none;
@@ -428,7 +453,8 @@
     }
   }
 
-  .radio::before {
+  .radio::before,
+  .radio-inline::before {
     border-radius: 50%;
   }
 
@@ -862,6 +888,11 @@
         display: none;
       }
     }
+  }
+
+  /* -------------------------------------    postLab survey */
+  #root_postLab_longterm_impact__title {
+    @include control_label;
   }
 
   @media only screen and (max-width: 768px) {

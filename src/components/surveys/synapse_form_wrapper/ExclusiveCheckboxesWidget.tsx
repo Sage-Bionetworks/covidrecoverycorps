@@ -1,13 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { WidgetProps } from 'react-jsonschema-form'
+import { text } from '@fortawesome/fontawesome-svg-core'
 
 /* This is en enhanced CheckboxedWidget from 
 https://github.com/rjsf-team/react-jsonschema-form/blob/master/packages/core/src/components/widgets/CheckboxesWidget.js
-It enhances original widget by allowing exlusive fields i.e. checkboxes that work like radio buttons.
-It relies on the 'exclusive' ui option. The exclusive option is an array of indices from the end which would essentially deselect other options
-e.g  "exclusive":[0, 1] ui option means that if the last item, or the item before it is selected all the others need to be deselected
-*/
+It enhances original widget in the following ways:
+  1 By allowing exlusive fields i.e. checkboxes that work like radio buttons.
+    It relies on the 'exclusive' ui option. The exclusive option is an array of indices from the end which would essentially deselect other options
+    e.g  "exclusive":[0, 1] ui option means that if the last item, or the item before it is selected all the others need to be deselected
+  2. By allowing the 'other' checkbox, with a text input that shows up after 'other' is selected 
+    the value will show in the object with the 'other:' prefix */
+
+const OTHER_PREFIX = 'other:'
+
+function filterOtherInputValue(valueObject: any, isFilterOut = false) {
+  return valueObject.filter(
+    (v: any) => (v.toString().indexOf(OTHER_PREFIX) == -1) === isFilterOut,
+  )
+}
 
 function selectValue(value: any, selected: any, all: any, exclusive: any) {
   const at = all.indexOf(value)
@@ -34,8 +45,28 @@ function selectValue(value: any, selected: any, all: any, exclusive: any) {
   return updated.sort((a: any, b: any) => all.indexOf(a) > all.indexOf(b))
 }
 
-function deselectValue(value: any, selected: any) {
-  return selected.filter((v: any) => v !== value)
+//update for the 'other' textbox
+function enterOther(value: string, selected: any, all: any) {
+  let updated
+
+  updated = filterOtherInputValue(selected, true)
+  if (!value) {
+    //clear out the field
+    return updated
+  }
+  updated.push(`${OTHER_PREFIX} ${value}`)
+  return updated
+}
+
+function deselectValue(value: any, selected: any, other: boolean) {
+  //find other
+  const updated = selected.filter((v: any) => v !== value)
+
+  if (!other) { //if regular checkbox
+    return updated
+  } else { //if 'other' checkbox, remove the 'other:' text value
+    return filterOtherInputValue(updated, true)
+  }
 }
 
 function ExclusiveCheckboxesWidget(props: WidgetProps) {
@@ -49,7 +80,37 @@ function ExclusiveCheckboxesWidget(props: WidgetProps) {
     onChange,
     formContext,
   } = props
-  const { enumOptions, enumDisabled, inline, exclusive } = options
+  const {
+    enumOptions,
+    enumDisabled,
+    inline,
+    exclusive,
+    other,
+    otherTextLabel,
+  } = options
+
+  const otherTextValue = filterOtherInputValue(value)
+  let textValue = ''
+  if (otherTextValue && otherTextValue[0]) {
+    textValue = otherTextValue[0].substring(7)
+  }
+  const isCheckboxOther = (index: number): boolean => {
+    return Object.keys(enumOptions as object).length - (index + 1) == other
+  }
+  const otherText = (
+    <>
+      {' '}
+      <span>{otherTextLabel}</span><br/>
+      <input
+        type="text"
+        value={textValue}
+        onChange={({ target: { value: val } }) => {
+          const all = (enumOptions as any).map(({ val }: any) => value)
+          return onChange(enterOther(val, value, all))
+        }}
+      ></input>
+    </>
+  )
   return (
     <div className="checkboxes" id={id}>
       {(enumOptions as any).map((option: any, index: number) => {
@@ -71,22 +132,46 @@ function ExclusiveCheckboxesWidget(props: WidgetProps) {
                 if (event.target.checked) {
                   onChange(selectValue(option.value, value, all, exclusive))
                 } else {
-                  onChange(deselectValue(option.value, value))
+                  onChange(
+                    deselectValue(option.value, value, isCheckboxOther(index)),
+                  )
                 }
               }}
             />
             <span>{option.label}</span>
           </span>
         )
-        return inline ? (
-          <label key={index} className={`checkbox-inline ${disabledCls}`}>
-            {checkbox}
-          </label>
-        ) : (
+
+        const finalElement = (
           <div key={index} className={`checkbox ${disabledCls}`}>
             <label>{checkbox}</label>
           </div>
         )
+        const finalElementInline = (
+          <label key={index} className={`checkbox-inline ${disabledCls}`}>
+            {checkbox}
+          </label>
+        )
+        const finalElementOther = (
+          <div
+            key={index}
+            className={`checkbox ${disabledCls}`}
+            style={{ flexWrap: 'wrap' }}
+          >
+            <label>{checkbox}</label>
+            <div
+              className="field subfields other"
+              style={{display: checked ? 'block' : 'none',
+              }}
+            >
+              {otherText}
+            </div>
+          </div>
+        )
+        if (isCheckboxOther(index)) {
+          return finalElementOther
+        }
+        return inline ? finalElementInline : finalElement
       })}
     </div>
   )

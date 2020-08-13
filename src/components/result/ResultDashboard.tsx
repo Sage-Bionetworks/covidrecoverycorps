@@ -10,6 +10,7 @@ import {
 import liResultPositive from '../../assets/results/liResultPositive.svg'
 import liResultNegative from '../../assets/results/liResultNegative.svg'
 import liResultIndeterminate from '../../assets/results/liResultIndeterminate.svg'
+import iconCheckMark from '../../assets/dashboard/icon_whoohoo.svg'
 import liResultNext from '../../assets/results/liResultNext.svg'
 import TwoColumnTemplate from '../static/TwoColumnTemplate'
 import LeftNav, { LeftNavItem } from '../static/LeftNav'
@@ -53,20 +54,22 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
   useEffect(() => {
     let isSubscribed = true
     const getInfo = async () => {
-      if (token && isSubscribed) {
+      if (token) {
+        setIsLoading(true)
         try {
-          setIsLoading(true)
           const userInfoResponse = await UserService.getUserInfo(token)
-          setUserData(userInfoResponse.data)
           const ResultsResponse = await UserService.getTestResult(token)
+          if (isSubscribed){
+          setUserData(userInfoResponse.data)
           if (ResultsResponse?.data?.items?.length > 0) {
             const result = ResultsResponse.data.items[0]
             setResult(result)
           }
+        }
         } catch (e) {
-          setError(e)
+          if (isSubscribed) {setError(e)}
         } finally {
-          setIsLoading(false)
+         if (isSubscribed) {setIsLoading(false)}
         }
       }
     }
@@ -102,7 +105,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
     }
 
     return (
-      <>
+      <div className="no-print">
         <LeftNav
           items={navItems}
           activeColor={RESULT_COLOR[resultValue]}
@@ -126,7 +129,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
           > {t('resultDashboard.inviteCTA')}
           </Button>
         </div>
-      </>
+      </div>
     )
   }
 
@@ -142,7 +145,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
           changeTabCallbackFn={setActiveItemIndex}
         />
       ) : (
-        <WhatNext></WhatNext>
+        <WhatNext token={token}></WhatNext>
       )
     }
 

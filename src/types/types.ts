@@ -108,6 +108,7 @@ export type SurveyType =
   | 'MORE'
   | 'WITHDRAW'
   | 'TEST_LOCATION'
+  | 'POST_LAB'
 
 export type SurveyConfigObject = {
   [key in SurveyType]: {
@@ -197,6 +198,8 @@ export type TestResult = {
     }
     performer: any[]
     comment: string
+    subject: any
+    issued: string
 
     contained: any[]
   }

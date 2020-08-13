@@ -32,6 +32,7 @@ export const useStyles = makeStyles(theme => ({
       borderBottom: ' 1px solid #EEEEEE',
       display: 'flex',
       alignItems: 'center',
+      cursor: 'pointer',
       '& span': {
         fontFamily: openSansFont,
         fontWeight: 600,
@@ -78,7 +79,7 @@ export const LeftNav: React.FunctionComponent<LeftNavProps> = ({
   return (
     <ul className={classes.root}>
       {items.map((item, index) => (
-        <li
+        <li key={`nav${index}`}
           onClick={() => changeIndexCallbackFn(index)}
           style={
             activeIndex === index ? { backgroundColor: '#FCFCFC' } : {}

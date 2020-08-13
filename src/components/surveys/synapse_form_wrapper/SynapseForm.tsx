@@ -37,6 +37,7 @@ import FloatingToolbar from '../../widgets/FloatingToolbar'
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
 import AltDateWidget from './AltDateWidget'
 import ExclusiveCheckboxesWidget from './ExclusiveCheckboxesWidget'
+import RadioRangeWidget from './RadioRangeWidget'
 import ExclusiveCheckboxesObjectField from './ExclusiveCheckboxesObjectField'
 import i18next from 'i18next'
 
@@ -66,6 +67,7 @@ export type SynapseFormProps = {
 
   onSave: Function
   formTitle: string
+  cardClass?: string
   formClass?: string
   isWizardMode?: boolean
   callbackStatus?: StatusEnum
@@ -154,6 +156,7 @@ const widgets = {
   //@ts-ignore
   CustomDateWidget: AltDateWidget as Widget,
   ExclusiveCheckboxesWidget: ExclusiveCheckboxesWidget as Widget,
+  RadioRangeWidget: RadioRangeWidget as Widget
 }
 
 const fields = {
@@ -1042,7 +1045,7 @@ export default class SynapseForm extends React.Component<
           bodyText={this.state.currentStep.description}
           title={this.state.currentStep.title}
         ></Header>
-        <Card>
+        <Card className={this.props.cardClass}>
           <div className="inner-wrap">
             {!this.props.extraUIProps?.isLeftNavHidden && (
               <StepsSideNav
@@ -1057,6 +1060,7 @@ export default class SynapseForm extends React.Component<
               </div>
             )}
             <div className="form-wrap">
+              {this.props.children}
               <div className="text-right paging">
                 {this.state.currentStep.orderDisplay}
               </div>
