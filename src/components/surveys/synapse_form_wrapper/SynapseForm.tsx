@@ -87,6 +87,7 @@ type SynapseFormState = {
   modalContext?: { action: Function; arguments: any[] }
   hasUnsavedChanges: boolean
   isSubmitted?: boolean
+  isSubmitting?: boolean
   isLoadingSaved: boolean
 }
 
@@ -264,7 +265,7 @@ export default class SynapseForm extends React.Component<
     if (shouldUpdate && isSuccess) {
       this.setState({ hasUnsavedChanges: false })
       if (this.props.callbackStatus === StatusEnum.SUBMIT_SUCCESS) {
-        this.setState({ isSubmitted: true })
+        this.setState({ isSubmitted: true, isSubmitting: false })
         window.history.back()
       }
     }
@@ -594,6 +595,7 @@ export default class SynapseForm extends React.Component<
       }
 
       case NavActionEnum.SUBMIT: {
+        this.setState({isSubmitting: true})
         this.props.onSubmit(formData)
         return
       }
@@ -1198,6 +1200,7 @@ export default class SynapseForm extends React.Component<
                 steps={this.state.steps}
                 previousStepIds={this.state.previousStepIds}
                 isFormSubmitted={this.state.isSubmitted}
+                isFormSubmitting={this.state.isSubmitting}
                 isNoSaveButton={this.props.extraUIProps?.isNoSaveButton}
                 onNavAction={(e: NavActionEnum) => this.triggerAction(e)}
               ></NavButtons>

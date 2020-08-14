@@ -7,6 +7,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Button from '@material-ui/core/Button/Button'
 import i18next from 'i18next'
+import { CircularProgress } from '@material-ui/core'
 
 export interface NavButtonsProps {
   isWizardMode?: boolean
@@ -16,6 +17,7 @@ export interface NavButtonsProps {
   currentStep: Step
   isFormSubmitted?: boolean
   isNoSaveButton?: boolean
+  isFormSubmitting?: boolean
 }
 
 export interface NextStepLinkProps {
@@ -60,14 +62,14 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
   ) : (
     /* props.isNoSaveButton?*/
 
-    <Button
+   <Button
       color="primary"
       className="submit"
       variant="contained"
-      disabled={props.isFormSubmitted}
+      disabled={props.isFormSubmitted || props.isFormSubmitting}
       onClick={e => props.onNavAction(NavActionEnum.SUBMIT)}
     >
-     {i18next.t('common.submit')}
+     {i18next.t('common.submit')}   { props.isFormSubmitting && <>&nbsp;&nbsp;   <CircularProgress size={24} color="secondary"/></>}
     </Button>
   )
 
