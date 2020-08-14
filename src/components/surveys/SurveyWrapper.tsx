@@ -440,6 +440,7 @@ class SurveyWrapperComponent extends React.Component<
                 callbackStatus={this.state.status}
                 onSave={(data: any) => this.saveSurvey(data)}
                 onSubmit={async (data: any) => {
+                  this.setState({status: undefined})
                   this.props.surveyName !== 'CONTACT'
                     ? this.submitForm(data, this.cleanData(data))
                     : this.updateUserContactInfo(data, this.cleanData(data))

@@ -157,7 +157,7 @@ const widgets = {
   //@ts-ignore
   CustomDateWidget: AltDateWidget as Widget,
   ExclusiveCheckboxesWidget: ExclusiveCheckboxesWidget as Widget,
-  RadioRangeWidget: RadioRangeWidget as Widget
+  RadioRangeWidget: RadioRangeWidget as Widget,
 }
 
 const fields = {
@@ -262,12 +262,18 @@ export default class SynapseForm extends React.Component<
     const isSuccess =
       this.props.callbackStatus === StatusEnum.SAVE_SUCCESS ||
       this.props.callbackStatus === StatusEnum.SUBMIT_SUCCESS
+    const isError =
+      this.props.callbackStatus === StatusEnum.ERROR ||
+      this.props.callbackStatus === StatusEnum.ERROR_CRITICAL
     if (shouldUpdate && isSuccess) {
       this.setState({ hasUnsavedChanges: false })
       if (this.props.callbackStatus === StatusEnum.SUBMIT_SUCCESS) {
-        this.setState({ isSubmitted: true, isSubmitting: false })
+        this.setState({ isSubmitted: true, isSubmitting: false  })
         window.history.back()
       }
+    }
+    if (shouldUpdate &&  isError) {
+      this.setState({ isSubmitting: false })
     }
   }
 
@@ -595,7 +601,7 @@ export default class SynapseForm extends React.Component<
       }
 
       case NavActionEnum.SUBMIT: {
-        this.setState({isSubmitting: true})
+        this.setState({ isSubmitting: true })
         this.props.onSubmit(formData)
         return
       }
@@ -1156,8 +1162,7 @@ export default class SynapseForm extends React.Component<
                     ObjectFieldTemplate={ObjectFieldTemplate}
                     ref={this.formRef}
                     disabled={
-                      this.state.currentStep
-                        .excluded || this.state.isSubmitted
+                      this.state.currentStep.excluded || this.state.isSubmitted
                     }
                   >
                     <div style={{ display: 'none' }}>
