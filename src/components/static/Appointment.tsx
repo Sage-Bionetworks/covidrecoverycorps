@@ -15,15 +15,6 @@ import i18next from 'i18next'
 import { useTranslation, Trans } from 'react-i18next'
 import 'moment/locale/es'
 
-const MarkerComponent = ({ text }: any) => (
-  <div>
-    <MapMarker />
-    <div style={{ width: '100px', fontSize: '1.2rem', textAlign: 'center' }}>
-      {text}
-    </div>
-  </div>
-)
-
 type AppointmentProps = {
   token?: string
 }
@@ -47,13 +38,23 @@ type BookedAppointment = {
 export const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: '#f5f5f5',
+    position: 'relative',
   },
   appointmentContainerDiv: {
     margin: '0px 30px 0 30px',
   },
-  mapContainerDiv: {
-    height: '400px',
-    margin: '0 -30px 0 -30px',
+  bannerContainerDiv: {
+    top: '0',
+    right: '0',
+    left: '0',
+    position: 'relative',
+    padding: '3.2rem',
+    margin: '0 -30px 30px -30px',
+    backgroundColor: '#FC9090',
+
+    '& h2': {
+      marginTop: '0'
+    }
   },
 
   appointmentDateHeader: {
@@ -110,7 +111,6 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
     result.address = `${addressObject.line.join(',')}, ${addressObject.city}, ${
       addressObject.state
     }  ${addressObject.postalCode}`
-  
 
     return result
   }
@@ -176,10 +176,25 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
       .locale(i18next.language)
       .format('h:mm a')
 
+    const isAppointmentMissed = appointmentDateTime.diff(moment(), 'd') < 0
+
+    const appointmentHeader = (
+      <h2 className="text-center">{t('appointment.title')}</h2>
+    )
+
+    const appointmentHeaderMissed = (
+      <div className={classes.bannerContainerDiv}>
+        <h2 className="text-center">{t('dashboard.intro.missedTitle')}</h2>
+        <Trans i18nKey="dashboard.intro.missedText">
+          <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu"></a>
+        </Trans>
+      </div>
+    )
+
     return (
       <Card className={classes.root}>
         <div className={classes.appointmentContainerDiv}>
-          <h2 className="text-center">{t('appointment.title')}</h2>
+          {isAppointmentMissed? appointmentHeaderMissed: appointmentHeader}
           <p>{t('appointment.text1')}</p>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item>

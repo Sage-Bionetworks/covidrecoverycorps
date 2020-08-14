@@ -14,7 +14,6 @@ type IntroProps = {
   completionStatus: SurveysCompletionStatusEnum
 
   isInvitedForTest?: boolean
-  isMissedAppointment?: boolean
   hasCancelledAppointment: boolean
   emailAddress: string
 }
@@ -22,10 +21,8 @@ type IntroProps = {
 const Intro: FunctionComponent<IntroProps> = ({
   testLocation,
   completionStatus,
-
   isInvitedForTest,
   emailAddress,
-  isMissedAppointment,
   hasCancelledAppointment,
 }) => {
   /*
@@ -73,18 +70,7 @@ const Intro: FunctionComponent<IntroProps> = ({
     </>
   )
 
-  const missedAppointment = (
-    <>
-      <h2 style={{ textAlign: 'left' }}>
-        {i18next.t('dashboard.intro.missedTitle')}
-      </h2>
-      <p>
-        <Trans i18nKey="dashboard.intro.missedText">
-          <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu"></a>
-        </Trans>
-      </p>
-    </>
-  )
+
 
   const elCancelledAppointment = (
     <>

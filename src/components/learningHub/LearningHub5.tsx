@@ -26,7 +26,7 @@ const LearningHub5: FunctionComponent = () => {
     <div>
       <h3>{t('learningHub.lh5.title')}</h3>
       {[...arr].map((_item, index) => (
-        <ExpansionPanel>
+        <ExpansionPanel key={`faq_${index}`}>
           <ExpansionPanelSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
