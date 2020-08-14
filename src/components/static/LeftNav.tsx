@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core'
 import { openSansFont } from '../../App'
 
 export type LeftNavItem = {
-  img: string
+  img?: string
+  element?: JSX.Element
   text: string
   callbackFn: Function
 }
@@ -45,7 +46,7 @@ export const useStyles = makeStyles(theme => ({
         width: '100%',
       },
 
-      '& img': {
+      '& img, & .img ': {
         marginRight: '1.6rem',
         width: '4rem',
       },
@@ -91,7 +92,8 @@ export const LeftNav: React.FunctionComponent<LeftNavProps> = ({
               style={{ backgroundColor: activeColor }}
             ></div>
           )}
-          <img src={item.img}></img>
+          {item.img && <img src={item.img}></img>}
+          {item.element && <div className='img'>{item.element}</div>}
           <span>{item.text}</span>
         </li>
       ))}

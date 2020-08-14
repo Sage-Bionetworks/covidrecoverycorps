@@ -100,15 +100,15 @@ export interface SignInDataEmail extends SignInData {
 }
 
 // --------------Surveys
-export type SurveyType =
-  | 'CONTACT'
-  | 'DEMOGRAPHIC'
-  | 'COVID_EXPERIENCE'
-  | 'HISTORY'
-  | 'MORE'
-  | 'WITHDRAW'
-  | 'TEST_LOCATION'
-  | 'POST_LAB'
+export type SurveyPrelabType = 'CONTACT'
+| 'DEMOGRAPHIC'
+| 'COVID_EXPERIENCE'
+| 'HISTORY'
+| 'MORE'
+| 'WITHDRAW'
+| 'TEST_LOCATION'
+export type SurveyPostLabType = 'POST_LAB'
+export type SurveyType =SurveyPrelabType | SurveyPostLabType
 
 export type SurveyConfigObject = {
   [key in SurveyType]: {
