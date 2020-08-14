@@ -385,7 +385,7 @@
     "min": "min",
     "intro": {
       "surveysDoneTitle": "Thank you for completing the surveys!",
-      "surveysDoneText": "<0>You now qualify for the antibody test waitlist!</0><0>To receive a gift card, you will need to be invited to an antibody test and provide a biosample.</0><0>We cannot guarantee testing invites for all participants at this time.</0>",
+      "surveysDoneText": "<0>You now qualify for the antibody test waitlist!</0><0>To receive a gift card, you will need to be invited to an antibody test and provide a biosample.</0><0>We cannot guarantee testing invites for all participants at this time.</0><0>Please note that at-home test kits won’t be available until after December 2020.</0>",
       "selectedTestTitle": "Thank you!",
       "selectedTestText": "<0>We've added you to the waitlist for an antibody test.</0><0> If you are selected, you will receive an email. </0>",
       "selectedNoTestTitle": "Thank you for your contribution to the COVID Recovery Corps Study!",
@@ -496,7 +496,55 @@
     "text6": "Join mailing list",
     "text7": "Joining mailing list..."
   },
+  "learningHub": {
+    "title": "COVID-19 Learning Hub",
+    "text1": "<0> There’s a lot we need to learn about COVID-19. Why does it affect people differently? How long do symptoms last? </0> <1> Are there long lasting side effects? As we find answers, we will post them here. We will also send out information in newsletters and plan to host online discussions with scientists and healthcare providers. </1>",
+    "nav0": "What we know so far about COVID-19",
+    "nav1": "Types of COVID-19 Tests",
+    "nav2": "The immune response to SARS-CoV-2.",
+    "nav3": "What COVID-19 positive people can do now.",
+    "nav4": "What COVID-19 negative people can do now.",
+    "nav5": "FAQ about serology results",
 
+    "lh0": {
+      "title": "What we know so far about COVID-19",
+      "text1": "<0> COVID-19 is a new infectious disease, caused by the SARS-CoV-2 virus (a Corona virus). It first occurred at the end of 2019 in China and has since spread across the globe. </0> <1> For the most part COVID-19 is an airborne disease, which means that it is spread from one person to another through droplets from an infected person when they exhale, talk, sing, sneeze or cough. </1> <2> This is why wearing face masks, washing your hands, and keeping a social distance of 6 feet (or 2 meters) significantly reduces the chances of spreading the virus. </2>",
+      "text2": "<0> Some people who get infected with this virus do not develop any symptoms and are not aware they are infected. They are called “asymptomatic carriers” who can still spread the virus. </0> <1> Others who become infected with the virus develop a disease and have symptoms such as coughing, sneezing, shortness of breath, fever, chills, body aches, weakness, and/or loss of smell and taste. These symptoms can last for days. </1> <2> A small proportion of people who are infected develop more severe difficulties in breathing, requiring hospitalisation and help breathing with oxygen, medication, or a ventilator. </2> <3> We currently do not understand why people respond to the virus differently. There is currently no vaccine and there is no cure although there is growing evidence that some existing drugs and therapies may be helpful to people who develop the severe form of COVID-19. </3>"
+    },
+    "lh1": {
+      "title": "Types of COVID-19 Tests",
+      "p1": "There are two types of COVID-19 tests: the PCR (swab from the nose) test and serology (blood test) test.",
+      "subhead1": "PCR test (Swab from the nose)",
+      "text1": "The PCR test is performed by taking a swab from the nose to detect the presence of the virus. If the PCR test is positive, this means that the person currently carries has the virus in the body. Rarely, the test may be a “false negative” which means that the person has the virus in their body, but there was not enough virus in the swab taken from the nose for the test to detect it.",
+      "subhead2": "Serology test (blood test)",
+      "text2": "The other type of test is the serology test to detect antibodies.  This is the test included in this study.  A positive serology test means you likely had the SARS-CoV-2 virus in your body in the past. If the serology test detects antibodies to SARS-CoV-2 this is not a guarantee you are protected from getting COVID-19 again but it does make it less likely. You should still wear a face mask, wash your hands, and keep a safe social distance."
+    },
+    "lh2": {
+      "title": "The immune response to SARS-CoV-2.",
+      "text": "<0>People who get infected with the SARS-CoV-2 virus mount an immune response against it. There are 2 types of immune response to an infection: non-specific and specific. </0><1> The non-specific immune response is a first line response and is not directed specifically to the virus. </1><2> The specific immune response is a second line response and is specific to the virus. The specific immune response to the virus relies on the body’s production of specific antibodies (also known as immunoglobulins). The antibodies are an indicator that there was a prior infection with the virus. The antibodies may also be protective from future re-infection with the virus. We are not sure yet which antibodies protect individuals from infection or how long they protect you.</2>"
+    },
+    "lh3": {
+      "title": "What COVID-19 positive people can do now.",
+      "text": "If a person has antibodies in their blood, these antibodies may help a person who is sick with COVID-19 fight the infection. You can donate the part of your blood containing antibodies to give to someone who is sick with COVID-19 to help fight the infection. This is called “convalescent plasma donation.”"
+    },
+    "lh4": {
+      "title": "What COVID-19 negative people can do now.",
+      "text": "<0>For people with a negative serology test, what do I do now? </0><1> People who have a negative serology test and never had a positive PCR test, most likely were not infected with the SARS-CoV-2 virus. You should wear a face mask, wash your hands, and keep a safe social distance to keep from getting infected. </1><2> Vaccines to the SARS-CoV-2 virus are being developed.  The purpose of a vaccine is to help the body mount an immune response to the virus without being infected with the virus.  This immune response can protect against future infection without the risk of infection. </2><3> Vaccines undergo a lengthy development process including careful studies of safety and efficacy. While currently there is no vaccine for COVID-19, the FDA has prioritized clinical trials for vaccine development and is supporting efforts for large scale manufacturing when a safe vaccine is developed.</3>"
+    },
+    "lh5": {
+      "title": "FAQs about serology results:",
+      "q1": "Can I have a positive and then a negative PCR result?",
+      "a1": "Yes, this would mean that you had an active infection when the PCR test was positive and then cleared the virus from your body which is why the PCR test is later negative. ",
+      "q2": "Can I have a negative and then a positive PCR result?",
+      "a2": "Yes. This would mean that at the time you were tested initially you either were not infected, the nasal swab was not taken properly, or that there was not enough virus in your nose to detect it. The second PCR test detected the presence of the virus, and that means the infection was/is active at the time of the second test. ",
+      "q3": "I had symptoms and a positive PCR test for the virus a few weeks ago. How is it possible that I don’t have antibodies? ",
+      "a3": "The immune response and antibody production change over time.  We are not sure how long the body continues to produce antibodies after infection, but at some point the antibody levels dropped to under the detection levels of the serology test. ",
+      "q4": "If I have antibodies, am I protected from another infection with Coronavirus?",
+      "a4": "The protection conferred by the antibodies to the virus is under investigation. It is presumed that antibodies protect you from future infection, but we are not sure how long that protection lasts or if it protects everyone. Studies like this will answer this and other questions. ",
+      "q5": "Are there any drugs that can prevent infection with SARS-CoV-2 virus?",
+      "a5": "No. Currently, there is no proven medicine that can prevent the infection. However, wearing face masks, washing your hands, and keeping a safe social distance does reduce the chances of being infected. "
+    }
+  },
   "privacy": {
     "title": "Privacy Policy",
     "text1": "<0>The COVID Recovery Corps study (the “Study”) is a collaboration between Sage Bionetworks and Columbia University. The Study is sponsored by the Chan Zuckerberg Initiative. The goal of the Study is to collect information from participants who have been diagnosed or believe they have had COVID-19. Researchers will use this information to better understand how the body fights COVID-19. </0> <1> The Study is committed to protecting your online privacy. This Privacy Policy explains the personal information we collect about you through the Website (defined below), how we use and share it, and the choices you have regarding this information. </1> <2> This Privacy Policy applies to visitors to <1>www.covidrecoverycorps.org</1> (the “Website”), including participants in the Study. If you don’t agree with this Privacy Policy, please do not access the Website or participate in the Study. </2>",
@@ -555,12 +603,12 @@
     "contactText": "<0>If you have any questions about your results, please reach out via:</0> <1> phone:  212-305-5700<1></1> email: <3>COVIDRecoveryCorps@cumc.columbia.edu</3> </1> ",
     "inProcess": "<0>We are currently processing your antibody test results.</0> <1>Please stay tuned.</1>"
   },
-   "resultDashboard": {
-     "li1": "My test results",
-     "li2": "What's next",
-     "li3": "My surveys",
-     "inviteCTA": "Invite a Friend to Join the Study",
-     "thankYou":  "Thank you for your help!"
+  "resultDashboard": {
+    "li1": "My test results",
+    "li2": "What's next",
+    "li3": "My surveys",
+    "inviteCTA": "Invite a Friend to Join the Study",
+    "thankYou": "Thank you for your help!"
   },
   "resultTechInfo": {
     "title": "Tehnical information about the test",
@@ -602,7 +650,7 @@
     "testLocationSurvey": {
       "text1": "If you were invited to get an antibody test, what is your testing preference?",
       "text2": "Go to a lab for an antibody test ",
-      "text3": "Receive an at-home test kit",
+      "text3": "Receive an at-home test kit (available after December 2020)",
       "text4": "Not interested in testing"
     },
     "withdrawSurvey": {
@@ -622,7 +670,6 @@
       "concern3": "Moderately concerned",
       "concern4": "Extremely concerned"
     }
-
   },
 
   "team": {
@@ -646,6 +693,7 @@
     "text1": "About",
     "text2": "Meet the Researchers",
     "text3": "FAQs",
+    "text31": "Learning Hub",
     "text4": "Contact Us",
     "text5": "Privacy Policy",
     "text6": "Dashboard",

@@ -28,7 +28,7 @@ export const useStyles = makeStyles(theme => ({
       position: 'relative',
       backgroundColor: '#fff',
       width: '300px',
-      padding: '30px 10px 25px 30px',
+      padding: '30px 15px 25px 30px',
       borderBottom: ' 1px solid #EEEEEE',
       display: 'flex',
       alignItems: 'center',

@@ -221,6 +221,15 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           </ListItem>
         </NavLink>
         <NavLink
+          to="/learninghub"
+          onClick={handleDrawerToggle}
+          className={classes.navBarLink}
+        >
+          <ListItem button className={classes.mobileMenuItem}>
+            {t('topnav.text3a')}
+          </ListItem>
+        </NavLink>
+        <NavLink
           to="/contact"
           onClick={handleDrawerToggle}
           className={classes.navBarLink}
@@ -333,6 +342,13 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
         activeClassName={classes.fullNavBarLinkActive}
       >
         {t('topnav.text3')}
+      </NavLink>
+      <NavLink
+        to="/learninghub"
+        className={classes.fullNavBarLink}
+        activeClassName={classes.fullNavBarLinkActive}
+      >
+        {t('topnav.text31')}
       </NavLink>
       <NavLink
         to="/contact"

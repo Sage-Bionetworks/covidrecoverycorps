@@ -42,6 +42,7 @@ import PrivacyPolicy from './components/static/PrivacyPolicy'
 import Appointment from './components/static/Appointment'
 import { UserDataGroup, SessionData } from './types/types'
 import ResultDashboard from './components/result/ResultDashboard'
+import LearningHub from './components/learningHub/LearningHub'
 
 export const openSansFont = [
   'Open Sans',
@@ -474,6 +475,10 @@ function App() {
 
                   <Route path="/faqs">
                     <FAQs />
+                  </Route>
+                  <Route path="/learninghub">
+                  {renderWithWiderGridLayout(
+                    <LearningHub token={token}/>)}
                   </Route>
                   <Route path="/team">
                     <Team />
