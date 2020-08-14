@@ -1,15 +1,30 @@
-import React, { FunctionComponent, useState } from 'react'
-import { makeStyles, Button } from '@material-ui/core'
+import React, { FunctionComponent, useState, useEffect } from 'react'
+import { makeStyles, Button, CircularProgress } from '@material-ui/core'
 import { playfairDisplayFont } from '../../App'
 import { useTranslation, Trans } from 'react-i18next'
 import iconCheckMark from '../../assets/dashboard/icon_whoohoo.svg'
 import SurveyWrapper from '../surveys/SurveyWrapper'
 import PostLabHeader from '../surveys/PostLabHeader'
+import { SurveyService } from '../../services/survey.service'
+import {
+  SavedSurveysObject,
+  SurveyPostLabType,
+  SurveyType,
+  SavedSurvey,
+} from '../../types/types'
+import _ from 'lodash'
 
 export const useStyles = makeStyles(theme => ({
   root: {
     overflow: 'unset',
     maxWidth: 'unset',
+  },
+
+
+  loader: {
+    textAlign: 'center',
+    position: 'absolute',
+    left: '50%',
   },
   list: {
     '& ul': {
@@ -55,13 +70,21 @@ export const useStyles = makeStyles(theme => ({
 }))
 
 type ResultProps = {
-  token?: string
+token?: string
+  unfinishedSurveys: string[]
+  onSurveyFinishedFn: Function
 }
 
-const WhatNext: FunctionComponent<ResultProps> = ({ token }: ResultProps) => {
+const WhatNext: FunctionComponent<ResultProps> = ({unfinishedSurveys, token, onSurveyFinishedFn }: ResultProps) => {
   const classes = useStyles()
   const { t } = useTranslation()
-  const [activeItemIndex, setActiveItemIndex] = useState(0)
+
+  const postLabSurveys: SurveyPostLabType[] = ['POST_LAB']
+  const [pageState, setPageState] = useState<
+    'INTRO' | 'SURVEY' | 'SURVEY_DONE'
+  >('INTRO')
+
+ 
 
   const surveyDoneEl = (
     <div style={{ textAlign: 'center', margin: '0 auto' }}>
@@ -71,36 +94,50 @@ const WhatNext: FunctionComponent<ResultProps> = ({ token }: ResultProps) => {
   )
 
   const getNextIntro = () => {
+    
+  
+
     return (
       <>
         <h2>{t('resultNext.title')}</h2>
+        {unfinishedSurveys.length > 0 && <>
         <h3>{t('resultNext.subtitle1')}</h3>
         <p>{t('resultNext.text1')}</p>
         <div className="text-center" style={{ margin: '30px auto' }}>
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" onClick={()=> setPageState('SURVEY')}>
             {t('resultNext.surveyCTA')}
           </Button>
         </div>
+        </>}
         <h3>{t('resultNext.subtitle2')}</h3>
         <p>{t('resultNext.text2')}</p>
       </>
     )
   }
+  
 
-  return (
+  const postLabSurvey = (
     <SurveyWrapper
       formTitle="Post Lab"
       token={token || ''}
       surveyName={'POST_LAB'}
       formClass="crc"
       cardClass="inherit"
-      onDoneCallback={() => setActiveItemIndex(10)}
+      onDoneCallback={() =>{setPageState('SURVEY_DONE'); onSurveyFinishedFn('POST_LAB')}}
     >
       <PostLabHeader></PostLabHeader>
     </SurveyWrapper>
   )
-  return <div className={classes.root}>{getNextIntro()}</div>
-  return surveyDoneEl
+
+  switch (pageState) {
+    case 'SURVEY_DONE':
+      return surveyDoneEl
+
+    case 'SURVEY':
+      return postLabSurvey
+    default:
+      return getNextIntro()
+  }
 }
 
 export default WhatNext

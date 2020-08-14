@@ -34,7 +34,9 @@ export const useStyles = makeStyles(theme => ({
     },
   },
 
-  main: {},
+  main: {
+    width: '100%'
+  },
 }))
 export const TwoColumnTemplate: React.FunctionComponent<TwoColumnTemplateProps> = ({
   nav,

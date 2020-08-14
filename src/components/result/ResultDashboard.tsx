@@ -5,6 +5,9 @@ import {
   TestResult,
   TestResultString,
   LoggedInUserData,
+  SavedSurveysObject,
+  SurveyPostLabType,
+  SurveyType,
 } from '../../types/types'
 
 import liResultPositive from '../../assets/results/liResultPositive.svg'
@@ -20,6 +23,8 @@ import { UserService } from '../../services/user.service'
 import { useTranslation, Trans } from 'react-i18next'
 import ShareModal from '../widgets/ShareModal'
 import Alert from '@material-ui/lab/Alert/Alert'
+import { SurveyService } from '../../services/survey.service'
+import _ from 'lodash'
 
 type ResultProps = {
   token: string
@@ -35,6 +40,20 @@ export const useStyles = makeStyles(theme => ({
     position: 'absolute',
     left: '50%',
   },
+  newNotification: {
+    position: 'absolute',
+    top: '-.6rem',
+    right: '-1rem',
+    width: '2.2rem',
+    height: '2.2rem',
+    color: '#fff',
+    textAlign: 'center',
+    fontSize: '1.2rem',
+    backgroundColor: '#FC9090',
+    borderRadius: '50%',
+    lineHeight: '2.2rem',
+    fontWeight: 'bold',
+  },
 }))
 export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
   token,
@@ -49,7 +68,34 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
   )
   const [result, setResult] = useState<TestResult | undefined>()
   const [activeItemIndex, setActiveItemIndex] = useState(0)
+  const [savedSurveys, setSavedSurveys] = useState<SavedSurveysObject>()
+  const[unfinishedSurveysNum, setUnfinishedSurveysNum]= useState<number | undefined>(undefined)
   const { t } = useTranslation()
+
+  const postLabSurveys: SurveyPostLabType[] = ['POST_LAB']
+  const isSurveyDone = (surveyType: SurveyType): boolean => {
+    if (!savedSurveys) {
+      return false
+    }
+
+    const savedSurvey =  savedSurveys.surveys.find(
+      savedSurvey => surveyType === savedSurvey.type,
+    )
+
+    return !!savedSurvey?.completedDate
+  }
+
+  const getUnfinishedSurveys = () => {
+    const surveysToDo = []
+    for (const survey of postLabSurveys) {
+      if (!isSurveyDone(survey)) {
+        surveysToDo.push(survey)
+      }
+    }
+
+    return surveysToDo
+  }
+
 
   useEffect(() => {
     let isSubscribed = true
@@ -65,6 +111,8 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
             const result = ResultsResponse.data.items[0]
             setResult(result)
           }
+          const surveys = await SurveyService.getUserSurveys(token)
+          setSavedSurveys(_.first(surveys.data.items)?.data)
         }
         } catch (e) {
           if (isSubscribed) {setError(e)}
@@ -84,6 +132,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
       return <></>
     }
     const resultValue = result.data.valueString.toUpperCase() as TestResultString
+
     const navItems: LeftNavItem[] = [
       {
         img: liResultNegative,
@@ -97,8 +146,14 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
 
    if (resultValue === 'POSITIVE') {
       navItems[0].img = liResultPositive
+
+      let img = <img src={liResultNext}></img>
+        if (getUnfinishedSurveys()?.length) {
+          img = <div style={{position:'relative'}}>{img}<div className={classes.newNotification}>{getUnfinishedSurveys().length}</div></div>
+        }
+    
       navItems.push({
-        img: liResultNext,
+        element: img,
         text: t('resultDashboard.li2'),
         callbackFn: () => setActiveItemIndex(1),
       })
@@ -145,7 +200,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
           changeTabCallbackFn={setActiveItemIndex}
         />
       ) : (
-        <WhatNext token={token}></WhatNext>
+        <WhatNext token={token} unfinishedSurveys={getUnfinishedSurveys()} onSurveyFinishedFn={()=> setUnfinishedSurveysNum(_prev =>  (_prev !== undefined)? (_prev - 1) : undefined) }></WhatNext>
       )
     }
 
