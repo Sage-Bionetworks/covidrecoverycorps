@@ -226,7 +226,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           className={classes.navBarLink}
         >
           <ListItem button className={classes.mobileMenuItem}>
-            {t('topnav.text3a')}
+            {t('topnav.text31')}
           </ListItem>
         </NavLink>
         <NavLink
