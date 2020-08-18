@@ -112,13 +112,15 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         try {
           setIsLoading(true)
           const userInfoResponse = await UserService.getUserInfo(token)
-          setUserInfo(_old => userInfoResponse.data)
           const response = await SurveyService.getUserSurveys(token)
-          setSavedSurveys(_.first(response.data.items)?.data)
+          if (isSubscribed) {
+            setUserInfo(_old => userInfoResponse.data)
+            setSavedSurveys(_.first(response.data.items)?.data)
+          }
         } catch (e) {
-          setError(e)
+          isSubscribed && setError(e)
         } finally {
-          setIsLoading(false)
+          isSubscribed && setIsLoading(false)
         }
       }
     }
@@ -295,7 +297,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         )}
 
         <Card className={classes.root}>
-          {getCompletionStatus() !== SurveysCompletionStatusEnum.NOT_DONE && (
+         
             <Intro
               testLocation={
                 testLocationSurveySubmitted || getPreferredTestLocation()
@@ -305,7 +307,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
               hasCancelledAppointment={hasCancelledAppointment(userInfo)}
               emailAddress={userInfo?.email || ''}
             />
-          )}
+      
           {
             //if they fininshed  surveys and didn't pick location
             !isDone('TEST_LOCATION') &&

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useState } from 'react'
 import {
   TestLocationEnum,
   SurveysCompletionStatusEnum,
@@ -6,8 +6,10 @@ import {
 import iconThankYou from '../../assets/dashboard/icon_thankyou.svg'
 import iconCheckMark from '../../assets/dashboard/icon_whoohoo.svg'
 import i18next from 'i18next'
-import { Trans } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import i18n from '../../i18n'
+import ShareModal from '../widgets/ShareModal'
+import Button from '@material-ui/core/Button'
 
 type IntroProps = {
   testLocation: TestLocationEnum | undefined
@@ -37,6 +39,9 @@ const Intro: FunctionComponent<IntroProps> = ({
   5. scheduled - scheduled screen.
   */
 
+  const [isShowingShareDialog, setIsShowingShareDialog] = useState(false)
+  const { t } = useTranslation()
+
   const elDoneNoLocationSurvey = (
     <>
       <img src={iconCheckMark}></img>
@@ -51,7 +56,7 @@ const Intro: FunctionComponent<IntroProps> = ({
   const elSelectedTest = (
     <>
       <img src={iconCheckMark}></img>
-      <h2>{i18next.t('dashboard.intro.selectedTestTitle')}</h2>
+      <h2>{t('dashboard.intro.selectedTestTitle')}</h2>
       <Trans i18nKey="dashboard.intro.selectedTestText">
         <p>[translate]</p>
       </Trans>
@@ -62,15 +67,32 @@ const Intro: FunctionComponent<IntroProps> = ({
     <>
       <img src={iconThankYou}></img>
       <h2 style={{ textAlign: 'left' }}>
-        {i18next.t('dashboard.intro.selectedNoTestTitle')}
+        {t('dashboard.intro.selectedNoTestTitle')}
       </h2>
       <Trans i18nKey="dashboard.intro.selectedNoTestText">
         <p>[translate]</p>
       </Trans>
+
+      <ShareModal
+        show={isShowingShareDialog}
+        onClose={() => {
+          setIsShowingShareDialog(false)
+        }}
+      ></ShareModal>
+      <div className="text-center">
+        <Button
+          style={{ margin: '30px auto 0 auto', fontSize: '14px' }}
+          variant="outlined"
+          color="primary"
+          onClick={() => {
+            setIsShowingShareDialog(true)
+          }}
+        >
+          {t('resultDashboard.inviteCTA')}
+        </Button>
+      </div>
     </>
   )
-
-
 
   const elCancelledAppointment = (
     <>
