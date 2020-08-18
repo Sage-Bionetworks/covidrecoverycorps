@@ -126,25 +126,27 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
             const appt = appointmentsResponse.data.items[0]
             if (appt.data.status === 'booked') {
               const patient = getInfoPiece(appt.data.participant, 'Patient')!
-              const location = getInfoPiece(appt.data.participant, 'Location')
+              /* alina disable temporarily const location = getInfoPiece(appt.data.participant, 'Location')
 
               const codedLocation = location?.address
                 ? getCodedLocation(location?.address)
                 : undefined
-
+*/
               const appointment: BookedAppointment = {
                 start: moment(appt.data.start),
                 patient,
-                address: codedLocation,
+                address: undefined //codedLocation,
               }
-
+              if (isSubscribed) {
               setAppointment(appointment)
+              }
             }
           }
         } catch (e) {
-          setError(e)
+          if (isSubscribed) {  setError(e)}
+        
         } finally {
-          setIsLoading(false)
+          if (isSubscribed) { setIsLoading(false)}
         }
       }
     }
