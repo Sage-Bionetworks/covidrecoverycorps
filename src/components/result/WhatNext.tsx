@@ -103,7 +103,7 @@ const WhatNext: FunctionComponent<ResultProps> = ({unfinishedSurveys, token, onS
         {unfinishedSurveys.length > 0 && <>
         <h3>{t('resultNext.subtitle1')}</h3>
         <p>{t('resultNext.text1')}</p>
-        <div className="text-center" style={{ margin: '30px auto' }}>
+        <div className="text-center btnVerticallySpaced">
           <Button variant="contained" color="primary" onClick={()=> setPageState('SURVEY')}>
             {t('resultNext.surveyCTA')}
           </Button>

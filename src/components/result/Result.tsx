@@ -242,7 +242,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
       type="button"
       variant="contained"
       color="primary"
-      style={{ margin: '30px auto' }}
+      className="btnVerticallySpaced"
       onClick={() => changeTabCallbackFn(1)}
     >
       {t('result.whatNext')}
@@ -255,7 +255,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
       <div className="text-center">
         <Button
           type="button"
-          style={{ margin: '30px auto' }}
+          className="btnVerticallySpaced"
           variant="contained"
           color="primary"
           onClick={() => alert('download')}
@@ -454,7 +454,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
                   type="button"
                   variant="contained"
                   color="primary"
-                  style={{ margin: '30px auto' }}
+                  className="btnVerticallySpaced"
                   onClick={() => window.print()}
                 >
                   {t('result.download')}
@@ -511,7 +511,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
                 <Trans i18nKey="result.contactText">
                   <p>[trans]</p>
                   <p>
-                    [trans]<br></br>[trans]
+                    [trans]<br/>[trans]
                     <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
                       [translate]
                     </a>{' '}
