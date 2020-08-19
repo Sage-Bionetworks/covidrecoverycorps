@@ -220,6 +220,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             {t('topnav.text3')}
           </ListItem>
         </NavLink>
+        {/*
         <NavLink
           to="/learninghub"
           onClick={handleDrawerToggle}
@@ -229,6 +230,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             {t('topnav.text31')}
           </ListItem>
         </NavLink>
+         */}
         <NavLink
           to="/contact"
           onClick={handleDrawerToggle}
@@ -343,13 +345,14 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
       >
         {t('topnav.text3')}
       </NavLink>
+      {/*
       <NavLink
         to="/learninghub"
         className={classes.fullNavBarLink}
         activeClassName={classes.fullNavBarLinkActive}
       >
         {t('topnav.text31')}
-      </NavLink>
+      </NavLink>*/}
       <NavLink
         to="/contact"
         className={classes.fullNavBarLink}
