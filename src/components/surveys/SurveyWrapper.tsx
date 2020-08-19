@@ -416,7 +416,7 @@ class SurveyWrapperComponent extends React.Component<
         return this.props.surveyName === 'CONTACT' ? (
           <Redirect to="/dashboard" />
         ) : (
-          <Redirect to="/done" />
+          <Redirect to={`/done?surveyname=${this.props.surveyName}`} />
         )
       }
     }
