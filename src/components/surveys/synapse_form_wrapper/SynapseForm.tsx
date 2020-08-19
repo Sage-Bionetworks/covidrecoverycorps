@@ -1034,7 +1034,7 @@ export default class SynapseForm extends React.Component<
 
   render() {
     return (
-      <div className="outter-wrap">
+      <div className={`outter-wrap ${this.props.cardClass}`}>
         <div>
           <FloatingToolbar
             closeLinkDestination="/dashboard"
@@ -1053,7 +1053,7 @@ export default class SynapseForm extends React.Component<
           bodyText={this.state.currentStep.description}
           title={this.state.currentStep.title}
         ></Header>
-        <Card className={this.props.cardClass}>
+        <Card >
           <div className="inner-wrap">
             {!this.props.extraUIProps?.isLeftNavHidden && (
               <StepsSideNav
