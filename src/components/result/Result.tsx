@@ -88,11 +88,8 @@ export const useStyles = makeStyles(theme => ({
   },
   videoContainerDiv: {
     position: 'relative',
-    width: '100%',
-    height: '0',
-
+    textAlign: 'center',
     marginBottom: '5rem',
-    paddingBottom: '56.25%',
   },
   video: {
     position: 'absolute',
@@ -148,7 +145,7 @@ export const useStyles = makeStyles(theme => ({
 export const Result: React.FunctionComponent<ResultProps> = ({
   testResult,
   userData,
-  changeTabCallbackFn
+  changeTabCallbackFn,
 }: ResultProps) => {
   const classes = useStyles()
 
@@ -246,7 +243,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
       variant="contained"
       color="primary"
       style={{ margin: '30px auto' }}
-      onClick={()=> changeTabCallbackFn(1)}
+      onClick={() => changeTabCallbackFn(1)}
     >
       {t('result.whatNext')}
     </Button>
@@ -356,23 +353,23 @@ export const Result: React.FunctionComponent<ResultProps> = ({
         <div style={{ clear: 'both' }}>
           <table style={{ width: '80%' }}>
             <thead>
-            <tr>
-              <td>&nbsp;</td>
-              <td>Value</td>
-              <td>Range</td>
-            </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>Value</td>
+                <td>Range</td>
+              </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>
-                {' '}
-                {_.get(result.data, 'code.coding[0].display').toUpperCase()}
-              </td>
-              <td>
-                <strong>{result.data.valueString}</strong>
-              </td>
-              <td>{result.data.valueRange.extension[0].valueString}</td>
-            </tr>
+              <tr>
+                <td>
+                  {' '}
+                  {_.get(result.data, 'code.coding[0].display').toUpperCase()}
+                </td>
+                <td>
+                  <strong>{result.data.valueString}</strong>
+                </td>
+                <td>{result.data.valueRange.extension[0].valueString}</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -409,18 +406,14 @@ export const Result: React.FunctionComponent<ResultProps> = ({
                 ).toLocaleString()}{' '}
               </td>
               <td>
-                Specimen Received Date: 
+                Specimen Received Date:
                 <br />
-                {new Date(
-                  result.data.effectiveDateTime
-                ).toLocaleString()}
+                {new Date(result.data.effectiveDateTime).toLocaleString()}
               </td>
               <td>
                 Last Resulted:
                 <br />
-                {new Date(
-                  result.data.issued
-                ).toLocaleString()}
+                {new Date(result.data.issued).toLocaleString()}
               </td>
             </tr>
           </tbody>
@@ -472,14 +465,18 @@ export const Result: React.FunctionComponent<ResultProps> = ({
         </Card>
         <h2 className="text-center">{t('result.explain')}</h2>
         <Card className={classes.cardNoBg}>
-          {/*agendel: add when video is ready <div className={classes.videoContainerDiv}>
-            <iframe
-              src="https://www.youtube.com/embed/HdfuSDxApwE"
-              frameBorder="0"
-              className={classes.video}
-              allowFullScreen
-            ></iframe>
-    </div> */}
+          {
+            <div className={classes.videoContainerDiv}>
+              <iframe
+                src="https://player.vimeo.com/video/449347196"
+                width="640"
+                height="360"
+                frameBorder="0"
+                allow="autoplay; fullscreen"
+                allowFullScreen={true}
+              ></iframe>
+            </div>
+          }
           <p>
             <Trans i18nKey="result.text1">
               [translate]<strong></strong>
