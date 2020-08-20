@@ -1,12 +1,17 @@
 import React, { useState, ChangeEvent } from 'react'
 import Button from '@material-ui/core/Button/Button'
 import { CardContent, Card } from '@material-ui/core'
+import { useTranslation} from 'react-i18next'
+
 export const Done: React.FunctionComponent = ({}) => {
+
+  const {t} = useTranslation()
+
   return (
     <Card>
       <CardContent>
         <div className="text-center">
-          <h3> Thank you for submitting your survey!</h3>
+          <h3>{t('surveys.done.thanks')}</h3>
         </div>
         <Button
           type="button"
@@ -15,8 +20,7 @@ export const Done: React.FunctionComponent = ({}) => {
           color="primary"
           style={{ marginTop: '20px' }}
           onClick={() => (window.location.href = '/Dashboard')}
-        >
-          Return to dashboard
+        >{t('surveys.done.toDashboard')}
         </Button>
       </CardContent>
     </Card>

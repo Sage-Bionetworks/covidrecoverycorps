@@ -1039,7 +1039,7 @@ export default class SynapseForm extends React.Component<
           <FloatingToolbar
             closeLinkDestination="/dashboard"
             closeIcon={faAngleLeft}
-            closeLinkText="Dashboard"
+            closeLinkText={i18next.t('footer.dashboard')}
             closeConfirmationText="Exit Survey?"
             closeConfirmationText2="Data you have entered may not be saved"
           />

@@ -17,6 +17,8 @@
     "ok": "OK",
     "signUpForAccount": "Sign up for an account",
     "submit": "Submit",
+    "yes": "Yes",
+    "noTakeBack": "No, take me back",
     "zipCode": "Zip code"
   },
   "accountSettings": {
@@ -46,6 +48,7 @@
     "hipaaText1": "Do you want to share your electronic health records with us?",
     "hipaaText2": "Sharing your EHR (electronic health records) is <1>optional</1>.",
     "hipaaText3": "<0> Your electronic health record (EHR) is a digital version of your medical health record (which may include information like your doctor’s notes from visits, diagnosis information and medications). </0> <1> If you say yes to sharing, we will see data about your health problems, test results, medical procedures, images (such as X-rays), and medicines you take. </1> <2> It may tell us about your mental health, genetic conditions, or use of alcohol or drugs. EHR may contain sexual or infection data, including HIV status. You can say no to sharing your health records and still take part in COVID Recovery Corps. </2> <3> There will be a separate form called a HIPAA Authorization for you to sign if you decide to give us access to your health records. </3>",
+    "hipaaReview": "Review what it means",
     "shareYes": "Yes, share",
     "shareNo": "No, don't share"
   },
@@ -626,6 +629,14 @@
     "text2": "Because the virus is new, we are not sure yet what the long-term consequences of being infected are. We are going to ask participants like you to answer quick questions approximately 5 times over the next year. It will be important to hear how you are doing, even if you are completely recovered from COVID-19, to better understand the ways in which the virus affects the body and if any complications have occured.",
     "surveyCTA": "Take post-lab survey"
   },
+  "signIn": {
+    "text1": "We just sent an SMS to: ",
+    "text2": "Please enter your code: ",
+    "text3": "Code from SMS",
+    "phone": "phone", 
+    "text4": "We just sent link to: "
+
+  },
 
   "surveys": {
     "saveProgress": "Save progress",
@@ -638,6 +649,12 @@
       "state": "state",
       "city": "city",
       "invalidAddress": "Sorry, the {{invalidField}} entered does not correspond to a valid mailing address. Did you mean '{{suggestedValue}}'?"
+    },
+    "done": {
+  
+      "thanks": "Thank you for submitting your survey!",
+      "toDashboard": "Return to dashboard"
+
     },
     "errors": {
       "required": "is a required field",

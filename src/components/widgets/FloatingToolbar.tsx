@@ -4,6 +4,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import btnClose from '../../assets/btn_close.svg'
 import { Link } from '@material-ui/core'
 import ConfirmationModal from './ConfirmationModal'
+import { useTranslation} from 'react-i18next'
 
 type FloatingToolbarProps = {
   closeLinkDestination: string
@@ -20,6 +21,7 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = pr
     setIsShowingCancelConfirmation,
   ] = useState(false)
   const [isCanceled, setIsCancelled] = useState(false)
+  const {t} = useTranslation()
 
   if (isCanceled) {
     // TopNav does not read the new search param when using the optimized react router redirect, so replacing for now :(
@@ -83,8 +85,8 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = pr
             // redirect back
             setIsCancelled(true)
           }
-          confirmCopy={'Yes'}
-          cancelCopy={'No, take me back'}
+          confirmCopy={t('common.yes')}
+          cancelCopy={t('common.noTakeBack')}
         ></ConfirmationModal>
       )}
     </div>
