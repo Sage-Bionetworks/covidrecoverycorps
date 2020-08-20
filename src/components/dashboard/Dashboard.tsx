@@ -158,8 +158,10 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   }
 
   const getPreferredTestLocation = (): TestLocationEnum | undefined => {
-    const result = getSavedSurvey('TEST_LOCATION')?.data.location
-    return result
+    const locationFromLocationSurvey = getSavedSurvey('TEST_LOCATION')?.data.location    
+    const locationFromCovidSurvey = _.get(getSavedSurvey('MORE'), 'data.test_location.test_location')
+    return locationFromCovidSurvey || locationFromLocationSurvey
+
   }
 
   const isDone = (surveyType: SurveyType): boolean => {
@@ -310,7 +312,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       
           {
             //if they fininshed  surveys and didn't pick location
-            !isDone('TEST_LOCATION') &&
+            !getPreferredTestLocation() &&
               getCompletionStatus() ===
                 SurveysCompletionStatusEnum.ALL_DONE && (
                 <TestLocationSurvey
