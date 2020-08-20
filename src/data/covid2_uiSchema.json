@@ -171,5 +171,13 @@
     "commute_car": {
       "ui:widget": "radio"
     }
+  },
+  "test_location": {
+    "classNames": "covid2_test_location",
+    "ui:description": "<p>To receive a gift card, you will need to be invited to an antibody test and provide a biosample.</p><p>We cannot guarantee testing invites for all participants at this time.</p>  <p>Please note that at-home test kits won’t be available until after December 2020.<br/><br/></p>",
+    
+    "test_location": {
+      "ui:widget": "radio"
+    }
   }
 }

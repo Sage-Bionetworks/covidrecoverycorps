@@ -133,7 +133,9 @@ function ObjectFieldTemplate(props: any) {
       {props.description && (
         <DescriptionField
           id={`${props.idSchema.$id}__description`}
-          description={props.description}
+          description={
+            <div dangerouslySetInnerHTML={{ __html: props.description }}></div>
+          }
           formContext={props.formContext}
         />
       )}

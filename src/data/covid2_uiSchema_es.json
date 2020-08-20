@@ -171,5 +171,12 @@
     "commute_car": {
       "ui:widget": "radio"
     }
+  },
+  "test_location": {
+    "classNames": "covid2_test_location",
+    "ui:description":"<p> Para recibir una tarjeta de regalo, deberá ser invitado a una prueba de anticuerpos y proporcionar una muestra biológica.</p><p> En este momento no podemos garantizar invitaciones de prueba para todos los participantes.</p><p>Tenga en cuenta que los kits de prueba para el hogar no estarán disponibles hasta después de diciembre de 2020. <br/><br/></p>",
+    "test_location": {
+      "ui:widget": "radio"
+    }
   }
 }

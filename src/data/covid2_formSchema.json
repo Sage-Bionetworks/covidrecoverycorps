@@ -1185,6 +1185,24 @@
           "enumNames": ["Yes", "No", "Prefer not to answer"]
         }
       }
+    },
+    "test_location": {
+      "type": "object",
+      "title": "",
+      "required": ["test_location"],
+      "properties": {
+        "test_location": {
+          "title": "If you were invited to get an antibody test, what is your testing preference?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["LAB", "HOME", "NO_TEST"],
+          "enumNames": [
+            "Go to a lab for an antibody test ",
+            "Receive an at-home test kit (available after December 2020)",
+            "Not interested in testing"
+          ]
+        }
+      }
     }
   },
   "type": "object",
@@ -1216,6 +1234,10 @@
     "job_commute": {
       "title": "",
       "$ref": "#/definitions/job_commute"
+    },
+    "test_location": {
+      "title": "",
+      "$ref": "#/definitions/test_location"
     }
   }
 }
