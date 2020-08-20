@@ -225,7 +225,7 @@ export const LearningHub: React.FunctionComponent<ResultProps> = ({
           {!token && (
             <Button
               type="button"
-              style={{ margin: '30px auto' }}
+              className="btnVerticallySpaced"
               variant="contained"
               color="primary"
               onClick={() => (window.location.href = '/eligibility')}

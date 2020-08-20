@@ -53,10 +53,10 @@
   .MuiCard-root {
     padding-bottom: 2rem;
     max-width: 360px;
+  }
 
-    &.inherit {
-      max-width: 511px;
-    }
+  .inherit .MuiCard-root {
+    max-width: 511px;
   }
 
   margin-right: 0;
@@ -197,6 +197,10 @@
       line-height: 25px;
       color: $text-dark;
     }
+  }
+
+  .inherit .submission-header {
+    max-width: 511px;
   }
 
   //submit button
@@ -826,6 +830,14 @@
             margin-left: 0 !important;
           }
         }
+      }
+
+      
+    }
+    &_test_location {
+      .field-description {
+        margin-left: 1.5rem;
+        margin-right: 1rem;
       }
     }
   }

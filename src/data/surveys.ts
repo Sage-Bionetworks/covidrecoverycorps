@@ -47,11 +47,13 @@ export const SURVEYS: SurveyConfigObject = {
     uiSchema: () => {},
     navSchema: () => {},
   },
+  // agendel 8/20 it is not moved inot survey too. Need for backward compatibility
   TEST_LOCATION: {
     formSchema: () => {},
     uiSchema: () => {},
     navSchema: () => {},
   },
+
   POST_LAB: {
     formSchema: async () => await import(`./postLab_formSchema${postfix}.json`),
     uiSchema: async () => await import(`./postLab_uiSchema${postfix}.json`),

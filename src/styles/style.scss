@@ -195,6 +195,13 @@ div.intro {
   background-repeat: repeat-x;
 }
 
+button.btnVerticallySpaced, div.btnVerticallySpaced{
+  margin: 30px auto;
+  @media (min-width: 961px) {
+    margin: 35px auto;
+  }
+}
+
 @media print {
   .no-print,
   .no-print * {

@@ -133,7 +133,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           </Trans>
         </p>
 
-        <LearnMore learnMoreText="Review what it means">
+        <LearnMore learnMoreText={t("consent.hipaaReview")}>
           <div>
           <Trans i18nKey = "consent.hipaaText3">
             <p>

@@ -4,7 +4,7 @@
       "id": "covid1",
       "order": 1,
       "title": "Más experiencia con el COVID-19",
-      "orderDisplay": "1/6",
+      "orderDisplay": "1/7",
       "description": "Por favor complete las preguntas de este cuestionario, a lo que mejor pueda. Si usted no se recuerda o no desea responder a la pregunta, por favor marque \"Prefiero no responder\"",
       "default": "covid11",
       "validationRules": [
@@ -67,7 +67,7 @@
       "id": "covid11",
       "order": 15,
       "title": "",
-      "orderDisplay": "2/6",
+      "orderDisplay": "2/7",
       "description": "",
       "default": "antibiotics",
       "validationRules": [
@@ -123,28 +123,28 @@
     },
     {
       "id": "antibiotics",
-      "orderDisplay": "2a/6",
+      "orderDisplay": "2a/7",
       "order": 10,
       "title": "",
       "default": "hygene"
     },
     {
       "id": "hygene",
-      "orderDisplay": "3/6",
+      "orderDisplay": "3/7",
       "order": 20,
       "title": "",
       "default": "hygene2"
     },
     {
       "id": "hygene2",
-      "orderDisplay": "4/6",
+      "orderDisplay": "4/7",
       "order": 25,
       "title": "",
       "default": "life_pets"
     },
     {
       "id": "life_pets",
-      "orderDisplay": "5/6",
+      "orderDisplay": "5/7",
       "order": 30,
       "title": "",
       "validationRules": [],
@@ -152,8 +152,16 @@
     },
     {
       "id": "job_commute",
-      "orderDisplay": "6/6",
+      "orderDisplay": "6/7",
       "order": 35,
+      "title": "",
+      "validationRules": [],
+      "default": "test_location"
+    },
+    {
+      "id": "test_location",
+      "orderDisplay": "7/7",
+      "order": 45,
       "title": "",
       "validationRules": [],
       "default": ""

@@ -133,7 +133,9 @@ function ObjectFieldTemplate(props: any) {
       {props.description && (
         <DescriptionField
           id={`${props.idSchema.$id}__description`}
-          description={props.description}
+          description={
+            <div dangerouslySetInnerHTML={{ __html: props.description }}></div>
+          }
           formContext={props.formContext}
         />
       )}
@@ -1034,12 +1036,12 @@ export default class SynapseForm extends React.Component<
 
   render() {
     return (
-      <div className="outter-wrap">
+      <div className={`outter-wrap ${this.props.cardClass}`}>
         <div>
           <FloatingToolbar
             closeLinkDestination="/dashboard"
             closeIcon={faAngleLeft}
-            closeLinkText="Dashboard"
+            closeLinkText={i18next.t('footer.dashboard')}
             closeConfirmationText="Exit Survey?"
             closeConfirmationText2="Data you have entered may not be saved"
           />
@@ -1053,7 +1055,7 @@ export default class SynapseForm extends React.Component<
           bodyText={this.state.currentStep.description}
           title={this.state.currentStep.title}
         ></Header>
-        <Card className={this.props.cardClass}>
+        <Card >
           <div className="inner-wrap">
             {!this.props.extraUIProps?.isLeftNavHidden && (
               <StepsSideNav

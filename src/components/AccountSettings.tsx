@@ -165,7 +165,7 @@ export const AcountSettings: React.FunctionComponent<AcountSettingsProps> = (
         <FloatingToolbar
           closeLinkDestination="/dashboard"
           closeIcon={faAngleLeft}
-          closeLinkText="Dashboard"
+          closeLinkText={t('footer.dashboard')}
         />
       </div>
       <Card>

@@ -61,7 +61,7 @@ export const ConsentSentConfirmation: React.FunctionComponent<ConsentSentConfirm
           onClick={() => doneCallbackFn()}
         >
           &nbsp;
-          {from === 'ACCOUNT' ? 'View Dashboard' : 'Begin Study'}
+          {from === 'ACCOUNT' ? t('consentSent.viewDashboard') : t('consentSent.beginStudy')}
         </Button>
       </div>
     )

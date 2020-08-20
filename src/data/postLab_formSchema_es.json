@@ -1,0 +1,249 @@
+{
+  "definitions": {
+    "postLab": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "longterm_impact": {
+          "type": "object",
+          "title": "1. ¿Qué tan preocupado está usted por el impacto a largo plazo de COVID-19 en lo siguiente:",
+          "properties": {
+            "physical_health": {
+              "title": "Su salud física",
+              "type": "string",
+
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
+            },
+            "mental_health": {
+              "title": "Su salud mental",
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
+            },
+            "family_health": {
+              "title": "La salud de su familia",
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
+            },
+            "friends_health": {
+              "title": "La salud de sus amigos",
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
+            },
+            "community": {
+              "title": "Su comunidad en lo general",
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
+            },
+            "job": {
+              "title": "Su trabajo",
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
+            },
+            "financial": {
+              "title": "Asuntos financieros",
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
+            },
+            "homeless": {
+              "title": "Quedarse sin hogar",
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
+            },
+            "family_tension": {
+              "title": "Tensión familiar",
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
+            },
+            "children": {
+              "title": "La educación/servicios de usted/sus hijos",
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
+            }
+          }
+        },
+        "helped_recover": {
+          "type": "array",
+          "title": "2. ¿Qué le ayudó a recuperarse? (Marque todo lo que corresponda)",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+
+            "enum": [
+              "Medicine",
+              "Vitamins/supplements",
+              "Treatment in the hospital",
+              "Rehabilitation, including physical therapy",
+              "Oxygen",
+              "Convalescent plasma",
+              "Rest/sleep",
+              "Exercise/yoga/stretching",
+              "Eating healthy foods",
+              "Prayer",
+              "Meditation/mindfulness",
+              "Other",
+              "Don't know/Not sure",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Medicamento",
+              "Vitaminas / suplementos",
+              "Tratamiento en el hospital ",
+              "Rehabilitación, incluyendo fisioterapia",
+              "Oxígeno",
+              "Plasma de convalecientes",
+              "Descansar / Dormir",
+              "Ejercicio / yoga / estiramiento",
+              "Comer alimentos saludables",
+              "Oración",
+              "Meditación / atención plena",
+              "Otro",
+              "No lo sé / No estoy seguro",
+              "Prefiero no responder"
+            ]
+          }
+        },
+
+        "helped_recover_recommend": {
+          "type": "array",
+          "title": "3. ¿Qué recomendaría usted a otras personas para ayudarles en su recuperación? (Marque todo lo que corresponda)",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+
+            "enum": [
+              "Medicine",
+              "Vitamins/supplements",
+              "Treatment in the hospital",
+              "Rehabilitation, including physical therapy",
+              "Oxygen",
+              "Convalescent plasma",
+              "Rest/sleep",
+              "Exercise/yoga/stretching",
+              "Eating healthy foods",
+              "Prayer",
+              "Meditation/mindfulness",
+              "Other",
+              "Don't know/Not sure",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Medicamento",
+              "Vitaminas / suplementos",
+              "Tratamiento en el hospital ",
+              "Rehabilitación, incluyendo fisioterapia",
+              "Oxígeno",
+              "Plasma de convalecientes",
+              "Descansar / Dormir",
+              "Ejercicio / yoga / estiramiento",
+              "Comer alimentos saludables",
+              "Oración",
+              "Meditación / atención plena",
+              "Otro",
+              "No lo sé / No estoy seguro",
+              "Prefiero no responder"
+            ]
+          }
+        },
+
+        "hampered_recover": {
+          "type": "array",
+          "title": "4. ¿Hay algo que usted crea que hay obstruido su recuperación? (Marque todo lo que corresponda)",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Stress",
+              "Anxiety",
+              "Depression/sadness",
+              "Loneliness/isolation",
+              "Pain ",
+              "Sleeplessness",
+              "Inability to relax",
+              "Being quarantined",
+              "Having to work",
+              "Other pre-existing medical conditions",
+              "Lack of access to medical care",
+              "Lack of healthy foods",
+              "Other",
+              "Don't know/Not sure",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Estrés",
+              "Ansiedad",
+              "Depresión / tristeza",
+              "Soledad / aislamiento",
+              "Dolor",
+              "Insomnio",
+              "Inhabilidad de relajarse",
+              "Estar en cuarentena",
+              "Tener que trabajar",
+              "Otras condiciones médicas preexistentes",
+              "Falta de acceso a cuidado médico",
+              "Falta de alimentos saludables",
+              "Otro",
+              "No lo sé / No estoy seguro",
+              "Prefiero no responder"
+            ]
+          }
+        },
+
+        "contributed_exposure": {
+          "type": "array",
+          "title": "5. ¿Cuál de los siguientes cree usted que contribuyó a su exposición al virus? (Marque todo lo que corresponda)",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Someone sick in your home",
+              "Someone sick at your job ",
+              "Taking public transportation (bus, subway, train)",
+              "Taking a plane or cruise",
+              "Attending an indoor group event (party, meeting, church/temple/mosque)",
+              "Being in an indoor bar/restaurant",
+              "Being in an indoor public place with many people (store, mall, movie theater)",
+              "Lack of healthy foods",
+              "Other",
+              "Don't know/Not sure",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Alguien enfermo en su casa",
+              "Alguien enfermo en su trabajo",
+              "Tomando transporte público (bus, metro, tren)",
+              "Viajando en un avión o un crucero",
+              "Asistiendo a un evento grupal bajo techo (fiesta, reunión, iglesia / templo / mezquita)",
+              "Estando en un bar / restaurante bajo techo",
+              "Estando en un lugar público bajo techo con mucha gente (tienda, centro comercial, cine)",
+              "Falta de alimentos saludables",
+              "Otro",
+              "No lo sé / No estoy seguro",
+              "Prefiero no responder "
+            ]
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "postLab": {
+      "title": "",
+      "$ref": "#/definitions/postLab"
+    }
+  }
+}

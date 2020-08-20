@@ -1038,9 +1038,11 @@
     "job_commute": {
       "type": "object",
       "title": "",
-      "required": [
+      "required": 
+      [
         "transportation",
         "work_from_home",
+        "job_title",
         "were_healthcare_worker",
         "were_teacher_childcare",
         "were_foodservice",
@@ -1099,47 +1101,52 @@
           ]
         },
         "job_title": {
-          "type": "string",
+          "type": "array",
           "title": "20. ¿Qué tipo de trabajo tienes actualmente? (marque todo lo que corresponda)",
 
-          "enum": [
-            "Child care",
-            "Custodial worker",
-            "Education/teacher/work in school setting",
-            "Health care worker (nurse, nursing assistant, community healthcare worker, clerk, therapist, laboratory technologist, doctor)",
-            "Performing artist",
-            "Public safety (police, security guard)",
-            "Researcher in a laboratory",
-            "Sanitation engineer",
-            "Work in a factory/plant/processing center",
-            "Work in a store / shopping mall",
-            "Work in an office setting",
-            "Work in public transportation (bus driver, subway station employee)",
-            "Work in restaurant/bar",
-            "Work outdoors (farming, landscaping, construction)",
-            "Currently unemployed",
-            "Other",
-            "Prefer not to answer"
-          ],
-          "enumNames": [
-            "Cuidado de los niños",
-            "Trabajador de custodia",
-            "Educación / profesor / trabajo en el entorno escolar",
-            "Trabajador sanitario (enfermero, auxiliar de enfermería, trabajador sanitario comunitario, empleado, terapeuta, tecnólogo de laboratorio, médico)",
-            "Artista intérprete o ejecutante",
-            "Seguridad pública (policía, guardia de seguridad)",
-            "Investigador en un laboratorio",
-            "Ingeniero de saneamiento",
-            "Trabajar en una fábrica / planta / centro de procesamiento",
-            "Trabajar en una tienda / centro comercial",
-            "Trabajar en un entorno de oficina",
-            "Trabajo en transporte público (conductor de autobús, empleado de estación de metro)",
-            "Trabajo en restaurante / bar",
-            "Trabajo al aire libre (agricultura, paisajismo, construcción)",
-            "Actualmente desempleado",
-            "Otro",
-            "Prefiero no responder"
-          ]
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Child care",
+              "Custodial worker",
+              "Education/teacher/work in school setting",
+              "Health care worker (nurse, nursing assistant, community healthcare worker, clerk, therapist, laboratory technologist, doctor)",
+              "Performing artist",
+              "Public safety (police, security guard)",
+              "Researcher in a laboratory",
+              "Sanitation engineer",
+              "Work in a factory/plant/processing center",
+              "Work in a store / shopping mall",
+              "Work in an office setting",
+              "Work in public transportation (bus driver, subway station employee)",
+              "Work in restaurant/bar",
+              "Work outdoors (farming, landscaping, construction)",
+              "Currently unemployed",
+              "Other",
+              "Prefer not to answer"
+            ],
+            "enumNames": [
+              "Cuidado de los niños",
+              "Trabajador de custodia",
+              "Educación / profesor / trabajo en el entorno escolar",
+              "Trabajador sanitario (enfermero, auxiliar de enfermería, trabajador sanitario comunitario, empleado, terapeuta, tecnólogo de laboratorio, médico)",
+              "Artista intérprete o ejecutante",
+              "Seguridad pública (policía, guardia de seguridad)",
+              "Investigador en un laboratorio",
+              "Ingeniero de saneamiento",
+              "Trabajar en una fábrica / planta / centro de procesamiento",
+              "Trabajar en una tienda / centro comercial",
+              "Trabajar en un entorno de oficina",
+              "Trabajo en transporte público (conductor de autobús, empleado de estación de metro)",
+              "Trabajo en restaurante / bar",
+              "Trabajo al aire libre (agricultura, paisajismo, construcción)",
+              "Actualmente desempleado",
+              "Otro",
+              "Prefiero no responder"
+            ]
+          }
         },
         "job_title_other": {
           "type": "string",
@@ -1181,6 +1188,24 @@
           "enumNames": ["Sí", "No", "Prefiero no responder"]
         }
       }
+    },
+    "test_location": {
+      "type": "object",
+      "title": "",
+      "required": ["test_location"],
+      "properties": {
+        "test_location": {
+          "title": "Si fue invitado a hacerse una prueba de anticuerpos, ¿cuál es su preferencia de prueba?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["LAB", "HOME", "NO_TEST"],
+          "enumNames": [
+            "Vaya a un laboratorio para una prueba de anticuerpos",
+            "Reciba un kit de prueba en casa",
+            "No me interesa probar"
+          ]
+        }
+      }
     }
   },
   "type": "object",
@@ -1212,6 +1237,10 @@
     "job_commute": {
       "title": "",
       "$ref": "#/definitions/job_commute"
+    },
+    "test_location": {
+      "title": "",
+      "$ref": "#/definitions/test_location"
     }
   }
 }

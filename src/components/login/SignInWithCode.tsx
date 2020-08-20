@@ -6,6 +6,7 @@ import Alert from '@material-ui/lab/Alert/Alert'
 import Button from '@material-ui/core/Button/Button'
 import TextField from '@material-ui/core/TextField/TextField'
 import BlueSeparator from '../static/BlueSeparator'
+import { useTranslation, Trans } from 'react-i18next'
 
 type SignInWithCodeProps = {
   loggedInByPhoneFn?: Function
@@ -22,6 +23,8 @@ export const SignInWithCode: React.FunctionComponent<SignInWithCodeProps> = ({
 }: SignInWithCodeProps) => {
   const [error, setError] = useState('')
   const [code, setCode] = useState('')
+
+  const {t} = useTranslation()
 
   async function handleOnSubmit(clickEvent: React.FormEvent<HTMLElement>) {
     clickEvent.preventDefault()
@@ -61,20 +64,20 @@ export const SignInWithCode: React.FunctionComponent<SignInWithCodeProps> = ({
                 fill="black"
               />
             </svg>
-            <p className="margin-top-std">We just sent an SMS to:</p>
+            <p className="margin-top-std">{t('signIn.text1')}</p>
             <p>{phoneOrEmail}</p>
             <BlueSeparator></BlueSeparator>
           </div>
           <form onSubmit={handleOnSubmit}>
             <div className="form-group">
-              <label htmlFor="smsCode">Please enter your code:</label>
+              <label htmlFor="smsCode">{t('signIn.text2')}</label>
               <TextField
                 name="code"
                 type="code"
                 value={code}
-                placeholder="phone"
-                aria-label="phone"
-                label="Code from SMS"
+                placeholder={t('signIn.phone')}
+                aria-label={t('signIn.phone')}
+                label={t('signIn.text3')}
                 variant="outlined"
                 fullWidth
                 onChange={e => setCode(e.currentTarget.value)}
@@ -87,7 +90,7 @@ export const SignInWithCode: React.FunctionComponent<SignInWithCodeProps> = ({
               color="primary"
               fullWidth
             >
-              Log in
+              {t('common.logIn')}
             </Button>
           </form>
         </div>
@@ -107,7 +110,7 @@ export const SignInWithCode: React.FunctionComponent<SignInWithCodeProps> = ({
               fill="black"
             />
           </svg>
-          <p className="margin-top-std">We just sent link to:</p>
+          <p className="margin-top-std">{t('signIn.text4')}</p>
           <p>{phoneOrEmail}</p>
           <BlueSeparator></BlueSeparator>
         </div>
