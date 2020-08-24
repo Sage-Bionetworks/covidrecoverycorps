@@ -30,6 +30,7 @@ import Alert from '@material-ui/lab/Alert'
 import moment from 'moment'
 import _ from 'lodash'
 import TechnicalInfo from './TechicalInfo'
+import { Feature, TOGGLE_NAMES } from '../../helpers/FeatureToggle'
 
 type ResultProps = {
   testResult?: TestResult
@@ -465,7 +466,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
         </Card>
         <h2 className="text-center">{t('result.explain')}</h2>
         <Card className={classes.cardNoBg}>
-          {
+         <Feature toggleName={TOGGLE_NAMES.RESULTS_VIDEO}>
             <div className={classes.videoContainerDiv}>
               <iframe
                 src="https://player.vimeo.com/video/449347196"
@@ -476,7 +477,10 @@ export const Result: React.FunctionComponent<ResultProps> = ({
                 allowFullScreen={true}
               ></iframe>
             </div>
-          }
+            </Feature>
+            <Feature toggleName={TOGGLE_NAMES.RESULTS_VIDEO} showIfFalse>
+              <>{/*possible alternate content */}</>
+            </Feature>
           <p>
             <Trans i18nKey="result.text1">
               [translate]<strong></strong>

@@ -43,6 +43,7 @@ import Appointment from './components/static/Appointment'
 import { UserDataGroup, SessionData } from './types/types'
 import ResultDashboard from './components/result/ResultDashboard'
 import LearningHub from './components/learningHub/LearningHub'
+import { FeaturesProvider, TOGGLE_NAMES } from './helpers/FeatureToggle'
 
 export const openSansFont = [
   'Open Sans',
@@ -189,6 +190,7 @@ function renderWithWiderGridLayout(el: JSX.Element) {
   )
 }
 
+
 function App() {
   const sessionData = useSessionDataState()
   const sessionUpdateFn = useSessionDataDispatch()
@@ -223,25 +225,6 @@ function App() {
     }
   }, [token])
 
-  function PrivateRoute({ children, ...rest }: any) {
-    return (
-      <Route
-        {...rest}
-        render={({ location }) =>
-          token ? (
-            children
-          ) : (
-            <Redirect
-              to={{
-                pathname: '/login',
-                state: { from: location },
-              }}
-            />
-          )
-        }
-      />
-    )
-  }
 
   function ConsentedRoute({ children, ...rest }: any) {
     return (
@@ -336,7 +319,14 @@ function App() {
     )
   }
 
+
+const TOGGLES  = {
+  [TOGGLE_NAMES.RESULTS_VIDEO]: false,
+  [TOGGLE_NAMES.SPANISH]: false,
+}
+
   return (
+    <FeaturesProvider value={TOGGLES}>
     <ThemeProvider theme={theme}>
       <Typography component={'div'}>
         <div className={classes.root}>
@@ -510,6 +500,7 @@ function App() {
         </div>
       </Typography>
     </ThemeProvider>
+    </FeaturesProvider>
   )
 }
 

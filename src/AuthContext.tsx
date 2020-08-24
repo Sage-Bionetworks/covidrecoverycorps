@@ -88,7 +88,6 @@ function countReducer(state: SessionData, action: Action): SessionData {
 }
 
 function SessionDataProvider({ children }: SessionDataProviderProps) {
-  console.log('privide init')
   const [state, dispatch] = React.useReducer(
     countReducer,
     getSession() || initialState,
