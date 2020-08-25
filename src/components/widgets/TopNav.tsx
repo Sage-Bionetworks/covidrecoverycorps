@@ -28,6 +28,7 @@ import GlobalAlertCopy from './GlobalAlertCopy'
 import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
 import i18n from '../../i18n'
 import { useTranslation } from 'react-i18next'
+import { Feature, TOGGLE_NAMES } from '../../helpers/FeatureToggle'
 
 type TopNavProps = {
   token: string | undefined
@@ -92,8 +93,10 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
   },
   fullNavBarButton: {
-    width: '100px',
+    whiteSpace: 'nowrap',
+    minWidth: '100px',
     height: '37px',
+
     fontWeight: 'bold',
     border: '2px solid',
     '&:hover': {
@@ -249,15 +252,19 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             {t('topnav.text5')}
           </ListItem>
         </NavLink>
-        {/*
-        <ListItem button className={classes.mobileMenuItem} 
-         onClick={() => {
-            handleDrawerToggle()
-            changeLanguage()
-          }}
+
+        <Feature toggleName={TOGGLE_NAMES.SPANISH}>
+          <ListItem
+            button
+            className={classes.mobileMenuItem}
+            onClick={() => {
+              handleDrawerToggle()
+              changeLanguage()
+            }}
           >
-        {language === 'es' ? 'in English' : 'en español'}
-        </ListItem>*/}
+            {language === 'es' ? 'in English' : 'en español'}
+          </ListItem>
+        </Feature>
         <Divider className={classes.mobileMenuSeparator} />
         {props.token && sessionData.consented && (
           <NavLink
@@ -323,10 +330,11 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
   )
 
   const fullScreenNavBar = (
-    <div>
+    <div style={{ display: language === 'es' ? 'flex' : 'block' }}>
       <NavLink
         to="/home"
         className={classes.fullNavBarLink}
+        style={{ whiteSpace: 'nowrap' }}
         activeClassName={classes.fullNavBarLinkActive}
       >
         {t('topnav.text1')}
@@ -385,12 +393,15 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           {t('topnav.text7')}
         </NavLink>
       )}
-      {/*}  <a
-        className={classes.fullNavBarLink}
-        onClick={() => changeLanguage()}
-      >
-        {language === 'es' ? 'in English' : 'en español'}
-      </a>*/}
+      <Feature toggleName={TOGGLE_NAMES.SPANISH}>
+        <a
+          className={classes.fullNavBarLink}
+          style={{ whiteSpace: 'nowrap' }}
+          onClick={() => changeLanguage()}
+        >
+          {language === 'es' ? 'in English' : 'en español'}
+        </a>
+        </Feature>
 
       {props.token && (
         <NavLink
@@ -431,7 +442,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
   )
 
   return (
-    <div >
+    <div>
       <CssBaseline />
       <div className="no-print">
         <Toolbar className={classes.toolBar}>
