@@ -1195,7 +1195,7 @@
           "title": "If you were invited to get an antibody test, what is your testing preference?",
           "type": "string",
           "uniqueItems": true,
-          "enum": ["LAB", "HOME", "NO_TEST"],
+          "enum": ["lab", "home", "noTest"],
           "enumNames": [
             "Go to a lab for an antibody test ",
             "Receive an at-home test kit (available after December 2020)",

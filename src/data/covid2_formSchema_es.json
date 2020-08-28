@@ -1198,7 +1198,7 @@
           "title": "Si fue invitado a hacerse una prueba de anticuerpos, ¿cuál es su preferencia de prueba?",
           "type": "string",
           "uniqueItems": true,
-          "enum": ["LAB", "HOME", "NO_TEST"],
+          "enum": ["lab", "home", "noTest"],
           "enumNames": [
             "Vaya a un laboratorio para una prueba de anticuerpos",
             "Reciba un kit de prueba en casa",
