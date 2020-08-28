@@ -39,14 +39,12 @@ export type LoginProps = OwnLoginProps & RouteComponentProps
 type LoginPostData = {
   appId: string
   email: string
-  password?: string
-  token?: string
+  token: string
 }
 
 const EMAIL_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/email'
 const PHONE_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/phone'
 const EMAIL_SIGN_IN_ENDPOINT = '/v3/auth/email/signIn'
-const PASSWORD_SIGN_IN_ENDPOINT = '/v3/auth/signIn'
 
 export const Login: React.FunctionComponent<LoginProps> = ({
   searchParams,
@@ -101,9 +99,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
       setIsLoading(true)
 
       try {
-        const endpoint = `${ENDPOINT}${
-          postData.password ? PASSWORD_SIGN_IN_ENDPOINT : EMAIL_SIGN_IN_ENDPOINT
-        }`
+        const endpoint = `${ENDPOINT}${EMAIL_SIGN_IN_ENDPOINT}`
         setError('')
         setIsLoading(true)
         const loggedIn = await callEndpoint<LoggedInUserData>(
@@ -125,27 +121,13 @@ export const Login: React.FunctionComponent<LoginProps> = ({
     } else {
       if (searchParams?.email) {
         const email = decodeURIComponent(searchParams.email)
-        const token = searchParams.token
-          ? decodeURIComponent(searchParams.token)
-          : undefined
-        const password = searchParams.password
-          ? decodeURIComponent(searchParams.password)
-          : undefined
-
+        const token = decodeURIComponent(searchParams.token)
+       
         let postData: LoginPostData = {
           appId: APP_ID,
-          email: email,
+          email,
+          token
         }
-        if (token) {
-          // signInWithEmail(email, token)
-          postData = { ...postData, token }
-        }
-
-        if (password) {
-          //signInWithPassword(email, password)
-          postData = { ...postData, password }
-        }
-
         signIn(postData)
       }
     }

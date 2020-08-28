@@ -44,6 +44,7 @@ import { UserDataGroup, SessionData } from './types/types'
 import ResultDashboard from './components/result/ResultDashboard'
 import LearningHub from './components/learningHub/LearningHub'
 import { FeaturesProvider, TOGGLE_NAMES } from './helpers/FeatureToggle'
+import LoginPassword from './components/login/LoginPassword'
 
 export const openSansFont = [
   'Open Sans',
@@ -361,6 +362,15 @@ function App() {
                           />,
                         )
                       }}
+                    ></Route>
+                    <Route
+                      exact={true}
+                      path="/loginPassword"
+                      render={props =>
+                        renderWithGridLayout(
+                          <LoginPassword {...props} key={Math.random()} />,
+                        )
+                      }
                     ></Route>
                     <Route
                       path="/eligibility"
