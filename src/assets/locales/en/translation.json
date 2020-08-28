@@ -197,7 +197,6 @@
       "text5": "COVID-19 is also a risk to public health. <1> Thus we may have to give out your data if public health authorities demand it. </1>",
       "text5a": "If you are invited to provide a biosample to the lab, the lab will need you to provide <1>the name and address of your employer</1>. This is a New York State requirement. This information (employer’s name and address) <1>will not be sent or stored by the Covid Recovery Corps study<1/>.",
       "text5b": "We <1>cannot control</1> any of the information you provide <1>directly to the lab</1> if you are tested for COVID.",
-
       "text6": "If you give a <1>blood sample</1>, the most common risks are <1>brief pain and bruising</1>. Some people may become dizzy or feel faint. There is also a small risk of infection.",
       "text7": "If you are asked to provide a sample from a <1> nose  or fecal swab </1>you may feel <1> brief discomfort</1>."
     },
@@ -242,7 +241,6 @@
       "text4": "To protect your data, we will use a code to identify your data and samples rather than your name name or other personal information. This code cannot be used to directly identify you. This coded data is known as de-identified data.Only key people from our study team can link your identity to your study.",
       "text5": "Access to this database will be controlled. Researchers will have to be approved by COVID Recovery Corps and will use only de-identified or coded data."
     },
-
     "screen8": {
       "text1": "Sharing your data with future researchers",
       "text2": "You will have the <1> opportunity to share your data with qualified researchers </1> outside of the COVID Recovery Corps.",
@@ -357,7 +355,6 @@
     "textConsent": "We just sent you a copy of your study consent.",
     "textEHR": "We just sent you a copy of your HIPAA Authorization."
   },
-
   "contact": {
     "title": "Contact Us",
     "text1": "For information about participating and questions related to the study, visit the <1>FAQ</1> section of the site. If you have additional questions, please send us a message.",
@@ -414,7 +411,6 @@
     "join": "Join Us",
     "text1": "For questions, comments, or requests regarding the privacy policy or our processing of your information, please contact: <1> privacypolicy@sagebionetworks.org. </1>"
   },
-
   "globalAlert": {
     "withdrawn": "<0>We are sorry to see you go!</0><1></1><2>You are now withdrawn from the COVID Recovery Corps Study.</2>",
     "cancelledConsent": "You will need to complete the consent process before you can join the study.",
@@ -467,7 +463,6 @@
     "text22": "I have a question that isn't answered in this FAQ. Who do I contact?",
     "text23": "You can call <1>212-305-5700</1> or email <3>COVIDRecoveryCorps@cumc.columbia.edu</3>."
   },
-
   "home": {
     "title": "A community-powered movement to understand COVID-19 across NYC.",
     "text1": "If you live in the New York City metro area and have recovered from COVID-19 - or think you have - join our research study to better understand the long-term effects from this disease.",
@@ -489,7 +484,6 @@
     "text17": "If you are asked to provide a sample, we will test the sample for antibodies related to COVID-19 infection, using an antibody test approved by the New York State Department of Health. We will share your test results with you, along with information about what those results may mean. As we learn more about the impact of COVID-19 across study participants, we will share regular updates with the broader scientific and patient community. We may also ask if you are interested in joining other related studies. For instance, some participants may choose to be notified of opportunities to donate plasma and help those still fighting for survival from COVID-19.",
     "text18": "Together, we can fight COVID-19."
   },
-
   "ineligible": {
     "text1": "Thank you for your interest",
     "text2": "You have successfully joined the mailing list. We will notify you in the coming months if the program expands into your area.",
@@ -508,7 +502,6 @@
     "nav3": "What COVID-19 positive people can do now.",
     "nav4": "What COVID-19 negative people can do now.",
     "nav5": "FAQ about serology results",
-
     "lh0": {
       "title": "What we know so far about COVID-19",
       "text1": "<0> COVID-19 is a new infectious disease, caused by the SARS-CoV-2 virus (a Corona virus). It first occurred at the end of 2019 in China and has since spread across the globe. </0> <1> For the most part COVID-19 is an airborne disease, which means that it is spread from one person to another through droplets from an infected person when they exhale, talk, sing, sneeze or cough. </1> <2> This is why wearing face masks, washing your hands, and keeping a social distance of 6 feet (or 2 meters) significantly reduces the chances of spreading the virus. </2>",
@@ -569,7 +562,7 @@
     "text17": "Although you may access the website from a location outside of the United States, the website is primarily operated and managed within the United States. When we transfer information and data, we will protect the information and data as described in this Privacy Policy.",
     "text18": "How to Contact Us ",
     "text19": "<0> Sage Bionetworks is the controller of your information when it is collected and processed in the context of our sites and services. Our Data Protection Officer (DPO) is responsible for overseeing what we do with your information and ensuring we comply with applicable data protection laws. Our Data Protection Officer may be contacted by emailing  <1> privacyofficer@sagebionetworks.org </1> or by writing to: </0> <1> <0>Sage Bionetworks</0> <1 /> Attention: Data Protection Officer <3 /> 2901 Third Avenue, Suite 330, <5 /> Seattle, WA 98121 <7 /> United States of America <9 /> <10 /> </1>",
-    "text20": " Updates",
+    "text20": "Updates",
     "text21": "We may update our Privacy Policy from time to time to clarify how we collect, process, store, use and disclose information. We want to be as transparent as possible about the changes we make to our Privacy Policy.",
     "text22": "COVID Recovery Corps. Appendix C_V2.0. 17.June.2020"
   },
@@ -613,14 +606,6 @@
     "inviteCTA": "Invite a Friend to Join the Study",
     "thankYou": "Thank you for your help!"
   },
-  "resultTechInfo": {
-    "title": "Tehnical information about the test",
-    "p1": "This test is intended to detect the development of antibodies to SARS-CoV-2, the virus that causes COVID-19. It should not be used to diagnose an active infection of COVID-19. For individuals who currently have symptoms consistent with COVID-19, your doctor may choose to order a test to rule out current infection.",
-    "subhead1": "Intended Uses",
-    "text1": "<0>This is a new blood test that measures antibodies against SARS-CoV-2, the virus that causes COVID-19. The antibodies are made by the body as part of the immune response against SARS-CoV-2. Both IgM and IgG are measured.</0><1> This test provides results that will be provided as positive (antibodies detected), negative (antibodies not detected) or indeterminant.</1>",
-    "subhead2": "Limitations",
-    "text2": "<0>This test has not been reviewed by the FDA. It is a laboratory-developed test offered in the Clinical Laboratories at NewYork-Presbyterian Hospital-Columbia University Irving Medical Center (PFI 5310). </0><1>Results from this antibody test should not be used as the sole basis to diagnose or exclude SARS-CoV-2 infection or exposure.</1>"
-  },
   "resultNext": {
     "title": "What COVID-19 positive people can do now.",
     "subtitle1": "2 min post lab follow up",
@@ -629,15 +614,21 @@
     "text2": "Because the virus is new, we are not sure yet what the long-term consequences of being infected are. We are going to ask participants like you to answer quick questions approximately 5 times over the next year. It will be important to hear how you are doing, even if you are completely recovered from COVID-19, to better understand the ways in which the virus affects the body and if any complications have occured.",
     "surveyCTA": "Take post-lab survey"
   },
+  "resultTechInfo": {
+    "title": "Technical information about the test",
+    "p1": "This test is intended to detect the development of antibodies to SARS-CoV-2, the virus that causes COVID-19. It should not be used to diagnose an active infection of COVID-19. For individuals who currently have symptoms consistent with COVID-19, your doctor may choose to order a test to rule out current infection.",
+    "subhead1": "Intended Uses",
+    "text1": "<0>This is a new blood test that measures antibodies against SARS-CoV-2, the virus that causes COVID-19. The antibodies are made by the body as part of the immune response against SARS-CoV-2. Both IgM and IgG are measured.</0><1> This test provides results that will be provided as positive (antibodies detected), negative (antibodies not detected) or indeterminant.</1>",
+    "subhead2": "Limitations",
+    "text2": "<0>This test has not been reviewed by the FDA. It is a laboratory-developed test offered in the Clinical Laboratories at NewYork-Presbyterian Hospital-Columbia University Irving Medical Center (PFI 5310). </0><1>Results from this antibody test should not be used as the sole basis to diagnose or exclude SARS-CoV-2 infection or exposure.</1>"
+  },
   "signIn": {
     "text1": "We just sent an SMS to: ",
     "text2": "Please enter your code: ",
     "text3": "Code from SMS",
-    "phone": "phone", 
+    "phone": "phone",
     "text4": "We just sent link to: "
-
   },
-
   "surveys": {
     "saveProgress": "Save progress",
     "submitted": "Your information has been submitted",
@@ -651,10 +642,8 @@
       "invalidAddress": "Sorry, the {{invalidField}} entered does not correspond to a valid mailing address. Did you mean '{{suggestedValue}}'?"
     },
     "done": {
-  
       "thanks": "Thank you for submitting your survey!",
       "toDashboard": "Return to dashboard"
-
     },
     "errors": {
       "required": "is a required field",
@@ -688,7 +677,6 @@
       "concern4": "Extremely concerned"
     }
   },
-
   "team": {
     "title": "The COVID Recovery Corps is a citizen-powered research study that aims to accelerate progress in the global fight against COVID-19.",
     "text1": "Study Leadership",
