@@ -16,6 +16,7 @@ export interface MailChimpFormFields extends EmailFormFields {
 export type EmailSigninParams = {
   email: string
   token: string
+  password?: string
 }
 
 export type IneligibilityReason = 'LOCATION' | 'NONE'

@@ -25,53 +25,70 @@ import {
   CardContent,
   CircularProgress,
 } from '@material-ui/core'
-import { UserService } from '../../services/user.service'
+
 import { useTranslation } from 'react-i18next'
+import { useSessionDataDispatch, useSessionDataState } from '../../AuthContext'
 
 export interface OwnLoginProps {
   redirectUrl?: string // will redirect here after a successful login. if unset, reload the current page url.
-  callbackFn: Function // Callback is invoked after login
-  email?: string
-  token?: string
   searchParams?: EmailSigninParams
 }
 
 export type LoginProps = OwnLoginProps & RouteComponentProps
 
+type LoginPostData = {
+  appId: string
+  email: string
+  password?: string
+  token?: string
+}
+
 const EMAIL_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/email'
 const PHONE_SIGN_IN_TRIGGER_ENDPOINT = '/v3/auth/phone'
 const EMAIL_SIGN_IN_ENDPOINT = '/v3/auth/email/signIn'
+const PASSWORD_SIGN_IN_ENDPOINT = '/v3/auth/signIn'
 
 export const Login: React.FunctionComponent<LoginProps> = ({
   searchParams,
-  callbackFn,
   history,
 }: LoginProps) => {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-
   const [error, setError] = useState('')
   const [isLinkSent, setIsLinkSent] = useState(false)
   const [loginType, setLoginType] = useState<LoginType>('EMAIL')
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
 
   const { t } = useTranslation()
+
+  const sessionData = useSessionDataState()
+  const sessionUpdateFn = useSessionDataDispatch()
+
   //detect if they are bck on the page
+
+  const redirect = (isConsented: boolean) => {
+    if (isConsented) {
+      history.push('/dashboard')
+    } else {
+      history.push('/consent')
+    }
+  }
 
   const handleLoggedIn = async (loggedIn: Response<LoggedInUserData>) => {
     const consented = loggedIn.status !== 412
     if (loggedIn.ok || !consented) {
-      callbackFn(
-        loggedIn.data.sessionToken,
-        loggedIn.data.firstName,
-        loggedIn.data.consented,
-        loggedIn.data.dataGroups,
-      )
-      if (consented) {
-        history.push('/dashboard')
-      } else {
-        history.push('/consent')
-      }
+      console.log('handleLogin')
+      sessionUpdateFn({
+        type: 'LOGIN',
+        payload: {
+          ...sessionData,
+          token: loggedIn.data.sessionToken,
+          name: loggedIn.data.firstName,
+          consented: loggedIn.data.consented,
+          userDataGroup: loggedIn.data.dataGroups,
+        },
+      })
+      redirect(loggedIn.data.consented)
     } else {
       setError('Error ' + loggedIn.status)
     }
@@ -79,17 +96,18 @@ export const Login: React.FunctionComponent<LoginProps> = ({
 
   React.useEffect(() => {
     let isSubscribed = true
-    const signInWithEmail = async (email: string, token: string) => {
+
+    const signIn = async (postData: LoginPostData) => {
       setIsLoading(true)
-      const postData = {
-        appId: APP_ID,
-        email: email,
-        token: token,
-      }
+
       try {
+        const endpoint = `${ENDPOINT}${
+          postData.password ? PASSWORD_SIGN_IN_ENDPOINT : EMAIL_SIGN_IN_ENDPOINT
+        }`
         setError('')
+        setIsLoading(true)
         const loggedIn = await callEndpoint<LoggedInUserData>(
-          `${ENDPOINT}${EMAIL_SIGN_IN_ENDPOINT}`,
+          endpoint,
           'POST',
           postData,
         )
@@ -102,13 +120,34 @@ export const Login: React.FunctionComponent<LoginProps> = ({
         setIsLoading(false)
       }
     }
-
-    if (searchParams?.email) {
-      const email = decodeURIComponent(searchParams.email)
-      const token = decodeURIComponent(searchParams.token)
-      signInWithEmail(email, token)
+    if (sessionData.token) {
+      redirect(sessionData.consented || false)
     } else {
-      setIsLoading(false)
+      if (searchParams?.email) {
+        const email = decodeURIComponent(searchParams.email)
+        const token = searchParams.token
+          ? decodeURIComponent(searchParams.token)
+          : undefined
+        const password = searchParams.password
+          ? decodeURIComponent(searchParams.password)
+          : undefined
+
+        let postData: LoginPostData = {
+          appId: APP_ID,
+          email: email,
+        }
+        if (token) {
+          // signInWithEmail(email, token)
+          postData = { ...postData, token }
+        }
+
+        if (password) {
+          //signInWithPassword(email, password)
+          postData = { ...postData, password }
+        }
+
+        signIn(postData)
+      }
     }
     return () => {
       isSubscribed = false
