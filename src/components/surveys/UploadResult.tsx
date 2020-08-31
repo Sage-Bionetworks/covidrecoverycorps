@@ -352,7 +352,7 @@ export const UploadResult: React.FunctionComponent<{
         {getCancelButton(t('uploadResult.text3'), async () => {
           await SurveyService.completeSaveAndPostSurvey(
             'RESULT_UPLOAD',
-            { fileNames: []},
+            { fileNames: [] },
             token,
           )
           setIsBackToDashboard(true)
