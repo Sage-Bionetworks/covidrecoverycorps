@@ -225,6 +225,27 @@ function App() {
     }
   }, [token])
 
+
+  function PrivateRoute({ children, ...rest }: any) {
+    return (
+      <Route
+        {...rest}
+        render={({ location }) =>
+          token ? (
+            children
+          ) : (
+            <Redirect
+              to={{
+                pathname: '/login',
+                state: { from: location },
+              }}
+            />
+          )
+        }
+      />
+    )
+  }
+
   function ConsentedRoute({ children, ...rest }: any) {
     return (
       <Route
@@ -394,15 +415,13 @@ function App() {
                     <ConsentedRoute exact={true} path="/dashboard">
                       {getDashboardPage(sessionData)}
                     </ConsentedRoute>
-                    {/*todo make private */}
-                    <Route exact={true} path="/consent">
+               
+                    <PrivateRoute exact={true} path="/consent">
                       {renderWithGridLayout(<Consent token={token || ''} />)}
-                    </Route>
-                    {/*todo make private */}
-                    <Route exact={true} path="/consentehr">
+                    </PrivateRoute>
+                    <PrivateRoute exact={true} path="/consentehr">
                       {renderWithGridLayout(<ConsentEHR token={token || ''} />)}
-                    </Route>
-                    {/*todo make private */}
+                    </PrivateRoute>
                     <ConsentedRoute exact={true} path="/contactinfo">
                       {renderWithGridLayout(
                         <SurveyWrapper
