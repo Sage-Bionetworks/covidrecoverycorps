@@ -412,86 +412,15 @@ function App() {
                         )
                       }}
                     ></Route>
-
                     <ConsentedRoute exact={true} path="/dashboard">
                       {getDashboardPage(sessionData)}
                     </ConsentedRoute>
-               
+                    {/*todo make private */}
                     <PrivateRoute exact={true} path="/consent">
                       {renderWithGridLayout(<Consent token={token || ''} />)}
                     </PrivateRoute>
+                    {/*todo make private */}
                     <PrivateRoute exact={true} path="/consentehr">
-                      {renderWithGridLayout(<ConsentEHR token={token || ''} />)}
-                    </PrivateRoute>
-                    <ConsentedRoute exact={true} path="/contactinfo">
-                      {renderWithGridLayout(
-                        <SurveyWrapper
-                          formTitle="Tell us about yourself"
-                          token={token || ''}
-                          surveyName={'CONTACT'}
-                          formClass="crc"
-                        ></SurveyWrapper>,
-                      )}
-                    </ConsentedRoute>
-                    <ConsentedRoute exact={true} path="/survey1">
-                      {renderWithGridLayout(
-                        <SurveyWrapper
-                          formTitle="Tell us about yourself"
-                          token={token || ''}
-                          surveyName={'DEMOGRAPHIC'}
-                          formClass="crc"
-                        ></SurveyWrapper>,
-                      )}
-                    </ConsentedRoute>
-                    <ConsentedRoute exact={true} path="/survey2">
-                      {renderWithGridLayout(
-                        <SurveyWrapper
-                          formTitle="Your COVID experience"
-                          token={token || ''}
-                          surveyName={'COVID_EXPERIENCE'}
-                          formClass="crc"
-                        ></SurveyWrapper>,
-                      )}
-                    </ConsentedRoute>
-                    <ConsentedRoute exact={true} path="/survey3">
-                      {renderWithGridLayout(
-                        <SurveyWrapper
-                          formTitle="Health History"
-                          token={token || ''}
-                          surveyName={'HISTORY'}
-                          formClass="crc"
-                        ></SurveyWrapper>,
-                      )}
-                    </ConsentedRoute>
-                    <ConsentedRoute exact={true} path="/survey4">
-                      {renderWithGridLayout(
-                        <SurveyWrapper
-                          formTitle="COVID Part II"
-                          token={token || ''}
-                          surveyName={'MORE'}
-                          formClass="crc"
-                        ></SurveyWrapper>,
-                      )}
-                    </ConsentedRoute>
-                    <ConsentedRoute exact={true} path="/appointment">
-                      {renderWithGridLayout(
-                        <Appointment token={token || ''} />,
-                      )}
-                    </ConsentedRoute>
-                    <ConsentedRoute exact={true} path="/result">
-                      {renderWithWiderGridLayout(
-                        <ResultDashboard token={token || ''} />,
-                      )}
-                    </ConsentedRoute>
-                    <ConsentedRoute exact={true} path="/dashboard">
-                      {getDashboardPage(sessionData)}
-                    </ConsentedRoute>
-                    {/*todo make private */}
-                    <Route exact={true} path="/consent">
-                      {renderWithGridLayout(<Consent token={token || ''} />)}
-                    </Route>
-                    {/*todo make private */}
-                    <Route exact={true} path="/consentehr">
                       {renderWithGridLayout(<ConsentEHR token={token || ''} />)}
                     </Route>
                     {/*todo make private */}
