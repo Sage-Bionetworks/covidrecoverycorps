@@ -342,6 +342,7 @@ function App() {
   const TOGGLES = {
     [TOGGLE_NAMES.RESULTS_VIDEO]: false,
     [TOGGLE_NAMES.SPANISH]: false,
+    [TOGGLE_NAMES.RESULTS_UPLOAD]: false,
   }
 
   return (

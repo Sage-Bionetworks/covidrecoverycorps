@@ -1,11 +1,12 @@
 import React, { FunctionComponent, createContext, useContext } from 'react'
 import { getSearchParams } from './utility'
 
-export type ToggleKeys = 'RESULTS_VIDEO' | 'SPANISH'
+export type ToggleKeys = 'RESULTS_VIDEO' | 'SPANISH' | 'RESULTS_UPLOAD'
 
 export const TOGGLE_NAMES: { [key in ToggleKeys]: string } = {
   RESULTS_VIDEO: 'resultsVideo',
   SPANISH: 'spanish',
+  RESULTS_UPLOAD: 'resultsUpload'
 }
 
 type flags = {
@@ -18,7 +19,7 @@ type FeatureToggleProps = {
   children: React.ReactNode
 }
 
-const FeaturesContext = createContext<flags | undefined>(undefined)
+export const FeaturesContext = createContext<flags | undefined>(undefined)
 
 export const FeaturesProvider = FeaturesContext.Provider
 
