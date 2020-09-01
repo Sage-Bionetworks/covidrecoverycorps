@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router'
 import { useSessionDataDispatch } from '../../AuthContext'
 import { makeStyles, Button } from '@material-ui/core'
+import { useTranslation, Trans } from 'react-i18next'
 
 const useStyles = makeStyles(theme => ({
   fullNavBarButton: {
@@ -25,6 +26,7 @@ export const Logout: React.FunctionComponent<LogoutProps> = ({
 }: LogoutProps) => {
   const [navigate, setNavigate] = useState(false)
   const classes = useStyles()
+  const {t} = useTranslation()
   const sessionUpdateFn = useSessionDataDispatch()
   const logout = () => {
     sessionUpdateFn({ type: 'LOGOUT' })
@@ -40,9 +42,10 @@ export const Logout: React.FunctionComponent<LogoutProps> = ({
         color="primary"
         variant="outlined"
         className={classes.fullNavBarButton}
+        style={{lineHeight: '100%'}}
         onClick={logout}
       >
-        Log out
+        {t("common.logOut")}
       </Button>
     )
   }

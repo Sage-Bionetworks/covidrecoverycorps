@@ -45,6 +45,7 @@ import ResultDashboard from './components/result/ResultDashboard'
 import LearningHub from './components/learningHub/LearningHub'
 import { FeaturesProvider, TOGGLE_NAMES } from './helpers/FeatureToggle'
 import LoginPassword from './components/login/LoginPassword'
+import UploadResult from './components/surveys/UploadResult'
 
 export const openSansFont = [
   'Open Sans',
@@ -224,6 +225,27 @@ function App() {
     }
   }, [token])
 
+
+  function PrivateRoute({ children, ...rest }: any) {
+    return (
+      <Route
+        {...rest}
+        render={({ location }) =>
+          token ? (
+            children
+          ) : (
+            <Redirect
+              to={{
+                pathname: '/login',
+                state: { from: location },
+              }}
+            />
+          )
+        }
+      />
+    )
+  }
+
   function ConsentedRoute({ children, ...rest }: any) {
     return (
       <Route
@@ -320,6 +342,7 @@ function App() {
   const TOGGLES = {
     [TOGGLE_NAMES.RESULTS_VIDEO]: false,
     [TOGGLE_NAMES.SPANISH]: false,
+    [TOGGLE_NAMES.RESULTS_UPLOAD]: false,
   }
 
   return (
@@ -389,18 +412,17 @@ function App() {
                         )
                       }}
                     ></Route>
-
                     <ConsentedRoute exact={true} path="/dashboard">
                       {getDashboardPage(sessionData)}
                     </ConsentedRoute>
                     {/*todo make private */}
-                    <Route exact={true} path="/consent">
+                    <PrivateRoute exact={true} path="/consent">
                       {renderWithGridLayout(<Consent token={token || ''} />)}
-                    </Route>
+                    </PrivateRoute>
                     {/*todo make private */}
-                    <Route exact={true} path="/consentehr">
+                    <PrivateRoute exact={true} path="/consentehr">
                       {renderWithGridLayout(<ConsentEHR token={token || ''} />)}
-                    </Route>
+                    </PrivateRoute>
                     {/*todo make private */}
                     <ConsentedRoute exact={true} path="/contactinfo">
                       {renderWithGridLayout(
@@ -450,6 +472,11 @@ function App() {
                           surveyName={'MORE'}
                           formClass="crc"
                         ></SurveyWrapper>,
+                      )}
+                    </ConsentedRoute>
+                    <ConsentedRoute exact={true} path="/resultupload">
+                      {renderWithGridLayout(
+                        <UploadResult token={token || ''}></UploadResult>,
                       )}
                     </ConsentedRoute>
                     <ConsentedRoute exact={true} path="/appointment">

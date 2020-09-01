@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 
 import saveProgressIconImg from '../../assets/dashboard/icon_savedprogress.svg'
 import clockIconImg from '../../assets/dashboard/icon_timer.svg'
@@ -24,6 +24,11 @@ import Intro from './Intro'
 import TestLocationSurvey from '../surveys/TestLocationSurvey'
 import i18next from 'i18next'
 import { Trans, useTranslation } from 'react-i18next'
+import {
+  Feature,
+  TOGGLE_NAMES,
+  FeaturesContext,
+} from '../../helpers/FeatureToggle'
 
 type DashboardProps = {
   token: string
@@ -61,6 +66,10 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   const classes = useStyles()
   const { t } = useTranslation()
 
+  const featureFlags = useContext(FeaturesContext)
+  const hasResultsUploadToggle =
+    featureFlags && featureFlags[TOGGLE_NAMES.RESULTS_UPLOAD] !== false
+
   const surveys: UISurvey[] = [
     {
       type: 'CONTACT',
@@ -82,6 +91,13 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       description: i18next.t('dashboard.text6'),
       time: '5',
       link: '/survey2',
+    },
+    {
+      type: 'RESULT_UPLOAD',
+      title: i18next.t('dashboard.text61'),
+      description: i18next.t('dashboard.text62'),
+      time: '1-2',
+      link: '/resultupload',
     },
     {
       type: 'HISTORY',
@@ -158,10 +174,13 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   }
 
   const getPreferredTestLocation = (): TestLocationEnum | undefined => {
-    const locationFromLocationSurvey = getSavedSurvey('TEST_LOCATION')?.data.location    
-    const locationFromCovidSurvey = _.get(getSavedSurvey('MORE'), 'data.test_location.test_location')
+    const locationFromLocationSurvey = getSavedSurvey('TEST_LOCATION')?.data
+      .location
+    const locationFromCovidSurvey = _.get(
+      getSavedSurvey('MORE'),
+      'data.test_location.test_location',
+    )
     return locationFromCovidSurvey || locationFromLocationSurvey
-
   }
 
   const isDone = (surveyType: SurveyType): boolean => {
@@ -244,6 +263,11 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       }
     }
 
+    // see if we need uploadResults Survey
+    if (!hasResultsUploadToggle) {
+      surveys.splice(3, 1)
+    }
+
     const items = surveys.map((survey: UISurvey, index) => (
       <li className={getClassNameForSurveyItem(survey.type)} key={survey.title}>
         <div className="item">{renderSurveyInfo(survey)}</div>
@@ -265,7 +289,9 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       completedSurveyNames.includes('DEMOGRAPHIC') &&
       completedSurveyNames.includes('COVID_EXPERIENCE') &&
       completedSurveyNames.includes('HISTORY') &&
-      completedSurveyNames.includes('MORE')
+      completedSurveyNames.includes('MORE') &&
+      (completedSurveyNames.includes('RESULT_UPLOAD') ||
+        !hasResultsUploadToggle)
 
     if (doneAll) {
       return SurveysCompletionStatusEnum.ALL_DONE
@@ -299,17 +325,16 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         )}
 
         <Card className={classes.root}>
-         
-            <Intro
-              testLocation={
-                testLocationSurveySubmitted || getPreferredTestLocation()
-              }
-              isInvitedForTest={hasInvitation(userInfo)}
-              completionStatus={getCompletionStatus()}
-              hasCancelledAppointment={hasCancelledAppointment(userInfo)}
-              emailAddress={userInfo?.email || ''}
-            />
-      
+          <Intro
+            testLocation={
+              testLocationSurveySubmitted || getPreferredTestLocation()
+            }
+            isInvitedForTest={hasInvitation(userInfo)}
+            completionStatus={getCompletionStatus()}
+            hasCancelledAppointment={hasCancelledAppointment(userInfo)}
+            emailAddress={userInfo?.email || ''}
+          />
+
           {
             //if they fininshed  surveys and didn't pick location
             !getPreferredTestLocation() &&

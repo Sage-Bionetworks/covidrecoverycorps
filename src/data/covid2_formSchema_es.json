@@ -1001,9 +1001,9 @@
             "Hace un día",
             "Hace una semana",
             "Hace un mes",
-            " Hace más de un mes",
+            "Hace más de un mes",
             "No me acuerdo",
-            " Yo no acaricie a un animal domesticados",
+            "Yo no acaricie a un animal domesticados",
             "Prefiero no responder"
           ]
         },
@@ -1023,9 +1023,9 @@
               "Prefer not to answer"
             ],
             "enumNames": [
-              " Fui a la tienda o al mercado",
+              "Fui a la tienda o al mercado",
               "Servicio a domicilio",
-              " Recoger en tienda",
+              "Recoger en tienda",
               "Tuvo un cuidador o familiar para compras de sus comestibles",
               "No visité la tienda",
               "Prefiero no responder"

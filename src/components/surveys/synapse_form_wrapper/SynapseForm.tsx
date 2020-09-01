@@ -694,13 +694,13 @@ export default class SynapseForm extends React.Component<
 
   private renderNotification = (status?: StatusEnum): JSX.Element => {
     if (status === StatusEnum.SAVE_SUCCESS) {
-      return <div className="notification-area"> Successfully saved </div>
+      return <div className="notification-area">{i18next.t("surveys.saved")}</div>
     }
     if (status === StatusEnum.SUBMIT_SUCCESS) {
-      return <div className="notification-area"> Successfully submitted </div>
+      return <div className="notification-area">{i18next.t("surveys.submitted")} </div>
     }
     if (status === StatusEnum.PROGRESS) {
-      return <div className="notification-area"> working on it ....</div>
+      return <div className="notification-area">{i18next.t("surveys.working")}</div>
     }
     return <></>
   }

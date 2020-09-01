@@ -14,7 +14,8 @@ export const UserService = {
   updateUserAttributes,
   updateUserData,
   getAppointments,
-  getTestResult,
+  getTestResult
+  
 }
 
 async function getUserInfo(token: string): Promise<Response<LoggedInUserData>> {
