@@ -422,7 +422,7 @@ function App() {
                     {/*todo make private */}
                     <PrivateRoute exact={true} path="/consentehr">
                       {renderWithGridLayout(<ConsentEHR token={token || ''} />)}
-                    </Route>
+                    </PrivateRoute>
                     {/*todo make private */}
                     <ConsentedRoute exact={true} path="/contactinfo">
                       {renderWithGridLayout(
