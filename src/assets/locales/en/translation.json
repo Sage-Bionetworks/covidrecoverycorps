@@ -13,6 +13,7 @@
     "joinStudy": "Join The Study",
     "learnMore": "Learn More",
     "logIn": "Log in",
+    "logOut": "Log Out",
     "moreInfoVisit": "For more information, please visit",
     "phone": "Phone",
     "fullName": "Full name",
@@ -638,7 +639,9 @@
   },
   "surveys": {
     "saveProgress": "Save progress",
+    "saved": "Successfully saved",
     "submitted": "Your information has been submitted",
+    "working": "working on it ....",
     "responsesRequired": "Responses required above",
     "clear": "Clear",
     "error": "Error",
