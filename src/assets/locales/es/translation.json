@@ -11,6 +11,7 @@
     "joinStudy": "Únete al Estudio",
     "learnMore": "Aprende Más",
     "logIn": "Iniciar sesión",
+    "logOut": "Cerrar sesión",
     "moreInfoVisit": "Para más información, por favor visite",
     "phone": "Teléfono",
     "fullName": "Nombre completo",
@@ -471,6 +472,7 @@
   "home": {
    "title": "Un movimiento impulsado por la comunidad para entender el COVID-19 en la ciudad de Nueva York.",
     "text1": "Si vive en el área metropolitana de la ciudad de Nueva York y se ha recuperado del COVID-19, o cree que lo ha hecho; únase a nuestro estudio de investigación para entender mejor los efectos a largo plazo de esta enfermedad.",
+    "text31": "En alianza con:",
     "text3": "Existe una necesidad urgente de entender cómo el COVID-19 afectará a las comunidades de Nueva York a lo largo del tiempo ",
     "text4": "Nuestra misión en este estudio es de entender cómo las personas se recuperan del COVID-19 y los impactos de la enfermedad a la salud, tanto hoy como en el futuro. Al compartir su experiencia de recuperación, usted puede ayudar a los investigadores a descubrir los misterios detrás esta enfermedad y proporcionar nueva información importante para usted, sus seres queridos y miles de personas afectadas por el virus.",
     "text41": "Las comunidades minoritarias han sido afectadas de manera desproporcionada por el COVID-19. Estamos comprometidos a involucrar a un grupo diverso y representativo de participantes para que la investigación pueda ayudar a los más impactados por esta enfermedad.",
@@ -565,7 +567,9 @@
 
   "surveys": {
     "saveProgress": "Guardar progreso",
+    "saved": "Exitosamente guardada",
     "submitted": "Su información ha sido enviada",
+    "working": "trabajando en ello ....",
     "responsesRequired": "Respuestas requeridas arriba ",
     "clear": "Borrar",
     "done": {
