@@ -103,7 +103,7 @@
         "inline": false,
         "exclusive": [0, 1],
         "other": [2],
-        "otherTextLabel": "Please specify:"
+        "otherTextLabel": "Por favor especificar:"
      
       }
     },
@@ -114,7 +114,7 @@
         "inline": false,
         "exclusive": [0, 1],
         "other": [2],
-        "otherTextLabel": "Please specify:"
+        "otherTextLabel": "Por favor especificar:"
       }
     },
 
@@ -125,7 +125,7 @@
         "inline": false,
         "exclusive": [0, 1],
         "other": [2],
-        "otherTextLabel": "Please specify:"
+        "otherTextLabel": "Por favor especificar:"
       }
     },
   
@@ -135,7 +135,7 @@
         "inline": false,
         "exclusive": [0, 1],
         "other": [2],
-        "otherTextLabel": "Please specify:"
+        "otherTextLabel": "Por favor especificar:"
       }
     }
   }
