@@ -84,9 +84,10 @@ function ExclusiveCheckboxesWidget(props: WidgetProps) {
     enumOptions,
     enumDisabled,
     inline,
-    exclusive,
-    other,
+    exclusive, //array of indices from the end which would essentially deselect other options
+    other, //array of indices signifying 'other' choice - when selected show the optional other field
     otherTextLabel,
+    otherMaxLength
   } = options
 
   const otherTextValue = filterOtherInputValue(value)
@@ -103,6 +104,7 @@ function ExclusiveCheckboxesWidget(props: WidgetProps) {
       <span>{otherTextLabel}</span><br/>
       <input
         type="text"
+        maxLength={otherMaxLength? parseInt(otherMaxLength.toString()): 200}
         value={textValue}
         onChange={({ target: { value: val } }) => {
           const all = (enumOptions as any).map(({ val }: any) => value)
