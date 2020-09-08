@@ -17,7 +17,7 @@
     "fullName": "Nombre completo",
     "ok": "Aprobado",
     "signUpForAccount": "Regístrese para obtener una cuenta",
-    "submit": "Mande Envié",
+    "submit": "Enviar",
     "yes": "Sí",
     "noTakeBack": "No, recíbeme de vuelta",
     "zipCode": "Código postal"
@@ -144,7 +144,7 @@
       "text3": "El objetivo del estudio es de<1> recopilar información de los participantes que han sido diagnosticados o creen que han tenido COVID-19.</1>.</0>",
       "text4": "Los investigadores utilizarán esta información para <1> comprender mejor cómo el cuerpo lucha contra COVID-19</1>.</0>",
       "text5": "Este estudio está siendo dirigido por la Universidad de Columbia y Sage Bionetworks. El estudio está siendo financiado por el Instituto Chan Zuckerberg.",
-      "text6": "Este estudio <1> durará 12 meses </1> desde el momento en que tú te inscribas.",
+      "text6": "Este estudio <1> durará 12 meses </1> desde el momento en que usted se inscriba.",
       "text7": "Este estudio <1> no proporcionará cuidado médico </1> para el COVID-19. La participación en este estudio es <1> voluntaria </1> y usted puede dejar el estudio en cualquier momento.",
       "text8": "Usted recibirá una tarjeta de regalo de $50 si completa todas las encuestas y proporciona muestras biológicas en persona o una tarjeta de regalo de $ 20 si proporciona muestras biológicas desde su casa."
     },
@@ -153,10 +153,10 @@
       "text2": "Si se une al estudio, se le pedirá que:",
       "text3": "<0> Complete las encuestas</0> sobre su experiencia con COVID-19, sobre su condición de salud pasadas y actuales y su estilo de vida.",
       "text4": "Las <1> primeras 4 encuestas </1> pueden tomar hasta <1> 30-60 minutos en total </1>. <1> Mensualmente </1>, nos comunicaremos con usted para que complete una <1> encuesta de 15 minutos </1>. ",
-      "text5": "Está bien, si usted no recuerda o no sabe la respuesta a algunas de las preguntas.",
+      "text5": "Está bien si usted no recuerda o no sabe la respuesta a algunas de las preguntas.",
       "text6": "Usted puede elegir \"Prefiero no responder\" para cualquiera de las preguntas.",
       "text7": "Podemos pedirle que proporcione lo siguiente:",
-      "text8": "A <1> Una muestra biológica </1> como sangre, orina, saliva o muestra de un hisopo nasal. Podemos comunicarnos con usted hacer cita para la extracción de sangre venosa o podemos enviarle un kit de prueba en su casa. Le proporcionaremos instrucciones y tarifa postal para enviar el kit de vuelta a nuestro laboratorio.",
+      "text8": "<1> Una muestra biológica </1> como sangre, orina, saliva o muestra de un hisopo nasal. Podemos comunicarnos con usted para hacer una cita para la extracción de sangre o podemos enviarle un kit de prueba en su casa. Le proporcionaremos instrucciones y tarifa postal para enviar el kit de vuelta a nuestro laboratorio.",
       "text9": "Si tiene un <1> resultado positivo de la prueba para COVID-19</1>, podemos pedirle que suba una imagen o una copia escaneada del documento en el sitio web del estudio. Esto es<1> opcional</1>.",
       "text10": "Acceso a su <1> historia clínica electrónica (HCE, o EHR por sus siglas en inglés)</1>. Su EHR contiene <1> información confidencial </1> sobre sus problemas de salud, resultados de exámenes, visitas al médico y medicamentos. Esto es <1> opcional </1> y usted aún puede participar en el estudio sin compartir su EHR.",
       "text11": "Si usted decide compartir su EHR con nosotros, recibirá un aviso para completar un formulario de autorización de HIPAA después de este proceso de consentimiento.",
@@ -164,13 +164,13 @@
     },
     "fullTextScreen2": {
       "text1": "¿Qué se me pedirá que haga?",
-      "text2": "Si decide unirse a COVID Recovery Corps, le pediremos que responda a las preguntas de la encuesta. Nosotros utilizaremos las respuestas que nos dé para adivinar cuándo podría haber sido infectado para decidir si o cuándo pedirle que proporcione una muestra biológica como sangre, pis, saliva, o muestra de un hisopo nasal. Puede decir que no a proporcionar estas muestras y aún participan en el estudio COVID Recovery Corps.",
-      "text3": "Si dice que sí a dar una muestra de sangre, pueda que nosotros usemos una aguja para extraer aproximadamente 3 cucharadas de sangre de su brazo. Nosotros nos vamos a contactar con usted para fijar un horario para la muestra de sangre.",
+      "text2": "Si decide unirse a COVID Recovery Corps, le pediremos que responda a las preguntas de la encuesta. Nosotros utilizaremos las respuestas que nos dé para adivinar cuándo podría haber sido infectado para decidir si o cuándo pedirle que proporcione una muestra biológica como sangre, orina, saliva, o muestra de un hisopo nasal. Puede decir que no a proporcionar estas muestras y aún participar en el estudio COVID Recovery Corps.",
+      "text3": "Si dice que sí a dar una muestra de sangre, puede que nosotros usemos una aguja para extraer aproximadamente 3 cucharadas de sangre de su brazo. Nosotros nos pondremos en contacto con usted para fijar un horario para la muestra de sangre.",
       "text4": "Algunas personas pueden recibir un kit de prueba en su casa. Estas personas pueden pincharse el dedo para proporcionar una pequeña muestra de sangre en una tarjeta. El kit también puede pedirle que proporcione una muestra usando un hisopo nasal, orinar en un recipiente o escupir en un recipiente. Le proporcionaremos instrucciones y franqueo para enviar el kit de vuelta a nuestro laboratorio.",
       "text5": "Si tiene un resultado positivo de la prueba para COVID-19, podemos pedirle que suba una imagen o una copia escaneada del documento en el sitio web del estudio. Esto es opcional y no se requiere para participar en el estudio.",
       "text6": "También le preguntaremos si desea compartir su historia clínica electrónica (EHR) con el estudio. Su historia clínica electrónica es una versión digital de su registro de salud médico (que puede incluir información como las notas de su médico de visitas, información de diagnóstico y medicamentos). Habrá un formulario separado llamado Autorización de HIPAA para que usted firme si decide darnos acceso a sus registros de salud. Si dice que sí a compartir, veremos datos sobre sus problemas de salud, resultados de exámenes, procedimientos médicos, imágenes (como rayos X) y medicamentos que toma.",
-      "text7": "Es importante recordar que los registros de salud pueden contener datos confidenciales. Por ejemplo, puede informarnos sobre su salud mental, afectos genéticos o uso de alcohol o drogas. Pueden contener dato sexual o de infección, incluido el estado del VIH. Puede decir no a compartir sus registros de salud y aun así participar en el estudio COVID Recovery Corps.",
-      "text8": "Podemos contactarlo por correo electrónico o mensaje de texto para recordarle que responda la encuesta o que le envíe instrucciones sobre cómo proporcionar una muestra biológica. Le tomará a usted entre 30 y 60 minutos completar las primeras cuatro encuestas y luego 15 minutos cada mes para responder las preguntas de la encuesta para ver cómo le está yendo. Si se le ha pedido y si ha decidido proveer una muestra, eso le tomara tiempo adicional."
+      "text7": "Es importante recordar que los registros de salud pueden contener datos confidenciales. Por ejemplo, puede informarnos sobre su salud mental, condiciones genéticas o uso de alcohol o drogas; pueden contener datos sobre sexualidad o de infecciones, incluido el estado del VIH. Puede decir no a compartir sus registros de salud y aun así participar en el estudio COVID Recovery Corps.",
+      "text8": "Podemos contactarlo por correo electrónico o mensaje de texto para recordarle que responda la encuesta o que le envíe instrucciones sobre cómo proporcionar una muestra biológica. A usted le tomará a usted entre 30 y 60 minutos completar las primeras cuatro encuestas y luego 15 minutos cada mes para responder las preguntas de la encuesta para ver cómo le está yendo. Si se le ha pedido y si ha decidido proveer una muestra, eso le tomara tiempo adicional."
     },
     "screen3": {
       "text1": "¿Qué es el propósito del COVID Recovery Corps?",
@@ -179,16 +179,16 @@
       "text4": "Este estudio es un estudio de investigación para entender cómo el cuerpo lucha con el COVID-19. El estudio no proporciona atención médica."
     },
     "screen4": {
-      "text1": "¿Que son los beneficios?",
-      "text2": "Pueda que beneficie como pueda que no beneficie en ser voluntario para este estudio de investigación. Este estudio <1> no es tratamiento médico </1>.",
-      "text3": "Si usted fue invitado a dar una muestra biológica, le daremos el resultado de su ensayo.  Estos resultados le darán a conocer si ha estado o está infectado con el COVID-19.",
-      "text4": "El beneficio principal de este estudio es ayudará a los investigadores <1> entender mejor el COVID-19 </1> y ayudar a generaciones futuras."
+      "text1": "¿Cuáles son los beneficios?",
+      "text2": "Puede que se beneficie, como puede que no se beneficie en ser voluntario para este estudio de investigación. Este estudio <1> no es un tratamiento médico </1>.",
+      "text3": "Si usted fue invitado a dar una muestra biológica, le daremos el resultado de su prueba.  Estos resultados le darán a conocer si ha estado o está infectado con el COVID-19.",
+      "text4": "El beneficio principal de este estudio es ayudar a los investigadores<1> a entender mejor el COVID-19 </1> y futuras a generaciones futuras."
     },
     "fullTextScreen4": {
-      "text1": "¿Que son los beneficios?",
+      "text1": "¿Cuáles son los beneficios?",
       "text2": "COVID Recovery Corps no es un tratamiento médico. Es un estudio de investigación. Usted no obtendrá beneficio médico directo al participar en COVID Recovery Corps. Con eso dicho, puede beneficiarse indirectamente en participar en COVID Recovery Corps. Estos resultados pueden ser interesantes para usted",
-      "text3": "Usted puede aprender sobre su salud. Esto puede incluir resultados sobre sus muestras y si ha estado o está infectado con el COVID-19. Saber sobre su estado del COVID-19 podría ser un beneficio para usted.",
-      "text4": "Usted podrá compartir su información del estudio COVID Recovery Corps con su proveedor de atención médica si lo desea. Tendrá la opción de aprender sobre oportunidades de estudio adicionales. Finalmente, estará ayudará a los investigadores y otras personas a hacer que puedan ayudarse entre sí y a las generaciones futuras."
+      "text3": "Usted puede aprender sobre su salud. Esto puede incluir resultados sobre sus muestras y si ha estado o está infectado con el COVID-19. Saber sobre su estado del COVID-19 podría ser un beneficioso para usted.",
+      "text4": "Usted podrá compartir su información del estudio COVID Recovery Corps con su proveedor de atención médica si lo desea. Tendrá la opción de aprender sobre oportunidades de estudio adicionales. Finalmente, usted ayudará a los investigadores y otras personas para que puedan ayudarse entre sí y a las futuras generaciones."
     },
     "screen5": {
       "text1": "¿Cuáles son los riesgos?",
@@ -203,7 +203,7 @@
     },
     "fullTextScreen5": {
       "text1": "¿Cuáles son los riesgos?",
-      "text2": "El principal riesgo de participar en el COVID Recovery Corps es su privacidad. Una violación de datos es cuando alguien ve o usa datos sin permiso. Si hay una violación de datos, alguien podría ver o usar los datos que tenemos sobre usted. Incluso sin su nombre, existe la posibilidad de que alguien descubra quién es usted. Ellos pudrían hacer mal uso de sus datos.",
+      "text2": "El principal riesgo de participar en el COVID Recovery Corps es su privacidad. Una violación de datos es cuando alguien ve o usa datos sin permiso. Si hay una violación de datos, alguien podría ver o usar los datos que tenemos sobre usted. Incluso sin su nombre, existe la posibilidad de que alguien descubra quién es usted. Ellos podrían hacer mal uso de sus datos.",
       "text3": "Su privacidad es muy importante para nosotros. Tendremos un gran cuidado para protegerlo. Estos son algunos de los pasos que tomaremos:",
       "text4": "Los datos que tenemos sobre usted se almacenarán en computadoras protegidas. Limitaremos y realizaremos un seguimiento de quién puede ver estos datos.",
       "text5": "Limitaremos a quién se le permite ver información que pueda identificarlo directamente, como su nombre o fecha de nacimiento.",
@@ -215,32 +215,32 @@
       "text9": "El Certificado de confidencialidad no le impide a usted ni a un miembro de su familia contarles a otros sobre usted o su participación en esta investigación. Si una aseguradora, empleador u otra persona obtiene su consentimiento por escrito para recibir información de investigación, entonces no podemos usar el Certificado para detener esa información",
       "text10": "El Certificado no se puede utilizar para resistir una demanda de información de representantes del Gobierno de los Estados Unidos que se utiliza para auditar o evaluar proyectos que son responsables de supervisar o para la información que se debe proporcionar para cumplir con los requisitos de los alimentos federales y Administración de Medicamentos (FDA)).",
       "text11": "También debe saber que este Certificado no lo protege de nuestra responsabilidad de reportar ciertas enfermedades contagiosas, sospecha de abuso infantil o peligro de daño físico o mental a las agencias o autoridades correspondientes.",
-      "text12": "Nosotros creemos que la posibilidad de esto es muy pequeña, pero no es cero.",
-      "text13": "Vamos a coleccionar datos de usted a través del sitio web de COVID Recovery Corps. Existe un riesgo a su privacidad cada vez que Utilice el sitio de web.",
+      "text12": "Creemos que la probabilidad de que esto ocurra es muy pequeña, pero no es cero.",
+      "text13": "Recolectaremos sus datos a través del sitio web de COVID Recovery Corps. Existe un riesgo a su privacidad cada vez que utilice el sitio web.",
       "text14": "Los investigadores utilizarán datos básicos como su raza, grupo étnico y género en sus estudios. Estos datos ayudan a los investigadores a aprender si las cosas que afectan la salud son las mismas para diferentes grupos de personas. Estos estudios podrían algún día ayudar a personas de la misma raza, grupo étnico o género que usted. Es importante contar con un grupo diverso de personas en COVID Recovery Corps para asegurarse de que los resultados ayudarán a todos. Sin embargo, existe el riesgo de que alguien pueda usar estos datos para respaldar ideas dañinas sobre ciertos grupos.",
-      "text15": "Si usted da muestra de sangre, los riesgos más comunes son dolor breve y moretones.  Algunas personas pueden marearse o desmayarse. También existe un pequeño riesgo de infección. Si se le pide que proporcione una muestra de un hisopo nasal o fecal usted puede sentir una breve molestia."
+      "text15": "Si usted provee una muestra de sangre, los riesgos más comunes son dolor breve y moretones.  Algunas personas pueden marearse o desmayarse. También existe un pequeño riesgo de infección. Si se le pide que proporcione una muestra de un hisopo nasal o fecal usted puede sentir una breve molestia."
     },
     "screen6": {
       "text1": "¿Cuál es el riesgo principal en este estudio?",
       "text2": "Privacidad",
       "text3": "No hay riesgo en participar en este estudio",
-      "text4": "Nosotros haremos todo lo posible para proteger su privacidad. Pero no podemos garantizar su privacidad. Es posible que las autoridades de salud pública soliciten ver los datos.",
+      "text4": "Nosotros haremos todo lo posible para proteger su privacidad, pero no podemos garantizarla. Es posible que las autoridades de salud pública soliciten ver los datos.",
       "text5": ""
     },
     "screen7": {
-      "text1": "¿Qué hará usted con mis datos y muestras?",
+      "text1": "¿Qué harán con mis datos y muestras?",
       "text2": "Utilizaremos los datos y las muestras para <1> hacer descubrimientos sobre COVID-19</1>.",
-      "text3": "Estudiaremos las diferencias en los síntomas que las personas tienen con el tiempo y por qué algunas personas respondieron de manera diferente a otras.",
-      "text4": "Para proteger sus datos, nosotros vamos <1> a usar un código para identificar sus datos </1> y muestras en lugar de su nombre u otra información personal. Este <1> código no se puede usar para identificarlo directamente </1>.",
-      "text5": "Estos datos codificados se conocen como <1> datos sin identificación </1>. Solo las personas clave de nuestro grupo en el estudio pueden vincular su identidad a los datos de su estudio.",
+      "text3": "Estudiaremos las diferencias en los síntomas que las personas tienen a través del tiempo y el porqué algunas personas respondieron de manera diferente a otras.",
+      "text4": "Para proteger sus datos, nosotros vamos <1> usaremos un código para identificar sus datos</1> y muestras en lugar de su nombre u otra información personal. Este <1> código no se puede usar para identificarlo directamente </1>.",
+      "text5": "Estos datos codificados se conocen como <1> datos sin identificación </1>. Sólo las personas clave de nuestro grupo en el estudio pueden vincular su identidad a los datos de su estudio.",
       "text6": "Sus datos y muestras serán <1> almacenados y controlados de forma segura por el estudio COVID Recovery Corps </1>. Sus datos serán almacenados en la base de datos del estudio COVID Recovery Corps y sus muestras se almacenarán en el biobanco del estudio."
     },
     "fullTextScreen7": {
-      "text1": "¿Qué hará usted con mis datos y muestras?",
+      "text1": "¿Qué harán con mis datos y muestras?",
       "text2": "Almacenaremos sus datos y muestras de forma segura, junto con los datos y muestras de todas las demás personas que participan en COVID Recovery Corps. Sus datos se almacenarán en la base de datos del COVID Recovery Corps y el Biobanco del COVID Recovery Corps se almacenará sus muestras biológicas. Utilizaremos los datos y las muestras para hacer descubrimientos sobre COVID-19. Estudiaremos las diferencias en los síntomas que las personas tienen con el tiempo y por qué algunas personas respondieron de manera diferente a otras. Estudiaremos cómo los cuerpos de diferentes personas lucharon contra el virus con su sistema inmune. También estudiaremos los cambios en la salud después de que las personas se hayan recuperado de COVID-19.",
-      "text3": "Crearemos una base de datos científicos y un biobanco para el estudio COVID Recovery Corps. La base de datos científico tendrá datos a nivel individual y el biobanco almacenará sus muestras como su sangre y pis.",
-      "text4": "Para proteger sus datos, utilizaremos un código para identificar sus datos y muestras en lugar de su nombre u otra información personal. Este código no podrá ser usado para identificarlo directamente. Estos datos codificados se conocen como datos sin identificadores. Solo las personas clave de nuestro equipo de estudio pueden vincular su identidad a su estudio.",
-      "text5": "Se controlará el acceso a esta base de datos. Los investigadores deberán ser aprobados por el COVID Recovery Corps y utilizarán solo datos sin identificadores o codificados."
+      "text3": "Crearemos una base de datos científicos y un biobanco para el estudio COVID Recovery Corps. La base de datos científica tendrá datos a nivel individual y el biobanco almacenará sus muestras como su sangre y orina.",
+      "text4": "Para proteger sus datos, utilizaremos un código para identificar sus datos y muestras en lugar de su nombre u otra información personal. Este código no podrá ser usado para identificarlo directamente. Estos datos codificados se conocen como datos sin identificadores. Sólo las personas clave de nuestro equipo de estudio pueden vincular su identidad a su estudio.",
+      "text5": "Se controlará el acceso a esta base de datos. Los investigadores deberán ser aprobados por el COVID Recovery Corps y únicamente se utilizarán datos sin identificadores o codificados."
     },
     "screen8": {
       "text1": "Compartiendo sus datos con futuros investigadores",
@@ -253,7 +253,7 @@
     },
     "fullTextScreen8": {
       "text1": "Compartiendo sus datos con futuros investigadores",
-      "text2": "Los datos sin identificadores que usted dona para el estudio COVID Recovery Corps podrían ser usado para otras investigaciones relacionadas con COVID.  Usted puede decidir si desea compartir sus datos de estudio codificados con investigadores cualificados mundialmente. Si da permiso, se compartirá sin el consentimiento informado adicional.",
+      "text2": "Los datos sin identificadores que usted dona para el estudio COVID Recovery Corps podrían ser usado para otras investigaciones relacionadas con COVID.  Usted puede decidir si desea compartir sus datos de estudio codificados con investigadores cualificados mundialmente. Si ​nos da permiso, se compartirán sin el consentimiento informado adicional.",
       "text3": "Tenemos reglas para calificar a los investigadores. Los investigadores calificados deben registrarse en Synapse, nuestra plataforma de análisis de datos. Para acceder a los datos, los investigadores calificados deben escribir una breve declaración sobre su investigación. La investigación podría ser sobre cualquier tema. La investigación podría ser sobre temas con los que no está de acuerdo o que le parecen ofensivos. Publicamos las declaraciones de los investigadores sobre Synapse para que cualquiera las lea. Ellos deben firmar un juramento para usar los datos de manera ética y no hacer daño. Los investigadores no podrán descubrir fácilmente su identidad utilizando sus datos de estudio codificados.",
       "text4": "Cualquier persona en los EE. UU o en el extranjero puede calificar para ser un investigador calificado. La persona puede ser de una institución sin fines de lucro, compañías comerciales de medicamentos o dispositivos médicos, o ser un ciudadano privado.",
       "text5": "Usted no puede recuperar sus datos una vez que se utilizan en la investigación. Sus datos no serán destruidos ni descartados. Una vez que compartimos sus datos, no hay forma de descartar o recuperarlos."
@@ -261,8 +261,8 @@
     "screen9": {
       "text1": "Yo decidí compartir mis datos ampliamente con investigadores cualificados y ahora quiero parar. ¿Qué pasa con los datos que ya he compartido?",
       "text2": "El estudio destruirá o descartará mis datos",
-      "text3": "El estudio no compartirá mis datos futuros ",
-      "text4": "Si se decide parar el compartimiento de sus datos con investigadores cualificados, no compartiremos sus datos futuros. Pero desafortunadamente no podemos recuperar los datos que ya hemos compartido con investigadores cualificados."
+      "text3": "El estudio no compartirá mis futuros datos",
+      "text4": "Si se decide parar el compartimiento de sus datos con investigadores cualificados, no compartiremos  sus futuros datos, pero desafortunadamente no podemos recuperar los datos que ya hemos compartido con investigadores cualificados."
     },
     "screen10": {
       "text1": "¿Recibiré alguna forma de compensación por la participación en el estudio?",
@@ -287,16 +287,16 @@
     },
     "screen12": {
       "text1": "Retirarse del estudio",
-      "text2": "La participación en el COVID Recovery Corps <1> voluntario </1>. Usted puede elegir unirte o no.",
-      "text3": "Independientemente de lo que decida usted, ahora o en el futuro <1> no le afectará la forma en que su médico lo trate </1>.",
+      "text2": "La participación en el COVID Recovery Corps <1>es voluntaria </1>. Usted puede elegir unirse o no.",
+      "text3": "Independientemente de lo que usted decida ahora o en el futuro, <1> no le afectará la forma en que su médico lo trate </1>.",
       "text4": "Si usted decide retirarse (abandonar) el estudio, usted puede informarnos <1> yendo al sitio web y en el sitio web, haga clic en <1> \" Retirarse del estudio \" en la sección de configuración.  Usted también puede usar nuestra información de contacto para enviarnos un correo electrónico, escribirnos o llamarnos. </1>",
       "text5": "Si usted se retira, <1> sus muestras serán destruidas </1>. Sus <1> datos ya no serán distribuidos </1>.",
       "text6": "Sin embargo, si los investigadores ya tienen sus datos o muestras para sus estudios, nosotros en COVID Recovery Corps no podemos recuperarlos."
     },
     "fullTextScreen12": {
       "text1": "Retirarse del estudio ",
-      "text2": "La participación en el COVID Recovery Corps es voluntario. Usted puede elegir unirte o no. Independientemente de lo que decida usted, ahora o en el futuro, no le afectará la forma en que su médico lo trate.",
-      "text3": "Si decide unirse al COVID Recovery Corps, usted puede cambiar de opinión en cualquier momento. Si decide que desea retirarse (dejar), usted debe informarnos. Puede informarnos yendo al sitio web y haciendo clic en la sección \"Retirarse del estudio\" en la sección de configuración de su perfil. Puede usar nuestra información de contacto para enviarnos un correo electrónico o escribirnos.",
+      "text2": "La participación en el COVID Recovery Corps es voluntaria. Usted puede elegir unirse o no. Independientemente de lo que decida usted, ahora o en el futuro, no le afectará la forma en que su médico lo trate.",
+      "text3": "Si decide unirse al COVID Recovery Corps, usted puede cambiar de opinión en cualquier momento. Si decide retirarse, usted debe informarnos. Puede informarnos yendo al sitio web y haciendo clic en la sección \"Retirarse del estudio\" en la sección de configuración de su perfil. Puede usar nuestra información de contacto para enviarnos un correo electrónico o escribirnos.",
       "text4": "Si usted se retira, sus muestras serán destruidas. Sus datos ya no serán distribuidos.",
       "text5": "Sin embargo, si los investigadores ya tienen sus datos o muestras para sus estudios, nosotros en el COVID Recovery Corps no podemos recuperarlos. Además, dejaremos que los investigadores verifiquen los resultados de estudios anteriores. Si necesitan sus datos anteriores para hacer este trabajo, se los daremos.",
       "text6": "Incluso si se retira, conservaremos su nombre e información de contacto. Conservamos esta información para poder seguir las leyes y regulaciones de investigación de los EE. UU."
@@ -306,7 +306,7 @@
       "text2": "Antes de decir sí a unirse al estudio, por favor considere lo siguiente:",
       "text3": "Usted <1> no recibirá beneficio económico </1> de esta o futuras investigaciones.",
       "text4": "Su información en el estudio <1 no será compartida con las compañías de seguros ni con su médico sin su permiso. </1>",
-      "text5": "El riesgo de lesiones es bajo en este estudio. Usted <1> Usted no será compensado por lesiones </1>.",
+      "text5": "El riesgo de lesiones es bajo en este estudio. <1> Usted no será compensado por lesiones </1>.",
       "text6": "Si se le invita a <1> proporcionar una muestra biológica al laboratorio </1>, el laboratorio necesitará que proporcione <1> el nombre y la dirección de su empleador </1>. Este es un <1> requisito del estado de Nueva York </1>.",
       "text7": "Nosotros no podemos controlar la información que usted proporciona <1> directamente al laboratorio </1> si se le realiza una prueba de COVID."
     },
@@ -315,7 +315,7 @@
       "text2": "Los investigadores usarán sus datos para hacer descubrimientos. Si alguno de sus estudios conduce a nuevas pruebas, medicamentos u otros productos comerciales, usted no obtendrá ningún beneficio. Estos inventos serán propiedad de los investigadores que los desarrollan.",
       "text3": "Mantendremos sus datos privados, e incluso si las autoridades de salud pública acceden a estos datos sobre COVID, no se pueden transferir a una compañía de seguros o a su proveedor de atención médica sin su permiso.",
       "text4": "Si se le invita a proporcionar una muestra biológica al laboratorio el laboratorio necesitará que proporcione el nombre y la dirección de su empleador. Este es un requisito del estado de Nueva York. Esta información (nombre y dirección del empleador) no será enviado ni almacenado por el estudio COVID Recovery Corps. No podemos controlar la información que usted proporciona directamente al laboratorio si se le realiza una prueba de COVID.",
-      "text4a": "Si cree que ha resultado lesionado por participar en COVID Recovery Corps, contáctenos utilizando la información al final de este formulario. Si descubrimos que resultó lesionado como resultado directo por participar en COVID Recovery Corps:",
+      "text4a": "Si cree que ha sido lesionado por participar en COVID Recovery Corps, contáctenos utilizando la información al final de este formulario. Si descubrimos que se ha lesionado como resultado directo por participar en COVID Recovery Corps:",
       "text5": "Más allá de su atención médica inmediata, no pagaremos su lesión.",
       "text6": "Si necesita atención de seguimiento para tratar su lesión, usted y / o su seguro deberán pagarla.",
       "text7": "Si tiene costos a largo plazo para tratar su lesión, usted y / o su seguro deberán pagarlos.",
@@ -337,7 +337,7 @@
       "text8": "Puedo retirarme (abandonar) en cualquier momento. No hay penalidad si me retiro.",
       "text9": "¿Le gustaría compartir los datos de su estudio con otros investigadores calificados para futuras investigaciones sobre el trabajo relacionado con COVID?",
       "text10": "Sí, comparte los datos de mi estudio con investigadores calificados para futuros trabajos relacionados con COVID.",
-      "text11": "No, solo utilice los datos de mi estudio solamente para este estudio (COVID Recovery Corps).",
+      "text11": "No, sólo utilice los datos de mi estudio solamente para este estudio (COVID Recovery Corps).",
       "text12": "De manera predeterminada, usted está compartiendo sus datos solamente con este estudio.",
       "text13": "Por favor marque la casilla a continuación si está de acuerdo con participar:",
       "text14": "Yo he leído este formulario de consentimiento (o alguien me lo ha leído). Yo entiendo la información en este formulario. Todas mis preguntas han sido respondidas. Yo elijo libre y voluntariamente participar en el estudio COVID Recovery Corps.",
