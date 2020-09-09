@@ -127,7 +127,7 @@
             },
             "headache": {
               "type": "boolean",
-              "title": "dolor de cabeza"
+              "title": "Dolor de cabeza"
             },
             "confusion": {
               "type": "boolean",
