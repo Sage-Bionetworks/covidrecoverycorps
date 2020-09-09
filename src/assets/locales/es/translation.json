@@ -5,6 +5,8 @@
       "month": "Mes",
       "day": "Día"
     },
+    "cancel": "Cancelar",
+    "done": "Hecho",
     "email": "Email",
     "emailAddress": "Correo electrónico",
     "joinUs": "Únete a nosotros",
@@ -555,7 +557,7 @@
     "text9": "<0> Conservamos la información, incluida la información personal, durante el tiempo que sea necesario para proporcionar nuestros servicios y para cumplir con cualquier otro propósito para el que se recopiló inicialmente la información, a menos que la ley aplicable requiera lo contrario. Por ejemplo, mantendremos la información de identificación personal relacionada con la autenticación de la identidad del usuario solo durante el tiempo que sea necesario para la autenticación. </0> <1> Los usuarios pueden editar su información o eliminar su información retirándose del estudio en la configuración del perfil. Nosotros vamos a retener y archivar un registro de las actividades del usuario realizadas mientras la cuenta estaba activa para usar con fines de auditoría, propósitos de negocio legítimos, para cumplir con nuestras obligaciones legales, resolver disputas y hacer cumplir nuestros acuerdos y pólizas. </1> ",
     "text10": "Información/ Seguridad de datos",
     "text11": "<0> Sage Bionetworks mantiene un estándar industrial física, organizacional, técnica y administrativas para proteger la información de identificación personal que recopilamos, almacenamos o procesamos en relación con el estudio contra el acceso accidental, ilegal o no autorizado. destrucción, divulgación, uso indebido, alteración o pérdida. </0> <1> Las medidas de seguridad de los datos son una combinación de mejoramiento tecnológico de privacidad (PET por sus insignias en Ingles), opciones y pólizas/procesos para el manejo de datos. Aun así, ningún ambiente es 100% seguro. Existe cierto riesgo de que un tercero no autorizado encuentre una manera de circunvalar nuestros sistemas de seguridad. </1> ",
- "text12": "Lo que no hacemos",
+    "text12": "Lo que no hacemos",
     "text13": "No utilizamos su información personal con fines publicitarios. No vendemos ni alquilamos su información",
     "text14": "Tus derechos ",
     "text15": "<0> Puede solicitar acceder, actualizar, corregir, restringir o borrar la información personal que nos proporciona. Usted también tiene derecho a oponerse al procesamiento de su información personal bajo ciertas condiciones. Para todas estas consultas, puede comunicarse con nosotros en la siguiente dirección: </0> <1> <0> Sage Bionetworks </0> <1 /> Atención: Oficial de Protección de Datos <3 /> 2901 Third Avenue, Suite 330, <5 /> Seattle, WA 98121 <7 /> Estados Unidos de América <9 /> <10 /> <11>privacyofficer@sagebionetworks.org</11></1> <2> Si lo solicita, le proporcionaremos un acceso razonable a la información personal que tenemos sobre usted. Si se elimina la información de su cuenta personal, su cuenta se desactiva. </2> <3> Puede optar por no recibir nuestras comunicaciones del estudio haciendo clic en el enlace \"cancelar suscripción\" incluido en cada comunicación de este tipo o notificándonos por correo electrónico a <1> privacyofficer@sagebionetworks.org </1> con la palabra \"eliminar\" en el encabezado del subjeto, y eliminaremos sus detalles de contacto de nuestra lista de correo. </3>",
@@ -706,5 +708,16 @@
     "text6": "Tablero",
     "text7": "Configuraciones de la cuenta",
     "text8": "Iniciar sesión"
+  },
+  "uploadResult": {
+    "title": "Subir resultado de la prueba COVID-19",
+    "description": "<0>Usted ha respondido que se ha realizado un hisopo nasal y/o una prueba de anticuerpos en suero. </0> <0>Por favor suba una copia de los resultados de su prueba. </0> <0> El documento de resultados de la prueba puede ser .jpeg, pdf, .png o .tiff. </0>",
+    "text2": "Seleccione el archivo para subir",
+    "text3": "Yo no tengo una copia",
+    "text4": "Suba este archivo",
+    "add": "+ Añadir otro archivo",
+    "successfulUpload": "ha sido subido",
+    "duplicateUpload": "ya se ha subido",
+    "uploadFailed": "no se pudo subir"
   }
 }
