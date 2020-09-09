@@ -24,11 +24,7 @@ import Intro from './Intro'
 import TestLocationSurvey from '../surveys/TestLocationSurvey'
 import i18next from 'i18next'
 import { Trans, useTranslation } from 'react-i18next'
-import {
-  Feature,
-  TOGGLE_NAMES,
-  FeaturesContext,
-} from '../../helpers/FeatureToggle'
+import * as FeatureToggle from '../../helpers/FeatureToggle'
 
 type DashboardProps = {
   token: string
@@ -66,9 +62,11 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   const classes = useStyles()
   const { t } = useTranslation()
 
-  const featureFlags = useContext(FeaturesContext)
-  const hasResultsUploadToggle =
-    featureFlags && featureFlags[TOGGLE_NAMES.RESULTS_UPLOAD] !== false
+  const featureFlags = useContext(FeatureToggle.FeaturesContext)
+  const hasResultsUploadToggle = FeatureToggle.getToggleState(
+    featureFlags,
+    FeatureToggle.TOGGLE_NAMES.RESULTS_UPLOAD,
+  )
 
   const surveys: UISurvey[] = [
     {
@@ -263,8 +261,17 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       }
     }
 
+    const hasTakenTest = (): boolean => {
+      const covidSurvey = getSavedSurvey('COVID_EXPERIENCE')
+      if (!covidSurvey || !covidSurvey?.completedDate) {
+        return false
+      }
+      const kind_of_testing = covidSurvey.data.symptoms2?.kind_of_testing
+      return kind_of_testing.serum_test || kind_of_testing.nasal_swab
+    }
+
     // see if we need uploadResults Survey
-    if (!hasResultsUploadToggle) {
+    if (!hasResultsUploadToggle || !hasTakenTest()) {
       surveys.splice(3, 1)
     }
 

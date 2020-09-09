@@ -6,10 +6,10 @@ export type ToggleKeys = 'RESULTS_VIDEO' | 'SPANISH' | 'RESULTS_UPLOAD'
 export const TOGGLE_NAMES: { [key in ToggleKeys]: string } = {
   RESULTS_VIDEO: 'resultsVideo',
   SPANISH: 'spanish',
-  RESULTS_UPLOAD: 'resultsUpload'
+  RESULTS_UPLOAD: 'resultsUpload',
 }
 
-type flags = {
+type Flags = {
   [key: string]: boolean
 }
 
@@ -19,9 +19,20 @@ type FeatureToggleProps = {
   children: React.ReactNode
 }
 
-export const FeaturesContext = createContext<flags | undefined>(undefined)
+export const FeaturesContext = createContext<Flags | undefined>(undefined)
 
 export const FeaturesProvider = FeaturesContext.Provider
+
+export const getToggleState = (
+  flags: Flags | undefined,
+  toggleName: string,
+) => {
+  const searchParams = getSearchParams(window.location.search)
+  if (!flags) {
+    return true
+  }
+  return flags[toggleName] || Object.keys(searchParams).indexOf(toggleName) > -1
+}
 
 export const Feature = ({
   toggleName,
@@ -29,22 +40,14 @@ export const Feature = ({
   children,
 }: FeatureToggleProps) => {
   const flags = useContext(FeaturesContext)
-  const searchParams = getSearchParams(window.location.search)
-  const keys = Object.keys(searchParams)
-
-  const getToggleState = () => {
-    if (!flags) {
-      return true
-    }
-    return flags[toggleName] || keys.indexOf(toggleName) > -1
-  }
 
   if (!children) {
     return <></>
   }
 
-  return (getToggleState() && !showIfFalse) ||
-    (!getToggleState() && showIfFalse) ? (
+  const toggleState = getToggleState(flags, toggleName)
+
+  return (toggleState && !showIfFalse) || (!toggleState && showIfFalse) ? (
     <>{children}</>
   ) : (
     <></>
