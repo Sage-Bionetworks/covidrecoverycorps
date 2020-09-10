@@ -192,7 +192,7 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
     )
 
     return (
-      <Card className={classes.root}>
+      <Card className={classes.root} data-cy="page-appointment">
         <div className={classes.appointmentContainerDiv}>
           {isAppointmentMissed? appointmentHeaderMissed: appointmentHeader}
           <p>{t('appointment.text1')}</p>

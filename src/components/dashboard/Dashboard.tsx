@@ -52,7 +52,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   const [userInfo, setUserInfo] = useState<LoggedInUserData | undefined>(
     undefined,
   )
-  const [appt, setAppt] = useState<ReportData | undefined>(undefined)
 
   const [
     testLocationSurveySubmitted,
@@ -319,7 +318,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     }
 
     return (
-      <div className="Dashboard">
+      <div className="Dashboard" data-cy="page-dashboard">
         {getCompletionStatus() === SurveysCompletionStatusEnum.NOT_DONE && (
           <div className="dashboard-intro">
             <Trans i18nKey="dashboard.intro1">
@@ -331,7 +330,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
           </div>
         )}
 
-        <Card className={classes.root}>
+        <Card className={classes.root} >
           <Intro
             testLocation={
               testLocationSurveySubmitted || getPreferredTestLocation()

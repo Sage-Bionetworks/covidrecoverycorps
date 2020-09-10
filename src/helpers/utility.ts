@@ -16,12 +16,85 @@ import i18n from 'i18next'
 import { useState } from 'react'
 import { SessionData } from '../types/types'
 
+function makeRequest(
+  method: 'POST' | 'GET' = 'POST',
+  url: string,
+  body: any,
+  token?: string,
+): Promise<any> {
+  return new Promise(function (resolve, reject) {
+    var xhr = new XMLHttpRequest()
+    xhr.open(method, url)
+    xhr.onload = function () {
+      if ((this.status >= 200 && this.status < 300) || this.status === 412) {
+        resolve({ status: this.status, response: xhr.response, ok: true })
+      } else {
+        reject({
+          status: this.status,
+          statusText: xhr.statusText,
+          message: JSON.parse(xhr.responseText).message
+        })
+      }
+    }
+    xhr.onerror = function () {
+      reject({
+        status: this.status,
+        statusText: xhr.statusText,
+        message: xhr.response
+      })
+    }
+    xhr.setRequestHeader('Accept-Language', i18n.language)
+    xhr.setRequestHeader('Content-Type', 'application/json')
+    if (token) {
+      xhr.setRequestHeader('Bridge-Session', token)
+    }
+
+    xhr.send(body)
+  })
+}
+
+export const callEndpointXHR = async <T>(
+  endpoint: string,
+  method: 'POST' | 'GET' = 'POST',
+  data: StringDictionary,
+  token?: string,
+): Promise<Response<T>> => {
+
+  let body: string | undefined = JSON.stringify(data)
+  
+  if (method === 'GET') {
+    const queryString = Object.keys(data)
+      .map(key => key + '=' + data[key])
+      .join('&')
+    endpoint = queryString ? `${endpoint}?${queryString}` : endpoint
+  
+    body = undefined
+
+  }
+  return makeRequest(method, endpoint, body, token).then(
+    ({ status, response, ok }) => {
+      const result = JSON.parse(response)
+      return { status: status, data: result, ok: ok }
+
+    },
+    error => {
+      throw(error)
+    },
+  )
+}
+
 export const callEndpoint = async <T>(
   endpoint: string,
   method: 'POST' | 'GET' = 'POST',
   data: StringDictionary,
   token?: string,
 ): Promise<Response<T>> => {
+
+  const ls = window.localStorage
+  const isE2E = ls.getItem('e2e')
+  if (isE2E) {
+    return callEndpointXHR(endpoint, method, data, token)
+  }
   const headers: HeadersInit = new Headers()
   headers.set('Accept-Language', i18n.language)
   headers.set('Content-Type', 'application/json')
@@ -179,7 +252,7 @@ export const useSessionStorage = (
   return [storedValue, setValue]
 }
 
-export const bytesToSize= (bytes: number) => {
+export const bytesToSize = (bytes: number) => {
   const sizes = ['bytes', 'kb', 'MB', 'GB', 'TB']
   if (bytes === 0) return 'n/a'
   const i = parseInt(

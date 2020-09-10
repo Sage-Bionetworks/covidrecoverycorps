@@ -1,0 +1,37 @@
+{
+   "firstName": "Alina",
+   "lastName": "Gendel",
+   "email": "alina.gendel+ny713@gmail.com",
+   "emailVerified": true,
+   "phoneVerified": false,
+   "notifyByEmail": true,
+   "dataGroups": [
+      "test_user",
+      "tests_available",
+      "tests_scheduled"
+   ],
+   "attributes": {
+      "gender": "Male",
+      "city": "Flushing",
+      "state_change_timestamp": "2020-07-13T18:14:31.351Z",
+      "address1": "13240 Sanford Av APT 1P",
+      "dob": "1910-01-01",
+      "state": "NY",
+      "zip_code": "11355"
+   },
+   "consentHistories": {},
+   "consented": true,
+   "roles": [],
+   "languages": [
+      "en"
+   ],
+   "status": "enabled",
+   "createdOn": "2020-07-13T17:31:48.747Z",
+   "id": "8SM69vOWWTdXXowM1GZgmqwJ",
+   "clientData": {},
+   "studyIds": [
+      "columbia"
+   ],
+   "externalIds": {},
+   "type": "StudyParticipant"
+}

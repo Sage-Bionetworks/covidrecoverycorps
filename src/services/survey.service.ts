@@ -67,6 +67,7 @@ async function getUserSurveys(
     startTime: SURVEY_TIME_CONSTANT,
     endTime: SURVEY_TIME_CONSTANT,
   }
+
   return await callEndpoint<{ items: { data: SavedSurveysObject }[] }>(
     `${ENDPOINT}${SURVEY_ENDPOINT}`,
     'GET',

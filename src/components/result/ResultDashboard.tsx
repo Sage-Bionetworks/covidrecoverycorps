@@ -212,7 +212,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
   }
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} data-cy="page-result">
       <TwoColumnTemplate
         nav={getNav(activeItemIndex)}
         main={getMain()}

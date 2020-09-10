@@ -1,1 +1,4 @@
 node_modules
+cypress/integration/examples
+build
+cypress.env.json

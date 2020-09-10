@@ -441,7 +441,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
             <div className={classes.topImage}>
               {getElement(resultValue, 'TOP_IMG')}
             </div>
-            <div className={classes.resultDataHeader}>
+            <div className={classes.resultDataHeader} data-cy="resultDataHeader">
               {getElement(resultValue, 'HEADER')}
             </div>
             <div className={classes.explanationText}>

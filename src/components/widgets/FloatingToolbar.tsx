@@ -37,7 +37,7 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = pr
       <div className="row" style={{ position: 'relative', marginTop: '17px' }}>
         {
           <div style={{ position: 'absolute', left: '20px', zIndex: 999 }}>
-            <Link
+            <Link data-cy="close-toolbar"
               onClick={() => {
                 if (props.closeConfirmationText) {
                   setIsShowingCancelConfirmation(true)
