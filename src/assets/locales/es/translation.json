@@ -28,9 +28,9 @@
     "header": "Configuraciones de cuenta ",
     "updateLink": "Actualizar información de contacto",
     "shareDataLabel": "Compartir los datos de mi estudio con investigadores cualificados para futuros trabajos relacionados con COVID",
-    "shareLearnMore": "<0> Usted tendrá la oportunidad de compartir sus datos con investigadores calificados fuera del COVID Recovery Corps. </0> <0> Todos los investigadores calificados deben ser aprobados por el estudio del COVID Recovery Corps y solo utilizarán datos sin identificación. Estos datos sin identificación no contienen identificadores como nombre, fecha de nacimiento o código postal. </0> <0> Estos investigadores pueden ser de fuera de los Estados Unidos y puede que trabajen para una institución sin fines de lucro, compañías comerciales de medicamentos o dispositivos médicos, o ser un ciudadano privado. </0> <0> Compartir sus datos con investigadores cualificados es opcional y usted puede cambiar de opinión en cualquier momento actualizando sus opciones de compartimiento de datos en su perfil. </0> <0> Pero una vez que ya hayamos compartido sus datos, nosotros no podemos recuperarlos. Si se decide parar el compartimiento de sus datos, no compartiremos sus datos futuros. </0>",
+    "shareLearnMore": "<0> Usted tendrá la oportunidad de compartir sus datos con investigadores calificados fuera del COVID Recovery Corps. </0> <0> Todos los investigadores calificados deben ser aprobados por el estudio del COVID Recovery Corps y solo utilizarán datos sin identificación. Estos datos sin identificación no contienen identificadores como nombre, fecha de nacimiento o código postal. </0> <0> Estos investigadores pueden ser de fuera de los Estados Unidos y puede que trabajen para una institución sin fines de lucro, compañías comerciales de medicamentos o dispositivos médicos, o ser un ciudadano privado. </0> <0> Compartir sus datos con investigadores cualificados es opcional y usted puede cambiar de opinión en cualquier momento actualizando sus opciones de compartimiento de datos en su perfil. </0> <0> Pero una vez que ya hayamos compartido  sus​futuros datos, nosotros no podremos recuperarlos. Si se decide parar el compartimiento de sus datos, no compartiremos sus datos futuros. </0>",
     "shareEHRLabel": "Compartir mi historia clínica electrónica",
-    "ehrLearnMore": "<0> Compartiendo su EHR (historia clínica electrónica o EHR por sus siglas en inglés) es opcional. </0> <0> Su registro de salud electrónico (EHR) es una versión digital de su registro de salud médico (que puede incluir información como las notas de su médico de sus visitas, información de diagnóstico y medicamentos). </0> <0> Si dice que sí a compartir, nosotros veremos datos sobre sus problemas de salud, resultados de pruebas, procedimientos médicos, imágenes (como rayos X) y los medicamentos que toma. </0> <0> Puede informarnos sobre su salud mental, condición genética o uso de alcohol o drogas. EHR puede contener datos sexuales o de infección, incluido el estado del VIH. Usted puede decir no a compartir sus registros de salud y aun así participar en COVID Recovery Corps. </0> <0> Habrá un formulario separado llamado Autorización de HIPAA para que usted firme si decide darnos acceso a sus registros de salud. </0>",
+    "ehrLearnMore": "<0> Compartiendo su EHR (historia clínica electrónica o EHR por sus siglas en inglés) es opcional. </0> <0> Su registro de salud electrónico (EHR) es una versión digital de su registro de salud médico (que puede incluir información como las notas de su médico de sus visitas, información de diagnóstico y medicamentos). </0> <0> Si dice que sí a compartir, nosotros veremos datos sobre sus problemas de salud, resultados de pruebas, procedimientos médicos, imágenes (como rayos X) y los medicamentos que toma. </0> <0> Puede informarnos sobre su salud mental, condición genética o uso de alcohol o drogas. Su EHR puede contener datos sexuales o de infección, incluido el estado del VIH. Usted puede decir no a compartir sus registros de salud y aun así participar en COVID Recovery Corps. </0> <0> Habrá un formulario separado llamado Autorización de HIPAA para que usted firme si decide darnos acceso a sus registros de salud. </0>",
     "withdrawLink": "Retirarse del estudio",
     "withdrawConfirm": "<0> Retirarse del COVID Recovery Corps: </0> <1> Si usted se retira, sus muestras serán destruidas. Sus datos ya no serán distribuidos. </1> <1> Sin embargo, si los investigadores ya tienen sus datos o muestras para sus estudios, el estudio COVID Recovery Corps no puede recuperarlos. </1>",
     "withdrawYes": "Sí, retirarme del estudio",
@@ -50,7 +50,7 @@
     "closeConfirmationText": "¿Está usted seguro de que quiere abandonar el proceso de consentimiento?",
     "hipaaText1": "¿Quiere usted compartir su historia clínica electrónica con nosotros?",
     "hipaaText2": "Compartir su historia clínica electrónica (HCE, o EHR por sus siglas en inglés) es <1>opcional</1>.",
-    "hipaaText3": "<0> Su historia clínica médica (HCE, o EHR por sus siglas en inglés) es una versión digital de su registro de salud médico (que puede incluir información como las notas de su médico de sus visitas, información de diagnóstico y medicamentos).</0> <1> Si dice que sí a compartir, nosotros veremos datos sobre sus problemas de salud, resultados de pruebas, procedimientos médicos, imágenes (como rayos X) y los medicamentos que toma.</1> <2> Puede informarnos sobre su salud mental, condición genética o uso de alcohol o drogas. EHR puede contener datos sexuales o de infección, incluido el estado del VIH. Usted puede decir no a compartir sus registros de salud y aun así participar en COVID Recovery Corps. </2> <3> Habrá un formulario separado llamado Autorización de HIPAA para que usted firme si decide darnos acceso a sus registros de salud. </3>",
+    "hipaaText3": "<0> Su historia clínica médica (HCE, o EHR por sus siglas en inglés) es una versión digital de su registro de salud médico (que puede incluir información como las notas de su médico de sus visitas, información de diagnóstico y medicamentos).</0> <1> Si dice que sí a compartir, nosotros veremos datos sobre sus problemas de salud, resultados de pruebas, procedimientos médicos, imágenes (como rayos X) y los medicamentos que toma.</1> <2> Puede informarnos sobre su salud mental, condición genética o uso de alcohol o drogas. Su EHR puede contener datos sobre sexualidad o de infecciones, incluido el estado del VIH. Usted puede decir no a compartir sus registros de salud y aun así participar en COVID Recovery Corps. </2> <3> Habrá un formulario separado llamado Autorización de HIPAA para que usted firme si decide darnos acceso a sus registros de salud. </3>",
     "hipaaReview": "Repase lo que significa",
     "shareYes": "Sí, comparta",
     "shareNo": "No, no comparta"
@@ -251,7 +251,7 @@
       "text4": "Estos datos sin identificadores no contienen identificadores como nombre, fecha de nacimiento o dirección de correo electrónico.",
       "text5": "Estos investigadores pueden ser de<1> afuera de los Estados Unidos </1> y pueden trabajar para una <1> institución sin fines de lucro, compañías comerciales de medicamentos o dispositivos médicos, o ser un ciudadano privado</1>.",
       "text6": "Compartir sus datos con investigadores cualificados es opcional y usted puede cambiar de opinión en cualquier momento actualizando sus opciones de compartimiento de datos en su perfil.",
-      "text7": "Pero una vez que ya hayamos <1> compartido sus datos, nosotros no podemos recuperarlos </1>. Si se decide parar el compartimiento de sus datos, no compartiremos sus <1> datos futuros </1>."
+      "text7": "Pero una vez que ya hayamos <1> compartido  sus​futuros datos, nosotros no podremos recuperarlos </1>. Si se decide parar el compartimiento de sus datos, no compartiremos sus <1> datos futuros </1>."
     },
     "fullTextScreen8": {
       "text1": "Compartiendo sus datos con futuros investigadores",
@@ -339,7 +339,7 @@
       "text8": "Puedo retirarme (abandonar) en cualquier momento. No hay penalidad si me retiro.",
       "text9": "¿Le gustaría compartir los datos de su estudio con otros investigadores calificados para futuras investigaciones sobre el trabajo relacionado con COVID?",
       "text10": "Sí, comparte los datos de mi estudio con investigadores calificados para futuros trabajos relacionados con COVID.",
-      "text11": "No, sólo utilice los datos de mi estudio solamente para este estudio (COVID Recovery Corps).",
+      "text11": "No, utilice los datos de mi estudio solamente para este estudio (COVID Recovery Corps).",
       "text12": "De manera predeterminada, usted está compartiendo sus datos solamente con este estudio.",
       "text13": "Por favor marque la casilla a continuación si está de acuerdo con participar:",
       "text14": "Yo he leído este formulario de consentimiento (o alguien me lo ha leído). Yo entiendo la información en este formulario. Todas mis preguntas han sido respondidas. Yo elijo libre y voluntariamente participar en el estudio COVID Recovery Corps.",
@@ -348,7 +348,7 @@
     },
     "learnMoreScreen15": {
       "text1": "Usted tendrá la oportunidad de compartir sus datos con investigadores cualificados fuera del estudio COVID Recovery Corps. Todos los investigadores cualificados deben ser aprobados por el grupo del estudio COVID Recovery Corps y solo utilizarán datos sin identificadores. Estos datos sin identificadores no contienen identificadores como nombre, fecha de nacimiento o código postal. Estos investigadores pueden ser afuera de los Estados Unidos y pueden trabajar para una institución sin fines de lucro, compañías comerciales de medicamentos o dispositivos médicos, o ser ciudadanos privados.",
-      "text2": "Compartir sus datos con investigadores cualificados es opcional y usted puede cambiar de opinión en cualquier momento actualizando sus opciones de compartimiento de datos en su perfil. Pero una vez que ya hayamos compartido sus datos, nosotros no podemos recuperarlos. Si se decide parar el compartimiento de sus datos, no compartiremos sus datos futuros."
+      "text2": "Compartir sus datos con investigadores cualificados es opcional y usted puede cambiar de opinión en cualquier momento actualizando sus opciones de compartimiento de datos en su perfil. Pero una vez que ya hayamos compartido  sus​futuros datos, nosotros no podremos recuperarlos. Si se decide parar el compartimiento de sus datos, no compartiremos sus datos futuros."
     }
   },
   "consentSent": {
@@ -376,9 +376,11 @@
     "text1": "perfil",
     "text2": "Información del contacto",
     "text3": "Encuesta 1",
-    "text4": "Cuéntanos sobre usted",
+    "text4": "Cuéntenos sobre usted",
     "text5": "Encuesta 2",
     "text6": "Experiencia reciente del COVID",
+    "text61": "Resultados de la Prueba",
+    "text62": "Cargar el resultado de la prueba COVID-19",
     "text7": "Encuesta 3",
     "text8": "Historial médico ",
     "text9": "Encuesta 4",
@@ -500,18 +502,18 @@
     "title": "Centro de aprendizaje de COVID-19",
     "text1": "<0> Hay mucho que necesitamos aprender sobre el COVID-19. ¿Por qué afecta a las personas de manera diferente? ¿Cuánto duran los síntomas? </0> <1> ¿Hay efectos secundarios duraderos? A medida que encontremos las respuestas, las publicaremos aquí. Nosotros también enviaremos información mediante boletines informativos y planearemos organizar discusiones en línea con científicos y proveedores de atención médica. </1>",
     "nav0": "Lo que sabemos hasta ahora sobre el COVID-19",
-    "nav1": "Tipos de pruebas pare el COVID-19",
+    "nav1": "Tipos de pruebas para el COVID-19",
     "nav2": "La respuesta inmune al SARS-CoV-2.",
-    "nav3": "Lo que ahora puede hacer las personas positivas al COVID-19.",
-    "nav4": "Lo que ahora puede hacer las personas negativas al COVID-19.",
+    "nav3": "Lo que ahora pueden hacer ahora las personas positivas al COVID-19.",
+    "nav4": "Lo que ahora pueden hacer ahora las personas negativas al COVID-19.",
     "nav5": "Preguntas más frecuentes sobre los resultados de la serología",
     "lh0": {
       "title": "Lo que nosotros sabemos hasta ahora sobre el COVID-19",
       "text1": "<0> COVID-19 es una nueva enfermedad infecciosa, causada por el virus SARS-CoV-2 (un virus Corona). Ocurrió por primera vez a fines de 2019 en la China y desde entonces se ha extendido por todo el mundo. </0> <1> En su mayor parte, el COVID-19 es una enfermedad transmitida por el aire, lo que significa es que se transmite de una persona a otra a través de las gotitas respiratorias de una persona infectada cuando exhala, habla, canta, estornuda o tose. </1> <2> Esta es la razón por la que usar mascarillas, lavarse las manos y mantener una distancia social de 6 pies (o 2 metros) reduce significativamente las posibilidades de propagar el virus. </2>",
-      "text2": "<0> Algunas personas que se infectan con este virus no desarrollan ningún síntoma y no se dan cuenta que están infectados. Se los llama \"portadores asintomáticos\" que aún pueden transmitir el virus. </0> <1> Otros que se infectan con el virus desarrollan una enfermedad y tienen síntomas como tos, estornudos, dificultad para respirar, fiebre, escalofríos, dolores corporales, debilidad y / o pérdida del olfato y el gusto. Estos síntomas pueden durar días. </1> <2> Una pequeña proporción de personas infectadas desarrolla dificultades respiratorias más graves, lo que requiere hospitalización y ayuda para respirar con oxígeno, medicamentos o un ventilador. </2> <3> Actualmente no entendemos por qué las personas responden al virus de manera diferente. Actualmente no existe una vacuna y no existe una cura, aunque existe una creciente evidencia de que algunos medicamentos y terapias existentes pueden ser útiles para las personas que desarrollan la forma grave de COVID-19. </3>"
+      "text2": "<0> Algunas personas que se infectan con este virus no desarrollan ningún síntoma y no se dan cuenta que están infectadas. Se les llama \"portadores asintomáticos\" que aún pueden transmitir el virus. </0> <1> Otros que se infectan con el virus desarrollan una enfermedad y tienen síntomas como tos, estornudos, dificultad para respirar, fiebre, escalofríos, dolores corporales, debilidad y / o pérdida del olfato y el gusto. Estos síntomas pueden durar días. </1> <2> Una pequeña proporción de personas infectadas desarrolla dificultades respiratorias más graves, lo que requiere hospitalización y ayuda para respirar con oxígeno, medicamentos o un ventilador. </2> <3> Actualmente no entendemos por qué las personas responden al virus de manera diferente. Actualmente no existe una vacuna y no existe una cura, aunque existe una creciente evidencia de que algunos medicamentos y terapias existentes pueden ser útiles para las personas que desarrollan la forma grave de COVID-19. </3>"
     },
     "lh1": {
-      "title": "Tipos de pruebas pare el COVID-19",
+      "title": "Tipos de pruebas para el COVID-19",
       "p1": "Hay dos tipos de pruebas de COVID-19: la prueba de PCR (hisopo de la nariz) y la prueba de serología (análisis de sangre).",
       "subhead1": "La prueba de PCR (hisopo de la nariz)",
       "text1": "La prueba de PCR se realiza tomando un hisopo de la nariz para detectar la presencia del virus. Si la prueba de PCR es positiva, esto significa que la persona que actualmente porta tiene el virus en el cuerpo. En raras ocasiones, la prueba puede ser un \"falso negativo\", lo que significa es que la persona tiene el virus en su cuerpo, pero no había suficiente virus en el hisopo extraído de la nariz para que la prueba lo detecte.",
@@ -520,15 +522,15 @@
     },
     "lh2": {
       "title": "La respuesta inmune al SARS-CoV-2.",
-      "text": "<0>Las personas que se infectan con el virus SARS-CoV-2 desarrollan una respuesta inmune contra él. Hay 2 tipos de respuesta inmune a una infección: inespecífica y específica. </0> <1 > La respuesta inmune inespecífica es una respuesta de primera línea y no está dirigida específicamente al virus. </1> <2> La respuesta inmune específica es una respuesta de segunda línea y es específica al virus. La respuesta inmune específica al virus depende a los anticuerpos específicos que el cuerpo produce (también conocidos como inmunoglobulinas). Los anticuerpos son un indicador de que hubo una infección previa con el virus. Los anticuerpos también pueden proteger de una futura reinfección con el virus. No estamos seguros todavía culares de los anticuerpos protegen a las personas de la infección o cuánto tiempo lo van a proteger a usted. </2>"
+      "text": "<0>Las personas que se infectan con el virus SARS-CoV-2 desarrollan una respuesta inmune contra él. Hay 2 tipos de respuesta inmune a una infección: inespecífica y específica. </0> <1 > La respuesta inmune inespecífica es una respuesta de primera línea y no está dirigida específicamente al virus. </1> <2> La respuesta inmune específica es una respuesta de segunda línea y es específica al virus. La respuesta inmune específica al virus depende a los anticuerpos específicos que el cuerpo produce (también conocidos como inmunoglobulinas). Los anticuerpos son un indicador de que hubo una infección previa con el virus. Los anticuerpos también pueden proteger de una futura reinfección con el virus. No estamos seguros todavía cuales de los anticuerpos protegen a las personas de la infección o cuánto tiempo lo van a proteger a usted. </2>"
     },
     "lh3": {
-      "title": "Lo que ahora puede hacer las personas positivas al COVID-19.",
+      "title": "Lo que pueden hacer ahora las personas positivas al COVID-19.",
       "text": "Si una persona tiene anticuerpos en su sangre, estos anticuerpos pueden ayudar a una persona enferma con COVID-19 a combatir la infección. Usted puede donar la parte de su sangre que contiene anticuerpos para dársela a alguien que esté enfermo con COVID -19 para ayudar a luchar la infección. Esto se llama “donación de plasma convaleciente.”"
     },
     "lh4": {
-      "title": "Lo que ahora puede hacer las personas negativas al COVID-19.",
-      "text": "<0> Para las personas con una prueba de serología negativa, ¿qué hago ahora? </0> <1> Las personas que tienen una prueba de serología negativa y nunca tuvieron una prueba de PCR positiva, lo más probable es que no se hayan infectado con el virus SARS-CoV-2. Usted debe usar una mascarilla, lavarse las manos y mantener una distancia social segura para evitar infectarse. </1> <2> Se están desarrollando vacunas contra el virus SARS-CoV-2. El propósito de una vacuna es ayudar al cuerpo a desarrollar una respuesta inmune al virus sin ser infectado con el virus. La respuesta inmune puede proteger contra infecciones futuras sin riesgo de infección. </2> <3> El desarrollo de Las vacunas se somete a un proceso largo que incluye estudios cuidadosos de seguridad y eficacia. Aunque actualmente no hay vacuna para el COVID-19, el FDA ha priorizado los ensayos clínicos para el desarrollo de vacunas y está apoyando los esfuerzos para la fabricación a gran escala cuando se desarrolla una vacuna segura. </3>"
+      "title": "Lo que pueden hacer ahora  las personas negativas al COVID-19.",
+      "text": "<0> Para las personas con una prueba de serología negativa, ¿qué hago ahora? </0> <1> Las personas que tienen una prueba de serología negativa y nunca tuvieron una prueba de PCR positiva, lo más probable es que no se hayan infectado con el virus SARS-CoV-2. Usted debe usar una mascarilla, lavarse las manos y mantener una distancia social segura para evitar infectarse. </1> <2> Se están desarrollando vacunas contra el virus SARS-CoV-2. El propósito de una vacuna es ayudar al cuerpo a desarrollar una respuesta inmune al virus sin ser infectado con el virus. La respuesta inmune puede proteger contra  futuras infecciones sin riesgo sin riesgo de infección. </2> <3> El desarrollo de las vacunas se somete a un proceso largo que incluye estudios cuidadosos de seguridad y eficacia. Aunque actualmente no hay vacuna para el COVID-19, el FDA ha priorizado los ensayos clínicos para el desarrollo de vacunas y está apoyando los esfuerzos para la fabricación a gran escala cuando se desarrolle una vacuna segura. </3>"
     },
     "lh5": {
       "title": "Preguntas más frecuentes sobre los resultados de la serología:",
@@ -583,7 +585,7 @@
     "positiveTitle2": "que indica que ha estado expuesto al SARS-CoV-2.",
     "negativeTitle1": "usted es negativo para el anticuerpo SARS-CoV-2",
     "negativeTitle2": "que indica que no ha estado expuesto al SARS-CoV-2.",
-    "inconclusiveTitle1": "Jane, no se puede determinar su exposición al virus SARS-CoV-2",
+    "inconclusiveTitle1": "no se puede determinar su exposición al virus SARS-CoV-2",
     "positiveText1": "<0> Un resultado positivo sugiere que su sistema inmunológico ha desarrollado anticuerpos para combatir el SARS-CoV-2, el virus que causa el COVID-19. </0> <1> Es más del 90% de probabilidad que estaba infectado con SARS-CoV-2. </1> ",
     "negativeText1": "<0> Un resultado negativo sugiere la ausencia de una respuesta inmune al SAR-CoV-2. Los resultados negativos no descartan la infección por COVID-19 o la exposición reciente al virus. </0> <1> A prueba negativa significa que no se detectaron anticuerpos contra el SARS-CoV-2. Hay varias razones por las que esto podría suceder: </1> ",
     "inconclusiveText1": "Los resultados indeterminados pueden representar una respuesta inmune parcial, pero esto no se puede concluir con certeza basados a los datos actualmente disponibles. Este resultado es relativamente poco frecuente y puede representar anticuerpos contra solo una de las proteínas virales del SARS-CoV-2.",
@@ -592,11 +594,11 @@
     "inconclusiveText2": "<0> <0> Tuviste una infección reciente, pero no respondiste, o tu respuesta de anticuerpos aún se está desarrollando y los anticuerpos eran demasiado bajos para ser detectados. </0> <1> Usted no fue expuesto, y los síntomas que experimentó no fueron COVID-19. </1> <2> Una prueba negativa no descarta la infección con el virus del SARS-CoV-2 /la enfermedad COVID-19. Los anticuerpos aparecen el 80% de las veces, después de tres a cuatro semanas desde el inicio de los síntomas. </2> <3> Independientemente del resultado de la prueba de anticuerpos, debe seguir la guía actual de usar una máscara u otro equipo de protección personal y lavarse las manos. </3> </ 0 >",
     "download": "Descargue los resultados de su laboratorio",
     "explain": "Explicación de los resultados de su prueba de anticuerpos.",
-    "text1": "Por favor en cuenta que la prueba de anticuerpos utilizada para generar estos resultados no detecta el virus mismo. Si actualmente <1> experimenta síntomas </1> de COVID-19 o cree que recientemente ha estado expuesto a COVID -19, debe hablar con un profesional de la salud, quien puede recomendarle opciones de prueba adicionales.",
+    "text1": "Por favor tenga en cuenta que la prueba de anticuerpos utilizada para generar estos resultados no detecta el virus mismo. Si actualmente <1> experimenta síntomas </1> de COVID-19 o cree que recientemente ha estado expuesto a COVID -19, debe hablar con un profesional de la salud, quien puede recomendarle opciones de prueba adicionales.",
     "text2": "<0> Una prueba serológica para COVID-19 busca la presencia de proteínas, llamadas anticuerpos, que pueden usarse para ayudar a comprender si estuvo expuesto al virus recientemente o en el pasado. Los anticuerpos se desarrollan cuando su sistema inmunológico responde a un patógeno, como COVID-19. </0> <1> Existen diferentes tipos de anticuerpos, incluidos los llamados IgM e IgG. IgM es el primer anticuerpo que se desarrolla después de haber estado expuesto a un virus como COVID -19. A esto le sigue el desarrollo de anticuerpos IgG. La mayoría de las personas que han sido infectadas con un virus como COVID-19 desarrollan anticuerpos IgG aproximadamente 14 días después del inicio de los síntomas. Una vez que ha desarrollado anticuerpos IgG, si entra en contacto con el mismo virus nuevamente, los anticuerpos IgG ayudan a su sistema inmunológico a responder más rápido y con mayor eficacia que la primera vez y pueden prevenir la reinfección por el virus. </1>",
     "techInfo": "Información técnica sobre la prueba",
     "learnMoreCTA": "Más información ",
-    "whatNext": "What can you do next",
+    "whatNext": "Qué puede hacer ahora",
     "learnMore": "Para aprender más información sobre los hallazgos de nuestro último estudio sobre COVID-19, por favor consulte nuestra página Learning Hub. ",
     "contact": "Contáctenos",
     "contactText": "<0> Si tiene alguna pregunta sobre sus resultados, comuníquese con: </0> <1> teléfono: 212-305-5700 <1></1> correo electrónico:<3>COVIDRecoveryCorps@cumc.columbia.edu</3> </1> ",
@@ -614,7 +616,7 @@
     "subtitle1": "2 min post lab follow up",
     "text1": " Tenemos curiosidad de saber cómo usted está procesando este resultado. Ayúdenos a diseñar el estudio y los cuestionarios futuros proporcionando respuestas breves a algunas preguntas de seguimiento.",
     "subtitle2": "Future surveys",
-    "text2": "Debido a que el virus es nuevo, todavía no estamos seguros cuáles son las consecuencias a largo plazo de estar infectado. Vamos a pedir a participantes como usted a que respondan preguntas breves aproximadamente 5 veces durante el próximo año. Es importante saber cómo se encuentra usted, incluso si está completamente recuperado del COVID-19, para entender mejor las formas en que el virus afecta el cuerpo y si ha ocurrido alguna complicación.",
+    "text2": "Debido a que el virus es nuevo, todavía no estamos seguros cuáles son las consecuencias a largo plazo de estar infectado. Vamos a pedirle a participantes como usted que respondan preguntas breves aproximadamente 5 veces durante el próximo año. Es importante saber cómo se encuentra usted, incluso si está completamente recuperado del COVID-19, para entender mejor las formas en que el virus afecta el cuerpo y si ha ocurrido alguna complicación.",
     "surveyCTA": " Tome la encuesta después de laboratorio"
   },
   "resultTechInfo": {
@@ -639,6 +641,7 @@
     "working": "trabajando en ello ....",
     "responsesRequired": "Respuestas requeridas arriba ",
     "clear": "Borrar",
+    "error": "Error",
     "contact": {
       "zip": "Código postal",
       "state": "Estado",

@@ -378,14 +378,12 @@
     "text3": "Survey 1",
     "text4": "Tell us about yourself",
     "text5": "Survey 2",
-
     "text6": "Recent COVID Experience",
     "text61": "Test Results",
     "text62": "Upload COVID-19 Test Result",
     "text7": "Survey 3",
     "text8": "Medical History",
     "text9": "Survey 4",
-
     "text10": "More COVID Experience",
     "intro1": "<0>Study surveys</0><1>Your responses to the information below will help researchers learn more about COVID-19.</1> <1>To qualify for the antibody test waitlist, please complete all of the surveys to the best of your ability. If you feel uncomfortable about any of the questions, you can always click \"Prefer not to answer\".</1><1>Thank you for your time.</1>",
     "text11": "Minimum surveys required for lab invites",
@@ -587,7 +585,7 @@
     "positiveTitle2": "which indicates that you have been exposed to SARS-CoV-2.",
     "negativeTitle1": "you are SARS-CoV-2 antibody negative",
     "negativeTitle2": "which indicates that you have not been exposed to SARS-CoV-2.",
-    "inconclusiveTitle1": "Jane, your exposure to the SARS-CoV-2 virus cannot be determined",
+    "inconclusiveTitle1": "your exposure to the SARS-CoV-2 virus cannot be determined",
     "positiveText1": "<0>A positive result suggests that your immune system has developed antibodies to fight SARS-CoV-2, the virus that causes COVID-19. </0> <1>It is greater than 90% likely that you were infected with SARS-CoV-2.</1>",
     "negativeText1": "<0>A negative result suggests the absence of an immune response to SAR-CoV-2. Negative results do not rule out COVID-19 infection or recent exposure to the virus. </0> <1>A negative test means that antibodies against SARS-CoV-2 were not detected. There are several reasons why this could happen:</1>",
     "inconclusiveText1": "Indeterminate results may represent a partial immune response, but this cannot be concluded with certainty based on currently available data. This result is relatively infrequent and may represent antibodies to only one of the SARS-CoV-2 viral proteins.",
@@ -629,7 +627,6 @@
     "subhead2": "Limitations",
     "text2": "<0>This test has not been reviewed by the FDA. It is a laboratory-developed test offered in the Clinical Laboratories at NewYork-Presbyterian Hospital-Columbia University Irving Medical Center (PFI 5310). </0><1>Results from this antibody test should not be used as the sole basis to diagnose or exclude SARS-CoV-2 infection or exposure.</1>"
   },
-  
   "signIn": {
     "text1": "We just sent an SMS to: ",
     "text2": "Please enter your code: ",
@@ -725,6 +722,5 @@
     "successfulUpload": "has been uploaded",
     "duplicateUpload": "has already been uploaded",
     "uploadFailed": "could not be uploaded"
-
   }
 }
