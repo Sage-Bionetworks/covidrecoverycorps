@@ -385,7 +385,7 @@
     "text8": "Medical History",
     "text9": "Survey 4",
     "text10": "More COVID Experience",
-    "intro1": "<0>Study surveys</0><1>Your responses to the information below will help researchers learn more about COVID-19.</1> <1>To qualify for the antibody test waitlist, please complete all of the surveys to the best of your ability. If you feel uncomfortable about any of the questions, you can always click \"Prefer not to answer\".</1><1>Thank you for your time.</1>",
+    "intro1": "<0>Study surveys</0><1>Your responses to the information below will help researchers learn more about COVID-19.</1> <1>If you feel uncomfortable about any of the questions, you can always click \"Prefer not to answer\".</1><1>Thank you for your time.</1>",
     "text11": "Minimum surveys required for lab invites",
     "min": "min",
     "intro": {
