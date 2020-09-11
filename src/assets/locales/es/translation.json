@@ -391,8 +391,7 @@
     "intro": {
       "surveysDoneTitle": "¡Gracias por completar las encuestas!",
       "surveysDoneText": "<0>¡Ahora usted califica para la lista de espera de la prueba de anticuerpos!</0><0> Para recibir una tarjeta de regalo, deberá ser invitado a una prueba de anticuerpos y proporcionar una muestra biológica.</0><0> En este momento no podemos garantizar invitaciones de prueba para todos los participantes.</0>",
-      "selectedTestTitle": "¡Gracias!",
-      "selectedTestText": "<0> Lo hemos añadido a la lista de espera para una prueba de anticuerpos. </0><0> Si es seleccionado, recibirá un correo electrónico. </0>",
+      "selectedTestText": "<0> Si es seleccionado para recibir una prueba de anticuerpos, recibirá un correo electrónico.</0>",
       "selectedNoTestTitle": "¡Gracias por su contribución al estudio COVID Recovery Corps!",
       "selectedNoTestText": "<0> A medida que aprendamos más, nosotros proporcionaremos actualizaciones sobre los resultados del estudio en boletines, presentaciones en línea y reuniones comunitarias. </0>",
       "invitedTitle": "¡Estás invitado!",

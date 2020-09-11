@@ -391,8 +391,7 @@
     "intro": {
       "surveysDoneTitle": "Thank you for completing the surveys!",
       "surveysDoneText": "<0>You now qualify for the antibody test waitlist!</0><0>To receive a gift card, you will need to be invited to an antibody test and provide a biosample.</0><0>We cannot guarantee testing invites for all participants at this time.</0><0>Please note that at-home test kits won’t be available until after December 2020.</0>",
-      "selectedTestTitle": "Thank you!",
-      "selectedTestText": "<0>We've added you to the waitlist for an antibody test.</0><0> If you are selected, you will receive an email. </0>",
+      "selectedTestText": "<0>If you are selected to receive an antibody test, you will receive an email. </0>",
       "selectedNoTestTitle": "Thank you for your contribution to the COVID Recovery Corps Study!",
       "selectedNoTestText": "<0>As we learn more, we will provide updates on the results of the study in newsletters, online presentations, and community meetings.</0>",
       "invitedTitle": "You’re invited!",
