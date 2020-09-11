@@ -429,12 +429,12 @@
     "errorCons": "To be eligible to take part in the COVID Recovery Corps study, you must be able to provide consent for yourself.",
     "errorCovid": "To be eligible to take part in the COVID Recovery Corps study, you must think that you've had COVID-19.",
     "errorZip": "Invalid zip code.",
-    "text1": "Currently we are looking for residents within a 25 mile radius of the Columbia University Medical Center. To be eligible to take part in the COVID Recovery Corps study, you must fulfill the following:",
+    "text1": "To be eligible to take part in the COVID Recovery Corps study, you must fulfill the following:",
     "text2": "I am 18 years of age or older",
     "text3": "I am able to provide consent for myself",
     "text4": "I think I’ve had COVID-19",
-    "text5": "Please enter your zip code",
-    "zipCode": "Zip code"
+    "text5a": "I live in the United States"
+   
   },
   "faqs": {
     "title": "FAQs",
@@ -488,15 +488,6 @@
     "text16": "Learn with us along the way",
     "text17": "If you are asked to provide a sample, we will test the sample for antibodies related to COVID-19 infection, using an antibody test approved by the New York State Department of Health. We will share your test results with you, along with information about what those results may mean. As we learn more about the impact of COVID-19 across study participants, we will share regular updates with the broader scientific and patient community. We may also ask if you are interested in joining other related studies. For instance, some participants may choose to be notified of opportunities to donate plasma and help those still fighting for survival from COVID-19.",
     "text18": "Together, we can fight COVID-19."
-  },
-  "ineligible": {
-    "text1": "Thank you for your interest",
-    "text2": "You have successfully joined the mailing list. We will notify you in the coming months if the program expands into your area.",
-    "text3": "Unfortunately, we are only able to enroll participants who live within a 25 mile radius of the Columbia University Medical Center.",
-    "text4": "We are hoping to expand the study in the coming months.",
-    "text5": "You can sign up for our mailing list here:",
-    "text6": "Join mailing list",
-    "text7": "Joining mailing list..."
   },
   "learningHub": {
     "title": "COVID-19 Learning Hub",
