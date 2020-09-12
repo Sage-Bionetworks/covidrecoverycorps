@@ -177,6 +177,14 @@
     "ui:description":"<p> Para recibir una tarjeta de regalo, deberá ser invitado a una prueba de anticuerpos y proporcionar una muestra biológica.</p><p> En este momento no podemos garantizar invitaciones de prueba para todos los participantes.</p><p>Tenga en cuenta que los kits de prueba para el hogar no estarán disponibles hasta después de diciembre del 2020. <br/><br/></p>",
     "test_location": {
       "ui:widget": "radio"
+    },
+    "test_location_no_lab": {
+      "classNames": "covid2_test_location",
+      "ui:description": "<p>Seleccionaremos algunos participantes para que proporcionen una muestra biológica a través de un kit de prueba casero después de diciembre de 2020.</p><p>Se proporcionará una tarjeta de regalo como muestra de agradecimiento a los invitados.</p>",
+     
+      "test_location": {
+        "ui:widget": "radio"
+      }
     }
   }
 }

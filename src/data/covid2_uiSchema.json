@@ -179,5 +179,13 @@
     "test_location": {
       "ui:widget": "radio"
     }
+  },
+  "test_location_no_lab": {
+    "classNames": "covid2_test_location",
+    "ui:description": "<p>We will be selecting some participants to provide a biosample via a home test kit after December 2020.</p><p>A gift card would be provided as a token of appreciation to those who are invited.</p>",
+   
+    "test_location": {
+      "ui:widget": "radio"
+    }
   }
 }
