@@ -1,0 +1,94 @@
+{
+  "items": [
+    {
+      "dateTime": "2020-06-15T00:14:04.322Z",
+      "data": {
+        "surveys": [
+          {
+            "type": "DEMOGRAPHIC",
+            "updatedDate": "2020-08-19T16:47:10.345Z",
+            "completedDate": "2020-08-19T16:47:10.337Z",
+            "data": {
+              "about2": {
+                "how_heard": [
+                  "Prefer not to answer"
+                ],
+                "included": true,
+                "income": "$0 to $9,999",
+                "healthcare_pay": "Prefer not to answer"
+              },
+              "about": {
+                "ethnicity": [
+                  "Other"
+                ],
+                "included": true,
+                "gender_identity": "Other",
+                "education": "Prefer not to answer"
+              },
+              "metadata": {}
+            }
+          },
+          {
+            "type": "COVID_EXPERIENCE",
+            "updatedDate": "2020-08-19T16:46:49.763Z",
+            "completedDate": "2020-08-19T16:46:49.755Z",
+            "data": {}
+          },
+          {
+            "type": "TEST_LOCATION",
+            "updatedDate": "2020-07-13T17:53:29.997Z",
+            "completedDate": "2020-07-13T17:53:29.692Z",
+            "data": {
+              "location": "lab"
+            }
+          },
+          {
+            "type": "POST_LAB",
+            "updatedDate": "2020-08-14T20:44:49.138Z",
+            "completedDate": "2020-08-14T20:44:49.133Z",
+            "data": {
+              "postLab": {
+                "longterm_impact": {
+                  "physical_health": "5",
+                  "community": "4",
+                  "job": "2",
+                  "homeless": "5",
+                  "family_tension": "3",
+                  "children": "5"
+                },
+                "helped_recover": [
+                  "Prefer not to answer"
+                ],
+                "helped_recover_recommend": [
+                  "Prefer not to answer"
+                ],
+                "hampered_recover": [
+                  "Prefer not to answer"
+                ],
+                "contributed_exposure": [
+                  "Prefer not to answer"
+                ],
+                "included": true
+              },
+              "metadata": {}
+            }
+          },
+          {
+            "type": "HISTORY",
+            "updatedDate": "2020-08-19T16:48:26.323Z",
+            "completedDate": "2020-08-19T16:48:26.317Z",
+            "data": {}
+          },
+          {
+            "type": "MORE",
+            "updatedDate": "2020-08-19T16:49:54.399Z",
+            "completedDate": "2020-08-19T16:49:54.394Z",
+            "data": {}
+          }
+        ]
+      },
+      "date": "2020-06-15T00:14:04.322Z",
+      "type": "ReportData"
+    }
+  ]
+}

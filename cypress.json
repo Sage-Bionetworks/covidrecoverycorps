@@ -1,0 +1,15 @@
+{
+   "chromeWebSecurity": false,
+   "baseUrl": "http://localhost:3000",
+   "env": {
+      "comment": "those are fake accounts so they don't have to be secure +ny713 has result +ny824 has surveys",
+      "test_password": "nycrc",
+      "login_result": "alina.gendel+ny713@gmail.com",
+      "login_surveys": "alina.gendel+ny824@gmail.com",
+      "bridge_api": "https://webservices.sagebridge.org/v3/"
+   },
+   "retries": {
+      "runMode": 0,
+      "openMode": 0
+    }
+}

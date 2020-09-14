@@ -134,6 +134,7 @@ export const LoginPassword: React.FunctionComponent<RouteComponentProps> = ({
                     disabled={!email || !password}
                     onClick={signIn}
                     className="wideButton"
+                    data-cy="submit"
                   >
                     {t('common.logIn')}
                   </Button>
