@@ -1,10 +1,9 @@
 
 beforeEach(() => {
     cy.viewport(1600, 800)
-      window.localStorage.setItem('e2e', true)
+      window.localStorage.setItem('crc_e2e', 'true')
   })
 
   afterEach(() => {
-    window.localStorage.clear()
-      
+    window.localStorage.removeItem('crc_e2e')  
   })

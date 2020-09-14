@@ -91,7 +91,7 @@ export const callEndpoint = async <T>(
 ): Promise<Response<T>> => {
 
   const ls = window.localStorage
-  const isE2E = ls.getItem('e2e')
+  const isE2E = ls.getItem('crc_e2e')
   if (isE2E) {
     return callEndpointXHR(endpoint, method, data, token)
   }
