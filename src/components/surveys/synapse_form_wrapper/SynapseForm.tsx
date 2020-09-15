@@ -1042,8 +1042,8 @@ export default class SynapseForm extends React.Component<
             closeLinkDestination="/dashboard"
             closeIcon={faAngleLeft}
             closeLinkText={i18next.t('footer.dashboard')}
-            closeConfirmationText="Exit Survey?"
-            closeConfirmationText2="Data you have entered may not be saved"
+            closeConfirmationText={i18next.t('surveys.exitSurvey')}
+            closeConfirmationText2={i18next.t('surveys.dataNotSaved')}
           />
         </div>
         <Prompt

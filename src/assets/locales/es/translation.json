@@ -385,7 +385,7 @@
     "text8": "Historial médico ",
     "text9": "Encuesta 4",
     "text10": "Más experiencia de COVID",
-    "intro1": "<0> Encuestas del estudio</0><1> Sus respuestas a la siguiente información ayudarán a los investigadores a aprender más sobre el COVID-19.</1> <1>Para calificar para la lista de espera para la prueba de anticuerpos, por favor complete todas las encuestas lo mejor que pueda. Si se siente incómodo con alguna de las preguntas, usted puede hacer clic en \" Prefiero no responder \".</1><1> Gracias por su tiempo.</1>",
+    "intro1": "<0> Encuestas del estudio</0><1> Sus respuestas a la siguiente información ayudarán a los investigadores a aprender más sobre el COVID-19.</1> <1>Para calificar para la lista de espera para la prueba de anticuerpos, por favor complete todas las encuestas lo mejor que pueda. Si se siente incómodo con alguna de las preguntas, usted puede hacer clic en \"Prefiero no responder\".</1><1> Gracias por su tiempo.</1>",
     "text11": "Encuestas mínimas requeridas para invitaciones al laboratorio",
     "min": "mínimas",
     "intro": {
@@ -642,6 +642,8 @@
     "responsesRequired": "Respuestas requeridas arriba ",
     "clear": "Borrar",
     "error": "Error",
+    "dataNotSaved": "Es posible que la información que ingresó no se guarde",
+    "exitSurvey": "¿Salir de la encuesta?",
     "contact": {
       "zip": "Código postal",
       "state": "Estado",
