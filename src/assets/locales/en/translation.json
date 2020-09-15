@@ -642,6 +642,8 @@
     "responsesRequired": "Responses required above",
     "clear": "Clear",
     "error": "Error",
+    "dataNotSaved": "Data you have entered may not be saved",
+    "exitSurvey": "Exit Survey?",
     "contact": {
       "zip": "zip code",
       "state": "state",
