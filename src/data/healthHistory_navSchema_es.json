@@ -6,7 +6,7 @@
       "title": "Historial médico",
       "default": "history11",
       "orderDisplay": "1/6",
-      "description": "Por favor complete las preguntas de este cuestionario, a lo que mejor pueda. Si usted no se recuerda o no desea responder a la pregunta, por favor marque \"Prefiero no responder\"",
+      "description": "Por favor complete las preguntas de este cuestionario a lo que mejor pueda. Si usted no se recuerda o no desea responder a la pregunta, por favor marque \"Prefiero no responder\"",
       "validationRules": [
         {
           "conditions": {

@@ -17,11 +17,11 @@
       },
       "address2": {
         "classNames": "address2 text",
-        "ui:placeholder": "Apartamento / tipo suite / Otro"
+        "ui:placeholder": "Apartamento/Suite/Otro"
       },
       "zip_code": {
         "classNames": "zip",
-        "ui:placeholder": "Apartamento / tipo suite / Otro"
+        "ui:placeholder": "Código postal (5dígitos)"
       },
       "state": {
         "classNames": "state text",
@@ -42,7 +42,7 @@
 
       "dob": {
         "classNames": "birthdate text",
-        "ui:description": "Su fecha de nacimiento nos ayuda asegurar que las muestras biológicas pertenezcan a la persona correcta.",
+        "ui:description": "Su fecha de nacimiento nos ayuda ​a asegurar que las muestras biológicas correspondan a la persona correcta.",
         "ui:widget": "CustomDateWidget",
         "ui:options": {
           "yearsRange": [1910, 2002],
