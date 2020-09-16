@@ -28,7 +28,7 @@
               "title": "Fecha de Nacimiento:"
             },
             "address1": {
-              "title": "Dirección residencial presente:",
+              "title": "Dirección residencial actual:",
               "type": "string"
             },
             "address2": {

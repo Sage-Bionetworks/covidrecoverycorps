@@ -664,9 +664,9 @@
     },
     "testLocationSurvey": {
       "text1": "Si fuese invitado a hacerse una prueba de anticuerpos, ¿cuál sería su preferencia de prueba?",
-      "text2": "Vaya a un laboratorio para una prueba de anticuerpos",
-      "text3": "Reciba un kit de prueba en casa (disponible después de diciembre de 2020)",
-      "text4": "No me interesa probar"
+      "text2": "Ir a un laboratorio para una prueba de anticuerpos",
+      "text3": "Recibir un kit de prueba en casa (disponible después de diciembre de 2020)",
+      "text4": "No me interesa hacerme una prueba"
     },
     "postLab": {
       "text1": " Por favor seleccione el carácter que mejor represente cómo se siente por cada inquietud:",
