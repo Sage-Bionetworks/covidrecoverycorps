@@ -52,7 +52,7 @@
               "Americano Indígena",
               "Isleño del Pacífico",
               "Otro",
-              "No lo sé o no estoy segur",
+              "No lo sé o no estoy seguro",
               "Prefiero no responder"
             ]
           }
@@ -83,10 +83,10 @@
             "(Secundaria) Grados 5 hasta 8",
             "(Algo de Preparatoria) Grados 9 hasta 11 ",
             "(Graduado de Preparatoria) hasta el grado 12 o GED",
-            "(Algo de Universidad, Grado de estudiante asociado o escuela técnica)1 o 3 años después de preparatoria.",
+            "(Algo de Universidad, Título de estudiante asociado o escuela técnica)1 o 3 años después de preparatoria.",
             "Graduado Universitario (4 años o más)",
             "Título avanzado (maestría, doctorado, etc.)",
-            "No se / No estoy seguro",
+            "No lo sé  / No estoy seguro",
             "Prefiero no responder "
           ],
 
@@ -124,7 +124,7 @@
             "$75,000 hasta $99,999",
             "$100,000 hasta $199,999",
             "$200,000 o más",
-            "No se / No estoy seguro",
+            "No lo sé  / No estoy seguro",
             "Prefiero no responder"
           ],
           "uniqueItems": true
@@ -150,8 +150,8 @@
             "Medicare, para personas mayores de 65 años o personas con ciertas discapacidades",
             "Medicaid, asistencia médica o cualquier tipo de plan de asistencia gubernamental para personas con bajos ingresos o discapacidades",
             "TRICARE u otra atención médica militar",
-            "Administración de Veteranos (VA) (incluidos los que han utilizado alguna vez o está inscrito para el cuidado de la salud del VA)",
-            "Servicio de salud indio",
+            "Administración de Veteranos (VA) (incluidos los que lo han utilizado alguna vez o están inscritos para el cuidado de la salud del VA)",
+            "Servicio de salud del indígena",
             "No tengo seguro de salud, pago por mi cuenta",
             "No lo sé",
             "Prefiero no responder"
@@ -160,7 +160,7 @@
         },
         "how_heard": {
           "type": "array",
-          "title": "6. ¿Cómo usted se enteró de este estudio? (marque todos los que corresponda)",
+          "title": "6. ¿Cómo se enteró de este estudio? (marque todas las que correspondan)",
           "uniqueItems": true,
           "minItems": 1,
           "items": {
@@ -189,8 +189,8 @@
               "Twitter",
               "búsqueda en línea",
               "Folleto / póster",
-              "Sitio web llamado Recluta a Mi",
-              "Mediante correo electrónico de la Universidad de Columbia",
+              "Sitio web llamado Reclútame",
+              "Mediante un correo electrónico de la Universidad de Columbia",
               "Alianza Dominicana",
               "Grupo público - Survivor Corps",
               "Familia/Amistades",

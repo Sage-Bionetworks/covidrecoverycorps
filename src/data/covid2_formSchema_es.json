@@ -533,13 +533,13 @@
       "properties": {
         "travel": {
           "type": "string",
-          "title": "1. ¿Estaba en el extranjero justo antes de enfermarse / ser expuesto o haya sospechado infección por el COVID-19?",
+          "title": "1. ¿Estaba usted en el extranjero justo antes de enfermarse / ser expuesto o de haber haya sospechado de una infección por el COVID-19?",
           "enum": ["No", "Yes", "Prefer not to answer"],
           "enumNames": ["No", "Sí", "Prefiero no responder"]
         },
         "household_size": {
           "type": "object",
-          "title": "2. ¿Cuántas personas (incluido se a usted) viven en su apartamento / o casa en cada categoría de edad? (Complete 0 si no hay ninguno)",
+          "title": "2. ¿Cuántas personas (incluyéndose a usted) viven en su apartamento o casa de cada categoría de edad? (Complete 0 si no hay ninguno)",
 
           "properties": {
             "under3": {
@@ -587,7 +587,7 @@
         },
         "housing_type": {
           "type": "string",
-          "title": "3. ¿Qué tipo de vivienda vive usted?",
+          "title": "3. ¿En qué tipo de vivienda vive usted?",
           "uniqueItems": true,
           "enum": [
             "Studio apartment",
@@ -671,13 +671,13 @@
             },
             "covid_suspected": {
               "type": "number",
-              "title": "¿Tenía síntomas, pero ningún resultado de ensayo de COVID-19 fue positivo?",
+              "title": "¿Tenía síntomas, pero ningún resultado de pruebas de COVID-19 fue positivo?",
               "default": 0,
               "minimum": 0
             },
             "covid_hospitalized": {
               "type": "number",
-              "title": "¿Ha sido hospitalizado por causa del COVID-19?",
+              "title": "¿Ha sido hospitalizado a causa del COVID-19?",
               "default": 0,
               "minimum": 0
             },
@@ -694,7 +694,7 @@
           }
         },
         "antibiotics_covid_prior": {
-          "title": "6.  Previamente al COVID-19, ¿cuándo fue la última vez que un médico le dio antibióticos?",
+          "title": "6.  Previamente al COVID-19, ¿cuándo fue la última vez que un médico le dió antibióticos?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -781,7 +781,7 @@
       ],
       "properties": {
         "cold_how_often": {
-          "title": "7. ¿Usualmente con qué frecuencia usted se resfría?",
+          "title": "7. ¿Usualmente con qué frecuencia se resfría usted?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -800,7 +800,7 @@
           ]
         },
         "mask_you": {
-          "title": "8. En las 2 semanas antes de enfermarse, ¿con qué frecuencia a usado mascarilla de protección facial en público?",
+          "title": "8. En las 2 semanas antes de enfermarse, ¿con qué frecuencia ha usado mascarilla de protección facial en público?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -838,7 +838,7 @@
           ]
         },
         "sanitizer_you": {
-          "title": "10.  En las 2 semanas antes de enfermarse, ¿con qué frecuencia a usado usted desinfectante para manos?",
+          "title": "10.  En las 2 semanas antes de enfermarse, ¿con qué frecuencia ha usado usted desinfectante para manos?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -888,7 +888,7 @@
           ]
         },
         "social_distance_you": {
-          "title": "12. En las 2 semanas antes de enfermarse, ¿con qué frecuencia intentó conscientemente distanciamiento social de los demás?",
+          "title": "12. En las 2 semanas antes de enfermarse, ¿con qué frecuencia puso en práctica conscientemente el distanciamiento social con los demás?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -907,7 +907,7 @@
           ]
         },
         "social_distance_household": {
-          "title": "13. I En las 2 semanas antes de enfermarse, ¿con qué frecuencia la gente que vive con usted intentó conscientemente distanciamiento social de los demás?",
+          "title": "13. En las 2 semanas antes de enfermarse, ¿con qué frecuencia la gente que vive con usted puso en práctica conscientemente el distanciamiento social con los demás?",
           "type": "string",
           "uniqueItems": true,
           "enum": [
@@ -959,7 +959,7 @@
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "title": "15. ¿Tiene alguna de las siguientes mascotas en su case? (marque todo lo que corresponda)",
+          "title": "15. ¿Tiene alguna de las siguientes mascotas en su casa? (marque todo lo que corresponda)",
           "items": {
             "type": "string",
             "enum": [
@@ -1003,7 +1003,7 @@
             "Hace un mes",
             "Hace más de un mes",
             "No me acuerdo",
-            "Yo no acaricie a un animal domesticados",
+            "Yo no acaricié a ningún animal domesticado",
             "Prefiero no responder"
           ]
         },
@@ -1025,8 +1025,8 @@
             "enumNames": [
               "Fui a la tienda o al mercado",
               "Servicio a domicilio",
-              "Recoger en tienda",
-              "Tuvo un cuidador o familiar para compras de sus comestibles",
+              "Lo recogí en la tienda",
+              "Tuve un cuidador o familiar para comprar mis comestibles",
               "No visité la tienda",
               "Prefiero no responder"
             ]
@@ -1051,7 +1051,7 @@
       ],
       "properties": {
         "transportation": {
-          "title": "18. ¿Qué transporte tomaste en las dos semanas antes a enfermarte? (marque todo lo que corresponda)",
+          "title": "18. ¿Qué transporte tomó usted en las dos semanas antes de enfermarte? (marque todo lo que corresponda)",
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
@@ -1069,7 +1069,7 @@
               "Prefer not to answer"
             ],
             "enumNames": [
-              "Subterráneo",
+              "Subterráneo (metro)",
               "Autobús",
               "Uber/Lyft/Taxi o similar",
               "Avión",
@@ -1095,14 +1095,14 @@
           "enumNames": [
             "Sí",
             "No",
-            "No aplica, perdí el trabajo como parte de COVID-19",
-            "No aplica, estaba desempleado o jubilado antes de la enfermedad",
+            "No aplica.  Perdí el trabajo como parte de COVID-19",
+            "No aplica.  Estaba desempleado o jubilado antes de la enfermedad",
             "Prefiero no responder"
           ]
         },
         "job_title": {
           "type": "array",
-          "title": "20. ¿Qué tipo de trabajo tienes actualmente? (marque todo lo que corresponda)",
+          "title": "20.  ¿Qué tipo de trabajo tiene usted actualmente? (marque todo lo que corresponda)",
 
           "minItems": 1,
           "uniqueItems": true,
@@ -1136,9 +1136,9 @@
               "Seguridad pública (policía, guardia de seguridad)",
               "Investigador en un laboratorio",
               "Ingeniero de saneamiento",
-              "Trabajar en una fábrica / planta / centro de procesamiento",
-              "Trabajar en una tienda / centro comercial",
-              "Trabajar en un entorno de oficina",
+              "Trabajo en una fábrica / planta / centro de procesamiento",
+              "Trabajo en una tienda / centro comercial",
+              "Trabajo en un entorno de oficina",
               "Trabajo en transporte público (conductor de autobús, empleado de estación de metro)",
               "Trabajo en restaurante / bar",
               "Trabajo al aire libre (agricultura, paisajismo, construcción)",
@@ -1174,14 +1174,14 @@
           "enumNames": ["Sí", "No", "Prefiero no responder"]
         },
         "commute_mass_transit": {
-          "title": "24. ¿Sueles viajar por transportación púbica (Subterráneo, tren, autobús)?",
+          "title": "24. ¿Suele viajar por transporte público (metro, tren, autobús)?",
           "type": "string",
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"],
           "enumNames": ["Sí", "No", "Prefiero no responder"]
         },
         "commute_car": {
-          "title": "25. ¿Sueles viajar manejando, por taxis o servicio para compartir automóvil?",
+          "title": "25. ¿Suele viajar manejando, en taxis o servicio para compartir automóvil?",
           "type": "string",
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"],
@@ -1195,14 +1195,14 @@
       "required": ["test_location"],
       "properties": {
         "test_location": {
-          "title": "Si fue invitado a hacerse una prueba de anticuerpos, ¿cuál es su preferencia de prueba?",
+          "title": "Si fuese invitado a hacerse una prueba de anticuerpos, ¿cuál sería su preferencia de prueba?",
           "type": "string",
           "uniqueItems": true,
           "enum": ["lab", "home", "noTest"],
           "enumNames": [
-            "Vaya a un laboratorio para una prueba de anticuerpos",
-            "Reciba un kit de prueba en casa",
-            "No me interesa probar"
+            "Ir a un laboratorio para una prueba de anticuerpos",
+            "Recibir un kit de prueba en casa",
+            "No me interesa hacerme una prueba"
           ]
         }
       }

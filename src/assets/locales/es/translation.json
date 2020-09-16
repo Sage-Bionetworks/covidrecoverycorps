@@ -378,7 +378,7 @@
     "text3": "Encuesta 1",
     "text4": "Cuéntenos sobre usted",
     "text5": "Encuesta 2",
-    "text6": "Experiencia reciente del COVID",
+    "text6": "Experiencia reciente con el COVID",
     "text61": "Resultados de la Prueba",
     "text62": "Cargar el resultado de la prueba COVID-19",
     "text7": "Encuesta 3",
@@ -387,7 +387,7 @@
     "text10": "Más experiencia de COVID",
     "intro1": "<0> Encuestas del estudio</0><1> Sus respuestas a la siguiente información ayudarán a los investigadores a aprender más sobre el COVID-19.</1> <1>Para calificar para la lista de espera para la prueba de anticuerpos, por favor complete todas las encuestas lo mejor que pueda. Si se siente incómodo con alguna de las preguntas, usted puede hacer clic en \"Prefiero no responder\".</1><1> Gracias por su tiempo.</1>",
     "text11": "Encuestas mínimas requeridas para invitaciones al laboratorio",
-    "min": "mínimas",
+    "min": "minutos",
     "intro": {
       "surveysDoneTitle": "¡Gracias por completar las encuestas!",
       "surveysDoneText": "<0>¡Ahora usted califica para la lista de espera de la prueba de anticuerpos!</0><0> Para recibir una tarjeta de regalo, deberá ser invitado a una prueba de anticuerpos y proporcionar una muestra biológica.</0><0> En este momento no podemos garantizar invitaciones de prueba para todos los participantes.</0>",
@@ -663,7 +663,7 @@
       "symptomSequence": "Por favor compruebe que las fechas de los síntomas estén en la secuencia correcta "
     },
     "testLocationSurvey": {
-      "text1": "Si fue invitado a hacerse una prueba de anticuerpos, ¿cuál es su preferencia de prueba?",
+      "text1": "Si fuese invitado a hacerse una prueba de anticuerpos, ¿cuál sería su preferencia de prueba?",
       "text2": "Vaya a un laboratorio para una prueba de anticuerpos",
       "text3": "Reciba un kit de prueba en casa (disponible después de diciembre de 2020)",
       "text4": "No me interesa probar"

@@ -1,9 +1,9 @@
 {
   "steps": [
     {
-      "title": "Cuéntanos sobre usted",
+      "title": "Cuéntenos sobre usted",
       "orderDisplay": "1/2",
-      "description": "Por favor complete las preguntas de este cuestionario, a lo que mejor pueda. Si usted no se recuerda o no desea responder a la pregunta, por favor marque \"Prefiero no responder\"",
+      "description": "Por favor complete las preguntas de este cuestionario a lo que mejor pueda. Si usted no se recuerda o no desea responder a la pregunta, por favor marque \"Prefiero no responder\"",
       "id": "about",
       "order": 1,
       "default": "about2"
