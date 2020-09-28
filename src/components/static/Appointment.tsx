@@ -171,7 +171,7 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
     const friendlyAppointmentTimeStart = appointmentDateTime
       .locale(i18next.language)
       .format('h:mm a')
-    const appointmentDateTimeEnd = appointment.start.add(30, 'minutes')
+    const appointmentDateTimeEnd = appointment.start.clone().add(30, 'minutes')
     const friendlyAppointmentTimeEnd = appointmentDateTimeEnd
       .locale(i18next.language)
       .format('h:mm a')
