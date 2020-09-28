@@ -468,9 +468,9 @@
     "text23": "You can call <1>212-305-5700</1> or email <3>COVIDRecoveryCorps@cumc.columbia.edu</3>."
   },
   "home": {
-    "title": "A community-powered movement to understand COVID-19 across NYC.",
-    "text1": "If you live in the New York City metro area and have recovered from COVID-19 - or think you have - join our research study to better understand the long-term effects from this disease.",
-    "text3": "There is an urgent need to understand how COVID-19 will impact New York’s communities over time.",
+    "title": "A community-powered movement to understand COVID-19.",
+    "text1": "If you have recovered from COVID-19 - or think you have - join our research study to better understand the long-term effects from this disease.",
+    "text3": "There is an urgent need to understand how COVID-19 will impact our communities over time.",
     "text31": "In partnership with:",
     "text4": "Our mission in this study is to understand how people recover from COVID-19 and the impacts of the disease on health, both today and in the future. By sharing your recovery experience, you can help researchers unlock the mysteries behind this disease and provide important new information for you, your loved ones, and thousands of others affected by the virus.",
     "text41": "Minority communities have been disproportionately affected by COVID-19. We are committed to engaging a diverse and representative group of participants so that the research can help those most impacted by this disease.",
@@ -482,7 +482,7 @@
     "text11": "and learn what will happen in the study. After registering, you will be invited to take brief surveys that may help scientists begin to answer questions like: Why do some people experience very mild symptoms while others get very sick? How does recovering from COVID-19 impact your health over time?",
     "text12": "STEP TWO",
     "text13": "Share your samples",
-    "text14": "We will invite some participants to visit clinical sites in New York City to donate a sample. Sharing your samples will help answer important questions including: Who was really infected with COVID-19? What levels of antibodies are needed to protect us from reinfection? Is it possible to develop full immunity to COVID-19?",
+    "text14": "We will invite some participants to donate a sample. Sharing your samples will help answer important questions including: Who was really infected with COVID-19? What levels of antibodies are needed to protect us from reinfection? Is it possible to develop full immunity to COVID-19?",
     "text15": "STEP THREE",
     "text16": "Learn with us along the way",
     "text17": "If you are asked to provide a sample, we will test the sample for antibodies related to COVID-19 infection, using an antibody test approved by the New York State Department of Health. We will share your test results with you, along with information about what those results may mean. As we learn more about the impact of COVID-19 across study participants, we will share regular updates with the broader scientific and patient community. We may also ask if you are interested in joining other related studies. For instance, some participants may choose to be notified of opportunities to donate plasma and help those still fighting for survival from COVID-19.",
@@ -520,7 +520,7 @@
     },
     "lh4": {
       "title": "What COVID-19 negative people can do now.",
-      "text": "<0>For people with a negative serology test, what do I do now? </0><1> People who have a negative serology test and never had a positive PCR test, most likely were not infected with the SARS-CoV-2 virus. You should wear a face mask, wash your hands, and keep a safe social distance to keep from getting infected. </1><2> Vaccines to the SARS-CoV-2 virus are being developed.  The purpose of a vaccine is to help the body mount an immune response to the virus without being infected with the virus.  This immune response can protect against future infection without the risk of infection. </2><3> Vaccines undergo a lengthy development process including careful studies of safety and efficacy. While currently there is no vaccine for COVID-19, the FDA has prioritized clinical trials for vaccine development and is supporting efforts for large scale manufacturing when a safe vaccine is developed.</3>"
+      "text": "<0>For people with a negative serology test, what do I do now? </0><1> People who have a negative serology test and never had a positive PCR test, most likely were not infected with the SARS-CoV-2 virus. You should wear a face mask, wash your hands, and keep a safe social distance to keep from getting infected. </1><2> Vaccines to the SARS-CoV-2 virus are being developed.  The purpose of a vaccine is to help the body mount an immune response to the virus without being infected with the virus.  This immune response can protect against future infection without the risk of infection. </2><3> Vaccines undergo a lengthy development process including careful studies of safety and efficacy. While currently there is no vaccine for COVID-19, the FDA has prioritized clinical trials for vaccine development and is supporting efforts for large scale manufacturing when a </3>"
     },
     "lh5": {
       "title": "FAQs about serology results:",
