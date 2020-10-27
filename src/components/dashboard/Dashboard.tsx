@@ -61,12 +61,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   const classes = useStyles()
   const { t } = useTranslation()
 
-  const featureFlags = useContext(FeatureToggle.FeaturesContext)
-  const hasResultsUploadToggle = FeatureToggle.getToggleState(
-    featureFlags,
-    FeatureToggle.TOGGLE_NAMES.RESULTS_UPLOAD,
-  )
-
   const surveys: UISurvey[] = [
     {
       type: 'CONTACT',
@@ -270,7 +264,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     }
 
     // see if we need uploadResults Survey
-    if (!hasResultsUploadToggle || !hasTakenTest()) {
+    if (!hasTakenTest()) {
       surveys.splice(3, 1)
     }
 
@@ -296,8 +290,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       completedSurveyNames.includes('COVID_EXPERIENCE') &&
       completedSurveyNames.includes('HISTORY') &&
       completedSurveyNames.includes('MORE') &&
-      (completedSurveyNames.includes('RESULT_UPLOAD') ||
-        !hasResultsUploadToggle)
+      completedSurveyNames.includes('RESULT_UPLOAD')
 
     if (doneAll) {
       return SurveysCompletionStatusEnum.ALL_DONE
