@@ -426,6 +426,14 @@ export const UploadResult: React.FunctionComponent<{
               </Trans>
             </div>
           </div>
+          {uploadedFiles.map((file, i) => (
+            <div key={`fileName${i}`}>
+              <FontAwesomeIcon
+                icon={file.success ? faCheck : faExclamation}
+              ></FontAwesomeIcon>
+              {` ${file.fileName} ${file.message}`}
+            </div>
+          ))}
           <Grid container>
             <Grid item xs={12}>
               <div className={classes.preview}>
@@ -445,14 +453,7 @@ export const UploadResult: React.FunctionComponent<{
 
                 {previewFile && <img src={previewFile.body} />}
               </div>
-              {uploadedFiles.map((file, i) => (
-                <div key={`fileName${i}`}>
-                  <FontAwesomeIcon
-                    icon={file.success ? faCheck : faExclamation}
-                  ></FontAwesomeIcon>
-                  {` ${file.fileName} ${file.message}`}
-                </div>
-              ))}
+
               {isLoading && (
                 <div className="text-center">
                   <CircularProgress color="primary" />
