@@ -1,94 +1,290 @@
 {
-  "items": [
-    {
-      "dateTime": "2020-06-15T00:14:04.322Z",
-      "data": {
-        "surveys": [
-          {
-            "type": "DEMOGRAPHIC",
-            "updatedDate": "2020-08-19T16:47:10.345Z",
-            "completedDate": "2020-08-19T16:47:10.337Z",
-            "data": {
-              "about2": {
-                "how_heard": [
-                  "Prefer not to answer"
-                ],
-                "included": true,
-                "income": "$0 to $9,999",
-                "healthcare_pay": "Prefer not to answer"
+  "items":[
+     {
+        "dateTime":"2020-06-15T00:14:04.322Z",
+        "data":{
+           "surveys":[
+              {
+                 "type":"DEMOGRAPHIC",
+                 "updatedDate":"2020-08-20T18:10:00.772Z",
+                 "completedDate":"2020-08-20T18:10:00.761Z",
+                 "data":{
+                    "about2":{
+                       "how_heard":[
+                          "Prefer not to answer"
+                       ],
+                       "included":true,
+                       "income":"Prefer not to answer",
+                       "healthcare_pay":"Prefer not to answer"
+                    },
+                    "about":{
+                       "ethnicity":[
+                          "Prefer not to answer"
+                       ],
+                       "included":true,
+                       "gender_identity":"Prefer not to answer",
+                       "education":"Prefer not to answer"
+                    },
+                    "metadata":{
+                       
+                    }
+                 }
               },
-              "about": {
-                "ethnicity": [
-                  "Other"
-                ],
-                "included": true,
-                "gender_identity": "Other",
-                "education": "Prefer not to answer"
+              {
+                 "type":"COVID_EXPERIENCE",
+                 "updatedDate":"2020-08-20T18:22:57.217Z",
+                 "completedDate":"2020-08-20T18:22:57.208Z",
+                 "data":{
+                    "habits2":{
+                       "included":true,
+                       "anxiety":"Prefer not to answer",
+                       "worry":"Prefer not to answer",
+                       "loneliness":"Prefer not to answer"
+                    },
+                    "habits":{
+                       "included":true,
+                       "vaping":"Prefer not to answer",
+                       "alcohol":"Prefer not to answer",
+                       "smoking":"Prefer not to answer"
+                    },
+                    "medications2":{
+                       "covid_medications":[
+                          "Prefer not to answer"
+                       ],
+                       "included":true
+                    },
+                    "medications":{
+                       "regular_medications":[
+                          "Prefer not to answer"
+                       ],
+                       "included":true
+                    },
+                    "symptoms2":{
+                       "kind_of_testing":{
+                          "no_answer":true
+                       },
+                       "included":true,
+                       "how_was_it_treated":"no answer"
+                    },
+                    "symptoms1":{
+                       "symptoms_list":{
+                          "other":true
+                       },
+                       "included":true
+                    },
+                    "symptoms":{
+                       "symptoms_start":{
+                          
+                       },
+                       "symptoms_worst":{
+                          
+                       },
+                       "symptoms_recovery":{
+                          "dont_feel_better":false
+                       },
+                       "symptoms_none":{
+                          "still_have_symptoms":true
+                       },
+                       "included":true
+                    },
+                    "metadata":{
+                       
+                    },
+                    "success-events":{
+                       "id":"success-events",
+                       "type":"DYNAMIC",
+                       "priority":1,
+                       "options":{
+                          "cache":false
+                       }
+                    }
+                 }
               },
-              "metadata": {}
-            }
-          },
-          {
-            "type": "COVID_EXPERIENCE",
-            "updatedDate": "2020-08-19T16:46:49.763Z",
-            "completedDate": "2020-08-19T16:46:49.755Z",
-            "data": {}
-          },
-          {
-            "type": "TEST_LOCATION",
-            "updatedDate": "2020-07-13T17:53:29.997Z",
-            "completedDate": "2020-07-13T17:53:29.692Z",
-            "data": {
-              "location": "lab"
-            }
-          },
-          {
-            "type": "POST_LAB",
-            "updatedDate": "2020-08-14T20:44:49.138Z",
-            "completedDate": "2020-08-14T20:44:49.133Z",
-            "data": {
-              "postLab": {
-                "longterm_impact": {
-                  "physical_health": "5",
-                  "community": "4",
-                  "job": "2",
-                  "homeless": "5",
-                  "family_tension": "3",
-                  "children": "5"
-                },
-                "helped_recover": [
-                  "Prefer not to answer"
-                ],
-                "helped_recover_recommend": [
-                  "Prefer not to answer"
-                ],
-                "hampered_recover": [
-                  "Prefer not to answer"
-                ],
-                "contributed_exposure": [
-                  "Prefer not to answer"
-                ],
-                "included": true
+              {
+                 "type":"HISTORY",
+                 "updatedDate":"2020-08-20T18:28:04.813Z",
+                 "completedDate":"2020-08-20T18:28:04.803Z",
+                 "data":{
+                    "history31":{
+                       "diseases_history_cont":{
+                          "no_answer":true
+                       },
+                       "family_diseases":{
+                          "no_answer":true
+                       },
+                       "included":true,
+                       "sexual_orientation":"Prefer not to answer",
+                       "immune_deficiency":"Prefer not to answer"
+                    },
+                    "history3":{
+                       "diseases_history":[
+                          "Prefer not to answer"
+                       ],
+                       "included":true
+                    },
+                    "history21":{
+                       "health_conditions":{
+                          "no_answer":true
+                       },
+                       "included":true,
+                       "blood_pressure":"Prefer not to answer",
+                       "blood_pressure_medication":"Prefer not to answer"
+                    },
+                    "history2":{
+                       "included":true,
+                       "blood_type":"Prefer not to answer",
+                       "diabetes_diagnosis":"Prefer not to answer"
+                    },
+                    "history11":{
+                       "vaccinations":[
+                          "Prefer not to answer "
+                       ],
+                       "included":true,
+                       "where_go_for_care":"Prefer not to answer",
+                       "travel_time_to_doctor":"Prefer not to answer",
+                       "routine_exam_2019":"Prefer not to answer"
+                    },
+                    "history1":{
+                       "height":{
+                          
+                       },
+                       "included":true,
+                       "general_health_status":"Prefer not to answer",
+                       "physical_activity_level":"Prefer not to answer"
+                    },
+                    "metadata":{
+                       "gender":"Male"
+                    },
+                    "success-events":{
+                       "id":"success-events",
+                       "type":"DYNAMIC",
+                       "priority":1,
+                       "options":{
+                          "cache":false
+                       }
+                    }
+                 }
               },
-              "metadata": {}
-            }
-          },
-          {
-            "type": "HISTORY",
-            "updatedDate": "2020-08-19T16:48:26.323Z",
-            "completedDate": "2020-08-19T16:48:26.317Z",
-            "data": {}
-          },
-          {
-            "type": "MORE",
-            "updatedDate": "2020-08-19T16:49:54.399Z",
-            "completedDate": "2020-08-19T16:49:54.394Z",
-            "data": {}
-          }
-        ]
-      },
-      "date": "2020-06-15T00:14:04.322Z",
-      "type": "ReportData"
-    }
-  ]
+              {
+                 "type":"MORE",
+                 "updatedDate":"2020-08-20T22:41:09.211Z",
+                 "completedDate":"2020-08-20T22:41:09.203Z",
+                 "data":{
+                    "test_location":{
+                       "included":true,
+                       "test_location":"home"
+                    },
+                    "job_commute":{
+                       "transportation":[
+                          "Car"
+                       ],
+                       "job_title":[
+                          "Other"
+                       ],
+                       "included":true,
+                       "work_from_home":"Prefer not to answer",
+                       "were_healthcare_worker":"Prefer not to answer",
+                       "were_teacher_childcare":"Prefer not to answer",
+                       "commute_mass_transit":"Prefer not to answer",
+                       "commute_car":"Prefer not to answer",
+                       "were_foodservice":"No"
+                    },
+                    "life_pets":{
+                       "pets":[
+                          "Prefer not to answer"
+                       ],
+                       "how_purchased_groceries":[
+                          "Prefer not to answer"
+                       ],
+                       "included":true,
+                       "last_time_pet_dog_cat":"Prefer not to answer"
+                    },
+                    "hygene2":{
+                       "included":true,
+                       "sanitizer_household":"Prefer not to answer",
+                       "social_distance_you":"Prefer not to answer",
+                       "social_distance_household":"Prefer not to answer",
+                       "leave_house_frequency":"Prefer not to answer"
+                    },
+                    "hygene":{
+                       "included":true,
+                       "cold_how_often":"Prefer not to answer",
+                       "mask_you":"Prefer not to answer",
+                       "mask_household":"Prefer not to answer",
+                       "sanitizer_you":"Prefer not to answer"
+                    },
+                    "covid11":{
+                       "people_diagnosed":{
+                          "covid_diagnosed":0,
+                          "covid_suspected":0,
+                          "covid_hospitalized":0,
+                          "covid_died":0
+                       },
+                       "included":true,
+                       "antibiotics_covid_prior":"Prefer not to answer"
+                    },
+                    "covid1":{
+                       "household_size":{
+                          "under3":0,
+                          "3-6":0,
+                          "7–17":0,
+                          "18–64":0,
+                          "65–79":0,
+                          "80+":0
+                       },
+                       "included":true,
+                       "travel":"Prefer not to answer",
+                       "housing_type":"Prefer not to answer"
+                    },
+                    "metadata":{
+                       
+                    },
+                    "success-events":{
+                       "id":"success-events",
+                       "type":"DYNAMIC",
+                       "priority":1,
+                       "options":{
+                          "cache":false
+                       }
+                    }
+                 }
+              },
+              {
+                 "type":"RESULT_UPLOAD",
+                 "updatedDate":"2020-08-31T20:12:49.769Z",
+                 "completedDate":"2020-08-31T20:12:49.484Z",
+                 "data":{
+                    "fileNames":[
+                       "Rectangle 661.png"
+                    ]
+                 }
+              },
+              {
+                 "type":"RESULT_UPLOAD2",
+                 "updatedDate":"2020-08-31T22:05:38.278Z",
+                 "completedDate":"2020-08-31T22:05:38.048Z",
+                 "data":{
+                    "fileNames":[
+                       
+                    ]
+                 }
+              }
+           ]
+        },
+        "date":"2020-06-15T00:14:04.322Z",
+        "type":"ReportData"
+     }
+  ],
+  "requestParams":{
+     "pageSize":50,
+     "startTime":"2020-06-15T00:14:04.322Z",
+     "endTime":"2020-06-15T00:14:04.322Z",
+     "type":"RequestParams"
+  },
+  "pageSize":50,
+  "startTime":"2020-06-15T00:14:04.322Z",
+  "endTime":"2020-06-15T00:14:04.322Z",
+  "total":1,
+  "hasNext":false,
+  "type":"ForwardCursorPagedResourceList"
 }

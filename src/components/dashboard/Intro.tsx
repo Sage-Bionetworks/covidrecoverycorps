@@ -56,7 +56,7 @@ const Intro: FunctionComponent<IntroProps> = ({
   const elSelectedTest = (
     <>
       <img src={iconCheckMark}></img>
-      <h2>{t('dashboard.intro.selectedTestTitle')}</h2>
+      <h2>{t('dashboard.intro.surveysDoneTitle')}</h2>
       <Trans i18nKey="dashboard.intro.selectedTestText">
         <p>[translate]</p>
       </Trans>

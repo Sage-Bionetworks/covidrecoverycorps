@@ -1203,6 +1203,23 @@
           ]
         }
       }
+    },
+    "test_location_no_lab": {
+      "type": "object",
+      "title": "",
+      "required": ["test_location"],
+      "properties": {
+        "test_location": {
+          "title": "Would you be interested in being a potential candidate for an at home test kit?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["home", "noTest"],
+          "enumNames": [
+            "Yes, I am interested in an at-home test kit",
+            "No, I’m not interested in testing"
+          ]
+        }
+      }
     }
   },
   "type": "object",
@@ -1238,6 +1255,10 @@
     "test_location": {
       "title": "",
       "$ref": "#/definitions/test_location"
+    },
+    "test_location_no_lab": {
+      "title": "",
+      "$ref": "#/definitions/test_location_no_lab"
     }
   }
 }

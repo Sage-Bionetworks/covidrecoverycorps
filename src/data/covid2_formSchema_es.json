@@ -1206,6 +1206,23 @@
           ]
         }
       }
+    },
+    "test_location_no_lab": {
+      "type": "object",
+      "title": "",
+      "required": ["test_location"],
+      "properties": {
+        "test_location": {
+          "title": "¿Le interesaría ser un candidato potencial para un kit de prueba en casa?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["home", "noTest"],
+          "enumNames": [
+            "Sí, estoy interesado en un kit de prueba en casa",
+            "No, no me interesa probar"
+          ]
+        }
+      }
     }
   },
   "type": "object",
@@ -1241,6 +1258,10 @@
     "test_location": {
       "title": "",
       "$ref": "#/definitions/test_location"
+    },
+    "test_location_no_lab": {
+      "title": "",
+      "$ref": "#/definitions/test_location_no_lab"
     }
   }
 }

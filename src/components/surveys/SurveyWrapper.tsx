@@ -9,19 +9,15 @@ import Alert from 'react-bootstrap/Alert'
 import { UiSchema } from 'react-jsonschema-form'
 import SynapseForm, { ExtraUIProps } from './synapse_form_wrapper/SynapseForm'
 import { StatusEnum } from './synapse_form_wrapper/types'
-import {
-  SurveyType,
-  SavedSurveysObject,
-  SavedSurvey,
-  UserAttributes,
-} from '../../types/types'
+import { SurveyType, SavedSurveysObject, SavedSurvey } from '../../types/types'
+import { isWithin25Miles } from '../../helpers/utility'
 import { SURVEYS } from '../../data/surveys'
 import { SurveyService } from '../../services/survey.service'
 import { UserService } from '../../services/user.service'
 import { USPSService } from '../../services/usps.service'
 import { Redirect } from 'react-router-dom'
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
-import { withTranslation, WithTranslation } from 'react-i18next';
+import { withTranslation, WithTranslation } from 'react-i18next'
 
 export interface SurveyWrapperProps {
   formTitle: string //for UI customization
@@ -109,11 +105,18 @@ class SurveyWrapperComponent extends React.Component<
         if (currentSurvey) {
           formData = { ...currentSurvey.data, metadata: {} }
         }
-
         if (this.props.surveyName === 'HISTORY') {
           formData.metadata = {
             ...formData.metadata,
             gender: userInfoResponse.data.attributes?.gender || '',
+          }
+        }
+        if (this.props.surveyName === 'MORE') {
+          formData.metadata = {
+            ...formData.metadata,
+            isEligibleForLabTest: userInfoResponse.data.attributes
+              ? isWithin25Miles(userInfoResponse.data.attributes.zip_code)
+              : false,
           }
         }
       } else {
@@ -218,7 +221,7 @@ class SurveyWrapperComponent extends React.Component<
 
         // USPS sometimes returns a validated address, but it automatically "fixes" the zip code/state/city that was provided in the request!
         if (zipCodeElement.childNodes[0].textContent! != attributes.zip_code) {
-          invalidField =  this.props.t('surveys.contact.zip')
+          invalidField = this.props.t('surveys.contact.zip')
           suggestedValue = zipCodeElement.childNodes[0].textContent
         } else if (
           stateElement.childNodes[0].textContent! != attributes.state
@@ -234,7 +237,10 @@ class SurveyWrapperComponent extends React.Component<
         }
 
         if (invalidField) {
-          invalidAddressText = this.props.t('surveys.contact.invalidAddress', {invalidField: invalidField, suggestedValue: suggestedValue})
+          invalidAddressText = this.props.t('surveys.contact.invalidAddress', {
+            invalidField: invalidField,
+            suggestedValue: suggestedValue,
+          })
         }
       }
 
@@ -440,7 +446,7 @@ class SurveyWrapperComponent extends React.Component<
                 callbackStatus={this.state.status}
                 onSave={(data: any) => this.saveSurvey(data)}
                 onSubmit={async (data: any) => {
-                  this.setState({status: undefined})
+                  this.setState({ status: undefined })
                   this.props.surveyName !== 'CONTACT'
                     ? this.submitForm(data, this.cleanData(data))
                     : this.updateUserContactInfo(data, this.cleanData(data))
@@ -466,6 +472,5 @@ class SurveyWrapperComponent extends React.Component<
 }
 
 const SurveyWrapper = withTranslation()(SurveyWrapperComponent)
-
 
 export default SurveyWrapper

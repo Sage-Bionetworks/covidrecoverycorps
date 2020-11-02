@@ -1,12 +1,11 @@
 import React, { FunctionComponent, createContext, useContext } from 'react'
 import { getSearchParams } from './utility'
 
-export type ToggleKeys = 'RESULTS_VIDEO' | 'SPANISH' | 'RESULTS_UPLOAD'
+export type ToggleKeys = 'RESULTS_VIDEO' | 'SPANISH'
 
 export const TOGGLE_NAMES: { [key in ToggleKeys]: string } = {
   RESULTS_VIDEO: 'resultsVideo',
   SPANISH: 'spanish',
-  RESULTS_UPLOAD: 'resultsUpload',
 }
 
 type Flags = {

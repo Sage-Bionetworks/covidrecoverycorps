@@ -385,14 +385,13 @@
     "text8": "Historial médico ",
     "text9": "Encuesta 4",
     "text10": "Más experiencia de COVID",
-    "intro1": "<0> Encuestas del estudio</0><1> Sus respuestas a la siguiente información ayudarán a los investigadores a aprender más sobre el COVID-19.</1> <1>Para calificar para la lista de espera para la prueba de anticuerpos, por favor complete todas las encuestas lo mejor que pueda. Si se siente incómodo con alguna de las preguntas, usted puede hacer clic en \"Prefiero no responder\".</1><1> Gracias por su tiempo.</1>",
+    "intro1": "<0> Encuestas del estudio</0><1> Sus respuestas a la siguiente información ayudarán a los investigadores a aprender más sobre el COVID-19.</1> <1>Si se siente incómodo con alguna de las preguntas, usted puede hacer clic en \" Prefiero no responder \".</1><1> Gracias por su tiempo.</1>",
     "text11": "Encuestas mínimas requeridas para invitaciones al laboratorio",
     "min": "minutos",
     "intro": {
       "surveysDoneTitle": "¡Gracias por completar las encuestas!",
       "surveysDoneText": "<0>¡Ahora usted califica para la lista de espera de la prueba de anticuerpos!</0><0> Para recibir una tarjeta de regalo, deberá ser invitado a una prueba de anticuerpos y proporcionar una muestra biológica.</0><0> En este momento no podemos garantizar invitaciones de prueba para todos los participantes.</0>",
-      "selectedTestTitle": "¡Gracias!",
-      "selectedTestText": "<0> Lo hemos añadido a la lista de espera para una prueba de anticuerpos. </0><0> Si es seleccionado, recibirá un correo electrónico. </0>",
+      "selectedTestText": "<0> Si es seleccionado para recibir una prueba de anticuerpos, recibirá un correo electrónico.</0>",
       "selectedNoTestTitle": "¡Gracias por su contribución al estudio COVID Recovery Corps!",
       "selectedNoTestText": "<0> A medida que aprendamos más, nosotros proporcionaremos actualizaciones sobre los resultados del estudio en boletines, presentaciones en línea y reuniones comunitarias. </0>",
       "invitedTitle": "¡Estás invitado!",
@@ -429,12 +428,11 @@
     "errorCons": "Para ser elegible para participar en el estudio de COVID Recovery Corps, debe poder dar su consentimiento.",
     "errorCovid": "Para ser elegible para participar en el estudio COVID Recovery Corps, debe pensar que ha tenido COVID-19.",
     "errorZip": "Código postal no válido.",
-    "text1": "En este momento buscamos residentes dentro de un radio de 25 millas del Centro Médico de la Universidad de Columbia. Para ser elegible para participar en el estudio COVID Recovery Corps, debe cumplir con lo siguiente:",
+    "text1": "Para ser elegible para participar en el estudio COVID Recovery Corps, debe cumplir con lo siguiente:",
     "text2": "Tengo 18 años o más ",
     "text3": "Yo tengo la capacidad de dar mi consentimiento",
     "text4": "Yo creo que tuve el COVID-19",
-    "text5": "Por favor ingrese su código postal",
-    "zipCode": "Código postal "
+    "text5a": "Yo vivo en los estados unidos"
   },
   "faqs": {
     "title": "Preguntas frecuentes",
@@ -488,15 +486,6 @@
     "text16": "Aprenda con nosotros en este camino",
     "text17": "Si se le solicita que proporcione una muestra, analizaremos la muestra para detectar anticuerpos relacionados con la infección por COVID-19 mediante una prueba de anticuerpos aprobada por el Departamento de Salud del Estado de Nueva York. Compartiremos los resultados de la prueba con usted, junto con la información sobre lo que esos resultados pueden significar. A medida que aprendemos más sobre el impacto del COVID-19 en los participantes del estudio, compartiremos actualizaciones periódicas con una amplia comunidad científica y de pacientes. También podemos preguntarle si está interesado en unirse a otros estudios relacionados. Por ejemplo, algunos participantes pueden optar por ser notificados a las oportunidades de donar plasma y ayudar a aquellos que aún luchan por sobrevivir al COVID-19.",
     "text18": "Juntos, podemos luchar contra COVID-19"
-  },
-  "ineligible": {
-    "text1": "Gracias por su interés ",
-    "text2": "Usted se ha unido con éxito a la lista de correo.  Nosotros le notificaremos en los próximos meses si el programa se expande en su área.",
-    "text3": "Desafortunadamente, solo podemos inscribir a participantes que vivan dentro de un radio de 25 millas del Centro Médico de la Universidad de Columbia.",
-    "text4": "Esperamos expandir el estudio en los próximos meses",
-    "text5": "Puede registrarse en nuestra lista de correo aquí:",
-    "text6": "únase a la lista de correo ",
-    "text7": "Uniéndose a la lista de correo..."
   },
   "learningHub": {
     "title": "Centro de aprendizaje de COVID-19",

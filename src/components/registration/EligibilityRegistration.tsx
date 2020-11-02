@@ -1,15 +1,11 @@
 import * as React from 'react'
 import { Response, LoggedInUserData, LoginType } from '../../types/types'
-
 import { useState } from 'react'
 import Eligiblity from './Eligibility'
-import Ineligible from './Ineligible'
 import SignInWithCode from '../login/SignInWithCode'
-import { IneligibilityReason } from '../../types/types'
 import Registration from './Registration'
 import { RouteComponentProps } from 'react-router-dom'
 import Card from '@material-ui/core/Card'
-
 import CardContent from '@material-ui/core/CardContent'
 
 export type EligibilityRegistrationOwnProps = {
@@ -24,9 +20,6 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
   callbackFn,
 }: EligibilityRegistrationProps) => {
   const [eligible, setEligible] = useState<boolean | undefined>(undefined)
-  const [ineligibilityReason, setIneligibilityReason] = useState<
-    IneligibilityReason | undefined
-  >(undefined)
 
   const [loginType, setLoginType] = useState<LoginType>()
   const [phoneOrEmail, setPhoneOrEmail] = useState('')
@@ -52,17 +45,12 @@ const EligibilityRegistration: React.FunctionComponent<EligibilityRegistrationPr
       <CardContent>
         {eligible === undefined && (
           <Eligiblity
-            setEligibilityFn={(
-              isEligible: boolean,
-              reason: IneligibilityReason,
-            ) => {
-              setEligible(isEligible)
-              setIneligibilityReason(reason)
+            setEligibilityFn={() => {
+              setEligible(true)
               window.scrollTo(0, 0)
             }}
           ></Eligiblity>
         )}
-        {eligible === false && <Ineligible />}
         {eligible && !loginType && (
           <Registration
             onSuccessFn={(

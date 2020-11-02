@@ -6,7 +6,8 @@
       "test_password": "nycrc",
       "login_result": "alina.gendel+ny713@gmail.com",
       "login_surveys": "alina.gendel+ny824@gmail.com",
-      "bridge_api": "https://webservices.sagebridge.org/v3/"
+      "login_surveys_completed": "alina.gendel+ny820@gmail.com",
+      "bridge_api": "https://webservices.sagebridge.org/"
    },
    "retries": {
       "runMode": 0,
