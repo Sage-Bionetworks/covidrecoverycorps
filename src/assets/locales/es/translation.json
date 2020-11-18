@@ -268,12 +268,12 @@
     },
     "screen10": {
       "text1": "¿Recibiré alguna forma de compensación por la participación en el estudio?",
-      "text2": "Usted recibirá una <1> tarjeta de regalo de $50 </1> si completa todas las encuestas y proporciona muestras biológicas en persona. Si completa todas sus encuestas y proporciona una muestra biológica con un kit de casa, recibirá <1> una tarjeta de regalo de $20</1>.",
+      "text2": "Usted recibirá una <1> tarjeta de regalo de $50 </1> si completa todas las encuestas y proporciona muestras biológicas en persona. Si completa todas sus encuestas y proporciona una muestra biológica con un kit de casa, recibirá <1> una tarjeta de regalo de $25</1>.",
       "text3": "No recibirá beneficio económico de esta o futuras investigaciones."
     },
     "fullTextScreen10": {
       "text1": "¿Recibiré alguna forma de compensación por la participación en el estudio?",
-      "text2": "Usted recibirá una tarjeta de regalo de $50 si completa todas las encuestas y proporciona muestras biológicas en persona. Si completa todas sus encuestas y proporciona una muestra biológica con un kit de casa, recibirá una tarjeta de regalo de $20.",
+      "text2": "Usted recibirá una tarjeta de regalo de $50 si completa todas las encuestas y proporciona muestras biológicas en persona. Si completa todas sus encuestas y proporciona una muestra biológica con un kit de casa, recibirá una tarjeta de regalo de $25.",
       "text3": "Los investigadores usarán sus datos para hacer descubrimientos. Si alguno de sus estudios conduce a nuevas pruebas, medicamentos u otros productos comerciales, usted no obtendrá ningún beneficio. Estos inventos serán propiedad de los investigadores que los desarrollan."
     },
     "screen11": {
@@ -400,7 +400,12 @@
       "missedTitle": "Parece que no le hemos visto a usted... ",
       "missedText": "Si desea reprogramar una cita de laboratorio, llame al 212-305-5700 o envíe un correo electrónico: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. ",
       "cancelledTitle": "Su cita de laboratorio ha sido cancelada.",
-      "cancelledText": "Si desea reprogramar una cita de laboratorio, llame al 212-305-5700 o envíe un correo electrónico: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. "
+      "cancelledText": "Si desea reprogramar una cita de laboratorio, llame al 212-305-5700 o envíe un correo electrónico: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. ",
+      "willMailAddress" :"We will mail the kit to this address:",
+      "addressConfirm": "Please confirm if this address is correct:",
+      "addressYes" : "Yes, that is my mailing address",
+      "addressNo": "No, I will update", 
+      "addressUdateLink": "<0>Please update your address under </0> <1>Contact Information</1>"
     }
   },
   "footer": {
@@ -462,7 +467,7 @@
     "text18": "¿La participación en este estudio afectará mi seguro o mis servicios médicos?",
     "text19": "El COVID Recovery Corps es un estudio observacional y no un ensayo clínico. No le pediremos que cambie lo que hace ni que tome un medicamento específico. Este estudio no afectará su seguro de salud ni su atención médica.",
     "text181": "¿Recibiré algún tipo de compensación por participar en el estudio?",
-    "text191": "<0> Sí, los participantes que completen las encuestas y proporcionen una muestra biológica al visitar un laboratorio recibirán una tarjeta de regalo de $50. </0> <0> Para los participantes que proporcionen una muestra biológica utilizando un kit de prueba en casa, recibirá una tarjeta de regalo de $20. </0> <0> Por favor recuerde completar sus encuestas antes de su cita de laboratorio o enviar por correo su kit de prueba en casa. </0> ",
+    "text191": "<0> Sí, los participantes que completen las encuestas y proporcionen una muestra biológica al visitar un laboratorio recibirán una tarjeta de regalo de $50. </0> <0> Para los participantes que proporcionen una muestra biológica utilizando un kit de prueba en casa, recibirá una tarjeta de regalo de $25. </0> <0> Por favor recuerde completar sus encuestas antes de su cita de laboratorio o enviar por correo su kit de prueba en casa. </0> ",
     "text22": "Yo tengo una pregunta que no esta respondida en la sección de preguntas más frecuentes. ¿Con quién me comunico?",
     "text23": "Usted puede llamar al <1> 212-305-5700 </1> o enviar un correo electrónico a <3> COVIDRecoveryCorps@cumc.columbia.edu </3>."
   },

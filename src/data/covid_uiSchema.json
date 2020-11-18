@@ -316,7 +316,7 @@
         "dont_know",
         "no_answer"
       ],
-      "ui:dependent_option_postfix": ["_date, _result"],
+      "ui:dependent_option_postfix": ["_date", "_result"],
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false

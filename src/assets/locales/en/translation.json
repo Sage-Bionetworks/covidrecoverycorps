@@ -148,7 +148,7 @@
       "text5": "This study is being led by Columbia University and Sage Bionetworks. The study is being funded by the Chan Zuckerberg Initiative.",
       "text6": "This study will <1> last for 12 months </1> from the time you enroll.",
       "text7": "This study will <1> not provide medical care </1> for COVID-19. Participation in this study is <1> voluntary </1> and you may leave the study at any time.",
-      "text8": "You will be given $50 gift card if you complete all of the surveys and provide biosamples in person they provide samples in person or a $20 gift card if you provide biosamples from home."
+      "text8": "You will be given $50 gift card if you complete all of the surveys and provide biosamples in person they provide samples in person or a $25 gift card if you provide biosamples from home."
     },
     "screen2": {
       "text1": "What will I be asked to do?",
@@ -268,12 +268,12 @@
     },
     "screen10": {
       "text1": "Will I receive any form of compensation for participating in the study?",
-      "text2": "You will be given a <1>$50 gift card</1> if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a <1>$20 gift card</1>.",
+      "text2": "You will be given a <1>$50 gift card</1> if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a <1>$25 gift card</1>.",
       "text3": "You will not receive any profit from this or future research."
     },
     "fullTextScreen10": {
       "text1": "Will I receive any form of compensation for participating in the study?",
-      "text2": "You will be given a $50 gift card if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a $20 gift card.",
+      "text2": "You will be given a $50 gift card if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a $25 gift card.",
       "text3": "Researchers will use your data to make discoveries. If any of their studies lead to new tests, drugs, or other commercial products, you will not get any profits. These inventions will be the property of the researchers who develop them."
     },
     "screen11": {
@@ -400,7 +400,13 @@
       "missedTitle": "Looks like like we missed you... ",
       "missedText": "If you would like to re-schedule a lab appointment, please call 212-305-5700 or email: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. ",
       "cancelledTitle": "Your lab appointment has been canceled.",
-      "cancelledText": "If you would like to re-schedule a lab appointment, please call 212-305-5700 or email: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. "
+      "cancelledText": "If you would like to re-schedule a lab appointment, please call 212-305-5700 or email: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. ",
+      "willMailAddress" :"We will mail the kit to this address:",
+      "addressConfirm": "Please confirm if this address is correct:",
+      "addressYes" : "Yes, that is my mailing address",
+      "addressNo": "No, I will update", 
+      "addressUdateLink": "<0>Please update your address under </0> <1>Contact Information</1>"
+
     }
   },
   "footer": {
@@ -463,7 +469,7 @@
     "text18": "Will participating in this study affect my insurance or medical services?",
     "text19": "The COVID Recovery Corps is an observational study and not a clinical trial. We will not be asking you to change what you do or to take a specific medication. This study will not affect your medical insurance or healthcare.",
     "text181": "Will I receive any form of compensation for participating in the study?",
-    "text191": "<0>Yes, participants who complete the surveys and provide a biosample by visiting a lab will receive a $50 gift card.</0> <0>For participants who provide a biosample using an at-home testing kit, you will receive a $20 gift card.</0> <0> Please remember to complete your surveys before your lab appointment or mailing back your at-home testing kit.</0>",
+    "text191": "<0>Yes, participants who complete the surveys and provide a biosample by visiting a lab will receive a $50 gift card.</0> <0>For participants who provide a biosample using an at-home testing kit, you will receive a $25 gift card.</0> <0> Please remember to complete your surveys before your lab appointment or mailing back your at-home testing kit.</0>",
     "text22": "I have a question that isn't answered in this FAQ. Who do I contact?",
     "text23": "You can call <1>212-305-5700</1> or email <3>COVIDRecoveryCorps@cumc.columbia.edu</3>."
   },

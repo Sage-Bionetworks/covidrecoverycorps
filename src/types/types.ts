@@ -32,7 +32,8 @@ export type Phone = {
 }
 
 export type UserAttributes = {
-  address: string
+  address1: string
+  address2?: string
   city: string
   state: string
   zip_code: string
@@ -181,6 +182,7 @@ export enum TestLocationEnum {
   'HOME' = 'home',
   'LAB' = 'lab',
   'NO_TEST' = 'noTest',
+  'N/A' = 'N/A'
 }
 
 export enum SurveysCompletionStatusEnum {
