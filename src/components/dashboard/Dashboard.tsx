@@ -167,11 +167,15 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   const getPreferredTestLocation = (): TestLocationEnum | undefined => {
     const locationFromLocationSurvey = getSavedSurvey('TEST_LOCATION')?.data
       .location
-    const locationFromCovidSurvey = _.get(
+    const locationFromCovidSurveyWithLab = _.get(
       getSavedSurvey('MORE'),
       'data.test_location.test_location',
     )
-    return locationFromCovidSurvey || locationFromLocationSurvey
+    const locationFromCovidSurveyWithoutLab = _.get(
+      getSavedSurvey('MORE'),
+      'data.test_location_no_lab.test_location',
+    )
+    return locationFromCovidSurveyWithLab ||  locationFromCovidSurveyWithoutLab || locationFromLocationSurvey
   }
 
   const isDone = (surveyType: SurveyType): boolean => {
@@ -213,7 +217,11 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     const isSurveyDisabled = (surveyType: SurveyType): boolean => {
       if (surveyType === 'CONTACT') {
         return isContactInfoDone()
-      } else {
+      } else  if (surveyType === 'MORE') {
+        return isDone(surveyType) || !isDone('COVID_EXPERIENCE')
+      }
+      else 
+      {
         return isDone(surveyType) || !isContactInfoDone()
       }
     }
@@ -331,7 +339,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
             isInvitedForTest={hasInvitation(userInfo)}
             completionStatus={getCompletionStatus()}
             hasCancelledAppointment={hasCancelledAppointment(userInfo)}
-            emailAddress={userInfo?.email || ''}
+            userInfo={userInfo}
+         
           />
 
           {

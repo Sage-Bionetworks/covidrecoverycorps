@@ -111,12 +111,35 @@ class SurveyWrapperComponent extends React.Component<
             gender: userInfoResponse.data.attributes?.gender || '',
           }
         }
+
         if (this.props.surveyName === 'MORE') {
+          //don't offer testing if they have tested positive
+          const covidData = surveyData?.surveys?.find(
+            survey => survey.type === 'COVID_EXPERIENCE',
+          )
+
+          const isPositive =
+            covidData?.data?.symptoms2?.kind_of_testing?.nasal_swab_result ===
+              'positive' ||
+            covidData?.data?.symptoms2?.kind_of_testing?.serum_test_result ===
+              'positive'
+          if (isPositive) {
+            //@ts-ignore
+            formData.test_location = {
+              //@ts-ignore
+              ...formData.test_location,
+              test_location: 'N/A',
+            }
+          }
+
           formData.metadata = {
             ...formData.metadata,
             isEligibleForLabTest: userInfoResponse.data.attributes
-              ? isWithin25Miles(userInfoResponse.data.attributes.zip_code)
+              ? isWithin25Miles(userInfoResponse.data.attributes.zip_code) &&
+                !isPositive
               : false,
+
+            forceSubmit: isPositive ? 'job_commute' : undefined,
           }
         }
       } else {
@@ -451,7 +474,9 @@ class SurveyWrapperComponent extends React.Component<
                     ? this.submitForm(data, this.cleanData(data))
                     : this.updateUserContactInfo(data, this.cleanData(data))
                 }}
-                isSubmitted={this.isSurveySubmitted(this.props.surveyName)}
+                isSubmitted={
+                  false /*this.isSurveySubmitted(this.props.surveyName)*/
+                }
                 extraUIProps={extraUIProps}
               >
                 {this.props.children}

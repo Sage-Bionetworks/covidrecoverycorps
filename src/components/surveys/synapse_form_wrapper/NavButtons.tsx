@@ -18,6 +18,7 @@ export interface NavButtonsProps {
   isFormSubmitted?: boolean
   isNoSaveButton?: boolean
   isFormSubmitting?: boolean
+  submitStep?: string
 }
 
 export interface NextStepLinkProps {
@@ -50,7 +51,7 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
     <></>
   )
 
-  const nextButton = props.currentStep.default ? (
+  const nextButton = (props.currentStep.default  && (props.submitStep !== props.currentStep.id)) ? (
     <Button
       onClick={e => props.onNavAction(NavActionEnum.NEXT)}
       color="primary"

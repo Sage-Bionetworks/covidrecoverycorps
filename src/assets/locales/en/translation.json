@@ -400,7 +400,13 @@
       "missedTitle": "Looks like like we missed you... ",
       "missedText": "If you would like to re-schedule a lab appointment, please call 212-305-5700 or email: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. ",
       "cancelledTitle": "Your lab appointment has been canceled.",
-      "cancelledText": "If you would like to re-schedule a lab appointment, please call 212-305-5700 or email: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. "
+      "cancelledText": "If you would like to re-schedule a lab appointment, please call 212-305-5700 or email: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. ",
+      "willMailAddress" :"We will mail the kit to this address:",
+      "addressConfirm": "Please confirm if this address is correct:",
+      "addressYes" : "Yes, that is my mailing address",
+      "addressNo": "No, I will update", 
+      "addressUdateLink": "<0>Please update your address under </0> <1>Contact Information</1>"
+
     }
   },
   "footer": {

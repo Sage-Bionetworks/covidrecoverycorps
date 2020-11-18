@@ -355,7 +355,6 @@ export default class SynapseForm extends React.Component<
 
     // if there are rules - run the engine and go to the first next step
     const engine = new Engine(currentStep.rules)
-
     try {
       const result: RulesResult = await engine.run(formData)
       if (result.events.length > 0) {
@@ -1203,6 +1202,7 @@ export default class SynapseForm extends React.Component<
               )}
 
               <NavButtons
+                submitStep = {this.state.formData.metadata.forceSubmit}
                 currentStep={this.state.currentStep}
                 steps={this.state.steps}
                 previousStepIds={this.state.previousStepIds}
