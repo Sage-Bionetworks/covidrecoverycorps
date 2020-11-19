@@ -474,9 +474,7 @@ class SurveyWrapperComponent extends React.Component<
                     ? this.submitForm(data, this.cleanData(data))
                     : this.updateUserContactInfo(data, this.cleanData(data))
                 }}
-                isSubmitted={
-                  false /*this.isSurveySubmitted(this.props.surveyName)*/
-                }
+                isSubmitted={this.isSurveySubmitted(this.props.surveyName)}
                 extraUIProps={extraUIProps}
               >
                 {this.props.children}
