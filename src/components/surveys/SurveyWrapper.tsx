@@ -9,7 +9,7 @@ import Alert from 'react-bootstrap/Alert'
 import { UiSchema } from 'react-jsonschema-form'
 import SynapseForm, { ExtraUIProps } from './synapse_form_wrapper/SynapseForm'
 import { StatusEnum } from './synapse_form_wrapper/types'
-import { SurveyType, SavedSurveysObject, SavedSurvey } from '../../types/types'
+import { SurveyType, SavedSurveysObject, SavedSurvey, LoggedInUserData, UserDataGroup } from '../../types/types'
 import { isWithin25Miles } from '../../helpers/utility'
 import { SURVEYS } from '../../data/surveys'
 import { SurveyService } from '../../services/survey.service'
@@ -150,9 +150,10 @@ class SurveyWrapperComponent extends React.Component<
             lastName: userInfoResponse.data.lastName,
             attributes: userInfoResponse.data.attributes,
             included: true,
+       
           },
         }
-        formData = { ...data, metadata: {} }
+        formData = { ...data, metadata: {dataGroups: userInfoResponse.data.dataGroups} }
       }
       //if we are creating a new file - store the versions
 
@@ -205,13 +206,13 @@ class SurveyWrapperComponent extends React.Component<
     window.scrollTo(0, 0)
   }
 
-  updateUserContactInfo = async (_rawData: any, data: any) => {
+  updateUserContactInfo = async (_rawData: any, data: {data: LoggedInUserData, metadata: {dataGroups: UserDataGroup[]}}) => {
     try {
       // 348: verify the address that has been entered is valid
-      const attributes = data.data.attributes
+      const attributes = data.data.attributes!
       const uspsResponseDoc: Document = await USPSService.validateAddress(
         attributes.address1,
-        attributes.address2,
+        attributes.address2 || '',
         attributes.city,
         attributes.state,
         attributes.zip_code,
@@ -270,6 +271,14 @@ class SurveyWrapperComponent extends React.Component<
       if (invalidAddressText) {
         this.onError({ name: '', message: invalidAddressText })
         return
+      }
+
+      const isWithin25 =  isWithin25Miles(attributes.zip_code)
+      if (isWithin25 &&  !data.metadata.dataGroups.includes('within_nyc')) {
+        data.data.dataGroups = [...data.metadata.dataGroups, 'within_nyc']
+      }
+      if (!isWithin25) {
+        data.data.dataGroups =  data.metadata.dataGroups.filter(group=> group!=='within_nyc')
       }
 
       const result = await UserService.updateUserData(
