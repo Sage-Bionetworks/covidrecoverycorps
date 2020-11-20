@@ -124,9 +124,9 @@ const Intro: FunctionComponent<IntroProps> = ({
       )}
 
       {(isAddressCorrect === false && isSubmitted) &&  (
-        <div>
+        <div style={{color: 'red'}}>
           <Trans i18nKey="dashboard.intro.addressUdateLink">
-           <span>[translate]</span><Link to="/contactInfo"> [translate]</Link>
+           <span>[translate]</span><Link to="/contactInfo" style={{color: 'red', textDecoration: 'underline'}}> [translate]</Link>
           </Trans>
         </div>
       )}

@@ -51,6 +51,7 @@ async function updateUserData(
     firstName: data.firstName,
     lastName: data.lastName,
     attributes: data.attributes,
+    dataGroups: data.dataGroups
   }
   const result = await callEndpoint<LoggedInUserData>(
     `${ENDPOINT}/v3/participants/self`,
