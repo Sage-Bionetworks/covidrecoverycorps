@@ -171,8 +171,15 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       getSavedSurvey('MORE'),
       'data.test_location.test_location',
     )
-   
-    return locationFromCovidSurveyWithLab ||  locationFromLocationSurvey
+    const locationFromCovidSurveyWithoutLab = _.get(
+      getSavedSurvey('MORE'),
+      'data.test_location_no_lab.test_location',
+    )
+    return (
+      locationFromCovidSurveyWithLab ||
+      locationFromCovidSurveyWithoutLab ||
+      locationFromLocationSurvey
+    )
   }
 
   const isDone = (surveyType: SurveyType): boolean => {
@@ -214,11 +221,9 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     const isSurveyDisabled = (surveyType: SurveyType): boolean => {
       if (surveyType === 'CONTACT') {
         return isContactInfoDone()
-      } else  if (surveyType === 'MORE') {
+      } else if (surveyType === 'MORE') {
         return isDone(surveyType) || !isDone('COVID_EXPERIENCE')
-      }
-      else 
-      {
+      } else {
         return isDone(surveyType) || !isContactInfoDone()
       }
     }
@@ -328,7 +333,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
           </div>
         )}
 
-        <Card className={classes.root} >
+        <Card className={classes.root}>
           <Intro
             testLocation={
               testLocationSurveySubmitted || getPreferredTestLocation()
@@ -337,7 +342,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
             completionStatus={getCompletionStatus()}
             hasCancelledAppointment={hasCancelledAppointment(userInfo)}
             userInfo={userInfo}
-         
           />
 
           {
