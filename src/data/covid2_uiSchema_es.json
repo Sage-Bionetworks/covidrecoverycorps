@@ -173,13 +173,12 @@
     }
   },
 
+  "test_location": {
+    "classNames": "covid2_test_location",
+    "ui:description": "<p>Seleccionaremos algunos participantes para que proporcionen una muestra biológica a través de un kit de prueba casero después de diciembre de 2020.</p><p>Se proporcionará una tarjeta de regalo como muestra de agradecimiento a los invitados.</p>",
+
     "test_location": {
-      "classNames": "covid2_test_location",
-      "ui:description": "<p>Seleccionaremos algunos participantes para que proporcionen una muestra biológica a través de un kit de prueba casero después de diciembre de 2020.</p><p>Se proporcionará una tarjeta de regalo como muestra de agradecimiento a los invitados.</p>",
-     
-      "test_location": {
-        "ui:widget": "radio"
-      }
+      "ui:widget": "radio"
     }
   }
 }
