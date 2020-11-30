@@ -1189,25 +1189,8 @@
         }
       }
     },
+  
     "test_location": {
-      "type": "object",
-      "title": "",
-      "required": ["test_location"],
-      "properties": {
-        "test_location": {
-          "title": "Si fuese invitado a hacerse una prueba de anticuerpos, ¿cuál sería su preferencia de prueba?",
-          "type": "string",
-          "uniqueItems": true,
-          "enum": ["lab", "home", "noTest"],
-          "enumNames": [
-            "Ir a un laboratorio para una prueba de anticuerpos",
-            "Recibir un kit de prueba en casa",
-            "No me interesa hacerme una prueba"
-          ]
-        }
-      }
-    },
-    "test_location_no_lab": {
       "type": "object",
       "title": "",
       "required": ["test_location"],
@@ -1258,10 +1241,6 @@
     "test_location": {
       "title": "",
       "$ref": "#/definitions/test_location"
-    },
-    "test_location_no_lab": {
-      "title": "",
-      "$ref": "#/definitions/test_location_no_lab"
     }
   }
 }

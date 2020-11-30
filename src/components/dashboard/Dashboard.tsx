@@ -171,11 +171,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       getSavedSurvey('MORE'),
       'data.test_location.test_location',
     )
-    const locationFromCovidSurveyWithoutLab = _.get(
-      getSavedSurvey('MORE'),
-      'data.test_location_no_lab.test_location',
-    )
-    return locationFromCovidSurveyWithLab ||  locationFromCovidSurveyWithoutLab || locationFromLocationSurvey
+   
+    return locationFromCovidSurveyWithLab ||  locationFromLocationSurvey
   }
 
   const isDone = (surveyType: SurveyType): boolean => {

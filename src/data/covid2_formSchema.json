@@ -1186,25 +1186,8 @@
         }
       }
     },
+
     "test_location": {
-      "type": "object",
-      "title": "",
-      "required": ["test_location"],
-      "properties": {
-        "test_location": {
-          "title": "If you were invited to get an antibody test, what is your testing preference?",
-          "type": "string",
-          "uniqueItems": true,
-          "enum": ["lab", "home", "noTest"],
-          "enumNames": [
-            "Go to a lab for an antibody test ",
-            "Receive an at-home test kit (available after December 2020)",
-            "Not interested in testing"
-          ]
-        }
-      }
-    },
-    "test_location_no_lab": {
       "type": "object",
       "title": "",
       "required": ["test_location"],
@@ -1255,10 +1238,7 @@
     "test_location": {
       "title": "",
       "$ref": "#/definitions/test_location"
-    },
-    "test_location_no_lab": {
-      "title": "",
-      "$ref": "#/definitions/test_location_no_lab"
     }
+    
   }
 }

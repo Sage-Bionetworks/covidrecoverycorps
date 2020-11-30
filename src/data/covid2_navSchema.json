@@ -157,38 +157,11 @@
       "title": "",
       "validationRules": [],
       "rules": [
-        {
-          "conditions": {
-            "all": [
-              {
-                "fact": "metadata",
-                "operator": "equal",
-                "path": ".isEligibleForLabTest",
-                "value": false
-              }
-            ]
-          },
-          "event": {
-            "type": "next",
-            "params": {
-              "next": "test_location_no_lab"
-            }
-          },
-          "priority:": 1
-        }
       ],
       "default": "test_location"
     },
     {
       "id": "test_location",
-      "orderDisplay": "7/7",
-      "order": 45,
-      "title": "",
-      "validationRules": [],
-      "default": ""
-    },
-    {
-      "id": "test_location_no_lab",
       "orderDisplay": "7/7",
       "order": 45,
       "title": "",
