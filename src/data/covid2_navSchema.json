@@ -163,7 +163,15 @@
     {
       "id": "test_location",
       "orderDisplay": "7/7",
-      "order": 45,
+      "order": 40,
+      "title": "",
+      "validationRules": [],
+      "default": "employer"
+    },
+    {
+      "id": "employer",
+      "orderDisplay": "7a/7",
+      "order": 0,
       "title": "",
       "validationRules": [],
       "default": ""

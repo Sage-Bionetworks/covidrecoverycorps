@@ -175,10 +175,57 @@
 
   "test_location": {
     "classNames": "covid2_test_location",
-    "ui:description": "<p>We will be selecting some participants to provide a biosample via a home test kit after December 2020.</p><p>A gift card would be provided as a token of appreciation to those who are invited.</p>",
-   
+    "ui:description": "<h2>At Home Test Kit</h2><p>We would like to invite some participants to provide a biosample via an at-home test kit</p><p>A gift card would be provided as a token of appreciation to those who are invited.</p>",
+
     "test_location": {
       "ui:widget": "radio"
+    }
+  },
+  "employer": {
+    "classNames": "covid2_test_location",
+    "ui:description": "<p>Thank you for your interest!</p> <p>Due to NYC laws and regulation around contact tracing, we are required to ask for the following information in regards to your employment in order to process your blood sample at our NYC based lab.</p><p> </p>",
+
+    "employment_status": {
+      "ui:widget": "radio"
+    },
+    "home_phone": {
+      "classNames": "text"
+    },
+ 
+    "employment_address": {
+      "classNames": "contact",
+      "emp_address1": {
+        "ui:placeholder": "Street Address",
+        "classNames": "address1 text"
+      },
+      "emp_address2": {
+        "classNames": "address2 text",
+        "ui:placeholder": "Apt/Suite/Other"
+      },
+      "emp_zip_code": {
+        "classNames": "zip",
+        "ui:placeholder": "Zip code (5-digit)"
+      },
+      "emp_state": {
+        "classNames": "state text",
+        "ui:placeholder": "State"
+      },
+      "emp_city": {
+        "classNames": "city text",
+        "ui:placeholder": "City"
+      },
+      "occupation": {
+        "classNames": " text",
+        "ui:placeholder": "Title of position"
+      },
+      "emp_name": {
+        "classNames": " text",
+        "ui:placeholder": "Name"
+      },
+      "emp_phone": {
+        "classNames": " text",
+        "ui:placeholder": "Phone number"
+      }
     }
   }
 }
