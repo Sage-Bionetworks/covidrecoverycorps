@@ -182,11 +182,18 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     )
   }
 
-  const isDone = (surveyType: SurveyType): boolean => {
-    const savedSurvey = getSavedSurvey(surveyType)
-
-    return !!savedSurvey?.completedDate
+  const isDone = (surveyType: SurveyType | SurveyType[]): boolean => {
+    const surveys = !Array.isArray(surveyType) ? [surveyType] : surveyType
+    let result = true
+    surveys.forEach(survey => {
+      const savedSurvey = getSavedSurvey(survey)
+      if (!savedSurvey?.completedDate) {
+        result = false
+      }
+    })
+    return result
   }
+
   const isInProgress = (surveyType: SurveyType): boolean => {
     const savedSurvey = getSavedSurvey(surveyType)
 
@@ -222,7 +229,10 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       if (surveyType === 'CONTACT') {
         return isContactInfoDone()
       } else if (surveyType === 'MORE') {
-        return isDone(surveyType) || !isDone('COVID_EXPERIENCE')
+        return (
+          isDone(surveyType) ||
+          !isDone(['COVID_EXPERIENCE', 'DEMOGRAPHIC', 'HISTORY'])
+        )
       } else {
         return isDone(surveyType) || !isContactInfoDone()
       }
