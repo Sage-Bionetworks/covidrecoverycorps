@@ -54,6 +54,7 @@ export type ExtraUIProps = {
   onNextCallback?: Function
   isHelpHidden?: boolean
   isNoSaveButton?: boolean //if no save button submit will be instead of next
+  isNoBackBar?: boolean
 }
 
 export type SynapseFormProps = {
@@ -270,11 +271,11 @@ export default class SynapseForm extends React.Component<
     if (shouldUpdate && isSuccess) {
       this.setState({ hasUnsavedChanges: false })
       if (this.props.callbackStatus === StatusEnum.SUBMIT_SUCCESS) {
-        this.setState({ isSubmitted: true, isSubmitting: false  })
+        this.setState({ isSubmitted: true, isSubmitting: false })
         window.history.back()
       }
     }
-    if (shouldUpdate &&  isError) {
+    if (shouldUpdate && isError) {
       this.setState({ isSubmitting: false })
     }
   }
@@ -693,13 +694,21 @@ export default class SynapseForm extends React.Component<
 
   private renderNotification = (status?: StatusEnum): JSX.Element => {
     if (status === StatusEnum.SAVE_SUCCESS) {
-      return <div className="notification-area">{i18next.t("surveys.saved")}</div>
+      return (
+        <div className="notification-area">{i18next.t('surveys.saved')}</div>
+      )
     }
     if (status === StatusEnum.SUBMIT_SUCCESS) {
-      return <div className="notification-area">{i18next.t("surveys.submitted")} </div>
+      return (
+        <div className="notification-area">
+          {i18next.t('surveys.submitted')}{' '}
+        </div>
+      )
     }
     if (status === StatusEnum.PROGRESS) {
-      return <div className="notification-area">{i18next.t("surveys.working")}</div>
+      return (
+        <div className="notification-area">{i18next.t('surveys.working')}</div>
+      )
     }
     return <></>
   }
@@ -716,6 +725,29 @@ export default class SynapseForm extends React.Component<
         dangerouslySetInnerHTML={{ __html: copy! }}
       />
     )
+  }
+
+  // sometimes we need to force the next button to become a submit button
+  private getForceSubmitScreen = (
+    formData: object,
+    forceSubmit:
+      | { screen: string; value: boolean | { path: string; value: string } }
+      | undefined,
+  ): string | undefined => {
+    if (!forceSubmit) {
+      return undefined
+    }
+
+    if (forceSubmit.value === true) {
+      return forceSubmit.screen
+    }
+    if (typeof forceSubmit.value === 'object') {
+      let value = _.get(formData, forceSubmit.value.path)
+      if (value == forceSubmit.value.value) {
+        return forceSubmit.screen
+      }
+    }
+    return ''
   }
 
   //displays subheader for forms that can be excluded
@@ -1036,7 +1068,7 @@ export default class SynapseForm extends React.Component<
   render() {
     return (
       <div className={`outter-wrap ${this.props.cardClass}`}>
-        <div>
+        {! this.props.extraUIProps?.isNoBackBar &&<div>
           <FloatingToolbar
             closeLinkDestination="/dashboard"
             closeIcon={faAngleLeft}
@@ -1044,7 +1076,7 @@ export default class SynapseForm extends React.Component<
             closeConfirmationText={i18next.t('surveys.exitSurvey')}
             closeConfirmationText2={i18next.t('surveys.dataNotSaved')}
           />
-        </div>
+        </div>}
         <Prompt
           when={this.state.hasUnsavedChanges}
           message={this.unsavedDataWarning}
@@ -1054,7 +1086,7 @@ export default class SynapseForm extends React.Component<
           bodyText={this.state.currentStep.description}
           title={this.state.currentStep.title}
         ></Header>
-        <Card >
+        <Card>
           <div className="inner-wrap">
             {!this.props.extraUIProps?.isLeftNavHidden && (
               <StepsSideNav
@@ -1202,7 +1234,10 @@ export default class SynapseForm extends React.Component<
               )}
 
               <NavButtons
-                submitStep = {this.state.formData.metadata.forceSubmit}
+                submitStep={this.getForceSubmitScreen(
+                  this.state.formData,
+                  this.state.formData.metadata.forceSubmit,
+                )}
                 currentStep={this.state.currentStep}
                 steps={this.state.steps}
                 previousStepIds={this.state.previousStepIds}

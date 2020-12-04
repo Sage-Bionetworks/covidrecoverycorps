@@ -526,6 +526,55 @@
         }
       }
     },
+    "employer_address_ref": {
+      "type": "object",
+      "required": [
+        "occupation",
+        "emp_name",
+        "emp_address1",
+        "emp_city",
+        "emp_state",
+        "emp_zip_code",
+        "emp_phone"
+      ],
+      "properties": {
+        "occupation": {
+          "title": "Occupation:",
+          "type": "string"
+        },
+        "emp_name": {
+          "title": "Employer Name:",
+          "type": "string"
+        },
+
+        "emp_address1": {
+          "title": "Employer Street Address:",
+          "type": "string"
+        },
+        "emp_address2": {
+          "type": "string"
+        },
+        "emp_city": {
+          "type": "string"
+        },
+        "emp_state": {
+          "type": "string",
+          "enum": {
+            "$ref": "#/definitions/states"
+          },
+          "enumNames": {
+            "$ref": "#/definitions/states"
+          }
+        },
+        "emp_zip_code": {
+          "type": "string"
+        },
+        "emp_phone": {
+          "title": "Employer Phone Number:",
+          "type": "string"
+        }
+      }
+    },
     "covid1": {
       "type": "object",
       "title": "",
@@ -1189,25 +1238,8 @@
         }
       }
     },
+  
     "test_location": {
-      "type": "object",
-      "title": "",
-      "required": ["test_location"],
-      "properties": {
-        "test_location": {
-          "title": "Si fuese invitado a hacerse una prueba de anticuerpos, ¿cuál sería su preferencia de prueba?",
-          "type": "string",
-          "uniqueItems": true,
-          "enum": ["lab", "home", "noTest"],
-          "enumNames": [
-            "Ir a un laboratorio para una prueba de anticuerpos",
-            "Recibir un kit de prueba en casa",
-            "No me interesa hacerme una prueba"
-          ]
-        }
-      }
-    },
-    "test_location_no_lab": {
       "type": "object",
       "title": "",
       "required": ["test_location"],
@@ -1220,6 +1252,48 @@
           "enumNames": [
             "Sí, estoy interesado en un kit de prueba en casa",
             "No, no me interesa probar"
+          ]
+        }
+      }
+    },
+    "employer": {
+      "type": "object",
+      "title": "",
+      "required": ["employment_status"],
+      "properties": {
+        "employment_status": {
+          "title": "What is your current employment status?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["employed", "unemployed"],
+          "enumNames": ["Currently employed", "Currently retired or unemployed"]
+        }
+      },
+      "dependencies": {
+        "employment_status": {
+          "oneOf": [
+            {
+              "properties": {
+                "employment_status": {
+                  "enum": ["employed"]
+                },
+                "employment_address": {
+                  "$ref": "#/definitions/employer_address_ref"
+                }
+              }
+            },
+            {
+              "required": ["home_phone"],
+              "properties": {
+                "employment_status": {
+                  "enum": ["unemployed"]
+                },
+                "home_phone": {
+                  "title": "Phone number:",
+                  "type": "string"
+                }
+              }
+            }
           ]
         }
       }
@@ -1259,9 +1333,9 @@
       "title": "",
       "$ref": "#/definitions/test_location"
     },
-    "test_location_no_lab": {
+    "employer": {
       "title": "",
-      "$ref": "#/definitions/test_location_no_lab"
+      "$ref": "#/definitions/employer"
     }
   }
 }

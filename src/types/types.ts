@@ -39,7 +39,20 @@ export type UserAttributes = {
   zip_code: string
   dob: string
   gender: string
+  home_phone?: string
 }
+
+export type UserEmployerAttributes = {
+  occupation: string
+  emp_name: string
+  emp_address1: string
+  emp_address2: string
+  emp_state: string
+  emp_city: string
+  emp_zip_code: string
+  emp_phone: string
+}
+
 export interface UserData {
   username?: string
   firstName: string
@@ -103,16 +116,17 @@ export interface SignInDataEmail extends SignInData {
 }
 
 // --------------Surveys
-export type SurveyPrelabType = 'CONTACT'
-| 'DEMOGRAPHIC'
-| 'COVID_EXPERIENCE'
-| 'HISTORY'
-| 'MORE'
-| 'WITHDRAW'
-| 'TEST_LOCATION'
-| 'RESULT_UPLOAD'
+export type SurveyPrelabType =
+  | 'CONTACT'
+  | 'DEMOGRAPHIC'
+  | 'COVID_EXPERIENCE'
+  | 'HISTORY'
+  | 'MORE'
+  | 'WITHDRAW'
+  | 'TEST_LOCATION'
+  | 'RESULT_UPLOAD'
 export type SurveyPostLabType = 'POST_LAB'
-export type SurveyType =SurveyPrelabType | SurveyPostLabType
+export type SurveyType = SurveyPrelabType | SurveyPostLabType
 
 export type SurveyConfigObject = {
   [key in SurveyType]: {
@@ -183,7 +197,7 @@ export enum TestLocationEnum {
   'HOME' = 'home',
   'LAB' = 'lab',
   'NO_TEST' = 'noTest',
-  'N/A' = 'N/A'
+  'N/A' = 'N/A',
 }
 
 export enum SurveysCompletionStatusEnum {

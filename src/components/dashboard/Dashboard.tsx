@@ -20,11 +20,13 @@ import {
 import _ from 'lodash'
 import { UserService } from '../../services/user.service'
 import Alert from '@material-ui/lab/Alert/Alert'
-import Intro from './Intro'
+
 import TestLocationSurvey from '../surveys/TestLocationSurvey'
 import i18next from 'i18next'
 import { Trans, useTranslation } from 'react-i18next'
-import * as FeatureToggle from '../../helpers/FeatureToggle'
+import ThankYou from './ThankYou'
+
+
 
 type DashboardProps = {
   token: string
@@ -175,14 +177,25 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       getSavedSurvey('MORE'),
       'data.test_location_no_lab.test_location',
     )
-    return locationFromCovidSurveyWithLab ||  locationFromCovidSurveyWithoutLab || locationFromLocationSurvey
+    return (
+      locationFromCovidSurveyWithLab ||
+      locationFromCovidSurveyWithoutLab ||
+      locationFromLocationSurvey
+    )
   }
 
-  const isDone = (surveyType: SurveyType): boolean => {
-    const savedSurvey = getSavedSurvey(surveyType)
-
-    return !!savedSurvey?.completedDate
+  const isDone = (surveyType: SurveyType | SurveyType[]): boolean => {
+    const surveys = !Array.isArray(surveyType) ? [surveyType] : surveyType
+    let result = true
+    surveys.forEach(survey => {
+      const savedSurvey = getSavedSurvey(survey)
+      if (!savedSurvey?.completedDate) {
+        result = false
+      }
+    })
+    return result
   }
+
   const isInProgress = (surveyType: SurveyType): boolean => {
     const savedSurvey = getSavedSurvey(surveyType)
 
@@ -217,11 +230,12 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     const isSurveyDisabled = (surveyType: SurveyType): boolean => {
       if (surveyType === 'CONTACT') {
         return isContactInfoDone()
-      } else  if (surveyType === 'MORE') {
-        return isDone(surveyType) || !isDone('COVID_EXPERIENCE')
-      }
-      else 
-      {
+      } else if (surveyType === 'MORE') {
+        return (
+          isDone(surveyType) ||
+          !isDone(['COVID_EXPERIENCE', 'DEMOGRAPHIC', 'HISTORY'])
+        )
+      } else {
         return isDone(surveyType) || !isContactInfoDone()
       }
     }
@@ -320,6 +334,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
     return (
       <div className="Dashboard" data-cy="page-dashboard">
+     
         {getCompletionStatus() === SurveysCompletionStatusEnum.NOT_DONE && (
           <div className="dashboard-intro">
             <Trans i18nKey="dashboard.intro1">
@@ -331,17 +346,16 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
           </div>
         )}
 
-        <Card className={classes.root} >
-          <Intro
+        <Card className={classes.root}>
+        {getCompletionStatus() !== SurveysCompletionStatusEnum.NOT_DONE &&  (<ThankYou
             testLocation={
               testLocationSurveySubmitted || getPreferredTestLocation()
             }
             isInvitedForTest={hasInvitation(userInfo)}
-            completionStatus={getCompletionStatus()}
             hasCancelledAppointment={hasCancelledAppointment(userInfo)}
             userInfo={userInfo}
-         
-          />
+            token={token}
+          />)}
 
           {
             //if they fininshed  surveys and didn't pick location

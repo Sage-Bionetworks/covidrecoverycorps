@@ -92,7 +92,7 @@ describe('New User', function () {
 describe('Existing User Before Testing', function () {
   it('should show surveys', function () {
     cy.login(Cypress.env('login_surveys'), Cypress.env('test_password'))
-    cy.wait(1000)
+    cy.wait(100)
     cy.get('h2').should('have.text', 'Study surveys')
     cy.wait(5000)
     cy.logout()
@@ -104,17 +104,20 @@ describe('Completed surveys thank you screens', function () {
     {
       expected: 'thank you page for \'no test \'',
       testLocation: 'noTest',
-      headerText: 'Thank you for your contribution to the COVID Recovery Corps Study!',
+      element: 'h2',
+      text: 'Thank you for your contribution to the COVID Recovery Corps Study!',
     },
     {
       expected: 'thank you page for \'home test \'',
       testLocation: 'home',
-      headerText: 'Thank you for completing the surveys!',
+      element: 'span',
+      text: 'to this address',
     },
     {
-      expected: 'thank you page for \'lab test \'',
-      testLocation: 'lab',
-      headerText: 'Thank you for completing the surveys!',
+      expected: 'thank you page for \'test not asked \'',
+      testLocation: 'N/A',
+      element: 'button',
+      text: 'Invite'
     },
   ]
   data.forEach(element => {
@@ -142,8 +145,9 @@ describe('Completed surveys thank you screens', function () {
     }).as('surveys')
 
     cy.login(Cypress.env('login_surveys_completed'), Cypress.env('test_password'))
-    cy.wait(1000)
-    cy.get('h2').should('have.text', element.headerText)
+    cy.wait(100)
+  
+    cy.get(element.element).should('contain.text', element.text)
     cy.logout()
   })
 })
@@ -187,7 +191,7 @@ describe("Landing page routing for user's datagroup", function () {
       }).as('loadSelf')
 
       cy.login(Cypress.env('login_result'), Cypress.env('test_password'))
-      cy.wait(1000)
+      cy.wait(100)
       cy.wait('@loadSelf').get(element.dashboardPage).should('exist')
       cy.wait(500)
       cy.logout()
@@ -269,7 +273,7 @@ describe('Existing User With Result', function () {
       } else {
         cy.get('.MuiCard-root').should('exist')
       }
-      cy.wait(1000)
+      cy.wait(100)
     })
   })
 })

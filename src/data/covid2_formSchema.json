@@ -500,6 +500,67 @@
       "Zambia",
       "Zimbabwe"
     ],
+    "states": [
+      "AL",
+      "AK",
+      "AS",
+      "AZ",
+      "AR",
+      "CA",
+      "CO",
+      "CT",
+      "DE",
+      "DC",
+      "FM",
+      "FL",
+      "GA",
+      "GU",
+      "HI",
+      "ID",
+      "IL",
+      "IN",
+      "IA",
+      "KS",
+      "KY",
+      "LA",
+      "ME",
+      "MH",
+      "MD",
+      "MA",
+      "MI",
+      "MN",
+      "MS",
+      "MO",
+      "MT",
+      "NE",
+      "NV",
+      "NH",
+      "NJ",
+      "NM",
+      "NY",
+      "NC",
+      "ND",
+      "MP",
+      "OH",
+      "OK",
+      "OR",
+      "PW",
+      "PA",
+      "PR",
+      "RI",
+      "SC",
+      "SD",
+      "TN",
+      "TX",
+      "UT",
+      "VT",
+      "VI",
+      "VA",
+      "WA",
+      "WV",
+      "WI",
+      "WY"
+    ],
 
     "country": {
       "type": "object",
@@ -524,6 +585,56 @@
         }
       }
     },
+    "employer_address_ref": {
+      "type": "object",
+      "required": [
+        "occupation",
+        "emp_name",
+        "emp_address1",
+        "emp_city",
+        "emp_state",
+        "emp_zip_code",
+        "emp_phone"
+      ],
+      "properties": {
+        "occupation": {
+          "title": "Occupation1:",
+          "type": "string"
+        },
+        "emp_name": {
+          "title": "Employer Name:",
+          "type": "string"
+        },
+
+        "emp_address1": {
+          "title": "Employer Street Address:",
+          "type": "string"
+        },
+        "emp_address2": {
+          "type": "string"
+        },
+        "emp_city": {
+          "type": "string"
+        },
+        "emp_state": {
+          "type": "string",
+          "enum": {
+            "$ref": "#/definitions/states"
+          },
+          "enumNames": {
+            "$ref": "#/definitions/states"
+          }
+        },
+        "emp_zip_code": {
+          "type": "string"
+        },
+        "emp_phone": {
+          "title": "Employer Phone Number:",
+          "type": "string"
+        }
+      }
+    },
+
     "covid1": {
       "type": "object",
       "title": "",
@@ -1186,25 +1297,8 @@
         }
       }
     },
+
     "test_location": {
-      "type": "object",
-      "title": "",
-      "required": ["test_location"],
-      "properties": {
-        "test_location": {
-          "title": "If you were invited to get an antibody test, what is your testing preference?",
-          "type": "string",
-          "uniqueItems": true,
-          "enum": ["lab", "home", "noTest"],
-          "enumNames": [
-            "Go to a lab for an antibody test ",
-            "Receive an at-home test kit (available after December 2020)",
-            "Not interested in testing"
-          ]
-        }
-      }
-    },
-    "test_location_no_lab": {
       "type": "object",
       "title": "",
       "required": ["test_location"],
@@ -1217,6 +1311,48 @@
           "enumNames": [
             "Yes, I am interested in an at-home test kit",
             "No, I’m not interested in testing"
+          ]
+        }
+      }
+    },
+    "employer": {
+      "type": "object",
+      "title": "",
+      "required": ["employment_status"],
+      "properties": {
+        "employment_status": {
+          "title": "What is your current employment status?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["employed", "unemployed"],
+          "enumNames": ["Currently employed", "Currently retired or unemployed"]
+        }
+      },
+      "dependencies": {
+        "employment_status": {
+          "oneOf": [
+            {
+              "properties": {
+                "employment_status": {
+                  "enum": ["employed"]
+                },
+                "employment_address": {
+                  "$ref": "#/definitions/employer_address_ref"
+                }
+              }
+            },
+            {
+              "required": ["home_phone"],
+              "properties": {
+                "employment_status": {
+                  "enum": ["unemployed"]
+                },
+                "home_phone": {
+                  "title": "Phone number:",
+                  "type": "string"
+                }
+              }
+            }
           ]
         }
       }
@@ -1256,9 +1392,9 @@
       "title": "",
       "$ref": "#/definitions/test_location"
     },
-    "test_location_no_lab": {
+    "employer": {
       "title": "",
-      "$ref": "#/definitions/test_location_no_lab"
+      "$ref": "#/definitions/employer"
     }
   }
 }

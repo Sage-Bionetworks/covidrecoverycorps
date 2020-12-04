@@ -9,7 +9,13 @@ import Alert from 'react-bootstrap/Alert'
 import { UiSchema } from 'react-jsonschema-form'
 import SynapseForm, { ExtraUIProps } from './synapse_form_wrapper/SynapseForm'
 import { StatusEnum } from './synapse_form_wrapper/types'
-import { SurveyType, SavedSurveysObject, SavedSurvey, LoggedInUserData, UserDataGroup } from '../../types/types'
+import {
+  SurveyType,
+  SavedSurveysObject,
+  SavedSurvey,
+  LoggedInUserData,
+  UserDataGroup,
+} from '../../types/types'
 import { isWithin25Miles } from '../../helpers/utility'
 import { SURVEYS } from '../../data/surveys'
 import { SurveyService } from '../../services/survey.service'
@@ -26,6 +32,8 @@ export interface SurveyWrapperProps {
   surveyName: SurveyType
   token: string
   onDoneCallback?: Function
+  onErrorCallback?: Function
+  isNoBackBar?: boolean
 }
 
 type SurveyWrapperState = {
@@ -57,6 +65,7 @@ const extraUIProps: ExtraUIProps = {
 
   isHelpHidden: true,
   isNoSaveButton: false,
+  isNoBackBar: false,
 }
 class SurveyWrapperComponent extends React.Component<
   SurveyWrapperProps & WithTranslation,
@@ -68,7 +77,10 @@ class SurveyWrapperComponent extends React.Component<
       isLoading: true,
       isFormSubmitted: false,
     }
+    extraUIProps.isNoBackBar = props.isNoBackBar || false
   }
+
+ 
 
   async componentDidMount() {
     await this.getData()
@@ -113,17 +125,22 @@ class SurveyWrapperComponent extends React.Component<
         }
 
         if (this.props.surveyName === 'MORE') {
-          //don't offer testing if they have tested positive
+          //don't offer testing if they have tested positive or selected that have no symptoms or didnt answer
           const covidData = surveyData?.surveys?.find(
             survey => survey.type === 'COVID_EXPERIENCE',
           )
 
+          const kindOfTesting = covidData?.data?.symptoms2?.kind_of_testing
+
           const isPositive =
-            covidData?.data?.symptoms2?.kind_of_testing?.nasal_swab_result ===
-              'positive' ||
-            covidData?.data?.symptoms2?.kind_of_testing?.serum_test_result ===
-              'positive'
-          if (isPositive) {
+            kindOfTesting?.nasal_swab_result === 'positive' ||
+            kindOfTesting?.serum_test_result === 'positive'
+          const otherNoTest =
+            kindOfTesting === 'no_test_no_symptoms' ||
+            kindOfTesting === 'no_answer'
+          const dontOfferTest = isPositive || otherNoTest
+
+          if (dontOfferTest) {
             //@ts-ignore
             formData.test_location = {
               //@ts-ignore
@@ -132,14 +149,25 @@ class SurveyWrapperComponent extends React.Component<
             }
           }
 
+          // 'isEligibleForLabTest' is technically not needed any more since we don't offer lab last, but leaving in if that changes
+          // forceSubmit allows a page to change a 'next' button into 'submit' buttom
+          // if 'no test' don't ask for test preferences and submit from ''job_commute' screen. If they selected 'noTest' on the next screen 'test_location' submit from there
           formData.metadata = {
             ...formData.metadata,
             isEligibleForLabTest: userInfoResponse.data.attributes
               ? isWithin25Miles(userInfoResponse.data.attributes.zip_code) &&
-                !isPositive
+                !dontOfferTest
               : false,
 
-            forceSubmit: isPositive ? 'job_commute' : undefined,
+            forceSubmit: dontOfferTest
+              ? { screen: 'job_commute', value: true }
+              : {
+                  screen: 'test_location',
+                  value: {
+                    path: 'test_location.test_location',
+                    value: 'noTest',
+                  },
+                },
           }
         }
       } else {
@@ -150,10 +178,12 @@ class SurveyWrapperComponent extends React.Component<
             lastName: userInfoResponse.data.lastName,
             attributes: userInfoResponse.data.attributes,
             included: true,
-       
           },
         }
-        formData = { ...data, metadata: {dataGroups: userInfoResponse.data.dataGroups} }
+        formData = {
+          ...data,
+          metadata: { dataGroups: userInfoResponse.data.dataGroups },
+        }
       }
       //if we are creating a new file - store the versions
 
@@ -203,10 +233,18 @@ class SurveyWrapperComponent extends React.Component<
       isLoading: false,
     })
     // scroll to top to show error
+
+    if (this.props.onErrorCallback)
+     { this.props.onErrorCallback(error) }
+     else {
     window.scrollTo(0, 0)
+     }
   }
 
-  updateUserContactInfo = async (_rawData: any, data: {data: LoggedInUserData, metadata: {dataGroups: UserDataGroup[]}}) => {
+  updateUserContactInfo = async (
+    _rawData: any,
+    data: { data: LoggedInUserData; metadata: { dataGroups: UserDataGroup[] } },
+  ) => {
     try {
       // 348: verify the address that has been entered is valid
       const attributes = data.data.attributes!
@@ -273,12 +311,14 @@ class SurveyWrapperComponent extends React.Component<
         return
       }
 
-      const isWithin25 =  isWithin25Miles(attributes.zip_code)
-      if (isWithin25 &&  !data.metadata.dataGroups.includes('within_nyc')) {
+      const isWithin25 = isWithin25Miles(attributes.zip_code)
+      if (isWithin25 && !data.metadata.dataGroups.includes('within_nyc')) {
         data.data.dataGroups = [...data.metadata.dataGroups, 'within_nyc']
       }
       if (!isWithin25) {
-        data.data.dataGroups =  data.metadata.dataGroups.filter(group=> group!=='within_nyc')
+        data.data.dataGroups = data.metadata.dataGroups.filter(
+          group => group !== 'within_nyc',
+        )
       }
 
       const result = await UserService.updateUserData(
@@ -338,11 +378,37 @@ class SurveyWrapperComponent extends React.Component<
     }
   }
 
-  submitForm = async (rawData: any, data: any) => {
+  submitForm = async (rawData: any, data: any, surveyName: SurveyType) => {
     this.setState({
       isLoading: true,
     })
 
+    // we need to check and update the employer info
+    if (surveyName === 'MORE') {
+      const employerInfo = data.employer
+      const userData = await UserService.getUserInfo(this.props.token)
+      const oldAttributes = userData.data.attributes
+      let attributes
+      if (data.employer.employment_status === 'unemployed') {
+        attributes = { ...oldAttributes, home_phone: employerInfo.home_phone }
+      } else {
+        attributes = { ...oldAttributes, ...employerInfo.employment_address }
+      }
+
+      //update user info w/ new attributes
+      const newData = { ...userData.data, attributes }
+      const result = await UserService.updateUserData(this.props.token, newData)
+
+      //remove employer info from the survey
+      data = _.omit(data, [
+        'employer.home_phone',
+        'employer.employment_address',
+      ])
+      rawData = _.omit(rawData, [
+        'employer.home_phone',
+        'employer.employment_address',
+      ])
+    }
     try {
       const result = await SurveyService.postToHealthData(
         this.props.surveyName,
@@ -480,10 +546,16 @@ class SurveyWrapperComponent extends React.Component<
                 onSubmit={async (data: any) => {
                   this.setState({ status: undefined })
                   this.props.surveyName !== 'CONTACT'
-                    ? this.submitForm(data, this.cleanData(data))
+                    ? this.submitForm(
+                        data,
+                        this.cleanData(data),
+                        this.props.surveyName,
+                      )
                     : this.updateUserContactInfo(data, this.cleanData(data))
                 }}
-                isSubmitted={this.isSurveySubmitted(this.props.surveyName)}
+                isSubmitted={
+                  false /*ALINA! changethis.isSurveySubmitted(this.props.surveyName)*/
+                }
                 extraUIProps={extraUIProps}
               >
                 {this.props.children}

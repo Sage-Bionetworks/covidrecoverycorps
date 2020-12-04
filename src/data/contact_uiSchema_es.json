@@ -21,7 +21,7 @@
       },
       "zip_code": {
         "classNames": "zip",
-        "ui:placeholder": "Código postal (5dígitos)"
+        "ui:placeholder": "Código postal (5 dígitos)"
       },
       "state": {
         "classNames": "state text",

@@ -172,19 +172,61 @@
       "ui:widget": "radio"
     }
   },
+
   "test_location": {
     "classNames": "covid2_test_location",
-    "ui:description":"<p> Para recibir una tarjeta de regalo, deberá ser invitado a una prueba de anticuerpos y proporcionar una muestra biológica.</p><p> En este momento no podemos garantizar invitaciones de prueba para todos los participantes.</p><p>Tenga en cuenta que los kits de prueba para el hogar no estarán disponibles hasta después de diciembre del 2020. <br/><br/></p>",
+    "ui:description": "<p>Seleccionaremos algunos participantes para que proporcionen una muestra biológica a través de un kit de prueba casero después de diciembre de 2020.</p><p>Se proporcionará una tarjeta de regalo como muestra de agradecimiento a los invitados.</p>",
+
     "test_location": {
       "ui:widget": "radio"
+    }
+  },
+  "employer": {
+    "classNames": "covid2_test_location",
+    "ui:description": "<p>Thank you for your interest!</p> <p>Due to NYC laws and regulation around contact tracing, we are required to ask for the following information in regards to your employment in order to process your blood sample at our NYC based lab.</p><p> </p>",
+
+    "employment_status": {
+      "ui:widget": "radio"
     },
-    "test_location_no_lab": {
-      "classNames": "covid2_test_location",
-      "ui:description": "<p>Seleccionaremos algunos participantes para que proporcionen una muestra biológica a través de un kit de prueba casero después de diciembre de 2020.</p><p>Se proporcionará una tarjeta de regalo como muestra de agradecimiento a los invitados.</p>",
-     
-      "test_location": {
-        "ui:widget": "radio"
+    "home_phone": {
+      "classNames": "text"
+    },
+ 
+    "employment_address": {
+      "classNames": "contact",
+      "emp_address1": {
+        "ui:placeholder": "Dirección Física",
+        "classNames": "address1 text"
+      },
+      "emp_address2": {
+        "classNames": "address2 text",
+        "ui:placeholder": "Apartamento/Suite/Otro"
+      },
+      "emp_zip_code": {
+        "classNames": "zip",
+        "ui:placeholder": "Código postal (5 dígitos)"
+      },
+      "emp_state": {
+        "classNames": "state text",
+        "ui:placeholder": "Estado"
+      },
+      "emp_city": {
+        "classNames": "city text",
+        "ui:placeholder": "Cuidad"
+      },
+      "occupation": {
+        "classNames": " text",
+        "ui:placeholder": "Title of position"
+      },
+      "emp_name": {
+        "classNames": " text",
+        "ui:placeholder": "Name"
+      },
+      "emp_phone": {
+        "classNames": " text",
+        "ui:placeholder": "Phone number"
       }
     }
   }
+
 }

@@ -7,6 +7,7 @@
     },
     "cancel": "Cancelar",
     "done": "Hecho",
+    "edit": "Editar",
     "email": "Email",
     "emailAddress": "Correo electrónico",
     "joinUs": "Únete a nosotros",
@@ -388,7 +389,7 @@
     "intro1": "<0> Encuestas del estudio</0><1> Sus respuestas a la siguiente información ayudarán a los investigadores a aprender más sobre el COVID-19.</1> <1>Si se siente incómodo con alguna de las preguntas, usted puede hacer clic en \" Prefiero no responder \".</1><1> Gracias por su tiempo.</1>",
     "text11": "Encuestas mínimas requeridas para invitaciones al laboratorio",
     "min": "minutos",
-    "intro": {
+    "thankYou": {
       "surveysDoneTitle": "¡Gracias por completar las encuestas!",
       "surveysDoneText": "<0>¡Ahora usted califica para la lista de espera de la prueba de anticuerpos!</0><0> Para recibir una tarjeta de regalo, deberá ser invitado a una prueba de anticuerpos y proporcionar una muestra biológica.</0><0> En este momento no podemos garantizar invitaciones de prueba para todos los participantes.</0>",
       "selectedTestText": "<0> Si es seleccionado para recibir una prueba de anticuerpos, recibirá un correo electrónico.</0>",
@@ -400,12 +401,8 @@
       "missedTitle": "Parece que no le hemos visto a usted... ",
       "missedText": "Si desea reprogramar una cita de laboratorio, llame al 212-305-5700 o envíe un correo electrónico: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. ",
       "cancelledTitle": "Su cita de laboratorio ha sido cancelada.",
-      "cancelledText": "Si desea reprogramar una cita de laboratorio, llame al 212-305-5700 o envíe un correo electrónico: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. ",
-      "willMailAddress" :"We will mail the kit to this address:",
-      "addressConfirm": "Please confirm if this address is correct:",
-      "addressYes" : "Yes, that is my mailing address",
-      "addressNo": "No, I will update", 
-      "addressUdateLink": "<0>Please update your address under </0> <1>Contact Information</1>"
+      "cancelledText": "Si desea reprogramar una cita de laboratorio, llame al 212-305-5700 o envíe un correo electrónico: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. "
+  
     }
   },
   "footer": {
