@@ -55,46 +55,7 @@ const ThankYou: FunctionComponent<ThankYouProps> = ({
       </Trans>
     </>
   )
-/*
-  const elSelectedTestHome = (
-    <>
-      {userInfo?.attributes && !isSubmitted && (
-        <>
-          <Trans i18nKey="dashboard.thankYou.selectedHomeTestText">
-            <h2>[translate]</h2>
-            <p>[translate]</p>
-          </Trans>
 
-          <div style={{ textAlign: 'left' }}>
-            <br />
-            <span>{`${userInfo.attributes.address1} ${
-              userInfo.attributes.address2 ? userInfo.attributes.address2 : ''
-            }`}</span>
-            <br />
-            <span>{`${userInfo.attributes.city} ${userInfo.attributes.state}, ${userInfo.attributes.zip_code}`}</span>{' '}
-          </div>
-          <div style={{ color: 'red' }}>
-            <Button href="/contactInfo">{t('common.edit')}</Button>
-          </div>
-
-          <Button
-            variant="contained"
-            color="primary"
-            style={{ width: '200px', marginTop: '24px' }}
-            onClick={_e => setIsSubmitted(true)}
-          >
-            {t('common.submit')}
-          </Button>
-        </>
-      )}
-
-      {isSubmitted && (
-        <div style={{ marginBottom: '24px' }}>{elSelectedTestLab}</div>
-      )}
-
-    </>
-  )
-*/
   const elSelectedNoTest = (
     <>
       <img src={iconThankYou}></img>
