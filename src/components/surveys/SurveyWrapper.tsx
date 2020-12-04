@@ -32,6 +32,8 @@ export interface SurveyWrapperProps {
   surveyName: SurveyType
   token: string
   onDoneCallback?: Function
+  onErrorCallback?: Function
+  isNoBackBar?: boolean
 }
 
 type SurveyWrapperState = {
@@ -63,6 +65,7 @@ const extraUIProps: ExtraUIProps = {
 
   isHelpHidden: true,
   isNoSaveButton: false,
+  isNoBackBar: false,
 }
 class SurveyWrapperComponent extends React.Component<
   SurveyWrapperProps & WithTranslation,
@@ -74,7 +77,10 @@ class SurveyWrapperComponent extends React.Component<
       isLoading: true,
       isFormSubmitted: false,
     }
+    extraUIProps.isNoBackBar = props.isNoBackBar || false
   }
+
+ 
 
   async componentDidMount() {
     await this.getData()
@@ -227,7 +233,12 @@ class SurveyWrapperComponent extends React.Component<
       isLoading: false,
     })
     // scroll to top to show error
+
+    if (this.props.onErrorCallback)
+     { this.props.onErrorCallback(error) }
+     else {
     window.scrollTo(0, 0)
+     }
   }
 
   updateUserContactInfo = async (

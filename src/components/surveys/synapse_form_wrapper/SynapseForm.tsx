@@ -54,6 +54,7 @@ export type ExtraUIProps = {
   onNextCallback?: Function
   isHelpHidden?: boolean
   isNoSaveButton?: boolean //if no save button submit will be instead of next
+  isNoBackBar?: boolean
 }
 
 export type SynapseFormProps = {
@@ -1067,7 +1068,7 @@ export default class SynapseForm extends React.Component<
   render() {
     return (
       <div className={`outter-wrap ${this.props.cardClass}`}>
-        <div>
+        {! this.props.extraUIProps?.isNoBackBar &&<div>
           <FloatingToolbar
             closeLinkDestination="/dashboard"
             closeIcon={faAngleLeft}
@@ -1075,7 +1076,7 @@ export default class SynapseForm extends React.Component<
             closeConfirmationText={i18next.t('surveys.exitSurvey')}
             closeConfirmationText2={i18next.t('surveys.dataNotSaved')}
           />
-        </div>
+        </div>}
         <Prompt
           when={this.state.hasUnsavedChanges}
           message={this.unsavedDataWarning}
