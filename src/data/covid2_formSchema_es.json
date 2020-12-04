@@ -526,6 +526,55 @@
         }
       }
     },
+    "employer_address_ref": {
+      "type": "object",
+      "required": [
+        "occupation",
+        "emp_name",
+        "emp_address1",
+        "emp_city",
+        "emp_state",
+        "emp_zip_code",
+        "emp_phone"
+      ],
+      "properties": {
+        "occupation": {
+          "title": "Occupation:",
+          "type": "string"
+        },
+        "emp_name": {
+          "title": "Employer Name:",
+          "type": "string"
+        },
+
+        "emp_address1": {
+          "title": "Employer Street Address:",
+          "type": "string"
+        },
+        "emp_address2": {
+          "type": "string"
+        },
+        "emp_city": {
+          "type": "string"
+        },
+        "emp_state": {
+          "type": "string",
+          "enum": {
+            "$ref": "#/definitions/states"
+          },
+          "enumNames": {
+            "$ref": "#/definitions/states"
+          }
+        },
+        "emp_zip_code": {
+          "type": "string"
+        },
+        "emp_phone": {
+          "title": "Employer Phone Number:",
+          "type": "string"
+        }
+      }
+    },
     "covid1": {
       "type": "object",
       "title": "",
@@ -1206,6 +1255,48 @@
           ]
         }
       }
+    },
+    "employer": {
+      "type": "object",
+      "title": "",
+      "required": ["employment_status"],
+      "properties": {
+        "employment_status": {
+          "title": "What is your current employment status?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["employed", "unemployed"],
+          "enumNames": ["Currently employed", "Currently retired or unemployed"]
+        }
+      },
+      "dependencies": {
+        "employment_status": {
+          "oneOf": [
+            {
+              "properties": {
+                "employment_status": {
+                  "enum": ["employed"]
+                },
+                "employment_address": {
+                  "$ref": "#/definitions/employer_address_ref"
+                }
+              }
+            },
+            {
+              "required": ["home_phone"],
+              "properties": {
+                "employment_status": {
+                  "enum": ["unemployed"]
+                },
+                "home_phone": {
+                  "title": "Phone number:",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        }
+      }
     }
   },
   "type": "object",
@@ -1241,6 +1332,10 @@
     "test_location": {
       "title": "",
       "$ref": "#/definitions/test_location"
+    },
+    "employer": {
+      "title": "",
+      "$ref": "#/definitions/employer"
     }
   }
 }

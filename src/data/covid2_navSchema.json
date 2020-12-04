@@ -171,7 +171,7 @@
     {
       "id": "employer",
       "orderDisplay": "7a/7",
-      "order": 0,
+      "order": 45,
       "title": "",
       "validationRules": [],
       "default": ""
