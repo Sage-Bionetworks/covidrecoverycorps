@@ -139,7 +139,7 @@
     "welcome": {
       "text1": "Welcome!",
       "text2": "Before you decide to join the study, let's learn more about COVID Recovery Corps.",
-      "text3": "The next screens will tell you about the purpose of the study, what we will ask you to do, the benefits and risks of participation."
+      "text3": "The next screens will tell you about the purpose of the study, what we will ask you to do, the benefits and risks of participation. Let's get started!"
     },
     "screen1": {
       "text1": "About the Study",
@@ -720,5 +720,10 @@
     "successfulUpload": "has been uploaded",
     "duplicateUpload": "has already been uploaded",
     "uploadFailed": "could not be uploaded"
+  },
+  "testKitShipped": {
+    "title": "Your test kit is on its way!",
+    "text1": "<0>Thank you for registering for the COVID Recovery Corps study to understand how the body responds to and recovers from COVID-19 infection. </0> <0> We have sent out your at-home test kit. Your blood sample will check whether your body has produced antibodies to fight the COVID-19 infection. </0><0> Please collect the blood sample and return the kit as soon as possible. Antibodies disappear over time, and we want to test for the antibodies while they are still in your system. </0><0> As a token of our appreciation, all participants who complete all of the surveys and provide at-home sample will receive a $25 gift card. </0><0> Collecting your samples should take less than 10 minutes. </0>",
+    "cta": "Track my test kit"
   }
 }
