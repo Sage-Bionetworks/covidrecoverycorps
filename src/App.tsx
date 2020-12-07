@@ -107,6 +107,11 @@ const theme = createMuiTheme({
     },
   },
   overrides: {
+    MuiSwitch: {
+      track: {
+        backgroundColor: '#807C7C',
+      },
+    },
     MuiButton: {
       root: {
         borderRadius: 25,
@@ -225,7 +230,7 @@ function App() {
     }
   }, [token])
 
-
+  
   function PrivateRoute({ children, ...rest }: any) {
     return (
       <Route
