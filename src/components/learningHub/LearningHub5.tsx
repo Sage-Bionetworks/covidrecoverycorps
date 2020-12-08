@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const LearningHub5: FunctionComponent = () => {
-  console.log('lh5')
+  console.log('lh51')
   const classes = useStyles()
   const { t } = useTranslation()
   const arr = new Array(5)
