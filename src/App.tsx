@@ -46,6 +46,7 @@ import LearningHub from './components/learningHub/LearningHub'
 import { FeaturesProvider, TOGGLE_NAMES } from './helpers/FeatureToggle'
 import LoginPassword from './components/login/LoginPassword'
 import UploadResult from './components/surveys/UploadResult'
+import TestKitShipped from './components/static/TestKitShipped'
 
 export const openSansFont = [
   'Open Sans',
@@ -107,6 +108,11 @@ const theme = createMuiTheme({
     },
   },
   overrides: {
+    MuiSwitch: {
+      track: {
+        backgroundColor: '#807C7C',
+      },
+    },
     MuiButton: {
       root: {
         borderRadius: 25,
@@ -284,6 +290,10 @@ function App() {
     ) {
       return renderWithWiderGridLayout(<ResultDashboard token={token || ''} />)
     }
+    /* once we know the new condition -- show the testKitShipped page
+    if (sessionData.userDataGroup.includes('tests_scheduled')) {
+      return renderWithGridLayout(<TestKitShipped token={token || ''} />)
+    }*/
     if (sessionData.userDataGroup.includes('tests_scheduled')) {
       return renderWithGridLayout(<Appointment token={token || ''} />)
     }
