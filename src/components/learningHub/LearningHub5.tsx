@@ -19,10 +19,10 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const LearningHub5: FunctionComponent = () => {
-  console.log('lh51')
+  console.log('lh53')
   const classes = useStyles()
   const { t } = useTranslation()
-  const arr = new Array(5)
+  const [arr, setArr] = React.useState(new Array(5))
   console.log(arr)
   return (
     <div>
@@ -41,7 +41,7 @@ const LearningHub5: FunctionComponent = () => {
             <Typography>{t(`learningHub.lh5.a1`)}</Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-      {[...arr].map((_item, index) => (
+      {[...arr].map((item, index) => (
        
         <ExpansionPanel key={`faq_${index}`}>
           <ExpansionPanelSummary
