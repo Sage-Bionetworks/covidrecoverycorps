@@ -183,7 +183,7 @@
   },
   "employer": {
     "classNames": "covid2_test_location",
-    "ui:description": "<p>Thank you for your interest!</p> <p>Due to NYC laws and regulation around contact tracing, we are required to ask for the following information in regards to your employment in order to process your blood sample at our NYC based lab.</p><p> </p>",
+    "ui:description": "<p> ¡Gracias por su interés! </p> <p> Debido a las leyes y regulaciones de la ciudad de Nueva York sobre el rastreo de contactos, debemos solicitar la siguiente información con respecto a su empleo para procesar su muestra de sangre en nuestro laboratorio basado en la ciudad de Nueva York. </p><p></p>",
 
     "employment_status": {
       "ui:widget": "radio"
@@ -216,15 +216,15 @@
       },
       "occupation": {
         "classNames": " text",
-        "ui:placeholder": "Title of position"
+        "ui:placeholder": "Título del cargo"
       },
       "emp_name": {
         "classNames": " text",
-        "ui:placeholder": "Name"
+        "ui:placeholder": "Nombre del empleador"
       },
       "emp_phone": {
         "classNames": " text",
-        "ui:placeholder": "Phone number"
+        "ui:placeholder": "Número de teléfono:"
       }
     }
   }
