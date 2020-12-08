@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const LearningHub5: FunctionComponent = () => {
-  console.log('lh5')
+  console.log('lh51')
   const classes = useStyles()
   const { t } = useTranslation()
   const arr = new Array(5)
@@ -27,6 +27,20 @@ const LearningHub5: FunctionComponent = () => {
   return (
     <div>
       <h3>{t('learningHub.lh5.title')}</h3>
+      <ExpansionPanel key={`faq_0`}>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography className={classes.heading}>
+              {t(`learningHub.lh5.q1`)}
+            </Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>{t(`learningHub.lh5.a1`)}</Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
       {[...arr].map((_item, index) => (
        
         <ExpansionPanel key={`faq_${index}`}>
