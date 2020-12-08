@@ -19,13 +19,16 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const LearningHub5: FunctionComponent = () => {
+  console.log('lh5')
   const classes = useStyles()
   const { t } = useTranslation()
   const arr = new Array(5)
+  console.log(arr)
   return (
     <div>
       <h3>{t('learningHub.lh5.title')}</h3>
       {[...arr].map((_item, index) => (
+       
         <ExpansionPanel key={`faq_${index}`}>
           <ExpansionPanelSummary
             expandIcon={<ExpandMoreIcon />}
@@ -40,6 +43,7 @@ const LearningHub5: FunctionComponent = () => {
             <Typography>{t(`learningHub.lh5.a${index + 1}`)}</Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
+    
       ))}
     </div>
   )
