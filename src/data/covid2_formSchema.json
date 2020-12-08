@@ -598,7 +598,7 @@
       ],
       "properties": {
         "occupation": {
-          "title": "Occupation1:",
+          "title": "Occupation:",
           "type": "string"
         },
         "emp_name": {

@@ -539,16 +539,16 @@
       ],
       "properties": {
         "occupation": {
-          "title": "Occupation:",
+          "title": "Ocupación:",
           "type": "string"
         },
         "emp_name": {
-          "title": "Employer Name:",
+          "title": "Nombre del empleador:",
           "type": "string"
         },
 
         "emp_address1": {
-          "title": "Employer Street Address:",
+          "title": "Dirección postal del empleador:",
           "type": "string"
         },
         "emp_address2": {
@@ -570,7 +570,7 @@
           "type": "string"
         },
         "emp_phone": {
-          "title": "Employer Phone Number:",
+          "title": "Número de teléfono del empleador:",
           "type": "string"
         }
       }
@@ -1262,11 +1262,11 @@
       "required": ["employment_status"],
       "properties": {
         "employment_status": {
-          "title": "What is your current employment status?",
+          "title": "¿Cuál es su estado laboral actual?",
           "type": "string",
           "uniqueItems": true,
           "enum": ["employed", "unemployed"],
-          "enumNames": ["Currently employed", "Currently retired or unemployed"]
+          "enumNames": ["Actualmente empleado", "Actualmente jubilado o desempleado"]
         }
       },
       "dependencies": {
@@ -1289,7 +1289,7 @@
                   "enum": ["unemployed"]
                 },
                 "home_phone": {
-                  "title": "Phone number:",
+                  "title": "Número de teléfono:",
                   "type": "string"
                 }
               }
