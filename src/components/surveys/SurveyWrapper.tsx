@@ -553,9 +553,9 @@ class SurveyWrapperComponent extends React.Component<
                       )
                     : this.updateUserContactInfo(data, this.cleanData(data))
                 }}
-                isSubmitted={
-                  false /*ALINA! changethis.isSurveySubmitted(this.props.surveyName)*/
-                }
+                isSubmitted={this.isSurveySubmitted(this.props.surveyName)&& !window.location.search.includes('debug')}
+
+                
                 extraUIProps={extraUIProps}
               >
                 {this.props.children}
