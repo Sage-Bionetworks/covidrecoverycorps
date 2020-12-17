@@ -166,6 +166,15 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
     )
   }
 
+  const hasTakenTest = (): boolean => {
+    const covidSurvey = getSavedSurvey('COVID_EXPERIENCE')
+    if (!covidSurvey || !covidSurvey?.completedDate) {
+      return false
+    }
+    const kind_of_testing = covidSurvey.data.symptoms2?.kind_of_testing
+    return kind_of_testing.serum_test || kind_of_testing.nasal_swab
+  }
+
   const getPreferredTestLocation = (): TestLocationEnum | undefined => {
     const locationFromLocationSurvey = getSavedSurvey('TEST_LOCATION')?.data
       .location
@@ -276,14 +285,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       }
     }
 
-    const hasTakenTest = (): boolean => {
-      const covidSurvey = getSavedSurvey('COVID_EXPERIENCE')
-      if (!covidSurvey || !covidSurvey?.completedDate) {
-        return false
-      }
-      const kind_of_testing = covidSurvey.data.symptoms2?.kind_of_testing
-      return kind_of_testing.serum_test || kind_of_testing.nasal_swab
-    }
+  
 
     // see if we need uploadResults Survey
     if (!hasTakenTest()) {
@@ -312,7 +314,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       completedSurveyNames.includes('COVID_EXPERIENCE') &&
       completedSurveyNames.includes('HISTORY') &&
       completedSurveyNames.includes('MORE') &&
-      completedSurveyNames.includes('RESULT_UPLOAD')
+      (completedSurveyNames.includes('RESULT_UPLOAD') || !hasTakenTest())
 
     if (doneAll) {
       return SurveysCompletionStatusEnum.ALL_DONE
