@@ -149,7 +149,7 @@
       "text5": "This study is being led by Columbia University and Sage Bionetworks. The study is being funded by the Chan Zuckerberg Initiative.",
       "text6": "This study will <1> last for 12 months </1> from the time you enroll.",
       "text7": "This study will <1> not provide medical care </1> for COVID-19. Participation in this study is <1> voluntary </1> and you may leave the study at any time.",
-      "text8": "You will be given $50 gift card if you complete all of the surveys and provide biosamples in person they provide samples in person or a $25 gift card if you provide biosamples from home."
+      "text8": "You will be given $50 gift card if you complete all of the surveys and provide biosamples in person they provide samples in person or a $20 gift card if you provide biosamples from home."
     },
     "screen2": {
       "text1": "What will I be asked to do?",
@@ -269,12 +269,12 @@
     },
     "screen10": {
       "text1": "Will I receive any form of compensation for participating in the study?",
-      "text2": "You will be given a <1>$50 gift card</1> if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a <1>$25 gift card</1>.",
+      "text2": "You will be given a <1>$50 gift card</1> if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a <1>$20 gift card</1>.",
       "text3": "You will not receive any profit from this or future research."
     },
     "fullTextScreen10": {
       "text1": "Will I receive any form of compensation for participating in the study?",
-      "text2": "You will be given a $50 gift card if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a $25 gift card.",
+      "text2": "You will be given a $50 gift card if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a $20 gift card.",
       "text3": "Researchers will use your data to make discoveries. If any of their studies lead to new tests, drugs, or other commercial products, you will not get any profits. These inventions will be the property of the researchers who develop them."
     },
     "screen11": {
@@ -469,7 +469,7 @@
     "text18": "Will participating in this study affect my insurance or medical services?",
     "text19": "The COVID Recovery Corps is an observational study and not a clinical trial. We will not be asking you to change what you do or to take a specific medication. This study will not affect your medical insurance or healthcare.",
     "text181": "Will I receive any form of compensation for participating in the study?",
-    "text191": "<0>Yes, participants who complete the surveys and provide a biosample by visiting a lab will receive a $50 gift card.</0> <0>For participants who provide a biosample using an at-home testing kit, you will receive a $25 gift card.</0> <0> Please remember to complete your surveys before your lab appointment or mailing back your at-home testing kit.</0>",
+    "text191": "<0>Yes, participants who complete the surveys and provide a biosample by visiting a lab will receive a $50 gift card.</0> <0>For participants who provide a biosample using an at-home testing kit, you will receive a $20 gift card.</0> <0> Please remember to complete your surveys before your lab appointment or mailing back your at-home testing kit.</0>",
     "text22": "I have a question that isn't answered in this FAQ. Who do I contact?",
     "text23": "You can call <1>212-305-5700</1> or email <3>COVIDRecoveryCorps@cumc.columbia.edu</3>."
   },
@@ -723,7 +723,7 @@
   },
   "testKitShipped": {
     "title": "Your test kit is on its way!",
-    "text1": "<0>Thank you for registering for the COVID Recovery Corps study to understand how the body responds to and recovers from COVID-19 infection. </0> <0> We have sent out your at-home test kit. Your blood sample will check whether your body has produced antibodies to fight the COVID-19 infection. </0><0> Please collect the blood sample and return the kit as soon as possible. Antibodies disappear over time, and we want to test for the antibodies while they are still in your system. </0><0> As a token of our appreciation, all participants who complete all of the surveys and provide at-home sample will receive a $25 gift card. </0><0> Collecting your samples should take less than 10 minutes. </0>",
+    "text1": "<0>Thank you for registering for the COVID Recovery Corps study to understand how the body responds to and recovers from COVID-19 infection. </0> <0> We have sent out your at-home test kit. Your blood sample will check whether your body has produced antibodies to fight the COVID-19 infection. </0><0> Please collect the blood sample and return the kit as soon as possible. Antibodies disappear over time, and we want to test for the antibodies while they are still in your system. </0><0> As a token of our appreciation, all participants who complete all of the surveys and provide at-home sample will receive a $20 gift card. </0><0> Collecting your samples should take less than 10 minutes. </0>",
     "cta": "Track my test kit"
   }
 }
