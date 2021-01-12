@@ -149,7 +149,7 @@
       "text5": "This study is being led by Columbia University and Sage Bionetworks. The study is being funded by the Chan Zuckerberg Initiative.",
       "text6": "This study will <1> last for 12 months </1> from the time you enroll.",
       "text7": "This study will <1> not provide medical care </1> for COVID-19. Participation in this study is <1> voluntary </1> and you may leave the study at any time.",
-      "text8": "You will be given $50 gift card if you complete all of the surveys and provide biosamples in person they provide samples in person or a $25 gift card if you provide biosamples from home."
+      "text8": "You will be given $50 gift card if you complete all of the surveys and provide biosamples in person they provide samples in person or a $20 gift card if you provide biosamples from home."
     },
     "screen2": {
       "text1": "What will I be asked to do?",
@@ -199,7 +199,7 @@
       "text3": "We understand you are sharing and allowing us to collect sensitive health information from you.",
       "text4": "We take great care to <1> protect your information</1>. However, if there is a <1>data breach</1> it may be possible to <1>identify you and your sensitive information</1> may be seen by someone without your permission. This risk is <1> low but it is not zero</1>.",
       "text5": "COVID-19 is also a risk to public health. <1> Thus we may have to give out your data if public health authorities demand it. </1>",
-      "text5a": "If you are invited to provide a biosample to the lab, the lab will need you to provide <1>the name and address of your employer</1>. This is a New York State requirement. This information (employer’s name and address) <1>will not be sent or stored by the Covid Recovery Corps study<1/>.",
+      "text5a": "If you are invited to provide a biosample to the lab, the lab will need you to provide <1>the name and address of your employer</1>. This is a New York State requirement.",
       "text5b": "We <1>cannot control</1> any of the information you provide <1>directly to the lab</1> if you are tested for COVID.",
       "text6": "If you give a <1>blood sample</1>, the most common risks are <1>brief pain and bruising</1>. Some people may become dizzy or feel faint. There is also a small risk of infection.",
       "text7": "If you are asked to provide a sample from a <1> nose  or fecal swab </1>you may feel <1> brief discomfort</1>."
@@ -242,7 +242,7 @@
       "text1": "What will you do with my data and samples",
       "text2": "We will store your data and samples securely, along with the data and samples from all the other people who take part in COVID Recovery Corps. Your data will be stored in the COVID Recovery Corps database and the COVID Recovery Corps Biobank will store your biosamples. We will use the data and samples to make discoveries about COVID-19. We will study the  differences in symptoms people have over time and why some people  responded differently than others. We will study how different people’s  bodies fought the virus with their immune system. We will also study changes in health after people have recovered from COVID-19.",
       "text3": "We will create a scientific database and a biobank for the COVID Recovery Corps study. The scientific database will have individual-level data and the biobank will store your samples like your blood, and pee.",
-      "text4": "To protect your data, we will use a code to identify your data and samples rather than your name name or other personal information. This code cannot be used to directly identify you. This coded data is known as de-identified data.Only key people from our study team can link your identity to your study.",
+      "text4": "To protect your data, we will use a code to identify your data and samples rather than your name or other personal information. This code cannot be used to directly identify you. This coded data is known as de-identified data.Only key people from our study team can link your identity to your study.",
       "text5": "Access to this database will be controlled. Researchers will have to be approved by COVID Recovery Corps and will use only de-identified or coded data."
     },
     "screen8": {
@@ -269,12 +269,12 @@
     },
     "screen10": {
       "text1": "Will I receive any form of compensation for participating in the study?",
-      "text2": "You will be given a <1>$50 gift card</1> if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a <1>$25 gift card</1>.",
+      "text2": "You will be given a <1>$50 gift card</1> if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a <1>$20 gift card</1>.",
       "text3": "You will not receive any profit from this or future research."
     },
     "fullTextScreen10": {
       "text1": "Will I receive any form of compensation for participating in the study?",
-      "text2": "You will be given a $50 gift card if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a $25 gift card.",
+      "text2": "You will be given a $50 gift card if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a $20 gift card.",
       "text3": "Researchers will use your data to make discoveries. If any of their studies lead to new tests, drugs, or other commercial products, you will not get any profits. These inventions will be the property of the researchers who develop them."
     },
     "screen11": {
@@ -317,7 +317,7 @@
       "text1": "Things you should consider before you say yes",
       "text2": "Researchers will use your data to make discoveries. If any of their studies lead to new tests, drugs, or other commercial products, you will not get any profits. These inventions will be the property of the researchers who develop them.",
       "text3": "We will keep your data private, and even if public health authorities access this data about COVID, it cannot be transferred to an insurance company or your healthcare provider without your permission.",
-      "text4": "If you are invited to provide a biosample to the lab, the lab will need you to provide the name and address of your employer. This is a New York State requirement. This information (employer’s name and address) will not be sent or stored by the COVID Recovery Corps study. We cannot control any of the information you provide directly to the lab if you are tested for COVID.",
+      "text4": "If you are invited to provide a biosample to the lab, the lab will need you to provide the name and address of your employer. This is a New York State requirement. We cannot control any of the information you provide directly to the lab if you are tested for COVID.",
       "text4a": "If you think you have been injured because of taking part in COVID Recovery Corps, contact us using the information at the end of this form. If we find that you were injured as a direct result of taking part in COVID Recovery Corps:",
       "text5": "Beyond your immediate medical care, we will not pay for your injury.",
       "text6": "If you need follow-up care to treat your injury, you and/or your insurance will have to pay for it.",
@@ -469,7 +469,7 @@
     "text18": "Will participating in this study affect my insurance or medical services?",
     "text19": "The COVID Recovery Corps is an observational study and not a clinical trial. We will not be asking you to change what you do or to take a specific medication. This study will not affect your medical insurance or healthcare.",
     "text181": "Will I receive any form of compensation for participating in the study?",
-    "text191": "<0>Yes, participants who complete the surveys and provide a biosample by visiting a lab will receive a $50 gift card.</0> <0>For participants who provide a biosample using an at-home testing kit, you will receive a $25 gift card.</0> <0> Please remember to complete your surveys before your lab appointment or mailing back your at-home testing kit.</0>",
+    "text191": "<0>Yes, participants who complete the surveys and provide a biosample by visiting a lab will receive a $50 gift card.</0> <0>For participants who provide a biosample using an at-home testing kit, you will receive a $20 gift card.</0> <0> Please remember to complete your surveys before your lab appointment or mailing back your at-home testing kit.</0>",
     "text22": "I have a question that isn't answered in this FAQ. Who do I contact?",
     "text23": "You can call <1>212-305-5700</1> or email <3>COVIDRecoveryCorps@cumc.columbia.edu</3>."
   },
@@ -723,7 +723,7 @@
   },
   "testKitShipped": {
     "title": "Your test kit is on its way!",
-    "text1": "<0>Thank you for registering for the COVID Recovery Corps study to understand how the body responds to and recovers from COVID-19 infection. </0> <0> We have sent out your at-home test kit. Your blood sample will check whether your body has produced antibodies to fight the COVID-19 infection. </0><0> Please collect the blood sample and return the kit as soon as possible. Antibodies disappear over time, and we want to test for the antibodies while they are still in your system. </0><0> As a token of our appreciation, all participants who complete all of the surveys and provide at-home sample will receive a $25 gift card. </0><0> Collecting your samples should take less than 10 minutes. </0>",
+    "text1": "<0>Thank you for registering for the COVID Recovery Corps study to understand how the body responds to and recovers from COVID-19 infection. </0> <0> We have sent out your at-home test kit. Your blood sample will check whether your body has produced antibodies to fight the COVID-19 infection. </0><0> Please collect the blood sample and return the kit as soon as possible. Antibodies disappear over time, and we want to test for the antibodies while they are still in your system. </0><0> As a token of our appreciation, all participants who complete all of the surveys and provide at-home sample will receive a $20 gift card. </0><0> Collecting your samples should take less than 10 minutes. </0>",
     "cta": "Track my test kit"
   }
 }
