@@ -33,6 +33,7 @@ import { Feature, TOGGLE_NAMES } from '../../helpers/FeatureToggle'
 type TopNavProps = {
   token: string | undefined
   logoutCallbackFn: Function
+  showTopNavigator: boolean
 }
 const drawerWidth = 275
 const useStyles = makeStyles(theme => ({
@@ -224,16 +225,16 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           </ListItem>
         </NavLink>
         {
-        <NavLink
-          to="/learninghub"
-          onClick={handleDrawerToggle}
-          className={classes.navBarLink}
-        >
-          <ListItem button className={classes.mobileMenuItem}>
-            {t('topnav.text31')}
-          </ListItem>
-        </NavLink>
-         }
+          <NavLink
+            to="/learninghub"
+            onClick={handleDrawerToggle}
+            className={classes.navBarLink}
+          >
+            <ListItem button className={classes.mobileMenuItem}>
+              {t('topnav.text31')}
+            </ListItem>
+          </NavLink>
+        }
         <NavLink
           to="/contact"
           onClick={handleDrawerToggle}
@@ -401,7 +402,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
         >
           {language === 'es' ? 'in English' : 'en español'}
         </a>
-        </Feature>
+      </Feature>
 
       {props.token && (
         <NavLink
@@ -440,69 +441,77 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
       )}
     </div>
   )
-
   return (
     <div>
-      <CssBaseline />
-      <div className="no-print">
-        <Toolbar className={classes.toolBar}>
-          <div>
-            <Typography variant="h6" noWrap className={classes.navbarTitle}>
-              <NavLink to="/home">
-                <CovidRecoveryCorpsLogo />
-              </NavLink>
-            </Typography>
+      {props.showTopNavigator ? (
+        <div>
+          <CssBaseline />
+          <div className="no-print">
+            <Toolbar className={classes.toolBar}>
+              <div>
+                <Typography variant="h6" noWrap className={classes.navbarTitle}>
+                  <NavLink to="/home">
+                    <CovidRecoveryCorpsLogo />
+                  </NavLink>
+                </Typography>
+              </div>
+
+              {/* show hamburger menu on xs and sm, but full nav bar on md and up */}
+              <Hidden lgUp>
+                <IconButton
+                  color="inherit"
+                  aria-label="Open drawer"
+                  edge="end"
+                  onClick={handleDrawerToggle}
+                  className={classes.menuButton}
+                >
+                  <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
+                </IconButton>
+              </Hidden>
+              <Hidden mdDown>{fullScreenNavBar}</Hidden>
+            </Toolbar>
           </div>
-
-          {/* show hamburger menu on xs and sm, but full nav bar on md and up */}
-          <Hidden lgUp>
-            <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              edge="end"
-              onClick={handleDrawerToggle}
-              className={classes.menuButton}
+          <nav className={classes.drawer}>
+            <Drawer
+              variant="temporary"
+              anchor="right"
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+              ModalProps={{
+                keepMounted: true, // Better open performance on mobile.
+              }}
             >
-              <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
-            </IconButton>
-          </Hidden>
-          <Hidden mdDown>{fullScreenNavBar}</Hidden>
-        </Toolbar>
-      </div>
-
-      <nav className={classes.drawer}>
-        <Drawer
-          variant="temporary"
-          anchor="right"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </nav>
-
-      {/* global alert area */}
-      {alertCode && !isGlobalNotificationAlertHiddenFlag && (
-        <Alert
-          severity="error"
-          variant="filled"
-          icon={false}
-          classes={{
-            message: classes.globalAlertMessage,
-          }}
-        >
-          <Grid container direction="row" justify="center" alignItems="center">
-            <GlobalAlertCopy code={alertCode}></GlobalAlertCopy>
-          </Grid>
-        </Alert>
+              {drawer}
+            </Drawer>
+          </nav>
+          {/* global alert area */}
+          {alertCode && !isGlobalNotificationAlertHiddenFlag && (
+            <Alert
+              severity="error"
+              variant="filled"
+              icon={false}
+              classes={{
+                message: classes.globalAlertMessage,
+              }}
+            >
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+              >
+                <GlobalAlertCopy code={alertCode}></GlobalAlertCopy>
+              </Grid>
+            </Alert>
+          )}
+          <div className={classes.content}>{props.children}</div>
+        </div>
+      ) : (
+        <div className={classes.content}>{props.children}</div>
       )}
-      <div className={classes.content}>{props.children}</div>
     </div>
   )
 }

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import Iframe from 'react-iframe'
 import { makeStyles } from '@material-ui/core'
-
-interface Props {}
+import { NavLink } from 'react-router-dom'
+import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
 
 const useStyles = makeStyles(theme => ({
   container: {
     width: '100%',
-    height: '800px',
+    height: '900px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -18,11 +18,12 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-between',
     color: 'black',
     width: '170px',
-    marginTop: '-10px',
+    marginTop: '-15px',
   },
   languageText: {
     color: 'black',
     cursor: 'pointer',
+    fontSize: '15px',
   },
   selectedLanguage: {
     fontWeight: 'bold',
@@ -31,9 +32,17 @@ const useStyles = makeStyles(theme => ({
   videoContainer: {
     marginTop: '30px',
   },
+  topBanner: {
+    height: '92px',
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    paddingTop: '15px',
+    paddingLeft: '25px',
+  },
 }))
 
-const TestKitInformationScreen: React.FC<Props> = props => {
+const TestKitInformationScreen: React.FC<{}> = props => {
   const [englishIsSelected, setEnglishSelected] = useState<boolean>(true)
   const classes = useStyles()
   const engishTextClasses = [classes.languageText]
@@ -52,6 +61,12 @@ const TestKitInformationScreen: React.FC<Props> = props => {
 
   return (
     <div className={classes.container}>
+      <div className={classes.topBanner}>
+        <NavLink to="/home">
+          <CovidRecoveryCorpsLogo />
+        </NavLink>
+      </div>
+
       <h2>Blood Sample Collection Instructions</h2>
       <div className={classes.languageRow}>
         <div
@@ -68,8 +83,8 @@ const TestKitInformationScreen: React.FC<Props> = props => {
         </div>
       </div>
       <Iframe
-        width="800px"
-        height="500px"
+        width="900px"
+        height="550px"
         url={
           englishIsSelected
             ? 'https://www.youtube.com/embed/--MX5u9a12Y?autoplay=1'
