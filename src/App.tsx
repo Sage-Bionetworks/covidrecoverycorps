@@ -31,6 +31,7 @@ import ConsentEHR from './components/consent/ConsentEHR'
 import Team from './components/static/Team'
 import Contact from './components/static/Contact'
 import FAQs from './components/static/FAQs'
+import TestKitInformationScreen from "./components/static/TestKitInformationScreen"
 import { TopNav } from './components/widgets/TopNav'
 import { UserService } from './services/user.service'
 import AcountSettings from './components/AccountSettings'
@@ -498,7 +499,9 @@ function App() {
                         <ResultDashboard token={token || ''} />,
                       )}
                     </ConsentedRoute>
-
+                    <Route path="/testkit">
+                      <TestKitInformationScreen />
+                    </Route>
                     <Route path="/faqs">
                       <FAQs />
                     </Route>
