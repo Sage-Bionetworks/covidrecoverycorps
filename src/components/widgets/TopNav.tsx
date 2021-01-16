@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -178,12 +178,15 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
     setMobileOpen(!mobileOpen)
   }
 
+  useEffect(() => {
+    setLanguage(i18n.language)
+  }, [i18n.language])
+
   const changeLanguage = () => {
     const newLanguage = i18n.language === 'es' ? 'en' : 'es'
     window.localStorage.setItem('appUILang', newLanguage)
 
     i18n.changeLanguage(newLanguage)
-    setLanguage(newLanguage)
   }
 
   const drawer = (

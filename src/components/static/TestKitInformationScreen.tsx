@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Iframe from 'react-iframe'
 import { makeStyles } from '@material-ui/core'
 import { NavLink } from 'react-router-dom'
 import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
+import i18n from '../../i18n'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    minWidth: '250px',
   },
   languageRow: {
     display: 'flex',
@@ -18,12 +19,14 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-between',
     color: 'black',
     width: '170px',
-    marginTop: '-15px',
   },
-  languageText: {
+  languageButton: {
     color: 'black',
     cursor: 'pointer',
     fontSize: '15px',
+    outline: 'none',
+    border: 'none',
+    backgroundColor: 'Transparent',
   },
   selectedLanguage: {
     fontWeight: 'bold',
@@ -31,6 +34,8 @@ const useStyles = makeStyles(theme => ({
   },
   videoContainer: {
     marginTop: '30px',
+    maxWidth: '900px',
+    maxHeight: '550px',
   },
   topBanner: {
     height: '92px',
@@ -40,22 +45,25 @@ const useStyles = makeStyles(theme => ({
     paddingTop: '15px',
     paddingLeft: '25px',
   },
+  header: {
+    textAlign: 'center',
+    marginBottom: '10px',
+    marginLeft: '5px',
+    marginRight: '5px',
+  },
 }))
 
 const TestKitInformationScreen: React.FC<{}> = props => {
-  const [englishIsSelected, setEnglishSelected] = useState<boolean>(true)
+  const [language, setLanguage] = useState<string>(i18n.language)
   const classes = useStyles()
-  const engishTextClasses = [classes.languageText]
-  const spanishTextClasses = [classes.languageText]
-  englishIsSelected
-    ? engishTextClasses.push(classes.selectedLanguage)
-    : spanishTextClasses.push(classes.selectedLanguage)
 
-  const handleLanguagePressed = (pressedLanguage: String) => {
-    if (pressedLanguage === 'ENGLISH' && !englishIsSelected) {
-      setEnglishSelected(true)
-    } else if (pressedLanguage === 'SPANISH' && englishIsSelected) {
-      setEnglishSelected(false)
+  const changeLanguage = (pressedLanguage: string) => {
+    if (pressedLanguage !== language) {
+      const newLanguage = i18n.language === 'es' ? 'en' : 'es'
+      window.localStorage.setItem('appUILang', newLanguage)
+
+      i18n.changeLanguage(newLanguage)
+      setLanguage(newLanguage)
     }
   }
 
@@ -66,27 +74,34 @@ const TestKitInformationScreen: React.FC<{}> = props => {
           <CovidRecoveryCorpsLogo />
         </NavLink>
       </div>
-
-      <h2>Blood Sample Collection Instructions</h2>
+      <h2 className={classes.header}>{`${
+        language === 'en'
+          ? 'Blood Sample Collection Instructions'
+          : 'Instrucciones para la recolección de muestras de sangre'
+      }`}</h2>
       <div className={classes.languageRow}>
-        <div
-          className={engishTextClasses.join(' ')}
-          onClick={() => handleLanguagePressed('ENGLISH')}
+        <button
+          className={`${classes.languageButton} ${
+            language === 'en' ? classes.selectedLanguage : null
+          }`}
+          onClick={() => changeLanguage('en')}
         >
           English
-        </div>
-        <div
-          className={spanishTextClasses.join(' ')}
-          onClick={() => handleLanguagePressed('SPANISH')}
+        </button>
+        <button
+          className={`${classes.languageButton} ${
+            language === 'en' ? null : classes.selectedLanguage
+          }`}
+          onClick={() => changeLanguage('es')}
         >
           en español
-        </div>
+        </button>
       </div>
-      <Iframe
-        width="900px"
-        height="550px"
-        url={
-          englishIsSelected
+      <iframe
+        width="100%"
+        height="60%"
+        src={
+          language === 'en'
             ? 'https://www.youtube.com/embed/--MX5u9a12Y?autoplay=1'
             : 'https://www.youtube.com/embed/bM6MoVTAegQ?autoplay=1'
         }
