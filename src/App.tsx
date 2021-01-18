@@ -31,6 +31,7 @@ import ConsentEHR from './components/consent/ConsentEHR'
 import Team from './components/static/Team'
 import Contact from './components/static/Contact'
 import FAQs from './components/static/FAQs'
+import TestKitInformationScreen from './components/static/TestKitInformationScreen'
 import { TopNav } from './components/widgets/TopNav'
 import { UserService } from './services/user.service'
 import AcountSettings from './components/AccountSettings'
@@ -231,7 +232,6 @@ function App() {
     }
   }, [token])
 
-
   function PrivateRoute({ children, ...rest }: any) {
     return (
       <Route
@@ -351,9 +351,8 @@ function App() {
 
   const TOGGLES = {
     [TOGGLE_NAMES.RESULTS_VIDEO]: true,
-    [TOGGLE_NAMES.SPANISH]: true
+    [TOGGLE_NAMES.SPANISH]: true,
   }
-
   return (
     <FeaturesProvider value={TOGGLES}>
       <ThemeProvider theme={theme}>
@@ -374,9 +373,10 @@ function App() {
                   logoutCallbackFn={() =>
                     setUserSession(undefined, '', false, [])
                   }
+                  showTopNavigator={currentLocation !== '/testkit'}
                 >
                   {/* A <Switch> looks through its children <Route>s and
-        renders the first one that matches the current URL. */}{' '}
+         renders the first one that matches the current URL. */}{' '}
                   <Switch>
                     <Route
                       exact={true}
@@ -498,7 +498,9 @@ function App() {
                         <ResultDashboard token={token || ''} />,
                       )}
                     </ConsentedRoute>
-
+                    <Route path="/testkit">
+                      <TestKitInformationScreen />
+                    </Route>
                     <Route path="/faqs">
                       <FAQs />
                     </Route>

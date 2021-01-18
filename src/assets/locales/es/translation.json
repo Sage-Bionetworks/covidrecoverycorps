@@ -402,7 +402,6 @@
       "missedText": "Si desea reprogramar una cita de laboratorio, llame al 212-305-5700 o envíe un correo electrónico: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. ",
       "cancelledTitle": "Su cita de laboratorio ha sido cancelada.",
       "cancelledText": "Si desea reprogramar una cita de laboratorio, llame al 212-305-5700 o envíe un correo electrónico: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. "
-  
     }
   },
   "footer": {
@@ -720,5 +719,8 @@
     "title": "Your test kit is on its way!",
     "text1": "<0>Thank you for registering for the COVID Recovery Corps study to understand how the body responds to and recovers from COVID-19 infection. </0> <0> We have sent out your at-home test kit. Your blood sample will check whether your body has produced antibodies to fight the COVID-19 infection. </0><0> Please collect the blood sample and return the kit as soon as possible. Antibodies disappear over time, and we want to test for the antibodies while they are still in your system. </0><0> As a token of our appreciation, all participants who complete all of the surveys and provide at-home sample will receive a $20 gift card. </0><0> Collecting your samples should take less than 10 minutes. </0>",
     "cta": "Track my test kit"
+  },
+  "testKitInstructionPage": {
+    "instructionHeader": "Instrucciones para la recolección de muestras de sangre"
   }
 }
