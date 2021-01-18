@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core'
 import { NavLink } from 'react-router-dom'
 import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
 import i18n from '../../i18n'
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -56,6 +57,7 @@ const useStyles = makeStyles(theme => ({
 const TestKitInformationScreen: React.FC<{}> = props => {
   const [language, setLanguage] = useState<string>(i18n.language)
   const classes = useStyles()
+  const { t } = useTranslation()
 
   const changeLanguage = (pressedLanguage: string) => {
     if (pressedLanguage !== language) {
@@ -74,11 +76,7 @@ const TestKitInformationScreen: React.FC<{}> = props => {
           <CovidRecoveryCorpsLogo />
         </NavLink>
       </div>
-      <h2 className={classes.header}>{`${
-        language === 'en'
-          ? 'Blood Sample Collection Instructions'
-          : 'Instrucciones para la recolección de muestras de sangre'
-      }`}</h2>
+      <h2 className={classes.header}>{t('testKitInstructionPage.instructionHeader')}</h2>
       <div className={classes.languageRow}>
         <button
           className={`${classes.languageButton} ${

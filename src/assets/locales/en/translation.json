@@ -393,7 +393,7 @@
       "surveysDoneTitle": "Thank you for completing the surveys!",
       "surveysDoneText": "<0>You now qualify for the antibody test waitlist!</0><0>To receive a gift card, you will need to be invited to an antibody test and provide a biosample.</0><0>We cannot guarantee testing invites for all participants at this time.</0><0>Please note that at-home test kits won’t be available until after December 2020.</0>",
       "selectedHomeTestText": "<0>Mailing Address for Home Kit</0><1>Should you be selected, we will be mailing the kit to this address below. Please edit if necessary before submitting your survey. </1>",
-      
+
       "selectedTestText": "<0>If you are selected to receive an antibody test, you will receive an email. </0>",
       "selectedNoTestTitle": "Thank you for your contribution to the COVID Recovery Corps Study!",
       "selectedNoTestText": "<0>As we learn more, we will provide updates on the results of the study in newsletters, online presentations, and community meetings.</0>",
@@ -406,7 +406,6 @@
       "cancelledText": "If you would like to re-schedule a lab appointment, please call 212-305-5700 or email: <0>COVIDRecoveryCorps@cumc.columbia.edu</0>. ",
 
       "addressUdateLink": "<0>Please update your address under </0> <1>Contact Information</1>"
-
     }
   },
   "footer": {
@@ -439,7 +438,6 @@
     "text3": "I am able to provide consent for myself",
     "text4": "I think I’ve had COVID-19",
     "text5a": "I live in the United States"
-   
   },
   "faqs": {
     "title": "FAQs",
@@ -725,5 +723,8 @@
     "title": "Your test kit is on its way!",
     "text1": "<0>Thank you for registering for the COVID Recovery Corps study to understand how the body responds to and recovers from COVID-19 infection. </0> <0> We have sent out your at-home test kit. Your blood sample will check whether your body has produced antibodies to fight the COVID-19 infection. </0><0> Please collect the blood sample and return the kit as soon as possible. Antibodies disappear over time, and we want to test for the antibodies while they are still in your system. </0><0> As a token of our appreciation, all participants who complete all of the surveys and provide at-home sample will receive a $20 gift card. </0><0> Collecting your samples should take less than 10 minutes. </0>",
     "cta": "Track my test kit"
+  },
+  "testKitInstructionPage": {
+    "instructionHeader": "Blood Sample Collection Instructions"
   }
 }
