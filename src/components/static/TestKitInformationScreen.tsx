@@ -76,7 +76,9 @@ const TestKitInformationScreen: React.FC<{}> = props => {
           <CovidRecoveryCorpsLogo />
         </NavLink>
       </div>
-      <h2 className={classes.header}>{t('testKitInstructionPage.instructionHeader')}</h2>
+      <h2 className={classes.header}>
+        {t('testKitInstructionPage.instructionHeader')}
+      </h2>
       <div className={classes.languageRow}>
         <button
           className={`${classes.languageButton} ${
