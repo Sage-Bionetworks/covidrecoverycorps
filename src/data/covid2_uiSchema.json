@@ -24,7 +24,7 @@
         "travel_start": {
           "ui:widget": "CustomDateWidget",
           "ui:options": {
-            "yearsRange": [2020, 2020],
+            "yearsRange": [2020, 2021],
             "hideNowButton": true,
             "hideClearButton": true,
             "lessThanNow": true
@@ -33,7 +33,7 @@
         "travel_end": {
           "ui:widget": "CustomDateWidget",
           "ui:options": {
-            "yearsRange": [2020, 2020],
+            "yearsRange": [2020, 2021],
             "hideNowButton": true,
             "hideClearButton": true,
             "lessThanNow": true
