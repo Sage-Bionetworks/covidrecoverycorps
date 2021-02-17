@@ -1,29 +1,26 @@
-import * as React from 'react'
-
-import * as _ from 'lodash'
-
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
 import $RefParser from 'json-schema-ref-parser'
-import { includes, cloneDeep } from 'lodash-es'
-
+import * as _ from 'lodash'
+import { cloneDeep, includes } from 'lodash-es'
+import * as React from 'react'
 import Alert from 'react-bootstrap/Alert'
+import { withTranslation, WithTranslation } from 'react-i18next'
 import { UiSchema } from 'react-jsonschema-form'
-import SynapseForm, { ExtraUIProps } from './synapse_form_wrapper/SynapseForm'
-import { StatusEnum } from './synapse_form_wrapper/types'
-import {
-  SurveyType,
-  SavedSurveysObject,
-  SavedSurvey,
-  LoggedInUserData,
-  UserDataGroup,
-} from '../../types/types'
-import { isWithin25Miles } from '../../helpers/utility'
+import { Redirect } from 'react-router-dom'
 import { SURVEYS } from '../../data/surveys'
+import { isWithin25Miles } from '../../helpers/utility'
 import { SurveyService } from '../../services/survey.service'
 import { UserService } from '../../services/user.service'
 import { USPSService } from '../../services/usps.service'
-import { Redirect } from 'react-router-dom'
-import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
-import { withTranslation, WithTranslation } from 'react-i18next'
+import {
+  LoggedInUserData,
+  SavedSurvey,
+  SavedSurveysObject,
+  SurveyType,
+  UserDataGroup
+} from '../../types/types'
+import SynapseForm, { ExtraUIProps } from './synapse_form_wrapper/SynapseForm'
+import { StatusEnum } from './synapse_form_wrapper/types'
 
 export interface SurveyWrapperProps {
   formTitle: string //for UI customization
@@ -79,8 +76,6 @@ class SurveyWrapperComponent extends React.Component<
     }
     extraUIProps.isNoBackBar = props.isNoBackBar || false
   }
-
- 
 
   async componentDidMount() {
     await this.getData()
@@ -234,11 +229,11 @@ class SurveyWrapperComponent extends React.Component<
     })
     // scroll to top to show error
 
-    if (this.props.onErrorCallback)
-     { this.props.onErrorCallback(error) }
-     else {
-    window.scrollTo(0, 0)
-     }
+    if (this.props.onErrorCallback) {
+      this.props.onErrorCallback(error)
+    } else {
+      window.scrollTo(0, 0)
+    }
   }
 
   updateUserContactInfo = async (
@@ -389,25 +384,29 @@ class SurveyWrapperComponent extends React.Component<
       const userData = await UserService.getUserInfo(this.props.token)
       const oldAttributes = userData.data.attributes
       let attributes
-      if (data.employer.employment_status === 'unemployed') {
-        attributes = { ...oldAttributes, home_phone: employerInfo.home_phone }
-      } else {
-        attributes = { ...oldAttributes, ...employerInfo.employment_address }
+      if (employerInfo) {
+        if (employerInfo?.employment_status === 'unemployed') {
+          attributes = { ...oldAttributes, home_phone: employerInfo.home_phone }
+        } else {
+          attributes = { ...oldAttributes, ...employerInfo.employment_address }
+        }
+        //update user info w/ new attributes
+        const newData = { ...userData.data, attributes }
+        const result = await UserService.updateUserData(
+          this.props.token,
+          newData,
+        )
+
+        //remove employer info from the survey
+        data = _.omit(data, [
+          'employer.home_phone',
+          'employer.employment_address',
+        ])
+        rawData = _.omit(rawData, [
+          'employer.home_phone',
+          'employer.employment_address',
+        ])
       }
-
-      //update user info w/ new attributes
-      const newData = { ...userData.data, attributes }
-      const result = await UserService.updateUserData(this.props.token, newData)
-
-      //remove employer info from the survey
-      data = _.omit(data, [
-        'employer.home_phone',
-        'employer.employment_address',
-      ])
-      rawData = _.omit(rawData, [
-        'employer.home_phone',
-        'employer.employment_address',
-      ])
     }
     try {
       const result = await SurveyService.postToHealthData(
@@ -553,9 +552,10 @@ class SurveyWrapperComponent extends React.Component<
                       )
                     : this.updateUserContactInfo(data, this.cleanData(data))
                 }}
-                isSubmitted={this.isSurveySubmitted(this.props.surveyName)&& !window.location.search.includes('debug')}
-
-                
+                isSubmitted={
+                  this.isSurveySubmitted(this.props.surveyName) &&
+                  !window.location.search.includes('debug')
+                }
                 extraUIProps={extraUIProps}
               >
                 {this.props.children}
