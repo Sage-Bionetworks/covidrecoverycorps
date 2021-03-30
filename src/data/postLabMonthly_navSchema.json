@@ -1,0 +1,58 @@
+{
+  "steps": [
+    {
+      "title": "",
+      "orderDisplay": "1/7",
+      "description": "",
+      "id": "intro",
+      "order": 10,
+      "default": "symptoms1"
+    },
+    {
+      "id": "symptoms1",
+      "order": 20,
+      "title": "Recent COVID-19 Experience",
+      "orderDisplay": "2/7",
+      "description": "Please fill out the following survey questions to the best of your ability. If you do not remember or would not like to answer, please click \"Prefer not to answer\" ",
+
+      "default": "symptomsTest"
+    },
+
+    {
+      "id": "symptomsTest",
+      "order": 2,
+      "title": "Recent COVID-19 Experience Test",
+      "orderDisplay": "2/7",
+      "description": "Please fill out the following survey questions to the best of your ability. If you do not remember or would not like to answer, please click \"Prefer not to answer\" ",
+
+      "default": "newConditions"
+    },
+    {
+      "id": "newConditions",
+      "order": 15,
+      "title": "Recent COVID-19 Experience Test",
+      "orderDisplay": "2/7",
+      "description": "Please fill out the following survey questions to the best of your ability. If you do not remember or would not like to answer, please click \"Prefer not to answer\" ",
+
+      "default": "symptoms1"
+    },
+    {
+      "id": "reinfection",
+      "order": 11,
+      "title": "Recent COVID-19 Experience Test",
+      "orderDisplay": "2/7",
+      "description": "Please fill out the following survey questions to the best of your ability. If you do not remember or would not like to answer, please click \"Prefer not to answer\" ",
+
+      "default": "symptoms1"
+    },
+    {
+      "id": "vaccine",
+      "order": 1,
+      "title": "Recent COVID-19 Experience Test",
+      "orderDisplay": "2/7",
+      "description": "Please fill out the following survey questions to the best of your ability. If you do not remember or would not like to answer, please click \"Prefer not to answer\" ",
+
+      "default": "reinfection"
+    }
+  ]
+}

@@ -1,0 +1,761 @@
+{
+  "intro": {
+    "curr_have_symptoms": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    }
+  },
+  "postLab": {
+    "classNames": "postLab",
+
+    "longterm_impact": {
+      "physical_health": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "mental_health": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "family_health": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "friends_health": {
+        "classNames": "radiorange",
+        "ui:widget": "RadioRangeWidget",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "community": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "job": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "financial": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "homeless": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "family_tension": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      },
+      "children": {
+        "ui:widget": "RadioRangeWidget",
+        "classNames": "radiorange",
+        "ui:options": {
+          "inline": true,
+          "minLabel": "Not at all concerned",
+          "maxLabel": "Extremely concerned"
+        }
+      }
+    },
+    "helped_recover": {
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0, 1],
+        "other": [2],
+        "otherTextLabel": "Please specify:"
+      }
+    },
+
+    "helped_recover_recommend": {
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0, 1],
+        "other": [2],
+        "otherTextLabel": "Please specify:"
+      }
+    },
+
+    "hampered_recover": {
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0, 1],
+        "other": [2],
+        "otherTextLabel": "Please specify:"
+      }
+    },
+
+    "contributed_exposure": {
+      "ui:widget": "ExclusiveCheckboxesWidget",
+      "ui:options": {
+        "inline": false,
+        "exclusive": [0, 1],
+        "other": [2],
+        "otherTextLabel": "Please specify:"
+      }
+    }
+  },
+
+  "symptoms1": {
+    "classNames": "symptoms",
+    "symptoms_list": {
+      "ui:order": [
+        "difficulty_concentrating",
+        "difficulty_concentrating_detail",
+        "confusion",
+        "confusion_detail",
+        "memory_problems",
+        "memory_problems_detail",
+        "shortness_of_breath_or_di",
+        "shortness_of_breath_or_di_detail",
+        "winded_or_short_of_breath",
+        "winded_or_short_of_breath_detail",
+        "cough",
+        "cough_detail",
+        "congested_or_runny_nose,",
+        "congested_or_runny_nose,_detail",
+        "sore_throat",
+        "sore_throat_detail",
+        "dry_and_irritated_eyes_or",
+        "dry_and_irritated_eyes_or_detail",
+        "fatigue_(tired,_lack_of_e",
+        "fatigue_(tired,_lack_of_e_detail"
+      ],
+      "ui:dependent_option_postfix": ["_detail"],
+
+      "ui:options": {
+        "inline": false
+      },
+      "cough_detail": {
+        "symptomDuration": {
+          "classNames": "subcheckbox"
+        },
+        "howBothersome": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "howChanged": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "difficulty_concentrating_detail": {
+        "symptomDuration": {
+          "classNames": "subcheckbox"
+        },
+        "howBothersome": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "howChanged": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "confusion_detail": {
+        "symptomDuration": {
+          "classNames": "subcheckbox"
+        },
+        "howBothersome": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "howChanged": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "memory_problems_detail": {
+        "symptomDuration": {
+          "classNames": "subcheckbox"
+        },
+        "howBothersome": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "howChanged": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "shortness_of_breath_or_di_detail": {
+        "symptomDuration": {
+          "classNames": "subcheckbox"
+        },
+        "howBothersome": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "howChanged": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "winded_or_short_of_breath_detail": {
+        "symptomDuration": {
+          "classNames": "subcheckbox"
+        },
+        "howBothersome": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "howChanged": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "congested_or_runny_nose,_detail": {
+        "symptomDuration": {
+          "classNames": "subcheckbox"
+        },
+        "howBothersome": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "howChanged": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "sore_throat_detail": {
+        "symptomDuration": {
+          "classNames": "subcheckbox"
+        },
+        "howBothersome": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "howChanged": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "dry_and_irritated_eyes_or_detail": {
+        "symptomDuration": {
+          "classNames": "subcheckbox"
+        },
+        "howBothersome": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "howChanged": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "fatigue_(tired,_lack_of_e_detail": {
+        "symptomDuration": {
+          "classNames": "subcheckbox"
+        },
+        "howBothersome": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "howChanged": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      }
+    }
+  },
+  "symptomsTest": {
+    "classNames": "symptoms",
+    "symptoms_list": {
+      "ui:order": [
+        "difficulty_concentrating",
+        "difficulty_concentrating_detail",
+        "confusion",
+        "confusion_detail",
+        "memory_problems",
+        "memory_problems_detail",
+        "shortness_of_breath_or_di",
+        "shortness_of_breath_or_di_detail",
+        "winded_or_short_of_breath",
+        "winded_or_short_of_breath_detail",
+        "cough",
+        "cough_detail",
+        "congested_or_runny_nose,",
+        "congested_or_runny_nose,_detail",
+        "sore_throat",
+        "sore_throat_detail",
+        "dry_and_irritated_eyes_or",
+        "dry_and_irritated_eyes_or_detail",
+        "fatigue_(tired,_lack_of_e",
+        "fatigue_(tired,_lack_of_e_detail"
+      ],
+      "ui:dependent_option_postfix": ["_detail"],
+      "ui:widget": "checkboxes",
+      "ui:options": {
+        "inline": false
+      },
+      "cough_detail": {
+        "how_often": {
+          "classNames": "subcheckbox"
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "difficulty_concentrating_detail": {
+        "how_often": {
+          "classNames": "subcheckbox"
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "confusion_detail": {
+        "how_often": {
+          "classNames": "subcheckbox"
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "memory_problems_detail": {
+        "how_often": {
+          "classNames": "subcheckbox"
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "shortness_of_breath_or_di_detail": {
+        "how_often": {
+          "classNames": "subcheckbox"
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "winded_or_short_of_breath_detail": {
+        "how_often": {
+          "classNames": "subcheckbox"
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "congested_or_runny_nose,_detail": {
+        "how_often": {
+          "classNames": "subcheckbox"
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "sore_throat_detail": {
+        "how_often": {
+          "classNames": "subcheckbox"
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "dry_and_irritated_eyes_or_detail": {
+        "how_often": {
+          "classNames": "subcheckbox"
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "fatigue_(tired,_lack_of_e_detail": {
+        "how_often": {
+          "classNames": "subcheckbox"
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      }
+    }
+  },
+  "newConditions": {
+    "conditions": {
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["no_answer", "none"],
+      "ui:dependent_option_postfix": ["_specify"],
+      "ui:order": [
+        "eye_desease",
+        "high_bp",
+        "high_cholesterol",
+        "stroke",
+        "heart_attack",
+        "diabetes",
+        "kidney_disease",
+        "depression",
+        "anxiety",
+        "other",
+        "other_specify",
+        "none",
+        "no_answer"
+      ],
+      "classNames": "family_diseases show_fieldSet",
+      "ui:widget": "checkboxes"
+    }
+  },
+  "reinfection": {
+   
+    "infected_more_than_once": {
+      "ui:widget": "radio"
+    },
+    "positive_test": {
+      "ui:widget": "radio",
+      "ui:help": "You will asked to upload a copy of this test after this survey.",
+      "ui:description": "You will asked to upload a copy of this test after this survey."
+    },
+    "reinfection_date": {
+      "ui:help": "Approximate date",
+      "classNames": ["nasal_swab"],
+      "ui:widget": "CustomDateWidget",
+      "ui:options": {
+        "yearsRange": [2020, 2021],
+        "hideNowButton": true,
+        "hideClearButton": false,
+        "lessThanNow": true
+      }
+    }
+  },
+  "vaccine": {
+    "ui:order": [ "received_first_dose", "which_vaccine", "vaccine_other", "*"],
+    "received_first_dose": {
+      "ui:widget": "radio"
+    },
+    "which_vaccine": {
+      "ui:widget": "radio"
+    },
+    "vaccine_week_ago": { "ui:widget": "radio" },
+
+    "first_dose_date": {
+      "ui:widget": "CustomDateWidget",
+      "ui:options": {
+        "yearsRange": [2020, 2021],
+        "hideNowButton": true,
+        "hideClearButton": false,
+        "lessThanNow": true
+      }
+    },
+
+    "symptoms_change": {
+      "ui:widget": "radio"
+    },
+    "symptoms_change_how": {
+      "ui:widget": "RadioRangeWidget",
+      "classNames": "radiorange",
+      "ui:options": {
+        "inline": true,
+        "minLabel": "Got Worse",
+        "maxLabel": "Got Better"
+      }
+    },
+    "received_second_dose": {
+      "ui:widget": "radio"
+    },
+    "second_dose_date": {
+      "ui:widget": "CustomDateWidget",
+      "ui:options": {
+        "yearsRange": [2020, 2021],
+        "hideNowButton": true,
+        "hideClearButton": false,
+        "lessThanNow": true
+      }
+    }
+  }
+}
