@@ -4,6 +4,7 @@ import { callEndpoint } from '../helpers/utility'
 import {
   ENDPOINT,
   LoggedInUserData,
+  MONTHLY_SURVEY_IDENTIFIER,
   Response,
   SavedSurvey,
   SavedSurveysObject,
@@ -26,6 +27,7 @@ export const SurveyService = {
 }
 
 const SURVEY_ENDPOINT = `/v4/users/self/reports/${SURVEY_IDENTIFIER}`
+const MONTHLY_SURVEY_ENDPOINT = `/v4/users/self/reports/${MONTHLY_SURVEY_IDENTIFIER}`
 
 // save survey
 async function postToHealthData(

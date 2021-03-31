@@ -7,6 +7,7 @@ export const ENDPOINT = 'https://webservices.sagebridge.org'
 
 export const SURVEY_TIME_CONSTANT = '2020-06-15T00:14:04.322Z'
 export const SURVEY_IDENTIFIER = 'ny-strong'
+export const MONTHLY_SURVEY_IDENTIFIER = 'monthly-survey'
 
 export interface MailChimpFormFields extends EmailFormFields {
   NAME: string
