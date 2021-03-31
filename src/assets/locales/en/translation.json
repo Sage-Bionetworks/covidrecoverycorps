@@ -726,5 +726,10 @@
   },
   "testKitInstructionPage": {
     "instructionHeader": "Blood Sample Collection Instructions"
+  },
+  "monthlySurvey": {
+    "title": "Follow up surveys",
+    "text1": "Because the virus is new, we are not sure yet what the long-term consequences of being infected are. We are going to ask participants like you to answer quick questions approximately 5 times over the next year. It will be important to hear how you are doing, even if you are completely recovered from COVID-19, to better understand the ways in which the virus affects the body and if any complications have occured.",
+    "surveyCTA": "Take follow up surveys"
   }
 }
