@@ -36,8 +36,8 @@
           "type": "string",
           "title": "1. Do you currently have COVID-19 related symptoms?",
           "enum": [
-            "I tested positive for COVID-19 but did not have any symptoms.",
-            "I no longer have any COVID-19 related symptoms.",
+            "positive_no_symptoms",
+            "no_longer_symptoms",
             "I still experience some symptoms",
             "I'm not sure"
           ],
@@ -52,16 +52,23 @@
     },
     "symptoms1": {
       "type": "object",
-
+      "title": "",
       "properties": {
         "symptoms_list": {
           "type": "object",
           "title": "2. Please indicate if you currently have any of the following COVID-19 related symptoms. (Check all that apply)",
-
           "properties": {
+            "fatigue_tired_lack_of_ene": {
+              "type": "boolean",
+              "title": "Fatigue (tired, lack of energy)"
+            },
             "difficulty_concentrating": {
               "type": "boolean",
               "title": "Difficulty concentrating or focusing (brain fog)"
+            },
+            "headaches_or_migraines": {
+              "type": "boolean",
+              "title": "Headaches or migraines"
             },
             "confusion": {
               "type": "boolean",
@@ -71,51 +78,93 @@
               "type": "boolean",
               "title": "Memory problems"
             },
-            "shortness_of_breath_or_di": {
+            "dizziness___light-headedn": {
               "type": "boolean",
-              "title": "Shortness of breath or difficulty breathing at rest"
+              "title": "Dizziness / Light-headedness"
             },
-            "winded_or_short_of_breath": {
+            "mood_changes_like_feeling": {
               "type": "boolean",
-              "title": "Winded or short of breath with exercise"
+              "title": "Mood changes like feeling sad or anxious"
             },
-            "cough": {
+            "hallucinations": {
               "type": "boolean",
-              "title": "Cough"
+              "title": "Hallucinations"
             },
-            "congested_or_runny_nose,": {
+            "seizures": {
               "type": "boolean",
-              "title": "Congested or runny nose, phlegm in throat"
-            },
-            "sore_throat": {
-              "type": "boolean",
-              "title": "Sore throat"
-            },
-            "dry_and_irritated_eyes_or": {
-              "type": "boolean",
-              "title": "Dry and irritated eyes or dry mouth"
-            },
-            "fatigue_(tired,_lack_of_e": {
-              "type": "boolean",
-              "title": "Fatigue (tired, lack of energy)"
+              "title": "Seizures"
             }
           },
           "dependencies": {
+            "fatigue_tired_lack_of_ene": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "fatigue_tired_lack_of_ene": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "fatigue_tired_lack_of_ene": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "fatigue_tired_lack_of_ene_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            },
             "difficulty_concentrating": {
               "oneOf": [
                 {
                   "properties": {
                     "difficulty_concentrating": {
-                      "enum": [false]
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "difficulty_concentrating": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "difficulty_concentrating_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            },
+            "headaches_or_migraines": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "headaches_or_migraines": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "headaches_or_migraines": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "headaches_or_migraines_detail": {
                       "$ref": "#/definitions/symptomDetail"
                     }
                   }
@@ -127,14 +176,18 @@
                 {
                   "properties": {
                     "confusion": {
-                      "enum": [false]
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "confusion": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "confusion_detail": {
                       "$ref": "#/definitions/symptomDetail"
@@ -148,14 +201,18 @@
                 {
                   "properties": {
                     "memory_problems": {
-                      "enum": [false]
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "memory_problems": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "memory_problems_detail": {
                       "$ref": "#/definitions/symptomDetail"
@@ -164,147 +221,100 @@
                 }
               ]
             },
-            "shortness_of_breath_or_di": {
+            "dizziness___light-headedn": {
               "oneOf": [
                 {
                   "properties": {
-                    "shortness_of_breath_or_di": {
-                      "enum": [false]
+                    "dizziness___light-headedn": {
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
-                    "shortness_of_breath_or_di": {
-                      "enum": [true]
+                    "dizziness___light-headedn": {
+                      "enum": [
+                        true
+                      ]
                     },
-                    "shortness_of_breath_or_di_detail": {
+                    "dizziness___light-headedn_detail": {
                       "$ref": "#/definitions/symptomDetail"
                     }
                   }
                 }
               ]
             },
-            "winded_or_short_of_breath": {
+            "mood_changes_like_feeling": {
               "oneOf": [
                 {
                   "properties": {
-                    "winded_or_short_of_breath": {
-                      "enum": [false]
+                    "mood_changes_like_feeling": {
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
-                    "winded_or_short_of_breath": {
-                      "enum": [true]
+                    "mood_changes_like_feeling": {
+                      "enum": [
+                        true
+                      ]
                     },
-                    "winded_or_short_of_breath_detail": {
+                    "mood_changes_like_feeling_detail": {
                       "$ref": "#/definitions/symptomDetail"
                     }
                   }
                 }
               ]
             },
-            "cough": {
+            "hallucinations": {
               "oneOf": [
                 {
                   "properties": {
-                    "cough": {
-                      "enum": [false]
+                    "hallucinations": {
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
-                    "cough": {
-                      "enum": [true]
+                    "hallucinations": {
+                      "enum": [
+                        true
+                      ]
                     },
-                    "cough_detail": {
+                    "hallucinations_detail": {
                       "$ref": "#/definitions/symptomDetail"
                     }
                   }
                 }
               ]
             },
-            "congested_or_runny_nose,": {
+            "seizures": {
               "oneOf": [
                 {
                   "properties": {
-                    "congested_or_runny_nose,": {
-                      "enum": [false]
+                    "seizures": {
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
-                    "congested_or_runny_nose,": {
-                      "enum": [true]
+                    "seizures": {
+                      "enum": [
+                        true
+                      ]
                     },
-                    "congested_or_runny_nose,_detail": {
-                      "$ref": "#/definitions/symptomDetail"
-                    }
-                  }
-                }
-              ]
-            },
-            "sore_throat": {
-              "oneOf": [
-                {
-                  "properties": {
-                    "sore_throat": {
-                      "enum": [false]
-                    }
-                  }
-                },
-                {
-                  "properties": {
-                    "sore_throat": {
-                      "enum": [true]
-                    },
-                    "sore_throat_detail": {
-                      "$ref": "#/definitions/symptomDetail"
-                    }
-                  }
-                }
-              ]
-            },
-            "dry_and_irritated_eyes_or": {
-              "oneOf": [
-                {
-                  "properties": {
-                    "dry_and_irritated_eyes_or": {
-                      "enum": [false]
-                    }
-                  }
-                },
-                {
-                  "properties": {
-                    "dry_and_irritated_eyes_or": {
-                      "enum": [true]
-                    },
-                    "dry_and_irritated_eyes_or_detail": {
-                      "$ref": "#/definitions/symptomDetail"
-                    }
-                  }
-                }
-              ]
-            },
-            "fatigue_(tired,_lack_of_e": {
-              "oneOf": [
-                {
-                  "properties": {
-                    "fatigue_(tired,_lack_of_e": {
-                      "enum": [false]
-                    }
-                  }
-                },
-                {
-                  "properties": {
-                    "fatigue_(tired,_lack_of_e": {
-                      "enum": [true]
-                    },
-                    "fatigue_(tired,_lack_of_e_detail": {
+                    "seizures_detail": {
                       "$ref": "#/definitions/symptomDetail"
                     }
                   }
@@ -316,25 +326,13 @@
       }
     },
 
-    "symptomsTest": {
+    "symptoms2": {
       "type": "object",
       "properties": {
         "symptoms_list": {
           "type": "object",
-          "title": "",
+          "title": "3. Please indicate if you currently have any of the following COVID-19 related symptoms. (Check all that apply)",
           "properties": {
-            "difficulty_concentrating": {
-              "type": "boolean",
-              "title": "Difficulty concentrating or focusing (brain fog)"
-            },
-            "confusion": {
-              "type": "boolean",
-              "title": "Confusion"
-            },
-            "memory_problems": {
-              "type": "boolean",
-              "title": "Memory problems"
-            },
             "shortness_of_breath_or_di": {
               "type": "boolean",
               "title": "Shortness of breath or difficulty breathing at rest"
@@ -347,100 +345,45 @@
               "type": "boolean",
               "title": "Cough"
             },
-            "congested_or_runny_nose,": {
+            "chest_pain_or_pressure": {
               "type": "boolean",
-              "title": "Congested or runny nose, phlegm in throat"
+              "title": "Chest pain or pressure"
             },
-            "sore_throat": {
+            "fast_or_irregular_heart_b": {
               "type": "boolean",
-              "title": "Sore throat"
+              "title": "Fast or irregular heart beat"
             },
-            "dry_and_irritated_eyes_or": {
+            "abdominal_pain": {
               "type": "boolean",
-              "title": "Dry and irritated eyes or dry mouth"
+              "title": "Abdominal pain"
             },
-            "fatigue_(tired,_lack_of_e": {
+            "diarrhea": {
               "type": "boolean",
-              "title": "Fatigue (tired, lack of energy)"
+              "title": "Diarrhea"
+            },
+            "nausea___vomiting": {
+              "type": "boolean",
+              "title": "Nausea / Vomiting"
             }
           },
           "dependencies": {
-            "difficulty_concentrating": {
-              "oneOf": [
-                {
-                  "properties": {
-                    "difficulty_concentrating": {
-                      "enum": [false]
-                    }
-                  }
-                },
-                {
-                  "properties": {
-                    "difficulty_concentrating": {
-                      "enum": [true]
-                    },
-                    "difficulty_concentrating_detail": {
-                      "$ref": "#/definitions/symptomDetail"
-                    }
-                  }
-                }
-              ]
-            },
-            "confusion": {
-              "oneOf": [
-                {
-                  "properties": {
-                    "confusion": {
-                      "enum": [false]
-                    }
-                  }
-                },
-                {
-                  "properties": {
-                    "confusion": {
-                      "enum": [true]
-                    },
-                    "confusion_detail": {
-                      "$ref": "#/definitions/symptomDetail"
-                    }
-                  }
-                }
-              ]
-            },
-            "memory_problems": {
-              "oneOf": [
-                {
-                  "properties": {
-                    "memory_problems": {
-                      "enum": [false]
-                    }
-                  }
-                },
-                {
-                  "properties": {
-                    "memory_problems": {
-                      "enum": [true]
-                    },
-                    "memory_problems_detail": {
-                      "$ref": "#/definitions/symptomDetail"
-                    }
-                  }
-                }
-              ]
-            },
             "shortness_of_breath_or_di": {
               "oneOf": [
                 {
                   "properties": {
                     "shortness_of_breath_or_di": {
-                      "enum": [false]
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "shortness_of_breath_or_di": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "shortness_of_breath_or_di_detail": {
                       "$ref": "#/definitions/symptomDetail"
@@ -454,14 +397,18 @@
                 {
                   "properties": {
                     "winded_or_short_of_breath": {
-                      "enum": [false]
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "winded_or_short_of_breath": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "winded_or_short_of_breath_detail": {
                       "$ref": "#/definitions/symptomDetail"
@@ -475,14 +422,18 @@
                 {
                   "properties": {
                     "cough": {
-                      "enum": [false]
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
                     "cough": {
-                      "enum": [true]
+                      "enum": [
+                        true
+                      ]
                     },
                     "cough_detail": {
                       "$ref": "#/definitions/symptomDetail"
@@ -491,84 +442,645 @@
                 }
               ]
             },
-            "congested_or_runny_nose,": {
+            "chest_pain_or_pressure": {
               "oneOf": [
                 {
                   "properties": {
-                    "congested_or_runny_nose,": {
-                      "enum": [false]
+                    "chest_pain_or_pressure": {
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
-                    "congested_or_runny_nose,": {
-                      "enum": [true]
+                    "chest_pain_or_pressure": {
+                      "enum": [
+                        true
+                      ]
                     },
-                    "congested_or_runny_nose,_detail": {
+                    "chest_pain_or_pressure_detail": {
                       "$ref": "#/definitions/symptomDetail"
                     }
                   }
                 }
               ]
             },
-            "sore_throat": {
+            "fast_or_irregular_heart_b": {
               "oneOf": [
                 {
                   "properties": {
-                    "sore_throat": {
-                      "enum": [false]
+                    "fast_or_irregular_heart_b": {
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
-                    "sore_throat": {
-                      "enum": [true]
+                    "fast_or_irregular_heart_b": {
+                      "enum": [
+                        true
+                      ]
                     },
-                    "sore_throat_detail": {
+                    "fast_or_irregular_heart_b_detail": {
                       "$ref": "#/definitions/symptomDetail"
                     }
                   }
                 }
               ]
             },
-            "dry_and_irritated_eyes_or": {
+            "abdominal_pain": {
               "oneOf": [
                 {
                   "properties": {
-                    "dry_and_irritated_eyes_or": {
-                      "enum": [false]
+                    "abdominal_pain": {
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
-                    "dry_and_irritated_eyes_or": {
-                      "enum": [true]
+                    "abdominal_pain": {
+                      "enum": [
+                        true
+                      ]
                     },
-                    "dry_and_irritated_eyes_or_detail": {
+                    "abdominal_pain_detail": {
                       "$ref": "#/definitions/symptomDetail"
                     }
                   }
                 }
               ]
             },
-            "fatigue_(tired,_lack_of_e": {
+            "diarrhea": {
               "oneOf": [
                 {
                   "properties": {
-                    "fatigue_(tired,_lack_of_e": {
-                      "enum": [false]
+                    "diarrhea": {
+                      "enum": [
+                        false
+                      ]
                     }
                   }
                 },
                 {
                   "properties": {
-                    "fatigue_(tired,_lack_of_e": {
-                      "enum": [true]
+                    "diarrhea": {
+                      "enum": [
+                        true
+                      ]
                     },
-                    "fatigue_(tired,_lack_of_e_detail": {
+                    "diarrhea_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            },
+            "nausea___vomiting": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "nausea___vomiting": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "nausea___vomiting": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "nausea___vomiting_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+  "symptoms3": {
+    "type": "object",
+    "properties": {
+      "symptoms_list": {
+        "type": "object",
+        "title": "4. Please indicate if you currently have any of the following COVID-19 related symptoms. (Check all that apply)",
+         
+        "properties": {
+          "muscle_pain_cramps_or_bod": {
+            "type": "boolean",
+            "title": "Muscle pain, cramps, or body aches"
+          },
+          "tremors_or_shakiness": {
+            "type": "boolean",
+            "title": "Tremors or shakiness"
+          },
+          "numbness_or_tingling_of_f": {
+            "type": "boolean",
+            "title": "Numbness or tingling of feet and hands"
+          },
+          "covid_toes_discoloration": {
+            "type": "boolean",
+            "title": "COVID toes (discoloration and swelling)"
+          },
+          "change_in_sense_of_smell": {
+            "type": "boolean",
+            "title": "Change in (or loss) sense of smell"
+          },
+          "change_in_sense_of_taste": {
+            "type": "boolean",
+            "title": "Change in (or loss) sense of taste"
+          },
+          "ringing_or_humming_in_ear": {
+            "type": "boolean",
+            "title": "Ringing or humming in ears (tinnitus)"
+          },
+          "blurry_vision": {
+            "type": "boolean",
+            "title": "Blurry vision"
+          },
+          "dental_issues": {
+            "type": "boolean",
+            "title": "Dental Issues"
+          }
+        },
+        "dependencies": {
+          "muscle_pain_cramps_or_bod": {
+            "oneOf": [
+              {
+                "properties": {
+                  "muscle_pain_cramps_or_bod": {
+                    "enum": [
+                      false
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "muscle_pain_cramps_or_bod": {
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "muscle_pain_cramps_or_bod_detail": {
+                    "$ref": "#/definitions/symptomDetail"
+                  }
+                }
+              }
+            ]
+          },
+          "tremors_or_shakiness": {
+            "oneOf": [
+              {
+                "properties": {
+                  "tremors_or_shakiness": {
+                    "enum": [
+                      false
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "tremors_or_shakiness": {
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "tremors_or_shakiness_detail": {
+                    "$ref": "#/definitions/symptomDetail"
+                  }
+                }
+              }
+            ]
+          },
+          "numbness_or_tingling_of_f": {
+            "oneOf": [
+              {
+                "properties": {
+                  "numbness_or_tingling_of_f": {
+                    "enum": [
+                      false
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "numbness_or_tingling_of_f": {
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "numbness_or_tingling_of_f_detail": {
+                    "$ref": "#/definitions/symptomDetail"
+                  }
+                }
+              }
+            ]
+          },
+          "covid_toes_discoloration": {
+            "oneOf": [
+              {
+                "properties": {
+                  "covid_toes_discoloration": {
+                    "enum": [
+                      false
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "covid_toes_discoloration": {
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "covid_toes_discoloration_detail": {
+                    "$ref": "#/definitions/symptomDetail"
+                  }
+                }
+              }
+            ]
+          },
+          "change_in_sense_of_smell": {
+            "oneOf": [
+              {
+                "properties": {
+                  "change_in_sense_of_smell": {
+                    "enum": [
+                      false
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "change_in_sense_of_smell": {
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "change_in_sense_of_smell_detail": {
+                    "$ref": "#/definitions/symptomDetail"
+                  }
+                }
+              }
+            ]
+          },
+          "change_in_sense_of_taste": {
+            "oneOf": [
+              {
+                "properties": {
+                  "change_in_sense_of_taste": {
+                    "enum": [
+                      false
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "change_in_sense_of_taste": {
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "change_in_sense_of_taste_detail": {
+                    "$ref": "#/definitions/symptomDetail"
+                  }
+                }
+              }
+            ]
+          },
+          "ringing_or_humming_in_ear": {
+            "oneOf": [
+              {
+                "properties": {
+                  "ringing_or_humming_in_ear": {
+                    "enum": [
+                      false
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "ringing_or_humming_in_ear": {
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "ringing_or_humming_in_ear_detail": {
+                    "$ref": "#/definitions/symptomDetail"
+                  }
+                }
+              }
+            ]
+          },
+          "blurry_vision": {
+            "oneOf": [
+              {
+                "properties": {
+                  "blurry_vision": {
+                    "enum": [
+                      false
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "blurry_vision": {
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "blurry_vision_detail": {
+                    "$ref": "#/definitions/symptomDetail"
+                  }
+                }
+              }
+            ]
+          },
+          "dental_issues": {
+            "oneOf": [
+              {
+                "properties": {
+                  "dental_issues": {
+                    "enum": [
+                      false
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "dental_issues": {
+                    "enum": [
+                      true
+                    ]
+                  },
+                  "dental_issues_detail": {
+                    "$ref": "#/definitions/symptomDetail"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+    "symptoms4": {
+      "type": "object",
+      "properties": {
+        "symptoms_list": {
+          "type": "object",
+          "title": "5. Please indicate if you currently have any of the following COVID-19 related symptoms. (Check all that apply)",
+          "properties": {
+            "hair_loss": {
+              "type": "boolean",
+              "title": "Hair loss"
+            },
+            "rash": {
+              "type": "boolean",
+              "title": "Rash"
+            },
+            "weight_loss": {
+              "type": "boolean",
+              "title": "Weight loss"
+            },
+            "weight_gain": {
+              "type": "boolean",
+              "title": "Weight gain"
+            },
+            "difficulty_falling_or_sta": {
+              "type": "boolean",
+              "title": "Difficulty falling or staying asleep (insomnia)"
+            },
+            "sleeping_more_than_normal": {
+              "type": "boolean",
+              "title": "Sleeping more than normal"
+            },
+            "night_sweats": {
+              "type": "boolean",
+              "title": "Night sweats"
+            },
+            "fever_chills": {
+              "type": "boolean",
+              "title": "Fever/chills"
+            }
+          },
+          "dependencies": {
+            "hair_loss": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "hair_loss": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "hair_loss": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "hair_loss_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            },
+            "rash": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "rash": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "rash": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "rash_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            },
+            "weight_loss": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "weight_loss": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "weight_loss": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "weight_loss_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            },
+            "weight_gain": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "weight_gain": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "weight_gain": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "weight_gain_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            },
+            "difficulty_falling_or_sta": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "difficulty_falling_or_sta": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "difficulty_falling_or_sta": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "difficulty_falling_or_sta_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            },
+            "sleeping_more_than_normal": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "sleeping_more_than_normal": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "sleeping_more_than_normal": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "sleeping_more_than_normal_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            },
+            "night_sweats": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "night_sweats": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "night_sweats": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "night_sweats_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            },
+            "fever_chills": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "fever_chills": {
+                      "enum": [
+                        false
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "fever_chills": {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "fever_chills_detail": {
                       "$ref": "#/definitions/symptomDetail"
                     }
                   }
@@ -717,107 +1229,166 @@
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"],
           "enumNames": ["Yes", "No", "Prefer not to answer"]
-        },
-        "which_vaccine": {
-          "title": "8a. Which vaccination did you get?",
-          "type": "string",
-          "uniqueItems": true,
-          "enum": [
-            "Pfizer",
-            "Moderna",
-            "Johnson & Johnson",
-            "Other",
-            "Not sure",
-            "Prefer not to disclose"
-          ],
-          "enumNames": [
-            "Pfizer",
-            "Moderna",
-            "Johnson & Johnson",
-            "Other",
-            "Not sure",
-            "Prefer not to disclose"
-          ]
-        },
-        "vaccine_week_ago": {
-          "title": "8b. Did you receive your vaccine at least a week ago?",
-          "type": "string",
-          "uniqueItems": true,
-          "enum": [
-            "Yes",
-            "No, it was less than a week ago",
-            "Prefer not to answer"
-          ],
-          "enumNames": [
-            "Yes",
-            "No, it was less than a week ago",
-            "Prefer not to answer"
-          ]
-        },
-
-        "first_dose_date": {
-          "title": "8c. When was your vaccination?",
-          "type": "string"
-        },
-
-        "symptoms_change": {
-          "title": "8d. Did you notice a change in your overall symptoms after the vaccine?",
-          "type": "string",
-          "uniqueItems": true,
-          "enum": ["Yes", "No", "Prefer not to answer"],
-          "enumNames": ["Yes", "No", "Prefer not to answer"]
-        },
-        "symptoms_change_how": {
-          "title": "8e. How did your symptoms change?",
-          "type": "string",
-
-          "enum": ["1", "2", "3", "4", "5"],
-          "enumNames": ["1", "2", "3", "4", "5"]
-        },
-        "received_second_dose": {
-          "title": "9. Have you received the 2nd shot?",
-          "type": "string",
-          "uniqueItems": true,
-          "enum": ["Yes", "No", "Prefer not to answer"],
-          "enumNames": ["Yes", "No", "Prefer not to answer"]
-        },
-        "second_dose_date": {
-          "title": "9a. When was your second vaccination?",
-          "type": "string"
         }
       },
-    
-        "dependencies": {
-          "which_vaccine": {
-            "oneOf": [
-              {
-                "properties": {
-                  "which_vaccine": {
-                    "enum": [   "Pfizer",
-                      "Moderna",
-                      "Johnson & Johnson",
-         
-                      "Not sure",
-                      "Prefer not to disclose"]
-                  }
-                }
-              },
-              {
-                "properties": {
-                  "which_vaccine": {
-                    "enum": ["Other"]
-                  },
-                  "vaccine_other": {
-                    "title": "Please specify:",
-                    "type": "string"
-                  }
+
+      "dependencies": {
+        "received_first_dose": {
+          "oneOf": [
+            {
+              "properties": {
+                "received_first_dose": {
+                  "enum": ["No", "Prefer not to answer"]
                 }
               }
-            ]
-          }
-        }
+            },
+            {
+              "properties": {
+                "received_first_dose": {
+                  "enum": ["Yes"]
+                },
+                "which_vaccine": {
+                  "title": "8a. Which vaccination did you get?",
+                  "type": "string",
+                  "uniqueItems": true,
+                  "enum": [
+                    "Pfizer",
+                    "Moderna",
+                    "Johnson & Johnson",
+                    "Other",
+                    "Not sure",
+                    "Prefer not to disclose"
+                  ],
+                  "enumNames": [
+                    "Pfizer",
+                    "Moderna",
+                    "Johnson & Johnson",
+                    "Other",
+                    "Not sure",
+                    "Prefer not to disclose"
+                  ]
+                },
+                "vaccine_week_ago": {
+                  "title": "8b. Did you receive your vaccine at least a week ago?",
+                  "type": "string",
+                  "uniqueItems": true,
+                  "enum": [
+                    "Yes",
+                    "No, it was less than a week ago",
+                    "Prefer not to answer"
+                  ],
+                  "enumNames": [
+                    "Yes",
+                    "No, it was less than a week ago",
+                    "Prefer not to answer"
+                  ]
+                },
 
-      
+                "first_dose_date": {
+                  "title": "8c. When was your vaccination?",
+                  "type": "string"
+                },
+
+                "received_second_dose": {
+                  "title": "9. Have you received the 2nd shot?",
+                  "type": "string",
+                  "uniqueItems": true,
+                  "enum": ["Yes", "No", "Prefer not to answer"],
+                  "enumNames": ["Yes", "No", "Prefer not to answer"]
+                }
+              }
+            }
+          ]
+        },
+
+        "which_vaccine": {
+          "oneOf": [
+            {
+              "properties": {
+                "which_vaccine": {
+                  "enum": [
+                    "Pfizer",
+                    "Moderna",
+                    "Johnson & Johnson",
+
+                    "Not sure",
+                    "Prefer not to disclose"
+                  ]
+                }
+              }
+            },
+            {
+              "properties": {
+                "which_vaccine": {
+                  "enum": ["Other"]
+                },
+                "vaccine_other": {
+                  "title": "Please specify:",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+
+        "vaccine_week_ago": {
+          "oneOf": [
+            {
+              "properties": {
+                "vaccine_week_ago": {
+                  "enum": [
+                    "No, it was less than a week ago",
+                    "Prefer not to answer"
+                  ]
+                }
+              }
+            },
+            {
+              "properties": {
+                "vaccine_week_ago": {
+                  "enum": ["Yes"]
+                },
+                "symptoms_change": {
+                  "title": "Did you notice a change in your overall symptoms after the vaccine?",
+                  "type": "string",
+                  "uniqueItems": true,
+                  "enum": ["Yes", "No", "Prefer not to answer"],
+                  "enumNames": ["Yes", "No", "Prefer not to answer"]
+                },
+                "symptoms_change_how": {
+                  "title": "How did your symptoms change?",
+                  "type": "string",
+
+                  "enum": ["1", "2", "3", "4", "5"],
+                  "enumNames": ["1", "2", "3", "4", "5"]
+                }
+              }
+            }
+          ]
+        },
+        "received_second_dose": {
+          "oneOf": [
+            {
+              "properties": {
+                "received_second_dose": {
+                  "enum": ["No", "Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "received_second_dose": {
+                  "enum": ["Yes"]
+                },
+                "second_dose_date": {
+                  "title": "9a. When was your second vaccination?",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        }
+      }
     }
   },
 
@@ -831,9 +1402,17 @@
       "title": "",
       "$ref": "#/definitions/symptoms1"
     },
-    "symptomsTest": {
+    "symptoms2": {
       "title": "",
-      "$ref": "#/definitions/symptomsTest"
+      "$ref": "#/definitions/symptoms2"
+    },
+    "symptoms3": {
+      "title": "",
+      "$ref": "#/definitions/symptoms3"
+    },
+    "symptoms4": {
+      "title": "",
+      "$ref": "#/definitions/symptoms4"
     },
     "newConditions": {
       "title": "",
