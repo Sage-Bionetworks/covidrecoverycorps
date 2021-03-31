@@ -950,12 +950,12 @@
     },
     "positive_test": {
       "ui:widget": "radio",
-      "ui:help": "You will asked to upload a copy of this test after this survey.",
+
       "ui:description": "You will asked to upload a copy of this test after this survey."
     },
     "reinfection_date": {
       "ui:help": "Approximate date",
-      "classNames": ["nasal_swab"],
+      "classNames": ["postLab_date_field"],
       "ui:widget": "CustomDateWidget",
       "ui:options": {
         "yearsRange": [2020, 2021],
@@ -966,6 +966,7 @@
     }
   },
   "vaccine": {
+    "ui:dependent_option_postfix": ["_other"],
     "ui:order": [
       "received_first_dose",
       "which_vaccine",
@@ -985,6 +986,7 @@
 
     "first_dose_date": {
       "ui:widget": "CustomDateWidget",
+      "classNames": ["postLab_date_field"],
       "ui:options": {
         "yearsRange": [2020, 2021],
         "hideNowButton": true,
@@ -1010,6 +1012,7 @@
     },
     "second_dose_date": {
       "ui:widget": "CustomDateWidget",
+      "classNames": ["postLab_date_field"],
       "ui:options": {
         "yearsRange": [2020, 2021],
         "hideNowButton": true,

@@ -1,25 +1,33 @@
 //import { authHeader } from '../_helpers';
+import * as _ from 'lodash'
+import { callEndpoint } from '../helpers/utility'
 import {
   ENDPOINT,
-  SURVEY_TIME_CONSTANT,
-  SURVEY_IDENTIFIER,
-  SurveyType,
+  LoggedInUserData,
+  Response,
   SavedSurvey,
+  SavedSurveysObject,
+  SurveysCompletionStatusEnum,
+  SurveyType,
+  SURVEY_IDENTIFIER,
+  SURVEY_TIME_CONSTANT
 } from '../types/types'
-import { SavedSurveysObject, Response } from '../types/types'
-import { callEndpoint } from '../helpers/utility'
-import * as _ from 'lodash'
 
 export const SurveyService = {
   postToHealthData,
   getUserSurveys,
   postUserSurvey,
   saveSurvey,
-  completeSaveAndPostSurvey
+  completeSaveAndPostSurvey,
+  getLatestMonthlySurvey,
+  getCompletionStatus,
+  isContactInfoDone,
+  isInitialSurveysCompleted
 }
 
 const SURVEY_ENDPOINT = `/v4/users/self/reports/${SURVEY_IDENTIFIER}`
 
+// save survey
 async function postToHealthData(
   surveyType: SurveyType,
   surveyData: any,
@@ -42,6 +50,7 @@ async function postToHealthData(
   return result
 }
 
+// save report
 async function postUserSurvey(
   data: SavedSurveysObject,
   token: string,
@@ -60,6 +69,7 @@ async function postUserSurvey(
   return result
 }
 
+// get reports
 async function getUserSurveys(
   token: string,
 ): Promise<Response<{ items: { data: SavedSurveysObject }[] }>> {
@@ -76,6 +86,7 @@ async function getUserSurveys(
   )
 }
 
+//
 async function saveSurvey(
   surveyType: SurveyType,
   surveyData: any,
@@ -115,13 +126,93 @@ async function saveSurvey(
   return
 }
 
-async function completeSaveAndPostSurvey  (name: SurveyType, data: any, token: string): Promise<any> {
- try {
-  await SurveyService.postToHealthData(name, data, token)
-  await SurveyService.saveSurvey(name, data, token, new Date())
-  return
- } catch(e) {
-   throw e
- }
-  
+async function completeSaveAndPostSurvey(
+  name: SurveyType,
+  data: any,
+  token: string,
+): Promise<any> {
+  try {
+    await SurveyService.postToHealthData(name, data, token)
+    await SurveyService.saveSurvey(name, data, token, new Date())
+    return
+  } catch (e) {
+    throw e
+  }
+}
+
+async function getLatestMonthlySurvey(
+  token: string,
+): Promise<{ survey?: SavedSurvey; isCompleted: boolean }> {
+  const postLabSurveyType = 'POST_LAB_MONTHLY'
+  const surveys = await SurveyService.getUserSurveys(token)
+  const savedSurveys: SavedSurveysObject | undefined = _.first(
+    surveys.data.items,
+  )?.data
+  if (!savedSurveys) {
+    return { isCompleted: false }
+  }
+  const savedSurvey = savedSurveys.surveys.find(
+    savedSurvey => postLabSurveyType === savedSurvey.type,
+  )
+
+  return { survey: savedSurvey, isCompleted: !!savedSurvey?.completedDate }
+}
+
+
+function isContactInfoDone  (userInfo: LoggedInUserData | undefined): boolean  {
+  if (!userInfo) {
+    return false
+  } else {
+    return !!userInfo.attributes?.gender
+  }
+}
+
+function getCompletionStatus(
+  _savedSurveys: SavedSurveysObject | undefined,
+  userInfo: LoggedInUserData | undefined,
+): SurveysCompletionStatusEnum {
+  if (!_savedSurveys) {
+    return SurveysCompletionStatusEnum.NOT_DONE
+  }
+
+  const hasTakenTest = (savedSurveys: SavedSurveysObject): boolean => {
+    if (!savedSurveys) {
+      return false
+    }
+    const covidSurvey = savedSurveys.surveys.find(
+      savedSurvey => 'COVID_EXPERIENCE' === savedSurvey.type,
+    )
+
+    if (!covidSurvey || !covidSurvey?.completedDate) {
+      return false
+    }
+    const kind_of_testing = covidSurvey.data.symptoms2?.kind_of_testing
+    return kind_of_testing.serum_test || kind_of_testing.nasal_swab
+  }
+
+  const completedSurveyNames = (_savedSurveys.surveys || [])
+    .filter(survey => survey && survey.completedDate)
+    .map(survey => survey?.type)
+
+  const doneAll =
+    isContactInfoDone(userInfo) &&
+    completedSurveyNames.includes('DEMOGRAPHIC') &&
+    completedSurveyNames.includes('COVID_EXPERIENCE') &&
+    completedSurveyNames.includes('HISTORY') &&
+    completedSurveyNames.includes('MORE') &&
+    (completedSurveyNames.includes('RESULT_UPLOAD') || !hasTakenTest(_savedSurveys))
+
+  if (doneAll) {
+    return SurveysCompletionStatusEnum.ALL_DONE
+  } else {
+    return SurveysCompletionStatusEnum.NOT_DONE
+  }
+}
+
+async function isInitialSurveysCompleted(token: string, userInfo: LoggedInUserData | undefined): Promise<boolean> {
+  const response = await SurveyService.getUserSurveys(token)
+  const savedSurvyes = _.first(response.data.items)?.data
+  const status = getCompletionStatus(savedSurvyes, userInfo)
+  return status === SurveysCompletionStatusEnum.ALL_DONE
+
 }
