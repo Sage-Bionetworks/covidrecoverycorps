@@ -165,6 +165,20 @@ class SurveyWrapperComponent extends React.Component<
                 },
           }
         }
+
+        if (this.props.surveyName === 'POST_LAB_MONTHLY') {
+          formData.metadata = {
+            ...formData.metadata,
+
+            forceSubmit: {
+              screen: 'intro',
+              value: {
+                path: 'intro.curr_have_symptoms',
+                value: ['positive_no_symptoms', 'no_longer_symptoms'],
+              },
+            },
+          }
+        }
       } else {
         //contact path
         const data = {
