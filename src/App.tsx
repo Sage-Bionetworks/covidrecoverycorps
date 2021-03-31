@@ -1,53 +1,47 @@
-import React, { useState, useEffect, Component } from 'react'
-import './styles/style.scss'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom'
-
-import EligibilityRegistration from './components/registration/EligibilityRegistration'
-import SurveyWrapper from './components/surveys/SurveyWrapper'
-import Done from './components/surveys/Done'
-import Login from './components/login/Login'
-import Consent from './components/consent/Consent'
-import { useSessionDataState, useSessionDataDispatch } from './AuthContext'
-
-import { makeStyles } from '@material-ui/core/styles'
-import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline'
 import {
   createMuiTheme,
-  ThemeProvider,
-  Typography,
-  Grid,
+  Grid, ThemeProvider,
+  Typography
 } from '@material-ui/core'
-
-import { getSearchParams } from './helpers/utility'
-
-import Intro from './components/static/Intro'
-import Dashboard from './components/dashboard/Dashboard'
+import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline'
+import { makeStyles } from '@material-ui/core/styles'
+import React, { useEffect, useState } from 'react'
+import {
+  BrowserRouter as Router,
+  Redirect, Route, Switch
+} from 'react-router-dom'
+import { useSessionDataDispatch, useSessionDataState } from './AuthContext'
+import AcountSettings from './components/AccountSettings'
+import Consent from './components/consent/Consent'
 import ConsentEHR from './components/consent/ConsentEHR'
-import Team from './components/static/Team'
+import Dashboard from './components/dashboard/Dashboard'
+import LearningHub from './components/learningHub/LearningHub'
+import Login from './components/login/Login'
+import LoginPassword from './components/login/LoginPassword'
+import EligibilityRegistration from './components/registration/EligibilityRegistration'
+import ResultDashboard from './components/result/ResultDashboard'
+import Appointment from './components/static/Appointment'
 import Contact from './components/static/Contact'
 import FAQs from './components/static/FAQs'
-import TestKitInformationScreen from './components/static/TestKitInformationScreen'
-import { TopNav } from './components/widgets/TopNav'
-import { UserService } from './services/user.service'
-import AcountSettings from './components/AccountSettings'
-import GoogleAnalyticsPageTracker from './components/widgets/GoogleAnalyticsPageTracker'
-import CookieNotificationBanner from './components/widgets/CookieNotificationBanner'
-import ScrollToTopOnRouteChange from './components/widgets/ScrollToTopOnRouteChange'
-import Footer from './components/widgets/Footer'
+import Intro from './components/static/Intro'
 import PrivacyPolicy from './components/static/PrivacyPolicy'
-import Appointment from './components/static/Appointment'
-import { UserDataGroup, SessionData } from './types/types'
-import ResultDashboard from './components/result/ResultDashboard'
-import LearningHub from './components/learningHub/LearningHub'
-import { FeaturesProvider, TOGGLE_NAMES } from './helpers/FeatureToggle'
-import LoginPassword from './components/login/LoginPassword'
+import Team from './components/static/Team'
+import TestKitInformationScreen from './components/static/TestKitInformationScreen'
+import Done from './components/surveys/Done'
+import SurveyWrapper from './components/surveys/SurveyWrapper'
+import MonthlyGenerator from './components/surveys/synapse_form_wrapper/MonthlyGenerator'
 import UploadResult from './components/surveys/UploadResult'
-import TestKitShipped from './components/static/TestKitShipped'
+import CookieNotificationBanner from './components/widgets/CookieNotificationBanner'
+import Footer from './components/widgets/Footer'
+import GoogleAnalyticsPageTracker from './components/widgets/GoogleAnalyticsPageTracker'
+import ScrollToTopOnRouteChange from './components/widgets/ScrollToTopOnRouteChange'
+import { TopNav } from './components/widgets/TopNav'
+import { FeaturesProvider, TOGGLE_NAMES } from './helpers/FeatureToggle'
+import { getSearchParams } from './helpers/utility'
+import { SurveyService } from './services/survey.service'
+import { UserService } from './services/user.service'
+import './styles/style.scss'
+import { SessionData, UserDataGroup } from './types/types'
 
 export const openSansFont = [
   'Open Sans',
@@ -207,6 +201,7 @@ function App() {
   const [currentLocation, setCurrentLocation] = useState(
     window.location.pathname,
   )
+  const [initialSurveysCompleted, setInitialSurveysCompleted] = useState(false)
 
   useEffect(() => {
     let isSubscribed = true
@@ -215,6 +210,8 @@ function App() {
       if (token && isSubscribed) {
         try {
           const userInfo = await UserService.getUserInfo(token)
+          const isCompleted = await SurveyService.isInitialSurveysCompleted(token, userInfo.data)
+          setInitialSurveysCompleted(isCompleted)
           setUserSession(
             token,
             userInfo.data.firstName,
@@ -283,10 +280,10 @@ function App() {
     )
   }
 
-  function getDashboardPage(sessionData: SessionData) {
+  function getDashboardPage(sessionData: SessionData, isInitialSurveysCompleted: boolean) {
     if (
       sessionData.userDataGroup.includes('tests_available') ||
-      sessionData.userDataGroup.includes('tests_collected')
+      sessionData.userDataGroup.includes('tests_collected') || isInitialSurveysCompleted
     ) {
       return renderWithWiderGridLayout(<ResultDashboard token={token || ''} />)
     }
@@ -422,7 +419,7 @@ function App() {
                       }}
                     ></Route>
                     <ConsentedRoute exact={true} path="/dashboard">
-                      {getDashboardPage(sessionData)}
+                      {getDashboardPage(sessionData, initialSurveysCompleted)}
                     </ConsentedRoute>
                     {/*todo make private */}
                     <PrivateRoute exact={true} path="/consent">
@@ -515,6 +512,9 @@ function App() {
                     </Route>
                     <Route path="/privacypolicy">
                       <PrivacyPolicy />
+                    </Route>
+                    <Route path="/generateMonthlySurvey">
+                      <MonthlyGenerator/>
                     </Route>
 
                     <Route path="/settings">

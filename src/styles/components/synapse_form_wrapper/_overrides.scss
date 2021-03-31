@@ -907,6 +907,16 @@
     @include control_label;
   }
 
+  /*  --------------------------     monthly surveys */
+  .postLab_date_field .list-inline {
+    margin-left: 1.5rem;
+  }
+
+ #root_reinfection .help-block, #root_reinfection  .field-description {
+  margin-left: 1.5rem;
+ }
+
+
   @media only screen and (max-width: 768px) {
     div.checkbox,
     div.radio {
