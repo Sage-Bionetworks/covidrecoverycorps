@@ -416,7 +416,7 @@ export const UploadResult: React.FunctionComponent<{
         <CardContent>
           <div>
             <h3 className="text-center"> {t('uploadResult.title')}</h3>
-            <div>
+            <div style={{textAlign: 'left'}}>
               <Trans i18nKey="uploadResult.description">
                 <p>[translate]</p>
               </Trans>
