@@ -126,7 +126,7 @@ export type SurveyPrelabType =
   | 'WITHDRAW'
   | 'TEST_LOCATION'
   | 'RESULT_UPLOAD'
-export type SurveyPostLabType = 'POST_LAB'|'POST_LAB_MONTHLY'
+export type SurveyPostLabType = 'RESULT_UPLOAD_MONTHLY'|'POST_LAB_MONTHLY'
 export type SurveyType = SurveyPrelabType | SurveyPostLabType
 
 export type SurveyConfigObject = {

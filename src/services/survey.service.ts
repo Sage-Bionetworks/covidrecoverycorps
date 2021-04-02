@@ -17,13 +17,15 @@ import {
 export const SurveyService = {
   postToHealthData,
   getUserSurveys,
+  getUserMonthlySurveys,
   postUserSurvey,
+  postMonthlyUserSurvey,
   saveSurvey,
   completeSaveAndPostSurvey,
   getLatestMonthlySurvey,
   getCompletionStatus,
   isContactInfoDone,
-  isInitialSurveysCompleted
+  isInitialSurveysCompleted,
 }
 
 const SURVEY_ENDPOINT = `/v4/users/self/reports/${SURVEY_IDENTIFIER}`
@@ -61,7 +63,12 @@ async function postUserSurvey(
     dateTime: SURVEY_TIME_CONSTANT,
     data: data,
   }
+  // we handle monthly reports differrent
 
+  const hasMonthlySurveys = data.surveys.find(s => s.type.includes('_MONTHLY'))
+  if (hasMonthlySurveys) {
+    return postMonthlyUserSurvey(data, token)
+  }
   const result = await callEndpoint<object>(
     `${ENDPOINT}${SURVEY_ENDPOINT}`,
     'POST',
@@ -74,10 +81,20 @@ async function postUserSurvey(
 // get reports
 async function getUserSurveys(
   token: string,
+  surveyName?: SurveyType,
 ): Promise<Response<{ items: { data: SavedSurveysObject }[] }>> {
+  //different path for monthly surveys
+  if (surveyName?.includes('_MONTHLY')) {
+    return getUserMonthlySurveys(token)
+  }
+
+  const startDate = new Date(Date.parse(SURVEY_TIME_CONSTANT))
+  const endDate = new Date(Date.parse(SURVEY_TIME_CONSTANT))
+  startDate.setDate(startDate.getDate() - 1)
+  endDate.setDate(endDate.getDate() + 1)
   const getData = {
-    startTime: SURVEY_TIME_CONSTANT,
-    endTime: SURVEY_TIME_CONSTANT,
+    startTime: startDate.toISOString(),
+    endTime: endDate.toISOString(),
   }
 
   return await callEndpoint<{ items: { data: SavedSurveysObject }[] }>(
@@ -95,7 +112,7 @@ async function saveSurvey(
   token: string,
   completedDate: Date,
 ) {
-  const savedSurveysResponse = await getUserSurveys(token)
+  const savedSurveysResponse = await getUserSurveys(token, surveyType)
   const savedData = _.first(savedSurveysResponse.data.items)
   // all surveys
   const savedSuveysData = savedData?.data
@@ -146,7 +163,7 @@ async function getLatestMonthlySurvey(
   token: string,
 ): Promise<{ survey?: SavedSurvey; isCompleted: boolean }> {
   const postLabSurveyType = 'POST_LAB_MONTHLY'
-  const surveys = await SurveyService.getUserSurveys(token)
+  const surveys = await SurveyService.getUserSurveys(token, postLabSurveyType)
   const savedSurveys: SavedSurveysObject | undefined = _.first(
     surveys.data.items,
   )?.data
@@ -160,8 +177,7 @@ async function getLatestMonthlySurvey(
   return { survey: savedSurvey, isCompleted: !!savedSurvey?.completedDate }
 }
 
-
-function isContactInfoDone  (userInfo: LoggedInUserData | undefined): boolean  {
+function isContactInfoDone(userInfo: LoggedInUserData | undefined): boolean {
   if (!userInfo) {
     return false
   } else {
@@ -202,7 +218,8 @@ function getCompletionStatus(
     completedSurveyNames.includes('COVID_EXPERIENCE') &&
     completedSurveyNames.includes('HISTORY') &&
     completedSurveyNames.includes('MORE') &&
-    (completedSurveyNames.includes('RESULT_UPLOAD') || !hasTakenTest(_savedSurveys))
+    (completedSurveyNames.includes('RESULT_UPLOAD') ||
+      !hasTakenTest(_savedSurveys))
 
   if (doneAll) {
     return SurveysCompletionStatusEnum.ALL_DONE
@@ -211,10 +228,72 @@ function getCompletionStatus(
   }
 }
 
-async function isInitialSurveysCompleted(token: string, userInfo: LoggedInUserData | undefined): Promise<boolean> {
+async function isInitialSurveysCompleted(
+  token: string,
+  userInfo: LoggedInUserData | undefined,
+): Promise<boolean> {
   const response = await SurveyService.getUserSurveys(token)
   const savedSurvyes = _.first(response.data.items)?.data
   const status = getCompletionStatus(savedSurvyes, userInfo)
   return status === SurveysCompletionStatusEnum.ALL_DONE
+}
 
+/******** MONTHLY SURVEYS ***********/
+// get reports
+async function getUserMonthlySurveys(
+  token: string,
+): Promise<Response<{ items: { dateTime: Date, data: SavedSurveysObject }[] }>> {
+  const today = new Date()
+  const daysAgo30 = new Date()
+
+  today.setDate(today.getDate() + 1)
+
+  console.log('Today is: ' + today.toLocaleString())
+
+  daysAgo30.setDate(daysAgo30.getDate() - 30)
+
+  console.log('30 days ago: ' + daysAgo30.toLocaleString())
+
+  console.log('<br>5 days ago was: ' + daysAgo30.toLocaleString())
+  const getData = {
+    startTime: daysAgo30.toISOString(),
+    endTime: today.toISOString(),
+  }
+  const result =  await callEndpoint<{ items: { dateTime: Date, data: SavedSurveysObject }[] }>(
+    `${ENDPOINT}${MONTHLY_SURVEY_ENDPOINT}`,
+    'GET',
+    getData,
+    token,
+  )
+
+const sorted = _.orderBy(result.data.items, 'dateTime', 'desc')
+  return result
+
+}
+
+async function postMonthlyUserSurvey(
+  data: SavedSurveysObject,
+  token: string,
+): Promise<any> {
+
+  //find surveys within 30 days
+let surv = await (await getUserMonthlySurveys(token)).data.items
+// list Of Dates
+const dates: Date[] =   _.sortBy(surv.map(s=>s.dateTime), function(value) {return new Date(value);})
+let updatedDate = _.last(dates) || (new Date()).toISOString()
+
+
+  debugger
+  const postData = {
+    dateTime: updatedDate,
+    data: data,
+  }
+
+  const result = await callEndpoint<object>(
+    `${ENDPOINT}${MONTHLY_SURVEY_ENDPOINT}`,
+    'POST',
+    postData,
+    token,
+  )
+  return result
 }

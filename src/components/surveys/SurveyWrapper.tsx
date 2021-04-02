@@ -101,7 +101,7 @@ class SurveyWrapperComponent extends React.Component<
 
       if (this.props.surveyName !== 'CONTACT') {
         const savedSurveysResponse = await SurveyService.getUserSurveys(
-          this.props.token,
+          this.props.token, this.props.surveyName
         )
         const savedData = _.first(savedSurveysResponse.data.items)
         const surveyData = savedData?.data

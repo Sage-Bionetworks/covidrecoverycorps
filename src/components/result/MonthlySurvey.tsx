@@ -7,7 +7,6 @@ import { SavedSurvey } from '../../types/types'
 import SurveyWrapper from '../surveys/SurveyWrapper'
 import UploadResult from '../surveys/UploadResult'
 
-
 export const useStyles = makeStyles(theme => ({
   root: {
     overflow: 'unset',
@@ -64,8 +63,8 @@ export const useStyles = makeStyles(theme => ({
 
 type ResultProps = {
   token?: string
- // unfinishedSurveys: string[]
- savedMonthlySurvey?: SavedSurvey
+  // unfinishedSurveys: string[]
+  savedMonthlySurvey?: SavedSurvey
   onSurveyFinishedFn: Function
 }
 
@@ -78,51 +77,61 @@ const MonthlySurvey: FunctionComponent<ResultProps> = ({
   const classes = useStyles()
   const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
- // const [survey, setSurvey] = useState<SavedSurvey | undefined>(undefined)
+  // const [survey, setSurvey] = useState<SavedSurvey | undefined>(undefined)
 
-  const [toggle, setToggle]= React.useState(false)
+  const [toggle, setToggle] = React.useState(false)
   const [pageState, setPageState] = useState<
     'INTRO' | 'SURVEY' | 'SURVEY_DONE'
-  >((!savedMonthlySurvey || !savedMonthlySurvey.completedDate )?  'INTRO': 'SURVEY_DONE')
-
+  >(
+    !savedMonthlySurvey || !savedMonthlySurvey.completedDate
+      ? 'INTRO'
+      : 'SURVEY_DONE',
+  )
 
   if (isLoading) {
-    return <Box mx="auto" textAlign="center"><CircularProgress/></Box>
+    return (
+      <Box mx="auto" textAlign="center">
+        <CircularProgress />
+      </Box>
+    )
   }
 
   switch (pageState) {
     case 'SURVEY_DONE':
-      return  (
+      return (
         <div style={{ textAlign: 'center', margin: '0 auto' }}>
           <img src={iconCheckMark}></img>
           <h3>{t('resultDashboard.thankYou')}</h3>
-          <span>{savedMonthlySurvey?.data.reinfection?.positive_test} TEST </span>
-    
-          {savedMonthlySurvey?.data.reinfection?.positive_test  === "Yes" &&    <UploadResult token={token || ''}></UploadResult>}
+
+          {savedMonthlySurvey?.data.reinfection?.positive_test === 'Yes' && (
+            <UploadResult
+              token={token || ''}
+              surveyName={'RESULT_UPLOAD_MONTHLY'}
+            ></UploadResult>
+          )}
         </div>
       )
 
     case 'SURVEY':
       return (
-      <SurveyWrapper
-      formTitle="Post Lab"
-      token={token || ''}
-      surveyName={'POST_LAB_MONTHLY'}
-      formClass="crc"
-      cardClass="inherit"
-      onDoneCallback={() => {
-     
-       // setToggle(prev => !prev)
-        //setPageState('SURVEY_DONE')
-        onSurveyFinishedFn('POST_LAB')
-      }}
-    ></SurveyWrapper>)
+        <SurveyWrapper
+          formTitle="Post Lab"
+          token={token || ''}
+          surveyName={'POST_LAB_MONTHLY'}
+          formClass="crc"
+          cardClass="inherit"
+          onDoneCallback={() => {
+            // setToggle(prev => !prev)
+            //setPageState('SURVEY_DONE')
+            onSurveyFinishedFn('POST_LAB')
+          }}
+        ></SurveyWrapper>
+      )
     default:
-
       return (
         <>
           <h2>{t('resultNext.title')}</h2>
-          {(!savedMonthlySurvey || !savedMonthlySurvey.completedDate ) && (
+          {(!savedMonthlySurvey || !savedMonthlySurvey.completedDate) && (
             <>
               <p>{t('resultNext.text1')}</p>
               <div className="text-center btnVerticallySpaced">

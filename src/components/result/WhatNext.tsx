@@ -1,18 +1,10 @@
-import React, { FunctionComponent, useState, useEffect } from 'react'
-import { makeStyles, Button, CircularProgress } from '@material-ui/core'
+import { Button, makeStyles } from '@material-ui/core'
+import React, { FunctionComponent, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { playfairDisplayFont } from '../../App'
-import { useTranslation, Trans } from 'react-i18next'
 import iconCheckMark from '../../assets/dashboard/icon_whoohoo.svg'
-import SurveyWrapper from '../surveys/SurveyWrapper'
 import PostLabHeader from '../surveys/PostLabHeader'
-import { SurveyService } from '../../services/survey.service'
-import {
-  SavedSurveysObject,
-  SurveyPostLabType,
-  SurveyType,
-  SavedSurvey,
-} from '../../types/types'
-import _ from 'lodash'
+import SurveyWrapper from '../surveys/SurveyWrapper'
 
 export const useStyles = makeStyles(theme => ({
   root: {
@@ -79,7 +71,6 @@ const WhatNext: FunctionComponent<ResultProps> = ({unfinishedSurveys, token, onS
   const classes = useStyles()
   const { t } = useTranslation()
 
-  const postLabSurveys: SurveyPostLabType[] = ['POST_LAB']
   const [pageState, setPageState] = useState<
     'INTRO' | 'SURVEY' | 'SURVEY_DONE'
   >('INTRO')
@@ -120,7 +111,7 @@ const WhatNext: FunctionComponent<ResultProps> = ({unfinishedSurveys, token, onS
     <SurveyWrapper
       formTitle="Post Lab"
       token={token || ''}
-      surveyName={'POST_LAB'}
+      surveyName={'POST_LAB_MONTHLY'}
       formClass="crc"
       cardClass="inherit"
       onDoneCallback={() =>{setPageState('SURVEY_DONE'); onSurveyFinishedFn('POST_LAB')}}
