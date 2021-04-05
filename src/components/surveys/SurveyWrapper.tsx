@@ -101,7 +101,7 @@ class SurveyWrapperComponent extends React.Component<
 
       if (this.props.surveyName !== 'CONTACT') {
         const savedSurveysResponse = await SurveyService.getUserSurveys(
-          this.props.token,
+          this.props.token, this.props.surveyName
         )
         const savedData = _.first(savedSurveysResponse.data.items)
         const surveyData = savedData?.data
@@ -163,6 +163,20 @@ class SurveyWrapperComponent extends React.Component<
                     value: 'noTest',
                   },
                 },
+          }
+        }
+
+        if (this.props.surveyName === 'POST_LAB_MONTHLY') {
+          formData.metadata = {
+            ...formData.metadata,
+
+            forceSubmit: {
+              screen: 'intro',
+              value: {
+                path: 'intro.curr_have_symptoms',
+                value: ['positive_no_symptoms', 'no_longer_symptoms'],
+              },
+            },
           }
         }
       } else {

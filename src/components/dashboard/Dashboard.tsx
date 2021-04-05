@@ -1,32 +1,27 @@
-import React, { useState, useEffect, useContext } from 'react'
-
-import saveProgressIconImg from '../../assets/dashboard/icon_savedprogress.svg'
-import clockIconImg from '../../assets/dashboard/icon_timer.svg'
+import { CircularProgress } from '@material-ui/core'
+import Card from '@material-ui/core/Card'
+import { makeStyles } from '@material-ui/core/styles'
+import Alert from '@material-ui/lab/Alert/Alert'
+import i18next from 'i18next'
+import _ from 'lodash'
+import React, { useEffect, useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
 import completeIconImg from '../../assets/dashboard/icon_complete.svg'
 import emptyIconImg from '../../assets/dashboard/icon_empty.svg'
-import { makeStyles } from '@material-ui/core/styles'
-import { CircularProgress, Grid } from '@material-ui/core'
-import Card from '@material-ui/core/Card'
+import saveProgressIconImg from '../../assets/dashboard/icon_savedprogress.svg'
+import clockIconImg from '../../assets/dashboard/icon_timer.svg'
 import { SurveyService } from '../../services/survey.service'
-import {
-  SavedSurveysObject,
-  SurveyType,
-  SavedSurvey,
-  TestLocationEnum,
-  SurveysCompletionStatusEnum,
-  LoggedInUserData,
-  ReportData,
-} from '../../types/types'
-import _ from 'lodash'
 import { UserService } from '../../services/user.service'
-import Alert from '@material-ui/lab/Alert/Alert'
-
+import {
+  LoggedInUserData,
+  SavedSurvey,
+  SavedSurveysObject,
+  SurveysCompletionStatusEnum,
+  SurveyType,
+  TestLocationEnum
+} from '../../types/types'
 import TestLocationSurvey from '../surveys/TestLocationSurvey'
-import i18next from 'i18next'
-import { Trans, useTranslation } from 'react-i18next'
 import ThankYou from './ThankYou'
-
-
 
 type DashboardProps = {
   token: string
@@ -150,11 +145,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 */
 
   const isContactInfoDone = (): boolean => {
-    if (!userInfo) {
-      return false
-    } else {
-      return !!userInfo.attributes?.gender
-    }
+    return SurveyService.isContactInfoDone(userInfo)
   }
 
   const getSavedSurvey = (surveyType: SurveyType): SavedSurvey | undefined => {
@@ -285,8 +276,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       }
     }
 
-  
-
     // see if we need uploadResults Survey
     if (!hasTakenTest()) {
       surveys.splice(3, 1)
@@ -301,26 +290,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
   }
 
   const getCompletionStatus = (): SurveysCompletionStatusEnum => {
-    if (!savedSurveys) {
-      return SurveysCompletionStatusEnum.NOT_DONE
-    }
-    const completedSurveyNames = (savedSurveys.surveys || [])
-      .filter(survey => survey && survey.completedDate)
-      .map(survey => survey?.type)
-
-    const doneAll =
-      isContactInfoDone() &&
-      completedSurveyNames.includes('DEMOGRAPHIC') &&
-      completedSurveyNames.includes('COVID_EXPERIENCE') &&
-      completedSurveyNames.includes('HISTORY') &&
-      completedSurveyNames.includes('MORE') &&
-      (completedSurveyNames.includes('RESULT_UPLOAD') || !hasTakenTest())
-
-    if (doneAll) {
-      return SurveysCompletionStatusEnum.ALL_DONE
-    } else {
-      return SurveysCompletionStatusEnum.NOT_DONE
-    }
+    return SurveyService.getCompletionStatus(savedSurveys, userInfo)
   }
 
   if ((isLoading || !userInfo) && !error) {
@@ -336,7 +306,6 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
 
     return (
       <div className="Dashboard" data-cy="page-dashboard">
-     
         {getCompletionStatus() === SurveysCompletionStatusEnum.NOT_DONE && (
           <div className="dashboard-intro">
             <Trans i18nKey="dashboard.intro1">
@@ -349,15 +318,17 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
         )}
 
         <Card className={classes.root}>
-        {getCompletionStatus() !== SurveysCompletionStatusEnum.NOT_DONE &&  (<ThankYou
-            testLocation={
-              testLocationSurveySubmitted || getPreferredTestLocation()
-            }
-            isInvitedForTest={hasInvitation(userInfo)}
-            hasCancelledAppointment={hasCancelledAppointment(userInfo)}
-            userInfo={userInfo}
-            token={token}
-          />)}
+          {getCompletionStatus() !== SurveysCompletionStatusEnum.NOT_DONE && (
+            <ThankYou
+              testLocation={
+                testLocationSurveySubmitted || getPreferredTestLocation()
+              }
+              isInvitedForTest={hasInvitation(userInfo)}
+              hasCancelledAppointment={hasCancelledAppointment(userInfo)}
+              userInfo={userInfo}
+              token={token}
+            />
+          )}
 
           {
             //if they fininshed  surveys and didn't pick location

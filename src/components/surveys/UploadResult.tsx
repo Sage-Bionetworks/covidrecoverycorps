@@ -1,22 +1,17 @@
-import React, { useState, ChangeEvent, useEffect } from 'react'
-
-import _, { filter } from 'lodash'
-import { SurveyService } from '../../services/survey.service'
-
-import { useTranslation, Trans } from 'react-i18next'
-import Button, { ButtonTypeMap } from '@material-ui/core/Button/Button'
-
-import { CardContent, Card, Grid, CircularProgress } from '@material-ui/core'
-import i18n from 'i18next'
-import SparkMD5 from 'spark-md5'
-import { ENDPOINT, Response } from '../../types/types'
-import { bytesToSize, callEndpoint } from '../../helpers/utility'
-import { makeStyles } from '@material-ui/core/styles'
-import PDFJS from 'pdfjs-dist'
-import { Redirect } from 'react-router-dom'
-import Alert from '@material-ui/lab/Alert/Alert'
 import { faCheck, faExclamation } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Card, CardContent, CircularProgress, Grid } from '@material-ui/core'
+import Button from '@material-ui/core/Button/Button'
+import { makeStyles } from '@material-ui/core/styles'
+import i18n from 'i18next'
+import PDFJS from 'pdfjs-dist'
+import React, { ChangeEvent, useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
+import { Redirect } from 'react-router-dom'
+import SparkMD5 from 'spark-md5'
+import { bytesToSize, callEndpoint } from '../../helpers/utility'
+import { SurveyService } from '../../services/survey.service'
+import { ENDPOINT, Response, SurveyType } from '../../types/types'
 
 //need for pdf upload to work
 PDFJS.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS.version}/pdf.worker.js`
@@ -227,7 +222,8 @@ async function verifyUpload(token: string, id: string): Promise<string> {
 
 export const UploadResult: React.FunctionComponent<{
   token: string
-}> = ({ token }) => {
+  surveyName?: SurveyType
+}> = ({ token, surveyName = 'RESULT_UPLOAD' }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const [userUploads, setUserUploads] = useState<any | undefined>(undefined)
@@ -351,7 +347,7 @@ export const UploadResult: React.FunctionComponent<{
         {getUploadButton(t('uploadResult.text2'))}
         {getCancelButton(t('uploadResult.text3'), async () => {
           await SurveyService.completeSaveAndPostSurvey(
-            'RESULT_UPLOAD',
+            surveyName as SurveyType,
             { fileNames: [] },
             token,
           )
@@ -388,7 +384,7 @@ export const UploadResult: React.FunctionComponent<{
             //if we have succesfully uploadedFiles => submit
             if (uploadedFileNames && uploadedFileNames.length) {
               await SurveyService.completeSaveAndPostSurvey(
-                'RESULT_UPLOAD',
+                surveyName,
                 { fileNames: uploadedFileNames },
                 token,
               )
@@ -420,7 +416,7 @@ export const UploadResult: React.FunctionComponent<{
         <CardContent>
           <div>
             <h3 className="text-center"> {t('uploadResult.title')}</h3>
-            <div>
+            <div style={{textAlign: 'left'}}>
               <Trans i18nKey="uploadResult.description">
                 <p>[translate]</p>
               </Trans>

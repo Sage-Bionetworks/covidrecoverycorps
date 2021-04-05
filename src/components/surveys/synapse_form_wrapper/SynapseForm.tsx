@@ -1,45 +1,43 @@
-import * as React from 'react'
-import _ from 'lodash-es'
-import { Engine } from 'json-rules-engine'
-import {
-  default as Form,
-  UiSchema,
-  AjvError,
-  ErrorListProps,
-  Widget,
-  Field,
-} from 'react-jsonschema-form'
-
-import {
-  Step,
-  StepStateEnum,
-  NavActionEnum,
-  StatusEnum,
-  FormSchema,
-  RulesResult,
-  IRulesValidationEvent,
-  IRulesNavigationEvent,
-} from './types'
-import Header from './Header'
-import StepsSideNav from './StepsSideNav'
-import { NavButtons, NextStepLink } from './NavButtons'
-import DataDebug from './DataDebug'
-import SummaryTable from './SummaryTable'
-import WarningModal from './WarningModal'
-import Switch from 'react-switch'
-import { Prompt } from 'react-router-dom'
-import { getUiOptions } from 'react-jsonschema-form/lib/utils'
-import { GoogleService } from '../../../services/google.service'
-
-import Card from '@material-ui/core/Card'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
-import FloatingToolbar from '../../widgets/FloatingToolbar'
+import Card from '@material-ui/core/Card'
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress'
-import AltDateWidget from './AltDateWidget'
-import ExclusiveCheckboxesWidget from './ExclusiveCheckboxesWidget'
-import RadioRangeWidget from './RadioRangeWidget'
-import ExclusiveCheckboxesObjectField from './ExclusiveCheckboxesObjectField'
 import i18next from 'i18next'
+import { Engine } from 'json-rules-engine'
+import _ from 'lodash-es'
+import * as React from 'react'
+import {
+  AjvError,
+  default as Form,
+  ErrorListProps,
+  Field,
+  UiSchema,
+  Widget
+} from 'react-jsonschema-form'
+import { getUiOptions } from 'react-jsonschema-form/lib/utils'
+import { Prompt } from 'react-router-dom'
+import Switch from 'react-switch'
+import { GoogleService } from '../../../services/google.service'
+import FloatingToolbar from '../../widgets/FloatingToolbar'
+import AltDateWidget from './AltDateWidget'
+import DataDebug from './DataDebug'
+import ExclusiveCheckboxesObjectField from './ExclusiveCheckboxesObjectField'
+import ExclusiveCheckboxesWidget from './ExclusiveCheckboxesWidget'
+import Header from './Header'
+import { NavButtons, NextStepLink } from './NavButtons'
+import RadioRangeWidget from './RadioRangeWidget'
+import StepsSideNav from './StepsSideNav'
+import SummaryTable from './SummaryTable'
+import {
+  FormSchema,
+  IRulesNavigationEvent,
+  IRulesValidationEvent,
+  NavActionEnum,
+  RulesResult,
+  StatusEnum,
+  Step,
+  StepStateEnum
+} from './types'
+import WarningModal from './WarningModal'
 
 export interface IFormData {
   [key: string]: {
@@ -731,7 +729,10 @@ export default class SynapseForm extends React.Component<
   private getForceSubmitScreen = (
     formData: object,
     forceSubmit:
-      | { screen: string; value: boolean | { path: string; value: string } }
+      | {
+          screen: string
+          value: boolean | { path: string; value: string | string[] }
+        }
       | undefined,
   ): string | undefined => {
     if (!forceSubmit) {
@@ -743,8 +744,15 @@ export default class SynapseForm extends React.Component<
     }
     if (typeof forceSubmit.value === 'object') {
       let value = _.get(formData, forceSubmit.value.path)
-      if (value == forceSubmit.value.value) {
-        return forceSubmit.screen
+      let compareValue = forceSubmit.value.value
+      if (!Array.isArray(compareValue)) {
+        if (value == forceSubmit.value.value) {
+          return forceSubmit.screen
+        }
+      } else {
+        if (compareValue.includes(value)) {
+          return forceSubmit.screen
+        }
       }
     }
     return ''
@@ -1068,15 +1076,17 @@ export default class SynapseForm extends React.Component<
   render() {
     return (
       <div className={`outter-wrap ${this.props.cardClass}`}>
-        {! this.props.extraUIProps?.isNoBackBar &&<div>
-          <FloatingToolbar
-            closeLinkDestination="/dashboard"
-            closeIcon={faAngleLeft}
-            closeLinkText={i18next.t('footer.dashboard')}
-            closeConfirmationText={i18next.t('surveys.exitSurvey')}
-            closeConfirmationText2={i18next.t('surveys.dataNotSaved')}
-          />
-        </div>}
+        {!this.props.extraUIProps?.isNoBackBar && (
+          <div>
+            <FloatingToolbar
+              closeLinkDestination="/dashboard"
+              closeIcon={faAngleLeft}
+              closeLinkText={i18next.t('footer.dashboard')}
+              closeConfirmationText={i18next.t('surveys.exitSurvey')}
+              closeConfirmationText2={i18next.t('surveys.dataNotSaved')}
+            />
+          </div>
+        )}
         <Prompt
           when={this.state.hasUnsavedChanges}
           message={this.unsavedDataWarning}
