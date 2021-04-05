@@ -1,0 +1,1007 @@
+{
+  "intro": {
+    "curr_have_symptoms": {
+      "ui:widget": "radio",
+      "ui:options": {
+        "inline": false
+      }
+    }
+  },
+
+
+  "symptoms1": {
+    "classNames": "symptoms",
+    "symptoms_list": {
+      "ui:order": [
+        "fatigue_tired_lack_of_ene",
+        "fatigue_tired_lack_of_ene_detail",
+        "difficulty_concentrating",
+        "difficulty_concentrating_detail",
+        "headaches_or_migraines",
+        "headaches_or_migraines_detail",
+        "confusion",
+        "confusion_detail",
+        "memory_problems",
+        "memory_problems_detail",
+        "dizziness___light-headedn",
+        "dizziness___light-headedn_detail",
+        "mood_changes_like_feeling",
+        "mood_changes_like_feeling_detail",
+        "hallucinations",
+        "hallucinations_detail",
+        "seizures",
+        "seizures_detail"
+
+      ],
+      "ui:dependent_option_postfix": [
+        "_detail"
+      ],
+      "ui:widget": "checkboxes",
+      "ui:options": {
+        "inline": false
+      },
+
+      "fatigue_tired_lack_of_ene_detail": {
+        "how_often": {
+      
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "difficulty_concentrating_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "headaches_or_migraines_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "confusion_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "memory_problems_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "dizziness___light-headedn_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "mood_changes_like_feeling_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "hallucinations_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "seizures_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      }
+    }
+  },
+ "symptoms2": {
+    "classNames": "symptoms",
+    "symptoms_list": {
+
+      "ui:order": [
+        "shortness_of_breath_or_di",
+        "shortness_of_breath_or_di_detail",
+        "winded_or_short_of_breath",
+        "winded_or_short_of_breath_detail",
+        "cough",
+        "cough_detail",
+        "chest_pain_or_pressure",
+        "chest_pain_or_pressure_detail",
+        "fast_or_irregular_heart_b",
+        "fast_or_irregular_heart_b_detail",
+        "abdominal_pain",
+        "abdominal_pain_detail",
+        "diarrhea",
+        "diarrhea_detail",
+        "nausea___vomiting",
+        "nausea___vomiting_detail"
+      ],
+      "ui:dependent_option_postfix": [
+        "_detail"
+      ],
+      "ui:widget": "checkboxes",
+      "ui:options": {
+        "inline": false
+      },
+      "cough_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "shortness_of_breath_or_di_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "winded_or_short_of_breath_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "chest_pain_or_pressure_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "fast_or_irregular_heart_b_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "abdominal_pain_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "diarrhea_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "nausea___vomiting_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      }
+    }
+  },
+  "symptoms3": {
+    "classNames": "symptoms",
+    "symptoms_list": {
+      "ui:order": [
+        "muscle_pain_cramps_or_bod",
+        "muscle_pain_cramps_or_bod_detail",
+        "tremors_or_shakiness",
+        "tremors_or_shakiness_detail",
+        "numbness_or_tingling_of_f",
+        "numbness_or_tingling_of_f_detail",
+        "covid_toes_discoloration",
+        "covid_toes_discoloration_detail",
+        "change_in_sense_of_smell",
+        "change_in_sense_of_smell_detail",
+        "change_in_sense_of_taste",
+        "change_in_sense_of_taste_detail",
+        "ringing_or_humming_in_ear",
+        "ringing_or_humming_in_ear_detail",
+        "blurry_vision",
+        "blurry_vision_detail",
+        "dental_issues",
+        "dental_issues_detail"
+      
+
+      ],
+      "ui:dependent_option_postfix": [
+        "_detail"
+      ],
+      "ui:widget": "checkboxes",
+      "ui:options": {
+        "inline": false
+      },
+      "muscle_pain_cramps_or_bod_detail": {
+        "how_often": {},
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "tremors_or_shakiness_detail": {
+        "how_often": {},
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "numbness_or_tingling_of_f_detail": {
+        "how_often": {},
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "covid_toes_discoloration_detail": {
+        "how_often": {},
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "change_in_sense_of_smell_detail": {
+        "how_often": {},
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "change_in_sense_of_taste_detail": {
+        "how_often": {},
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "ringing_or_humming_in_ear_detail": {
+        "how_often": {},
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "blurry_vision_detail": {
+        "how_often": {},
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "dental_issues_detail": {
+        "how_often": {},
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      }
+    }
+  },
+  "symptoms4": {
+    "classNames": "symptoms",
+    "symptoms_list": {
+      "ui:order": [
+        "hair_loss",
+        "hair_loss_detail",
+        "rash",
+        "rash_detail",
+        "weight_loss",
+        "weight_loss_detail",
+        "weight_gain",
+        "weight_gain_detail",
+        "difficulty_falling_or_sta",
+        "difficulty_falling_or_sta_detail",
+        "sleeping_more_than_normal",
+        "sleeping_more_than_normal_detail",
+        "night_sweats",
+        "night_sweats_detail",
+        "fever_chills",
+        "fever_chills_detail"
+      ],
+      "ui:dependent_option_postfix": [
+        "_detail"
+      ],
+      "ui:widget": "checkboxes",
+      "ui:options": {
+        "inline": false
+      },
+      "cough_detail": {},
+      "hair_loss_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "rash_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "weight_loss_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "weight_gain_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "difficulty_falling_or_sta_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "sleeping_more_than_normal_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "night_sweats_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+      "fever_chills_detail": {
+        "how_often": {
+
+        },
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      }
+    }
+  },
+  "newConditions": {
+    "conditions": {
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["no_answer", "none"],
+      "ui:dependent_option_postfix": ["_specify"],
+      "ui:order": [
+        "eye_desease",
+        "high_bp",
+        "high_cholesterol",
+        "stroke",
+        "heart_attack",
+        "diabetes",
+        "kidney_disease",
+        "depression",
+        "anxiety",
+        "other",
+        "other_specify",
+        "none",
+        "no_answer"
+      ],
+      "classNames": "family_diseases show_fieldSet",
+      "ui:widget": "checkboxes"
+    }
+  },
+  "reinfection": {
+    "infected_more_than_once": {
+      "ui:widget": "radio"
+    },
+    "positive_test": {
+      "ui:widget": "radio",
+
+      "ui:description": "You will asked to upload a copy of this test after this survey."
+    },
+    "reinfection_date": {
+      "ui:help": "Approximate date",
+      "classNames": ["postLab_date_field"],
+      "ui:widget": "CustomDateWidget",
+      "ui:options": {
+        "yearsRange": [2020, 2021],
+        "hideNowButton": true,
+        "hideClearButton": false,
+        "lessThanNow": true
+      }
+    }
+  },
+  "vaccine": {
+    "ui:dependent_option_postfix": ["_other"],
+    "ui:order": [
+      "received_first_dose",
+      "which_vaccine",
+      "vaccine_other",
+      "vaccine_week_ago",
+      "symptoms_change",
+      "symptoms_change_how",
+      "*"
+    ],
+    "received_first_dose": {
+      "ui:widget": "radio"
+    },
+    "which_vaccine": {
+      "ui:widget": "radio"
+    },
+    "vaccine_week_ago": { "ui:widget": "radio" },
+
+    "first_dose_date": {
+      "ui:widget": "CustomDateWidget",
+      "classNames": ["postLab_date_field"],
+      "ui:options": {
+        "yearsRange": [2020, 2021],
+        "hideNowButton": true,
+        "hideClearButton": false,
+        "lessThanNow": true
+      }
+    },
+
+    "symptoms_change": {
+      "ui:widget": "radio"
+    },
+    "symptoms_change_how": {
+      "ui:widget": "RadioRangeWidget",
+      "classNames": "radiorange",
+      "ui:options": {
+        "inline": true,
+        "minLabel": "Got Worse",
+        "maxLabel": "Got Better"
+      }
+    },
+    "received_second_dose": {
+      "ui:widget": "radio"
+    },
+    "second_dose_date": {
+      "ui:widget": "CustomDateWidget",
+      "classNames": ["postLab_date_field"],
+      "ui:options": {
+        "yearsRange": [2020, 2021],
+        "hideNowButton": true,
+        "hideClearButton": false,
+        "lessThanNow": true
+      }
+    }
+  }
+}
