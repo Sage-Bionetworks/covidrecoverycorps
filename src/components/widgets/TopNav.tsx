@@ -29,6 +29,7 @@ import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidReco
 import i18n from '../../i18n'
 import { useTranslation } from 'react-i18next'
 import { Feature, TOGGLE_NAMES } from '../../helpers/FeatureToggle'
+import LanguageIcon from '../../assets/language_icon.svg'
 
 type TopNavProps = {
   token: string | undefined
@@ -134,6 +135,9 @@ const useStyles = makeStyles(theme => ({
   },
   drawerCloseIcon: {
     color: '#2A2A2A',
+  },
+  languageIcon: {
+    marginRight: theme.spacing(0.5),
   },
 }))
 
@@ -266,6 +270,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
               changeLanguage()
             }}
           >
+            <img src={LanguageIcon} className={classes.languageIcon}></img>
             {language === 'es' ? 'in English' : 'en español'}
           </ListItem>
         </Feature>
@@ -403,6 +408,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           style={{ whiteSpace: 'nowrap' }}
           onClick={() => changeLanguage()}
         >
+          <img src={LanguageIcon} className={classes.languageIcon}></img>
           {language === 'es' ? 'in English' : 'en español'}
         </a>
       </Feature>
