@@ -11,7 +11,7 @@
         },
 
         "how_much_bothers": {
-          "title": " b. How much does this symptom bothers you? ",
+          "title": " b. How much does this symptom bother you? ",
           "type": "string",
 
           "enum": ["1", "2", "3", "4", "5"],
@@ -529,11 +529,11 @@
             },
             "change_in_sense_of_smell": {
               "type": "boolean",
-              "title": "Change in (or loss) sense of smell"
+              "title": "Change in (or loss of) sense of smell"
             },
             "change_in_sense_of_taste": {
               "type": "boolean",
-              "title": "Change in (or loss) sense of taste"
+              "title": "Change in (or loss of) sense of taste"
             },
             "ringing_or_humming_in_ear": {
               "type": "boolean",
@@ -779,7 +779,7 @@
             },
             "fever_chills": {
               "type": "boolean",
-              "title": "Fever/chills"
+              "title": "Fever or chills"
             }
           },
           "dependencies": {
@@ -957,7 +957,7 @@
     },
     "newConditions": {
       "type": "object",
-      "required":["conditions"],
+      "required": ["conditions"],
       "properties": {
         "conditions": {
           "type": "object",
@@ -1044,7 +1044,7 @@
     },
     "reinfection": {
       "type": "object",
-      "required": [ "infected_more_than_once"],
+      "required": ["infected_more_than_once"],
       "properties": {
         "infected_more_than_once": {
           "title": "7. Were you infected with COVID-19 more than once? ",
@@ -1065,7 +1065,7 @@
               }
             },
             {
-              "required": [ "positive_test"],
+              "required": ["positive_test"],
               "properties": {
                 "infected_more_than_once": {
                   "enum": ["Yes"]
@@ -1111,7 +1111,11 @@
               }
             },
             {
-              "required": [ "which_vaccine",   "vaccine_week_ago",  "received_second_dose"],
+              "required": [
+                "which_vaccine",
+                "vaccine_week_ago",
+                "received_second_dose"
+              ],
               "properties": {
                 "received_first_dose": {
                   "enum": ["Yes"]
@@ -1121,7 +1125,7 @@
                   "type": "string",
                   "uniqueItems": true,
                   "enum": [
-                    "Pfizer",
+                    "Pfizer-BioNTech",
                     "Moderna",
                     "Johnson & Johnson",
                     "Other",
@@ -1129,7 +1133,7 @@
                     "Prefer not to disclose"
                   ],
                   "enumNames": [
-                    "Pfizer",
+                    "Pfizer-BioNTech",
                     "Moderna",
                     "Johnson & Johnson",
                     "Other",
@@ -1156,14 +1160,6 @@
                 "first_dose_date": {
                   "title": "8c. When was your vaccination?",
                   "type": "string"
-                },
-
-                "received_second_dose": {
-                  "title": "9. Have you received the 2nd shot?",
-                  "type": "string",
-                  "uniqueItems": true,
-                  "enum": ["Yes", "No", "Prefer not to answer"],
-                  "enumNames": ["Yes", "No", "Prefer not to answer"]
                 }
               }
             }
@@ -1176,10 +1172,7 @@
               "properties": {
                 "which_vaccine": {
                   "enum": [
-                    "Pfizer",
-                    "Moderna",
                     "Johnson & Johnson",
-
                     "Not sure",
                     "Prefer not to disclose"
                   ]
@@ -1189,10 +1182,24 @@
             {
               "properties": {
                 "which_vaccine": {
+                  "enum": ["Pfizer-BioNTech", "Moderna"]
+                },
+                "received_second_dose": {
+                  "title": "9. Have you received the 2nd shot?",
+                  "type": "string",
+                  "uniqueItems": true,
+                  "enum": ["Yes", "No", "Prefer not to answer"],
+                  "enumNames": ["Yes", "No", "Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "which_vaccine": {
                   "enum": ["Other"]
                 },
                 "vaccine_other": {
-                  "title": "Please specify:",
+                  "title": "If other, please specify:",
                   "type": "string"
                 }
               }
@@ -1213,7 +1220,9 @@
               }
             },
             {
+              "required": ["symptoms_change"],
               "properties": {
+
                 "vaccine_week_ago": {
                   "enum": ["Yes"]
                 },
@@ -1223,14 +1232,8 @@
                   "uniqueItems": true,
                   "enum": ["Yes", "No", "Prefer not to answer"],
                   "enumNames": ["Yes", "No", "Prefer not to answer"]
-                },
-                "symptoms_change_how": {
-                  "title": "How did your symptoms change?",
-                  "type": "string",
-
-                  "enum": ["1", "2", "3", "4", "5"],
-                  "enumNames": ["1", "2", "3", "4", "5"]
                 }
+     
               }
             }
           ]
@@ -1252,6 +1255,33 @@
                 "second_dose_date": {
                   "title": "9a. When was your second vaccination?",
                   "type": "string"
+                }
+              }
+            }
+          ]
+        },
+
+        "symptoms_change": {
+          "oneOf": [
+            {
+              "properties": {
+                "symptoms_change": {
+                  "enum": ["No", "Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "required":[ "symptoms_change_how"],
+              "properties": {
+                "symptoms_change": {
+                  "enum": ["Yes"]
+                },
+                "symptoms_change_how": {
+                  "title": "How did your symptoms change?",
+                  "type": "string",
+
+                  "enum": ["1", "2", "3", "4", "5"],
+                  "enumNames": ["1", "2", "3", "4", "5"]
                 }
               }
             }

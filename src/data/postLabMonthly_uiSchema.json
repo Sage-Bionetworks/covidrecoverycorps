@@ -8,7 +8,6 @@
     }
   },
 
-
   "symptoms1": {
     "classNames": "symptoms",
     "symptoms_list": {
@@ -31,20 +30,15 @@
         "hallucinations_detail",
         "seizures",
         "seizures_detail"
-
       ],
-      "ui:dependent_option_postfix": [
-        "_detail"
-      ],
+      "ui:dependent_option_postfix": ["_detail"],
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
       },
 
       "fatigue_tired_lack_of_ene_detail": {
-        "how_often": {
-      
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -65,9 +59,7 @@
         }
       },
       "difficulty_concentrating_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -88,9 +80,7 @@
         }
       },
       "headaches_or_migraines_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -111,9 +101,7 @@
         }
       },
       "confusion_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -134,9 +122,7 @@
         }
       },
       "memory_problems_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -157,9 +143,7 @@
         }
       },
       "dizziness___light-headedn_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -180,9 +164,7 @@
         }
       },
       "mood_changes_like_feeling_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -203,9 +185,7 @@
         }
       },
       "hallucinations_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -226,9 +206,7 @@
         }
       },
       "seizures_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -250,10 +228,9 @@
       }
     }
   },
- "symptoms2": {
+  "symptoms2": {
     "classNames": "symptoms",
     "symptoms_list": {
-
       "ui:order": [
         "shortness_of_breath_or_di",
         "shortness_of_breath_or_di_detail",
@@ -272,17 +249,13 @@
         "nausea___vomiting",
         "nausea___vomiting_detail"
       ],
-      "ui:dependent_option_postfix": [
-        "_detail"
-      ],
+      "ui:dependent_option_postfix": ["_detail"],
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
       },
       "cough_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -303,9 +276,7 @@
         }
       },
       "shortness_of_breath_or_di_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -326,9 +297,7 @@
         }
       },
       "winded_or_short_of_breath_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -349,9 +318,7 @@
         }
       },
       "chest_pain_or_pressure_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -372,9 +339,7 @@
         }
       },
       "fast_or_irregular_heart_b_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -395,9 +360,7 @@
         }
       },
       "abdominal_pain_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -418,9 +381,7 @@
         }
       },
       "diarrhea_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -441,9 +402,7 @@
         }
       },
       "nausea___vomiting_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -487,12 +446,8 @@
         "blurry_vision_detail",
         "dental_issues",
         "dental_issues_detail"
-      
-
       ],
-      "ui:dependent_option_postfix": [
-        "_detail"
-      ],
+      "ui:dependent_option_postfix": ["_detail"],
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
@@ -709,18 +664,14 @@
         "fever_chills",
         "fever_chills_detail"
       ],
-      "ui:dependent_option_postfix": [
-        "_detail"
-      ],
+      "ui:dependent_option_postfix": ["_detail"],
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
       },
       "cough_detail": {},
       "hair_loss_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -741,9 +692,7 @@
         }
       },
       "rash_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -764,9 +713,7 @@
         }
       },
       "weight_loss_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -787,9 +734,7 @@
         }
       },
       "weight_gain_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -810,9 +755,7 @@
         }
       },
       "difficulty_falling_or_sta_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -833,9 +776,7 @@
         }
       },
       "sleeping_more_than_normal_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -856,9 +797,7 @@
         }
       },
       "night_sweats_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -879,9 +818,7 @@
         }
       },
       "fever_chills_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
@@ -923,6 +860,10 @@
         "none",
         "no_answer"
       ],
+      "other_specify": {
+        "ui:widget": "textarea",
+        "ui:help": "you can enter more than one condition separated by a comma"
+      },
       "classNames": "family_diseases show_fieldSet",
       "ui:widget": "checkboxes"
     }
@@ -966,10 +907,14 @@
       "ui:widget": "radio"
     },
     "vaccine_week_ago": { "ui:widget": "radio" },
+    "vaccine_other": {
+      "classNames": "text"
+
+    },
 
     "first_dose_date": {
       "ui:widget": "CustomDateWidget",
-      "classNames": ["postLab_date_field"],
+      "classNames": "postLab_date_field",
       "ui:options": {
         "yearsRange": [2020, 2021],
         "hideNowButton": true,
@@ -995,7 +940,7 @@
     },
     "second_dose_date": {
       "ui:widget": "CustomDateWidget",
-      "classNames": ["postLab_date_field"],
+      "classNames": "postLab_date_field",
       "ui:options": {
         "yearsRange": [2020, 2021],
         "hideNowButton": true,

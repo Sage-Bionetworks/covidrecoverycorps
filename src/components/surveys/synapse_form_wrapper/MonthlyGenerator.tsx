@@ -53,8 +53,8 @@ var page3QuestionsArray = [
   'Tremors or shakiness',
   'Numbness or tingling of feet and hands',
   'COVID toes (discoloration and swelling)',
-  'Change in (or loss) sense of smell',
-  'Change in (or loss) sense of taste',
+  'Change in (or loss of) sense of smell',
+  'Change in (or loss of) sense of taste',
   'Ringing or humming in ears (tinnitus)',
   'Blurry vision',
   'Dental Issues']
@@ -69,7 +69,7 @@ var page3QuestionsArray = [
     'Difficulty falling or staying asleep (insomnia)',
     'Sleeping more than normal',
     'Night sweats',
-    'Fever/chills'
+    'Fever or chills'
 ]
 
 
