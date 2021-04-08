@@ -1,16 +1,16 @@
-import React from 'react'
-
+import { makeStyles } from '@material-ui/core'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import FormLabel from '@material-ui/core/FormLabel'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
-
+import React from 'react'
 import { WidgetProps } from 'react-jsonschema-form'
-import { makeStyles } from '@material-ui/core'
+
+
 
 const useStyles = makeStyles({
   root: {
     paddingLeft: '1.5rem',
+    paddingRight: '1.5rem',
     display: 'flex',
     flexDirection: 'row',
   },

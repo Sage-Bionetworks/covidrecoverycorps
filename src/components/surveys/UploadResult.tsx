@@ -222,8 +222,10 @@ async function verifyUpload(token: string, id: string): Promise<string> {
 
 export const UploadResult: React.FunctionComponent<{
   token: string
-  surveyName?: SurveyType
-}> = ({ token, surveyName = 'RESULT_UPLOAD' }) => {
+  surveyName?: SurveyType,
+  descriptionI18nKey?: string
+
+}> = ({ token, surveyName = 'RESULT_UPLOAD', descriptionI18nKey='uploadResult.description'}) => {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const [userUploads, setUserUploads] = useState<any | undefined>(undefined)
@@ -417,7 +419,7 @@ export const UploadResult: React.FunctionComponent<{
           <div>
             <h3 className="text-center"> {t('uploadResult.title')}</h3>
             <div style={{textAlign: 'left'}}>
-              <Trans i18nKey="uploadResult.description">
+              <Trans i18nKey={descriptionI18nKey}>
                 <p>[translate]</p>
               </Trans>
             </div>

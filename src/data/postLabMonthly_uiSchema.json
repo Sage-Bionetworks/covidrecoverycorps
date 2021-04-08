@@ -875,7 +875,7 @@
     "positive_test": {
       "ui:widget": "radio",
 
-      "ui:description": "You will asked to upload a copy of this test after this survey."
+      "ui:description": "If you answer \"Yes\", you will be asked to upload a copy of this test after this survey."
     },
     "reinfection_date": {
       "ui:help": "Approximate date",
