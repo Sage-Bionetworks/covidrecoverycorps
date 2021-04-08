@@ -107,6 +107,7 @@ const MonthlySurvey: FunctionComponent<ResultProps> = ({
             <UploadResult
               token={token || ''}
               surveyName={'RESULT_UPLOAD_MONTHLY'}
+              descriptionI18nKey="monthlySurvey.uploadDescription"
             ></UploadResult>
           )}
         </div>
