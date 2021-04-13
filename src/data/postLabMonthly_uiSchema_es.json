@@ -862,7 +862,7 @@
       ],
       "other_specify": {
         "ui:widget": "textarea",
-        "ui:help": "you can enter more than one condition separated by a comma"
+        "ui:help": "puede ingresar más de una condición separada por una coma"
       },
       "classNames": "family_diseases show_fieldSet",
       "ui:widget": "checkboxes"
@@ -875,7 +875,7 @@
     "positive_test": {
       "ui:widget": "radio",
 
-      "ui:description": "If you answer \"Yes\", you will be asked to upload a copy of this test after this survey."
+      "ui:description": "Si responde \"Sí\", se le pedirá que suba una copia de esta prueba después de esta encuesta."
     },
     "reinfection_date": {
       "ui:help": "Approximate date",
@@ -931,8 +931,8 @@
       "classNames": "radiorange",
       "ui:options": {
         "inline": true,
-        "minLabel": "Got Worse",
-        "maxLabel": "Got Better"
+        "minLabel": "Empeoró",
+        "maxLabel": "Mejoró"
       }
     },
     "received_second_dose": {
