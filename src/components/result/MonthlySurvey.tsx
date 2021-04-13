@@ -131,17 +131,18 @@ const MonthlySurvey: FunctionComponent<ResultProps> = ({
     default:
       return (
         <>
-          <h2>{t('resultNext.title')}</h2>
+          <h2>{t('monthlySurvey.title')}</h2>
           {(!savedMonthlySurvey || !savedMonthlySurvey.completedDate) && (
             <>
-              <p>{t('resultNext.text1')}</p>
+              <p>{t('monthlySurvey.text1')}</p>
+              <p>{t('monthlySurvey.text2')}</p>
               <div className="text-center btnVerticallySpaced">
                 <Button
                   variant="contained"
                   color="primary"
                   onClick={() => setPageState('SURVEY')}
                 >
-                  {t('resultNext.surveyCTA')}
+                  {t('monthlySurvey.surveyCTA')}
                 </Button>
               </div>
             </>

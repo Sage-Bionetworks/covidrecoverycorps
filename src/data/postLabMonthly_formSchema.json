@@ -11,7 +11,7 @@
         },
 
         "how_much_bothers": {
-          "title": " b. How much does this symptom bother you? ",
+          "title": "b. How much does this symptom bother you? ",
           "type": "string",
 
           "enum": ["1", "2", "3", "4", "5"],

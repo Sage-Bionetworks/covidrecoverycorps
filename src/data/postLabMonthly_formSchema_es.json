@@ -6,22 +6,22 @@
       "required": ["how_often", "how_much_bothers", "how_has_changed"],
       "properties": {
         "how_often": {
-          "title": "a. How often do you experience this symptom in a week? ",
+          "title": "a. ¿Con qué frecuencia experimenta este síntoma en una semana? ",
           "type": "number"
         },
-
+ 
         "how_much_bothers": {
-          "title": " b. How much does this symptom bothers you? ",
+          "title": "b. ¿Cuánto le molesta este síntoma?",
           "type": "string",
-
+ 
           "enum": ["1", "2", "3", "4", "5"],
           "enumNames": ["1", "2", "3", "4", "5"]
         },
-
+ 
         "how_has_changed": {
-          "title": "c. How has this symptom changed over the last month? ",
+          "title": "c. ¿Cómo ha cambiado este síntoma durante el último mes? ",
           "type": "string",
-
+ 
           "enum": ["1", "2", "3", "4", "5"],
           "enumNames": ["1", "2", "3", "4", "5"]
         }
@@ -29,12 +29,12 @@
     },
     "intro": {
       "type": "object",
-      "title": "1. Do you currently have COVID-19 related symptoms?",
+      "title": "1. ¿Tiene actualmente síntomas relacionados con COVID-19?",
       "required": ["curr_have_symptoms"],
       "properties": {
         "curr_have_symptoms": {
           "type": "string",
-          "title": "1. Do you currently have COVID-19 related symptoms?",
+          "title": "1. ¿Tiene actualmente síntomas relacionados con COVID-19?",
           "enum": [
             "positive_no_symptoms",
             "no_longer_symptoms",
@@ -42,10 +42,10 @@
             "I'm not sure"
           ],
           "enumNames": [
-            "I tested positive for COVID-19 but did not have any symptoms.",
-            "I no longer have any COVID-19 related symptoms.",
-            "I still experience some symptoms",
-            "I'm not sure"
+            "Di positivo para COVID-19 pero no tuve ningún síntoma.",
+            "Ya no tengo ningún síntoma relacionado con COVID-19.",
+            "Todavía tengo algunos síntomas",
+            "No estoy seguro"
           ]
         }
       }
@@ -56,43 +56,43 @@
       "properties": {
         "symptoms_list": {
           "type": "object",
-          "title": "2. Please indicate if you currently have any of the following COVID-19 related symptoms. (Check all that apply)",
+          "title": "2. Por favor indique si actualmente tiene alguno de los siguientes síntomas relacionados con COVID-19. (Marque todo lo que corresponda",
           "properties": {
             "fatigue_tired_lack_of_ene": {
               "type": "boolean",
-              "title": "Fatigue (tired, lack of energy)"
+              "title": "Fatiga (cansancio, falta de energía)"
             },
             "difficulty_concentrating": {
               "type": "boolean",
-              "title": "Difficulty concentrating or focusing (brain fog)"
+              "title": "Dificultad para concentrarse o enfocarse (niebla mental)"
             },
             "headaches_or_migraines": {
               "type": "boolean",
-              "title": "Headaches or migraines"
+              "title": "Dolores de cabeza o migrañas"
             },
             "confusion": {
               "type": "boolean",
-              "title": "Confusion"
+              "title": "Confusión"
             },
             "memory_problems": {
               "type": "boolean",
-              "title": "Memory problems"
+              "title": "Problemas de memoria"
             },
             "dizziness___light-headedn": {
               "type": "boolean",
-              "title": "Dizziness / Light-headedness"
+              "title": "Mareos / aturdimiento"
             },
             "mood_changes_like_feeling": {
               "type": "boolean",
-              "title": "Mood changes like feeling sad or anxious"
+              "title": "Cambios de humor como sentirse triste o ansioso"
             },
             "hallucinations": {
               "type": "boolean",
-              "title": "Hallucinations"
+              "title": "Alucinaciones"
             },
             "seizures": {
               "type": "boolean",
-              "title": "Seizures"
+              "title": "Convulsiones"
             }
           },
           "dependencies": {
@@ -289,45 +289,45 @@
         }
       }
     },
-
+ 
     "symptoms2": {
       "type": "object",
       "properties": {
         "symptoms_list": {
           "type": "object",
-          "title": "3. Please indicate if you currently have any of the following COVID-19 related symptoms. (Check all that apply)",
+          "title": "3. Por favor Indique si actualmente tiene alguno de los siguientes síntomas relacionados con COVID-19. (Marque todo lo que corresponda)",
           "properties": {
             "shortness_of_breath_or_di": {
               "type": "boolean",
-              "title": "Shortness of breath or difficulty breathing at rest"
+              "title": "Falta de aliento o dificultad para respirar en reposo"
             },
             "winded_or_short_of_breath": {
               "type": "boolean",
-              "title": "Winded or short of breath with exercise"
+              "title": "Falta de aliento o falta de aliento con el ejercicio"
             },
             "cough": {
               "type": "boolean",
-              "title": "Cough"
+              "title": "Tos"
             },
             "chest_pain_or_pressure": {
               "type": "boolean",
-              "title": "Chest pain or pressure"
+              "title": "Dolor o presión en el pecho"
             },
             "fast_or_irregular_heart_b": {
               "type": "boolean",
-              "title": "Fast or irregular heart beat"
+              "title": "Latido cardíaco rápido o irregular"
             },
             "abdominal_pain": {
               "type": "boolean",
-              "title": "Abdominal pain"
+              "title": "Dolor abdominal"
             },
             "diarrhea": {
               "type": "boolean",
-              "title": "Diarrhea"
+              "title": "Diarrea"
             },
             "nausea___vomiting": {
               "type": "boolean",
-              "title": "Nausea / Vomiting"
+              "title": "Náuseas o vómitos"
             }
           },
           "dependencies": {
@@ -508,44 +508,44 @@
       "properties": {
         "symptoms_list": {
           "type": "object",
-          "title": "4. Please indicate if you currently have any of the following COVID-19 related symptoms. (Check all that apply)",
-
+          "title": "4. Por favor indique si actualmente tiene alguno de los siguientes síntomas relacionados con COVID-19. (Marque todo lo que corresponda)",
+ 
           "properties": {
             "muscle_pain_cramps_or_bod": {
               "type": "boolean",
-              "title": "Muscle pain, cramps, or body aches"
+              "title": "Dolores musculares, calambres o dolores corporales"
             },
             "tremors_or_shakiness": {
               "type": "boolean",
-              "title": "Tremors or shakiness"
+              "title": "Temblores o inestabilidad"
             },
             "numbness_or_tingling_of_f": {
               "type": "boolean",
-              "title": "Numbness or tingling of feet and hands"
+              "title": "Entumecimiento u hormigueo en pies y manos"
             },
             "covid_toes_discoloration": {
               "type": "boolean",
-              "title": "COVID toes (discoloration and swelling)"
+              "title": "Dedos de los pies COVID (decoloración e hinchazón)"
             },
             "change_in_sense_of_smell": {
               "type": "boolean",
-              "title": "Change in (or loss) sense of smell"
+              "title": "Cambio (o pérdida) del sentido del olfato"
             },
             "change_in_sense_of_taste": {
               "type": "boolean",
-              "title": "Change in (or loss) sense of taste"
+              "title": "Cambio (o pérdida) del sentido del gusto"
             },
             "ringing_or_humming_in_ear": {
               "type": "boolean",
-              "title": "Ringing or humming in ears (tinnitus)"
+              "title": "Zumbidos o zumbidos en los oídos (tinnitus)"
             },
             "blurry_vision": {
               "type": "boolean",
-              "title": "Blurry vision"
+              "title": "Visión borrosa"
             },
             "dental_issues": {
               "type": "boolean",
-              "title": "Dental Issues"
+              "title": "Problemas dentales"
             }
           },
           "dependencies": {
@@ -747,39 +747,39 @@
       "properties": {
         "symptoms_list": {
           "type": "object",
-          "title": "5. Please indicate if you currently have any of the following COVID-19 related symptoms. (Check all that apply)",
+          "title": "5. Por favor indique si actualmente tiene alguno de los siguientes síntomas relacionados con COVID-19. (Marque todo lo que corresponda)",
           "properties": {
             "hair_loss": {
               "type": "boolean",
-              "title": "Hair loss"
+              "title": "Perdida de cabello"
             },
             "rash": {
               "type": "boolean",
-              "title": "Rash"
+              "title": "sarpullido"
             },
             "weight_loss": {
               "type": "boolean",
-              "title": "Weight loss"
+              "title": "Pérdida de peso"
             },
             "weight_gain": {
               "type": "boolean",
-              "title": "Weight gain"
+              "title": "Aumento de peso"
             },
             "difficulty_falling_or_sta": {
               "type": "boolean",
-              "title": "Difficulty falling or staying asleep (insomnia)"
+              "title": "Dificultad para conciliar el sueño o permanecer dormido (insomnio)"
             },
             "sleeping_more_than_normal": {
               "type": "boolean",
-              "title": "Sleeping more than normal"
+              "title": "Dormir más de lo normal"
             },
             "night_sweats": {
               "type": "boolean",
-              "title": "Night sweats"
+              "title": "Sudores nocturnos"
             },
             "fever_chills": {
               "type": "boolean",
-              "title": "Fever/chills"
+              "title": "Fiebre o escalofríos"
             }
           },
           "dependencies": {
@@ -957,61 +957,61 @@
     },
     "newConditions": {
       "type": "object",
-      "required":["conditions"],
+      "required": ["conditions"],
       "properties": {
         "conditions": {
           "type": "object",
-          "title": "6. Since you were diagnosed with COVID-19, have you been newly diagnosed by a doctor with the following conditions: (Check all that apply)",
+          "title": "6. Desde que le diagnosticaron COVID-19, ¿un médico le ha diagnosticado recientemente las siguientes afecciones? (Marque todas las que correspondan)",
           "properties": {
             "eye_desease": {
               "type": "boolean",
-              "title": "Eye disease"
+              "title": "Enfermedad ocular"
             },
-
+ 
             "high_bp": {
               "type": "boolean",
-              "title": "High blood pressure"
+              "title": "Alta presión sanguínea"
             },
             "high_cholesterol": {
               "type": "boolean",
-              "title": "High cholesterol"
+              "title": "Colesterol alto"
             },
             "stroke": {
               "type": "boolean",
-              "title": "Stroke"
+              "title": "Derrame cerebral"
             },
             "heart_attack": {
               "type": "boolean",
-              "title": "Heart attack"
+              "title": "Ataque cardíaco"
             },
-
+ 
             "diabetes": {
               "type": "boolean",
               "title": "Diabetes"
             },
             "kidney_disease": {
-              "title": "Kidney disease",
+              "title": "Nefropatía",
               "type": "boolean"
             },
             "depression": {
               "type": "boolean",
-              "title": "Depression"
+              "title": "Depresión"
             },
             "anxiety": {
-              "title": "Anxiety",
+              "title": "Ansiedad",
               "type": "boolean"
             },
-
+ 
             "other": {
-              "title": "Other",
+              "title": "Otro",
               "type": "boolean"
             },
             "none": {
-              "title": "None",
+              "title": "Ninguno",
               "type": "boolean"
             },
             "no_answer": {
-              "title": "Prefer not to answer",
+              "title": "Prefiero no responder",
               "type": "boolean"
             }
           },
@@ -1031,7 +1031,7 @@
                       "enum": [true]
                     },
                     "other_specify": {
-                      "title": "Please specify:",
+                      "title": "Por favor especifica:",
                       "type": "string"
                     }
                   }
@@ -1044,14 +1044,14 @@
     },
     "reinfection": {
       "type": "object",
-      "required": [ "infected_more_than_once"],
+      "required": ["infected_more_than_once"],
       "properties": {
         "infected_more_than_once": {
-          "title": "7. Were you infected with COVID-19 more than once? ",
+          "title": "7. ¿Se infectó con COVID-19 más de una vez?",
           "type": "string",
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"],
-          "enumNames": ["Yes", "No", "Prefer not to answer"]
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
         }
       },
       "dependencies": {
@@ -1065,21 +1065,21 @@
               }
             },
             {
-              "required": [ "positive_test"],
+              "required": ["positive_test"],
               "properties": {
                 "infected_more_than_once": {
                   "enum": ["Yes"]
                 },
                 "reinfection_date": {
                   "type": "string",
-                  "title": "7a. When were you re-infected with COVID-19?"
+                  "title": "7a. ¿Cuándo se volvió a infectar con COVID-19?"
                 },
                 "positive_test": {
-                  "title": "7b. Did you receive a new positive nasal swab test?",
+                  "title": "7b. ¿Recibió una nueva prueba de frotis nasal positiva?",
                   "type": "string",
                   "uniqueItems": true,
                   "enum": ["Yes", "No", "Prefer not to answer"],
-                  "enumNames": ["Yes", "No", "Prefer not to answer"]
+                  "enumNames": ["Sí", "No", "Prefiero no responder"]
                 }
               }
             }
@@ -1092,14 +1092,14 @@
       "required": ["received_first_dose"],
       "properties": {
         "received_first_dose": {
-          "title": "8. Have you received a COVID-19 vaccine?",
+          "title": "8. ¿Ha recibido una vacuna COVID-19?",
           "type": "string",
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"],
-          "enumNames": ["Yes", "No", "Prefer not to answer"]
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
         }
       },
-
+ 
       "dependencies": {
         "received_first_dose": {
           "oneOf": [
@@ -1111,17 +1111,21 @@
               }
             },
             {
-              "required": [ "which_vaccine",   "vaccine_week_ago",  "received_second_dose"],
+              "required": [
+                "which_vaccine",
+                "vaccine_week_ago",
+                "received_second_dose"
+              ],
               "properties": {
                 "received_first_dose": {
                   "enum": ["Yes"]
                 },
                 "which_vaccine": {
-                  "title": "8a. Which vaccination did you get?",
+                  "title": "8a. ¿Qué vacuna recibiste?",
                   "type": "string",
                   "uniqueItems": true,
                   "enum": [
-                    "Pfizer",
+                    "Pfizer-BioNTech",
                     "Moderna",
                     "Johnson & Johnson",
                     "Other",
@@ -1129,7 +1133,7 @@
                     "Prefer not to disclose"
                   ],
                   "enumNames": [
-                    "Pfizer",
+                    "Pfizer-BioNTech",
                     "Moderna",
                     "Johnson & Johnson",
                     "Other",
@@ -1138,7 +1142,7 @@
                   ]
                 },
                 "vaccine_week_ago": {
-                  "title": "8b. Did you receive your vaccine at least a week ago?",
+                  "title": "8b. ¿Recibió su vacuna hace al menos una semana?",
                   "type": "string",
                   "uniqueItems": true,
                   "enum": [
@@ -1147,39 +1151,28 @@
                     "Prefer not to answer"
                   ],
                   "enumNames": [
-                    "Yes",
-                    "No, it was less than a week ago",
-                    "Prefer not to answer"
+                    "Sí",
+                    "No, fue hace menos de una semana",
+                    "Prefiero no responder"
                   ]
                 },
-
+ 
                 "first_dose_date": {
-                  "title": "8c. When was your vaccination?",
+                  "title": "8c. ¿Cuándo fue su vacunación?",
                   "type": "string"
-                },
-
-                "received_second_dose": {
-                  "title": "9. Have you received the 2nd shot?",
-                  "type": "string",
-                  "uniqueItems": true,
-                  "enum": ["Yes", "No", "Prefer not to answer"],
-                  "enumNames": ["Yes", "No", "Prefer not to answer"]
                 }
               }
             }
           ]
         },
-
+ 
         "which_vaccine": {
           "oneOf": [
             {
               "properties": {
                 "which_vaccine": {
                   "enum": [
-                    "Pfizer",
-                    "Moderna",
                     "Johnson & Johnson",
-
                     "Not sure",
                     "Prefer not to disclose"
                   ]
@@ -1189,17 +1182,31 @@
             {
               "properties": {
                 "which_vaccine": {
+                  "enum": ["Pfizer-BioNTech", "Moderna"]
+                },
+                "received_second_dose": {
+                  "title": "9. ¿Ha recibido la segunda inyección?",
+                  "type": "string",
+                  "uniqueItems": true,
+                  "enum": ["Yes", "No", "Prefer not to answer"],
+                  "enumNames": ["Sí", "No", "Prefiero no contestar"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "which_vaccine": {
                   "enum": ["Other"]
                 },
                 "vaccine_other": {
-                  "title": "Please specify:",
+                  "title": "Si otro caso, por favor especifica:",
                   "type": "string"
                 }
               }
             }
           ]
         },
-
+ 
         "vaccine_week_ago": {
           "oneOf": [
             {
@@ -1213,24 +1220,20 @@
               }
             },
             {
+              "required": ["symptoms_change"],
               "properties": {
+ 
                 "vaccine_week_ago": {
                   "enum": ["Yes"]
                 },
                 "symptoms_change": {
-                  "title": "Did you notice a change in your overall symptoms after the vaccine?",
+                  "title": "¿Notó un cambio en sus síntomas generales después de la vacuna?",
                   "type": "string",
                   "uniqueItems": true,
                   "enum": ["Yes", "No", "Prefer not to answer"],
-                  "enumNames": ["Yes", "No", "Prefer not to answer"]
-                },
-                "symptoms_change_how": {
-                  "title": "How did your symptoms change?",
-                  "type": "string",
-
-                  "enum": ["1", "2", "3", "4", "5"],
-                  "enumNames": ["1", "2", "3", "4", "5"]
+                  "enumNames": ["Sí", "No", "Prefiero no contestar"]
                 }
+    
               }
             }
           ]
@@ -1250,8 +1253,35 @@
                   "enum": ["Yes"]
                 },
                 "second_dose_date": {
-                  "title": "9a. When was your second vaccination?",
+                  "title": "9a. ¿Cuándo fue su segunda vacunación?",
                   "type": "string"
+                }
+              }
+            }
+          ]
+        },
+ 
+        "symptoms_change": {
+          "oneOf": [
+            {
+              "properties": {
+                "symptoms_change": {
+                  "enum": ["No", "Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "required":[ "symptoms_change_how"],
+              "properties": {
+                "symptoms_change": {
+                  "enum": ["Yes"]
+                },
+                "symptoms_change_how": {
+                  "title": "¿Cómo cambiaron sus síntomas?",
+                  "type": "string",
+ 
+                  "enum": ["1", "2", "3", "4", "5"],
+                  "enumNames": ["1", "2", "3", "4", "5"]
                 }
               }
             }
@@ -1260,7 +1290,7 @@
       }
     }
   },
-
+ 
   "type": "object",
   "properties": {
     "intro": {
@@ -1296,4 +1326,6 @@
       "$ref": "#/definitions/vaccine"
     }
   }
-}
+ }
+ 
+ 

@@ -8,7 +8,6 @@
     }
   },
 
-
   "symptoms1": {
     "classNames": "symptoms",
     "symptoms_list": {
@@ -31,27 +30,22 @@
         "hallucinations_detail",
         "seizures",
         "seizures_detail"
-
       ],
-      "ui:dependent_option_postfix": [
-        "_detail"
-      ],
+      "ui:dependent_option_postfix": ["_detail"],
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
       },
 
       "fatigue_tired_lack_of_ene_detail": {
-        "how_often": {
-      
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -59,22 +53,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "difficulty_concentrating_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -82,22 +74,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "headaches_or_migraines_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -105,22 +95,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "confusion_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -128,22 +116,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "memory_problems_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -151,22 +137,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "dizziness___light-headedn_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -174,22 +158,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "mood_changes_like_feeling_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -197,22 +179,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "hallucinations_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -220,22 +200,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "seizures_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -243,17 +221,16 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       }
     }
   },
- "symptoms2": {
+  "symptoms2": {
     "classNames": "symptoms",
     "symptoms_list": {
-
       "ui:order": [
         "shortness_of_breath_or_di",
         "shortness_of_breath_or_di_detail",
@@ -272,24 +249,20 @@
         "nausea___vomiting",
         "nausea___vomiting_detail"
       ],
-      "ui:dependent_option_postfix": [
-        "_detail"
-      ],
+      "ui:dependent_option_postfix": ["_detail"],
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
       },
       "cough_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -297,22 +270,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "shortness_of_breath_or_di_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -320,22 +291,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "winded_or_short_of_breath_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -343,22 +312,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "chest_pain_or_pressure_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -366,22 +333,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "fast_or_irregular_heart_b_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -389,22 +354,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "abdominal_pain_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -412,22 +375,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "diarrhea_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -435,22 +396,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "nausea___vomiting_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -458,8 +417,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       }
@@ -487,12 +446,8 @@
         "blurry_vision_detail",
         "dental_issues",
         "dental_issues_detail"
-      
-
       ],
-      "ui:dependent_option_postfix": [
-        "_detail"
-      ],
+      "ui:dependent_option_postfix": ["_detail"],
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
@@ -504,8 +459,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -513,8 +468,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
@@ -525,8 +480,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -534,8 +489,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
@@ -546,8 +501,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -555,8 +510,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
@@ -567,8 +522,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -576,8 +531,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
@@ -588,8 +543,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -597,8 +552,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
@@ -609,8 +564,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -618,8 +573,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
@@ -630,8 +585,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -639,8 +594,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
@@ -651,8 +606,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -660,8 +615,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
@@ -672,8 +627,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -681,8 +636,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       }
@@ -709,25 +664,21 @@
         "fever_chills",
         "fever_chills_detail"
       ],
-      "ui:dependent_option_postfix": [
-        "_detail"
-      ],
+      "ui:dependent_option_postfix": ["_detail"],
       "ui:widget": "checkboxes",
       "ui:options": {
         "inline": false
       },
       "cough_detail": {},
       "hair_loss_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -735,22 +686,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "rash_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -758,22 +707,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "weight_loss_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -781,22 +728,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "weight_gain_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -804,22 +749,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "difficulty_falling_or_sta_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -827,22 +770,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "sleeping_more_than_normal_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -850,22 +791,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "night_sweats_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -873,22 +812,20 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       },
       "fever_chills_detail": {
-        "how_often": {
-
-        },
+        "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Very little",
-            "maxLabel": "Very much"
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
           }
         },
         "how_has_changed": {
@@ -896,8 +833,8 @@
           "classNames": "radiorange",
           "ui:options": {
             "inline": true,
-            "minLabel": "Much worse",
-            "maxLabel": "Much better"
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
           }
         }
       }
@@ -923,6 +860,10 @@
         "none",
         "no_answer"
       ],
+      "other_specify": {
+        "ui:widget": "textarea",
+        "ui:help": "you can enter more than one condition separated by a comma"
+      },
       "classNames": "family_diseases show_fieldSet",
       "ui:widget": "checkboxes"
     }
@@ -934,7 +875,7 @@
     "positive_test": {
       "ui:widget": "radio",
 
-      "ui:description": "You will asked to upload a copy of this test after this survey."
+      "ui:description": "If you answer \"Yes\", you will be asked to upload a copy of this test after this survey."
     },
     "reinfection_date": {
       "ui:help": "Approximate date",
@@ -966,10 +907,14 @@
       "ui:widget": "radio"
     },
     "vaccine_week_ago": { "ui:widget": "radio" },
+    "vaccine_other": {
+      "classNames": "text"
+
+    },
 
     "first_dose_date": {
       "ui:widget": "CustomDateWidget",
-      "classNames": ["postLab_date_field"],
+      "classNames": "postLab_date_field",
       "ui:options": {
         "yearsRange": [2020, 2021],
         "hideNowButton": true,
@@ -995,7 +940,7 @@
     },
     "second_dose_date": {
       "ui:widget": "CustomDateWidget",
-      "classNames": ["postLab_date_field"],
+      "classNames": "postLab_date_field",
       "ui:options": {
         "yearsRange": [2020, 2021],
         "hideNowButton": true,
