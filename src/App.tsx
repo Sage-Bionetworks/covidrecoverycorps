@@ -321,7 +321,7 @@ function App() {
 
   const classes = useStyles()
 
-  const getTopClass = (location: string) => {
+  const getTopClass = (location: string, isFollowUpSurveys: boolean= false) => {
     const alertClass = !!sessionData.alert ? ' hasAlert' : ''
     const specialPages = ['survey', 'contactinfo', 'appointment']
     if (specialPages.find(page => location.toLowerCase().includes(page))) {
@@ -331,6 +331,7 @@ function App() {
     if (
       location.toLowerCase().includes('dashboard') &&
       sessionData.userDataGroup.indexOf('tests_available') === -1
+      && !isFollowUpSurveys
     ) {
       return `partialGreen${alertClass}`
     } else {
@@ -357,7 +358,7 @@ function App() {
           <div className={classes.root}>
             <CssBaseline />
             <Router>
-              <div className={getTopClass(currentLocation)}>
+              <div className={getTopClass(currentLocation, initialSurveysCompleted)}>
                 <CookieNotificationBanner />
                 <GoogleAnalyticsPageTracker />
                 <ScrollToTopOnRouteChange

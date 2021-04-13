@@ -47,7 +47,7 @@
     {
       "id": "newConditions",
       "order": 25,
-      "title": "Recent COVID-19 Experience Test",
+      "title": "",
       "orderDisplay": "6/8",
       "description": "",
 
@@ -79,7 +79,7 @@
     {
       "id": "reinfection",
       "order": 51,
-      "title": "Recent COVID-19 Experience Test",
+      "title": "",
       "orderDisplay": "7/8",
       "description": "",
 
@@ -88,7 +88,7 @@
     {
       "id": "vaccine",
       "order": 61,
-      "title": "Recent COVID-19 Experience Test",
+      "title": "",
       "orderDisplay": "8/8",
       "description": "",
 
