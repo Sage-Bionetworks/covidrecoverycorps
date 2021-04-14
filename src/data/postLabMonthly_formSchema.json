@@ -780,6 +780,10 @@
             "fever_chills": {
               "type": "boolean",
               "title": "Fever or chills"
+            },
+            "other": {
+              "type": "boolean",
+              "title": "Other"
             }
           },
           "dependencies": {
@@ -945,6 +949,31 @@
                       "enum": [true]
                     },
                     "fever_chills_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            },
+            "other": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {"required":[ "other_specify"],
+                  "properties": {
+                    "other": {
+                      "enum": [true]
+                    },
+                    "other_specify": {
+                      "title": "Please specify:",
+                      "type": "string"
+                    },
+                    "other_detail": {
                       "$ref": "#/definitions/symptomDetail"
                     }
                   }
