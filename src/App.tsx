@@ -3,6 +3,7 @@ import {
   Grid, ThemeProvider,
   Typography
 } from '@material-ui/core'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline'
 import { makeStyles } from '@material-ui/core/styles'
 import React, { useEffect, useState } from 'react'
@@ -280,7 +281,10 @@ function App() {
     )
   }
 
-  function getDashboardPage(sessionData: SessionData, isInitialSurveysCompleted: boolean) {
+  function getDashboardPage(sessionData: SessionData, isInitialSurveysCompleted: boolean) { 
+    if (isInitialSurveysCompleted === undefined) {
+      return <CircularProgress/>
+    }
     if (
       sessionData.userDataGroup.includes('tests_available') ||
       sessionData.userDataGroup.includes('tests_collected') || isInitialSurveysCompleted
