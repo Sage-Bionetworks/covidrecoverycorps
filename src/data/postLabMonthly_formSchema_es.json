@@ -780,6 +780,10 @@
             "fever_chills": {
               "type": "boolean",
               "title": "Fiebre o escalofríos"
+            },
+            "other": {
+              "type": "boolean",
+              "title": "Otro"
             }
           },
           "dependencies": {
@@ -950,7 +954,33 @@
                   }
                 }
               ]
+            },
+            "other": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {"required":[ "other_specify"],
+                  "properties": {
+                    "other": {
+                      "enum": [true]
+                    },
+                    "other_specify": {
+                      "title": "Por favor especifica:",
+                      "type": "string"
+                    },
+                    "other_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
             }
+
           }
         }
       }

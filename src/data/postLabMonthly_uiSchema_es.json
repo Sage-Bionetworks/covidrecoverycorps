@@ -662,7 +662,10 @@
         "night_sweats",
         "night_sweats_detail",
         "fever_chills",
-        "fever_chills_detail"
+        "fever_chills_detail",
+        "other",
+        "other_specify",
+        "other_detail"
       ],
       "ui:dependent_option_postfix": ["_detail"],
       "ui:widget": "checkboxes",
@@ -818,6 +821,27 @@
         }
       },
       "fever_chills_detail": {
+        "how_often": {},
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Muy poco",
+            "maxLabel": "Mucho"
+          }
+        },
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Mucho peor",
+            "maxLabel": "Mucho mejor"
+          }
+        }
+      },
+      "other_detail": {
         "how_often": {},
         "how_much_bothers": {
           "ui:widget": "RadioRangeWidget",
