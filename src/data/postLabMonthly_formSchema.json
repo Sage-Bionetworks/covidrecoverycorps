@@ -7,7 +7,8 @@
       "properties": {
         "how_often": {
           "title": "a. How often do you experience this symptom in a week? ",
-          "type": "number"
+          "type": "number",
+          "minimum": 1
         },
 
         "how_much_bothers": {
@@ -964,7 +965,8 @@
                     }
                   }
                 },
-                {"required":[ "other_specify"],
+                {
+                  "required": ["other_specify"],
                   "properties": {
                     "other": {
                       "enum": [true]
@@ -1140,11 +1142,7 @@
               }
             },
             {
-              "required": [
-                "which_vaccine",
-                "vaccine_week_ago",
-                "received_second_dose"
-              ],
+              "required": ["which_vaccine", "vaccine_week_ago"],
               "properties": {
                 "received_first_dose": {
                   "enum": ["Yes"]
@@ -1209,6 +1207,7 @@
               }
             },
             {
+              "required": ["received_second_dose"],
               "properties": {
                 "which_vaccine": {
                   "enum": ["Pfizer-BioNTech", "Moderna"]
@@ -1251,7 +1250,6 @@
             {
               "required": ["symptoms_change"],
               "properties": {
-
                 "vaccine_week_ago": {
                   "enum": ["Yes"]
                 },
@@ -1262,7 +1260,6 @@
                   "enum": ["Yes", "No", "Prefer not to answer"],
                   "enumNames": ["Yes", "No", "Prefer not to answer"]
                 }
-     
               }
             }
           ]
@@ -1300,7 +1297,7 @@
               }
             },
             {
-              "required":[ "symptoms_change_how"],
+              "required": ["symptoms_change_how"],
               "properties": {
                 "symptoms_change": {
                   "enum": ["Yes"]

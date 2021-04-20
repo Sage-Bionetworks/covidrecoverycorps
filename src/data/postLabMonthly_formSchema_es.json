@@ -7,21 +7,22 @@
       "properties": {
         "how_often": {
           "title": "a. ¿Con qué frecuencia experimenta este síntoma en una semana? ",
-          "type": "number"
+          "type": "number",
+          "minimum": 1
         },
- 
+
         "how_much_bothers": {
           "title": "b. ¿Cuánto le molesta este síntoma?",
           "type": "string",
- 
+
           "enum": ["1", "2", "3", "4", "5"],
           "enumNames": ["1", "2", "3", "4", "5"]
         },
- 
+
         "how_has_changed": {
           "title": "c. ¿Cómo ha cambiado este síntoma durante el último mes? ",
           "type": "string",
- 
+
           "enum": ["1", "2", "3", "4", "5"],
           "enumNames": ["1", "2", "3", "4", "5"]
         }
@@ -289,7 +290,7 @@
         }
       }
     },
- 
+
     "symptoms2": {
       "type": "object",
       "properties": {
@@ -509,7 +510,7 @@
         "symptoms_list": {
           "type": "object",
           "title": "4. Por favor indique si actualmente tiene alguno de los siguientes síntomas relacionados con COVID-19. (Marque todo lo que corresponda)",
- 
+
           "properties": {
             "muscle_pain_cramps_or_bod": {
               "type": "boolean",
@@ -964,7 +965,8 @@
                     }
                   }
                 },
-                {"required":[ "other_specify"],
+                {
+                  "required": ["other_specify"],
                   "properties": {
                     "other": {
                       "enum": [true]
@@ -980,7 +982,6 @@
                 }
               ]
             }
-
           }
         }
       }
@@ -997,7 +998,7 @@
               "type": "boolean",
               "title": "Enfermedad ocular"
             },
- 
+
             "high_bp": {
               "type": "boolean",
               "title": "Alta presión sanguínea"
@@ -1014,7 +1015,7 @@
               "type": "boolean",
               "title": "Ataque cardíaco"
             },
- 
+
             "diabetes": {
               "type": "boolean",
               "title": "Diabetes"
@@ -1031,7 +1032,7 @@
               "title": "Ansiedad",
               "type": "boolean"
             },
- 
+
             "other": {
               "title": "Otro",
               "type": "boolean"
@@ -1129,7 +1130,7 @@
           "enumNames": ["Sí", "No", "Prefiero no responder"]
         }
       },
- 
+
       "dependencies": {
         "received_first_dose": {
           "oneOf": [
@@ -1143,8 +1144,7 @@
             {
               "required": [
                 "which_vaccine",
-                "vaccine_week_ago",
-                "received_second_dose"
+                "vaccine_week_ago"
               ],
               "properties": {
                 "received_first_dose": {
@@ -1186,7 +1186,7 @@
                     "Prefiero no responder"
                   ]
                 },
- 
+
                 "first_dose_date": {
                   "title": "8c. ¿Cuándo fue su vacunación?",
                   "type": "string"
@@ -1195,7 +1195,7 @@
             }
           ]
         },
- 
+
         "which_vaccine": {
           "oneOf": [
             {
@@ -1210,6 +1210,7 @@
               }
             },
             {
+              "required": ["received_second_dose"],
               "properties": {
                 "which_vaccine": {
                   "enum": ["Pfizer-BioNTech", "Moderna"]
@@ -1236,7 +1237,7 @@
             }
           ]
         },
- 
+
         "vaccine_week_ago": {
           "oneOf": [
             {
@@ -1252,7 +1253,6 @@
             {
               "required": ["symptoms_change"],
               "properties": {
- 
                 "vaccine_week_ago": {
                   "enum": ["Yes"]
                 },
@@ -1263,7 +1263,6 @@
                   "enum": ["Yes", "No", "Prefer not to answer"],
                   "enumNames": ["Sí", "No", "Prefiero no contestar"]
                 }
-    
               }
             }
           ]
@@ -1290,7 +1289,7 @@
             }
           ]
         },
- 
+
         "symptoms_change": {
           "oneOf": [
             {
@@ -1301,7 +1300,7 @@
               }
             },
             {
-              "required":[ "symptoms_change_how"],
+              "required": ["symptoms_change_how"],
               "properties": {
                 "symptoms_change": {
                   "enum": ["Yes"]
@@ -1309,7 +1308,7 @@
                 "symptoms_change_how": {
                   "title": "¿Cómo cambiaron sus síntomas?",
                   "type": "string",
- 
+
                   "enum": ["1", "2", "3", "4", "5"],
                   "enumNames": ["1", "2", "3", "4", "5"]
                 }
@@ -1320,7 +1319,7 @@
       }
     }
   },
- 
+
   "type": "object",
   "properties": {
     "intro": {
@@ -1356,6 +1355,4 @@
       "$ref": "#/definitions/vaccine"
     }
   }
- }
- 
- 
+}

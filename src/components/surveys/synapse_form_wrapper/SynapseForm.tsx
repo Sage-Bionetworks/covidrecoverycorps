@@ -1013,6 +1013,7 @@ export default class SynapseForm extends React.Component<
         0,
         error.property.lastIndexOf('.'),
       )
+
       _.remove(errors, (error: AjvError) => {
         //trying to get around the cryptic error with required dependent fields
         return (
@@ -1022,7 +1023,9 @@ export default class SynapseForm extends React.Component<
         )
       })
     })
-
+    _.remove(errors, (error: AjvError) => {
+      return error.name === 'oneOf'
+    })
     return errors.map(error => {
       switch (error.name) {
         case 'required': {
