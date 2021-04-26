@@ -139,6 +139,20 @@ const useStyles = makeStyles(theme => ({
   languageIcon: {
     marginRight: theme.spacing(0.5),
   },
+  languageText: {
+    color: '#0084FF',
+    fontWeight: 'bold',
+    '&:hover': {
+      borderBottom: '1px solid #0084FF',
+      color: '#0084FF',
+    },
+  },
+  navContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 }))
 
 export const TopNav: React.FunctionComponent<TopNavProps> = props => {
@@ -339,7 +353,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
   )
 
   const fullScreenNavBar = (
-    <div style={{ display: language === 'es' ? 'flex' : 'block' }}>
+    <div className={classes.navContainer}>
       <NavLink
         to="/home"
         className={classes.fullNavBarLink}
@@ -404,7 +418,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
       )}
       <Feature toggleName={TOGGLE_NAMES.SPANISH}>
         <a
-          className={classes.fullNavBarLink}
+          className={`${classes.fullNavBarLink} ${classes.languageText}`}
           style={{ whiteSpace: 'nowrap' }}
           onClick={() => changeLanguage()}
         >
