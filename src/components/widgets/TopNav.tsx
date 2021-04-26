@@ -147,12 +147,6 @@ const useStyles = makeStyles(theme => ({
       color: '#0084FF',
     },
   },
-  navContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
 }))
 
 export const TopNav: React.FunctionComponent<TopNavProps> = props => {
@@ -353,7 +347,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
   )
 
   const fullScreenNavBar = (
-    <div className={classes.navContainer}>
+    <div style={{ display: language === 'es' ? 'flex' : 'block' }}>
       <NavLink
         to="/home"
         className={classes.fullNavBarLink}
