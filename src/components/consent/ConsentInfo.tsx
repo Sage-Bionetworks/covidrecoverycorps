@@ -1,17 +1,16 @@
-import React, { useState } from 'react'
-import FloatingToolbar from '../widgets/FloatingToolbar'
-import Button from '@material-ui/core/Button/Button'
-import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Alert from '@material-ui/lab/Alert'
+import { FormControlLabel, Radio, RadioGroup } from '@material-ui/core'
+import Button from '@material-ui/core/Button/Button'
 import Switch from '@material-ui/core/Switch/Switch'
-import ConsentCopy, { StepInfo, SCREENS_ENUM } from './ConsentCopy'
-import BlueSeparator from '../static/BlueSeparator'
-import { RadioGroup, FormControlLabel, Radio } from '@material-ui/core'
-import ConsentIcons from './ConsentIcons'
-import { useTranslation } from 'react-i18next'
-import i18next from 'i18next'
+import Alert from '@material-ui/lab/Alert'
+import React, { useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
 import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
+import BlueSeparator from '../static/BlueSeparator'
+import FloatingToolbar from '../widgets/FloatingToolbar'
+import ConsentCopy, { SCREENS_ENUM, StepInfo } from './ConsentCopy'
+import ConsentIcons from './ConsentIcons'
 
 type ConsentInfoProps = {
   onDone: Function
@@ -19,32 +18,23 @@ type ConsentInfoProps = {
 const quizes = [
   {
     screen: 2,
-    title: i18next.t('consentinfo.screen3.text1'),
-    options: [
-      i18next.t('consentinfo.screen3.text2'),
-      i18next.t('consentinfo.screen3.text3'),
-    ],
-    explanation: i18next.t('consentinfo.screen3.text4'),
+    title: 'consentinfo.screen3.text1',
+    options: ['consentinfo.screen3.text2', 'consentinfo.screen3.text3'],
+    explanation: 'consentinfo.screen3.text4',
     correctAnswer: 1,
   },
   {
     screen: 5,
-    title: i18next.t('consentinfo.screen6.text1'),
-    options: [
-      i18next.t('consentinfo.screen6.text2'),
-      i18next.t('consentinfo.screen6.text3'),
-    ],
-    explanation: i18next.t('consentinfo.screen6.text4'),
+    title: 'consentinfo.screen6.text1',
+    options: ['consentinfo.screen6.text2', 'consentinfo.screen6.text3'],
+    explanation: 'consentinfo.screen6.text4',
     correctAnswer: 0,
   },
   {
     screen: 8,
-    title: i18next.t('consentinfo.screen9.text1'),
-    options: [
-      i18next.t('consentinfo.screen9.text2'),
-      i18next.t('consentinfo.screen9.text3'),
-    ],
-    explanation: i18next.t('consentinfo.screen9.text4'),
+    title: 'consentinfo.screen9.text1',
+    options: ['consentinfo.screen9.text2', 'consentinfo.screen9.text3'],
+    explanation: 'consentinfo.screen9.text4',
     correctAnswer: 1,
   },
 ]
@@ -148,7 +138,10 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     const quiz = quizes[quizIndex]
     const content = (
       <div>
-        <h3 style={{ marginBottom: '2rem' }}>{quiz.title}</h3>
+        <h3 style={{ marginBottom: '2rem' }}>
+          <Trans i18nKey={quiz.title}>[trans]</Trans>
+        </h3>
+
         {quizAnswers[quizIndex] !== undefined && (
           <Alert
             style={{
@@ -165,8 +158,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
               quizAnswers[quizIndex] === quiz.correctAnswer ? 'info' : 'error'
             }
           >
-            {' '}
-            {quiz.explanation}
+            <Trans i18nKey={quiz.explanation}>[trans]</Trans>
           </Alert>
         )}
         <BlueSeparator></BlueSeparator>
@@ -185,13 +177,13 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
             className={getQuizButtonClass(quiz.correctAnswer, 0)}
             value="0"
             control={<Radio />}
-            label={quiz.options[0]}
+            label={<Trans i18nKey={quiz.options[0]}>[trans]</Trans>}
           />
           <FormControlLabel
             className={getQuizButtonClass(quiz.correctAnswer, 1)}
             value="1"
             control={<Radio />}
-            label={quiz.options[1]}
+            label={<Trans i18nKey={quiz.options[1]}>[trans]</Trans>}
           />
         </RadioGroup>
       </div>
@@ -213,12 +205,11 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
           className="FloatingToolbar__toggle__text"
           onClick={() => setIsFullText(false)}
         >
-             {t('consentinfo.summary')}
-
+          {t('consentinfo.summary')}
         </span>
         <Switch
           color="primary"
-          inputProps={{ 'aria-label':   t('consentinfo.consentSummaryToggle') }}
+          inputProps={{ 'aria-label': t('consentinfo.consentSummaryToggle') }}
           checked={isFullText}
           size="small"
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
@@ -229,7 +220,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
           className="FloatingToolbar__toggle__text"
           onClick={() => setIsFullText(true)}
         >
-             {t('consentinfo.fullText')}
+          {t('consentinfo.fullText')}
         </span>
       </div>
     )
