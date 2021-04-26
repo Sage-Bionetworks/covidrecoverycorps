@@ -82,6 +82,7 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       textDecoration: 'none',
       color: '#2E2E2E',
+      fontWeight: 'bold',
     },
     '&:focus': {
       textDecoration: 'none',
@@ -141,9 +142,9 @@ const useStyles = makeStyles(theme => ({
   },
   languageText: {
     color: '#0084FF',
-    fontWeight: 'bold',
+    fontFamily: openSansFont,
     '&:hover': {
-      borderBottom: '1px solid #0084FF',
+      fontWeight: 'bold',
       color: '#0084FF',
     },
   },
