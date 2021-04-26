@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import ConsentInfo from './ConsentInfo'
-import useForm from '../useForm'
-import moment from 'moment'
-import Button from '@material-ui/core/Button/Button'
-import TextField from '@material-ui/core/TextField/TextField'
 import {
-  Checkbox,
-  FormControlLabel,
-  RadioGroup,
-  Radio,
   Card,
   CardContent,
+  Checkbox,
   CircularProgress,
+  FormControlLabel,
+  Radio,
+  RadioGroup
 } from '@material-ui/core'
+import Button from '@material-ui/core/Button/Button'
+import TextField from '@material-ui/core/TextField/TextField'
 import Alert from '@material-ui/lab/Alert/Alert'
-import ConsentCopy, { SCREENS_ENUM } from './ConsentCopy'
-import { Redirect } from 'react-router-dom'
-import FloatingToolbar from '../widgets/FloatingToolbar'
-import { ConsentService } from '../../services/consent.service'
-import LearnMore from '../widgets/LearnMore'
-import ConsentSentConfirmation from './ConsentSentConfirmation'
-import { UserService } from '../../services/user.service'
-import { useSessionDataState, useSessionDataDispatch } from '../../AuthContext'
-import { useTranslation, Trans } from 'react-i18next'
 import i18next from 'i18next'
+import moment from 'moment'
 import 'moment/locale/es'
+import React, { useEffect, useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
+import { Redirect } from 'react-router-dom'
+import { useSessionDataDispatch, useSessionDataState } from '../../AuthContext'
+import { ConsentService } from '../../services/consent.service'
+import { UserService } from '../../services/user.service'
+import useForm from '../useForm'
+import FloatingToolbar from '../widgets/FloatingToolbar'
+import LearnMore from '../widgets/LearnMore'
+import ConsentCopy, { SCREENS_ENUM } from './ConsentCopy'
+import ConsentInfo from './ConsentInfo'
+import ConsentSentConfirmation from './ConsentSentConfirmation'
 
 export type ConsentProps = {
   token: string
@@ -127,25 +127,19 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
       <div>
         <h2>{t('consent.hipaaText1')}</h2>
         <p>
-          <Trans i18nKey = "consent.hipaaText2">
-          [translate]
-          <strong>[translate]</strong>.
+          <Trans i18nKey="consent.hipaaText2">
+            [translate]
+            <strong>[translate]</strong>.
           </Trans>
         </p>
 
-        <LearnMore learnMoreText={t("consent.hipaaReview")}>
+        <LearnMore learnMoreText={t('consent.hipaaReview')}>
           <div>
-          <Trans i18nKey = "consent.hipaaText3">
-            <p>
-            [translate]
-            </p>
-            <p>
-            [translate]
-            </p>
-            <p>
-            [translate]</p>
-            <p>
-            [translate]</p>
+            <Trans i18nKey="consent.hipaaText3">
+              <p>[translate]</p>
+              <p>[translate]</p>
+              <p>[translate]</p>
+              <p>[translate]</p>
             </Trans>
           </div>
         </LearnMore>
@@ -182,7 +176,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
           color="primary"
           onClick={() => setIsConsentDone(true)}
         >
-          {t("common.submit")}
+          {t('common.submit')}
         </Button>
       </div>
     )
@@ -218,9 +212,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   <FloatingToolbar
                     closeLinkDestination="/home?alert=CANCELLED_CONSENT"
                     closeLinkText=""
-                    closeConfirmationText={t("closeConfirmationText")}
+                    closeConfirmationText={t('closeConfirmationText')}
                   >
-                    {t("consent.consentSignature")}
+                    {t('consent.consentSignature')}
                   </FloatingToolbar>
                 </div>
 
@@ -246,7 +240,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     screen={SCREENS_ENUM.CONSENT_SHARING}
                   ></ConsentCopy>
                 </div>
-                <LearnMore learnMoreText={t("common.learnMore")}>
+                <LearnMore learnMoreText={t('common.learnMore')}>
                   <div>
                     <p>{i18next.t('consentinfo.learnMoreScreen15.text1')}</p>
                     <p>{i18next.t('consentinfo.learnMoreScreen15.text2')}</p>
@@ -356,9 +350,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   <FloatingToolbar
                     closeLinkDestination="/home?alert=CANCELLED_CONSENT"
                     closeLinkText=""
-                    closeConfirmationText= {t("closeConfirmationText")}
+                    closeConfirmationText={t('closeConfirmationText')}
                   >
-                       {t("consent.consentSignature")}
+                    {t('consent.consentSignature')}
                   </FloatingToolbar>
                 </div>
 
