@@ -378,7 +378,7 @@ class SurveyWrapperComponent extends React.Component<
     }
 
     try {
-      await SurveyService.postUserSurvey(savedSurveys, this.props.token)
+      await SurveyService.postUserSurvey(savedSurveys, this.props.token, this.props.surveyName)
 
       // this.setState({ is true })
       this.finishedProcessing(StatusEnum.SAVE_SUCCESS, 'File Saved')
@@ -420,6 +420,9 @@ class SurveyWrapperComponent extends React.Component<
           'employer.home_phone',
           'employer.employment_address',
         ])
+        const metadata = data.metadata || {}
+        data.metadata={...metadata, completed: (new Date()).toLocaleDateString()}
+        rawData.metadata={...metadata, completed: (new Date()).toLocaleDateString()}
       }
     }
     try {

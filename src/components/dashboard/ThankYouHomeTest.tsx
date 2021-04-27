@@ -1,15 +1,13 @@
-import React, { FunctionComponent, useRef, useState } from 'react'
-import { LoggedInUserData } from '../../types/types'
-
-import iconCheckMark from '../../assets/dashboard/icon_whoohoo.svg'
-import i18next from 'i18next'
-import { Trans, useTranslation } from 'react-i18next'
-import i18n from '../../i18n'
-
+import { Box } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import Dialog from '@material-ui/core/Dialog'
+import IconButton from '@material-ui/core/IconButton'
+import CloseIcon from '@material-ui/icons/Close'
+import React, { FunctionComponent, useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
+import iconCheckMark from '../../assets/dashboard/icon_whoohoo.svg'
+import { LoggedInUserData } from '../../types/types'
 import SurveyWrapper from '../surveys/SurveyWrapper'
-import { Box } from '@material-ui/core'
 
 type ThankYouHomeTestProps = {
   token: string
@@ -59,8 +57,13 @@ const ThankYouHomeTest: FunctionComponent<ThankYouHomeTestProps> = ({
             <h2>[translate]</h2>
             <p>[translate]</p>
           </Trans>
-          <Box display="flex" justifyContent="space-between" paddingTop="16px" paddingBottom="32px">
-            <Box textAlign="left" fontWeight="bold" >
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            paddingTop="16px"
+            paddingBottom="32px"
+          >
+            <Box textAlign="left" fontWeight="bold">
               <span>{`${userInfo.attributes.address1} ${
                 userInfo.attributes.address2 ? userInfo.attributes.address2 : ''
               }`}</span>
@@ -71,7 +74,7 @@ const ThankYouHomeTest: FunctionComponent<ThankYouHomeTestProps> = ({
             <Button
               variant="outlined"
               color="primary"
-              style={{minWidth: "120px"}}
+              style={{ minWidth: '120px' }}
               onClick={() => setIsShowingDialog(true)}
             >
               {t('common.edit')}
@@ -98,7 +101,14 @@ const ThankYouHomeTest: FunctionComponent<ThankYouHomeTestProps> = ({
         scroll={'paper'}
         aria-labelledby="form-dialog-title"
       >
-        <Box padding="30px">
+        <IconButton
+          aria-label="close"
+          style={{ position: 'absolute', top: '0px', right: '0px' }}
+          onClick={handleClose}
+        >
+          <CloseIcon />
+        </IconButton>
+        <Box padding="30px" minWidth="400px">
           <div ref={topRef}></div>
 
           <SurveyWrapper

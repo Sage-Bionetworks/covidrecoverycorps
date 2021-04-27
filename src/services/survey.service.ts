@@ -1,5 +1,6 @@
 //import { authHeader } from '../_helpers';
 import * as _ from 'lodash'
+import moment from 'moment'
 import { callEndpoint } from '../helpers/utility'
 import {
   ENDPOINT,
@@ -65,13 +66,14 @@ async function postToHealthData(
 async function postUserSurvey(
   data: SavedSurveysObject,
   token: string,
+  surveyType: SurveyType
 ): Promise<any> {
   const postData = {
     dateTime: SURVEY_TIME_CONSTANT,
     data: data,
   }
   // we handle monthly reports differrent
-  const endpoint = data.surveys.find(s => s.type.includes('_MONTHLY'))
+  const endpoint = surveyType.includes('_MONTHLY')
     ? getMonthlySurveyEndpoint()
     : `${ENDPOINT}${SURVEY_ENDPOINT}`
 
@@ -141,7 +143,7 @@ async function saveSurvey(
     }
   }
 
-  await SurveyService.postUserSurvey(savedSurveys, token)
+  await SurveyService.postUserSurvey(savedSurveys, token, surveyType)
 
   return
 }
