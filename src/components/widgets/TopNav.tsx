@@ -81,6 +81,7 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       textDecoration: 'none',
       color: '#2E2E2E',
+      fontWeight: 'bold',
     },
     '&:focus': {
       textDecoration: 'none',
@@ -137,6 +138,14 @@ const useStyles = makeStyles(theme => ({
   },
   languageIcon: {
     marginRight: theme.spacing(0.5),
+  },
+  languageText: {
+    color: '#0084FF',
+    fontFamily: openSansFont,
+    '&:hover': {
+      fontWeight: 'bold',
+      color: '#0084FF',
+    },
   },
 }))
 
@@ -403,7 +412,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
       )}
       <Feature toggleName={TOGGLE_NAMES.SPANISH}>
         <a
-          className={classes.fullNavBarLink}
+          className={`${classes.fullNavBarLink} ${classes.languageText}`}
           style={{ whiteSpace: 'nowrap' }}
           onClick={() => changeLanguage()}
         >
