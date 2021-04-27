@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
-import btnClose from '../../assets/btn_close.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from '@material-ui/core'
+import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import btnClose from '../../assets/btn_close.svg'
+import LanguageIcon from '../../assets/language_icon.svg'
+import i18n from '../../i18n'
 import ConfirmationModal from './ConfirmationModal'
-import { useTranslation} from 'react-i18next'
 
 type FloatingToolbarProps = {
   closeLinkDestination: string
@@ -16,17 +18,26 @@ type FloatingToolbarProps = {
 
 export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = props => {
   const [top, setTop] = useState('0px')
+  const [language, setLanguage] = React.useState(i18n.language)
   const [
     isShowingCancelConfirmation,
     setIsShowingCancelConfirmation,
   ] = useState(false)
   const [isCanceled, setIsCancelled] = useState(false)
-  const {t} = useTranslation()
+  const { t } = useTranslation()
 
   if (isCanceled) {
     // TopNav does not read the new search param when using the optimized react router redirect, so replacing for now :(
     window.location.href = props.closeLinkDestination
     // return <Redirect to={props.closeLinkDestination}></Redirect>
+  }
+
+  const changeLanguage = () => {
+    const newLanguage = i18n.language === 'es' ? 'en' : 'es'
+    window.localStorage.setItem('appUILang', newLanguage)
+
+    //  i18n.changeLanguage(newLanguage)
+    window.location.reload()
   }
 
   return (
@@ -37,7 +48,8 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = pr
       <div className="row" style={{ position: 'relative', marginTop: '17px' }}>
         {
           <div style={{ position: 'absolute', left: '20px', zIndex: 999 }}>
-            <Link data-cy="close-toolbar"
+            <Link
+              data-cy="close-toolbar"
               onClick={() => {
                 if (props.closeConfirmationText) {
                   setIsShowingCancelConfirmation(true)
@@ -63,6 +75,15 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = pr
         <div className="col-md-offset-1 col-md-10">
           <div className="row">
             <div className="text-center">{props.children}</div>
+            <div
+              style={{ cursor: 'pointer' }}
+              onClick={() => {
+                changeLanguage()
+              }}
+            >
+              <img src={LanguageIcon} style={{ marginRight: '4px' }}></img>
+              {language === 'es' ? 'in English' : 'en español'}
+            </div>
           </div>
         </div>
       </div>
