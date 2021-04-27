@@ -1,6 +1,7 @@
 import {
   createMuiTheme,
-  Grid, ThemeProvider,
+  Grid,
+  ThemeProvider,
   Typography
 } from '@material-ui/core'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -9,7 +10,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import React, { useEffect, useState } from 'react'
 import {
   BrowserRouter as Router,
-  Redirect, Route, Switch
+  Redirect,
+  Route,
+  Switch
 } from 'react-router-dom'
 import { useSessionDataDispatch, useSessionDataState } from './AuthContext'
 import AcountSettings from './components/AccountSettings'
@@ -211,7 +214,10 @@ function App() {
       if (token && isSubscribed) {
         try {
           const userInfo = await UserService.getUserInfo(token)
-          const isCompleted = await SurveyService.isInitialSurveysCompleted(token, userInfo.data)
+          const isCompleted = await SurveyService.isInitialSurveysCompleted(
+            token,
+            userInfo.data,
+          )
           setInitialSurveysCompleted(isCompleted)
           setUserSession(
             token,
@@ -281,16 +287,23 @@ function App() {
     )
   }
 
-  function getDashboardPage(sessionData: SessionData, isInitialSurveysCompleted: boolean) { 
+  function getDashboardPage(
+    sessionData: SessionData,
+    isInitialSurveysCompleted: boolean,
+  ) {
+    const justFinishedSurveys = window.location.search.includes('just_finished')
     if (isInitialSurveysCompleted === undefined) {
-      return <CircularProgress/>
+      return <CircularProgress />
     }
+
     if (
       sessionData.userDataGroup.includes('tests_available') ||
-      sessionData.userDataGroup.includes('tests_collected') || isInitialSurveysCompleted
+      sessionData.userDataGroup.includes('tests_collected') ||
+      (isInitialSurveysCompleted && !justFinishedSurveys)
     ) {
       return renderWithWiderGridLayout(<ResultDashboard token={token || ''} />)
     }
+
     /* once we know the new condition -- show the testKitShipped page
     if (sessionData.userDataGroup.includes('tests_scheduled')) {
       return renderWithGridLayout(<TestKitShipped token={token || ''} />)
@@ -298,6 +311,7 @@ function App() {
     if (sessionData.userDataGroup.includes('tests_scheduled')) {
       return renderWithGridLayout(<Appointment token={token || ''} />)
     }
+
     return renderWithGridLayout(<Dashboard token={token || ''} />)
   }
 
@@ -325,7 +339,10 @@ function App() {
 
   const classes = useStyles()
 
-  const getTopClass = (location: string, isFollowUpSurveys: boolean= false) => {
+  const getTopClass = (
+    location: string,
+    isFollowUpSurveys: boolean = false,
+  ) => {
     const alertClass = !!sessionData.alert ? ' hasAlert' : ''
     const specialPages = ['survey', 'contactinfo', 'appointment']
     if (specialPages.find(page => location.toLowerCase().includes(page))) {
@@ -334,8 +351,8 @@ function App() {
     //dashboard is green for users to haven't tested
     if (
       location.toLowerCase().includes('dashboard') &&
-      sessionData.userDataGroup.indexOf('tests_available') === -1
-      && !isFollowUpSurveys
+      sessionData.userDataGroup.indexOf('tests_available') === -1 &&
+      !isFollowUpSurveys
     ) {
       return `partialGreen${alertClass}`
     } else {
@@ -362,7 +379,12 @@ function App() {
           <div className={classes.root}>
             <CssBaseline />
             <Router>
-              <div className={getTopClass(currentLocation, initialSurveysCompleted)}>
+              <div
+                className={getTopClass(
+                  currentLocation,
+                  initialSurveysCompleted,
+                )}
+              >
                 <CookieNotificationBanner />
                 <GoogleAnalyticsPageTracker />
                 <ScrollToTopOnRouteChange
@@ -529,7 +551,7 @@ function App() {
                       <PrivacyPolicy />
                     </Route>
                     <Route path="/generateMonthlySurvey">
-                      <MonthlyGenerator/>
+                      <MonthlyGenerator />
                     </Route>
 
                     <Route path="/settings">

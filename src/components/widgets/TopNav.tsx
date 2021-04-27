@@ -1,35 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { makeStyles } from '@material-ui/core/styles'
-import Logout from '../login/Logout'
-
-import btnClose from '../../assets/btn_close_dark.svg'
 import {
-  ListItem,
-  List,
-  Divider,
-  Hidden,
-  Grid,
   Button,
+  Divider,
+  Grid,
+  Hidden,
   Link,
+  List,
+  ListItem
 } from '@material-ui/core'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Drawer from '@material-ui/core/Drawer'
 import IconButton from '@material-ui/core/IconButton'
+import { makeStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Alert from '@material-ui/lab/Alert'
-import { openSansFont } from '../../App'
-import { getSearchParams } from '../../helpers/utility'
-import { useSessionDataState, useSessionDataDispatch } from '../../AuthContext'
-import GlobalAlertCopy from './GlobalAlertCopy'
-import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
-import i18n from '../../i18n'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Feature, TOGGLE_NAMES } from '../../helpers/FeatureToggle'
+import { NavLink } from 'react-router-dom'
+import { openSansFont } from '../../App'
+import btnClose from '../../assets/btn_close_dark.svg'
+import { ReactComponent as CovidRecoveryCorpsLogo } from '../../assets/CovidRecoveryCorpsLogo.svg'
 import LanguageIcon from '../../assets/language_icon.svg'
+import { useSessionDataDispatch, useSessionDataState } from '../../AuthContext'
+import { Feature, TOGGLE_NAMES } from '../../helpers/FeatureToggle'
+import { getSearchParams } from '../../helpers/utility'
+import i18n from '../../i18n'
+import Logout from '../login/Logout'
+import GlobalAlertCopy from './GlobalAlertCopy'
 
 type TopNavProps = {
   token: string | undefined
@@ -76,7 +75,7 @@ const useStyles = makeStyles(theme => ({
   fullNavBarLink: {
     fontFamily: openSansFont,
     color: '#2E2E2E',
-    marginLeft: 30,
+    marginLeft: 25,
     paddingBottom: 7,
     fontWeight: 400,
     '&:hover': {
