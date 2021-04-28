@@ -1,33 +1,31 @@
-import React, { useState } from 'react'
 import {
-  APP_ID,
-  EmailSigninParams,
-  LoggedInUserData,
-  SignInData,
-  SignInDataPhone,
-  SignInDataEmail,
-  LoginType,
-  Response,
-  ENDPOINT,
-} from '../../types/types'
-import { callEndpoint, makePhone } from '../../helpers/utility'
-
-import Button from '@material-ui/core/Button'
-import SignInWithCode from './SignInWithCode'
-import TextField from '@material-ui/core/TextField/TextField'
-
-import { RouteComponentProps } from 'react-router-dom'
-import Alert from '@material-ui/lab/Alert/Alert'
-import {
-  Tabs,
-  Tab,
   Card,
   CardContent,
   CircularProgress,
+  Tab,
+  Tabs
 } from '@material-ui/core'
-
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField/TextField'
+import Alert from '@material-ui/lab/Alert/Alert'
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { RouteComponentProps } from 'react-router-dom'
 import { useSessionDataDispatch, useSessionDataState } from '../../AuthContext'
+import { callEndpoint, makePhone } from '../../helpers/utility'
+import i18n from '../../i18n'
+import {
+  APP_ID,
+  EmailSigninParams,
+  ENDPOINT,
+  LoggedInUserData,
+  LoginType,
+  Response,
+  SignInData,
+  SignInDataEmail,
+  SignInDataPhone
+} from '../../types/types'
+import SignInWithCode from './SignInWithCode'
 
 export interface OwnLoginProps {
   redirectUrl?: string // will redirect here after a successful login. if unset, reload the current page url.
@@ -75,7 +73,11 @@ export const Login: React.FunctionComponent<LoginProps> = ({
   const handleLoggedIn = async (loggedIn: Response<LoggedInUserData>) => {
     const consented = loggedIn.status !== 412
     if (loggedIn.ok || !consented) {
-      console.log('handleLogin')
+      const languages = loggedIn.data.languages
+      const language = languages[0]
+      window.localStorage.setItem('appUILang', language)
+      i18n.changeLanguage(language)
+      
       sessionUpdateFn({
         type: 'LOGIN',
         payload: {
@@ -122,11 +124,11 @@ export const Login: React.FunctionComponent<LoginProps> = ({
       if (searchParams?.email) {
         const email = decodeURIComponent(searchParams.email)
         const token = decodeURIComponent(searchParams.token)
-       
+
         let postData: LoginPostData = {
           appId: APP_ID,
           email,
-          token
+          token,
         }
         signIn(postData)
       }
