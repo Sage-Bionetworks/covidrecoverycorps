@@ -390,6 +390,7 @@
     "text11": "Encuestas mínimas requeridas para invitaciones al laboratorio",
     "min": "minutos",
     "thankYou": {
+      "selectedHomeTestText": "<0>Dirección postal para el kit para el hogar</0><1>En caso de ser seleccionado, le enviaremos el kit por correo a esta dirección a continuación. Edítela si es necesario antes de enviar su encuesta.</1>",
       "surveysDoneTitle": "¡Gracias por completar las encuestas!",
       "surveysDoneText": "<0>¡Ahora usted califica para la lista de espera de la prueba de anticuerpos!</0><0> Para recibir una tarjeta de regalo, deberá ser invitado a una prueba de anticuerpos y proporcionar una muestra biológica.</0><0> En este momento no podemos garantizar invitaciones de prueba para todos los participantes.</0>",
       "selectedTestText": "<0> Si es seleccionado para recibir una prueba de anticuerpos, recibirá un correo electrónico.</0>",
@@ -724,11 +725,10 @@
     "instructionHeader": "Instrucciones para la recolección de muestras de sangre"
   },
   "monthlySurvey": {
-    "title": "Encuestas de seguimiento",
+    "title": "Et après?",
     "text1": "Debido a que el virus es nuevo, aún no estamos seguros de cuáles son las consecuencias a largo plazo de estar infectado. Vamos a pedir a los participantes como usted que respondan preguntas rápidas periódicamente durante el próximo año.",
     "text2": "Será importante escuchar cómo se encuentra, incluso si está completamente recuperado de COVID-19, para comprender mejor las formas en que el virus afecta el cuerpo y aprender cómo ayudar mejor a las personas que se recuperan de la infección.",
     "surveyCTA": "Realice encuestas de seguimiento",
     "uploadDescription": "<0>Ha respondido que ha tenido una prueba de hisopo nasal positiva</0> <0>Sube una copia de los resultados de tu prueba.</0> <0> El documento de resultado de la prueba puede ser un .jpeg, pdf, .png, or a .tiff.</0>"
-    
   }
 }

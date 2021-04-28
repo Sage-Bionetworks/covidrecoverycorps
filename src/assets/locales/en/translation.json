@@ -393,7 +393,6 @@
       "surveysDoneTitle": "Thank you for completing the surveys!",
       "surveysDoneText": "<0>You now qualify for the antibody test waitlist!</0><0>To receive a gift card, you will need to be invited to an antibody test and provide a biosample.</0><0>We cannot guarantee testing invites for all participants at this time.</0><0>Please note that at-home test kits won’t be available until after December 2020.</0>",
       "selectedHomeTestText": "<0>Mailing Address for Home Kit</0><1>Should you be selected, we will be mailing the kit to this address below. Please edit if necessary before submitting your survey. </1>",
-
       "selectedTestText": "<0>If you are selected to receive an antibody test, you will receive an email. </0>",
       "selectedNoTestTitle": "Thank you for your contribution to the COVID Recovery Corps Study!",
       "selectedNoTestText": "<0>As we learn more, we will provide updates on the results of the study in newsletters, online presentations, and community meetings.</0>",
@@ -728,11 +727,10 @@
     "instructionHeader": "Blood Sample Collection Instructions"
   },
   "monthlySurvey": {
-    "title": "Follow up surveys",
+    "title": "What's next?",
     "text1": "Because the virus is new, we are not sure yet what the long-term consequences of being infected are. We are going to ask participants like you to answer quick questions periodically over the next year.",
     "text2": "It will be important to hear how you are doing, even if you are completely recovered from COVID-19, to better understand the ways in which the virus affects the body and learn how to best support people recovering from the infection.",
     "surveyCTA": "Take follow up surveys",
     "uploadDescription": "<0>You've answered that you've had a positive Nasal Swab test</0> <0>Please upload a copy of your test results.</0> <0> The test result document can be a .jpeg, pdf, .png, or a .tiff.</0>"
-    
   }
 }
