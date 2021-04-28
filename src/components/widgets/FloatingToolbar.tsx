@@ -1,12 +1,32 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from '@material-ui/core'
+import { Link, makeStyles } from '@material-ui/core'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { openSansFont } from '../../App'
 import btnClose from '../../assets/btn_close.svg'
 import LanguageIcon from '../../assets/language_icon.svg'
 import i18n from '../../i18n'
 import ConfirmationModal from './ConfirmationModal'
+
+const useStyles = makeStyles(theme => ({
+  languageIcon: {
+    marginRight: theme.spacing(0.5),
+  },
+  languageText: {
+    display: 'none',
+    color: '#0084FF',
+    cursor: 'pointer',
+    position: 'absolute',
+    top: '0',
+    right: '25px',
+    fontFamily: openSansFont,
+    '&:hover': {
+      fontWeight: 'bold',
+      color: '#0084FF',
+    },
+  },
+}))
 
 type FloatingToolbarProps = {
   closeLinkDestination: string
@@ -18,6 +38,7 @@ type FloatingToolbarProps = {
 
 export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = props => {
   const [top, setTop] = useState('0px')
+  const classes = useStyles()
   const [language, setLanguage] = React.useState(i18n.language)
   const [
     isShowingCancelConfirmation,
@@ -32,12 +53,13 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = pr
     // return <Redirect to={props.closeLinkDestination}></Redirect>
   }
 
-  const changeLanguage = () => {
-    const newLanguage = i18n.language === 'es' ? 'en' : 'es'
-    window.localStorage.setItem('appUILang', newLanguage)
+  React.useEffect(() => {
+    setLanguage(i18n.language)
+  }, [i18n.language])
 
-    //  i18n.changeLanguage(newLanguage)
-    window.location.reload()
+  const changeLanguage = (newLanguage: string) => {
+    window.localStorage.setItem('appUILang', newLanguage)
+    i18n.changeLanguage(newLanguage)
   }
 
   return (
@@ -75,16 +97,16 @@ export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = pr
         <div className="col-md-offset-1 col-md-10">
           <div className="row">
             <div className="text-center">{props.children}</div>
-            <div
-              style={{ cursor: 'pointer' }}
-              onClick={() => {
-                changeLanguage()
-              }}
-            >
-              <img src={LanguageIcon} style={{ marginRight: '4px' }}></img>
-              {language === 'es' ? 'in English' : 'en español'}
-            </div>
           </div>
+        </div>
+        <div
+          className={classes.languageText}
+          onClick={() => {
+            changeLanguage(language === 'es' ? 'en' : 'es')
+          }}
+        >
+          <img src={LanguageIcon} style={{ marginRight: '4px' }}></img>
+          {language === 'es' ? 'in English' : 'en español'}
         </div>
       </div>
       {isShowingCancelConfirmation && (
