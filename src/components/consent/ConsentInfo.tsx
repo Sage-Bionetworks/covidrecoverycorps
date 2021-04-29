@@ -57,7 +57,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     return <ConsentCopy stepInfo={stepInfo}></ConsentCopy>
   }
 
-  const getStatic = (step: number, fullText: boolean): JSX.Element => {
+  const Static: React.FunctionComponent<{step: number, fullText: boolean}> = ({step, fullText}: {step: number, fullText: boolean}): JSX.Element => {
     const quiz = quizes.find(quiz => quiz.screen === step)
     if (quiz) {
       return <></>
@@ -264,7 +264,7 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
                 ></img>
               )}
             </div>
-            {getStatic(currentStep, isFullText)}
+            <Static step={currentStep} fullText={isFullText}></Static>
             {getQuiz(currentStep)}
             {getNavButtons(currentStep)}
           </div>
