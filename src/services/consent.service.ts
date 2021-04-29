@@ -1,8 +1,7 @@
-import { ENDPOINT, LoggedInUserData } from '../types/types'
-import { Response } from '../types/types'
-import { callEndpoint } from '../helpers/utility'
-import moment from 'moment'
 import i18n from 'i18next'
+import moment from 'moment'
+import { callEndpoint } from '../helpers/utility'
+import { ENDPOINT, LoggedInUserData, Response } from '../types/types'
 
 const SHARE_SCOPE_PARTNERS = 'sponsors_and_partners'
 const SHARE_SCOPE_ALL = 'all_qualified_researchers'
@@ -46,6 +45,21 @@ async function updateMySharingScope(
   return result
 }
 
+async function updateMyLanguage(
+  token: string,
+): Promise<Response<LoggedInUserData>> {
+  const data = {
+    languages: [i18n.language],
+  }
+  const result = await callEndpoint<LoggedInUserData>(
+    `${ENDPOINT}/v3/participants/self`,
+    'POST',
+    data,
+    token,
+  )
+  return result
+}
+
 async function signGeneralConsent(
   name: string,
   scope: string,
@@ -56,14 +70,21 @@ async function signGeneralConsent(
     scope,
     signedOn: moment().toLocaleString(),
   }
-
-  const result = await callEndpoint(
-    `${ENDPOINT}/v3/subpopulations/${getSubpopGuid()}/consents/signature`,
-    'POST',
-    data,
-    token,
-  )
-  return result
+  const endpnt = `${ENDPOINT}/v3/subpopulations/${getSubpopGuid()}/consents/signature`
+  try {
+    const result = await callEndpoint(endpnt, 'POST', data, token)
+    return result
+  } catch (e) {
+    //signing consent in wrong language. Change the prference
+    if (e.statusCode === 404 && e.entityClass === 'Subpopulation') {
+      const update = await updateMyLanguage(token)
+      //try again
+      const result = await callEndpoint(endpnt, 'POST', data, token)
+      return result
+    } else {
+      throw e
+    }
+  }
 }
 
 async function signEhrConsent(

@@ -84,6 +84,8 @@ export interface LoggedInUserData extends UserData {
   sharingScope: string
   dataGroups: UserDataGroup[]
   id: string
+  consentStatuses: StringDictionary
+  languages: string[]
 }
 
 export interface RegistrationData {
