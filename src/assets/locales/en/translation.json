@@ -112,7 +112,7 @@
     },
     "screen10": {
       "text1": "Who can answer my questions?",
-      "text2": "<0>For general questions,</0> please contact the COVID Recovery Corps study at 212-305-5700 (24 hours) or <2> COVIDRecoveryCorps@cumc.columbia.edu </2>",
+      "text2": "<0>For general questions,</0> please contact the COVID Recovery Corps study at 212-305-5700 or <2> COVIDRecoveryCorps@cumc.columbia.edu </2>",
       "text3": "<0> For questions about your rights as a research participant, concerns or complaints, </0> please contact Western IRB (WIRB) at <2>help@WIRB.com</2> at 360-252-2500 or toll-free at 800-562-4789."
     },
     "screen11": {
@@ -269,12 +269,12 @@
     },
     "screen10": {
       "text1": "Will I receive any form of compensation for participating in the study?",
-      "text2": "You will be given a <1>$50 gift card</1> if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a <1>$20 gift card</1>.",
+      "text2": "You will be given a <1>$50 gift card</1> if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit, you will receive a <1>$20 gift card</1>.",
       "text3": "You will not receive any profit from this or future research."
     },
     "fullTextScreen10": {
       "text1": "Will I receive any form of compensation for participating in the study?",
-      "text2": "You will be given a $50 gift card if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit will receive a $20 gift card.",
+      "text2": "You will be given a $50 gift card if you complete all of the surveys and provide biosamples in person. If you complete all your surveys and provide a biosample with an at-home kit, you will receive a $20 gift card.",
       "text3": "Researchers will use your data to make discoveries. If any of their studies lead to new tests, drugs, or other commercial products, you will not get any profits. These inventions will be the property of the researchers who develop them."
     },
     "screen11": {
@@ -326,7 +326,7 @@
     },
     "screen14": {
       "text1": "How to contact us?",
-      "text2": "<0>For general questions,</0> please contact the COVID Recovery Corps study at 212-305-5700 (24 hours) or <2> COVIDRecoveryCorps@cumc.columbia.edu </2> .",
+      "text2": "<0>For general questions,</0> please contact the COVID Recovery Corps study at 212-305-5700 or <2> COVIDRecoveryCorps@cumc.columbia.edu </2> .",
       "text3": "<0> For questions about your rights as a research participant, concerns or complaints, </0> please contact Western IRB (WIRB) at <2>help@WIRB.com</2> at 360-252-2500 or toll-free at 800-562-478."
     },
     "screen15": {
@@ -730,7 +730,7 @@
     "title": "What's next?",
     "text1": "Because the virus is new, we are not sure yet what the long-term consequences of being infected are. We are going to ask participants like you to answer quick questions periodically over the next year.",
     "text2": "It will be important to hear how you are doing, even if you are completely recovered from COVID-19, to better understand the ways in which the virus affects the body and learn how to best support people recovering from the infection.",
-    "surveyCTA": "Take follow up surveys",
+    "surveyCTA": "Take follow up survey",
     "uploadDescription": "<0>You've answered that you've had a positive Nasal Swab test</0> <0>Please upload a copy of your test results.</0> <0> The test result document can be a .jpeg, pdf, .png, or a .tiff.</0>"
   }
 }

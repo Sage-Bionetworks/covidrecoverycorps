@@ -785,6 +785,14 @@
             "other": {
               "type": "boolean",
               "title": "Other"
+            },
+            "none": {
+              "type": "boolean",
+              "title": "None"
+            },
+            "no_answer": {
+              "type": "boolean",
+              "title": "Prefer not to answer"
             }
           },
           "dependencies": {
