@@ -502,7 +502,63 @@
       "Zambia",
       "Zimbabwe"
     ],
-
+    "states": [
+      "AK",
+      "AL",
+      "AR",
+      "AS",
+      "AZ",
+      "CA",
+      "CO",
+      "CT",
+      "DC",
+      "DE",
+      "FL",
+      "GA",
+      "GU",
+      "HI",
+      "IA",
+      "ID",
+      "IL",
+      "IN",
+      "KS",
+      "KY",
+      "LA",
+      "MA",
+      "MD",
+      "ME",
+      "MI",
+      "MN",
+      "MO",
+      "MS",
+      "MT",
+      "NC",
+      "ND",
+      "NE",
+      "NH",
+      "NJ",
+      "NM",
+      "NV",
+      "NY",
+      "OH",
+      "OK",
+      "OR",
+      "PA",
+      "PR",
+      "RI",
+      "SC",
+      "SD",
+      "TN",
+      "TX",
+      "UT",
+      "VA",
+      "VI",
+      "VT",
+      "WA",
+      "WI",
+      "WV",
+      "WY"
+    ],
     "country": {
       "type": "object",
       "properties": {
@@ -1087,8 +1143,7 @@
     "job_commute": {
       "type": "object",
       "title": "",
-      "required": 
-      [
+      "required": [
         "transportation",
         "work_from_home",
         "job_title",
@@ -1238,7 +1293,7 @@
         }
       }
     },
-  
+
     "test_location": {
       "type": "object",
       "title": "",
@@ -1266,7 +1321,10 @@
           "type": "string",
           "uniqueItems": true,
           "enum": ["employed", "unemployed"],
-          "enumNames": ["Actualmente empleado", "Actualmente jubilado o desempleado"]
+          "enumNames": [
+            "Actualmente empleado",
+            "Actualmente jubilado o desempleado"
+          ]
         }
       },
       "dependencies": {
