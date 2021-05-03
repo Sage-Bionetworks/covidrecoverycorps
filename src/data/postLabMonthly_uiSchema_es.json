@@ -646,6 +646,7 @@
   "symptoms4": {
     "classNames": "symptoms",
     "symptoms_list": {
+      "ui:field": "checkboxExclusiveField",
       "ui:order": [
         "hair_loss",
         "hair_loss_detail",
@@ -665,8 +666,11 @@
         "fever_chills_detail",
         "other",
         "other_specify",
-        "other_detail"
+        "other_detail",
+        "none",
+        "no_answer"
       ],
+      "ui:exclusive": ["none", "no_answer"],
       "ui:dependent_option_postfix": ["_detail"],
       "ui:widget": "checkboxes",
       "ui:options": {
@@ -933,7 +937,6 @@
     "vaccine_week_ago": { "ui:widget": "radio" },
     "vaccine_other": {
       "classNames": "text"
-
     },
 
     "first_dose_date": {
