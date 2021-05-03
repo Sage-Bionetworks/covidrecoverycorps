@@ -41,10 +41,10 @@
             "state": {
               "type": "string",
               "enum": {
-                "$ref": "#/definitions/countryList"
+                "$ref": "#/definitions/states"
               },
               "enumNames": {
-                "$ref": "#/definitions/countryListNames"
+                "$ref":"#/definitions/states"
               }
             },
             "zip_code": {
