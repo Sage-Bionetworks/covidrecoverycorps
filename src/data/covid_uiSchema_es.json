@@ -7,7 +7,7 @@
       "symptoms_start_date": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2020, 2021],
+          "yearsRange": [2019, 2021],
           "hideNowButton": true,
           "hideClearButton": false,
           "lessThanNow": true
@@ -21,7 +21,7 @@
       "symptoms_worst_date": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2020, 2021],
+          "yearsRange": [2019, 2021],
           "hideNowButton": true,
           "hideClearButton": false,
           "lessThanNow": true
@@ -38,7 +38,7 @@
         "ui:widget": "CustomDateWidget",
 
         "ui:options": {
-          "yearsRange": [2020, 2021],
+          "yearsRange": [2019, 2021],
           "hideNowButton": true,
           "hideClearButton": false,
           "lessThanNow": true
@@ -57,7 +57,7 @@
       "symptoms_none_date": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2020, 2021],
+          "yearsRange": [2019, 2021],
           "hideNowButton": true,
           "hideClearButton": false,
           "lessThanNow": true
