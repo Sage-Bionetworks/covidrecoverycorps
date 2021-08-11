@@ -1,6 +1,5 @@
 //import { authHeader } from '../_helpers';
 import * as _ from 'lodash'
-import moment from 'moment'
 import { callEndpoint } from '../helpers/utility'
 import {
   ENDPOINT,
@@ -12,7 +11,7 @@ import {
   SurveysCompletionStatusEnum,
   SurveyType,
   SURVEY_IDENTIFIER,
-  SURVEY_TIME_CONSTANT
+  SURVEY_TIME_CONSTANT,
 } from '../types/types'
 
 export const SurveyService = {
@@ -29,10 +28,15 @@ export const SurveyService = {
 
 const getMonthlySurveyEndpoint = () => {
   const today = new Date()
+  /* agendel 8/11/2021: we are not making users take more surveys until december
+
 
   const endpoint = `${ENDPOINT}/v4/users/self/reports/${MONTHLY_SURVEY_IDENTIFIER}_${
     today.getMonth() + 1
-  }_${today.getFullYear()}`
+  }_${today.getFullYear()}`*/
+
+  const endpoint = `${ENDPOINT}/v4/users/self/reports/${MONTHLY_SURVEY_IDENTIFIER}_7_${today.getFullYear()}`
+
   return endpoint
 }
 
@@ -66,7 +70,7 @@ async function postToHealthData(
 async function postUserSurvey(
   data: SavedSurveysObject,
   token: string,
-  surveyType: SurveyType
+  surveyType: SurveyType,
 ): Promise<any> {
   const postData = {
     dateTime: SURVEY_TIME_CONSTANT,
@@ -222,7 +226,6 @@ async function isInitialSurveysCompleted(
   const status = getCompletionStatus(savedSurvyes, userInfo)
   return status === SurveysCompletionStatusEnum.ALL_DONE
 }
-
 
 async function getLatestMonthlySurvey(
   token: string,
