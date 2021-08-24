@@ -64,13 +64,13 @@ export const SURVEYS: SurveyConfigObject = {
   },*/
 
   POST_LAB_MONTHLY: {
-    formSchema: async () => await import(`./postLabMonthly_formSchema${postfix}.json`),
-    uiSchema: async () => await import(`./postLabMonthly_uiSchema${postfix}.json`),
-    navSchema: async () => await import(`./postLabMonthly_navSchema${postfix}.json`),
+    formSchema: async () => await import(`./postLabShort_formSchema${postfix}.json`),
+    uiSchema: async () => await import(`./postLabShort_uiSchema${postfix}.json`),
+    navSchema: async () => await import(`./postLabShort_navSchema${postfix}.json`),
   },
   RESULT_UPLOAD_MONTHLY: {
-    formSchema: async () => await import(`./postLabMonthly_formSchema${postfix}.json`),
-    uiSchema: async () => await import(`./postLabMonthly_uiSchema${postfix}.json`),
-    navSchema: async () => await import(`./postLabMonthly_navSchema${postfix}.json`),
+    formSchema: async () => await import(`./postLabShort_formSchema${postfix}.json`),
+    uiSchema: async () => await import(`./postLabShort_uiSchema${postfix}.json`),
+    navSchema: async () => await import(`./postLabShort_navSchema${postfix}.json`),
   },
 }
