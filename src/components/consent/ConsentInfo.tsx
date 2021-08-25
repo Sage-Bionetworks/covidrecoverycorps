@@ -57,7 +57,16 @@ export const ConsentInfo: React.FunctionComponent<ConsentInfoProps> = ({
     return <ConsentCopy stepInfo={stepInfo}></ConsentCopy>
   }
 
-  const Static: React.FunctionComponent<{step: number, fullText: boolean}> = ({step, fullText}: {step: number, fullText: boolean}): JSX.Element => {
+  const Static: React.FunctionComponent<{
+    step: number
+    fullText: boolean
+  }> = ({
+    step,
+    fullText,
+  }: {
+    step: number
+    fullText: boolean
+  }): JSX.Element => {
     const quiz = quizes.find(quiz => quiz.screen === step)
     if (quiz) {
       return <></>

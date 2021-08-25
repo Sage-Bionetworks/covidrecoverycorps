@@ -11,8 +11,6 @@ type TestKitShippedProps = {
   token?: string
 }
 
-
-
 export const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: '#f5f5f5',
@@ -43,7 +41,7 @@ export const useStyles = makeStyles(theme => ({
   logo: {
     height: '50px',
     maxWidth: '200px',
-  }
+  },
 }))
 export const TestKitShipped: React.FunctionComponent<TestKitShippedProps> = ({
   token,
@@ -79,20 +77,31 @@ export const TestKitShipped: React.FunctionComponent<TestKitShippedProps> = ({
     }
   }, [token])
 
-
-
   return (
     <Card className={classes.root} data-cy="page-trackKit">
       <div className={classes.containerDiv}>
-      <h2 className="text-center">{t('testKitShipped.title')}</h2>
+        <h2 className="text-center">{t('testKitShipped.title')}</h2>
 
         <Grid container direction="row" justify="center" alignItems="center">
           <Grid item>
             <Trans i18nKey="testKitShipped.text1">
               <p>[translate]</p>
             </Trans>
-            <Box textAlign="center" marginTop="56px" marginLeft="auto" marginRight="auto" width="240px">
-            <Button color="primary" fullWidth variant="contained" onClick={()=> {}}>{t('testKitShipped.cta')}</Button>
+            <Box
+              textAlign="center"
+              marginTop="56px"
+              marginLeft="auto"
+              marginRight="auto"
+              width="240px"
+            >
+              <Button
+                color="primary"
+                fullWidth
+                variant="contained"
+                onClick={() => {}}
+              >
+                {t('testKitShipped.cta')}
+              </Button>
             </Box>
           </Grid>
         </Grid>

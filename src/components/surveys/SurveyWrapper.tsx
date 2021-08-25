@@ -17,7 +17,7 @@ import {
   SavedSurvey,
   SavedSurveysObject,
   SurveyType,
-  UserDataGroup
+  UserDataGroup,
 } from '../../types/types'
 import SynapseForm, { ExtraUIProps } from './synapse_form_wrapper/SynapseForm'
 import { StatusEnum } from './synapse_form_wrapper/types'
@@ -101,7 +101,8 @@ class SurveyWrapperComponent extends React.Component<
 
       if (this.props.surveyName !== 'CONTACT') {
         const savedSurveysResponse = await SurveyService.getUserSurveys(
-          this.props.token, this.props.surveyName
+          this.props.token,
+          this.props.surveyName,
         )
         const savedData = _.first(savedSurveysResponse.data.items)
         const surveyData = savedData?.data
@@ -378,7 +379,11 @@ class SurveyWrapperComponent extends React.Component<
     }
 
     try {
-      await SurveyService.postUserSurvey(savedSurveys, this.props.token, this.props.surveyName)
+      await SurveyService.postUserSurvey(
+        savedSurveys,
+        this.props.token,
+        this.props.surveyName,
+      )
 
       // this.setState({ is true })
       this.finishedProcessing(StatusEnum.SAVE_SUCCESS, 'File Saved')
@@ -421,8 +426,14 @@ class SurveyWrapperComponent extends React.Component<
           'employer.employment_address',
         ])
         const metadata = data.metadata || {}
-        data.metadata={...metadata, completed: (new Date()).toLocaleDateString()}
-        rawData.metadata={...metadata, completed: (new Date()).toLocaleDateString()}
+        data.metadata = {
+          ...metadata,
+          completed: new Date().toLocaleDateString(),
+        }
+        rawData.metadata = {
+          ...metadata,
+          completed: new Date().toLocaleDateString(),
+        }
       }
     }
     try {

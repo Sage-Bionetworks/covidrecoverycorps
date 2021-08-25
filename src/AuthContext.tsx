@@ -15,7 +15,7 @@ type SessionDataProviderProps = { children: React.ReactNode }
 
 const initialState = {
   token: undefined,
-  userDataGroup: []
+  userDataGroup: [],
 }
 
 const SessionDataStateContext = React.createContext<SessionData | undefined>(
@@ -67,7 +67,7 @@ function countReducer(state: SessionData, action: Action): SessionData {
         token: action.payload!.token,
         consented: action.payload!.consented,
         name: action.payload!.name,
-        userDataGroup: action.payload!.userDataGroup
+        userDataGroup: action.payload!.userDataGroup,
       }
       setSession(newState)
       return newState
@@ -79,7 +79,7 @@ function countReducer(state: SessionData, action: Action): SessionData {
         token: undefined,
         consented: undefined,
         alert: undefined,
-        userDataGroup: []
+        userDataGroup: [],
       }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)

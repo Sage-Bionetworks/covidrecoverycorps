@@ -12,173 +12,62 @@
               "title": "Your physical health",
               "type": "string",
 
-              "enum": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ],
-              "enumNames": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ]
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
             },
             "mental_health": {
               "title": "Your mental health",
-              "type": "string",   "enum": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ],
-              "enumNames": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ]
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
             },
             "family_health": {
               "title": "Your family’s health ",
-              "type": "string",   "enum": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ],
-              "enumNames": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ]
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
             },
             "friends_health": {
               "title": "Your friends’ health",
-              "type": "string",   "enum": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ],
-              "enumNames": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ]
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
             },
             "community": {
               "title": "Your community overall",
-              "type": "string",   "enum": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ],
-              "enumNames": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ]
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
             },
             "job": {
               "title": "Your job",
-              "type": "string",   "enum": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ],
-              "enumNames": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ]
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
             },
             "financial": {
               "title": "Financial issues",
-              "type": "string",   "enum": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ],
-              "enumNames": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ]
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
             },
             "homeless": {
               "title": "Being homeless",
-              "type": "string",   "enum": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ],
-              "enumNames": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ]
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
             },
             "family_tension": {
               "title": "Family tension",
-              "type": "string",   "enum": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ],
-              "enumNames": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ]
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
             },
             "children": {
               "title": "You/Your children’s education/services",
-              "type": "string",   "enum": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ],
-              "enumNames": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ]
+              "type": "string",
+              "enum": ["1", "2", "3", "4", "5"],
+              "enumNames": ["1", "2", "3", "4", "5"]
             }
           }
         },
@@ -224,7 +113,7 @@
             ]
           }
         },
-   
+
         "helped_recover_recommend": {
           "type": "array",
           "title": "3. What would you recommend to others to help their recovery? (Check all that apply)",
@@ -267,7 +156,7 @@
             ]
           }
         },
-    
+
         "hampered_recover": {
           "type": "array",
           "title": "4. Is there anything you think has hampered your recovery? (Check all that apply) ",
@@ -311,7 +200,7 @@
             ]
           }
         },
-      
+
         "contributed_exposure": {
           "type": "array",
           "title": "5. Which of the following do you think contributed to your exposure to the virus? (Check all that apply)",
@@ -347,7 +236,6 @@
             ]
           }
         }
-      
       }
     }
   },

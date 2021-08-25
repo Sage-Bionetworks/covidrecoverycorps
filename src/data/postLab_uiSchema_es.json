@@ -2,7 +2,6 @@
   "postLab": {
     "classNames": "postLab",
 
-
     "longterm_impact": {
       "physical_health": {
         "ui:widget": "RadioRangeWidget",
@@ -21,9 +20,8 @@
           "minLabel": "Sin preocupación alguna",
           "maxLabel": "Enormemente preocupado"
         }
-      }
-    ,
-    "family_health": {
+      },
+      "family_health": {
         "ui:widget": "RadioRangeWidget",
         "classNames": "radiorange",
         "ui:options": {
@@ -95,7 +93,6 @@
           "maxLabel": "Enormemente preocupado"
         }
       }
-    
     },
     "helped_recover": {
       "ui:widget": "ExclusiveCheckboxesWidget",
@@ -104,7 +101,6 @@
         "exclusive": [0, 1],
         "other": [2],
         "otherTextLabel": "Por favor especificar:"
-     
       }
     },
 
@@ -118,7 +114,6 @@
       }
     },
 
-
     "hampered_recover": {
       "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {
@@ -128,7 +123,7 @@
         "otherTextLabel": "Por favor especificar:"
       }
     },
-  
+
     "contributed_exposure": {
       "ui:widget": "ExclusiveCheckboxesWidget",
       "ui:options": {

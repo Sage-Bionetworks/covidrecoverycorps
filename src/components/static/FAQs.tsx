@@ -205,8 +205,8 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
                     clickableElement={<h3>{t('faqs.text181')}</h3>}
                   >
                     <div>
-                    <Trans i18nKey="faqs.text191">
-                      <p>[translate]</p>
+                      <Trans i18nKey="faqs.text191">
+                        <p>[translate]</p>
                       </Trans>
                     </div>
                   </LearnMore>

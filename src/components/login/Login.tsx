@@ -3,7 +3,7 @@ import {
   CardContent,
   CircularProgress,
   Tab,
-  Tabs
+  Tabs,
 } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField/TextField'
@@ -23,7 +23,7 @@ import {
   Response,
   SignInData,
   SignInDataEmail,
-  SignInDataPhone
+  SignInDataPhone,
 } from '../../types/types'
 import SignInWithCode from './SignInWithCode'
 
@@ -77,7 +77,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
       const language = languages[0]
       window.localStorage.setItem('appUILang', language)
       i18n.changeLanguage(language)
-      
+
       sessionUpdateFn({
         type: 'LOGIN',
         payload: {

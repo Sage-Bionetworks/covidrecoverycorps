@@ -803,98 +803,95 @@ const ehrScreens = [
   </div>,
 ]
 
-
-
-const ScreenComponent: React.FunctionComponent<{ind: number | SCREENS_ENUM}> = ({
- ind
-}: {ind: number| SCREENS_ENUM}) => {
-
-const screens: { [key in SCREENS_ENUM]: JSX.Element } = {
-  CONSENT_INTRO: (
-    <>
-      <h2>
-        <Trans i18nKey="consentinfo.welcome.text1">[trans2]</Trans>
-      </h2>
-      <div className="Consent__copy">
+const ScreenComponent: React.FunctionComponent<{
+  ind: number | SCREENS_ENUM
+}> = ({ ind }: { ind: number | SCREENS_ENUM }) => {
+  const screens: { [key in SCREENS_ENUM]: JSX.Element } = {
+    CONSENT_INTRO: (
+      <>
+        <h2>
+          <Trans i18nKey="consentinfo.welcome.text1">[trans2]</Trans>
+        </h2>
+        <div className="Consent__copy">
+          <p className="Consent__copy">
+            <Trans i18nKey="consentinfo.welcome.text2">[trans2]</Trans>
+          </p>
+          <p className="Consent__copy">
+            <Trans i18nKey="consentinfo.welcome.text3">[trans2]</Trans>
+          </p>
+        </div>
+      </>
+    ),
+    CONSENT_SIGNATURE1: (
+      <p className="Consent__copy">
+        <Trans i18nKey="consentinfo.screen15.text1">[trans2]</Trans>
+      </p>
+    ),
+    CONSENT_SIGNATURE2: (
+      <p className="Consent__copy">
+        <ul>
+          <li>
+            <Trans i18nKey="consentinfo.screen15.text3">[trans2]</Trans>
+          </li>
+          <li>
+            <Trans i18nKey="consentinfo.screen15.text4">[trans2]</Trans>
+          </li>
+          <li>
+            <Trans i18nKey="consentinfo.screen15.text5">[trans2]</Trans>
+          </li>
+          <li>
+            <Trans i18nKey="consentinfo.screen15.text6">[trans2]</Trans>
+          </li>
+          <li>
+            <Trans i18nKey="consentinfo.screen15.text7">[trans2]</Trans>
+          </li>
+          <li>
+            <Trans i18nKey="consentinfo.screen15.text8">[trans2]</Trans>
+          </li>
+        </ul>
+      </p>
+    ),
+    CONSENT_SHARING: (
+      <div>
         <p className="Consent__copy">
-          <Trans i18nKey="consentinfo.welcome.text2">[trans2]</Trans>
-        </p>
-        <p className="Consent__copy">
-          <Trans i18nKey="consentinfo.welcome.text3">[trans2]</Trans>
+          <Trans i18nKey="consentinfo.screen15.text9">[trans2]</Trans>
         </p>
       </div>
-    </>
-  ),
-  CONSENT_SIGNATURE1: (
-    <p className="Consent__copy">
-      <Trans i18nKey="consentinfo.screen15.text1">[trans2]</Trans>
-    </p>
-  ),
-  CONSENT_SIGNATURE2: (
-    <p className="Consent__copy">
-      <ul>
-        <li>
-          <Trans i18nKey="consentinfo.screen15.text3">[trans2]</Trans>
-        </li>
-        <li>
-          <Trans i18nKey="consentinfo.screen15.text4">[trans2]</Trans>
-        </li>
-        <li>
-          <Trans i18nKey="consentinfo.screen15.text5">[trans2]</Trans>
-        </li>
-        <li>
-          <Trans i18nKey="consentinfo.screen15.text6">[trans2]</Trans>
-        </li>
-        <li>
-          <Trans i18nKey="consentinfo.screen15.text7">[trans2]</Trans>
-        </li>
-        <li>
-          <Trans i18nKey="consentinfo.screen15.text8">[trans2]</Trans>
-        </li>
-      </ul>
-    </p>
-  ),
-  CONSENT_SHARING: (
-    <div>
+    ),
+    HIPAA_LAST_INTRO: <></>,
+    HIPAA_LAST_TERMS: (
       <p className="Consent__copy">
-        <Trans i18nKey="consentinfo.screen15.text9">[trans2]</Trans>
+        <ul>
+          <li>
+            <Trans i18nKey="consentEHR.screen11.text2">[trans2]</Trans>
+          </li>
+          <li>
+            <Trans i18nKey="consentEHR.screen11.text3">[trans2]</Trans>
+          </li>
+          <li>
+            <Trans i18nKey="consentEHR.screen11.text4">[trans2]</Trans>
+          </li>
+          <li>
+            <Trans i18nKey="consentEHR.screen11.text5">[trans2]</Trans>
+          </li>
+          <li>
+            <Trans i18nKey="consentEHR.screen11.text6">[trans2]</Trans>
+          </li>
+          <li>
+            <Trans i18nKey="consentEHR.screen11.text7">[trans2]</Trans>
+          </li>
+        </ul>
       </p>
-    </div>
-  ),
-  HIPAA_LAST_INTRO: <></>,
-  HIPAA_LAST_TERMS: (
-    <p className="Consent__copy">
-      <ul>
-        <li>
-          <Trans i18nKey="consentEHR.screen11.text2">[trans2]</Trans>
-        </li>
-        <li>
-          <Trans i18nKey="consentEHR.screen11.text3">[trans2]</Trans>
-        </li>
-        <li>
-          <Trans i18nKey="consentEHR.screen11.text4">[trans2]</Trans>
-        </li>
-        <li>
-          <Trans i18nKey="consentEHR.screen11.text5">[trans2]</Trans>
-        </li>
-        <li>
-          <Trans i18nKey="consentEHR.screen11.text6">[trans2]</Trans>
-        </li>
-        <li>
-          <Trans i18nKey="consentEHR.screen11.text7">[trans2]</Trans>
-        </li>
-      </ul>
-    </p>
-  ),
-  HIPAA_LAST_CHECKBOX: (
-    <>
-      <strong>
-        <Trans i18nKey="consentEHR.screen11.text8">[trans2]</Trans>
-      </strong>
-    </>
-  ),
-}
-return screens[ind as SCREENS_ENUM]
+    ),
+    HIPAA_LAST_CHECKBOX: (
+      <>
+        <strong>
+          <Trans i18nKey="consentEHR.screen11.text8">[trans2]</Trans>
+        </strong>
+      </>
+    ),
+  }
+  return screens[ind as SCREENS_ENUM]
 }
 
 export const ConsentCopy: React.FunctionComponent<ConsentCopyProps> = ({

@@ -5,8 +5,6 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import React from 'react'
 import { WidgetProps } from 'react-jsonschema-form'
 
-
-
 const useStyles = makeStyles({
   root: {
     paddingLeft: '1.5rem',

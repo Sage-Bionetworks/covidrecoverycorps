@@ -157,9 +157,7 @@
       "title": "",
       "validationRules": [],
       "default": "test_location",
-      "rules": [
-        
-      ]
+      "rules": []
     },
     {
       "id": "test_location",

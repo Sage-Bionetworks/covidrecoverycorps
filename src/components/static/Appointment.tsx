@@ -53,8 +53,8 @@ export const useStyles = makeStyles(theme => ({
     backgroundColor: '#FC9090',
 
     '& h2': {
-      marginTop: '0'
-    }
+      marginTop: '0',
+    },
   },
 
   appointmentDateHeader: {
@@ -137,14 +137,16 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
                 address: codedLocation,
               }
               setAppointment(appointment)
-              
             }
           }
         } catch (e) {
-          if (isSubscribed) {  setError(e)}
-        
+          if (isSubscribed) {
+            setError(e)
+          }
         } finally {
-          if (isSubscribed) { setIsLoading(false)}
+          if (isSubscribed) {
+            setIsLoading(false)
+          }
         }
       }
     }
@@ -194,7 +196,7 @@ export const Appointment: React.FunctionComponent<AppointmentProps> = ({
     return (
       <Card className={classes.root} data-cy="page-appointment">
         <div className={classes.appointmentContainerDiv}>
-          {isAppointmentMissed? appointmentHeaderMissed: appointmentHeader}
+          {isAppointmentMissed ? appointmentHeaderMissed : appointmentHeader}
           <p>{t('appointment.text1')}</p>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item>

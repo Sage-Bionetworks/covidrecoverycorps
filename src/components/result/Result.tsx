@@ -441,7 +441,10 @@ export const Result: React.FunctionComponent<ResultProps> = ({
             <div className={classes.topImage}>
               {getElement(resultValue, 'TOP_IMG')}
             </div>
-            <div className={classes.resultDataHeader} data-cy="resultDataHeader">
+            <div
+              className={classes.resultDataHeader}
+              data-cy="resultDataHeader"
+            >
               {getElement(resultValue, 'HEADER')}
             </div>
             <div className={classes.explanationText}>
@@ -466,7 +469,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
         </Card>
         <h2 className="text-center">{t('result.explain')}</h2>
         <Card className={classes.cardNoBg}>
-         <Feature toggleName={TOGGLE_NAMES.RESULTS_VIDEO}>
+          <Feature toggleName={TOGGLE_NAMES.RESULTS_VIDEO}>
             <div className={classes.videoContainerDiv}>
               <iframe
                 src="https://player.vimeo.com/video/449347196"
@@ -477,10 +480,10 @@ export const Result: React.FunctionComponent<ResultProps> = ({
                 allowFullScreen={true}
               ></iframe>
             </div>
-            </Feature>
-            <Feature toggleName={TOGGLE_NAMES.RESULTS_VIDEO} showIfFalse>
-              <>{/*possible alternate content */}</>
-            </Feature>
+          </Feature>
+          <Feature toggleName={TOGGLE_NAMES.RESULTS_VIDEO} showIfFalse>
+            <>{/*possible alternate content */}</>
+          </Feature>
           <p>
             <Trans i18nKey="result.text1">
               [translate]<strong></strong>
@@ -515,7 +518,9 @@ export const Result: React.FunctionComponent<ResultProps> = ({
                 <Trans i18nKey="result.contactText">
                   <p>[trans]</p>
                   <p>
-                    [trans]<br/>[trans]
+                    [trans]
+                    <br />
+                    [trans]
                     <a href="mailto:COVIDRecoveryCorps@cumc.columbia.edu">
                       [translate]
                     </a>{' '}

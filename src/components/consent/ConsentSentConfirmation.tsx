@@ -7,9 +7,7 @@ import { getSearchParams } from '../../helpers/utility'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-import { useTranslation} from 'react-i18next'
-
-
+import { useTranslation } from 'react-i18next'
 
 type ConsentSentConfirmationProps = {
   type: 'CONSENT' | 'EHR'
@@ -29,7 +27,6 @@ export const ConsentSentConfirmation: React.FunctionComponent<ConsentSentConfirm
   const searchParamsProps = getSearchParams(window.location.search)
   const from: string = searchParamsProps['from']
   const { t } = useTranslation()
-
 
   const getConsentButton = (): JSX.Element => {
     return (
@@ -61,7 +58,9 @@ export const ConsentSentConfirmation: React.FunctionComponent<ConsentSentConfirm
           onClick={() => doneCallbackFn()}
         >
           &nbsp;
-          {from === 'ACCOUNT' ? t('consentSent.viewDashboard') : t('consentSent.beginStudy')}
+          {from === 'ACCOUNT'
+            ? t('consentSent.viewDashboard')
+            : t('consentSent.beginStudy')}
         </Button>
       </div>
     )
@@ -69,9 +68,7 @@ export const ConsentSentConfirmation: React.FunctionComponent<ConsentSentConfirm
 
   return (
     <div style={{ textAlign: 'center' }}>
-      {type === 'CONSENT' && (
-        <h2>{t('consentSent.title')}</h2>
-      )}
+      {type === 'CONSENT' && <h2>{t('consentSent.title')}</h2>}
       <div className="consentConfirmation">
         <img src={icon}></img>
       </div>

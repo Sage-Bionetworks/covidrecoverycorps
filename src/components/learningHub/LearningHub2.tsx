@@ -19,7 +19,6 @@ const LearningHub2: FunctionComponent = () => {
           <p>[translate]</p>
         </Trans>
       </div>
-    
     </div>
   )
 }

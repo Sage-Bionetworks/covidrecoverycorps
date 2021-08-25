@@ -41,7 +41,6 @@ const LearningHub5: FunctionComponent = () => {
             <Typography>{t(`learningHub.lh5.a${index + 1}`)}</Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-    
       ))}
     </div>
   )

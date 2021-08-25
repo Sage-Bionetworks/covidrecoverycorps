@@ -41,7 +41,7 @@ const TestLoctionSurvey: React.FunctionComponent<TestLoctionSurveyProps> = ({
   return (
     <div
       className="finished-status"
-      style={{  clear: 'both', paddingBottom: '0' }}
+      style={{ clear: 'both', paddingBottom: '0' }}
     >
       <p>
         <strong>{t('surveys.testLocationSurvey.text1')}</strong>

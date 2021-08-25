@@ -831,8 +831,6 @@
           }
         }
       }
-
-      
     }
     &_test_location {
       .field-description {
@@ -912,11 +910,11 @@
     margin-left: 1.5rem;
   }
 
- #root_reinfection .help-block, #root_reinfection  .field-description,
- #root_vaccine_reinfection__description {
-  margin-left: 1.5rem;
- }
-
+  #root_reinfection .help-block,
+  #root_reinfection .field-description,
+  #root_vaccine_reinfection__description {
+    margin-left: 1.5rem;
+  }
 
   @media only screen and (max-width: 768px) {
     div.checkbox,

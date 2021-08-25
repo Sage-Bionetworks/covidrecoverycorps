@@ -5,7 +5,7 @@ import {
   CircularProgress,
   FormControlLabel,
   Radio,
-  RadioGroup
+  RadioGroup,
 } from '@material-ui/core'
 import Button from '@material-ui/core/Button/Button'
 import TextField from '@material-ui/core/TextField/TextField'
@@ -221,7 +221,9 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 <ConsentCopy
                   screen={SCREENS_ENUM.CONSENT_SIGNATURE1}
                 ></ConsentCopy>
-                <p><Trans i18nKey="consentinfo.screen15.text2">[trans]</Trans></p>
+                <p>
+                  <Trans i18nKey="consentinfo.screen15.text2">[trans]</Trans>
+                </p>
                 <div
                   className="margin-top-std"
                   style={{ marginLeft: '4rem', marginBottom: '4rem' }}
@@ -242,8 +244,17 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                 </div>
                 <LearnMore learnMoreText={t('common.learnMore')}>
                   <div>
-                    <p>hi<Trans i18nKey="consentinfo.learnMoreScreen15.text1">[translate]</Trans></p>
-                    <p><Trans i18nKey="consentinfo.learnMoreScreen15.text2">[translate]</Trans></p>
+                    <p>
+                      hi
+                      <Trans i18nKey="consentinfo.learnMoreScreen15.text1">
+                        [translate]
+                      </Trans>
+                    </p>
+                    <p>
+                      <Trans i18nKey="consentinfo.learnMoreScreen15.text2">
+                        [translate]
+                      </Trans>
+                    </p>
                   </div>
                 </LearnMore>
                 <form className="Consent__form" onSubmit={handleOnSubmit}>
