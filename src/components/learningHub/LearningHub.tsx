@@ -1,33 +1,21 @@
-import React, { useState, useEffect } from 'react'
 import {
-  makeStyles,
-  Grid,
-  Card,
-  Button,
-  CardContent,
-  CircularProgress,
-  createMuiTheme,
+  Button, makeStyles
 } from '@material-ui/core'
-import { playfairDisplayFont, openSansFont } from '../../App'
-import {
-  TestResult,
-  TestResultString,
-  LoggedInUserData,
-} from '../../types/types'
-
+import React, { useEffect, useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
 import heroImage from '../../assets/hub/hero.svg'
-
+import liCovid from '../../assets/hub/liCovid.svg'
+import liImmune from '../../assets/hub/liImmune.svg'
 import liNegative from '../../assets/hub/liNegative.svg'
 import liPositive from '../../assets/hub/liPositive.svg'
-import liCovid from '../../assets/hub/liCovid.svg'
 import liQs from '../../assets/hub/liQs.svg'
-import liImmune from '../../assets/hub/liImmune.svg'
 import liTests from '../../assets/hub/liTests.svg'
-
-import TwoColumnTemplate from '../static/TwoColumnTemplate'
-import LeftNav, { LeftNavItem } from '../static/LeftNav'
-
 import { UserService } from '../../services/user.service'
+import {
+  LoggedInUserData, TestResult
+} from '../../types/types'
+import LeftNav, { LeftNavItem } from '../static/LeftNav'
+import TwoColumnTemplate from '../static/TwoColumnTemplate'
 import LearningHub0 from './LearningHub0'
 import LearningHub1 from './LearningHub1'
 import LearningHub2 from './LearningHub2'
@@ -35,8 +23,10 @@ import LearningHub3 from './LearningHub3'
 import LearningHub4 from './LearningHub4'
 import LearningHub5 from './LearningHub5'
 
-import { useTranslation, Trans } from 'react-i18next'
-import _ from 'lodash'
+
+
+
+
 
 
 type ResultProps = {
@@ -142,32 +132,32 @@ export const LearningHub: React.FunctionComponent<ResultProps> = ({
     {
       img: liCovid,
       text: t('learningHub.nav0'),
-      callbackFn: () => setActiveItemIndex(0),
+     // callbackFn: () => setActiveItemIndex(0),
     },
     {
       img: liTests,
       text: t('learningHub.nav1'),
-      callbackFn: () => setActiveItemIndex(1),
+     // callbackFn: () => setActiveItemIndex(1),
     },
     {
       img: liImmune,
       text: t('learningHub.nav2'),
-      callbackFn: () => setActiveItemIndex(2),
+      //callbackFn: () => setActiveItemIndex(2),
     },
     {
       img: liPositive,
       text: t('learningHub.nav3'),
-      callbackFn: () => setActiveItemIndex(3),
+      //callbackFn: () => setActiveItemIndex(3),
     },
     {
       img: liNegative,
       text: t('learningHub.nav4'),
-      callbackFn: () => setActiveItemIndex(4),
+     // callbackFn: () => setActiveItemIndex(4),
     },
     {
       img: liQs,
       text: t('learningHub.nav5'),
-      callbackFn: () => setActiveItemIndex(5),
+     // callbackFn: () => setActiveItemIndex(5),
     },
   ]
 

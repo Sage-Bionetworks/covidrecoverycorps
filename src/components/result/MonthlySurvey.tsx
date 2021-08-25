@@ -66,6 +66,7 @@ type ResultProps = {
   // unfinishedSurveys: string[]
   savedMonthlySurvey?: SavedSurvey
   onSurveyFinishedFn: Function
+  onSurveyStartedFn: Function
 }
 
 const MonthlySurvey: FunctionComponent<ResultProps> = ({
@@ -73,6 +74,7 @@ const MonthlySurvey: FunctionComponent<ResultProps> = ({
   savedMonthlySurvey,
   token,
   onSurveyFinishedFn,
+  onSurveyStartedFn,
 }: ResultProps) => {
   const classes = useStyles()
   const { t } = useTranslation()
@@ -95,6 +97,7 @@ const MonthlySurvey: FunctionComponent<ResultProps> = ({
       </Box>
     )
   }
+
 
   switch (pageState) {
     case 'SURVEY_DONE':
@@ -147,7 +150,7 @@ const MonthlySurvey: FunctionComponent<ResultProps> = ({
                 <Button
                   variant="contained"
                   color="primary"
-                  onClick={() => setPageState('SURVEY')}
+                  onClick={() => {onSurveyStartedFn(); setPageState('SURVEY')}}
                 >
                   {t('monthlySurvey.surveyCTA')}
                 </Button>

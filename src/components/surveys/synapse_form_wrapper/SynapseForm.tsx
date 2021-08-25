@@ -525,7 +525,8 @@ export default class SynapseForm extends React.Component<
           this.getSchema(this.state.currentStep),
       )
       this.setState({ steps: modifiedSteps })
-      this.formDivRef.current.scrollTo(0, 0)
+     if ( this.formDivRef?.current) 
+     {this.formDivRef.current.scrollTo(0, 0)}
       if (this.state.isLoadingSaved) {
         this.moveStep(this.state.formData, modifiedSteps[0].id, true)
         this.setState({ isLoadingSaved: false })
