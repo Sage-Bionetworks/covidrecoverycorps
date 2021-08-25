@@ -1150,10 +1150,7 @@
               }
             },
             {
-              "required": [
-                "which_vaccine",
-                "vaccine_week_ago"
-              ],
+              "required": ["which_vaccine", "vaccine_week_ago"],
               "properties": {
                 "received_first_dose": {
                   "enum": ["Yes"]

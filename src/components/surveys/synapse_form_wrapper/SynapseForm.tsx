@@ -11,7 +11,7 @@ import {
   ErrorListProps,
   Field,
   UiSchema,
-  Widget
+  Widget,
 } from 'react-jsonschema-form'
 import { getUiOptions } from 'react-jsonschema-form/lib/utils'
 import { Prompt } from 'react-router-dom'
@@ -35,7 +35,7 @@ import {
   RulesResult,
   StatusEnum,
   Step,
-  StepStateEnum
+  StepStateEnum,
 } from './types'
 import WarningModal from './WarningModal'
 
@@ -525,8 +525,9 @@ export default class SynapseForm extends React.Component<
           this.getSchema(this.state.currentStep),
       )
       this.setState({ steps: modifiedSteps })
-     if ( this.formDivRef?.current) 
-     {this.formDivRef.current.scrollTo(0, 0)}
+      if (this.formDivRef?.current) {
+        this.formDivRef.current.scrollTo(0, 0)
+      }
       if (this.state.isLoadingSaved) {
         this.moveStep(this.state.formData, modifiedSteps[0].id, true)
         this.setState({ isLoadingSaved: false })

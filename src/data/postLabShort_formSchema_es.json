@@ -116,7 +116,7 @@
         }
       }
     },
-  
+
     "vaccine": {
       "type": "object",
       "required": ["received_vaccine"],
@@ -141,68 +141,56 @@
               }
             },
             {
-              "required": [ "reinfection"],
+              "required": ["reinfection"],
               "properties": {
                 "received_vaccine": {
                   "enum": ["Yes"]
                 },
                 "reinfection": {
-                    "title": "2a. Did you experience a breakthrough infection with a positive nasal swab test?",
-                    "type": "string",
-                    "uniqueItems": true,
-                    "enum": [
-                      "Yes",
-                      "No",
-                      "Prefer not to answer"
-                    ],
-                    "enumNames": [
-                      "Yes",
-                      "No",
-                      "Prefer not to answer"
-                    ]
-                  }
-                }}]
+                  "title": "2a. Did you experience a breakthrough infection with a positive nasal swab test?",
+                  "type": "string",
+                  "uniqueItems": true,
+                  "enum": ["Yes", "No", "Prefer not to answer"],
+                  "enumNames": ["Yes", "No", "Prefer not to answer"]
+                }
+              }
+            }
+          ]
         },
         "reinfection": {
-            "oneOf": [
-              {
-                "properties": {
-                  "reinfection": {
-                    "enum": ["No", "Prefer not to answer"]
-                  }
+          "oneOf": [
+            {
+              "properties": {
+                "reinfection": {
+                  "enum": ["No", "Prefer not to answer"]
                 }
-              },
-              {
-                "required": [],
-                "properties": {
-                  "reinfection": {
-                    "enum": ["Yes"]
-                  },
-                  "breakthrough_date": {
-                    "title": "2b. When were you re-infected with COVID-19?",
-                    "type": "string"
-                  }
-                  }}
-                ]
-  
-           
-         
-
-         
+              }
+            },
+            {
+              "required": [],
+              "properties": {
+                "reinfection": {
+                  "enum": ["Yes"]
+                },
+                "breakthrough_date": {
+                  "title": "2b. When were you re-infected with COVID-19?",
+                  "type": "string"
+                }
+              }
+            }
+          ]
         }
-    
       }
     }
   },
 
   "type": "object",
   "properties": {
-
     "newConditions": {
       "title": "",
       "$ref": "#/definitions/newConditions"
     },
- 
+
     "vaccine": {
       "title": "",
       "$ref": "#/definitions/vaccine"

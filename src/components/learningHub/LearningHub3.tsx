@@ -13,14 +13,11 @@ const LearningHub3: FunctionComponent = () => {
     <div>
       <h3>{t('learningHub.lh3.title')}</h3>
       <div>
-        
-          <p>{t('learningHub.lh3.text')}</p>
-       
+        <p>{t('learningHub.lh3.text')}</p>
       </div>
-      <div className="text-center" style={{marginTop: '50px'}}>
-        <img src={img1}  />
+      <div className="text-center" style={{ marginTop: '50px' }}>
+        <img src={img1} />
       </div>
-     
     </div>
   )
 }

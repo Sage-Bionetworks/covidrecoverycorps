@@ -27,7 +27,7 @@ const ThankYou: FunctionComponent<ThankYouProps> = ({
   isInvitedForTest,
   userInfo,
   hasCancelledAppointment,
-  token
+  token,
 }) => {
   const [isShowingShareDialog, setIsShowingShareDialog] = useState(false)
   /*const [isAddressCorrect, setIsAddressCorrect] = useState<boolean | undefined>(
@@ -138,7 +138,8 @@ const ThankYou: FunctionComponent<ThankYouProps> = ({
   if (testLocation === TestLocationEnum.HOME) {
     return (
       <div className="finished-status text-center">
-        <ThankYouHomeTest userInfo={userInfo} token={token}></ThankYouHomeTest></div>
+        <ThankYouHomeTest userInfo={userInfo} token={token}></ThankYouHomeTest>
+      </div>
     )
   }
 

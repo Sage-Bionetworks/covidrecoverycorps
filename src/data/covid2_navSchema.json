@@ -156,8 +156,7 @@
       "order": 35,
       "title": "",
       "validationRules": [],
-      "rules": [
-      ],
+      "rules": [],
       "default": "test_location"
     },
     {

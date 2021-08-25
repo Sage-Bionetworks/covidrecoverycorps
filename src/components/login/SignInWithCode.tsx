@@ -24,7 +24,7 @@ export const SignInWithCode: React.FunctionComponent<SignInWithCodeProps> = ({
   const [error, setError] = useState('')
   const [code, setCode] = useState('')
 
-  const {t} = useTranslation()
+  const { t } = useTranslation()
 
   async function handleOnSubmit(clickEvent: React.FormEvent<HTMLElement>) {
     clickEvent.preventDefault()

@@ -4,7 +4,7 @@
       "title": "Encuesta después del Laboratorio",
       "orderDisplay": "",
       "description": "",
-       "id": "postLab",
+      "id": "postLab",
       "order": 1,
       "default": ""
     }

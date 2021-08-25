@@ -1,12 +1,12 @@
 import React, { useState, ChangeEvent } from 'react'
 
 import { makeStyles } from '@material-ui/core'
-import { useTranslation} from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles({
-root: {
-    padding: '3rem 1.5rem 2rem 1.5rem'
-},
+  root: {
+    padding: '3rem 1.5rem 2rem 1.5rem',
+  },
   table: {
     width: '100%',
     display: 'flex',
@@ -27,7 +27,7 @@ root: {
 })
 
 export const PostLabHeader: React.FunctionComponent = ({}) => {
-const {t} = useTranslation()
+  const { t } = useTranslation()
   const labels = [
     t('surveys.postLab.concern0'),
     t('surveys.postLab.concern1'),
@@ -41,7 +41,9 @@ const {t} = useTranslation()
   const cir = <div className={classes.circle}></div>
   return (
     <div className={classes.root}>
-      <span style={{fontStyle: 'italic', paddingBottom: '1rem'}}>{t('surveys.postLab.text1')}</span>
+      <span style={{ fontStyle: 'italic', paddingBottom: '1rem' }}>
+        {t('surveys.postLab.text1')}
+      </span>
       <div className={classes.table}>
         {labels.map((item, i) => (
           <div className={classes.cell}>

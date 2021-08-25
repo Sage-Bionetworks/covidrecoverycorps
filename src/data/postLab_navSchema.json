@@ -4,7 +4,7 @@
       "title": "Post Lab Survey",
       "orderDisplay": "",
       "description": "",
-       "id": "postLab",
+      "id": "postLab",
       "order": 1,
       "default": ""
     }

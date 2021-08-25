@@ -23,11 +23,11 @@ const LearningHub0: FunctionComponent = () => {
         <img src={img1} style={{ width: '100%' }} />
       </div>
       <div>
-      <Trans i18nKey="learningHub.lh0.text2">
-        <p>[translate]</p>
-        <p>[translate]</p>
-        <p>[translate]</p>
-        <p>[translate]</p>
+        <Trans i18nKey="learningHub.lh0.text2">
+          <p>[translate]</p>
+          <p>[translate]</p>
+          <p>[translate]</p>
+          <p>[translate]</p>
         </Trans>
       </div>
     </div>

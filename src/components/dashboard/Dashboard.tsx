@@ -18,7 +18,7 @@ import {
   SavedSurveysObject,
   SurveysCompletionStatusEnum,
   SurveyType,
-  TestLocationEnum
+  TestLocationEnum,
 } from '../../types/types'
 import TestLocationSurvey from '../surveys/TestLocationSurvey'
 import ThankYou from './ThankYou'

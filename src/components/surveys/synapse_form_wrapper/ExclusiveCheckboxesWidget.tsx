@@ -62,9 +62,11 @@ function deselectValue(value: any, selected: any, other: boolean) {
   //find other
   const updated = selected.filter((v: any) => v !== value)
 
-  if (!other) { //if regular checkbox
+  if (!other) {
+    //if regular checkbox
     return updated
-  } else { //if 'other' checkbox, remove the 'other:' text value
+  } else {
+    //if 'other' checkbox, remove the 'other:' text value
     return filterOtherInputValue(updated, true)
   }
 }
@@ -87,7 +89,7 @@ function ExclusiveCheckboxesWidget(props: WidgetProps) {
     exclusive, //array of indices from the end which would essentially deselect other options
     other, //array of indices signifying 'other' choice - when selected show the optional other field
     otherTextLabel,
-    otherMaxLength
+    otherMaxLength,
   } = options
 
   const otherTextValue = filterOtherInputValue(value)
@@ -101,10 +103,11 @@ function ExclusiveCheckboxesWidget(props: WidgetProps) {
   const otherText = (
     <>
       {' '}
-      <span>{otherTextLabel}</span><br/>
+      <span>{otherTextLabel}</span>
+      <br />
       <input
         type="text"
-        maxLength={otherMaxLength? parseInt(otherMaxLength.toString()): 200}
+        maxLength={otherMaxLength ? parseInt(otherMaxLength.toString()) : 200}
         value={textValue}
         onChange={({ target: { value: val } }) => {
           const all = (enumOptions as any).map(({ val }: any) => value)
@@ -163,8 +166,7 @@ function ExclusiveCheckboxesWidget(props: WidgetProps) {
             <label>{checkbox}</label>
             <div
               className="field subfields other"
-              style={{display: checked ? 'block' : 'none',
-              }}
+              style={{ display: checked ? 'block' : 'none' }}
             >
               {otherText}
             </div>

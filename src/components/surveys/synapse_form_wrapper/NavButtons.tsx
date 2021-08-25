@@ -51,28 +51,34 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
     <></>
   )
 
-  const nextButton = (props.currentStep.default  && (props.submitStep !== props.currentStep.id)) ? (
-    <Button
-      onClick={e => props.onNavAction(NavActionEnum.NEXT)}
-      color="primary"
-      variant="contained"
-    >
-      &nbsp;
-      <FontAwesomeIcon icon={faChevronRight} />
-    </Button>
-  ) : (
-    /* props.isNoSaveButton?*/
+  const nextButton =
+    props.currentStep.default && props.submitStep !== props.currentStep.id ? (
+      <Button
+        onClick={e => props.onNavAction(NavActionEnum.NEXT)}
+        color="primary"
+        variant="contained"
+      >
+        &nbsp;
+        <FontAwesomeIcon icon={faChevronRight} />
+      </Button>
+    ) : (
+      /* props.isNoSaveButton?*/
 
-   <Button
-      color="primary"
-      className="submit"
-      variant="contained"
-      disabled={props.isFormSubmitted || props.isFormSubmitting}
-      onClick={e => props.onNavAction(NavActionEnum.SUBMIT)}
-    >
-     {i18next.t('common.submit')}   { props.isFormSubmitting && <>&nbsp;&nbsp;   <CircularProgress size={24} color="secondary"/></>}
-    </Button>
-  )
+      <Button
+        color="primary"
+        className="submit"
+        variant="contained"
+        disabled={props.isFormSubmitted || props.isFormSubmitting}
+        onClick={e => props.onNavAction(NavActionEnum.SUBMIT)}
+      >
+        {i18next.t('common.submit')}{' '}
+        {props.isFormSubmitting && (
+          <>
+            &nbsp;&nbsp; <CircularProgress size={24} color="secondary" />
+          </>
+        )}
+      </Button>
+    )
 
   const saveButton =
     !props.currentStep.final &&
@@ -85,7 +91,7 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
         disabled={props.isFormSubmitted}
         onClick={e => props.onNavAction(NavActionEnum.SAVE)}
       >
-          {i18next.t('surveys.saveProgress')}
+        {i18next.t('surveys.saveProgress')}
       </Button>
     ) : (
       <></>

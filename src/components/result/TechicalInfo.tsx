@@ -1,9 +1,6 @@
 import React, { FunctionComponent } from 'react'
-import {
-  makeStyles,
-
-} from '@material-ui/core'
-import { playfairDisplayFont} from '../../App'
+import { makeStyles } from '@material-ui/core'
+import { playfairDisplayFont } from '../../App'
 import { useTranslation, Trans } from 'react-i18next'
 import img1 from '../../assets/results/techInfo_hand.svg'
 import img2 from '../../assets/results/techInfo_board.svg'
@@ -12,7 +9,6 @@ export const useStyles = makeStyles(theme => ({
   root: {
     overflow: 'unset',
     maxWidth: 'unset',
-    
   },
   list: {
     '& ul': {
@@ -26,7 +22,7 @@ export const useStyles = makeStyles(theme => ({
 
     '& li': {
       color: '#4C697E;',
-      margin: '10px 0'
+      margin: '10px 0',
     },
   },
   heading: {
@@ -90,4 +86,4 @@ const TechnicalInfo: FunctionComponent = () => {
   )
 }
 
-export default  TechnicalInfo
+export default TechnicalInfo

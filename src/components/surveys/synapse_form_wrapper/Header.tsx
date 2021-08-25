@@ -11,7 +11,7 @@ export default function Header(props: HeaderProps) {
   let bodyText = <></>
 
   if (props.isSubmitted) {
-    bodyText = <div>  {i18next.t('surveys.submitted')}</div>
+    bodyText = <div> {i18next.t('surveys.submitted')}</div>
   } else {
     if (props.bodyText) {
       bodyText = (

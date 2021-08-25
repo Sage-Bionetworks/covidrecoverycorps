@@ -14,8 +14,7 @@ export const UserService = {
   updateUserAttributes,
   updateUserData,
   getAppointments,
-  getTestResult
-  
+  getTestResult,
 }
 
 async function getUserInfo(token: string): Promise<Response<LoggedInUserData>> {
@@ -51,7 +50,7 @@ async function updateUserData(
     firstName: data.firstName,
     lastName: data.lastName,
     attributes: data.attributes,
-    dataGroups: data.dataGroups
+    dataGroups: data.dataGroups,
   }
   const result = await callEndpoint<LoggedInUserData>(
     `${ENDPOINT}/v3/participants/self`,
