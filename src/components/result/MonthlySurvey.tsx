@@ -98,14 +98,13 @@ const MonthlySurvey: FunctionComponent<ResultProps> = ({
     )
   }
 
-
   switch (pageState) {
     case 'SURVEY_DONE':
       return (
         <div style={{ textAlign: 'center', margin: '0 auto' }}>
           <img src={iconCheckMark}></img>
           <h3>{t('resultDashboard.thankYou')}</h3>
-{/* agendel - for long survey*/}
+          {/* agendel - for long survey*/}
           {savedMonthlySurvey?.data.reinfection?.positive_test === 'Yes' && (
             <UploadResult
               token={token || ''}
@@ -113,7 +112,7 @@ const MonthlySurvey: FunctionComponent<ResultProps> = ({
               descriptionI18nKey="monthlySurvey.uploadDescription"
             ></UploadResult>
           )}
-              {savedMonthlySurvey?.data.vaccine?.reinfection === 'Yes' && (
+          {savedMonthlySurvey?.data.vaccine?.reinfection === 'Yes' && (
             <UploadResult
               token={token || ''}
               surveyName={'RESULT_UPLOAD_MONTHLY'}
@@ -150,7 +149,10 @@ const MonthlySurvey: FunctionComponent<ResultProps> = ({
                 <Button
                   variant="contained"
                   color="primary"
-                  onClick={() => {onSurveyStartedFn(); setPageState('SURVEY')}}
+                  onClick={() => {
+                    onSurveyStartedFn()
+                    setPageState('SURVEY')
+                  }}
                 >
                   {t('monthlySurvey.surveyCTA')}
                 </Button>

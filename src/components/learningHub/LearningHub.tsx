@@ -1,6 +1,4 @@
-import {
-  Button, makeStyles
-} from '@material-ui/core'
+import { Button, makeStyles } from '@material-ui/core'
 import React, { useEffect, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import heroImage from '../../assets/hub/hero.svg'
@@ -11,9 +9,7 @@ import liPositive from '../../assets/hub/liPositive.svg'
 import liQs from '../../assets/hub/liQs.svg'
 import liTests from '../../assets/hub/liTests.svg'
 import { UserService } from '../../services/user.service'
-import {
-  LoggedInUserData, TestResult
-} from '../../types/types'
+import { LoggedInUserData, TestResult } from '../../types/types'
 import LeftNav, { LeftNavItem } from '../static/LeftNav'
 import TwoColumnTemplate from '../static/TwoColumnTemplate'
 import LearningHub0 from './LearningHub0'
@@ -22,12 +18,6 @@ import LearningHub2 from './LearningHub2'
 import LearningHub3 from './LearningHub3'
 import LearningHub4 from './LearningHub4'
 import LearningHub5 from './LearningHub5'
-
-
-
-
-
-
 
 type ResultProps = {
   token?: string
@@ -132,12 +122,12 @@ export const LearningHub: React.FunctionComponent<ResultProps> = ({
     {
       img: liCovid,
       text: t('learningHub.nav0'),
-     // callbackFn: () => setActiveItemIndex(0),
+      // callbackFn: () => setActiveItemIndex(0),
     },
     {
       img: liTests,
       text: t('learningHub.nav1'),
-     // callbackFn: () => setActiveItemIndex(1),
+      // callbackFn: () => setActiveItemIndex(1),
     },
     {
       img: liImmune,
@@ -152,12 +142,12 @@ export const LearningHub: React.FunctionComponent<ResultProps> = ({
     {
       img: liNegative,
       text: t('learningHub.nav4'),
-     // callbackFn: () => setActiveItemIndex(4),
+      // callbackFn: () => setActiveItemIndex(4),
     },
     {
       img: liQs,
       text: t('learningHub.nav5'),
-     // callbackFn: () => setActiveItemIndex(5),
+      // callbackFn: () => setActiveItemIndex(5),
     },
   ]
 
@@ -188,11 +178,16 @@ export const LearningHub: React.FunctionComponent<ResultProps> = ({
   }, [token])
 
   const getMain = (): JSX.Element => {
-    const elArray = [  <LearningHub0></LearningHub0>, <LearningHub1></LearningHub1>, <LearningHub2></LearningHub2>,<LearningHub3></LearningHub3>,<LearningHub4></LearningHub4>,<LearningHub5></LearningHub5>]
+    const elArray = [
+      <LearningHub0></LearningHub0>,
+      <LearningHub1></LearningHub1>,
+      <LearningHub2></LearningHub2>,
+      <LearningHub3></LearningHub3>,
+      <LearningHub4></LearningHub4>,
+      <LearningHub5></LearningHub5>,
+    ]
     const el = (
-      <div style={{ marginTop: '5rem' }}>
-        {elArray[activeItemIndex]}
-      </div>
+      <div style={{ marginTop: '5rem' }}>{elArray[activeItemIndex]}</div>
     )
 
     return el

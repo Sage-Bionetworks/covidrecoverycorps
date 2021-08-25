@@ -12,7 +12,6 @@ export const useStyles = makeStyles(theme => ({
     maxWidth: 'unset',
   },
 
-
   loader: {
     textAlign: 'center',
     position: 'absolute',
@@ -62,20 +61,22 @@ export const useStyles = makeStyles(theme => ({
 }))
 
 type ResultProps = {
-token?: string
+  token?: string
   unfinishedSurveys: string[]
   onSurveyFinishedFn: Function
 }
 
-const WhatNext: FunctionComponent<ResultProps> = ({unfinishedSurveys, token, onSurveyFinishedFn }: ResultProps) => {
+const WhatNext: FunctionComponent<ResultProps> = ({
+  unfinishedSurveys,
+  token,
+  onSurveyFinishedFn,
+}: ResultProps) => {
   const classes = useStyles()
   const { t } = useTranslation()
 
   const [pageState, setPageState] = useState<
     'INTRO' | 'SURVEY' | 'SURVEY_DONE'
   >('INTRO')
-
- 
 
   const surveyDoneEl = (
     <div style={{ textAlign: 'center', margin: '0 auto' }}>
@@ -85,27 +86,29 @@ const WhatNext: FunctionComponent<ResultProps> = ({unfinishedSurveys, token, onS
   )
 
   const getNextIntro = () => {
-    
-  
-
     return (
       <>
         <h2>{t('resultNext.title')}</h2>
-        {unfinishedSurveys.length > 0 && <>
-        <h3>{t('resultNext.subtitle1')}</h3>
-        <p>{t('resultNext.text1')}</p>
-        <div className="text-center btnVerticallySpaced">
-          <Button variant="contained" color="primary" onClick={()=> setPageState('SURVEY')}>
-            {t('resultNext.surveyCTA')}
-          </Button>
-        </div>
-        </>}
+        {unfinishedSurveys.length > 0 && (
+          <>
+            <h3>{t('resultNext.subtitle1')}</h3>
+            <p>{t('resultNext.text1')}</p>
+            <div className="text-center btnVerticallySpaced">
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => setPageState('SURVEY')}
+              >
+                {t('resultNext.surveyCTA')}
+              </Button>
+            </div>
+          </>
+        )}
         <h3>{t('resultNext.subtitle2')}</h3>
         <p>{t('resultNext.text2')}</p>
       </>
     )
   }
-  
 
   const postLabSurvey = (
     <SurveyWrapper
@@ -114,7 +117,10 @@ const WhatNext: FunctionComponent<ResultProps> = ({unfinishedSurveys, token, onS
       surveyName={'POST_LAB_MONTHLY'}
       formClass="crc"
       cardClass="inherit"
-      onDoneCallback={() =>{setPageState('SURVEY_DONE'); onSurveyFinishedFn('POST_LAB')}}
+      onDoneCallback={() => {
+        setPageState('SURVEY_DONE')
+        onSurveyFinishedFn('POST_LAB')
+      }}
     >
       <PostLabHeader></PostLabHeader>
     </SurveyWrapper>

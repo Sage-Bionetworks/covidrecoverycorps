@@ -2,7 +2,7 @@ import {
   createMuiTheme,
   Grid,
   ThemeProvider,
-  Typography
+  Typography,
 } from '@material-ui/core'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline'
@@ -12,7 +12,7 @@ import {
   BrowserRouter as Router,
   Redirect,
   Route,
-  Switch
+  Switch,
 } from 'react-router-dom'
 import { useSessionDataDispatch, useSessionDataState } from './AuthContext'
 import AcountSettings from './components/AccountSettings'
@@ -359,13 +359,14 @@ function App() {
       return `partialGreen${alertClass}`
     }
     //dashboard is green for users to haven't tested
-  /*  if (
+    /*  if (
       location.toLowerCase().includes('dashboard') &&
       sessionData.userDataGroup.indexOf('tests_available') === -1 &&
       !isFollowUpSurveys
     ) {
       return `partialGreen${alertClass}`
-    } */else {
+    } */
+    else {
       return ''
     }
   }

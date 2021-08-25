@@ -13,7 +13,7 @@ import {
   LoggedInUserData,
   SavedSurvey,
   TestResult,
-  TestResultString
+  TestResultString,
 } from '../../types/types'
 import Dashboard from '../dashboard/Dashboard'
 import LeftNav, { LeftNavItem } from '../static/LeftNav'
@@ -31,7 +31,7 @@ type ResultProps = {
 export const useStyles = makeStyles(theme => ({
   root: {
     maxWith: '1080px',
-    marginTop: '48px'
+    marginTop: '48px',
   },
 
   loader: {
@@ -128,10 +128,10 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
   }
 
   const getNav = (activeIndex: number): JSX.Element => {
-
     // nav items without result
     let navItems: LeftNavItem[] = [
-      { id: 'INITIAL_SURVEYS',
+      {
+        id: 'INITIAL_SURVEYS',
         element: <img src={liResultNext}></img>,
         text: t('resultDashboard.li5'),
       },
@@ -148,7 +148,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
           id: 'TEST_RESULT',
           img: liResultNegative,
           text: t('resultDashboard.li1'),
-         // callbackFn: () => setActiveItemIndex(0),
+          // callbackFn: () => setActiveItemIndex(0),
         },
       ]
       if (resultValue === 'INDETERMINATE') {
@@ -157,14 +157,18 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
 
       if (resultValue === 'POSITIVE') {
         navItems[0].img = liResultPositive
-        if ((!latestMonthlySurvey.isCompleted) || latestMonthlySurvey?.survey?.data.vaccine?.reinfection === 'Yes') {
+        if (
+          !latestMonthlySurvey.isCompleted ||
+          latestMonthlySurvey?.survey?.data.vaccine?.reinfection === 'Yes'
+        ) {
           let img = <img src={liResultNext}></img>
 
           img = (
-          
             <div style={{ position: 'relative' }}>
               {img}
-           {!latestMonthlySurvey.isCompleted &&   <div className={classes.newNotification}>1</div>}
+              {!latestMonthlySurvey.isCompleted && (
+                <div className={classes.newNotification}>1</div>
+              )}
             </div>
           )
 
@@ -172,7 +176,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
             id: 'MONTHLY_SURVEY',
             element: img,
             text: t('resultDashboard.li2'),
-          //  callbackFn: () => setActiveItemIndex(1),
+            //  callbackFn: () => setActiveItemIndex(1),
           })
         }
       }
@@ -181,10 +185,8 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
         id: 'SURVEY_RESULTS',
         img: liResultSurvey,
         text: t('resultDashboard.li4'),
-      //  callbackFn: () => setActiveItemIndex(2),
+        //  callbackFn: () => setActiveItemIndex(2),
       })
-
-
     }
 
     return (
@@ -193,7 +195,10 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
           items={navItems}
           activeColor={RESULT_COLOR[resultValue]}
           activeIndex={activeIndex}
-          changeIndexCallbackFn={(index: number, id: string)=> {setActiveItemIndex(index); setActivePage(id)}}
+          changeIndexCallbackFn={(index: number, id: string) => {
+            setActiveItemIndex(index)
+            setActivePage(id)
+          }}
         />
         <ShareModal
           show={isShowingShareDialog}
@@ -238,11 +243,12 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
         return <Dashboard token={token} />
       }
       if (activePage === 'SURVEY_RESULTS') {
-        return <SurveyResults/>      }
+        return <SurveyResults />
+      }
 
       return (
         <MonthlySurvey
-        onSurveyStartedFn={()=>setActivePage('MONTHLY_SURVEY1')}
+          onSurveyStartedFn={() => setActivePage('MONTHLY_SURVEY1')}
           token={token}
           savedMonthlySurvey={latestMonthlySurvey.survey}
           onSurveyFinishedFn={triggerToggle}
@@ -266,19 +272,19 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
 
   return (
     <div className={classes.root} data-cy="page-result">
-      {!isLoading && activePage !== 'MONTHLY_SURVEY1' &&  (
+      {!isLoading && activePage !== 'MONTHLY_SURVEY1' && (
         <TwoColumnTemplate
           nav={getNav(activeItemIndex)}
           main={getMain()}
         ></TwoColumnTemplate>
       )}
-         {!isLoading && activePage === 'MONTHLY_SURVEY1' &&  (
-         <MonthlySurvey
-         token={token}
-         savedMonthlySurvey={latestMonthlySurvey.survey}
-         onSurveyFinishedFn={triggerToggle}
-         onSurveyStartedFn={()=>setActivePage('MONTHLY_SURVEY1')}
-       ></MonthlySurvey>
+      {!isLoading && activePage === 'MONTHLY_SURVEY1' && (
+        <MonthlySurvey
+          token={token}
+          savedMonthlySurvey={latestMonthlySurvey.survey}
+          onSurveyFinishedFn={triggerToggle}
+          onSurveyStartedFn={() => setActivePage('MONTHLY_SURVEY1')}
+        ></MonthlySurvey>
       )}
       {/*!(result || isLoading) && (
         <Container maxWidth="xs">
