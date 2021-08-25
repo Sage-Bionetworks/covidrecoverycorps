@@ -1,12 +1,13 @@
-import React from 'react'
 import { makeStyles } from '@material-ui/core'
+import React from 'react'
 import { openSansFont } from '../../App'
 
 export type LeftNavItem = {
   img?: string
   element?: JSX.Element
   text: string
-  callbackFn: Function
+  //callbackFn: Function
+  id?: string
 }
 
 type LeftNavProps = {
@@ -72,19 +73,17 @@ export const LeftNav: React.FunctionComponent<LeftNavProps> = ({
   items,
   activeIndex,
   activeColor,
-  changeIndexCallbackFn
+  changeIndexCallbackFn,
 }: LeftNavProps) => {
   const classes = useStyles()
-
 
   return (
     <ul className={classes.root}>
       {items.map((item, index) => (
-        <li key={`nav${index}`}
-          onClick={() => changeIndexCallbackFn(index)}
-          style={
-            activeIndex === index ? { backgroundColor: '#FCFCFC' } : {}
-          }
+        <li
+          key={`nav${index}`}
+          onClick={() => changeIndexCallbackFn(index, item.id)}
+          style={activeIndex === index ? { backgroundColor: '#FCFCFC' } : {}}
         >
           {activeIndex === index && (
             <div
@@ -93,7 +92,7 @@ export const LeftNav: React.FunctionComponent<LeftNavProps> = ({
             ></div>
           )}
           {item.img && <img src={item.img}></img>}
-          {item.element && <div className='img'>{item.element}</div>}
+          {item.element && <div className="img">{item.element}</div>}
           <span>{item.text}</span>
         </li>
       ))}

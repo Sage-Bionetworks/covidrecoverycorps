@@ -1,0 +1,211 @@
+{
+  "definitions": {
+    "symptomDetail": {
+      "type": "object",
+      "title": "",
+      "required": ["how_often", "how_much_bothers", "how_has_changed"],
+      "properties": {
+        "how_often": {
+          "title": "a. How often do you experience this symptom in a week? ",
+          "type": "number",
+          "minimum": 1
+        },
+
+        "how_much_bothers": {
+          "title": "b. How much does this symptom bother you? ",
+          "type": "string",
+
+          "enum": ["1", "2", "3", "4", "5"],
+          "enumNames": ["1", "2", "3", "4", "5"]
+        },
+
+        "how_has_changed": {
+          "title": "c. How has this symptom changed over the last month? ",
+          "type": "string",
+
+          "enum": ["1", "2", "3", "4", "5"],
+          "enumNames": ["1", "2", "3", "4", "5"]
+        }
+      }
+    },
+
+    "newConditions": {
+      "type": "object",
+      "required": ["conditions"],
+      "properties": {
+        "conditions": {
+          "type": "object",
+          "title": "1. Since you were diagnosed with COVID-19, have you been newly diagnosed by a doctor with the following conditions: (Check all that apply)",
+          "properties": {
+            "eye_desease": {
+              "type": "boolean",
+              "title": "Eye disease"
+            },
+
+            "high_bp": {
+              "type": "boolean",
+              "title": "High blood pressure"
+            },
+            "high_cholesterol": {
+              "type": "boolean",
+              "title": "High cholesterol"
+            },
+            "stroke": {
+              "type": "boolean",
+              "title": "Stroke"
+            },
+            "heart_attack": {
+              "type": "boolean",
+              "title": "Heart attack"
+            },
+
+            "diabetes": {
+              "type": "boolean",
+              "title": "Diabetes"
+            },
+            "kidney_disease": {
+              "title": "Kidney disease",
+              "type": "boolean"
+            },
+            "depression": {
+              "type": "boolean",
+              "title": "Depression"
+            },
+            "anxiety": {
+              "title": "Anxiety",
+              "type": "boolean"
+            },
+
+            "other": {
+              "title": "Other",
+              "type": "boolean"
+            },
+            "none": {
+              "title": "None",
+              "type": "boolean"
+            },
+            "no_answer": {
+              "title": "Prefer not to answer",
+              "type": "boolean"
+            }
+          },
+          "dependencies": {
+            "other": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "other": {
+                      "enum": [true]
+                    },
+                    "other_specify": {
+                      "title": "Please specify:",
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+  
+    "vaccine": {
+      "type": "object",
+      "required": ["received_vaccine"],
+      "properties": {
+        "received_vaccine": {
+          "title": "2. Have you received a COVID-19 vaccine?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["Yes", "No", "Prefer not to answer"],
+          "enumNames": ["Yes", "No", "Prefer not to answer"]
+        }
+      },
+
+      "dependencies": {
+        "received_vaccine": {
+          "oneOf": [
+            {
+              "properties": {
+                "received_vaccine": {
+                  "enum": ["No", "Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "required": [ "reinfection"],
+              "properties": {
+                "received_vaccine": {
+                  "enum": ["Yes"]
+                },
+                "reinfection": {
+                    "title": "2a. Did you experience a breakthrough infection with a positive nasal swab test?",
+                    "type": "string",
+                    "uniqueItems": true,
+                    "enum": [
+                      "Yes",
+                      "No",
+                      "Prefer not to answer"
+                    ],
+                    "enumNames": [
+                      "Yes",
+                      "No",
+                      "Prefer not to answer"
+                    ]
+                  }
+                }}]
+        },
+        "reinfection": {
+            "oneOf": [
+              {
+                "properties": {
+                  "reinfection": {
+                    "enum": ["No", "Prefer not to answer"]
+                  }
+                }
+              },
+              {
+                "required": [],
+                "properties": {
+                  "reinfection": {
+                    "enum": ["Yes"]
+                  },
+                  "breakthrough_date": {
+                    "title": "2b. When were you re-infected with COVID-19?",
+                    "type": "string"
+                  }
+                  }}
+                ]
+  
+           
+         
+
+         
+        }
+    
+      }
+    }
+  },
+
+  "type": "object",
+  "properties": {
+
+    "newConditions": {
+      "title": "",
+      "$ref": "#/definitions/newConditions"
+    },
+ 
+    "vaccine": {
+      "title": "",
+      "$ref": "#/definitions/vaccine"
+    }
+  }
+}

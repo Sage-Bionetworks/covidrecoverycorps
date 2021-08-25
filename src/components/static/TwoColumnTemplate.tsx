@@ -35,7 +35,7 @@ export const useStyles = makeStyles(theme => ({
   },
 
   main: {
-    width: '100%'
+    width: '100%',
   },
 }))
 export const TwoColumnTemplate: React.FunctionComponent<TwoColumnTemplateProps> = ({

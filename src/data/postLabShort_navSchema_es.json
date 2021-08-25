@@ -1,0 +1,47 @@
+{
+  "steps": [
+ 
+    {
+      "id": "newConditions",
+      "order": 25,
+      "title": "",
+      "orderDisplay": "1/2",
+      "description": "",
+
+      "default": "vaccine",
+      "validationRules": [
+        {
+          "conditions": {
+            "all": [
+              {
+                "fact": "newConditions",
+                "operator": "notHasChecked",
+                "path": ".conditions",
+                "value": true
+              }
+            ]
+          },
+          "event": {
+            "type": "validation",
+            "params": {
+              "message": "   ",
+              "name": "required",
+              "property": "newConditions.conditions"
+            }
+          },
+          "priority:": 1
+        }
+      ]
+    },
+  
+    {
+      "id": "vaccine",
+      "order": 61,
+      "title": "",
+      "orderDisplay": "2/2",
+      "description": "",
+
+      "default": ""
+    }
+  ]
+}

@@ -66,6 +66,7 @@ type ResultProps = {
   // unfinishedSurveys: string[]
   savedMonthlySurvey?: SavedSurvey
   onSurveyFinishedFn: Function
+  onSurveyStartedFn: Function
 }
 
 const MonthlySurvey: FunctionComponent<ResultProps> = ({
@@ -73,6 +74,7 @@ const MonthlySurvey: FunctionComponent<ResultProps> = ({
   savedMonthlySurvey,
   token,
   onSurveyFinishedFn,
+  onSurveyStartedFn,
 }: ResultProps) => {
   const classes = useStyles()
   const { t } = useTranslation()
@@ -102,8 +104,15 @@ const MonthlySurvey: FunctionComponent<ResultProps> = ({
         <div style={{ textAlign: 'center', margin: '0 auto' }}>
           <img src={iconCheckMark}></img>
           <h3>{t('resultDashboard.thankYou')}</h3>
-
+          {/* agendel - for long survey*/}
           {savedMonthlySurvey?.data.reinfection?.positive_test === 'Yes' && (
+            <UploadResult
+              token={token || ''}
+              surveyName={'RESULT_UPLOAD_MONTHLY'}
+              descriptionI18nKey="monthlySurvey.uploadDescription"
+            ></UploadResult>
+          )}
+          {savedMonthlySurvey?.data.vaccine?.reinfection === 'Yes' && (
             <UploadResult
               token={token || ''}
               surveyName={'RESULT_UPLOAD_MONTHLY'}
@@ -140,7 +149,10 @@ const MonthlySurvey: FunctionComponent<ResultProps> = ({
                 <Button
                   variant="contained"
                   color="primary"
-                  onClick={() => setPageState('SURVEY')}
+                  onClick={() => {
+                    onSurveyStartedFn()
+                    setPageState('SURVEY')
+                  }}
                 >
                   {t('monthlySurvey.surveyCTA')}
                 </Button>

@@ -2,7 +2,7 @@ import {
   createMuiTheme,
   Grid,
   ThemeProvider,
-  Typography
+  Typography,
 } from '@material-ui/core'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline'
@@ -12,13 +12,12 @@ import {
   BrowserRouter as Router,
   Redirect,
   Route,
-  Switch
+  Switch,
 } from 'react-router-dom'
 import { useSessionDataDispatch, useSessionDataState } from './AuthContext'
 import AcountSettings from './components/AccountSettings'
 import Consent from './components/consent/Consent'
 import ConsentEHR from './components/consent/ConsentEHR'
-import Dashboard from './components/dashboard/Dashboard'
 import LearningHub from './components/learningHub/LearningHub'
 import Login from './components/login/Login'
 import LoginPassword from './components/login/LoginPassword'
@@ -292,27 +291,38 @@ function App() {
     isInitialSurveysCompleted: boolean,
   ) {
     const justFinishedSurveys = window.location.search.includes('just_finished')
+    if (
+      sessionData.userDataGroup.includes('tests_scheduled') &&
+      !(
+        sessionData.userDataGroup.includes('tests_available') ||
+        sessionData.userDataGroup.includes('tests_collected')
+      )
+    ) {
+      return renderWithGridLayout(<Appointment token={token || ''} />)
+    }
     if (isInitialSurveysCompleted === undefined) {
       return <CircularProgress />
     }
 
-    if (
+    /* if (
       sessionData.userDataGroup.includes('tests_available') ||
       sessionData.userDataGroup.includes('tests_collected') ||
-      (isInitialSurveysCompleted && !justFinishedSurveys)
-    ) {
-      return renderWithWiderGridLayout(<ResultDashboard token={token || ''} />)
-    }
+      isInitialSurveysCompleted /*&& !justFinishedSurveys
+    ) { */
+    return renderWithWiderGridLayout(
+      <ResultDashboard
+        hasFinishedIntroSurveys={isInitialSurveysCompleted}
+        token={token || ''}
+      />,
+    )
+    // }
 
     /* once we know the new condition -- show the testKitShipped page
     if (sessionData.userDataGroup.includes('tests_scheduled')) {
       return renderWithGridLayout(<TestKitShipped token={token || ''} />)
     }*/
-    if (sessionData.userDataGroup.includes('tests_scheduled')) {
-      return renderWithGridLayout(<Appointment token={token || ''} />)
-    }
 
-    return renderWithGridLayout(<Dashboard token={token || ''} />)
+    //  return renderWithGridLayout(<Dashboard token={token || ''} />)
   }
 
   const setUserSession = (
@@ -349,13 +359,14 @@ function App() {
       return `partialGreen${alertClass}`
     }
     //dashboard is green for users to haven't tested
-    if (
+    /*  if (
       location.toLowerCase().includes('dashboard') &&
       sessionData.userDataGroup.indexOf('tests_available') === -1 &&
       !isFollowUpSurveys
     ) {
       return `partialGreen${alertClass}`
-    } else {
+    } */
+    else {
       return ''
     }
   }

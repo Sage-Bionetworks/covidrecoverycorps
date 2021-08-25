@@ -11,7 +11,7 @@ import {
   SurveysCompletionStatusEnum,
   SurveyType,
   SURVEY_IDENTIFIER,
-  SURVEY_TIME_CONSTANT,
+  SURVEY_TIME_CONSTANT
 } from '../types/types'
 
 export const SurveyService = {
@@ -35,7 +35,7 @@ const getMonthlySurveyEndpoint = () => {
     today.getMonth() + 1
   }_${today.getFullYear()}`*/
 
-  const endpoint = `${ENDPOINT}/v4/users/self/reports/${MONTHLY_SURVEY_IDENTIFIER}_7_${today.getFullYear()}`
+  const endpoint = `${ENDPOINT}/v4/users/self/reports/${MONTHLY_SURVEY_IDENTIFIER}_9_${today.getFullYear()}`
 
   return endpoint
 }
