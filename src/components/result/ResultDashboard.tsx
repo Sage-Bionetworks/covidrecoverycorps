@@ -30,6 +30,7 @@ import ShortVsLongInfectionGraph from '../../assets/dashboard/survey-results/ini
 import ColorfulClipboard from '../../assets/dashboard/survey-results/clipboard.svg'
 import DiagnosisFollowUpChart from '../../assets/dashboard/survey-results/diagnosis_follow_up_chart.svg'
 import { playfairDisplayFont, openSansFont } from '../../App'
+import DashedLine from '../../assets/dashboard/survey-results/dashed_line.svg'
 
 type ResultProps = {
   token: string
@@ -113,6 +114,15 @@ export const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     paddingTop: theme.spacing(4),
   },
+  whiteContainer: {
+    backgroundColor: 'white',
+    width: '100vw',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    borderImage: 'url(' + DashedLine + ') 60 round',
+    borderTop: '1px solid transparent',
+  },
 }))
 
 const BottomSurveyResults: React.FunctionComponent = () => {
@@ -147,16 +157,7 @@ const BottomSurveyResults: React.FunctionComponent = () => {
           <img src={MaleInfectionSymptomsGraph}></img>
         </Box>
       </Box>
-      <Box
-        style={{
-          backgroundColor: 'white',
-          width: '100vw',
-          display: 'flex',
-          flexDirection: 'column',
-          borderTop: '1px dotted black',
-          alignItems: 'center',
-        }}
-      >
+      <Box className={classes.whiteContainer}>
         <Box className={classes.container} mb={4}>
           <Box className={classes.followUpSurveryContainer}>
             <img src={ColorfulClipboard} style={{ marginRight: '16px' }}></img>
