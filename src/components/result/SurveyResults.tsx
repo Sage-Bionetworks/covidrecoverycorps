@@ -4,6 +4,7 @@ import { playfairDisplayFont } from '../../App'
 import EthnicityPieChart from '../../assets/dashboard/survey-results/ethnicity_pie_chart.svg'
 import BiologicalSexPieChart from '../../assets/dashboard/survey-results/biological_sex_pie_chart.svg'
 import EducationPieChart from '../../assets/dashboard/survey-results/education_pie_chart.svg'
+import { useTranslation } from 'react-i18next'
 
 export const useStyles = makeStyles(theme => ({
   headerText: {
@@ -30,15 +31,14 @@ export const useStyles = makeStyles(theme => ({
 type ResultProps = {}
 
 const SurveyResults: FunctionComponent<ResultProps> = () => {
+  const { t } = useTranslation()
   const classes = useStyles()
   return (
     <Box className={classes.container}>
-      <Box className={classes.headerText}>
-        Thank you for participating in our study.
-      </Box>
+      <Box className={classes.headerText}>{t('studyResults.title')}</Box>
       <Box className={classes.descriptionText}>
-        <strong>901 people</strong> from all over the United States responded to
-        our surveys. Here’s the breakdown of what our community looks like.
+        <strong>{t('studyResults.titleDescription.bolded')}</strong>
+        {t('studyResults.titleDescription.regular')}
       </Box>
       <Box className={classes.container}>
         <img src={EthnicityPieChart} style={{ marginTop: '96px' }}></img>

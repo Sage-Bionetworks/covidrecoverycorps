@@ -734,5 +734,40 @@
     "text2": "It will be important to hear how you are doing, even if you are completely recovered from COVID-19, to better understand the ways in which the virus affects the body and learn how to best support people recovering from the infection.",
     "surveyCTA": "Take follow up survey",
     "uploadDescription": "<0>You've answered that you've had a positive Nasal Swab test</0> <0>Please upload a copy of your test results.</0> <0> The test result document can be a .jpeg, pdf, .png, or a .tiff.</0>"
+  },
+  "studyResults": {
+    "title": "Thank you for participating in our study.",
+    "titleDescription": {
+      "bolded": "901 people ",
+      "regular": "from all over the United States responded to our surveys. Here’s the breakdown of what our community looks like."
+    },
+    "graph1Header": "Participants by Income Levels",
+    "graph2Header": "Top 15 Initial Infection Symptoms Reported from 901 respondants",
+    "graph2Description": "These are the most common symptoms that our community experienced when they first became ill, during their initial COVID-19 infection.",
+    "graph3Header": "Top 15 Initial Infection Symptoms by Sex",
+    "followUpText": {
+      "header": "Follow up Survey results",
+      "paragraph1": {
+        "bolded": "230 people ",
+        "regular": "completed our follow up survey to understand how they are doing after their initial COVID-19 infection."
+      },
+      "paragraph2": {
+        "bolded1": "180/230 people ",
+        "regular1": "people indicated they were still dealing",
+        "bolded2": "Long COVID.",
+        "regular2": "The graph below shows the symptoms this group experienced during their initial COVID-19 infection compared to the symptoms they are still dealing with in Long COVID."
+      }
+    },
+    "graph4Header": "Initial Infection Symptoms vs. Long COVID Symptoms  (180 people)",
+    "medicalDiagnosis": {
+      "header": "New Medical Diagnosis Reported on Follow Up Survey",
+      "description": "Most people with Long COVID do not have new medical diagnoses, even if they are still dealing with the symptoms of Long COVID.",
+      "paragraph1": "However, some people have had additional medical diagnoses on top of their Long COVID symptoms. We’re still working to understand these new diagnoses. Some of the questions we still have are: ",
+      "listItem1": "Are these new diagnoses due to the COVID-19 infection, or would they have happened no matter what?",
+      "listItem2": "Was the timing of these diagnoses changed because of COVID-19? In other words, were these diagnoses made earlier because the individual was going to doctors who caught the diagnoses?",
+      "paragraph2": "Overall, we’re still not sure if these new diagnoses were caused by a COVID-19 infection or how COVID-19 might have contributed to these diagnoses."
+    },
+    "graph5Header": "New Diagnoses at Follow Up (180 people)",
+    "disclaimer": "* Other diagnoses include reflux, asthma or reactive airway disease, post-traumatic stress disorder, anemia, and POTS (Postural orthostatic tachycardia syndrome)"
   }
 }
