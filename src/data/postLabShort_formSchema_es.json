@@ -1,62 +1,33 @@
 {
   "definitions": {
-    "symptomDetail": {
-      "type": "object",
-      "title": "",
-      "required": ["how_often", "how_much_bothers", "how_has_changed"],
-      "properties": {
-        "how_often": {
-          "title": "a. How often do you experience this symptom in a week? ",
-          "type": "number",
-          "minimum": 1
-        },
-
-        "how_much_bothers": {
-          "title": "b. How much does this symptom bother you? ",
-          "type": "string",
-
-          "enum": ["1", "2", "3", "4", "5"],
-          "enumNames": ["1", "2", "3", "4", "5"]
-        },
-
-        "how_has_changed": {
-          "title": "c. How has this symptom changed over the last month? ",
-          "type": "string",
-
-          "enum": ["1", "2", "3", "4", "5"],
-          "enumNames": ["1", "2", "3", "4", "5"]
-        }
-      }
-    },
-
     "newConditions": {
       "type": "object",
       "required": ["conditions"],
       "properties": {
         "conditions": {
           "type": "object",
-          "title": "1. Since you were diagnosed with COVID-19, have you been newly diagnosed by a doctor with the following conditions: (Check all that apply)",
+          "title": "6. Desde que le diagnosticaron COVID-19, ¿un médico le ha diagnosticado recientemente las siguientes afecciones? (Marque todas las que correspondan)",
           "properties": {
             "eye_desease": {
               "type": "boolean",
-              "title": "Eye disease"
+              "title": "Enfermedad ocular"
             },
 
             "high_bp": {
               "type": "boolean",
-              "title": "High blood pressure"
+              "title": "Alta presión sanguínea"
             },
             "high_cholesterol": {
               "type": "boolean",
-              "title": "High cholesterol"
+              "title": "Colesterol alto"
             },
             "stroke": {
               "type": "boolean",
-              "title": "Stroke"
+              "title": "Derrame cerebral"
             },
             "heart_attack": {
               "type": "boolean",
-              "title": "Heart attack"
+              "title": "Ataque cardíaco"
             },
 
             "diabetes": {
@@ -64,28 +35,28 @@
               "title": "Diabetes"
             },
             "kidney_disease": {
-              "title": "Kidney disease",
+              "title": "Nefropatía",
               "type": "boolean"
             },
             "depression": {
               "type": "boolean",
-              "title": "Depression"
+              "title": "Depresión"
             },
             "anxiety": {
-              "title": "Anxiety",
+              "title": "Ansiedad",
               "type": "boolean"
             },
 
             "other": {
-              "title": "Other",
+              "title": "Otro",
               "type": "boolean"
             },
             "none": {
-              "title": "None",
+              "title": "Ninguno",
               "type": "boolean"
             },
             "no_answer": {
-              "title": "Prefer not to answer",
+              "title": "Prefiero no responder",
               "type": "boolean"
             }
           },
@@ -105,7 +76,7 @@
                       "enum": [true]
                     },
                     "other_specify": {
-                      "title": "Please specify:",
+                      "title": "Por favor especifica:",
                       "type": "string"
                     }
                   }
@@ -122,11 +93,11 @@
       "required": ["received_vaccine"],
       "properties": {
         "received_vaccine": {
-          "title": "2. Have you received a COVID-19 vaccine?",
+          "title": "2. ¿Ha recibido una vacuna COVID-19?",
           "type": "string",
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"],
-          "enumNames": ["Yes", "No", "Prefer not to answer"]
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
         }
       },
 
@@ -147,11 +118,11 @@
                   "enum": ["Yes"]
                 },
                 "reinfection": {
-                  "title": "2a. Did you experience a breakthrough infection with a positive nasal swab test?",
+                  "title": "2a. ¿Experimentó una infección irruptiva con una prueba de frotis nasal positiva?",
                   "type": "string",
                   "uniqueItems": true,
                   "enum": ["Yes", "No", "Prefer not to answer"],
-                  "enumNames": ["Yes", "No", "Prefer not to answer"]
+                  "enumNames": ["Sí", "No", "Prefiero no responder"]
                 }
               }
             }
@@ -173,7 +144,7 @@
                   "enum": ["Yes"]
                 },
                 "breakthrough_date": {
-                  "title": "2b. When were you re-infected with COVID-19?",
+                  "title": "2b. ¿Cuándo se volvió a infectar con COVID-19?",
                   "type": "string"
                 }
               }
