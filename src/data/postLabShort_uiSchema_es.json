@@ -1,0 +1,51 @@
+{
+  "newConditions": {
+    "conditions": {
+      "ui:field": "checkboxExclusiveField",
+      "ui:exclusive": ["no_answer", "none"],
+      "ui:dependent_option_postfix": ["_specify"],
+      "ui:order": [
+        "eye_desease",
+        "high_bp",
+        "high_cholesterol",
+        "stroke",
+        "heart_attack",
+        "diabetes",
+        "kidney_disease",
+        "depression",
+        "anxiety",
+        "other",
+        "other_specify",
+        "none",
+        "no_answer"
+      ],
+      "other_specify": {
+        "ui:widget": "textarea",
+        "ui:help": "puede ingresar más de una condición separada por una coma"
+      },
+      "classNames": "family_diseases show_fieldSet",
+      "ui:widget": "checkboxes"
+    }
+  },
+  "vaccine": {
+    "ui:dependent_option_postfix": ["_other"],
+    "ui:order": ["received_vaccine", "reinfection", "*"],
+    "received_vaccine": {
+      "ui:widget": "radio"
+    },
+    "reinfection": {
+      "ui:widget": "radio",
+      "ui:description": "Si responde \"Sí\", se le pedirá que suba una copia de esta prueba después de esta encuesta."
+    },
+    "breakthrough_date": {
+      "ui:widget": "CustomDateWidget",
+      "classNames": "postLab_date_field",
+      "ui:options": {
+        "yearsRange": [2020, 2021],
+        "hideNowButton": true,
+        "hideClearButton": false,
+        "lessThanNow": true
+      }
+    }
+  }
+}

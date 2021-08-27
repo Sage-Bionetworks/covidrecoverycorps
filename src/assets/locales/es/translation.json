@@ -599,13 +599,15 @@
     "li1": "Mis resultados de la prueba",
     "li2": "Qué sigue",
     "li3": "Mis encuestas",
+    "li4": "Resultados de la encuesta",
+    "li5": "Encuestas de estudio",
     "inviteCTA": "Invite a un amigo a unirse al estudio",
-    "thankYou": "Thank you for your help!"
+    "thankYou": "¡Gracias por tu ayuda!"
   },
   "resultNext": {
-    "title": "What COVID-19 positive people can do now.",
+    "title": "Lo que las personas positivas a COVID-19 pueden hacer ahora.",
     "subtitle1": "2 min post lab follow up",
-    "text1": " Tenemos curiosidad de saber cómo usted está procesando este resultado. Ayúdenos a diseñar el estudio y los cuestionarios futuros proporcionando respuestas breves a algunas preguntas de seguimiento.",
+    "text1": "Tenemos curiosidad de saber cómo usted está procesando este resultado. Ayúdenos a diseñar el estudio y los cuestionarios futuros proporcionando respuestas breves a algunas preguntas de seguimiento.",
     "subtitle2": "Future surveys",
     "text2": "Debido a que el virus es nuevo, todavía no estamos seguros cuáles son las consecuencias a largo plazo de estar infectado. Vamos a pedirle a participantes como usted que respondan preguntas breves aproximadamente 5 veces durante el próximo año. Es importante saber cómo se encuentra usted, incluso si está completamente recuperado del COVID-19, para entender mejor las formas en que el virus afecta el cuerpo y si ha ocurrido alguna complicación.",
     "surveyCTA": " Tome la encuesta después de laboratorio"
