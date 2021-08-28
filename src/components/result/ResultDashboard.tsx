@@ -127,27 +127,27 @@ export const useStyles = makeStyles(theme => ({
 
 const BottomSurveyResults: React.FunctionComponent = () => {
   const classes = useStyles()
+  const { t } = useTranslation()
   return (
     <Box className={classes.bottomContainer}>
       <Box className={classes.container} mb={6}>
         <Box className={classes.headerText} mb={3.75}>
-          Participants by Income Levels
+          {t('studyResults.graph1Header')}
         </Box>
         <img src={ParticipantsByIncomeGraph}></img>
       </Box>
       <Box className={classes.container} mb={8}>
         <Box className={classes.headerText} mb={1.4}>
-          Top 15 Initial Infection Symptoms Reported from 901 respondants
+          {t('studyResults.graph2Header')}
         </Box>
         <Box className={classes.headerDescriptionText}>
-          These are the most common symptoms that our community experienced when
-          they first became ill, during their initial COVID-19 infection.
+          {t('studyResults.graph2Description')}
         </Box>
         <img src={InitialSymptomsBarGraph}></img>
       </Box>
       <Box className={classes.container} mb={4}>
         <Box className={classes.headerText} mb={1.5}>
-          Top 15 Initial Infection Symptoms by Sex
+          {t('studyResults.graph3Header')}
         </Box>
         <Box display="flex">
           <img
@@ -162,23 +162,27 @@ const BottomSurveyResults: React.FunctionComponent = () => {
           <Box className={classes.followUpSurveryContainer}>
             <img src={ColorfulClipboard} style={{ marginRight: '16px' }}></img>
             <Box className={classes.followUpSurveyText}>
-              <strong>Follow up Survey results </strong>
+              <strong>{t('studyResults.followUpText.header')}</strong>
               <Box mt={2}>
-                <strong>230 people</strong> completed our follow up survey to
-                understand how they are doing after their initial COVID-19
-                infection.
+                <strong>
+                  {t('studyResults.followUpText.paragraph1.bolded')}
+                </strong>
+                {t('studyResults.followUpText.paragraph1.regular')}
               </Box>
               <Box mt={2}>
-                <strong>180/230 people</strong> indicated they were still
-                dealing with Long COVID. The graph below shows the symptoms this
-                group experienced during their initial COVID-19 infection
-                compared to the symptoms they are still dealing with in Long
-                COVID.
+                <strong>
+                  {t('studyResults.followUpText.paragraph2.bolded1')}
+                </strong>{' '}
+                {t('studyResults.followUpText.paragraph2.regular1')}{' '}
+                <strong>
+                  {t('studyResults.followUpText.paragraph2.bolded2')}
+                </strong>
+                {t('studyResults.followUpText.paragraph2.regular2')}
               </Box>
             </Box>
           </Box>
           <strong className={classes.headerText}>
-            Initial Infection Symptoms vs. Long COVID Symptoms (180 people)
+            {t('studyResults.graph4Header')}
           </strong>
           <img src={ShortVsLongInfectionGraph}></img>
         </Box>
@@ -186,7 +190,7 @@ const BottomSurveyResults: React.FunctionComponent = () => {
       <Box className={classes.medicalDiagnosisContainer}>
         <Box maxWidth="600px">
           <strong className={classes.headerText}>
-            New Medical Diagnosis Reported on Follow Up Survey
+            {t('studyResults.medicalDiagnosis.header')}
           </strong>
           <Box
             className={classes.headerText}
@@ -194,37 +198,27 @@ const BottomSurveyResults: React.FunctionComponent = () => {
             mt={3}
             mb={3}
           >
-            Most people with Long COVID do not have new medical diagnoses, even
-            if they are still dealing with the symptoms of Long COVID.
+            {t('studyResults.medicalDiagnosis.description')}
           </Box>
           <Box className={classes.newMedicalDiagnosisContainer}>
-            However, some people have had additional medical diagnoses on top of
-            their Long COVID symptoms. We’re still working to understand these
-            new diagnoses. Some of the questions we still have are:
+            {t('studyResults.medicalDiagnosis.paragraph1')}
             <ul style={{ marginBottom: '12px', marginTop: '12px' }}>
               <li style={{ marginBottom: '10px' }}>
-                Are these new diagnoses due to the COVID-19 infection, or would
-                they have happened no matter what?
+                {t('studyResults.medicalDiagnosis.listItem1')}
               </li>
-              <li>
-                Was the timing of these diagnoses changed because of COVID-19?
-                In other words, were these diagnoses made earlier because the
-                individual was going to doctors who caught the diagnoses?
+              <li style={{ marginBottom: '12px' }}>
+                {t('studyResults.medicalDiagnosis.listItem2')}
               </li>
             </ul>
-            Overall, we’re still not sure if these new diagnoses were caused by
-            a COVID-19 infection or how COVID-19 might have contributed to these
-            diagnoses.
+            {t('studyResults.medicalDiagnosis.paragraph2')}
           </Box>
         </Box>
         <Box className={classes.headerText} mb={3}>
-          New Diagnoses at Follow Up (180 people)
+          {t('studyResults.graph5Header')}
         </Box>
         <img src={DiagnosisFollowUpChart}></img>
         <Box mt={4} maxWidth="600px">
-          * Other diagnoses include reflux, asthma or reactive airway disease,
-          post-traumatic stress disorder, anemia, and POTS (Postural orthostatic
-          tachycardia syndrome)
+          {t('studyResults.disclaimer')}
         </Box>
       </Box>
     </Box>
@@ -392,7 +386,6 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
               setIsShowingShareDialog(true)
             }}
           >
-            {' '}
             {t('resultDashboard.inviteCTA')}
           </Button>
         </div>
