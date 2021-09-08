@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core'
+import _ from 'lodash'
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { openSansFont } from '../../App'
 
 export type LeftNavItem = {
@@ -14,7 +16,8 @@ type LeftNavProps = {
   items: LeftNavItem[]
   activeIndex?: number
   activeColor?: string
-  changeIndexCallbackFn: Function
+  changeIndexCallbackFn?: Function
+  isLink?: boolean
 }
 
 export const useStyles = makeStyles(theme => ({
@@ -51,12 +54,28 @@ export const useStyles = makeStyles(theme => ({
         marginRight: '1.6rem',
         width: '4rem',
       },
+      '& a': {
+        textDecoration: 'none',
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        padding: '30px 15px 25px 30px',
+      },
+    },
+
+    '& $linkLi': {
+      padding: '0',
     },
   },
+  linkLi: {},
   navItem: {
     width: '300px',
     padding: '30px 10px 10px 30px',
     borderBottom: ' 1px solid #EEEEEE',
+  },
+  selected: {
+    borderLeft: '7px solid #3cddd3',
+    backgroundColor: '#fafafa',
   },
 
   activeNavMarker: {
@@ -74,26 +93,52 @@ export const LeftNav: React.FunctionComponent<LeftNavProps> = ({
   activeIndex,
   activeColor,
   changeIndexCallbackFn,
+  isLink = false,
 }: LeftNavProps) => {
   const classes = useStyles()
+
+  const Inner: React.FunctionComponent<{
+    item: LeftNavItem
+    isActive: boolean
+    isLink: boolean
+  }> = ({ item, isActive }) => {
+    const inner = (
+      <>
+        {isActive && !isLink && (
+          <div
+            className={classes.activeNavMarker}
+            style={{ backgroundColor: activeColor }}
+          ></div>
+        )}
+        {item.img && <img src={item.img}></img>}
+        {item.element && <div className="img">{item.element}</div>}
+        <span>{item.text}</span>
+      </>
+    )
+
+    return isLink ? (
+      <NavLink to={item.id!} activeClassName={classes.selected}>
+        {inner}
+      </NavLink>
+    ) : (
+      inner
+    )
+  }
 
   return (
     <ul className={classes.root}>
       {items.map((item, index) => (
         <li
+          className={isLink ? classes.linkLi : ''}
           key={`nav${index}`}
-          onClick={() => changeIndexCallbackFn(index, item.id)}
+          onClick={() =>
+            changeIndexCallbackFn
+              ? changeIndexCallbackFn(index, item.id)
+              : _.noop
+          }
           style={activeIndex === index ? { backgroundColor: '#FCFCFC' } : {}}
         >
-          {activeIndex === index && (
-            <div
-              className={classes.activeNavMarker}
-              style={{ backgroundColor: activeColor }}
-            ></div>
-          )}
-          {item.img && <img src={item.img}></img>}
-          {item.element && <div className="img">{item.element}</div>}
-          <span>{item.text}</span>
+          <Inner item={item} isActive={activeIndex === index} isLink={isLink} />
         </li>
       ))}
     </ul>

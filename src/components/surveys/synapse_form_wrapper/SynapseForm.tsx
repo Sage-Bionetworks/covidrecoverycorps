@@ -1084,7 +1084,11 @@ export default class SynapseForm extends React.Component<
         {!this.props.extraUIProps?.isNoBackBar && (
           <div>
             <FloatingToolbar
-              closeLinkDestination="/dashboard"
+              closeLinkDestination={`/dashboard/${
+                this.props.formTitle === 'Monthly Survey'
+                  ? 'followup'
+                  : 'initial'
+              }`}
               closeIcon={faAngleLeft}
               closeLinkText={i18next.t('footer.dashboard')}
               closeConfirmationText={i18next.t('surveys.exitSurvey')}

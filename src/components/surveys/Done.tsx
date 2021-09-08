@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 export const Done: React.FunctionComponent = ({}) => {
   const { t } = useTranslation()
+  const isPostLab = window.location.search.includes('POST_LAB_MONTHLY')
 
   return (
     <Card>
@@ -18,7 +19,11 @@ export const Done: React.FunctionComponent = ({}) => {
           fullWidth
           color="primary"
           style={{ marginTop: '20px' }}
-          onClick={() => (window.location.href = '/Dashboard?just_finished')}
+          onClick={() =>
+            (window.location.href = `/dashboard/${
+              isPostLab ? 'followup' : 'initial'
+            }?just_finished`)
+          }
         >
           {t('surveys.done.toDashboard')}
         </Button>

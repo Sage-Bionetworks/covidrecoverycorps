@@ -2,6 +2,22 @@ import { Box, Button, CircularProgress, makeStyles } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert/Alert'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import {
+  Route,
+  RouteComponentProps,
+  Switch,
+  useHistory,
+  withRouter,
+} from 'react-router-dom'
+import { openSansFont, playfairDisplayFont } from '../../App'
+import ColorfulClipboard from '../../assets/dashboard/survey-results/clipboard.svg'
+import DashedLine from '../../assets/dashboard/survey-results/dashed_line.svg'
+import DiagnosisFollowUpChart from '../../assets/dashboard/survey-results/diagnosis_follow_up_chart.svg'
+import FemaleInfectionSymptomsGraph from '../../assets/dashboard/survey-results/female_infection_symptoms.svg'
+import InitialSymptomsBarGraph from '../../assets/dashboard/survey-results/initial_infection_symptoms_chart.svg'
+import ShortVsLongInfectionGraph from '../../assets/dashboard/survey-results/initial_vs_long_infection_graph.svg'
+import MaleInfectionSymptomsGraph from '../../assets/dashboard/survey-results/male_infection_symptoms.svg'
+import ParticipantsByIncomeGraph from '../../assets/dashboard/survey-results/participants_by_income_levels_bar_graph.svg'
 import liResultIndeterminate from '../../assets/results/liResultIndeterminate.svg'
 import liResultNegative from '../../assets/results/liResultNegative.svg'
 import liResultNext from '../../assets/results/liResultNext.svg'
@@ -22,19 +38,9 @@ import ShareModal from '../widgets/ShareModal'
 import MonthlySurvey from './MonthlySurvey'
 import Result, { RESULT_COLOR } from './Result'
 import SurveyResults from './SurveyResults'
-import ParticipantsByIncomeGraph from '../../assets/dashboard/survey-results/participants_by_income_levels_bar_graph.svg'
-import InitialSymptomsBarGraph from '../../assets/dashboard/survey-results/initial_infection_symptoms_chart.svg'
-import FemaleInfectionSymptomsGraph from '../../assets/dashboard/survey-results/female_infection_symptoms.svg'
-import MaleInfectionSymptomsGraph from '../../assets/dashboard/survey-results/male_infection_symptoms.svg'
-import ShortVsLongInfectionGraph from '../../assets/dashboard/survey-results/initial_vs_long_infection_graph.svg'
-import ColorfulClipboard from '../../assets/dashboard/survey-results/clipboard.svg'
-import DiagnosisFollowUpChart from '../../assets/dashboard/survey-results/diagnosis_follow_up_chart.svg'
-import { playfairDisplayFont, openSansFont } from '../../App'
-import DashedLine from '../../assets/dashboard/survey-results/dashed_line.svg'
 
 type ResultProps = {
   token: string
-  hasFinishedIntroSurveys?: boolean
 }
 
 export const useStyles = makeStyles(theme => ({
@@ -225,12 +231,13 @@ const BottomSurveyResults: React.FunctionComponent = () => {
   )
 }
 
-export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
-  token,
-  hasFinishedIntroSurveys = true,
-}: ResultProps) => {
+export const ResultDashboard: React.FunctionComponent<
+  ResultProps & RouteComponentProps
+> = ({ token }: ResultProps) => {
+  const history = useHistory()
   const classes = useStyles()
   const [isShowingShareDialog, setIsShowingShareDialog] = useState(false)
+  const [hasFinishedIntroSurveys, setHasFinishedIntroSurveys] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState()
   const [userData, setUserData] = useState<LoggedInUserData | undefined>(
@@ -268,9 +275,16 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
         try {
           const userInfoResponse = await UserService.getUserInfo(token)
           const ResultsResponse = await UserService.getTestResult(token)
+
+          const isCompleted = await SurveyService.isInitialSurveysCompleted(
+            token,
+            userInfoResponse.data,
+          )
+
           if (isSubscribed) {
             await setMonthlySurvey(token)
             setUserData(userInfoResponse.data)
+            setHasFinishedIntroSurveys(isCompleted)
             if (ResultsResponse?.data?.items?.length > 0) {
               const result = ResultsResponse.data.items[0]
               setResult(result)
@@ -300,13 +314,14 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
 
   const getNav = (activeIndex: number): JSX.Element => {
     // nav items without result
-    let navItems: LeftNavItem[] = [
-      {
-        id: 'INITIAL_SURVEYS',
+    let navItems: LeftNavItem[] = []
+    if (!hasFinishedIntroSurveys) {
+      navItems.push({
+        id: '/dashboard/initial',
         element: <img src={liResultNext}></img>,
         text: t('resultDashboard.li5'),
-      },
-    ]
+      })
+    }
 
     let resultValue = 'INDETERMINATE' as TestResultString
 
@@ -316,7 +331,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
 
       navItems = [
         {
-          id: 'TEST_RESULT',
+          id: '/dashboard/result',
           img: liResultNegative,
           text: t('resultDashboard.li1'),
           // callbackFn: () => setActiveItemIndex(0),
@@ -328,37 +343,36 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
 
       if (resultValue === 'POSITIVE') {
         navItems[0].img = liResultPositive
-        if (
-          !latestMonthlySurvey.isCompleted ||
-          latestMonthlySurvey?.survey?.data.vaccine?.reinfection === 'Yes'
-        ) {
-          let img = <img src={liResultNext}></img>
-
-          img = (
-            <div style={{ position: 'relative' }}>
-              {img}
-              {!latestMonthlySurvey.isCompleted && (
-                <div className={classes.newNotification}>1</div>
-              )}
-            </div>
-          )
-
-          navItems.push({
-            id: 'MONTHLY_SURVEY',
-            element: img,
-            text: t('resultDashboard.li2'),
-            //  callbackFn: () => setActiveItemIndex(1),
-          })
-        }
       }
+    }
+
+    if (
+      !latestMonthlySurvey.isCompleted ||
+      latestMonthlySurvey?.survey?.data.vaccine?.reinfection === 'Yes'
+    ) {
+      let img = (
+        <div style={{ position: 'relative' }}>
+          <img src={liResultNext}></img>
+          {!latestMonthlySurvey.isCompleted && (
+            <div className={classes.newNotification}>1</div>
+          )}
+        </div>
+      )
 
       navItems.push({
-        id: 'SURVEY_RESULTS',
-        img: liResultSurvey,
-        text: t('resultDashboard.li4'),
-        //  callbackFn: () => setActiveItemIndex(2),
+        id: '/dashboard/followup',
+        element: img,
+        text: t('resultDashboard.li2'),
+        //  callbackFn: () => setActiveItemIndex(1),
       })
     }
+
+    navItems.push({
+      id: '/dashboard/results',
+      img: liResultSurvey,
+      text: t('resultDashboard.li4'),
+      //  callbackFn: () => setActiveItemIndex(2),
+    })
 
     return (
       <div className="no-print">
@@ -366,10 +380,7 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
           items={navItems}
           activeColor={RESULT_COLOR[resultValue]}
           activeIndex={activeIndex}
-          changeIndexCallbackFn={(index: number, id: string) => {
-            setActiveItemIndex(index)
-            setActivePage(id)
-          }}
+          isLink={true}
         />
         <ShareModal
           show={isShowingShareDialog}
@@ -393,45 +404,6 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
     )
   }
 
-  const getMain = (): JSX.Element => {
-    // alert(hasFinishedIntroSurveys + 'finished')
-    if (error) {
-      return <Alert severity="error">{error!['message'] || error}</Alert>
-    }
-    console.log(userData, activeItemIndex)
-    if (userData) {
-      if (!activeItemIndex && result) {
-        return (
-          <Result
-            userData={userData!}
-            testResult={result}
-            changeTabCallbackFn={setActiveItemIndex}
-          />
-        )
-      }
-      if (!hasFinishedIntroSurveys) {
-        return <Dashboard token={token} />
-      }
-      if (activePage === 'SURVEY_RESULTS') {
-        return <SurveyResults />
-      }
-
-      return (
-        <MonthlySurvey
-          onSurveyStartedFn={() => setActivePage('MONTHLY_SURVEY1')}
-          token={token}
-          savedMonthlySurvey={latestMonthlySurvey.survey}
-          onSurveyFinishedFn={triggerToggle}
-        ></MonthlySurvey>
-      )
-    }
-
-    return (
-      <div className={classes.loader}>
-        <CircularProgress color="primary" />
-      </div>
-    )
-  }
   if (isLoading) {
     return (
       <Box width="100%" mx="auto" textAlign="center">
@@ -442,11 +414,62 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
 
   return (
     <div className={classes.root} data-cy="page-result">
-      {!isLoading && activePage !== 'MONTHLY_SURVEY1' && (
+      {!isLoading && (
         <Box>
           <TwoColumnTemplate
             nav={getNav(activeItemIndex)}
-            main={getMain()}
+            main={
+              <>
+                {error && (
+                  <Alert severity="error">{error!['message'] || error}</Alert>
+                )}
+                <Switch>
+                  <Route path="/dashboard/results">
+                    <SurveyResults />
+                  </Route>
+                  <Route path="/dashboard/result">
+                    {!userData ? (
+                      <div>...</div>
+                    ) : (
+                      <Result
+                        userData={userData}
+                        testResult={result}
+                        changeTabCallbackFn={setActiveItemIndex}
+                      />
+                    )}
+                  </Route>
+                  <Route path="/dashboard/initial">
+                    <Dashboard token={token} />
+                  </Route>
+                  <Route path="/dashboard/followup">
+                    <MonthlySurvey
+                      onSurveyStartedFn={() => setActivePage('MONTHLY_SURVEY1')}
+                      token={token}
+                      savedMonthlySurvey={latestMonthlySurvey.survey}
+                      onSurveyFinishedFn={triggerToggle}
+                    ></MonthlySurvey>
+                  </Route>
+                  <Route>
+                    {!hasFinishedIntroSurveys && <Dashboard token={token} />}
+
+                    {!latestMonthlySurvey.isCompleted &&
+                      hasFinishedIntroSurveys && (
+                        <MonthlySurvey
+                          onSurveyStartedFn={() =>
+                            setActivePage('MONTHLY_SURVEY1')
+                          }
+                          token={token}
+                          savedMonthlySurvey={latestMonthlySurvey.survey}
+                          onSurveyFinishedFn={triggerToggle}
+                        ></MonthlySurvey>
+                      )}
+
+                    {hasFinishedIntroSurveys &&
+                      latestMonthlySurvey.isCompleted && <SurveyResults />}
+                  </Route>
+                </Switch>
+              </>
+            }
           ></TwoColumnTemplate>
           {activePage === 'SURVEY_RESULTS' && <BottomSurveyResults />}
         </Box>
@@ -472,4 +495,4 @@ export const ResultDashboard: React.FunctionComponent<ResultProps> = ({
   )
 }
 
-export default ResultDashboard
+export default withRouter(ResultDashboard)

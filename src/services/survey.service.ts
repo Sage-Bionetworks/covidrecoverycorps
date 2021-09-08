@@ -11,7 +11,7 @@ import {
   SurveysCompletionStatusEnum,
   SurveyType,
   SURVEY_IDENTIFIER,
-  SURVEY_TIME_CONSTANT
+  SURVEY_TIME_CONSTANT,
 } from '../types/types'
 
 export const SurveyService = {

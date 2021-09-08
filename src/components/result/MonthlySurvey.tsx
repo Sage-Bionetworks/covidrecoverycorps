@@ -149,10 +149,7 @@ const MonthlySurvey: FunctionComponent<ResultProps> = ({
                 <Button
                   variant="contained"
                   color="primary"
-                  onClick={() => {
-                    onSurveyStartedFn()
-                    setPageState('SURVEY')
-                  }}
+                  href="/monthlySurvey"
                 >
                   {t('monthlySurvey.surveyCTA')}
                 </Button>
