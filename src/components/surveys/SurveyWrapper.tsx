@@ -126,15 +126,16 @@ class SurveyWrapperComponent extends React.Component<
             survey => survey.type === 'COVID_EXPERIENCE',
           )
 
-          const kindOfTesting = covidData?.data?.symptoms2?.kind_of_testing
+          //agendel 9/8 - don't offer test
+          /*  const kindOfTesting = covidData?.data?.symptoms2?.kind_of_testing
 
           const isPositive =
             kindOfTesting?.nasal_swab_result === 'positive' ||
             kindOfTesting?.serum_test_result === 'positive'
           const otherNoTest =
             kindOfTesting === 'no_test_no_symptoms' ||
-            kindOfTesting === 'no_answer'
-          const dontOfferTest = isPositive || otherNoTest
+            kindOfTesting === 'no_answer'*/
+          const dontOfferTest = true //isPositive || otherNoTest
 
           if (dontOfferTest) {
             //@ts-ignore
