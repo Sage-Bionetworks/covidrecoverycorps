@@ -4,7 +4,6 @@ import {
   ThemeProvider,
   Typography,
 } from '@material-ui/core'
-import CircularProgress from '@material-ui/core/CircularProgress'
 import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline'
 import { makeStyles } from '@material-ui/core/styles'
 import React, { useEffect, useState } from 'react'
@@ -41,7 +40,6 @@ import ScrollToTopOnRouteChange from './components/widgets/ScrollToTopOnRouteCha
 import { TopNav } from './components/widgets/TopNav'
 import { FeaturesProvider, TOGGLE_NAMES } from './helpers/FeatureToggle'
 import { getSearchParams } from './helpers/utility'
-import { SurveyService } from './services/survey.service'
 import { UserService } from './services/user.service'
 import './styles/style.scss'
 import { SessionData, UserDataGroup } from './types/types'
@@ -204,7 +202,6 @@ function App() {
   const [currentLocation, setCurrentLocation] = useState(
     window.location.pathname,
   )
-  const [initialSurveysCompleted, setInitialSurveysCompleted] = useState(false)
 
   useEffect(() => {
     let isSubscribed = true
@@ -213,11 +210,7 @@ function App() {
       if (token && isSubscribed) {
         try {
           const userInfo = await UserService.getUserInfo(token)
-          const isCompleted = await SurveyService.isInitialSurveysCompleted(
-            token,
-            userInfo.data,
-          )
-          setInitialSurveysCompleted(isCompleted)
+
           setUserSession(
             token,
             userInfo.data.firstName,
@@ -286,12 +279,8 @@ function App() {
     )
   }
 
-  function getDashboardPage(
-    sessionData: SessionData,
-    isInitialSurveysCompleted: boolean,
-  ) {
-    const justFinishedSurveys = window.location.search.includes('just_finished')
-    if (
+  function getDashboardPage(sessionData: SessionData) {
+    /*if (
       sessionData.userDataGroup.includes('tests_scheduled') &&
       !(
         sessionData.userDataGroup.includes('tests_available') ||
@@ -299,22 +288,14 @@ function App() {
       )
     ) {
       return renderWithGridLayout(<Appointment token={token || ''} />)
-    }
-    if (isInitialSurveysCompleted === undefined) {
-      return <CircularProgress />
-    }
+    }*/
 
     /* if (
       sessionData.userDataGroup.includes('tests_available') ||
       sessionData.userDataGroup.includes('tests_collected') ||
       isInitialSurveysCompleted /*&& !justFinishedSurveys
     ) { */
-    return renderWithWiderGridLayout(
-      <ResultDashboard
-        hasFinishedIntroSurveys={isInitialSurveysCompleted}
-        token={token || ''}
-      />,
-    )
+    return renderWithWiderGridLayout(<ResultDashboard token={token || ''} />)
     // }
 
     /* once we know the new condition -- show the testKitShipped page
@@ -390,12 +371,7 @@ function App() {
           <div className={classes.root}>
             <CssBaseline />
             <Router>
-              <div
-                className={getTopClass(
-                  currentLocation,
-                  initialSurveysCompleted,
-                )}
-              >
+              <div className={getTopClass(currentLocation)}>
                 <CookieNotificationBanner />
                 <GoogleAnalyticsPageTracker />
                 <ScrollToTopOnRouteChange
@@ -456,8 +432,8 @@ function App() {
                         )
                       }}
                     ></Route>
-                    <ConsentedRoute exact={true} path="/dashboard">
-                      {getDashboardPage(sessionData, initialSurveysCompleted)}
+                    <ConsentedRoute exact={false} path="/dashboard">
+                      {getDashboardPage(sessionData)}
                     </ConsentedRoute>
                     {/*todo make private */}
                     <PrivateRoute exact={true} path="/consent">
