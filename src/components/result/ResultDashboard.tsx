@@ -3,21 +3,14 @@ import Alert from '@material-ui/lab/Alert/Alert'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
+  Redirect,
   Route,
   RouteComponentProps,
   Switch,
-  useHistory,
+  useLocation,
   withRouter,
 } from 'react-router-dom'
-import { openSansFont, playfairDisplayFont } from '../../App'
-import ColorfulClipboard from '../../assets/dashboard/survey-results/clipboard.svg'
-import DashedLine from '../../assets/dashboard/survey-results/dashed_line.svg'
-import DiagnosisFollowUpChart from '../../assets/dashboard/survey-results/diagnosis_follow_up_chart.svg'
-import FemaleInfectionSymptomsGraph from '../../assets/dashboard/survey-results/female_infection_symptoms.svg'
-import InitialSymptomsBarGraph from '../../assets/dashboard/survey-results/initial_infection_symptoms_chart.svg'
-import ShortVsLongInfectionGraph from '../../assets/dashboard/survey-results/initial_vs_long_infection_graph.svg'
-import MaleInfectionSymptomsGraph from '../../assets/dashboard/survey-results/male_infection_symptoms.svg'
-import ParticipantsByIncomeGraph from '../../assets/dashboard/survey-results/participants_by_income_levels_bar_graph.svg'
+import { playfairDisplayFont } from '../../App'
 import liResultIndeterminate from '../../assets/results/liResultIndeterminate.svg'
 import liResultNegative from '../../assets/results/liResultNegative.svg'
 import liResultNext from '../../assets/results/liResultNext.svg'
@@ -67,13 +60,7 @@ export const useStyles = makeStyles(theme => ({
     lineHeight: '2.2rem',
     fontWeight: 'bold',
   },
-  bottomContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: '100%',
-    marginTop: '100px',
-  },
+
   container: {
     display: 'flex',
     flexDirection: 'column',
@@ -104,137 +91,13 @@ export const useStyles = makeStyles(theme => ({
     lineHeight: '30px',
     marginBottom: theme.spacing(2.75),
   },
-  newMedicalDiagnosisContainer: {
-    fontFamily: openSansFont,
-    fontStyle: '18px',
-    lineHeight: '24px',
-    maxWidth: '600px',
-    marginBottom: theme.spacing(10),
-  },
-  medicalDiagnosisContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    marginBottom: theme.spacing(4),
-    marginTop: theme.spacing(2),
-    alignItems: 'center',
-    paddingTop: theme.spacing(4),
-  },
-  whiteContainer: {
-    backgroundColor: 'white',
-    width: '100vw',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    borderImage: 'url(' + DashedLine + ') 60 round',
-    borderTop: '1px solid transparent',
-  },
 }))
-
-const BottomSurveyResults: React.FunctionComponent = () => {
-  const classes = useStyles()
-  const { t } = useTranslation()
-  return (
-    <Box className={classes.bottomContainer}>
-      <Box className={classes.container} mb={6}>
-        <Box className={classes.headerText} mb={3.75}>
-          {t('studyResults.graph1Header')}
-        </Box>
-        <img src={ParticipantsByIncomeGraph}></img>
-      </Box>
-      <Box className={classes.container} mb={8}>
-        <Box className={classes.headerText} mb={1.4}>
-          {t('studyResults.graph2Header')}
-        </Box>
-        <Box className={classes.headerDescriptionText}>
-          {t('studyResults.graph2Description')}
-        </Box>
-        <img src={InitialSymptomsBarGraph}></img>
-      </Box>
-      <Box className={classes.container} mb={4}>
-        <Box className={classes.headerText} mb={1.5}>
-          {t('studyResults.graph3Header')}
-        </Box>
-        <Box display="flex">
-          <img
-            src={FemaleInfectionSymptomsGraph}
-            style={{ marginRight: '12px' }}
-          ></img>
-          <img src={MaleInfectionSymptomsGraph}></img>
-        </Box>
-      </Box>
-      <Box className={classes.whiteContainer}>
-        <Box className={classes.container} mb={4}>
-          <Box className={classes.followUpSurveryContainer}>
-            <img src={ColorfulClipboard} style={{ marginRight: '16px' }}></img>
-            <Box className={classes.followUpSurveyText}>
-              <strong>{t('studyResults.followUpText.header')}</strong>
-              <Box mt={2}>
-                <strong>
-                  {t('studyResults.followUpText.paragraph1.bolded')}
-                </strong>
-                {t('studyResults.followUpText.paragraph1.regular')}
-              </Box>
-              <Box mt={2}>
-                <strong>
-                  {t('studyResults.followUpText.paragraph2.bolded1')}
-                </strong>{' '}
-                {t('studyResults.followUpText.paragraph2.regular1')}{' '}
-                <strong>
-                  {t('studyResults.followUpText.paragraph2.bolded2')}
-                </strong>
-                {t('studyResults.followUpText.paragraph2.regular2')}
-              </Box>
-            </Box>
-          </Box>
-          <strong className={classes.headerText}>
-            {t('studyResults.graph4Header')}
-          </strong>
-          <img src={ShortVsLongInfectionGraph}></img>
-        </Box>
-      </Box>
-      <Box className={classes.medicalDiagnosisContainer}>
-        <Box maxWidth="600px">
-          <strong className={classes.headerText}>
-            {t('studyResults.medicalDiagnosis.header')}
-          </strong>
-          <Box
-            className={classes.headerText}
-            style={{ fontWeight: 'normal' }}
-            mt={3}
-            mb={3}
-          >
-            {t('studyResults.medicalDiagnosis.description')}
-          </Box>
-          <Box className={classes.newMedicalDiagnosisContainer}>
-            {t('studyResults.medicalDiagnosis.paragraph1')}
-            <ul style={{ marginBottom: '12px', marginTop: '12px' }}>
-              <li style={{ marginBottom: '10px' }}>
-                {t('studyResults.medicalDiagnosis.listItem1')}
-              </li>
-              <li style={{ marginBottom: '12px' }}>
-                {t('studyResults.medicalDiagnosis.listItem2')}
-              </li>
-            </ul>
-            {t('studyResults.medicalDiagnosis.paragraph2')}
-          </Box>
-        </Box>
-        <Box className={classes.headerText} mb={3}>
-          {t('studyResults.graph5Header')}
-        </Box>
-        <img src={DiagnosisFollowUpChart}></img>
-        <Box mt={4} maxWidth="600px">
-          {t('studyResults.disclaimer')}
-        </Box>
-      </Box>
-    </Box>
-  )
-}
 
 export const ResultDashboard: React.FunctionComponent<
   ResultProps & RouteComponentProps
 > = ({ token }: ResultProps) => {
-  const history = useHistory()
+  const location = useLocation()
+
   const classes = useStyles()
   const [isShowingShareDialog, setIsShowingShareDialog] = useState(false)
   const [hasFinishedIntroSurveys, setHasFinishedIntroSurveys] = useState(false)
@@ -290,6 +153,17 @@ export const ResultDashboard: React.FunctionComponent<
               setResult(result)
             }
           }
+          if (location.pathname.replace(/\//i, '') === 'dashboard') {
+            if (!hasFinishedIntroSurveys) {
+              setActivePage('/dashboard/initial')
+            } else if (!latestMonthlySurvey.isCompleted) {
+              setActivePage('/dashboard/followup')
+            } else {
+              setActivePage('/dashboard/results')
+            }
+          } else {
+            setActivePage('')
+          }
         } catch (e) {
           if (isSubscribed) {
             setError(e)
@@ -305,11 +179,10 @@ export const ResultDashboard: React.FunctionComponent<
     return () => {
       isSubscribed = false
     }
-  }, [token])
+  }, [token, location])
 
   const triggerToggle = () => {
     setMonthlySurvey(token)
-    setActivePage('MONTHLY_SURVEY')
   }
 
   const getNav = (activeIndex: number): JSX.Element => {
@@ -411,6 +284,9 @@ export const ResultDashboard: React.FunctionComponent<
       </Box>
     )
   }
+  if (activePage) {
+    return <Redirect to={activePage} />
+  }
 
   return (
     <div className={classes.root} data-cy="page-result">
@@ -443,54 +319,18 @@ export const ResultDashboard: React.FunctionComponent<
                   </Route>
                   <Route path="/dashboard/followup">
                     <MonthlySurvey
-                      onSurveyStartedFn={() => setActivePage('MONTHLY_SURVEY1')}
+                      onSurveyStartedFn={() => {}}
                       token={token}
                       savedMonthlySurvey={latestMonthlySurvey.survey}
                       onSurveyFinishedFn={triggerToggle}
                     ></MonthlySurvey>
                   </Route>
-                  <Route>
-                    {!hasFinishedIntroSurveys && <Dashboard token={token} />}
-
-                    {!latestMonthlySurvey.isCompleted &&
-                      hasFinishedIntroSurveys && (
-                        <MonthlySurvey
-                          onSurveyStartedFn={() =>
-                            setActivePage('MONTHLY_SURVEY1')
-                          }
-                          token={token}
-                          savedMonthlySurvey={latestMonthlySurvey.survey}
-                          onSurveyFinishedFn={triggerToggle}
-                        ></MonthlySurvey>
-                      )}
-
-                    {hasFinishedIntroSurveys &&
-                      latestMonthlySurvey.isCompleted && <SurveyResults />}
-                  </Route>
                 </Switch>
               </>
             }
           ></TwoColumnTemplate>
-          {activePage === 'SURVEY_RESULTS' && <BottomSurveyResults />}
         </Box>
       )}
-      {!isLoading && activePage === 'MONTHLY_SURVEY1' && (
-        <MonthlySurvey
-          token={token}
-          savedMonthlySurvey={latestMonthlySurvey.survey}
-          onSurveyFinishedFn={triggerToggle}
-          onSurveyStartedFn={() => setActivePage('MONTHLY_SURVEY1')}
-        ></MonthlySurvey>
-      )}
-      {/*!(result || isLoading) && (
-        <Container maxWidth="xs">
-          <MonthlySurvey
-            token={token}
-            savedMonthlySurvey={latestMonthlySurvey.survey}
-            onSurveyFinishedFn={triggerToggle}
-          ></MonthlySurvey>
-        </Container>
-      )*/}
     </div>
   )
 }
