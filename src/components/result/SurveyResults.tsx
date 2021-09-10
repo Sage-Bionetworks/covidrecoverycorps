@@ -21,7 +21,10 @@ export const useStyles = makeStyles(theme => ({
     fontSize: '32px',
     lineHeight: '40px',
     maxWidth: 'min(90%, 600px)',
-    textAlign: "center"
+    textAlign: "center",
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '24px',
+    },
   },
   bottomContainer: {
     display: 'flex',
