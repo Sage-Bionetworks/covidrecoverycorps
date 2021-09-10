@@ -58,7 +58,8 @@ export const useStyles = makeStyles(theme => ({
     alignItems: 'flex-start',
     marginTop: theme.spacing(8),
     marginBottom: theme.spacing(4),
-    maxWidth: '90%'
+    maxWidth: '90%',
+    justifyContent: "center"
   },
   followUpSurveyText: {
     maxWidth: 'min(90%, 500px)',
