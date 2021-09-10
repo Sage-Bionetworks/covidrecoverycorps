@@ -20,6 +20,11 @@ export const useStyles = makeStyles(theme => ({
     fontWeight: 'bold',
     fontSize: '32px',
     lineHeight: '40px',
+    maxWidth: 'min(90%, 600px)',
+    textAlign: "center",
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '24px',
+    },
   },
   bottomContainer: {
     display: 'flex',
@@ -27,6 +32,7 @@ export const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     width: '100%',
     marginTop: '100px',
+    justifyContent: "center"
   },
   container: {
     alignItems: 'center',
@@ -39,22 +45,24 @@ export const useStyles = makeStyles(theme => ({
     lineHeight: '30px',
     textAlign: 'center',
     marginTop: theme.spacing(4),
-    maxWidth: '600px',
+    maxWidth: 'min(90%, 600px)',
   },
   headerDescriptionText: {
     fontSize: '18px',
     lineHeight: '24px',
     textAlign: 'center',
-    maxWidth: '640px',
+    maxWidth: 'min(90%, 640px)',
   },
   followUpSurveryContainer: {
     display: 'flex',
     alignItems: 'flex-start',
     marginTop: theme.spacing(8),
     marginBottom: theme.spacing(4),
+    maxWidth: '90%',
+    justifyContent: "center"
   },
   followUpSurveyText: {
-    maxWidth: '500px',
+    maxWidth: 'min(90%, 500px)',
     fontFamily: playfairDisplayFont,
     fontSize: '24px',
     lineHeight: '30px',
@@ -65,7 +73,7 @@ export const useStyles = makeStyles(theme => ({
     fontFamily: openSansFont,
     fontStyle: '18px',
     lineHeight: '24px',
-    maxWidth: '600px',
+    maxWidth: 'min(90%, 600px)',
     marginBottom: theme.spacing(10),
   },
   medicalDiagnosisContainer: {
@@ -86,6 +94,21 @@ export const useStyles = makeStyles(theme => ({
     borderImage: 'url(' + DashedLine + ') 60 round',
     borderTop: '1px solid transparent',
   },
+  imageContainer: {
+    display: "grid",
+    maxHeight: "100vh"
+  },
+  imageFit: {
+    maxWidth: "90%",
+    maxHeight: "100vh",
+    margin: "auto"
+  },
+  bottomSurveyContainer: {
+    marginLeft: theme.spacing(-62),
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: theme.spacing(0)
+    },
+  },
 }))
 
 type ResultProps = {}
@@ -99,7 +122,9 @@ const BottomSurveyResults: React.FunctionComponent = () => {
         <Box className={classes.headerText} mb={3.75}>
           {t('studyResults.graph1Header')}
         </Box>
-        <img src={ParticipantsByIncomeGraph}></img>
+        <Box className={classes.imageContainer}>
+          <img className={classes.imageFit} src={ParticipantsByIncomeGraph}></img>
+        </Box>
       </Box>
       <Box className={classes.container} mb={8}>
         <Box className={classes.headerText} mb={1.4}>
@@ -108,18 +133,20 @@ const BottomSurveyResults: React.FunctionComponent = () => {
         <Box className={classes.headerDescriptionText}>
           {t('studyResults.graph2Description')}
         </Box>
-        <img src={InitialSymptomsBarGraph}></img>
+        <Box className={classes.imageContainer}>
+          <img className={classes.imageFit} src={InitialSymptomsBarGraph}></img>
+        </Box>
       </Box>
       <Box className={classes.container} mb={4}>
         <Box className={classes.headerText} mb={1.5}>
           {t('studyResults.graph3Header')}
         </Box>
-        <Box display="flex">
+        <Box display="flex" justifyContent="center" alignItems="center">
           <img
             src={FemaleInfectionSymptomsGraph}
-            style={{ marginRight: '12px' }}
+            style={{ marginRight: '12px', maxWidth:"40%" }}
           ></img>
-          <img src={MaleInfectionSymptomsGraph}></img>
+          <img src={MaleInfectionSymptomsGraph} style={{maxWidth: "40%"}}></img>
         </Box>
       </Box>
       <Box className={classes.whiteContainer}>
@@ -149,11 +176,13 @@ const BottomSurveyResults: React.FunctionComponent = () => {
           <strong className={classes.headerText}>
             {t('studyResults.graph4Header')}
           </strong>
-          <img src={ShortVsLongInfectionGraph}></img>
+          <Box className={classes.imageContainer}>
+            <img className={classes.imageFit} src={ShortVsLongInfectionGraph}></img>
+          </Box>
         </Box>
       </Box>
       <Box className={classes.medicalDiagnosisContainer}>
-        <Box maxWidth="600px">
+        <Box maxWidth="min(90%, 600px)">
           <strong className={classes.headerText}>
             {t('studyResults.medicalDiagnosis.header')}
           </strong>
@@ -181,8 +210,10 @@ const BottomSurveyResults: React.FunctionComponent = () => {
         <Box className={classes.headerText} mb={3}>
           {t('studyResults.graph5Header')}
         </Box>
-        <img src={DiagnosisFollowUpChart}></img>
-        <Box mt={4} maxWidth="600px">
+        <Box className={classes.imageContainer}>
+          <img className={classes.imageFit} src={DiagnosisFollowUpChart}></img>
+        </Box>
+        <Box mt={4} maxWidth="min(90%, 600px)">
           {t('studyResults.disclaimer')}
         </Box>
       </Box>
@@ -202,12 +233,18 @@ const SurveyResults: FunctionComponent<ResultProps> = () => {
           {t('studyResults.titleDescription.regular')}
         </Box>
         <Box className={classes.container}>
-          <img src={EthnicityPieChart} style={{ marginTop: '96px' }}></img>
-          <img src={BiologicalSexPieChart} style={{ marginTop: '40px' }}></img>
-          <img src={EducationPieChart} style={{ marginTop: '40px' }}></img>
+          <Box className={classes.imageContainer} mt={12}>
+            <img className={classes.imageFit} src={EthnicityPieChart}></img>
+          </Box>
+          <Box className={classes.imageContainer} mt={5}>
+            <img className={classes.imageFit} src={BiologicalSexPieChart}></img>
+          </Box>
+          <Box className={classes.imageContainer} mt={5}>
+            <img className={classes.imageFit} src={EducationPieChart}></img>
+          </Box>
         </Box>
       </Box>
-      <Box ml={-62}>
+      <Box className={classes.bottomSurveyContainer}>
         <BottomSurveyResults />
       </Box>
     </>
