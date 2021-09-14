@@ -521,7 +521,7 @@
     },
     "lh4": {
       "title": "Lo que pueden hacer ahora  las personas negativas al COVID-19.",
-      "text": "<0> Para las personas con una prueba de serología negativa, ¿qué hago ahora? </0> <1> Las personas que tienen una prueba de serología negativa y nunca tuvieron una prueba de PCR positiva, lo más probable es que no se hayan infectado con el virus SARS-CoV-2. Usted debe usar una mascarilla, lavarse las manos y mantener una distancia social segura para evitar infectarse. </1> <2> Se están desarrollando vacunas contra el virus SARS-CoV-2. El propósito de una vacuna es ayudar al cuerpo a desarrollar una respuesta inmune al virus sin ser infectado con el virus. La respuesta inmune puede proteger contra  futuras infecciones sin riesgo de infección. </2> <3> El desarrollo de las vacunas se somete a un proceso largo que incluye estudios cuidadosos de seguridad y eficacia. Aunque actualmente no hay vacuna para el COVID-19, el FDA ha priorizado los ensayos clínicos para el desarrollo de vacunas y está apoyando los esfuerzos para la fabricación a gran escala cuando se desarrolle una vacuna segura. </3>"
+      "text": "<0> Para las personas con una prueba de serología negativa, ¿qué hago ahora? </0> <1> Las personas que tienen una prueba de serología negativa y nunca tuvieron una prueba de PCR positiva, lo más probable es que no se hayan infectado con el virus SARS-CoV-2. Usted debe usar una mascarilla, lavarse las manos y mantener una distancia social segura para evitar infectarse. </1> "
     },
     "lh5": {
       "title": "Preguntas más frecuentes sobre los resultados de la serología:",
@@ -534,7 +534,7 @@
       "q4": "Si yo tengo anticuerpos, ¿estoy protegido contra otra infección de Coronavirus?",
       "a4": "La protección conferida por los anticuerpos al virus está bajo investigación. Se presume que los anticuerpos lo protegen de futura infecciones, pero no estamos seguros cuanto tiempo esa protección dura o si protege a todos. Estudios como éste responderán a ésta y otras preguntas. ",
       "q5": "¿Hay algún medicamento(s) que pueda prevenir la infección por el virus del SARS-CoV-2?",
-      "a5": "No. Actualmente, no existe un medicamento comprobado que pueda prevenir la infección. Sin embargo, usando mascarillas, lavándose las manos y manteniendo una distancia social segura reduce la posibilidad de ser infectado. "
+      "a5": "Sí, actualmente hay 3 vacunas seguras y efectivas disponibles en los Estados Unidos. Se ha demostrado que las 3 vacunas (Pfizer-BioNTech, Moderna, Johnson & Johnson) reducen drásticamente el riesgo de enfermedad grave debido al virus SARS-CoV-2."
     }
   },
   "privacy": {
@@ -732,5 +732,40 @@
     "text2": "Será importante escuchar cómo se encuentra, incluso si está completamente recuperado de COVID-19, para comprender mejor las formas en que el virus afecta el cuerpo y aprender cómo ayudar mejor a las personas que se recuperan de la infección.",
     "surveyCTA": "Realice encuestas de seguimiento",
     "uploadDescription": "<0>Ha respondido que ha tenido una prueba de hisopo nasal positiva</0> <0>Sube una copia de los resultados de tu prueba.</0> <0> El documento de resultado de la prueba puede ser un .jpeg, pdf, .png, or a .tiff.</0>"
+  },
+  "studyResults": {
+    "title": "Gracias por participar en nuestro estudio.",
+    "titleDescription": {
+      "bolded": "901 personas ",
+      "regular": "de todo Estados Unidos respondieron a nuestras encuestas. Aquí está el desglose de cómo es nuestra comunidad."
+    },
+    "graph1Header": "Participantes por niveles de ingresos",
+    "graph2Header": "Los 15 principales síntomas de infección inicial informados por 901 encuestados",
+    "graph2Description": "Estos son los síntomas más comunes que experimentó nuestra comunidad cuando se enfermaron por primera vez, durante su infección inicial por COVID-19.",
+    "graph3Header": "Los 15 principales síntomas de infección inicial por sexo",
+    "followUpText": {
+      "header": "Seguimiento de los resultados de la encuesta",
+      "paragraph1": {
+        "bolded": "230 personas ",
+        "regular": "completaron nuestra encuesta de seguimiento para comprender cómo les está yendo después de su infección inicial por COVID-19."
+      },
+      "paragraph2": {
+        "bolded1": "180/230 personas ",
+        "regular1": "indicaron que todavía estaban lidiando",
+        "bolded2": "con Long (largo) COVID.",
+        "regular2": "El gráfico a continuación muestra los síntomas que este grupo experimentó durante su infección inicial por COVID-19 en comparación con los síntomas que todavía enfrentan en Long (largo) COVID."
+      }
+    },
+    "graph4Header": "Initial Infection Symptoms vs. Long COVID Symptoms  (180 people)",
+    "medicalDiagnosis": {
+      "header": "Nuevo diagnóstico médico informado en encuesta de seguimiento",
+      "description": "La mayoría de las personas con COVID prolongado no tienen nuevos diagnósticos médicos, incluso si todavía están lidiando con los síntomas del COVID prolongado.",
+      "paragraph1": "Sin embargo, algunas personas han tenido diagnósticos médicos adicionales además de sus síntomas de COVID prolongado. Seguimos trabajando para comprender estos nuevos diagnósticos. Algunas de las preguntas que aún tenemos son: ",
+      "listItem1": "¿Estos nuevos diagnósticos se deben a la infección por COVID-19 o habrían sucedido sin importar qué?",
+      "listItem2": "¿Se modificó el momento de estos diagnósticos debido a COVID-19? En otras palabras, ¿estos diagnósticos se hicieron antes porque el individuo iba a los médicos que detectaron los diagnósticos?",
+      "paragraph2": "En general, todavía no estamos seguros de si estos nuevos diagnósticos fueron causados ​​por una infección por COVID-19 o cómo COVID-19 pudo haber contribuido a estos diagnósticos."
+    },
+    "graph5Header": "Nuevos diagnósticos en Seguimiento (180 personas)",
+    "disclaimer": "* Otros diagnósticos incluyen reflujo, asma o enfermedad reactiva de las vías respiratorias, trastorno de estrés postraumático, anemia y POTS (síndrome de taquicardia ortostática postural)"
   }
 }

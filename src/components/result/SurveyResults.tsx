@@ -3,16 +3,26 @@ import React, { FunctionComponent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { openSansFont, playfairDisplayFont } from '../../App'
 import BiologicalSexPieChart from '../../assets/dashboard/survey-results/biological_sex_pie_chart.svg'
+import BiologicalSexPieChart_es from '../../assets/dashboard/survey-results/biological_sex_pie_chart_es.svg'
 import ColorfulClipboard from '../../assets/dashboard/survey-results/clipboard.svg'
 import DashedLine from '../../assets/dashboard/survey-results/dashed_line.svg'
 import DiagnosisFollowUpChart from '../../assets/dashboard/survey-results/diagnosis_follow_up_chart.svg'
+import DiagnosisFollowUpChart_es from '../../assets/dashboard/survey-results/diagnosis_follow_up_chart_es.svg'
 import EducationPieChart from '../../assets/dashboard/survey-results/education_pie_chart.svg'
+import EducationPieChart_es from '../../assets/dashboard/survey-results/education_pie_chart_es.svg'
 import EthnicityPieChart from '../../assets/dashboard/survey-results/ethnicity_pie_chart.svg'
+import EthnicityPieChart_es from '../../assets/dashboard/survey-results/ethnicity_pie_chart_es.svg'
 import FemaleInfectionSymptomsGraph from '../../assets/dashboard/survey-results/female_infection_symptoms.svg'
+import FemaleInfectionSymptomsGraph_es from '../../assets/dashboard/survey-results/female_infection_symptoms_es.svg'
 import InitialSymptomsBarGraph from '../../assets/dashboard/survey-results/initial_infection_symptoms_chart.svg'
+import InitialSymptomsBarGraph_es from '../../assets/dashboard/survey-results/initial_infection_symptoms_chart_es.svg'
 import ShortVsLongInfectionGraph from '../../assets/dashboard/survey-results/initial_vs_long_infection_graph.svg'
+import ShortVsLongInfectionGraph_es from '../../assets/dashboard/survey-results/initial_vs_long_infection_graph_es.svg'
 import MaleInfectionSymptomsGraph from '../../assets/dashboard/survey-results/male_infection_symptoms.svg'
+import MaleInfectionSymptomsGraph_es from '../../assets/dashboard/survey-results/male_infection_symptoms_es.svg'
 import ParticipantsByIncomeGraph from '../../assets/dashboard/survey-results/participants_by_income_levels_bar_graph.svg'
+import ParticipantsByIncomeGraph_es from '../../assets/dashboard/survey-results/participants_by_income_levels_bar_graph_es.svg'
+import i18n from '../../i18n'
 
 export const useStyles = makeStyles(theme => ({
   headerText: {
@@ -21,7 +31,7 @@ export const useStyles = makeStyles(theme => ({
     fontSize: '32px',
     lineHeight: '40px',
     maxWidth: 'min(90%, 600px)',
-    textAlign: "center",
+    textAlign: 'center',
     [theme.breakpoints.down('sm')]: {
       fontSize: '24px',
     },
@@ -32,7 +42,7 @@ export const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     width: '100%',
     marginTop: '100px',
-    justifyContent: "center"
+    justifyContent: 'center',
   },
   container: {
     alignItems: 'center',
@@ -59,7 +69,7 @@ export const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(8),
     marginBottom: theme.spacing(4),
     maxWidth: '90%',
-    justifyContent: "center"
+    justifyContent: 'center',
   },
   followUpSurveyText: {
     maxWidth: 'min(90%, 500px)',
@@ -95,18 +105,18 @@ export const useStyles = makeStyles(theme => ({
     borderTop: '1px solid transparent',
   },
   imageContainer: {
-    display: "grid",
-    maxHeight: "100vh"
+    display: 'grid',
+    maxHeight: '100vh',
   },
   imageFit: {
-    maxWidth: "90%",
-    maxHeight: "100vh",
-    margin: "auto"
+    maxWidth: '90%',
+    maxHeight: '100vh',
+    margin: 'auto',
   },
   bottomSurveyContainer: {
     marginLeft: theme.spacing(-62),
     [theme.breakpoints.down('sm')]: {
-      marginLeft: theme.spacing(0)
+      marginLeft: theme.spacing(0),
     },
   },
 }))
@@ -123,7 +133,14 @@ const BottomSurveyResults: React.FunctionComponent = () => {
           {t('studyResults.graph1Header')}
         </Box>
         <Box className={classes.imageContainer}>
-          <img className={classes.imageFit} src={ParticipantsByIncomeGraph}></img>
+          <img
+            className={classes.imageFit}
+            src={
+              i18n.language === 'es'
+                ? ParticipantsByIncomeGraph_es
+                : ParticipantsByIncomeGraph
+            }
+          ></img>
         </Box>
       </Box>
       <Box className={classes.container} mb={8}>
@@ -134,7 +151,14 @@ const BottomSurveyResults: React.FunctionComponent = () => {
           {t('studyResults.graph2Description')}
         </Box>
         <Box className={classes.imageContainer}>
-          <img className={classes.imageFit} src={InitialSymptomsBarGraph}></img>
+          <img
+            className={classes.imageFit}
+            src={
+              i18n.language === 'es'
+                ? InitialSymptomsBarGraph_es
+                : InitialSymptomsBarGraph
+            }
+          ></img>
         </Box>
       </Box>
       <Box className={classes.container} mb={4}>
@@ -143,10 +167,21 @@ const BottomSurveyResults: React.FunctionComponent = () => {
         </Box>
         <Box display="flex" justifyContent="center" alignItems="center">
           <img
-            src={FemaleInfectionSymptomsGraph}
-            style={{ marginRight: '12px', maxWidth:"40%" }}
+            src={
+              i18n.language === 'es'
+                ? FemaleInfectionSymptomsGraph_es
+                : FemaleInfectionSymptomsGraph
+            }
+            style={{ marginRight: '12px', maxWidth: '40%' }}
           ></img>
-          <img src={MaleInfectionSymptomsGraph} style={{maxWidth: "40%"}}></img>
+          <img
+            src={
+              i18n.language === 'es'
+                ? MaleInfectionSymptomsGraph_es
+                : MaleInfectionSymptomsGraph
+            }
+            style={{ maxWidth: '40%' }}
+          ></img>
         </Box>
       </Box>
       <Box className={classes.whiteContainer}>
@@ -177,7 +212,14 @@ const BottomSurveyResults: React.FunctionComponent = () => {
             {t('studyResults.graph4Header')}
           </strong>
           <Box className={classes.imageContainer}>
-            <img className={classes.imageFit} src={ShortVsLongInfectionGraph}></img>
+            <img
+              className={classes.imageFit}
+              src={
+                i18n.language === 'es'
+                  ? ShortVsLongInfectionGraph_es
+                  : ShortVsLongInfectionGraph
+              }
+            ></img>
           </Box>
         </Box>
       </Box>
@@ -211,7 +253,14 @@ const BottomSurveyResults: React.FunctionComponent = () => {
           {t('studyResults.graph5Header')}
         </Box>
         <Box className={classes.imageContainer}>
-          <img className={classes.imageFit} src={DiagnosisFollowUpChart}></img>
+          <img
+            className={classes.imageFit}
+            src={
+              i18n.language === 'es'
+                ? DiagnosisFollowUpChart_es
+                : DiagnosisFollowUpChart
+            }
+          ></img>
         </Box>
         <Box mt={4} maxWidth="min(90%, 600px)">
           {t('studyResults.disclaimer')}
@@ -234,13 +283,34 @@ const SurveyResults: FunctionComponent<ResultProps> = () => {
         </Box>
         <Box className={classes.container}>
           <Box className={classes.imageContainer} mt={12}>
-            <img className={classes.imageFit} src={EthnicityPieChart}></img>
+            <img
+              className={classes.imageFit}
+              src={
+                i18n.language === 'es'
+                  ? EthnicityPieChart_es
+                  : EthnicityPieChart
+              }
+            ></img>
           </Box>
           <Box className={classes.imageContainer} mt={5}>
-            <img className={classes.imageFit} src={BiologicalSexPieChart}></img>
+            <img
+              className={classes.imageFit}
+              src={
+                i18n.language === 'es'
+                  ? BiologicalSexPieChart_es
+                  : BiologicalSexPieChart
+              }
+            ></img>
           </Box>
           <Box className={classes.imageContainer} mt={5}>
-            <img className={classes.imageFit} src={EducationPieChart}></img>
+            <img
+              className={classes.imageFit}
+              src={
+                i18n.language === 'es'
+                  ? EducationPieChart_es
+                  : EducationPieChart
+              }
+            ></img>
           </Box>
         </Box>
       </Box>
