@@ -523,7 +523,7 @@
     },
     "lh4": {
       "title": "What COVID-19 negative people can do now.",
-      "text": "<0>For people with a negative serology test, what do I do now? </0><1> People who have a negative serology test and never had a positive PCR test, most likely were not infected with the SARS-CoV-2 virus. You should wear a face mask, wash your hands, and keep a safe social distance to keep from getting infected. </1><2> Vaccines to the SARS-CoV-2 virus are being developed.  The purpose of a vaccine is to help the body mount an immune response to the virus without being infected with the virus.  This immune response can protect against future infection without the risk of infection. </2><3> Vaccines undergo a lengthy development process including careful studies of safety and efficacy. While currently there is no vaccine for COVID-19, the FDA has prioritized clinical trials for vaccine development and is supporting efforts for large scale manufacturing when a </3>"
+      "text": "<0>For people with a negative serology test, what do I do now? </0><1> People who have a negative serology test and never had a positive PCR test, most likely were not infected with the SARS-CoV-2 virus. You should wear a face mask, wash your hands, and keep a safe social distance to keep from getting infected. </1>"
     },
     "lh5": {
       "title": "FAQs about serology results:",
@@ -536,7 +536,7 @@
       "q4": "If I have antibodies, am I protected from another infection with Coronavirus?",
       "a4": "The protection conferred by the antibodies to the virus is under investigation. It is presumed that antibodies protect you from future infection, but we are not sure how long that protection lasts or if it protects everyone. Studies like this will answer this and other questions. ",
       "q5": "Are there any drugs that can prevent infection with SARS-CoV-2 virus?",
-      "a5": "No. Currently, there is no proven medicine that can prevent the infection. However, wearing face masks, washing your hands, and keeping a safe social distance does reduce the chances of being infected. "
+      "a5": "Yes, there are currently 3 safe and effective vaccines available in the United States. All 3 vaccines have been proven to dramatically decrease the risk for severe illness due to the SARS-CoV-2 virus."
     }
   },
   "privacy": {
