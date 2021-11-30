@@ -35,7 +35,7 @@ const getMonthlySurveyEndpoint = () => {
     today.getMonth() + 1
   }_${today.getFullYear()}`*/
 
-  const endpoint = `${ENDPOINT}/v4/users/self/reports/${MONTHLY_SURVEY_IDENTIFIER}_9_${today.getFullYear()}`
+  const endpoint = `${ENDPOINT}/v4/users/self/reports/${MONTHLY_SURVEY_IDENTIFIER}_13_${today.getFullYear()}`
 
   return endpoint
 }
