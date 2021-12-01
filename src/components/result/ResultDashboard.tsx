@@ -100,8 +100,10 @@ export const ResultDashboard: React.FunctionComponent<
 
   const classes = useStyles()
   const [isShowingShareDialog, setIsShowingShareDialog] = useState(false)
-  const [hasFinishedIntroSurveys, setHasFinishedIntroSurveys] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const [hasFinishedIntroSurveys, setHasFinishedIntroSurveys] = useState<
+    boolean | undefined
+  >(undefined)
+  const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState()
   const [userData, setUserData] = useState<LoggedInUserData | undefined>(
     undefined,
@@ -116,7 +118,7 @@ export const ResultDashboard: React.FunctionComponent<
   }>({ isCompleted: true })
   const { t } = useTranslation()
 
-  const setMonthlySurvey = async (token: string) => {
+  const setMonthlySurvey = async (token: string, showLoader = false) => {
     if (token) {
       setIsLoading(true)
       try {
@@ -125,7 +127,9 @@ export const ResultDashboard: React.FunctionComponent<
       } catch (e) {
         setError(e)
       } finally {
-        setIsLoading(false)
+        if (showLoader) {
+          setIsLoading(false)
+        }
       }
     }
   }
@@ -147,22 +151,12 @@ export const ResultDashboard: React.FunctionComponent<
           if (isSubscribed) {
             await setMonthlySurvey(token)
             setUserData(userInfoResponse.data)
+            console.log('seeeint', isCompleted)
             setHasFinishedIntroSurveys(isCompleted)
             if (ResultsResponse?.data?.items?.length > 0) {
               const result = ResultsResponse.data.items[0]
               setResult(result)
             }
-          }
-          if (location.pathname.replace(/\//i, '') === 'dashboard') {
-            if (!hasFinishedIntroSurveys) {
-              setActivePage('/dashboard/initial')
-            } else if (!latestMonthlySurvey.isCompleted) {
-              setActivePage('/dashboard/followup')
-            } else {
-              setActivePage('/dashboard/results')
-            }
-          } else {
-            setActivePage('')
           }
         } catch (e) {
           if (isSubscribed) {
@@ -181,8 +175,22 @@ export const ResultDashboard: React.FunctionComponent<
     }
   }, [token, location])
 
+  useEffect(() => {
+    if (location.pathname.replace(/\//i, '') === 'dashboard') {
+      if (!hasFinishedIntroSurveys) {
+        setActivePage('/dashboard/initial')
+      } else if (!latestMonthlySurvey.isCompleted) {
+        setActivePage('/dashboard/followup')
+      } else {
+        setActivePage('/dashboard/results')
+      }
+    } else {
+      setActivePage('')
+    }
+  }, [location, latestMonthlySurvey, hasFinishedIntroSurveys])
+
   const triggerToggle = () => {
-    setMonthlySurvey(token)
+    setMonthlySurvey(token, true)
   }
 
   const getNav = (activeIndex: number): JSX.Element => {
@@ -220,8 +228,9 @@ export const ResultDashboard: React.FunctionComponent<
     }
 
     if (
-      !latestMonthlySurvey.isCompleted ||
-      latestMonthlySurvey?.survey?.data.vaccine?.reinfection === 'Yes'
+      (!latestMonthlySurvey.isCompleted ||
+        latestMonthlySurvey?.survey?.data.vaccine?.reinfection === 'Yes') &&
+      hasFinishedIntroSurveys
     ) {
       let img = (
         <div style={{ position: 'relative' }}>
@@ -284,7 +293,7 @@ export const ResultDashboard: React.FunctionComponent<
       </Box>
     )
   }
-  if (activePage) {
+  if (activePage && hasFinishedIntroSurveys !== undefined) {
     return <Redirect to={activePage} />
   }
 
