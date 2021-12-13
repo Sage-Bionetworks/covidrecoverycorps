@@ -6,20 +6,18 @@ import BiologicalSexPieChart from '../../assets/dashboard/survey-results/biologi
 import BiologicalSexPieChart_es from '../../assets/dashboard/survey-results/biological_sex_pie_chart_es.svg'
 import ColorfulClipboard from '../../assets/dashboard/survey-results/clipboard.svg'
 import DashedLine from '../../assets/dashboard/survey-results/dashed_line.svg'
-import DiagnosisFollowUpChart from '../../assets/dashboard/survey-results/diagnosis_follow_up_chart.svg'
-import DiagnosisFollowUpChart_es from '../../assets/dashboard/survey-results/diagnosis_follow_up_chart_es.svg'
+import DiagnosisFollowUpChartJpg from '../../assets/dashboard/survey-results/diagnosis_follow_up_chart.jpg'
+import DiagnosisFollowUpChartJpg_es from '../../assets/dashboard/survey-results/diagnosis_follow_up_chart_es.jpg'
 import EducationPieChart from '../../assets/dashboard/survey-results/education_pie_chart.svg'
 import EducationPieChart_es from '../../assets/dashboard/survey-results/education_pie_chart_es.svg'
 import EthnicityPieChart from '../../assets/dashboard/survey-results/ethnicity_pie_chart.svg'
 import EthnicityPieChart_es from '../../assets/dashboard/survey-results/ethnicity_pie_chart_es.svg'
-import FemaleInfectionSymptomsGraph from '../../assets/dashboard/survey-results/female_infection_symptoms.svg'
-import FemaleInfectionSymptomsGraph_es from '../../assets/dashboard/survey-results/female_infection_symptoms_es.svg'
-import InitialSymptomsBarGraph from '../../assets/dashboard/survey-results/initial_infection_symptoms_chart.svg'
-import InitialSymptomsBarGraph_es from '../../assets/dashboard/survey-results/initial_infection_symptoms_chart_es.svg'
-import ShortVsLongInfectionGraph from '../../assets/dashboard/survey-results/initial_vs_long_infection_graph.svg'
-import ShortVsLongInfectionGraph_es from '../../assets/dashboard/survey-results/initial_vs_long_infection_graph_es.svg'
-import MaleInfectionSymptomsGraph from '../../assets/dashboard/survey-results/male_infection_symptoms.svg'
-import MaleInfectionSymptomsGraph_es from '../../assets/dashboard/survey-results/male_infection_symptoms_es.svg'
+import InfectionBySexGraphJpg from '../../assets/dashboard/survey-results/infection_symptoms_by_sex.jpg'
+import InfectionBySexGraphJpg_es from '../../assets/dashboard/survey-results/infection_symptoms_by_sex_es.jpg'
+import InitialSymptomsBarGraphJpg from '../../assets/dashboard/survey-results/initial_infection_symptoms_chart.jpg'
+import InitialSymptomsBarGraphJpg_es from '../../assets/dashboard/survey-results/initial_infection_symptoms_chart_es.jpg'
+import ShortVsLongInfectionGraphJpg from '../../assets/dashboard/survey-results/initial_vs_long_infection_graph.jpg'
+import ShortVsLongInfectionGraphJpg_es from '../../assets/dashboard/survey-results/initial_vs_long_infection_graph_es.jpg'
 import ParticipantsByIncomeGraph from '../../assets/dashboard/survey-results/participants_by_income_levels_bar_graph.svg'
 import ParticipantsByIncomeGraph_es from '../../assets/dashboard/survey-results/participants_by_income_levels_bar_graph_es.svg'
 import i18n from '../../i18n'
@@ -155,8 +153,8 @@ const BottomSurveyResults: React.FunctionComponent = () => {
             className={classes.imageFit}
             src={
               i18n.language === 'es'
-                ? InitialSymptomsBarGraph_es
-                : InitialSymptomsBarGraph
+                ? InitialSymptomsBarGraphJpg_es
+                : InitialSymptomsBarGraphJpg
             }
           ></img>
         </Box>
@@ -165,22 +163,15 @@ const BottomSurveyResults: React.FunctionComponent = () => {
         <Box className={classes.headerText} mb={1.5}>
           {t('studyResults.graph3Header')}
         </Box>
-        <Box display="flex" justifyContent="center" alignItems="center">
+        <Box className={classes.imageContainer}>
           <img
+            className={classes.imageFit}
             src={
               i18n.language === 'es'
-                ? FemaleInfectionSymptomsGraph_es
-                : FemaleInfectionSymptomsGraph
+                ? InfectionBySexGraphJpg_es
+                : InfectionBySexGraphJpg
             }
-            style={{ marginRight: '12px', maxWidth: '40%' }}
-          ></img>
-          <img
-            src={
-              i18n.language === 'es'
-                ? MaleInfectionSymptomsGraph_es
-                : MaleInfectionSymptomsGraph
-            }
-            style={{ maxWidth: '40%' }}
+            style={{ marginRight: '12px' }}
           ></img>
         </Box>
       </Box>
@@ -216,8 +207,8 @@ const BottomSurveyResults: React.FunctionComponent = () => {
               className={classes.imageFit}
               src={
                 i18n.language === 'es'
-                  ? ShortVsLongInfectionGraph_es
-                  : ShortVsLongInfectionGraph
+                  ? ShortVsLongInfectionGraphJpg_es
+                  : ShortVsLongInfectionGraphJpg
               }
             ></img>
           </Box>
@@ -257,8 +248,8 @@ const BottomSurveyResults: React.FunctionComponent = () => {
             className={classes.imageFit}
             src={
               i18n.language === 'es'
-                ? DiagnosisFollowUpChart_es
-                : DiagnosisFollowUpChart
+                ? DiagnosisFollowUpChartJpg_es
+                : DiagnosisFollowUpChartJpg
             }
           ></img>
         </Box>
