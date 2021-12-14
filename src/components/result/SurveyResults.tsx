@@ -104,11 +104,11 @@ export const useStyles = makeStyles(theme => ({
   },
   imageContainer: {
     display: 'grid',
-    maxHeight: '100vh',
+    // maxHeight: '100vh',
   },
   imageFit: {
     maxWidth: '90%',
-    maxHeight: '100vh',
+    //  maxHeight: '100vh',
     margin: 'auto',
   },
   bottomSurveyContainer: {
