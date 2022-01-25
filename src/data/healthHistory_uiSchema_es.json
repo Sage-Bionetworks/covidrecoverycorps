@@ -219,7 +219,7 @@
       "classNames": "due_date text",
       "ui:widget": "alt-date",
       "ui:options": {
-        "yearsRange": [2020, 2021],
+        "yearsRange": [2020, 2022],
         "hideNowButton": true,
         "hideClearButton": true
       }

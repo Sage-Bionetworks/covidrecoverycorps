@@ -45,7 +45,7 @@
         "ui:description": "Your birthdate helps us ensure we match the biosamples to the right person.",
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [1910, 2003],
+          "yearsRange": [1910, 2004],
           "hideNowButton": true,
           "hideClearButton": true
         }
