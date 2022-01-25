@@ -7,7 +7,7 @@
       "symptoms_start_date": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2019, 2021],
+          "yearsRange": [2019, 2022],
           "hideNowButton": true,
           "hideClearButton": false,
           "lessThanNow": true
@@ -21,7 +21,7 @@
       "symptoms_worst_date": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2019, 2021],
+          "yearsRange": [2019, 2022],
           "hideNowButton": true,
           "hideClearButton": false,
           "lessThanNow": true
@@ -38,7 +38,7 @@
         "ui:widget": "CustomDateWidget",
 
         "ui:options": {
-          "yearsRange": [2019, 2021],
+          "yearsRange": [2019, 2022],
           "hideNowButton": true,
           "hideClearButton": false,
           "lessThanNow": true
@@ -57,7 +57,7 @@
       "symptoms_none_date": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2019, 2021],
+          "yearsRange": [2019, 2022],
           "hideNowButton": true,
           "hideClearButton": false,
           "lessThanNow": true
@@ -274,7 +274,7 @@
       "first_day": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2020, 2021],
+          "yearsRange": [2020, 2022],
           "hideNowButton": true,
           "hideClearButton": true,
           "lessThanNow": true
@@ -284,7 +284,7 @@
       "last_day": {
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2020, 2021],
+          "yearsRange": [2020, 2022],
           "hideNowButton": true,
           "hideClearButton": true,
           "lessThanNow": true
@@ -325,7 +325,7 @@
         "classNames": ["nasal_swab"],
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2020, 2021],
+          "yearsRange": [2020, 2022],
           "hideNowButton": true,
           "hideClearButton": true,
           "lessThanNow": true
@@ -342,7 +342,7 @@
         "classNames": ["nasal_swab"],
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [2020, 2021],
+          "yearsRange": [2020, 2022],
           "hideNowButton": true,
           "hideClearButton": true,
           "lessThanNow": true

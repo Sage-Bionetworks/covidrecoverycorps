@@ -45,7 +45,7 @@
         "ui:description": "Su fecha de nacimiento nos ayuda ​a asegurar que las muestras biológicas correspondan a la persona correcta.",
         "ui:widget": "CustomDateWidget",
         "ui:options": {
-          "yearsRange": [1910, 2003],
+          "yearsRange": [1910, 2004],
           "hideNowButton": true,
           "hideClearButton": true
         }
