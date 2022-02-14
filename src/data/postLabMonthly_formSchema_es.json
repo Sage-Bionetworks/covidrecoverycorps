@@ -20,7 +20,7 @@
         },
 
         "how_has_changed": {
-          "title": "c. ¿Cómo ha cambiado este síntoma durante el último mes? ",
+          "title": "c. ¿Cómo ha cambiado este síntoma en los últimos 3 meses? ",
           "type": "string",
 
           "enum": ["1", "2", "3", "4", "5"],
@@ -520,6 +520,11 @@
               "type": "boolean",
               "title": "Temblores o inestabilidad"
             },
+            "vibrations": {
+              "type": "boolean",
+              "title": "Sintiendo vibraciones internas"
+            },
+
             "numbness_or_tingling_of_f": {
               "type": "boolean",
               "title": "Entumecimiento u hormigueo en pies y manos"
@@ -592,6 +597,28 @@
                 }
               ]
             },
+            "vibrations": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "vibrations": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "vibrations": {
+                      "enum": [true]
+                    },
+                    "vibrations_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            },
+
             "numbness_or_tingling_of_f": {
               "oneOf": [
                 {
@@ -756,7 +783,7 @@
             },
             "rash": {
               "type": "boolean",
-              "title": "sarpullido"
+              "title": "Sarpullido"
             },
             "weight_loss": {
               "type": "boolean",
@@ -852,8 +879,9 @@
                     "weight_loss": {
                       "enum": [true]
                     },
-                    "weight_loss_detail": {
-                      "$ref": "#/definitions/symptomDetail"
+                    "weight_loss_number": {
+                      "type": "string",
+                      "title": "Indique cuánto peso perdió en comparación con su peso antes de COVID (lbs)"
                     }
                   }
                 }
@@ -873,8 +901,9 @@
                     "weight_gain": {
                       "enum": [true]
                     },
-                    "weight_gain_detail": {
-                      "$ref": "#/definitions/symptomDetail"
+                    "weight_gain_number": {
+                      "type": "string",
+                      "title": "Indique cuánto peso ganó en comparación con su peso antes de COVID (lbs)"
                     }
                   }
                 }
@@ -1111,7 +1140,7 @@
                 },
                 "reinfection_date": {
                   "type": "string",
-                  "title": "7a. ¿Cuándo se volvió a infectar con COVID-19?"
+                  "title": "7a. ¿En caso afirmativo, ¿cuándo fue el último diagnóstico de COVID-19 aproximadamente? (Proporcione la fecha)"
                 },
                 "positive_test": {
                   "title": "7b. ¿Recibió una nueva prueba de frotis nasal positiva?",
@@ -1322,6 +1351,67 @@
           ]
         }
       }
+    },
+    "booster": {
+      "type": "object",
+      "required": ["received_booster"],
+      "properties": {
+        "received_booster": {
+          "title": "9.¿Ha recibido una vacuna de refuerzo? (Sí/No/Prefiero no responder)",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["Yes", "No", "Prefer not to answer"],
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
+        }
+      },
+
+      "dependencies": {
+        "received_booster": {
+          "oneOf": [
+            {
+              "properties": {
+                "received_booster": {
+                  "enum": ["No", "Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "received_booster": {
+                  "enum": ["Yes"]
+                },
+                "booster_date": {
+                  "title": "9a.  En caso afirmativo: ¿Cuándo fue su vacunación de refuerzo? (Proporcione la fecha)",
+                  "type": "string"
+                },
+
+                "which_booster": {
+                  "title": "9b. ¿Qué refuerzo conseguiste?",
+                  "type": "string",
+                  "uniqueItems": true,
+                  "enum": [
+                    "Pfizer-BioNTech",
+                    "Moderna",
+                    "Johnson y Johnson",
+
+                    "Otro",
+                    "No estoy Seguro/a",
+                    "Prefiero no revelar"
+                  ],
+                  "enumNames": [
+                    "Pfizer-BioNTech",
+                    "Moderna",
+                    "Johnson & Johnson",
+                    "Other",
+                    "Not sure",
+                    "Prefer not to disclose"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
     }
   },
 
@@ -1358,6 +1448,10 @@
     "vaccine": {
       "title": "",
       "$ref": "#/definitions/vaccine"
+    },
+    "booster": {
+      "title": "",
+      "$ref": "#/definitions/booster"
     }
   }
 }

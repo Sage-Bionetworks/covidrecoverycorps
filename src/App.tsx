@@ -484,6 +484,16 @@ function App() {
                         ></SurveyWrapper>,
                       )}
                     </ConsentedRoute>
+                    <ConsentedRoute exact={true} path="/monthlySurveyTest">
+                      {renderWithGridLayout(
+                        <SurveyWrapper
+                          formTitle="Monthly Survey"
+                          token={token || ''}
+                          surveyName={'POST_LAB_TEST'}
+                          formClass="crc"
+                        ></SurveyWrapper>,
+                      )}
+                    </ConsentedRoute>
                     <ConsentedRoute exact={true} path="/monthlySurvey">
                       {renderWithGridLayout(
                         <SurveyWrapper

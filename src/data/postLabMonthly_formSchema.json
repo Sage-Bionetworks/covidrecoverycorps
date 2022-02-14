@@ -20,7 +20,7 @@
         },
 
         "how_has_changed": {
-          "title": "c. How has this symptom changed over the last month? ",
+          "title": "c. How has this symptom changed over the last 3 months? ",
           "type": "string",
 
           "enum": ["1", "2", "3", "4", "5"],
@@ -520,6 +520,10 @@
               "type": "boolean",
               "title": "Tremors or shakiness"
             },
+            "vibrations": {
+              "type": "boolean",
+              "title": "Feeling internal vibrations"
+            },
             "numbness_or_tingling_of_f": {
               "type": "boolean",
               "title": "Numbness or tingling of feet and hands"
@@ -586,6 +590,27 @@
                       "enum": [true]
                     },
                     "tremors_or_shakiness_detail": {
+                      "$ref": "#/definitions/symptomDetail"
+                    }
+                  }
+                }
+              ]
+            },
+            "vibrations": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "vibrations": {
+                      "enum": [false]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "vibrations": {
+                      "enum": [true]
+                    },
+                    "vibrations_detail": {
                       "$ref": "#/definitions/symptomDetail"
                     }
                   }
@@ -852,8 +877,10 @@
                     "weight_loss": {
                       "enum": [true]
                     },
-                    "weight_loss_detail": {
-                      "$ref": "#/definitions/symptomDetail"
+
+                    "weight_loss_number": {
+                      "type": "string",
+                      "title": "Indicate how much weight lost compared to your weight before COVID (lbs)"
                     }
                   }
                 }
@@ -873,8 +900,9 @@
                     "weight_gain": {
                       "enum": [true]
                     },
-                    "weight_gain_detail": {
-                      "$ref": "#/definitions/symptomDetail"
+                    "weight_gain_number": {
+                      "type": "string",
+                      "title": "Indicate how much weight gained compared to your weight before COVID"
                     }
                   }
                 }
@@ -1111,7 +1139,7 @@
                 },
                 "reinfection_date": {
                   "type": "string",
-                  "title": "7a. When were you re-infected with COVID-19?"
+                  "title": "7a. If yes, approximately when were you most recently diagnosed with COVID-19? (Provide date)"
                 },
                 "positive_test": {
                   "title": "7b. Did you receive a new positive nasal swab test?",
@@ -1322,6 +1350,89 @@
           ]
         }
       }
+    },
+    "booster": {
+      "type": "object",
+      "required": ["received_booster"],
+      "properties": {
+        "received_booster": {
+          "title": "9. Have you received a booster shot?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["Yes", "No", "Prefer not to answer"],
+          "enumNames": ["Yes", "No", "Prefer not to answer"]
+        }
+      },
+
+      "dependencies": {
+        "received_booster": {
+          "oneOf": [
+            {
+              "properties": {
+                "received_booster": {
+                  "enum": ["No", "Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "received_booster": {
+                  "enum": ["Yes"]
+                },
+                "booster_date": {
+                  "title": "9a. If yes: When was your booster vaccination? (Provide date)",
+                  "type": "string"
+                },
+
+                "which_booster": {
+                  "title": "9b. Which booster did you get?",
+                  "type": "string",
+                  "uniqueItems": true,
+                  "enum": [
+                    "Pfizer-BioNTech",
+                    "Moderna",
+                    "Johnson & Johnson",
+                    "Other",
+                    "Not sure",
+                    "Prefer not to disclose"
+                  ],
+                  "enumNames": [
+                    "Pfizer-BioNTech",
+                    "Moderna",
+                    "Johnson & Johnson",
+                    "Other",
+                    "Not sure",
+                    "Prefer not to disclose"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "reinfection": {
+          "oneOf": [
+            {
+              "properties": {
+                "reinfection": {
+                  "enum": ["No", "Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "required": [],
+              "properties": {
+                "reinfection": {
+                  "enum": ["Yes"]
+                },
+                "breakthrough_date": {
+                  "title": "3b. When were you re-infected with COVID-19?",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        }
+      }
     }
   },
 
@@ -1358,6 +1469,10 @@
     "vaccine": {
       "title": "",
       "$ref": "#/definitions/vaccine"
+    },
+    "booster": {
+      "title": "",
+      "$ref": "#/definitions/booster"
     }
   }
 }

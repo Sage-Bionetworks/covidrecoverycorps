@@ -432,6 +432,9 @@
         "muscle_pain_cramps_or_bod_detail",
         "tremors_or_shakiness",
         "tremors_or_shakiness_detail",
+        "vibrations",
+        "vibrations_detail",
+
         "numbness_or_tingling_of_f",
         "numbness_or_tingling_of_f_detail",
         "covid_toes_discoloration",
@@ -494,6 +497,29 @@
           }
         }
       },
+      "vibrations_detail": {
+        "how_often": {},
+        "how_much_bothers": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Very little",
+            "maxLabel": "Very much"
+          }
+        },
+
+        "how_has_changed": {
+          "ui:widget": "RadioRangeWidget",
+          "classNames": "radiorange",
+          "ui:options": {
+            "inline": true,
+            "minLabel": "Much worse",
+            "maxLabel": "Much better"
+          }
+        }
+      },
+
       "numbness_or_tingling_of_f_detail": {
         "how_often": {},
         "how_much_bothers": {
@@ -653,9 +679,9 @@
         "rash",
         "rash_detail",
         "weight_loss",
-        "weight_loss_detail",
+        "weight_loss_number",
         "weight_gain",
-        "weight_gain_detail",
+        "weight_gain_number",
         "difficulty_falling_or_sta",
         "difficulty_falling_or_sta_detail",
         "sleeping_more_than_normal",
@@ -719,48 +745,7 @@
           }
         }
       },
-      "weight_loss_detail": {
-        "how_often": {},
-        "how_much_bothers": {
-          "ui:widget": "RadioRangeWidget",
-          "classNames": "radiorange",
-          "ui:options": {
-            "inline": true,
-            "minLabel": "Muy poco",
-            "maxLabel": "Mucho"
-          }
-        },
-        "how_has_changed": {
-          "ui:widget": "RadioRangeWidget",
-          "classNames": "radiorange",
-          "ui:options": {
-            "inline": true,
-            "minLabel": "Mucho peor",
-            "maxLabel": "Mucho mejor"
-          }
-        }
-      },
-      "weight_gain_detail": {
-        "how_often": {},
-        "how_much_bothers": {
-          "ui:widget": "RadioRangeWidget",
-          "classNames": "radiorange",
-          "ui:options": {
-            "inline": true,
-            "minLabel": "Muy poco",
-            "maxLabel": "Mucho"
-          }
-        },
-        "how_has_changed": {
-          "ui:widget": "RadioRangeWidget",
-          "classNames": "radiorange",
-          "ui:options": {
-            "inline": true,
-            "minLabel": "Mucho peor",
-            "maxLabel": "Mucho mejor"
-          }
-        }
-      },
+
       "difficulty_falling_or_sta_detail": {
         "how_often": {},
         "how_much_bothers": {
@@ -966,6 +951,25 @@
       "ui:widget": "radio"
     },
     "second_dose_date": {
+      "ui:widget": "CustomDateWidget",
+      "classNames": "postLab_date_field",
+      "ui:options": {
+        "yearsRange": [2020, 2022],
+        "hideNowButton": true,
+        "hideClearButton": false,
+        "lessThanNow": true
+      }
+    }
+  },
+  "booster": {
+    "received_booster": {
+      "ui:widget": "radio"
+    },
+    "which_booster": {
+      "ui:widget": "radio"
+    },
+
+    "booster_date": {
       "ui:widget": "CustomDateWidget",
       "classNames": "postLab_date_field",
       "ui:options": {
