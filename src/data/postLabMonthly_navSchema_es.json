@@ -2,7 +2,7 @@
   "steps": [
     {
       "title": "",
-      "orderDisplay": "1/8",
+      "orderDisplay": "1/9",
       "description": "",
       "id": "intro",
       "order": 1,
@@ -12,7 +12,7 @@
       "id": "symptoms1",
       "order": 5,
       "title": "",
-      "orderDisplay": "2/8",
+      "orderDisplay": "2/9",
       "description": "",
       "default": "symptoms2"
     },
@@ -21,7 +21,7 @@
       "id": "symptoms2",
       "order": 10,
       "title": "",
-      "orderDisplay": "3/8",
+      "orderDisplay": "3/9",
       "description": "",
 
       "default": "symptoms3"
@@ -30,7 +30,7 @@
       "id": "symptoms3",
       "order": 15,
       "title": "",
-      "orderDisplay": "4/8",
+      "orderDisplay": "4/9",
       "description": "",
 
       "default": "symptoms4"
@@ -39,7 +39,7 @@
       "id": "symptoms4",
       "order": 20,
       "title": "",
-      "orderDisplay": "5/8",
+      "orderDisplay": "5/9",
       "description": "",
 
       "default": "newConditions"
@@ -48,7 +48,7 @@
       "id": "newConditions",
       "order": 25,
       "title": "",
-      "orderDisplay": "6/8",
+      "orderDisplay": "6/9",
       "description": "",
 
       "default": "reinfection",
@@ -80,7 +80,7 @@
       "id": "reinfection",
       "order": 51,
       "title": "",
-      "orderDisplay": "7/8",
+      "orderDisplay": "7/9",
       "description": "",
 
       "default": "vaccine"
@@ -89,7 +89,17 @@
       "id": "vaccine",
       "order": 61,
       "title": "",
-      "orderDisplay": "8/8",
+      "orderDisplay": "8/9",
+      "description": "",
+
+      "default": "booster"
+    },
+
+    {
+      "id": "booster",
+      "order": 65,
+      "title": "",
+      "orderDisplay": "9/9",
       "description": "",
 
       "default": ""
