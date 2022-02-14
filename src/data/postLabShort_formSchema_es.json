@@ -1,12 +1,50 @@
 {
   "definitions": {
+    "reinfection": {
+      "type": "object",
+      "required": ["reinfectionq"],
+      "properties": {
+        "reinfectionq": {
+          "title": "1. ¿Se infectó con COVID-19 más de una vez?",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["Yes", "No", "Prefer not to answer"],
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
+        }
+      },
+
+      "dependencies": {
+        "reinfectionq": {
+          "oneOf": [
+            {
+              "properties": {
+                "reinfectionq": {
+                  "enum": ["No", "Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "reinfectionq": {
+                  "enum": ["Yes"]
+                },
+                "reinfection_date": {
+                  "title": "1a. En caso afirmativo, ¿cuándo fue el último diagnóstico de COVID-19 aproximadamente?(Proporcione la fecha)",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
     "newConditions": {
       "type": "object",
       "required": ["conditions"],
       "properties": {
         "conditions": {
           "type": "object",
-          "title": "6. Desde que le diagnosticaron COVID-19, ¿un médico le ha diagnosticado recientemente las siguientes afecciones? (Marque todas las que correspondan)",
+          "title": "2. Desde que le diagnosticaron COVID-19, ¿un médico le ha diagnosticado recientemente las siguientes afecciones? (Marque todas las que correspondan)",
           "properties": {
             "eye_desease": {
               "type": "boolean",
@@ -93,7 +131,7 @@
       "required": ["received_vaccine"],
       "properties": {
         "received_vaccine": {
-          "title": "2. ¿Ha recibido una vacuna COVID-19?",
+          "title": "3. ¿Ha recibido una vacuna COVID-19?",
           "type": "string",
           "uniqueItems": true,
           "enum": ["Yes", "No", "Prefer not to answer"],
@@ -118,7 +156,7 @@
                   "enum": ["Yes"]
                 },
                 "reinfection": {
-                  "title": "2a. ¿Experimentó una infección irruptiva con una prueba de frotis nasal positiva?",
+                  "title": "3a. ¿Experimentó una infección irruptiva con una prueba de frotis nasal positiva?",
                   "type": "string",
                   "uniqueItems": true,
                   "enum": ["Yes", "No", "Prefer not to answer"],
@@ -144,8 +182,70 @@
                   "enum": ["Yes"]
                 },
                 "breakthrough_date": {
-                  "title": "2b. ¿Cuándo se volvió a infectar con COVID-19?",
+                  "title": "3b. ¿Cuándo se volvió a infectar con COVID-19?",
                   "type": "string"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+
+    "booster": {
+      "type": "object",
+      "required": ["received_booster"],
+      "properties": {
+        "received_booster": {
+          "title": "4.¿Ha recibido una vacuna de refuerzo? (Sí/No/Prefiero no responder)",
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["Yes", "No", "Prefer not to answer"],
+          "enumNames": ["Sí", "No", "Prefiero no responder"]
+        }
+      },
+
+      "dependencies": {
+        "received_booster": {
+          "oneOf": [
+            {
+              "properties": {
+                "received_booster": {
+                  "enum": ["No", "Prefer not to answer"]
+                }
+              }
+            },
+            {
+              "properties": {
+                "received_booster": {
+                  "enum": ["Yes"]
+                },
+                "booster_date": {
+                  "title": "4a.  En caso afirmativo: ¿Cuándo fue su vacunación de refuerzo? (Proporcione la fecha)",
+                  "type": "string"
+                },
+
+                "which_booster": {
+                  "title": "4b. ¿Qué refuerzo conseguiste?",
+                  "type": "string",
+                  "uniqueItems": true,
+                  "enum": [
+                    "Pfizer-BioNTech",
+                    "Moderna",
+                    "Johnson y Johnson",
+
+                    "Otro",
+                    "No estoy Seguro/a",
+                    "Prefiero no revelar"
+                  ],
+                  "enumNames": [
+                    "Pfizer-BioNTech",
+                    "Moderna",
+                    "Johnson & Johnson",
+                    "Other",
+                    "Not sure",
+                    "Prefer not to disclose"
+                  ]
                 }
               }
             }
@@ -157,6 +257,11 @@
 
   "type": "object",
   "properties": {
+    "reinfection": {
+      "title": "",
+      "$ref": "#/definitions/reinfection"
+    },
+
     "newConditions": {
       "title": "",
       "$ref": "#/definitions/newConditions"
@@ -165,6 +270,10 @@
     "vaccine": {
       "title": "",
       "$ref": "#/definitions/vaccine"
+    },
+    "booster": {
+      "title": "",
+      "$ref": "#/definitions/booster"
     }
   }
 }

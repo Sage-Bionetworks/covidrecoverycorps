@@ -1,10 +1,19 @@
 {
   "steps": [
     {
+      "id": "reinfection",
+      "order": 11,
+      "title": "",
+      "orderDisplay": "1/4",
+      "description": "",
+
+      "default": "newConditions"
+    },
+    {
       "id": "newConditions",
       "order": 25,
       "title": "",
-      "orderDisplay": "1/2",
+      "orderDisplay": "2/4",
       "description": "",
 
       "default": "vaccine",
@@ -37,7 +46,16 @@
       "id": "vaccine",
       "order": 61,
       "title": "",
-      "orderDisplay": "2/2",
+      "orderDisplay": "3/4",
+      "description": "",
+
+      "default": "booster"
+    },
+    {
+      "id": "booster",
+      "order": 71,
+      "title": "",
+      "orderDisplay": "4/4",
       "description": "",
 
       "default": ""

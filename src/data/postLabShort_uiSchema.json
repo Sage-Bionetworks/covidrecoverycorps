@@ -47,5 +47,42 @@
         "lessThanNow": true
       }
     }
+  },
+  "reinfection": {
+    "ui:dependent_option_postfix": ["_other"],
+    "ui:order": ["reinfectionq", "reinfection_date", "*"],
+    "reinfectionq": {
+      "ui:widget": "radio"
+    },
+
+    "reinfection_date": {
+      "ui:widget": "CustomDateWidget",
+      "classNames": "postLab_date_field",
+      "ui:options": {
+        "yearsRange": [2020, 2022],
+        "hideNowButton": true,
+        "hideClearButton": false,
+        "lessThanNow": true
+      }
+    }
+  },
+  "booster": {
+    "received_booster": {
+      "ui:widget": "radio"
+    },
+    "which_booster": {
+      "ui:widget": "radio"
+    },
+
+    "booster_date": {
+      "ui:widget": "CustomDateWidget",
+      "classNames": "postLab_date_field",
+      "ui:options": {
+        "yearsRange": [2020, 2022],
+        "hideNowButton": true,
+        "hideClearButton": false,
+        "lessThanNow": true
+      }
+    }
   }
 }
