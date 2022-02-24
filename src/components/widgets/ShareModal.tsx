@@ -1,35 +1,34 @@
-import React from 'react'
 import { Button, makeStyles } from '@material-ui/core'
+import React from 'react'
 import Modal from 'react-bootstrap/Modal'
 import {
-  FacebookShareButton,
-  LinkedinShareButton,
-  TwitterShareButton,
-  TelegramShareButton,
-  WhatsappShareButton,
-  RedditShareButton,
-  TumblrShareButton,
-  ViberShareButton,
-  LineShareButton,
-  PocketShareButton,
   FacebookIcon,
-  TwitterIcon,
-  LinkedinIcon,
-  TelegramIcon,
-  WhatsappIcon,
-  RedditIcon,
-  TumblrIcon,
-  ViberIcon,
-  LineIcon,
-  PocketIcon,
-  FacebookMessengerShareButton,
   FacebookMessengerIcon,
+  FacebookMessengerShareButton,
+  FacebookShareButton,
+  LineIcon,
+  LineShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  PocketIcon,
+  PocketShareButton,
+  RedditIcon,
+  RedditShareButton,
+  TelegramIcon,
+  TelegramShareButton,
+  TumblrIcon,
+  TumblrShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  ViberIcon,
+  ViberShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
 } from 'react-share'
-import classes from '*.module.css'
 
 export type ShareModalProps = {
   show: boolean
-  onClose: Function
+  onClose: () => void
 }
 
 const useStyles = makeStyles(theme => ({
