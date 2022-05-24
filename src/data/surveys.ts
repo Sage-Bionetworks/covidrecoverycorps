@@ -65,7 +65,8 @@ export const SURVEYS: SurveyConfigObject = {
     navSchema: async () => await import(`./postLab_navSchema${postfix}.json`),
   },*/
 
-  POST_LAB_MONTHLY: {
+  POST_LAB_TEST: {
+    //short survey rename to POST_LAB_MONTHLY when in use
     formSchema: async () =>
       await import(`./postLabShort_formSchema${postfix}.json`),
     uiSchema: async () =>
@@ -74,7 +75,9 @@ export const SURVEYS: SurveyConfigObject = {
       await import(`./postLabShort_navSchema${postfix}.json`),
   },
 
-  POST_LAB_TEST: {
+  POST_LAB_MONTHLY: {
+    //short survey rename to POST_LAB_TEST when not in use
+    // long survey
     formSchema: async () =>
       await import(`./postLabMonthly_formSchema${postfix}.json`),
     uiSchema: async () =>
