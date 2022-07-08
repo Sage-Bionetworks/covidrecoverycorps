@@ -12,9 +12,10 @@ import SparkMD5 from 'spark-md5'
 import { bytesToSize, callEndpoint } from '../../helpers/utility'
 import { SurveyService } from '../../services/survey.service'
 import { ENDPOINT, Response, SurveyType } from '../../types/types'
-
 //need for pdf upload to work
-PDFJS.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS.version}/pdf.worker.js`
+if (PDFJS?.GlobalWorkerOptions) {
+  PDFJS.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS.version}/pdf.worker.js`
+}
 
 type PreviewFile = {
   file: File
