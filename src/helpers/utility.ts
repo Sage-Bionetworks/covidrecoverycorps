@@ -1,20 +1,20 @@
 import {
-  Response,
-  Phone,
-  SignInData,
+  APP_ID,
   LoggedInUserData,
+  LoginType,
+  Phone,
+  Response,
+  SESSION_NAME,
+  SignInData,
   SignInDataEmail,
   SignInDataPhone,
-  APP_ID,
-  LoginType,
   StringDictionary,
-  SESSION_NAME,
 } from '../types/types'
 
-import { zipcodes } from '../data/zips.json'
-import moment from 'moment'
 import i18n from 'i18next'
+import moment from 'moment'
 import { useState } from 'react'
+import zipcodes from '../data/zips'
 import { SessionData } from '../types/types'
 
 function makeRequest(
@@ -110,6 +110,7 @@ export const callEndpoint = async <T>(
       .map(key => key + '=' + data[key])
       .join('&')
     endpoint = queryString ? `${endpoint}?${queryString}` : endpoint
+    //@ts-ignore
     delete config.body
   }
 
