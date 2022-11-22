@@ -43,20 +43,20 @@ export const SURVEYS: SurveyConfigObject = {
     navSchema: async () => await import(`./covid2_navSchema${postfix}.json`),
   },
   WITHDRAW: {
-    formSchema: () => {},
-    uiSchema: () => {},
-    navSchema: () => {},
+    formSchema: () => { },
+    uiSchema: () => { },
+    navSchema: () => { },
   },
   // agendel 8/20 it is not moved inot survey too. Need for backward compatibility
   TEST_LOCATION: {
-    formSchema: () => {},
-    uiSchema: () => {},
-    navSchema: () => {},
+    formSchema: () => { },
+    uiSchema: () => { },
+    navSchema: () => { },
   },
   RESULT_UPLOAD: {
-    formSchema: () => {},
-    uiSchema: () => {},
-    navSchema: () => {},
+    formSchema: () => { },
+    uiSchema: () => { },
+    navSchema: () => { },
   },
 
   /*POST_LAB: {
@@ -65,7 +65,7 @@ export const SURVEYS: SurveyConfigObject = {
     navSchema: async () => await import(`./postLab_navSchema${postfix}.json`),
   },*/
 
-  POST_LAB_MONTHLY: {
+  POST_LAB_TEST: {
     //short survey rename to POST_LAB_MONTHLY when in use,  POST_LAB_TEST when not in use
     formSchema: async () =>
       await import(`./postLabShort_formSchema${postfix}.json`),
@@ -75,8 +75,8 @@ export const SURVEYS: SurveyConfigObject = {
       await import(`./postLabShort_navSchema${postfix}.json`),
   },
 
-  POST_LAB_TEST: {
-    //short survey rename to POST_LAB_MONTHLY when in use POST_LAB_TEST when not in use
+  POST_LAB_MONTHLY: {
+    //long survey rename to POST_LAB_MONTHLY when in use POST_LAB_TEST when not in use
     // long survey
     formSchema: async () =>
       await import(`./postLabMonthly_formSchema${postfix}.json`),
