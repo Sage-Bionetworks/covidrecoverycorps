@@ -42,3 +42,18 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Quarterly Surveys
+
+There's a 'short' or 'long' survey.
+It requires two simple changes: 
+
+ -   in src/services/survey.service.ts change the month number in the endpoint to the current month on line  const endpoint = `${ENDPOINT}/v4/users/self/reports/${MONTHLY_SURVEY_IDENTIFIER}_12_${today.getFullYear()}` 
+in src/data/surveys.ts
+ - in src/data/surveys.ts change the key names in the SurveyConfigObject
+
+ POST_LAB_MONTHLY is the survey name that the code expects, so depending on which  surveys
+are going out we either have that has a key value for  surveys files starting with 'postLabShort_formSchema' or 'postLabMonthly_formSchema'
+
+Here's an example PR for long survey: https://github.com/Sage-Bionetworks/covidrecoverycorps/pull/812/files
+And here's an example PR for short survey: https://github.com/Sage-Bionetworks/covidrecoverycorps/pull/808/files
