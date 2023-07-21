@@ -313,17 +313,6 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
     <Container maxWidth="lg">
       <div className={classes.heroTextDiv}>
         <h1 className={classes.heroText}>{t('home.title')}</h1>
-        <div>
-          <NavLink to="/eligibility" className={classes.navLink}>
-            <Button
-              color="primary"
-              variant="contained"
-              className={classes.joinButton}
-            >
-              {t('common.joinUs')}
-            </Button>
-          </NavLink>
-        </div>
       </div>
     </Container>
   )
@@ -484,15 +473,6 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
                 <h3 className={classes.paperPanelStepTitle}>
                   {t('home.text9')}
                 </h3>
-                <div className={classes.paperPanelStepBody}>
-                  <p>
-                    {t('home.text10')}&nbsp;
-                    <Link to="/eligibility" style={{ fontWeight: 'bold' }}>
-                      {t('common.joinUs')}
-                    </Link>{' '}
-                    {t('home.text11')}
-                  </p>
-                </div>
               </Grid>
               <Grid item xs={12} sm={3}>
                 <div className={classes.paperPanelStepIconDiv}>
@@ -573,17 +553,6 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
       </div>
       <div className={classes.fightTogetherDiv}>
         <h2 className={classes.fightTogetherDivText}>{t('home.text18')}</h2>
-        <Grid container justify="center" alignItems="center">
-          <NavLink to="/eligibility" className={classes.navLink}>
-            <Button
-              color="primary"
-              variant="contained"
-              className={classes.joinButton}
-            >
-              {t('common.joinStudy')}
-            </Button>
-          </NavLink>
-        </Grid>
       </div>
     </div>
   )

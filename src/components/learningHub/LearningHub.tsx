@@ -207,17 +207,6 @@ export const LearningHub: React.FunctionComponent<ResultProps> = ({
               <p>[translate]</p>
             </Trans>
           </div>
-          {!token && (
-            <Button
-              type="button"
-              className="btnVerticallySpaced"
-              variant="contained"
-              color="primary"
-              onClick={() => (window.location.href = '/eligibility')}
-            >
-              {t('common.joinStudy')}
-            </Button>
-          )}
         </div>
       </div>
       <TwoColumnTemplate
