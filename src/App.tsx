@@ -387,23 +387,6 @@ function App() {
                   {/* A <Switch> looks through its children <Route>s and
          renders the first one that matches the current URL. */}{' '}
                   <Switch>
-                    <Route
-                      path="/eligibility"
-                      render={props => {
-                        const searchParamsProps = getSearchParams(
-                          props.location.search,
-                        )
-                        // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
-                        return renderWithGridLayout(
-                          <EligibilityRegistration
-                            {...props}
-                            callbackFn={(token: string, name: string) =>
-                              setUserSession(token, name, false, [])
-                            }
-                          />,
-                        )
-                      }}
-                    ></Route>
                     <ConsentedRoute exact={false} path="/dashboard">
                       {getDashboardPage(sessionData)}
                     </ConsentedRoute>
