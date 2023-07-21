@@ -305,43 +305,6 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
             </ListItem>
           </NavLink>
         )}
-        {props.token && (
-          <NavLink
-            to="/logout"
-            onClick={handleDrawerToggle}
-            className={classes.navBarLink}
-          >
-            <ListItem button className={classes.mobileMenuItem}>
-              <Logout
-                onLogout={() => {
-                  props.logoutCallbackFn(undefined, '', false)
-                }}
-              ></Logout>
-            </ListItem>
-          </NavLink>
-        )}
-        {!props.token && (
-          <NavLink
-            to="/eligibility"
-            onClick={handleDrawerToggle}
-            className={classes.navBarLink}
-          >
-            <ListItem button className={classes.mobileMenuItem}>
-              {t('common.joinUs')}
-            </ListItem>
-          </NavLink>
-        )}
-        {!props.token && (
-          <NavLink
-            to="/login"
-            onClick={handleDrawerToggle}
-            className={classes.navBarLink}
-          >
-            <ListItem button className={classes.mobileMenuItem}>
-              {t('topnav.text8')}
-            </ListItem>
-          </NavLink>
-        )}
       </List>
     </div>
   )
@@ -420,42 +383,6 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
           {language === 'es' ? 'in English' : 'en español'}
         </a>
       </Feature>
-
-      {props.token && (
-        <NavLink
-          to="/logout"
-          className={classes.fullNavBarLink}
-          activeClassName={classes.fullNavBarLinkActive}
-        >
-          <Logout
-            onLogout={() => {
-              props.logoutCallbackFn(undefined, '', false)
-            }}
-          ></Logout>
-        </NavLink>
-      )}
-      {!props.token && (
-        <NavLink
-          style={{ marginLeft: '60px' }}
-          to="/login"
-          className={classes.fullNavBarLink}
-        >
-          <Button variant="outlined" className={classes.fullNavBarButton}>
-            {t('topnav.text8')}
-          </Button>
-        </NavLink>
-      )}
-      {!props.token && (
-        <NavLink to="/eligibility" className={classes.fullNavBarLink}>
-          <Button
-            color="primary"
-            variant="outlined"
-            className={classes.fullNavBarButton}
-          >
-            {t('common.joinUs')}
-          </Button>
-        </NavLink>
-      )}
     </div>
   )
   return (

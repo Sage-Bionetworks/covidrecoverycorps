@@ -18,8 +18,6 @@ import AcountSettings from './components/AccountSettings'
 import Consent from './components/consent/Consent'
 import ConsentEHR from './components/consent/ConsentEHR'
 import LearningHub from './components/learningHub/LearningHub'
-import Login from './components/login/Login'
-import LoginPassword from './components/login/LoginPassword'
 import EligibilityRegistration from './components/registration/EligibilityRegistration'
 import ResultDashboard from './components/result/ResultDashboard'
 import Appointment from './components/static/Appointment'
@@ -389,49 +387,6 @@ function App() {
                   {/* A <Switch> looks through its children <Route>s and
          renders the first one that matches the current URL. */}{' '}
                   <Switch>
-                    <Route
-                      exact={true}
-                      path="/login"
-                      render={props => {
-                        const searchParamsProps = getSearchParams(
-                          props.location.search,
-                        )
-                        // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
-                        return renderWithGridLayout(
-                          <Login
-                            {...props}
-                            key={Math.random()}
-                            searchParams={searchParamsProps as any}
-                          />,
-                        )
-                      }}
-                    ></Route>
-                    <Route
-                      exact={true}
-                      path="/loginPassword"
-                      render={props =>
-                        renderWithGridLayout(
-                          <LoginPassword {...props} key={Math.random()} />,
-                        )
-                      }
-                    ></Route>
-                    <Route
-                      path="/eligibility"
-                      render={props => {
-                        const searchParamsProps = getSearchParams(
-                          props.location.search,
-                        )
-                        // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
-                        return renderWithGridLayout(
-                          <EligibilityRegistration
-                            {...props}
-                            callbackFn={(token: string, name: string) =>
-                              setUserSession(token, name, false, [])
-                            }
-                          />,
-                        )
-                      }}
-                    ></Route>
                     <ConsentedRoute exact={false} path="/dashboard">
                       {getDashboardPage(sessionData)}
                     </ConsentedRoute>

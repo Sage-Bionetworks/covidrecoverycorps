@@ -102,17 +102,6 @@ export const Footer: React.FunctionComponent<FooterProps> = props => {
             )}
             {/* the toolbar is a flex layout, whose flex direction changes on smaller devices.  add an empty element for correct spacing or newline */}
             <div className={classes.fullNavBarLink}></div>
-
-            {!props.token && (
-              <NavLink to="/login" className={classes.fullNavBarLink}>
-                {t('footer.login')}
-              </NavLink>
-            )}
-            {!props.token && (
-              <NavLink to="/eligibility" className={classes.fullNavBarLink}>
-                {t('footer.join')}
-              </NavLink>
-            )}
           </Toolbar>
           <div className={classes.questionsCommentsText}>
             <Trans i18nKey="footer.text1">
