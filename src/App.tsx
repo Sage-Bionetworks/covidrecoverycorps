@@ -39,6 +39,9 @@ import { FeaturesProvider, TOGGLE_NAMES } from './helpers/FeatureToggle'
 import { UserService } from './services/user.service'
 import './styles/style.scss'
 import { SessionData, UserDataGroup } from './types/types'
+import Login from './components/login/Login'
+import LoginPassword from './components/login/LoginPassword'
+import { getSearchParams } from './helpers/utility'
 
 export const openSansFont = [
   'Open Sans',
@@ -385,6 +388,32 @@ function App() {
                   {/* A <Switch> looks through its children <Route>s and
          renders the first one that matches the current URL. */}{' '}
                   <Switch>
+                  <Route
+                      exact={true}
+                      path="/login"
+                      render={props => {
+                        const searchParamsProps = getSearchParams(
+                          props.location.search,
+                        )
+                        // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams -- needs polyfill for ie11
+                        return renderWithGridLayout(
+                          <Login
+                            {...props}
+                            key={Math.random()}
+                            searchParams={searchParamsProps as any}
+                          />,
+                        )
+                      }}
+                    ></Route>
+                    <Route
+                      exact={true}
+                      path="/loginPassword"
+                      render={props =>
+                        renderWithGridLayout(
+                          <LoginPassword {...props} key={Math.random()} />,
+                        )
+                      }
+                    ></Route>
                     <ConsentedRoute exact={false} path="/dashboard">
                       {getDashboardPage(sessionData)}
                     </ConsentedRoute>
