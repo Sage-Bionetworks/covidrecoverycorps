@@ -298,6 +298,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                 loginType={loginType!}
               ></SignInWithCode>
             )}
+            {/*  Hide registration
             {!isLinkSent && (
               <div style={{ margin: '0px auto', textAlign: 'center' }}>
                 <Button
@@ -307,7 +308,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({
                   {t('common.signUpForAccount')}
                 </Button>
               </div>
-            )}
+            )} */}
           </CardContent>
         </Card>
       )}

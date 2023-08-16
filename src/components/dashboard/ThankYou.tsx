@@ -72,7 +72,7 @@ const ThankYou: FunctionComponent<ThankYouProps> = ({
           setIsShowingShareDialog(false)
         }}
       ></ShareModal>
-      <div className="text-center">
+      {/* <div className="text-center">
         <Button
           style={{ margin: '30px auto 0 auto', fontSize: '14px' }}
           variant="outlined"
@@ -83,7 +83,7 @@ const ThankYou: FunctionComponent<ThankYouProps> = ({
         >
           {t('resultDashboard.inviteCTA')}
         </Button>
-      </div>
+      </div> */}
     </>
   )
 
