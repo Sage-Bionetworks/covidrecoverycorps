@@ -165,8 +165,8 @@ const fields = {
   checkboxExclusiveField: (ExclusiveCheckboxesObjectField as unknown) as Field,
 }
 
-export default class SynapseForm extends React.Component<
-  SynapseFormProps,
+export default class SynapseForm extends React.Component<React.PropsWithChildren<
+  SynapseFormProps>,
   SynapseFormState
 > {
   isDebugHidden = !window.location.search.includes('debug')
@@ -695,19 +695,19 @@ export default class SynapseForm extends React.Component<
   private renderNotification = (status?: StatusEnum): JSX.Element => {
     if (status === StatusEnum.SAVE_SUCCESS) {
       return (
-        <div className="notification-area">{i18next.t('surveys.saved')}</div>
+        <div className="notification-area">{i18next.t('surveys.saved') as React.ReactNode}</div>
       )
     }
     if (status === StatusEnum.SUBMIT_SUCCESS) {
       return (
         <div className="notification-area">
-          {i18next.t('surveys.submitted')}{' '}
+          {i18next.t('surveys.submitted') as React.ReactNode}{' '}
         </div>
       )
     }
     if (status === StatusEnum.PROGRESS) {
       return (
-        <div className="notification-area">{i18next.t('surveys.working')}</div>
+        <div className="notification-area">{i18next.t('surveys.working') as React.ReactNode}</div>
       )
     }
     return <></>
@@ -1227,7 +1227,7 @@ export default class SynapseForm extends React.Component<
                       className="error padded-panel pull-right"
                       style={{ margin: '1rem 0 2rem 0' }}
                     >
-                      {i18next.t('surveys.responsesRequired')}
+                      {i18next.t('surveys.responsesRequired') as React.ReactNode}
                     </div>
                   )}
                   {!this.props.isWizardMode && (

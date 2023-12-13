@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Alert from '@material-ui/lab/Alert/Alert'
 import i18next from 'i18next'
 import _ from 'lodash'
-import React, { useEffect, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import completeIconImg from '../../assets/dashboard/icon_complete.svg'
 import emptyIconImg from '../../assets/dashboard/icon_empty.svg'
@@ -259,7 +259,7 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
           <div className="time">
             <img src={clockIconImg}></img>
             <span>
-              {survey.time}&nbsp;{i18next.t('dashboard.min')}
+              {survey.time}&nbsp;{i18next.t('dashboard.min') as ReactNode}
             </span>
           </div>
         </>

@@ -364,7 +364,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
               <tr>
                 <td>
                   {' '}
-                  {_.get(result.data, 'code.coding[0].display').toUpperCase()}
+                  {(_.get(result.data, 'code.coding[0].display')! as string).toUpperCase()}
                 </td>
                 <td>
                   <strong>{result.data.valueString}</strong>

@@ -64,11 +64,11 @@ const extraUIProps: ExtraUIProps = {
   isNoSaveButton: false,
   isNoBackBar: false,
 }
-class SurveyWrapperComponent extends React.Component<
-  SurveyWrapperProps & WithTranslation,
+class SurveyWrapperComponent extends React.Component<React.PropsWithChildren<
+  SurveyWrapperProps & WithTranslation>,
   SurveyWrapperState
 > {
-  constructor(props: SurveyWrapperProps & WithTranslation) {
+  constructor(props: React.PropsWithChildren<SurveyWrapperProps & WithTranslation>) {
     super(props)
     this.state = {
       isLoading: true,

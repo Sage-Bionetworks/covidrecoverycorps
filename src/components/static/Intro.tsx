@@ -321,6 +321,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
       <div>
         <div className={classes.heroContainer}>
           <div className={classes.heroTextGradiant}></div>
+          {/* @ts-ignore */}
           <Hidden mdUp>
             <img
               className={classes.heroImage}
@@ -349,6 +350,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               style={{ opacity: heroImage4Opacity }}
             />
           </Hidden>
+          {/* @ts-ignore */}
           <Hidden smDown>
             <img
               className={classes.heroImage}
@@ -416,6 +418,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               <h3 className={`${classes.labTextTitle} text-center`}>
                 {t('home.text31')}
               </h3>
+              {/* @ts-ignore */}
               <Hidden xsDown>
                 <BlueSeparator />
               </Hidden>
@@ -450,11 +453,13 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
         <Container maxWidth="md" className={classes.paperPanelWrapper}>
           <div className={classes.paperPanel}>
             <h2 className={classes.paperPanelTitle}>{t('home.text7')}</h2>
+            {/* @ts-ignore */}
             <Hidden xsDown>
               <BlueSeparator />
             </Hidden>
 
             {/* Step one               */}
+            {/* @ts-ignore */}
             <Hidden smUp>
               <div className={classes.paperPanelStepIconMobileDiv}>
                 <Tablet />
@@ -476,6 +481,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               </Grid>
               <Grid item xs={12} sm={3}>
                 <div className={classes.paperPanelStepIconDiv}>
+                  {/* @ts-ignore */}
                   <Hidden xsDown>
                     <Tablet />
                   </Hidden>
@@ -484,6 +490,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
             </Grid>
 
             {/* Step two               */}
+            {/* @ts-ignore */}
             <Hidden smUp>
               <div className={classes.paperPanelStepIconMobileDiv}>
                 <TestTubes />
@@ -509,6 +516,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               </Grid>
               <Grid item xs={12} sm={3}>
                 <div className={classes.paperPanelStepIconDiv}>
+                  {/* @ts-ignore */}
                   <Hidden xsDown>
                     <TestTubes />
                   </Hidden>
@@ -517,6 +525,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
             </Grid>
 
             {/* Step three               */}
+            {/* @ts-ignore */}
             <Hidden smUp>
               <div className={classes.paperPanelStepIconMobileDiv}>
                 <BooksApple />
@@ -542,6 +551,7 @@ export const Intro: React.FunctionComponent<IntroProps> = ({}: IntroProps) => {
               </Grid>
               <Grid item xs={12} sm={3}>
                 <div className={classes.paperPanelStepIconDiv}>
+                  {/* @ts-ignore */}
                   <Hidden xsDown>
                     <BooksApple />
                   </Hidden>

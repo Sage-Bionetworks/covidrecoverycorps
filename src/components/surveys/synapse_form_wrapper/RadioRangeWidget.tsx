@@ -65,7 +65,7 @@ const RadioWidget = ({
 
   return (
     <div className={classes.root}>
-      <span className={classes.minMaxLabel}>{options.minLabel}</span>
+      <span className={classes.minMaxLabel}>{options.minLabel?.toString()}</span>
       {/*  <FormLabel required={required} htmlFor={id}>
         {label || schema.title}
   </FormLabel>*/}
@@ -105,7 +105,7 @@ const RadioWidget = ({
           textAlign: 'right',
         }}
       >
-        {options.maxLabel}
+        {options.maxLabel?.toString()}
       </span>
     </div>
   )

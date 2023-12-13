@@ -43,7 +43,7 @@ function useForm(
 
   // Used to handle every changes in every input
   const handleOnChange = useCallback(
-    event => {
+    (event:any) => {
       setIsDirty(true)
       console.log(event)
       const name = event.target.name
@@ -86,7 +86,7 @@ function useForm(
   )
 
   const handleOnSubmit = useCallback(
-    event => {
+    (event:any) => {
       event.preventDefault()
       console.log('state is ' + !validateState())
 

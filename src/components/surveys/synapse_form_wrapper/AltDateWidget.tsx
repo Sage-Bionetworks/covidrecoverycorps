@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, ReactNode } from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -231,7 +231,7 @@ class AltDateWidget extends Component<AltDateWidgetProps, AltDateWidgetState> {
               className="btn btn-warning btn-clear"
               onClick={this.clear}
             >
-              {i18next.t('surveys.clear')}
+              {i18next.t('surveys.clear')  as ReactNode}
             </a>
           </li>
         )}

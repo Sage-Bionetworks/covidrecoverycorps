@@ -34,6 +34,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
           <div className={introClasses.paperPanelTitle}>
             <h1>{t('faqs.title')}</h1>
           </div>
+          {/* @ts-ignore */}
           <Hidden xsDown>
             <BlueSeparator />
           </Hidden>
@@ -232,6 +233,7 @@ export const FAQs: React.FunctionComponent<FAQProps> = ({}: FAQProps) => {
               </div>
             </Grid>
             <Grid item xs={12} md={4}>
+              {/* @ts-ignore */}
               <Hidden smDown>
                 <div className={classes.graphicDiv}>
                   <Graphic />

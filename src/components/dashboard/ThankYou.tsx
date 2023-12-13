@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { FunctionComponent, ReactNode, useState } from 'react'
 import {
   TestLocationEnum,
   SurveysCompletionStatusEnum,
@@ -39,7 +39,7 @@ const ThankYou: FunctionComponent<ThankYouProps> = ({
   const elDoneNoLocationSurvey = (
     <>
       <img src={iconCheckMark}></img>
-      <h2>{i18next.t('dashboard.thankYou.surveysDoneTitle')}</h2>
+      <h2>{i18next.t('dashboard.thankYou.surveysDoneTitle') as ReactNode}</h2>
       <Trans i18nKey="dashboard.thankYou.surveysDoneText">
         <p>[translate]</p>
         <p>[translate]</p>
@@ -49,7 +49,7 @@ const ThankYou: FunctionComponent<ThankYouProps> = ({
   const elSelectedTestLab = (
     <>
       <img src={iconCheckMark}></img>
-      <h2>{t('dashboard.thankYou.surveysDoneTitle')}</h2>
+      <h2>{t('dashboard.thankYou.surveysDoneTitle') as ReactNode}</h2>
       <Trans i18nKey="dashboard.thankYou.selectedTestText">
         <p>[translate]</p>
       </Trans>
@@ -90,7 +90,7 @@ const ThankYou: FunctionComponent<ThankYouProps> = ({
   const elCancelledAppointment = (
     <>
       <h2 style={{ textAlign: 'left' }}>
-        {i18next.t('dashboard.thankYou.cancelledTitle')}
+        {i18next.t('dashboard.thankYou.cancelledTitle') as ReactNode}
       </h2>
       <p>
         <Trans i18nKey="dashboard.thankYou.cancelledText">
@@ -103,11 +103,11 @@ const ThankYou: FunctionComponent<ThankYouProps> = ({
   const elInvitedTest = (
     <>
       <img src={iconCheckMark}></img>
-      <h2>{i18next.t('dashboard.thankYou.invitedTitle')}</h2>
+      <h2>{i18next.t('dashboard.thankYou.invitedTitle') as ReactNode}</h2>
       <p>
         {i18next.t('dashboard.thankYou.invitedText1', {
           email: userInfo?.email,
-        })}
+        }) as ReactNode}
       </p>
       <Trans i18nKey="dashboard.thankYou.invitedText2">
         <p>[translate]</p>

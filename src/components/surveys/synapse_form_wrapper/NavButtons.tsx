@@ -71,7 +71,7 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
         disabled={props.isFormSubmitted || props.isFormSubmitting}
         onClick={e => props.onNavAction(NavActionEnum.SUBMIT)}
       >
-        {i18next.t('common.submit')}{' '}
+        {i18next.t('common.submit')  as React.ReactNode}{' '}
         {props.isFormSubmitting && (
           <>
             &nbsp;&nbsp; <CircularProgress size={24} color="secondary" />
@@ -91,7 +91,7 @@ export function NavButtons(props: NavButtonsProps): JSX.Element {
         disabled={props.isFormSubmitted}
         onClick={e => props.onNavAction(NavActionEnum.SAVE)}
       >
-        {i18next.t('surveys.saveProgress')}
+        {i18next.t('surveys.saveProgress') as React.ReactNode}
       </Button>
     ) : (
       <></>

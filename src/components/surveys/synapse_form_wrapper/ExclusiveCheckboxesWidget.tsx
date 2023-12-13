@@ -103,7 +103,7 @@ function ExclusiveCheckboxesWidget(props: WidgetProps) {
   const otherText = (
     <>
       {' '}
-      <span>{otherTextLabel}</span>
+      <span>{otherTextLabel?.toString()}</span>
       <br />
       <input
         type="text"

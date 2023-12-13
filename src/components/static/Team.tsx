@@ -57,9 +57,11 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
     <div className="Intro">
       <div>
         <div className={introClasses.heroContainer}>
+          {/* @ts-ignore */}
           <Hidden smUp>
             <img className={classes.heroImage} src={TeamPageAboveFoldMobile} />
           </Hidden>
+          {/* @ts-ignore */}
           <Hidden xsDown>
             <img className={classes.heroImage} src={TeamPageAboveFold} />
           </Hidden>
@@ -75,6 +77,7 @@ export const Team: React.FunctionComponent<TeamProps> = ({}: TeamProps) => {
             <div className={introClasses.paperPanelTitle}>
               <h2>{t('team.text1')}</h2>
             </div>
+            {/* @ts-ignore */}
             <Hidden xsDown>
               <BlueSeparator />
             </Hidden>

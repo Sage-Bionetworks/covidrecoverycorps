@@ -13,7 +13,7 @@ import Alert from '@material-ui/lab/Alert/Alert'
 import i18next from 'i18next'
 import moment from 'moment'
 import 'moment/locale/es'
-import React, { useEffect, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Redirect } from 'react-router-dom'
 import { useSessionDataDispatch, useSessionDataState } from '../../AuthContext'
@@ -269,13 +269,13 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                         value={ConsentService.SHARE_SCOPE_ALL}
                         control={<Radio color="primary" />}
                         style={{ marginBottom: '4rem' }}
-                        label={i18next.t('consentinfo.screen15.text10')}
+                        label={i18next.t('consentinfo.screen15.text10') as ReactNode}
                       />
 
                       <FormControlLabel
                         value={ConsentService.SHARE_SCOPE_PARTNERS}
                         control={<Radio color="primary" />}
-                        label={i18next.t('consentinfo.screen15.text11')}
+                        label={i18next.t('consentinfo.screen15.text11') as ReactNode}
                       />
                     </RadioGroup>
                     <div
@@ -284,14 +284,14 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                         marginBottom: '4rem',
                       }}
                     >
-                      <p>{i18next.t('consentinfo.screen15.text12')}</p>
+                      <p>{i18next.t('consentinfo.screen15.text12') as ReactNode}</p>
                     </div>
                   </div>
                   <p
                     className="margin-top-std"
                     style={{ marginBottom: '4rem' }}
                   >
-                    {i18next.t('consentinfo.screen15.text13')}
+                    {i18next.t('consentinfo.screen15.text13') as ReactNode}
                   </p>
                   <div
                     className="form-group checkbox--indented"
@@ -307,7 +307,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                     />
                     <p>
                       <strong>
-                        {i18next.t('consentinfo.screen15.text14')}
+                        {i18next.t('consentinfo.screen15.text14') as ReactNode}
                       </strong>
                     </p>
                   </div>
@@ -317,7 +317,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                   </p>
                   <div className="form-group" style={{ marginTop: '4rem' }}>
                     <TextField
-                      label={i18next.t('consentinfo.screen15.text15')}
+                      label={i18next.t('consentinfo.screen15.text15') as ReactNode}
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -343,7 +343,7 @@ export const Consent: React.FunctionComponent<ConsentProps> = ({
                       variant="contained"
                       color="primary"
                     >
-                      {i18next.t('consentinfo.screen15.text16')}
+                      {i18next.t('consentinfo.screen15.text16') as ReactNode}
                     </Button>
                   </div>
                 </form>

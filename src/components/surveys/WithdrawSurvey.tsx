@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import i18next from 'i18next'
 
 type WithdrawSurveyProps = {
@@ -35,7 +35,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                   className="control-label"
                   htmlFor="root_about_gender_identity"
                 >
-                  {i18next.t('surveys.withdrawSurvey.text1')}
+                  {i18next.t('surveys.withdrawSurvey.text1') as ReactNode}
                 </label>
                 <div className="checkboxes">
                   <div className="checkbox ">
@@ -46,7 +46,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                           name="too_much_time"
                           onChange={handleChange}
                         />
-                        <span>{i18next.t('surveys.withdrawSurvey.text2')}</span>
+                        <span>{i18next.t('surveys.withdrawSurvey.text2') as ReactNode}</span>
                       </span>
                     </label>
                   </div>
@@ -58,7 +58,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                           name="not_enough_benefit"
                           onChange={handleChange}
                         />
-                        <span>{i18next.t('surveys.withdrawSurvey.text3')}</span>
+                        <span>{i18next.t('surveys.withdrawSurvey.text3') as ReactNode}</span>
                       </span>
                     </label>
                   </div>
@@ -70,7 +70,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                           name="privacy "
                           onChange={handleChange}
                         />
-                        <span>{i18next.t('surveys.withdrawSurvey.text4')}</span>
+                        <span>{i18next.t('surveys.withdrawSurvey.text4') as ReactNode}</span>
                       </span>
                     </label>
                   </div>
@@ -82,7 +82,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                           name="data_use"
                           onChange={handleChange}
                         />
-                        <span>{i18next.t('surveys.withdrawSurvey.text5')}</span>
+                        <span>{i18next.t('surveys.withdrawSurvey.text5') as ReactNode}</span>
                       </span>
                     </label>
                   </div>
@@ -94,7 +94,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                           name="personal_reasons"
                           onChange={handleChange}
                         />
-                        <span>{i18next.t('surveys.withdrawSurvey.text6')}</span>
+                        <span>{i18next.t('surveys.withdrawSurvey.text6') as ReactNode}</span>
                       </span>
                     </label>
                   </div>
@@ -107,7 +107,7 @@ const WithdrawSurvey: React.FunctionComponent<WithdrawSurveyProps> = ({
                           //checked={result.no_answer}
                           onChange={handleChange}
                         />
-                        <span>{i18next.t('surveys.withdrawSurvey.text7')}</span>
+                        <span>{i18next.t('surveys.withdrawSurvey.text7') as ReactNode}</span>
                       </span>
                     </label>
                   </div>

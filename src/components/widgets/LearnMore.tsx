@@ -8,7 +8,7 @@ type LearnMoreProps = {
   defaultIsShowing?: boolean
 }
 
-export const LearnMore: React.FunctionComponent<LearnMoreProps> = props => {
+export const LearnMore: React.FunctionComponent<React.PropsWithChildren<LearnMoreProps>> = props => {
   const { defaultIsShowing, clickableElement } = props
   const [isShowingLearnMore, setIsShowingLearnMore] = useState<boolean>(
     defaultIsShowing ? defaultIsShowing : false,

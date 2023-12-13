@@ -149,7 +149,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export const TopNav: React.FunctionComponent<TopNavProps> = props => {
+export const TopNav: React.FunctionComponent<React.PropsWithChildren<TopNavProps>> = props => {
   const [mobileOpen, setMobileOpen] = React.useState(false)
   const [language, setLanguage] = React.useState(i18n.language)
   const classes = useStyles()
@@ -401,6 +401,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
               </div>
 
               {/* show hamburger menu on xs and sm, but full nav bar on md and up */}
+              {/* @ts-ignore */}
               <Hidden lgUp>
                 <IconButton
                   color="inherit"
@@ -412,6 +413,7 @@ export const TopNav: React.FunctionComponent<TopNavProps> = props => {
                   <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
                 </IconButton>
               </Hidden>
+              {/* @ts-ignore */}
               <Hidden mdDown>{fullScreenNavBar}</Hidden>
             </Toolbar>
           </div>

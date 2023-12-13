@@ -36,7 +36,7 @@ type FloatingToolbarProps = {
   closeConfirmationText2?: string
 }
 
-export const FloatingToolbar: React.FunctionComponent<FloatingToolbarProps> = props => {
+export const FloatingToolbar: React.FunctionComponent<React.PropsWithChildren<FloatingToolbarProps>> = props => {
   const [top, setTop] = useState('0px')
   const classes = useStyles()
   const [language, setLanguage] = React.useState(i18n.language)
