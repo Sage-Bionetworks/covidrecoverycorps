@@ -115,7 +115,7 @@ const pageUISchema = {
   [pageId]: {
     classNames: 'symptoms',
     symptoms_list: {
-      'ui:order': [],
+      'ui:order': [] as any,
       // "ui:exclusive": ["no_symptoms", "prefer_not_answer"],
       'ui:dependent_option_postfix': ['_detail'],
       'ui:widget': 'checkboxes',
