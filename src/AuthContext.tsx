@@ -13,7 +13,7 @@ type Action = { type: ActionType; payload?: SessionData }
 type Dispatch = (action: Action) => void
 type SessionDataProviderProps = { children: React.ReactNode }
 
-const initialState = {
+const initialState:any = {
   token: undefined,
   userDataGroup: [],
 }
@@ -37,7 +37,7 @@ function countReducer(state: SessionData, action: Action): SessionData {
     }
 
     case 'CLEAR_ALERT': {
-      const newState = {
+      const newState:any = {
         ...state,
         alert: undefined,
       }
@@ -45,7 +45,7 @@ function countReducer(state: SessionData, action: Action): SessionData {
       return newState
     }
     case 'CONSENT': {
-      const newState = {
+      const newState:any = {
         ...state,
         consented: true,
         alert: undefined,

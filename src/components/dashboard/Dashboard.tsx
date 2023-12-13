@@ -300,8 +300,8 @@ export const Dashboard: React.FunctionComponent<DashboardProps> = ({
       </div>
     )
   } else {
-    if (error !== undefined) {
-      return <Alert severity="error">{error!['message'] || error}</Alert>
+    if (error && error !== undefined) {
+      return <Alert severity="error">{error['message'] || error}</Alert>
     }
 
     return (
